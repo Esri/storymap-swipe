@@ -1,0 +1,59 @@
+﻿        .esriPopup.chrome .titleButton,
+        .esriPopup.chrome .pointer,
+         .esriPopup.chrome .outerPointer,
+        .esriPopup.chrome .esriViewPopup .gallery .mediaHandle,
+        .esriPopup.chrome .esriViewPopup .gallery .mediaIcon {
+          background-image: url(../images/popup_sprite_chrome.png);
+        }
+        
+        .esriPopup.chrome .titleButton {
+          top: 4px;
+        }
+        
+        .esriPopup.chrome .titleButton.maximize,
+        .esriPopup.chrome .titleButton.restore {
+          top: 6px;
+        }
+        
+        .esriPopup.chrome .pointer.top {
+          background-position: 0 -616px; 
+          
+        }
+        
+        .esriPopup.chrome .pointer.topLeft {
+          left: 0px; top: -43px; background-position: 0 -525px; width: 51px; height: 45px;
+        }
+        
+        .esriPopup.chrome .pointer.topRight {
+          right: 0px; top: -43px; background-position: 0 -707px; width: 51px; height: 45px;
+        }
+        
+        
+        .esriPopup.chrome .pointer.bottomLeft,
+        .esriPopup.chrome .pointer.bottomRight { 
+          bottom: -44px; 
+        }
+        
+        .esriPopup.chrome .contentPane,
+        .esriPopup.chrome .actionsPane {
+          border-color: 1px solid #999999;
+          background-color: #dadada;
+        }
+        
+        .esriPopup.chrome .titlePane,
+        .dj_ie7 .esriPopup.chrome .titlePane .title {
+          background-color: #444;
+          color: #FFFFFF;
+          font-weight: bold;
+        }
+        
+        .esriPopup.chrome .titlePane {
+          border-bottom: 1px solid #444;
+        }
+        .esriPopup.chrome a {
+          color: #3e3e3e;
+        }
+		
+		.esriViewPopup .gallery{
+		  background-color:#dadada;
+		}

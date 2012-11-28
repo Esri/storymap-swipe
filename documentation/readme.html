@@ -1,0 +1,190 @@
+<html>
+<head>
+<title>Layout Template - Read Me</title>
+<style>
+.selector{color:red;}
+.heading{
+  background-color:#D8E0E2;
+  background-repeat:repeat-x;
+  border-bottom:1px solid #FFFFFF;
+  border-top:1px solid #FFFFFF;
+  color:black;
+  font-family:Verdana,Arial,Helvetica,sans-serif;
+  font-size:16px;
+  font-weight:bold;
+  letter-spacing:1.1px;
+  margin:15px 0 10px;
+  padding:3px 10px;
+  text-align:center;
+}
+</style>
+</head>
+<body>
+<a name="top"></a>
+<p>This template provides a starting point for creating your Web application. This easily configurable template allows you to define the map, title and subtitle for the site. You've downloaded the Storytelling template which was designed to enable users tell their own narratives with geospatial data. This read-me file explains how to setup and configure the template to run on your web server. We've also provided a few tips on how to personalize the template by adding a company logo, customizing the content in the sidebar and adding an overview map.</p>
+<div class="heading">Table of Contents</div>
+<ul>
+<li><a href="#deploy">Install the Web application</a></li>
+<li><a href="#configure">Configure the application</a></li>
+<li><a href="#options">Specify map options</a></li>
+<li><a href="#personalize">Personalize the application</a></li>
+<ul>
+  <li><a href="#logo">Add a logo</a></li>
+  <li><a href="#addresources">Add an overview map</a></li>
+</ul>
+</ul>
+<a name="deploy"></a>
+<h3 class="heading">Install the Web application</h3>
+<p>These instructions assume that you have a Web server like <a href="http://www.iis.net/">Internet Information Services(IIS)</a> installed and setup on your machine. If you are using another Web server the general installation steps will be the same but you will need to check your Web server's documentation for specific information on deploying and testing the application.
+
+<ol>
+  <li>Copy the contents of the zip file into your web server's root directory. In IIS, the default location for the web server's root folder is <code>c:\inetpub\wwwroot</code>. </li>
+ <li>(Optional). If your application edits features in a feature service or generates requests that exceed 2000 characters you may need to 
+setup and use a proxy page. Common situations where you may exceed the URL length are, using complext polygons as input to a task or
+specifying a spatial reference using well-known text (wkt).
+View the <a href="http://help.arcgis.com/EN/webapi/javascript/arcgis/help/jshelp_start.htm#jshelp/ags_proxy.htm">Using the proxy page</a> help topic for details on installing and configuring a proxy page.</li>
+ <li>
+ Test the page using the following URL: http://localhost/[template name]/index.html, where [template name] is the name of the folder where you extracted the zip contents. 
+ </li>
+</ol>
+<a href="#top">Top</a>
+<a name="configure"></a>
+<h3  class="heading">Configure the application</h3>
+<p>Now let's configure the application to use a different map, title or subtitle.
+ <ol>
+    <li>Every saved map on ArcGIS.com  has a unique identifier. To find the map id, navigate to <a href="http://www.arcgis.com/">ArcGIS.com</a>, and find the map you want to display. If it is one of your maps, make sure it's shared with everyone (public). View the map details and copy the ID from the URL in the top of your browser. The section you need to copy is highlighted in yellow in the image below.</li><br />
+    <img src="documentation/findmapid.png"/><br /><br />
+    <li>Open the index.html file in a text editor. You can edit this file to set the following application properties:
+<ul>
+  <li><b>webmap: </b>unique identifier for the ArcGIS.com map.</li>
+  <li><b>title: </b>if not specified the ArcGIS.com map's title is used</li> 
+  <li><b>subTitle: </b>if not specified the ArcGIS.com web map's summary is used</li>  
+  <li><b>bingMapsKey: </b>if the map uses data from Bing Maps, enter your Bing Maps Key</li>  
+ 
+</ul></li><br />
+ <li>To modify the map, replace the string for webmap with your map's id.</li>
+<pre>
+function init(){
+  //The ID for the map from ArcGIS.com
+  webmap =  "<span class="selector">dbd1c6d52f4e447f8c01d14a691a70fe</span>";
+</pre>
+ <li>If your map contains data from Bing Maps, enter your <a href="http://help.arcgis.com/en/webapi/javascript/arcgis/help/jshelp_start.htm#jshelp/ve_getting_started.htm">Bing Maps key</a>.
+ <pre>
+bingMapsKey = "<span class="selector">Enter your Bing Maps Key here</span>";
+ </pre></li>
+ <li>By default, the application displays the ArcGIS.com map's title as the applications title and the map's summary as the subtitle. You can change this by setting the title and subtitle properties.</li>
+ <pre>
+title = "<span class="selector">This is a custom title for your map</span>";
+subtitle = "<span class="selector">This is a custom subtitle</span>";
+ </pre>
+ <li>Save the file then test your <a href="http://localhost/Chrome/index.html">application</a> and note that it now displays your map and if specified your custom title and subtitle.</li>
+ </ol>
+</p>
+
+        <a href="#top">Top</a>
+<a name="options"></a>
+<h4 class="heading">Specify Map Options</h4>
+<p>When creating a new map you can specify optional parameters that define various map options like whether pan arrows or a slider are displayed, if popups defined in ArcGIS.com display and if the map supports 
+continous pan across the dateline. View the API reference for the <a href="http://help.arcgis.com/EN/webapi/javascript/arcgis/help/jsapi_start.htm#jsapi/map.htm">Map</a> class for more details.  Note: continous pan across the dateline is only supported if the map's spatial reference is WGS84 or Web Mercator. </p><p>To change the map options in your application open the layout.js file
+search for mapOptions then add or remove map options. In this example, we turn off the map slider, display the pan arrows and enable support for continous pan across the dateline.
+<pre>
+
+  mapOptions: {
+    slider: false,
+    nav: true,
+    wrapAround180:true
+  }
+</pre>
+</p><br />
+<a href="#top">Top</a>
+<a name="personalize"></a>
+<h3  class="heading">Personalize the application</h3>
+<p>In this section, you'll see how to personalize the application by adding a logo, moving the sidebar and modifying the sidebar content. 
+</p>
+<a href="#top">Top</a>
+<a name="logo"></a>
+<h4>Add a logo to the application</h4>
+<p>You can personalize your site by adding a custom logo to the application's header next to the map title.</p>
+<ol>
+ <li>First copy your custom logo to the images subdirectory.</li>
+ <li>Open index.html in a text editor.</li>
+ <li>Find the section of code that has an id of "header" and add the code in red to this section.
+ <pre>
+&lt;div id="header" dojotype="dijit.layout.ContentPane" region="top">
+  <span class="selector">&lt;div id="logo"&gt;&lt;/div&gt;</span>
+  &lt;div id="title">
+  &lt;/div>
+  &lt;div id="subtitle">
+  &lt;/div>
+&lt;/div>
+ </pre></li>
+<li>Open the layout.css file from the css folder in a text editor. This file defines the look and formatting of the web application. In this step we'll add a new style rule that defines how the custom logo looks. Copy the code below and paste it at the bottom of the css file. Then modify the background url to match the name of your logo image. Modify the width to match the width of your custom logo.
+<pre>
+#logo {
+  float:left;
+  width:65px;
+  height:65px;
+  margin:4px;
+  background:url(../images/<span class="selector">santabarbara.png</span>) top left no-repeat;
+}
+</pre>
+</li>
+<li>The header area that contains the logo, title and subtitle has a default height of 80 pixels. If your image is large you may need to increase the height in order for it to display well. To increase the height, open the layout.css file and find the #header section. Try setting the header to the image height plus 8.We add 8 because if you look at the logo style you created in the last step a margin of 4px was specified to add a little extra space around the logo.
+<pre>
+#header{
+  border:solid 1px #999;
+  height:<span class="selector">80</span>px;
+</pre></li>
+<li>Run the application and the custom logo should appear to the left of the title in the application header.</li>
+</ol>
+<a href="#top">Top</a>
+<a name="addresources"></a>
+<h4 class="heading">Add an overview map</h4>
+<p>The <a href="http://help.arcgis.com/EN/webapi/javascript/arcgis/index.html">ArcGIS API for JavaScript</a> has several dijits that you can use to add additional functionality to the application. Let's look at how to add the <a href="http://help.arcgis.com/EN/webapi/javascript/arcgis/help/jsapi_start.htm#jsapi/overviewmap.htm">OverviewMap</a> dijit to the application. The OverviewMap dijit shows the current extent for the map within the context of a larger area. </p>
+<ol>
+<li>Open layout.js in the javascript folder in a text editor and add the line in red to the dojo.require section.
+<pre>
+dojo.require("esri.map");
+dojo.require("esri.arcgis.utils");
+dojo.require("dijit.layout.StackContainer");
+<span class="selector">dojo.require("esri.dijit.OverviewMap");</span>
+</pre>
+</li>
+<li>The overview map dijit can display in its own window or attach to a corner of the map. In this example we are going to attach it to the corner of the map. However the map currently has navigation displayed which adds an icon to the map corners. Let's turn this off so we can display the overview map icon in the corner instead.To turn off the navigation images, set the nav value to false in this section of code from layout.js.
+<pre>
+mapOptions: {
+  slider: true,
+  nav: <span class="selector">false</span>
+</pre> </li>
+<li>Next find the section of code that sets the <code>map</code> to <code>response.map</code> and paste the code in red beneath that line. This code checks to see if the map is loaded, if it is it runs a function that adds the overview map to the application. 
+<pre>
+map = response.map;
+<span class="selector">
+if(map.loaded){
+  addOverviewMap();
+}
+else{
+  dojo.connect(map,"onLoad",addOverviewMap);
+}
+</span>
+if (bingMapsKey) {
+</pre>
+</li>
+<li>Now add the <code>addOverviewMap</code> function to the very bottom of the layout.js file. 
+<pre>
+function addOverviewMap() {
+  var overviewMapDijit = new esri.dijit.OverviewMap({
+    map: map,
+    attachTo: "top-right",
+    visible: true
+  });
+  overviewMapDijit.startup();
+}
+</pre>
+<p>The code above adds an overview map to the upper right corner of the map. You can modify this location by specifying one of the other options ("top-right","bottom-right","bottom-left"). The visible parameter is set to true which expands the overview map when the applciation is first displayed. You can use additional parameters to modify the color and opacity of the rectangle, set the width and height etc. View the API Reference for the <a href="http://help.arcgis.com/EN/webapi/javascript/arcgis/help/jsapi_start.htm#jsapi/overviewmap.htm">OverviewMap</a> for more information. </p>
+</li>
+</ol>
+
+<a href="#top">Top</a>
+</body>
+</html>
