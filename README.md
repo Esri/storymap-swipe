@@ -1,6 +1,6 @@
 # storytelling-swipe-map-template-js
 
-A storytelling template that displays a web map in a viewer with a "swipe" functionality that enables users to compare two "stacked" layers in ArcGIS Online webmap. Users can move the swipe bar to reveal the second layer underneath.
+A storytelling template that displays a webmap in a viewer with a "swipe" functionality that enables users to compare two "stacked" layers in ArcGIS Online webmap. Users can move the swipe bar to reveal the second layer underneath.
 
 [View live app here](http://storymaps.esri.com/templates/swipe/)
 
