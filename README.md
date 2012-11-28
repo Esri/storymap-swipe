@@ -33,7 +33,7 @@ Now let's configure the application to use a different ArcGIS Online group, titl
 2. Open the index.html file in a text editor. You can edit this file to set the following application properties:
     - **webmap**: unique identifier for the ArcGIS Online map.
     - **title**: if not specified the ArcGIS.com map's title is used.
-    - **subtitle**: if not specified the ArcGIS.com web map's summary is used.
+    - **subtitle**: if not specified the ArcGIS.com webmap's summary is used.
     - **bingMapsKey**: if the map uses data from Bing Maps, enter your Bing Maps Key.
     - **showLegend**: Choose if legend is displayed with map.
     - **chooseSwipeLevel**: Choose the layer you wish to swipe away (Note: enter an integer with 0 being all the graphic layers then increasing to each additional map layer).
