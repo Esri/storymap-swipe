@@ -160,6 +160,14 @@
          scalebarUnit:i18n.viewer.main.scaleBarUnits //metric or english
        });
 
+       $(".esriSimpleSliderIncrementButton").addClass("zoomButtonIn");
+            $(".zoomButtonIn").each(function(i){
+              $(this).after("<div class='esriSimpleSliderIncrementButton initExtentButton'><img style='margin-top:5px' src='images/home.png'></div>");
+        $(".initExtentButton").click(function(){
+          map.setExtent(map._mapParams.extent);
+        });
+      });
+
        var layerInfo = buildLayersList(layers);
 
        if(layerInfo.length > 0){
