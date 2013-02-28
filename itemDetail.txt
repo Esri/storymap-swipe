@@ -1,0 +1,5 @@
+Name: Storytelling - Swipe
+
+Short Description: Compare two layers of a webmap with a swipe. Works best with non-graphic layers
+
+This storytelling template displays a web map in a viewer with a "swipe" functionality that enables users to compare two "stacked" maps in the form of a web map with two thematic layers. Users can move the swipe bar to reveal the second map underneath. This application will combine all graphic layers (those stored as CSV, Feature Layer, Shapefile, Map Notes, etc.) into a single layer. Therefore, you cannot swipe away a single graphic’s layer to reveal a second graphics layer.
