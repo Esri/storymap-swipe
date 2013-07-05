@@ -1,0 +1,93 @@
+/* Clip Method CSS */
+#swipeImg{
+	display: none;
+	width: 82px;
+	height: 52px;
+	position: absolute;
+	z-index: 2;
+}
+
+.moveable {
+	position: absolute;
+	border-left:1px solid #848484;
+	border-right:1px solid #848484;
+	background-color: #dadada;
+	width: 12px;
+	height: 100%;
+	padding: 0 !important;
+	margin: 0;
+	z-index: 30;
+	top: 0;
+	left: 0;
+	cursor: col-resize;
+}
+
+.moveable.touch{
+	width: 15px;
+}
+
+.moveable:hover {
+	background-color: #999;
+}
+
+.mobile-view .esriPopup {
+	display: none;
+}
+
+.closePopup {
+	position: absolute;
+	right: 4px;
+	top: 0;
+}
+
+/* 2 Div Method CSS */
+
+#resizeWrapper{
+	position: absolute;
+	overflow: hidden;
+	top: 0;
+	width: 0%;
+	height: 100%;
+	z-index: 50;
+}
+
+#swipeImg1{
+	display: none;
+	width: 82px;
+	height: 52px;
+	position: absolute;
+	z-index: 99;
+	background-image: url('../../../../resources/icons/swipe-arrows.png');
+}
+
+#mainMap0, #mainMap1 {
+	background: #d0cfd4;
+	background: #d0cfd4;
+}
+
+#mainMap1{
+	width: 0%;
+	height: 100%;
+}
+
+.ui-resizable-e {
+	background-color: #dadada;
+}
+
+.ui-resizable-e:hover{
+	background-color: #adadad;
+}
+
+.ui-resizable { position: relative;}
+.ui-resizable-handle { position: absolute;font-size: 0.1px;z-index: 99999; display: block; }
+.ui-resizable-disabled .ui-resizable-handle, .ui-resizable-autohide .ui-resizable-handle { display: none; }
+.ui-resizable-n { cursor: n-resize; height: 7px; width: 100%; top: -5px; left: 0; }
+.ui-resizable-s { cursor: s-resize; height: 7px; width: 100%; bottom: -5px; left: 0; }
+.ui-resizable-e { cursor: e-resize; width: 12px; right: -5px; top: 0; height: 100%; }
+.ui-resizable-w { cursor: w-resize; width: 7px; left: -5px; top: 0; height: 100%; }
+.ui-resizable-se { cursor: se-resize; width: 12px; height: 12px; right: 1px; bottom: 1px; }
+.ui-resizable-sw { cursor: sw-resize; width: 9px; height: 9px; left: -5px; bottom: -5px; }
+.ui-resizable-nw { cursor: nw-resize; width: 9px; height: 9px; left: -5px; top: -5px; }
+.ui-resizable-ne { cursor: ne-resize; width: 9px; height: 9px; right: -5px; top: -5px;}
+
+.ui-resizable-e.touch { cursor: e-resize; width: 15px; right: -5px; top: 0; height: 100%; }

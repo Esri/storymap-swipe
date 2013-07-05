@@ -1,0 +1,121 @@
+label {
+	font-size: 8pt;
+}
+
+#lensWin {
+	border-radius: 180px;
+	background-color: transparent;
+	border: 0px solid #444;
+	border-bottom: 0px solid #444;
+	height:261px;
+	overflow: hidden;
+	position: absolute;
+	width: 261px;
+	cursor: move;
+	top:0px;
+	left:0px;
+	display: none;
+} 
+
+#lensTool {
+ 	position: absolute;
+	width: 261px;
+	height: 261px;
+	background-repeat: no-repeat;
+	z-index: 39 !important;
+}
+
+#lensTool.twoLayers {
+	background-image: url('../../../../resources/icons/spyglass-1.png');
+}
+
+#lensTool.twoMaps {
+	background-image: url('../../../../resources/icons/spyglass-2.png');
+}
+
+#lensTool.safariFix {
+	background-image: url('../../../../resources/icons/spyglass-1.png');
+}
+
+#lensMapNode.safariFix #lensMapNode_container {
+	clip: rect(9px 252px 252px 9px) !important;
+}
+
+#infoWindow {
+	position: absolute;
+	right: -245px;
+	width: 250px;
+	height: 355px;
+	margin-top: -177px;
+	top: 50%;
+	z-index: 40;
+}
+
+.mobile-view #infoWindow {
+	display: none;
+}
+
+#infoWindowTitle {
+	height: 25px;
+	background-color: grey;
+	border-top: 1px black solid;
+	border-right: 1px black solid;
+	border-left: 1px black solid;
+	text-align: center;
+	font-weight: bold;
+	line-height: 25px;
+	vertical-align: middle;
+}
+
+#infoWindowContent {
+	height: 330px;
+	top: 25px;
+	background-color: #ececec;
+	border-left: 1px black solid;
+	border-bottom: 1px black solid;
+	border-right: 1px black solid;
+}
+
+.noFeature {
+	position: absolute;
+	top: 47%;
+	height: 50%;
+	text-align: center;
+	font-weight: bold;
+	font-size: 18px;
+}
+
+#infoWindowTabImg {
+	bottom: 50%;
+	cursor: pointer;
+	height: 45px;
+	left: -25px;
+	margin-bottom: -30px;
+	position: absolute;
+	width: 25px;
+	background-image: url('../../../../resources/icons/infoWindow-open.png');
+}
+
+#infoWindowTabImg.closeImg {
+	background-image: url('../../../../resources/icons/infoWindow-close.png');
+}
+
+.mobile-view #infoWindowTabImg {
+	display: none;
+}
+
+/*esri popup stuff*/
+
+.header {
+	text-align: center;
+}
+
+.gallery {
+	margin-left: auto !important;
+	margin-right: auto !important;
+}
+
+.esriViewPopup {
+	font-family: Verdana, Geneva, Arial, Helvetica, sans-serif;
+	font-size: 12px;
+}

@@ -1,0 +1,75 @@
+/* Windows 8 tablet */
+@media screen and (min-width: 768px) and (orientation:landscape) {
+	#contentPanel {
+		display: block !important;
+	}
+}
+
+@media screen and (max-width: 767px), screen and (orientation:portrait) {
+	#headerDesktop {
+		display: none;
+	}
+	
+	#header {
+		height: 41px;
+		background-color: #c2c2c2;
+	}
+	
+	#mapPanel {
+		width: 100% !important;
+	}
+	
+	#headerMobile {
+		display: block;
+	}
+	
+	#loadingOverlay {
+		top: 0px;
+	}
+	
+	.modal, .modal-backdrop {
+		display: none !important;
+	}
+	
+	#mainMap0_zoom_slider {
+		left: 20px !important;
+	}
+	
+	#mainMap1_zoom_slider {
+		left: 20px !important;
+	}
+	
+	#mainMap_zoom_location {
+		left: 20px !important;
+	}
+	
+	#lensTool.twoLayers{
+		background-image: url('../../../../resources/icons/mobile-spyglass-1.png');
+	}
+	#lensTool.twoMaps{
+		background-image: url('../../../../resources/icons/mobile-spyglass-2.png');
+	}
+	#lensTool {
+		width: 200px;
+		height: 200px;
+	}
+	
+	#lensWin {
+		height: 200px;
+		width: 200px;
+	}	
+	
+	#legendTitle {
+		display: none;
+	}
+	
+	.claro.mobile-view {
+		background-color: transparent;
+	}
+	
+}
+
+#lensWin .map {
+	width: 400px !important;
+	height: 400px !important;
+}

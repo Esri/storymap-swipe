@@ -1,0 +1,37 @@
+.viewPopup .popup-box {
+	display: inline-block;
+	width: 49%;
+	text-align: center;
+	padding-top: 10px;
+	margin-top: 15px;
+}
+
+#initPopup .popup-box {
+	margin-top: 35px;
+}
+
+.viewPopup .popup-box > div {
+	margin-bottom: 4px;
+}
+
+.viewPopup .popup-box-title {
+	font-weight: bold;
+	line-height: 26px;
+	margin-bottom: 25px !important;
+}
+
+.viewPopup .popup-box input[type="text"] {
+	margin-bottom: 15px;
+}
+
+.viewPopup .popup-box:nth-child(2) {
+	padding-right: 5px;
+}
+
+.viewPopup .popup-box {
+	min-height: 200px;
+}
+
+.viewPopup span:nth-child(2) {
+	border-right: 1px solid black;
+}

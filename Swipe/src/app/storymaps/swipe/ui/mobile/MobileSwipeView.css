@@ -1,0 +1,84 @@
+.mobileSwipeView {
+	display: none;
+	height: 100%;
+	min-height: 100%;
+}
+
+.mobileSwipeView .carousel {
+	margin-top: 10px;
+	text-align:center;
+	overflow:auto;
+	height: 90%;
+	-ms-touch-action: none;
+}
+
+.mobileSwipeView .carousel > div > div {
+	width: 90% !important;
+	margin-left: 5%;
+}
+
+/*
+ * Legend
+ */
+
+#legendView {
+	
+}
+
+#legendView .noData {
+	position: absolute;
+	top: 50%;
+	margin-top: -40px;
+	width: 100%;
+	text-align: center;
+	font-weight: bold;
+	display: none;
+}
+
+#legendView .noData .title {
+	font-size: 28px;
+}
+
+#legendView .noData .explain {
+	margin-top: 10px;
+	font-size: 18px;
+}
+
+
+/*
+ * Data
+ */
+
+#infoWindowView .noData, #infoWindowView .noDataMap {
+	position: absolute;
+	top: 50%;
+	margin-top: -40px;
+	width: 100%;
+	text-align: center;
+	font-weight: bold;
+}
+
+#infoWindowView .noData .title, #infoWindowView .noDataMap .title {
+	font-size: 28px;
+}
+
+#infoWindowView .noData .explain {
+	margin-top: 10px;
+	font-size: 18px;
+}
+
+#infoView-mobile0, #infoView-mobile1 {
+	width: 100%;
+	height: 100%;
+}
+
+#infoWindowView .noDataMap {
+	
+}
+
+#swipeRightInfo {
+	position: absolute;
+	top: 50%
+	top-margin: -24px;
+	height: 48px;
+}

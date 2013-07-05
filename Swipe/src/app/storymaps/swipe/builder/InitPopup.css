@@ -1,0 +1,40 @@
+#initPopup {
+	display: none;
+	overflow:hidden;
+	width: 580px;
+}
+
+#initPopup .modal-body {
+	height: 335px;
+	overflow: hidden;
+}
+
+#initPopup .initPopupHeader {
+	width: 100%;
+	margin-top: -3px;
+	padding-bottom: 7px; 
+}
+
+#initPopup .tab {
+	width: auto;
+	min-width: inherit;
+	padding: 5px 12px 5px 10px;
+	border-radius: 5px;
+}
+
+#initPopup .tabspacer {
+	font-size: 12px;
+	color: rgb(31, 31, 31);
+	margin-left: -1px;
+	margin-right: -1px;
+}
+
+#initPopup .tab.disabled {
+	opacity: 0.5;
+	cursor: default;
+}
+
+.initPopupHeader button {
+	border-radius: 0 !important;
+	width: 34%;
+}

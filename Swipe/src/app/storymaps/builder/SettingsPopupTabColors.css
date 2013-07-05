@@ -1,0 +1,33 @@
+#settings-colors p {
+	margin-bottom: 20px;
+}
+
+#settings-colors input[type=radio] {
+	cursor:pointer;
+}
+
+#settings-colors .radio {
+	cursor:pointer;
+}
+
+#settings-colors .swatch {
+	width:25px;
+	height:17px;
+	border:solid;
+	border-width:thin;
+	border-color:#CCCCCC;
+	margin-left: 4px;
+}
+
+#settings-colors .caption {
+	font-size:12px;
+}
+
+#settings-colors .sp-input-container {
+	height: 16px !important;
+}
+
+#settings-colors td {
+	padding-right: 4px;
+	padding-bottom: 4px;
+}

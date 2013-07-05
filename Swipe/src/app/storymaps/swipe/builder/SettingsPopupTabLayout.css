@@ -1,0 +1,52 @@
+.viewLayout .layout-box {
+	display: inline-block;
+	width: 49%;
+	text-align: center;
+	padding-top: 10px;
+	margin-top: 15px;
+}
+
+#initPopup .layout-box {
+	margin-top: 25px;
+}
+
+.viewLayout .layout-box:nth-child(2) {
+	padding-right: 5px;
+}
+
+.viewLayout .layout-box > img {
+	padding-top: 10px;
+	padding-bottom: 10px;
+}
+
+.viewLayout .layout-box {
+	min-height: 250px;
+}
+
+.viewLayout .layout-box-title {
+	font-weight: bold;
+}
+
+.viewLayout .layout-box button {
+	display: inline-block;
+}
+
+.viewLayout .layout-box .selectedLayout {
+	font-weight: bold;
+	line-height: 28px;
+	display: none;
+}
+
+.viewLayout span:nth-child(2) {
+	border-right: 1px solid black;
+}
+
+.viewLayout .layout-box.selected .selectedLayout {
+	display: block;
+}
+
+.viewLayout .layout-box.selected button {
+	display: none;
+}
+
+

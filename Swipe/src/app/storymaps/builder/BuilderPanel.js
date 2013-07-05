@@ -1,0 +1,294 @@
+define(["storymaps/swipe/core/WebApplicationData"], 
+	function (WebApplicationData) {
+		return function BuilderPanel(container, builderSave) 
+		{
+			var _this = this;
+			var _displayBuilderSaveIntro = true;
+			var _builderView = null;
+
+			this.init = function(builderView) 
+			{	
+				_builderView = builderView;
+				initLocalization();
+				
+				container.show();
+				setUpGeneralPanelButtonAction();
+				setUpPopover();
+				createAppSavedConfirmation();
+				
+				// Map popover callback to app.builder
+				app.builder.closeBuilderSaveIntro = closeBuilderSaveIntro;
+				app.builder.switchToView = switchToView;
+				app.builder.discard = discard;
+				app.builder.hideSaveConfirmation = hideSaveConfirmation;
+				
+				container.find('.builder-save').click(save);
+				container.find('.builder-settings').click(showSettingsPopup);
+			}
+			
+			//
+			// Panel buttons
+			//
+			
+			function save()
+			{
+				console.log("swipe.builder.Builder - save");
+				
+				changeBuilderPanelButtonState(false);
+				closeBuilderSaveIntro();
+				container.find(".builder-settings").popover('show');
+				
+				// Save the app 
+				// If OK and needed call save webmap 
+				// If OK call appSaveSucceeded
+				builderSave();
+			}
+	
+			function discard(confirmed)
+			{
+				if( confirmed ){
+					changeBuilderPanelButtonState(false);
+					WebApplicationData.restoreOriginalData();
+					app.data.discardChanges();
+					resetSaveCounter();
+					dojo.publish("CORE_UPDATE_UI");
+					changeBuilderPanelButtonState(true);
+				}
+	
+				container.find(".builder-discard").popover('hide');
+			}
+			
+			function showSettingsPopup()
+			{
+				closePopover();
+				_builderView.openSettingPopup(false);
+			}
+	
+			function switchToView(confirmed) {
+				if( confirmed )
+					document.location = '?' + document.location.search.split('edit')[0].slice(1, -1);
+				else
+					container.find(".builder-view").popover('hide');
+			}
+			
+			//
+			// Save callbacks
+			//
+			
+			this.saveSucceeded = function()
+			{
+				container.find(".builder-settings").next(".popover").find(".stepSave").css("display", "none");
+				container.find(".builder-settings").next(".popover").find(".stepSaved").css("display", "block");
+				setTimeout(function(){
+					container.find(".builder-settings").popover('hide');
+				}, 3500);
+
+				closePopover();
+				resetSaveCounter();
+				changeBuilderPanelButtonState(true);
+			}
+			
+			this.saveFailed = function()
+			{
+				container.find(".builder-settings").next(".popover").find(".stepSave").css("display", "none");
+				container.find(".builder-settings").next(".popover").find(".stepFailed").css("display", "block");
+			}
+			
+			//
+			// Counter
+			//
+			
+			this.hasPendingChange = function()
+			{
+				return container.find("#save-counter").html() && $("#save-counter").html() != i18n.builder.builder.noPendingChange;
+			}
+	
+			this.incrementSaveCounter = function(nb)
+			{
+				var value = container.find("#save-counter").html();
+				if (! _this.hasPendingChange()) {
+					value = 0;
+					if( _displayBuilderSaveIntro )
+						// Timer cause the header can be hidden
+						setTimeout(function(){ container.find(".builder-save").popover('show'); }, 250);	
+				}
+	
+				if( value == 0 ) {
+					if ( nb == 1 || isNaN(parseInt(nb)) )
+						value = i18n.builder.builder.unSavedChangeSingular;
+					else
+						value = nb + " " + i18n.builder.builder.unSavedChangePlural;
+				}
+				else
+					value = (parseInt(value) + (nb ? nb : 1)) + " " + i18n.builder.builder.unSavedChangePlural;
+
+				container.find("#save-counter").html(value);
+				container.find("#save-counter").css("color", "#FFF");
+			}
+	
+			function resetSaveCounter()
+			{
+				container.find("#save-counter").html(i18n.builder.builder.noPendingChange);
+				container.find("#save-counter").css("color", "#999");
+				setUpGeneralPanelButtonAction();
+			}
+			
+			//
+			// Popover
+			//
+	
+			function closePopover()
+			{
+				if( container.find(".discard-popover").length > 0 )
+					container.find(".builder-discard").popover('hide');
+				if( container.find(".view-popover").length > 0 )
+					container.find(".builder-view").popover('hide');
+			}
+	
+			function setUpPopover()
+			{
+				var containerId = "#" + container.attr("id");
+				
+				// Discard button
+				container.find(".builder-discard").popover({
+					trigger: 'manual',
+					placement: 'bottom',
+					html: true,
+					// Inject the CSS properties
+					content: '<script>'
+								+ ' $("' + containerId + ' .builder-discard").next(".popover").addClass("discard-popover");'
+								+ ' $("' + containerId + ' .builder-view").popover("hide");'
+								+ ' $("' + containerId + ' .builder-save").popover("hide");'
+								+ '</script>'
+								+ i18n.builder.builder.popoverDiscard +' '
+								+ '<button type="button" class="btn btn-danger btn-small" onclick="app.builder.discard(true)">'+i18n.builder.builder.yes+'</button> '
+								+ '<button type="button" class="btn btn-small" onClick="app.builder.discard(false)">'+i18n.builder.builder.no+'</button>'
+				});
+	
+				// Switch to view button
+				container.find(".builder-view").popover({
+					trigger: 'manual',
+					html: true,
+					content: '<script>'
+								+ ' $("' + containerId + ' .builder-view").next(".popover").addClass("view-popover");'
+								+ ' $("' + containerId + ' .builder-discard").popover("hide");'
+								+ ' $("' + containerId + ' .builder-save").popover("hide");'
+								+ '</script>'
+								+ i18n.builder.builder.popoverOpenViewExplain + ' '
+								+ '<button type="button" class="btn btn-danger btn-small" onclick="app.builder.switchToView(true)">'+i18n.builder.builder.popoverOpenViewOk+'</button> '
+								+ '<button type="button" class="btn btn-small" onClick="app.builder.switchToView(false)">'+i18n.builder.builder.popoverOpenViewCancel+'</button>'
+				});
+	
+				// Confirmation that user need to use the save button
+				container.find(".builder-save").popover({
+					trigger: 'manual',
+					html: true,
+					content: '<script>setTimeout(function(){$("' + containerId + ' .builder-save").next(".popover").css("margin-left", $("' + containerId + ' > div").width() + 30).addClass("builderPanelPopover");}, 0);'
+								+ '</script>'
+								+ i18n.builder.builder.popoverSaveWhenDone
+								+ ' <button type="button" class="btn btn-success btn-small" onclick="app.builder.closeBuilderSaveIntro()">'+i18n.builder.builder.gotIt+'</button> '
+				});
+				
+				//container.find('.builder-settings').attr('title', i18n.builder.builder.buttonSettings);
+				container.find('.builder-view').attr('title', i18n.builder.builder.buttonView);
+			}
+			
+			function createAppSavedConfirmation()
+			{
+				var containerId = "#" + container.attr("id");
+				
+				// App saved confirmation
+				container.find(".builder-settings").popover({
+					containerId: containerId,
+					html: true,
+					trigger: 'manual',
+					placement: 'bottom',
+					content: '<script>'
+								+ '$("' + containerId + ' .builder-settings").next(".popover").addClass("settings-popover");'
+								+ '$("' + containerId + ' .builder-settings").next(".popover").css("margin-left", - $("' + containerId + ' button").eq(0).width() - $("' + containerId + ' button").eq(0).width() / 2 + 5 + "px");'
+								+ '$("' + containerId + ' .builder-settings").next(".popover").find(".stepSave").css("display", "block");'
+								+ '$("' + containerId + ' .builder-settings").next(".popover").find(".stepSaved").css("display", "none");'
+								+ '$("' + containerId + ' .builder-settings").next(".popover").find(".stepFailed").css("display", "none");'
+								+ '</script>'
+								+ '<div class="stepSave" style="margin-top: 3px">'
+								+  i18n.builder.builder.savingApplication + '... <img src="resources/icons/loader-upload.gif" class="addSpinner" alt="Uploading">'
+								+ '</div>'
+								+ '<div class="stepSaved">'
+								+  i18n.builder.builder.saveSuccess + ' '
+								+ '<button type="button" class="btn btn-success btn-small" onclick="app.builder.hideSaveConfirmation()" style="vertical-align: 1px;">'+i18n.builder.builder.gotIt+'</button> '
+								+ '</div>'
+								+ '<div class="stepFailed" style="color: red;">'
+								+  i18n.builder.builder.saveError + ' '
+								+ '<button type="button" class="btn btn-danger btn-small" onclick="app.builder.hideSaveConfirmation()" style="vertical-align: 1px;">'+i18n.builder.builder.gotIt+'</button> '
+								+ '</div>'
+				});
+				
+				//container.find('.builder-settings').attr('title', i18n.builder.builder.buttonSettings);
+			}
+	
+			function closeBuilderSaveIntro()
+			{
+				container.find(".builder-save").popover('destroy');
+				_displayBuilderSaveIntro = false;
+			}
+			
+			//
+			// UI
+			//
+	
+			function setUpGeneralPanelButtonAction()
+			{
+				container.find(".builder-view").click(clickView);
+				container.find(".builder-discard").click(clickDiscard);
+			}
+	
+			function clickDiscard()
+			{
+				if( _this.hasPendingChange() )
+					container.find(".builder-discard").popover('show');
+			}
+	
+			function clickView()
+			{
+				if( _this.hasPendingChange() )
+					container.find(".builder-view").popover('show');
+				else
+					switchToView(true);
+			}
+	
+			function hideSaveConfirmation()
+			{
+				container.find(".builder-settings").popover('hide');
+			}
+			
+			function changeBuilderPanelButtonState(activate)
+			{
+				container.find("div > button").attr("disabled", ! activate);
+			}
+			
+			this.resize = function()
+			{
+				// Make all buttons the same size
+				/*
+				var buttonWidth = Math.max(container.find("div > button").eq(0).width(), container.find("div > button").eq(1).width());
+				container.find("div > button").eq(0).width(buttonWidth);
+				container.find("div > button").eq(1).width(buttonWidth);
+				*/
+						
+				// Reposition
+				container.css("margin-left", $("body").width() / 2 - container.outerWidth() / 2);
+			}
+			
+			function initLocalization()
+			{
+				container.find('h4').html(i18n.builder.builder.panelHeader);
+				container.find('button').eq(0).html(i18n.builder.builder.buttonSave);
+				container.find('button').eq(1).html(i18n.builder.builder.buttonDiscard);
+				container.find('button').eq(2).html(i18n.builder.builder.buttonSettings.toUpperCase());
+				//container.find('button').eq(2).html('<img src="resources/icons/builder-settings.png" style="vertical-align: -6px;" alt="' + i18n.builder.builder.buttonSettings + '" />');
+				container.find('button').eq(3).html('<img src="resources/icons/builder-view.png" style="vertical-align: -6px;" alt="' + i18n.builder.builder.buttonView + '" />');
+				container.find('#save-counter').html(i18n.builder.builder.noPendingChange);
+			}
+		}
+	}
+);

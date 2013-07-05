@@ -1,0 +1,640 @@
+<!DOCTYPE html>
+<html>
+	<head>
+		<title></title>
+		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		
+		<meta name="apple-mobile-web-app-capable" content="yes">
+		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
+
+		<link type="image/ico" rel="shortcut icon" href="//resources.esri.com/favicon.ico">
+		<link type="image/ico" rel="icon"  href="//resources.esri.com/favicon.ico">
+
+		<meta property="og:title" content="Swipe"/>
+		<meta property="og:image" content="resources/icons/esri-logo.jpg"/>
+		<meta property="og:description" content="A storytelling template that enables users to view and compare two layers of a web map using a vertical bar or a spyglass."/>
+
+		<script type="text/javascript">
+			//--------------------------------
+			//     Template configuration
+			//--------------------------------
+			configOptions = {
+				//----------------------------------
+				// Swipe Style
+				//----------------------------------
+				// Select between the vertical swipe bar using "swipe" or the spy glass using "spyglass"
+				layout: "swipe",
+				//----------------------------------
+				// Swipe Layer
+				//----------------------------------
+				// Choose to swipe between two webmaps or between the layer of a single webmap
+				// can be overrided by using webmap= in URL
+				// e.g: ["WEBMAP_ID"] OR ["WEBMAP_ID_1", "WEBMAP_ID_2"]
+				webmaps: ["c3742adc852f4098944df3d8ec862345"],
+				// If using one webmap, enter the layer index of the layer to be revealed. 
+				// Index is defined by the web map table of contents (0 is the top layer).
+				layerIndex: 1, 
+				//----------------------------------
+				// Pop-up
+				//----------------------------------
+				// Text that appears in pop-up header to help user associate pop-up with the correct map.
+				// First string will be used for the right map or spyglass map, and the second string is used for the right map or main map in spyglass mode
+				popupTitles: ["",""],
+				// Popup colors that will be the background colors for the popup header. Same order as popupTitles. Use hex values.
+				popupColors: ["6cb7ff","ff5858"],
+				//----------------------------------
+				// App Layout
+				//----------------------------------
+				// Dictate if the legend panel is displayed in the side panel.
+				legend: true,
+				// Dictate if the description panel is displayed in the side panel.
+				description: true,
+				// Text that appears in the description panel of the side panel. Valid HTML string expected.
+				sidePanelDescription: "",
+				//----------------------------------
+				// Header
+				//----------------------------------
+				// The application header title, if no title is specified, the webmap's title is used
+				title: "",
+				// The application header subtitle, if not specified the ArcGIS.com web map's summary is used
+				subtitle: "",
+				//----------------------------------
+				// Server
+				//----------------------------------
+				// Optionally specify a proxy for specific deployment
+				//proxyurl: "//www.arcgis.com/sharing/proxy",
+				// Optionally specify the sharing service URL if you are using Portal for ArcGIS
+				sharingurl: "//www.arcgis.com/sharing/content/items"
+			};
+		</script>
+
+		<script type="text/javascript">
+			var version = '1.0';
+			var isProduction = true;
+
+			function loadJS(url, isExternal)
+			{
+				if( isExternal )
+					url = document.location.protocol == 'file:' ? 'http:' + url : url;
+				else
+					url += '?v=' + version + (!isProduction ? '&_=' + new Date().getTime() : '');
+					
+				document.write("<script language='javascript' type='text/javascript' src='" + url + "'><\/script>");
+			}
+
+			function loadCSS(url, isExternal)
+			{
+				if( isExternal ) 
+					url = document.location.protocol == 'file:' ? 'http:' + url : url;
+				else
+					url += '?v=' + version + (!isProduction ? '&_=' + new Date().getTime() : '');
+					
+				var el = document.createElement("link");
+				el.setAttribute("rel", "stylesheet");
+				el.setAttribute("type", "text/css");
+				el.setAttribute("href", url);
+				document.getElementsByTagName("head")[0].appendChild(el);
+			}
+			
+			loadCSS("//js.arcgis.com/3.6/js/esri/css/esri.css", true);
+			loadCSS("//js.arcgis.com/3.6/js/dojo/dijit/themes/claro/claro.css", true);		
+
+			if( isProduction ) {
+				loadCSS("app/swipe-min.css");
+			}
+			else {
+				loadCSS("lib/bootstrap/css/bootstrap.min.css");
+				loadCSS("lib/spectrum/spectrum.css");
+				
+				loadCSS("app/storymaps/ui/inlineFieldEdit/InlineFieldEdit.css");
+				loadCSS("app/storymaps/ui/loadingIndicator/LoadingIndicator.css");
+
+				loadCSS("app/storymaps/core/Core.css");
+				loadCSS("app/storymaps/ui/header/Header.css");
+				loadCSS("app/storymaps/ui/mapCommand/MapCommand.css");
+				
+				loadCSS("app/storymaps/swipe/core/MainView.css");
+				loadCSS("app/storymaps/swipe/ui/desktop/SwipeSidePanel.css");
+				
+				loadCSS("app/storymaps/builder/Builder.css");
+				loadCSS("app/storymaps/builder/BuilderPanel.css");
+				loadCSS("app/storymaps/swipe/builder/BuilderView.css");
+				
+				loadCSS("app/storymaps/builder/SettingsPopup.css");
+				loadCSS("app/storymaps/swipe/builder/SettingsPopupTabLayout.css");
+				loadCSS("app/storymaps/swipe/builder/SettingsPopupTabDataModel.css");
+				loadCSS("app/storymaps/swipe/builder/SettingsPopupTabLegend.css");
+				loadCSS("app/storymaps/swipe/builder/SettingsPopupTabSwipePopup.css");
+				loadCSS("app/storymaps//swipe/builder/InitPopup.css");
+				loadCSS("app/storymaps/builder/SettingsPopupTabColors.css");
+				loadCSS("app/storymaps/builder/SettingsPopupTabHeader.css");
+				loadCSS("app/storymaps/builder/SettingsPopupTabExtent.css");
+				
+				loadCSS("app/storymaps/swipe/ui/mobile/MobileSwipeView.css");
+				
+				loadCSS("app/storymaps/swipe/ui/MapSwipe.css");
+				loadCSS("app/storymaps/swipe/ui/SpyGlass.css");
+				
+				loadCSS("app/storymaps/swipe/ui/Responsive.css");
+			}
+
+			var path_location = location.pathname.replace(/\/[^/]+$/, '');
+			var dojoConfig = {
+				parseOnLoad: true,
+				isDebug: false,
+				packages: [
+					{
+						name: 'storymaps',
+						location: location.pathname.replace(/\/[^/]+$/, '/') + 'app/storymaps'
+					},
+					{
+						name: 'esriTemplate',
+						location: location.pathname.replace(/\/[^/]+$/, '/') + 'resources'
+					},
+					{
+						name: "templateConfig",
+						location: path_location
+					}
+				]
+			};
+		</script>
+	</head>
+	<body class="claro">
+		<div id="header">
+			<!-- Mobile header -->
+			<div id="headerMobile" class="firstDisplay">
+				<div class="banner">
+					<h1 class="title"></h1>
+					<h2 class="subtitle"></h2>
+					<p id="closeHeaderMobile"></p>
+				</div>
+				<h3 class="navBar">
+					<span id="leftViewLink" data-viewid="swipe" class="leftLink"></span>
+					<span id="mapViewLink"  data-viewid="map" class="current"></span>
+					<span id="rightViewLink" data-viewid="list" class="rightLink"></span>
+				</h3>
+			</div>
+			<div id="openHeaderMobile"></div>
+			<!-- Desktop header -->
+			<div id="headerDesktop">
+				<div class="textArea">
+					<h1 class="title"></h1>
+					<h2 class="subtitle"></h2>
+				</div>
+				<div class="rightArea">
+					<div class="social">
+						<span class="msLink">
+							<a href="http://storymaps.esri.com" target="_blank"></a>
+						</span>
+						<span class='st_facebook'></span>
+						<span class='st_twitter'></span>
+					</div>
+					<div class="logo">
+						<a target="_blank">
+							<img alt="Esri - Home" />
+						</a>
+					</div>
+				</div>
+				<button type="button" class="switchBuilder btn btn-success"></button>
+				<!-- Builder top panel -->
+				<div id="builderPanel">
+					<h4></h4>
+					<div>
+						<button type="button" class="btn builder-save"></button>
+						<button type="button" class="btn builder-discard"></button>
+						<button type="button" class="btn builder-settings"></button>
+						<button type="button" class="btn small builder-view"></button>
+					</div>
+					<div id="save-counter"></div>
+				</div>
+			</div>
+		</div>
+		<div id="contentPanel" class="mobileView">
+			<!-- Map panel -->
+			<div id="mapPanel">
+                <div id="mainMap0">
+                    <div id="hoverInfo"></div>
+                    <div class="moveable" id="sliderDiv"></div>
+                    <img id="swipeImg" src='resources/icons/swipe-arrows.png'/>
+                </div>
+                <div id="resizeWrapper">
+                    <div id="mainMap1"></div>
+                </div>
+				<img id="swipeImg1" src='resources/icons/swipe-arrows.png'/>
+				<div>
+					<div id="lensWin">	
+						<div id="lensMapNode">	
+							<div id="lensTool"></div>
+						</div>
+					</div>
+				</div>
+				<div id="infoWindow">
+					<div id="infoWindowTitle"></div>
+					<div id="infoWindowContent" data-dojo-type="dijit/layout/ContentPane"></div>
+					<div id="infoWindowTabImg"></div>
+				</div>
+            </div>
+			<div id="sidePanel"></div>
+			<div id="swipeSidePanel">
+				<div id="descriptionPanel">
+					<div id="description">
+						<textarea id="descriptionArea" style="width: 100%; height: 100%;"></textarea>
+					</div>
+				</div>
+				<div id="legendTitle"></div>
+				<div id="legendPanel">
+					<div id="legend0"></div>
+					<div id="legend1"></div>
+				</div>
+				<div id="sidePanelTabImg" class="open closeImg"></div>
+			</div>
+		</div>
+
+		<!-- Mobile views -->
+		<div id="legendView" class="mobileView mobileSwipeView">
+			<div id="legendViewCarousel" class="carousel"></div>
+			<div class="noData">
+				<div class="title"></div>
+			</div>
+			<div class="swiper legendView"></div> 
+		</div>
+		<div id="infoWindowView" class="mobileView mobileSwipeView">
+			<div data-dojo-type='dijit/layout/ContentPane' id='infoView-mobile0'></div>
+			<div data-dojo-type='dijit/layout/ContentPane' id='infoView-mobile1'></div>
+			<div id="infoWindowViewCarousel" class="carousel"></div>
+			<div class="noData">
+				<div class="title"></div>
+				<div class="explain"></div>
+			</div>
+			<div class="swiper infoWindowView"></div> 
+		</div>
+
+		<!-- Loading indicator -->
+		<div id="loadingOverlay"></div>
+		<div id="loadingIndicator"></div>
+		<div id="loadingMessage"></div>
+
+		<!-- Settings popup -->
+		<div class="modal hide" id="settingsPopup" data-backdrop="static" tabindex="-1">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h3></h3>
+			</div>
+			<div class="settingsPopupHeader modal-tabs">
+				<div class="tab"></div>
+				<div class="tab"></div>
+				<div class="tab"></div>
+				<div class="tab"></div>
+				<div class="tab"></div>
+				<div class="tab"></div>
+				<div class="tab"></div>
+			</div>
+			<div class="modal-body">
+				<!-- Layout -->
+				<div class="tab-content viewLayout">					
+				</div>
+				<!-- Data Model-->
+				<div class="tab-content viewDataModel">														
+				</div>
+				<!-- Legend -->
+				<div class="tab-content viewLegend"></div>
+				<!-- Popup -->
+				<div class="tab-content viewPopup"></div>	
+				<!-- Colors -->
+				<div id="settings-colors" class="tab-content">
+					<p></p>
+					<form class="form-horizontal">
+						<div id="colorScheme" class="control-group" style="margin-bottom: 5px">
+							<label class="control-label"></label>
+							<div class="controls"></div>
+						</div>
+					</form>
+				</div>
+				<!-- Header -->
+				<div id="settings-header" class="tab-content">
+					<p></p>
+					<form class="form-horizontal form1">
+						<div class="control-group">
+							<div class="controls">
+								<label class="radio">
+								  <input type="radio" name="optionsLogo" id="optionsRadios2" value="esri" checked>
+								  <span class="logoText"></span>
+								</label>
+								<label class="radio">
+								  <input type="radio" name="optionsLogo" id="optionsRadios1" value="none">
+								  <span class="logoText"></span>
+								</label>
+								<label class="radio">
+								  <input type="radio" name="optionsLogo" id="optionsRadios2" value="custom">
+								  <span class="logoText"></span>
+								</label>
+								<div class="optionsLogoCustom">
+									<input id="logoInput" type="text" placeholder="">
+									<input id="logoTargetInput" type="text" placeholder="">
+								</div>
+							</div>
+							<div id="headerSimulator">
+								<img id="imgLogo"/>
+							</div>
+						</div>
+					</form>
+					<p></p>
+					<form class="form-horizontal form2">
+						<div class="control-group">
+							<label class="control-label" for="selectSocialText"></label>
+							<div class="controls">
+								<input id="selectSocialText" type="text" />
+							</div>
+						</div>
+						<div class="control-group">
+							<label class="control-label" for="selectSocialLink"></label>
+							<div class="controls">
+								<input id="selectSocialLink" type="text" />
+							</div>
+						</div>
+					</form>
+				</div>
+				
+				<!-- Extent -->
+				<div id="settings-extent" class="tab-content">
+					<p></p>
+					<div class="extentMapControl">
+						<button class="btn btn-small" id="extentModify"></button>
+						<button class="btn btn-small" id="extentDraw"></button>
+						<button class="btn btn-small" id="extentApply"></button>
+					</div>
+					<div id="extentMap"></div>
+					<div class="explain2"></div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<span class="error"></span>
+				<button class="btnSave btn btn-primary" data-dismiss="modal"></button>
+				<button class="btnClose btn" data-dismiss="modal" aria-hidden="true"></button>
+			</div>
+		</div>
+		
+		<!-- Init popup -->
+		<div class="modal hide" id="initPopup" data-backdrop="static" tabindex="-1">
+			<div class="modal-header">
+				<h3></h3>
+			</div>
+			<div class="initPopupHeader modal-tabs">
+				<div class="tab"></div>
+				<span class="tabspacer">>></span>
+				<div class="tab"></div>
+				<span class="tabspacer">>></span>
+				<div class="tab"></div>
+				<span class="tabspacer">>></span>
+				<div class="tab"></div> 
+			</div>
+			<div class="modal-body">
+				<!-- Layout -->
+				<div class="tab-content viewLayout">					
+				</div>
+				<!-- Data Model-->
+				<div class="tab-content viewDataModel">														
+				</div>
+				<!-- Legend -->
+				<div class="tab-content viewLegend">
+				</div>
+				<!-- Popup -->
+				<div class="tab-content viewPopup">  
+				</div>			
+			</div>
+			<div class="modal-footer">
+				<span class="error"></span>
+				<button class="btnSave btn btn-primary" data-dismiss="modal"></button>
+			</div>
+		</div>
+		
+		<!-- HTML templates for settings/init builder components -->
+		<div id="init-settings-views">
+			<!-- Data Model Template -->
+			<div id="popupView-dataModel">
+				<p></p>
+				<span class="dataModel-box">
+					<div class="dataModel-box-content">
+						<div class="model1 dataModel-box-title"></div>
+						<div class="model1 alert alert-info"></div>
+						<label class="control-label" for="mapLayers"></label>
+						<div class="controls">
+							<div class="btn-group">
+								<select id="mapLayers"></select>
+							</div>
+						</div>
+						<div class="layersWarning"></div>
+					</div>
+					<button class="btnSelect btn"></button>
+					<div class="selectedDataModel"></div>
+				</span>
+				<span class="dataModel-box">
+					<div class="dataModel-box-content">
+						<div class="model2 dataModel-box-title"></div>
+						<div class="twoMapsInput control-group">
+							<div class="model2 alert alert-info"></div>
+							<label class="control-label" for="inputWebmapId1"></label>
+							<div class="controls">
+								<input class="inputWebmapId1" type="text" maxlength="32" disabled>
+							</div>
+							<label class="control-label" for="inputWebmapId2"></label>
+							<div class="controls">
+								<input class="inputWebmapId2" type="text" maxlength="32"/>
+							</div>
+						</div>
+					</div>
+					<button class="btnSelect btn"></button>
+					<div class="selectedDataModel"></div>
+				</span>
+			</div>
+			<!-- Layout Template -->
+			<div id="popupView-layout">
+				<p></p>
+				<span class="layout-box">
+					<div class="layout-box-title"></div>
+					<img />
+					<button class="btn"></button>
+					<div class="selectedLayout"></div>
+				</span>
+				<span class="layout-box">
+					<div class="layout-box-title"></div>
+					<img />
+					<button class="btn"></button>
+					<div class="selectedLayout"></div>
+				</span>
+			</div>
+			<!-- Legend Template -->
+			<div id ="popupView-legend">
+				<p></p>
+				<div class="legendContainer">
+					<form class="form-horizontal">
+						<div class="control-group">
+							<div class="controls legendControls">
+								<label class="checkbox">
+									<input type="checkbox" name="optionsDescription" value="description" checked>
+									<span class="descriptionText"></span>
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="optionsLegend" value="legend" checked>
+									<span class="legendText"></span>
+								</label>
+								<div class="legendInfo"></div>
+							</div>
+							<div id="uiSimulator">
+								<div></div>
+								<img />
+							</div>
+						</div>
+					</form>
+				</div>
+			</div>
+			<!-- Popup Template -->
+			<div id="popupView-popup">
+				<p></p>
+				<span class="popup-box">
+					<div class="popup1Title popup-box-title"></div>
+					<div class="popup1HeaderTitle"></div>
+					<input class="selectPopup1" type="text" />
+					<div class="popup1HeaderColor"></div>
+					<input type='text' name='popup1Color' id='popup1Color'/>
+				</span>
+				<span class="popup-box">
+					<div class="popup2Title popup-box-title"></div>
+					<div class="popup2HeaderTitle"></div>
+					<input class="selectPopup2" type="text" />
+					<div class="popup2HeaderColor"></div>
+					<input type='text' name='popup2Color' id='popup2Color'/>
+				</span>
+			</div>
+		</div>
+		
+		<!-- Projection warning popup -->
+		<div class="modal hide" id="projectionPopup" data-backdrop="static" tabindex="-1">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h3></h3>
+			</div>
+			<div class="modal-body">
+				<p class="projectionExplain"></p>
+				<p class="projectionExplain2"></p>
+			</div>
+			<div class="modal-footer">
+				<span class="dataFooterText"></span>
+				<button class="btnClose btn btn-primary" data-dismiss="modal"></button>
+			</div>
+		</div>
+		
+		<!-- Fatal error box -->
+		<div id="fatalError">
+			<table border="0">
+				<tr>
+					<td width="70px" align="center" id="fatalError-icon"></td>
+					<td>
+						<b class="error-title"></b>
+						<p class="error-msg"></p>
+					</td>
+				</tr>
+			</table>
+		</div>
+
+		<script type="text/javascript">
+			loadJS('//js.arcgis.com/3.6/init.js', true);
+			
+			loadJS('//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js', true);
+			loadJS('app/swipe-config.js');
+			
+			function getUrlVar(name)
+			{
+			    var vars = [], hash;
+			   	if( window.location.href.indexOf('?') == -1 ) return null;
+		
+			    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
+			    for(var i = 0; i < hashes.length; i++){
+			        hash = hashes[i].split('=');
+					hash[0] = hash[0].split('#')[0];
+			        vars.push(hash[0]);
+			        vars[hash[0]] = (hash[1] == undefined) ? "true" : hash[1];
+			    }
+			    return vars[name];
+			}
+			
+			if( isProduction ) {
+				if( getUrlVar('edit') )
+					loadJS('app/swipe-builder-min.js');
+				else
+					loadJS('app/swipe-viewer-min.js');
+			}
+			else {
+				loadJS('lib/animateClip.js');
+				loadJS('lib/bootstrap/js/bootstrap.min.js');
+				loadJS('lib/spin.min.js');
+				loadJS('lib/cubiq.swipeview.js');
+				loadJS('lib/jquery.fastClick.js');
+				loadJS('lib/spectrum/spectrum.js');
+				loadJS('lib/sharethis.buttons.js');
+				loadJS('lib/jquery-ui-1.10.3.custom.min.js');
+				loadJS('lib/jquery.ui.touch-punch.min.js');
+				loadJS('lib/nicEdit.js');
+			}
+		</script>
+		
+		<!-- sharethis.com social media sharing -->
+		<script type="text/javascript">
+			stLight.options({publisher:'77225c91-2742-42f7-b1b4-bddda99a9bde'});
+		</script>
+
+		<!-- Enable Google Analytics on storymaps.esri.com -->
+		<script type="text/javascript">
+			if (window.location.href.toLowerCase().indexOf("storymaps.esri.com") >= 0) {
+				var _gaq = _gaq || [];
+				_gaq.push(['_setAccount', 'UA-26529417-1']);
+				_gaq.push(['_trackPageview']);
+
+				(function() {
+					var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+					ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+				})();
+			}
+		</script>
+
+		<script type="text/javascript">
+			dojo.require("templateConfig/commonConfig");
+			
+			var loadingIndicator = {};
+			var i18n = null;
+			
+			if (document.location.protocol == "file:") {
+				$(document).ready(function() {
+					$("#fatalError .error-title").html("Application loading failed");
+					$("#fatalError .error-msg").html("The application has to be accessed through a web server. Consult user guide for detail.");
+					$("#fatalError").show();
+				});
+			}
+			else {
+				dojo.addOnLoad(function() {
+					require(["dojo/i18n", "storymaps/ui/loadingIndicator/LoadingIndicator", "esri/map", "dojo/domReady!", "esri/arcgis/Portal", "esri/arcgis/utils", "dojo/ready"], function(jsapiBundle, LoadingIndicator) {
+						i18n = jsapiBundle.getLocalization("esriTemplate", "template");
+						loadingIndicator = new LoadingIndicator("loadingIndicator", "loadingMessage");
+						loadingIndicator.init();
+						loadingIndicator.setMessage(i18n.viewer.loading.step1);
+						
+						require(["storymaps/core/Core", "storymaps/swipe/core/MainView"], function(Core, MainView){
+							var urlParams = esri.urlToObject(document.location.search).query || {};
+							var isInBuilderMode = urlParams.edit != null;
+							
+							if (isInBuilderMode) {
+								require(["storymaps/builder/Builder", "storymaps/swipe/builder/BuilderView"], function(Builder, BuilderView) {
+								Core.init(new MainView(), Builder);
+								Builder.init(Core, new BuilderView());
+							});
+							}
+							else
+								Core.init(new MainView());
+						});
+					});
+				});
+			 }
+		</script>
+	</body>
+</html>

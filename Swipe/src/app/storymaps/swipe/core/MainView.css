@@ -1,0 +1,56 @@
+#mapPanel {
+	width: 100%;
+	height:100%;
+	float:right;
+	background-color:#848484;
+	position:relative;
+}
+
+#mainMap0 {
+	border:none;
+	padding:0;
+	height:100%;
+	width:100% !important;
+	overflow: hidden;
+	cursor:	pointer;
+}
+
+#init-settings-views {
+	display: none;
+}
+
+.swiper {
+	position: absolute;
+	top: 50%;
+	height: 48px;
+	margin-top: -24px;
+	width: 51px;
+}
+
+.swiper.infoWindowView{
+	display: none;
+}
+
+.swiper.right {
+	right: 0;
+	background-image: url('../../../../resources/icons/swipeRight.png');
+	background-repeat: no-repeat;
+}
+
+.swiper.left {
+	left: 0;
+	background-image: url('../../../../resources/icons/swipeLeft.png');
+	background-repeat: no-repeat;
+}
+
+#legendView1 {
+	width: 150px;
+	margin-right: auto;
+	margin-left: auto;
+}
+
+#legendView2 {
+	width: 150px;
+	margin-right: auto;
+	margin-left: auto;
+}
