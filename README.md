@@ -4,7 +4,7 @@ A storytelling template that displays a webmap in a viewer with a "swipe" functi
 
 [View live app here](http://storymaps.esri.com/templates/swipe/)
 
-![App](https://raw.github.com/Esri/swipe-map-storytelling-template-js/master/images/storytelling-swipe-map-template-js.png)
+![App](https://raw.github.com/Esri/swipe-map-storytelling-template-js/master/storytelling-swipe-map-template-js.png)
 
 ## Features
 * Swipe capability to compare two layers of a ArcGIS Online webmap.
