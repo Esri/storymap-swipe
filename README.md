@@ -68,10 +68,10 @@ The swipe application require to be deployed on a web server like [Internet Info
 The minimal steps to configure the application are the following:
 
 1. Find your web map(s) id(s), navigate to [ArcGIS Online](http://www.arcgis.com), and find the map you want to display. If it is one of your maps, make sure it's shared with everyone (public). View the map details and copy the ID from the URL in the top of your browser. The section you need to copy is bolded in the following URL: arcgis.com/home/webmap/viewer.html?webmap= **5ae9e138a17842688b0b79283a4353f6**.
-2. Open the index.html file in a text editor and edit the webmaps and layerIndex parameter. 
+2. Open the index.html file in a text editor and edit the following parameters:
     - **layout**: choose to use the vertical swipe bar or the spy glass
-	- **webmaps**: unique identifier(s) of the web map(s) you want to use
-	- **layerIndex**: if using one webmap, dictate the layer index of the layer to be revealed. The value is defined by the order of the layer the web map table of contents (0 is the top layer)
+    - **webmaps**: unique identifier(s) of the web map(s) you want to use
+    - **layerIndex**: if using one webmap, dictate the layer index of the layer to be revealed. The value is defined by the order of the layer the web map table of contents (0 is the top layer)
 
 #### Personalize
 
