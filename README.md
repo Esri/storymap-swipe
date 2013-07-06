@@ -1,21 +1,26 @@
 # swipe-map-storytelling-template-js
 
-A storytelling template that displays a webmap in a viewer with a "swipe" functionality that enables users to compare two "stacked" layers in ArcGIS Online webmap. Users can move the swipe bar to reveal the second layer underneath.
+A storytelling template that enables users to view and compare two layers of a web map or two web maps using a vertical bar or a spy glass. This is a new version of the popular swipe template that provide a better experience on smartphone and an interactive builder on ArcGIS Online, see what's new.
 
 [View live app here](http://storymaps.esri.com/templates/swipe/)
 
 ![App](https://raw.github.com/Esri/swipe-map-storytelling-template-js/master/storytelling-swipe-map-template-js.png)
 
 ## Features
-* Swipe capability to compare two layers of a ArcGIS Online webmap.
-* Includes a banner section to display a title and subtitle.
-* Retractable legend.
+* Choose the swipe style between a vertical bar or a spy glass
+* Reveal a layer of a webmap or a second web map
+* Choose to include a legend and/or a description as a left side panel
+* Pop-ups are displayed hover the Map when using the vertical bar and on a right panel when using the spy glass
+* Customize the appearance of the pop-ups header to help user associate pop-ups with maps layers
 
 ## Instructions
 
-1. [Install the web applciation](#install-the-web-application)
+1. [Install the web application](#install-the-web-application)
 2. [Configure the application](#configure-the-application)
 3. [Personalize the application](#personalize-the-application)
+
+[A more complete readme is available here](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Readme.pdf) 
+| [New to Github? Get started here.](http://htmlpreview.github.com/?https://github.com/Esri/esri.github.com/blob/master/help/esri-getting-to-know-github.html)
 
 #### Install the web application
 
@@ -27,43 +32,42 @@ These instructions assume that you have a Web server like [Internet Information 
 
 #### Configure the application
 
-Now let's configure the application to use a different ArcGIS Online group, title or subtitle.
+The minimal steps to configure the application are the following:
 
-1. Every map on ArcGIS Online has a unique identifier. To find the map id, navigate to [ArcGIS Online](http://www.arcgis.com), and find the map you want to display. If it is one of your maps, make sure it's shared with everyone (public). View the map details and copy the ID from the URL in the top of your browser. The section you need to copy is bolded in the following URL: arcgis.com/home/webmap/viewer.html?webmap= **5ae9e138a17842688b0b79283a4353f6**.
-2. Open the index.html file in a text editor. You can edit this file to set the following application properties:
-    - **webmap**: unique identifier for the ArcGIS Online map.
-    - **title**: if not specified the ArcGIS.com map's title is used.
-    - **subtitle**: if not specified the ArcGIS.com webmap's summary is used.
-    - **bingMapsKey**: if the map uses data from Bing Maps, enter your Bing Maps Key.
-    - **showLegend**: Choose if legend is displayed with map.
-    - **chooseSwipeLevel**: Choose the layer you wish to swipe away (Note: enter an integer with 0 being all the graphic layers then increasing to each additional map layer).
-3. Save the file then test your application and note that it now displays your application and if specified your custom title and subtitle.
+1. Find your web map(s) id(s), navigate to [ArcGIS Online](http://www.arcgis.com), and find the map you want to display. If it is one of your maps, make sure it's shared with everyone (public). View the map details and copy the ID from the URL in the top of your browser. The section you need to copy is bolded in the following URL: arcgis.com/home/webmap/viewer.html?webmap= **5ae9e138a17842688b0b79283a4353f6**.
+2. Open the index.html file in a text editor and edit the webmaps and layerIndex parameter. 
+    - **layout**: choose to use the vertical swipe bar or the spy glass
+	- **webmaps**: unique identifier(s) of the web map(s) you want to use
+	- **layerIndex**: if using one webmap, dictate the layer index of the layer to be revealed. The value is defined by the order of the layer the web map table of contents (0 is the top layer)
 
 #### Personalize the application
 
-You can personalize your site by adding a custom logo to the application's header next to the map title.
+More customization are accessible through three files :
 
-1. First copy your custom logo to the images subdirectory.
-2. Open layout.css in a text editor.
-3. Find the section of code that has an id of "logoArea" and add the following attribute.
+1. Index.html offers major settings:
+	- **popupTitles**: text that appears in pop-up header
+	- **popupColors**: popup header background colors
+	- **legend**: dictate if the legend panel is displayed in the side panel
+	- **description**: dictate if the description panel is displayed in the side panel
+	- **sidePanelDescription**: Text that appears in the description panel. Valid HTML string expected
+    - **title**: if not specified the ArcGIS.com map's title is used
+    - **subtitle**: if not specified the ArcGIS.com webmap's summary is used
+2. app/swipe-config.js offers to customize the header and the application colors:
+    - **HEADER_LOGO_URL**: path to the header logo image (blank to disable)
+	- **HEADER_LOGO_TARGET**: logo click-through link
+	- **HEADER_LINK_TEXT**: header top-right link text
+	- **HEADER_LINK_URL**: header top-right link URL
+	- **COLORS**: header and panel background colors
+3. commonConfig.js contains the optional Bing Maps key:
+    - **bingMapsKey**: if the map uses data from Bing Maps, enter your Bing Maps Key
 
-        background:url(../images/yourImage.png) top left no-repeat;
+## Feedback
 
-4. Run the application and the custom logo should appear to the left of the title in the application header.
-
-[New to Github? Get started here.](http://htmlpreview.github.com/?https://github.com/Esri/esri.github.com/blob/master/help/esri-getting-to-know-github.html)
-
-## Requirements
-
-* Notepad or HTML editor
-* A little background with HTML/CSS/Javascript
-* Experience with the [ArcGIS Javascript API](http://links.esri.com/javascript) would help.
-
-## Resources
-
-* [ArcGIS for JavaScript API Resource Center](http://help.arcgis.com/en/webapi/javascript/arcgis/index.html)
+We would love to hear from you!
+* Email us at storymaps@esri.com
+* [StoryMaps Website](http://storymaps.esri.com/home/)
+* [@EsriStoryMaps](http://twitter.com/EsriStoryMaps)
 * [ArcGIS Blog](http://blogs.esri.com/esri/arcgis/)
-* [Esri Storytelling with Maps](http://storymaps.esri.com)
 
 ## Issues
 
