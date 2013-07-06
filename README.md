@@ -1,6 +1,6 @@
 # Swipe
 
-A storytelling template that enables users to view and compare two layers of a web map or two web maps 
+A storytelling template that enables users to reveal a layer of a web map or another web map 
 using a vertical bar or a spy glass. This is a new version of the popular swipe template that provide 
 a better experience on smartphone and an interactive builder on ArcGIS Online, see [what's new](#whats-new).
 
