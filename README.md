@@ -8,7 +8,7 @@ a better experience on smartphone and an interactive builder on ArcGIS Online, s
 
 [View it live](http://storymaps.esri.com/templates/swipe/) 
 | [User Download (source code not included)](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Storytelling-Swipe-1.0.zip)
-| [Developer Download](https://github.com/Esri/swipe-map-storytelling-template-js/archive/master.zip)
+| [Developer Download (include source code)](https://github.com/Esri/swipe-map-storytelling-template-js/archive/master.zip)
 
 ## Features
 * Choose the swipe style between a vertical bar or a spy glass
