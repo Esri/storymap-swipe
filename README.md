@@ -10,14 +10,44 @@ a better experience on smartphone and an interactive builder on ArcGIS Online, s
 | [User Download (source code not included)](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Storytelling-Swipe-1.0.zip)
 | [Developer Download (include source code)](https://github.com/Esri/swipe-map-storytelling-template-js/archive/master.zip)
 
-## Features
+**Latest release is version version 1.0**, if you want to be informed of new releases, we recommend you to watch these repository.
+
+
+Help content:
+ * [Introduction]()
+ * [How to deploy a Swipe application]()
+ * [FAQ]()
+ * [Feedback](#feedback)
+ * [What's new](#whats-new)
+ * [Issues](#issues)
+ * [Contributing](#contributing)
+ * [Customize the look and feel](#customize-the-look-and-feel)
+ * [Developer guide](#developer-guide)
+ * [Licensing](#licensing)
+
+## Introduction
+
+The template is available in two versions:
+ * **An hosted version** in ArcGIS Online that provide hosting and an interactive builder tool to all ArcGIS Online account levels including the free Public account
+ * **A downloadable version** that you can deploy on your web server and enhance to fit your needs
+
+So you don't have to download the template to use it! 
+We freely host the template for you so you don't have to download the template and put it on your server.
+Using the hosted template is the easiest and fastest way to create a Swipe application and you will 
+benefits from ArcGIS Online periodic updates  that improve performance and fix issues without 
+introducting breaking changes.
+
+If you don't find the option you expect or you are a developer and want to enhance the application, you should use the downloadable version.
+
+Main features are:
 * Choose the swipe style between a vertical bar or a spy glass
 * Reveal a layer of a webmap or a second web map
 * Choose to include a legend and/or a description as a left side panel
 * Pop-ups are displayed hover the Map when using the vertical bar and on a right panel when using the spy glass
 * Customize the appearance of the pop-ups header to help user associate pop-ups with maps layers
 
-## Instructions
+
+## How to deploy a Swipe application
 
 1. [Download](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Storytelling-Swipe-1.0.zip)
 2. [Install](#install)
