@@ -24,7 +24,7 @@ a better experience on smartphone and an interactive builder on ArcGIS Online, s
 3. [Configure](#configure)
 4. [Personalize](#personalize)
 
-Note that a [more complete documentation](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Readme.pdf)  is included in the download
+Note that a [more complete documentation](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Readme.pdf) is included in the downloadable archive.
 
 #### Install
 
