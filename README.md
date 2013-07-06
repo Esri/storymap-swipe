@@ -2,11 +2,13 @@
 
 A storytelling template that enables users to view and compare two layers of a web map or two web maps 
 using a vertical bar or a spy glass. This is a new version of the popular swipe template that provide 
-a better experience on smartphone and an interactive builder on ArcGIS Online, see [what's new](#what's-new).
+a better experience on smartphone and an interactive builder on ArcGIS Online, see [what's new](#whats-new).
 
 ![App](https://raw.github.com/Esri/swipe-map-storytelling-template-js/master/storytelling-swipe-map-template-js.png)
 
-[View a live application](http://storymaps.esri.com/templates/swipe/)
+View it live(http://storymaps.esri.com/templates/swipe/) 
+| [User Download (source code not included)]((https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Storytelling-Swipe-1.0.zip)
+| [Developer Download](https://github.com/Esri/swipe-map-storytelling-template-js/archive/master.zip)
 
 ## Features
 * Choose the swipe style between a vertical bar or a spy glass
