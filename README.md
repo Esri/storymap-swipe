@@ -141,7 +141,7 @@ Hide only the social buttons:
          display: none;
       }
 
-The external link can be configured through maptour-config.js file. 
+The external link can be configured through swipe-config.js file. 
 
 To hide the text, empty the HEADER_LINK_TEXT property.
 
@@ -151,7 +151,7 @@ To display multiple line text, empty the HEADER_LINK_URL and configure HEADER_LI
 
 #### Customizing the header logo
 
-The logo image can be configured through maptour-config.js file. To hide the logo, empty the HEADER_LOGO_URL property.
+The logo image can be configured through swipe-config.js file. To hide the logo, empty the HEADER_LOGO_URL property.
 
 The logo dimension is constrained to 250x50px. To use more horizontal or vertical space you need to remove this restriction using:
 
@@ -174,7 +174,7 @@ You can save 10 more px by changing the top margin of the logo:
 
 ## Developer guide
 
-This developer guide is intended to developer that wants to modify behavior or add new functionalities to the Map Tour application. If you only need to customize look and feel of the application, you should be able to do so using the User download.
+This developer guide is intended to developer that wants to modify behavior or add new functionalities to the Swipe application. If you only need to customize look and feel of the application, you should be able to do so using the User download.
 It requires basic knowledge of HTML, Javascript and CSS languages.
 
 ### Developer archive
@@ -185,7 +185,7 @@ Download and unzip the [Developer download](https://github.com/Esri/swipe-map-st
 | ------------------------------------------ | --------------------------------------------------------------------- |
 | **Swipe/**            	             | Swipe source folder                                                |
 | **Swipe/src/**                             | The application source code                                           |
-| **Swipe/deploy/**                          | The ready to be deployed Map Tour application                         |
+| **Swipe/deploy/**                          | The ready to be deployed Swipe application                         |
 | **Swipe/tools/**                           | Developer tools to build deploy/ from src/                            |
 | Storytelling-Swipe-1.0.zip      	     | User download archive	                                             |
 | Readme.pdf       		             | The detailed readme guide                                             |
@@ -202,13 +202,13 @@ To build a production version of the application from the source code, you need:
  * [Java Runtime version 6 or higher](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html)
 
 The build script use: 
- * [RequireJS](http://requirejs.org/) to optimize the Map Tour code 
+ * [RequireJS](http://requirejs.org/) to optimize the Swipe code 
  * [Google Closure Compiler](https://developers.google.com/closure/compiler/) and [YUI Compressor](http://yui.github.com/yuicompressor/) to optimize external dependencies
 
  The script will be ported to a full node.js later on. 
 
 ### Design
-Map Tour relies on AMD and Dojo loader [AMD](http://help.arcgis.com/en/webapi/javascript/arcgis/jshelp/#inside_dojo_amd) for application structure.
+Swipe relies on AMD and Dojo loader [AMD](http://help.arcgis.com/en/webapi/javascript/arcgis/jshelp/#inside_dojo_amd) for application structure.
 
 The application is structured as this:
 
