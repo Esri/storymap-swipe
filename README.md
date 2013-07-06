@@ -1,10 +1,12 @@
-# swipe-map-storytelling-template-js
+# Swipe
 
-A storytelling template that enables users to view and compare two layers of a web map or two web maps using a vertical bar or a spy glass. This is a new version of the popular swipe template that provide a better experience on smartphone and an interactive builder on ArcGIS Online, see what's new.
-
-[View live app here](http://storymaps.esri.com/templates/swipe/)
+A storytelling template that enables users to view and compare two layers of a web map or two web maps 
+using a vertical bar or a spy glass. This is a new version of the popular swipe template that provide 
+a better experience on smartphone and an interactive builder on ArcGIS Online, see [what's new](#what's-new).
 
 ![App](https://raw.github.com/Esri/swipe-map-storytelling-template-js/master/storytelling-swipe-map-template-js.png)
+
+[View a live application](http://storymaps.esri.com/templates/swipe/)
 
 ## Features
 * Choose the swipe style between a vertical bar or a spy glass
@@ -15,14 +17,15 @@ A storytelling template that enables users to view and compare two layers of a w
 
 ## Instructions
 
-1. [Install the web application](#install-the-web-application)
-2. [Configure the application](#configure-the-application)
-3. [Personalize the application](#personalize-the-application)
+1. [Download](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Storytelling-Swipe-1.0.zip)
+2. [Install](#install)
+3. [Configure](#configure)
+4. [Personalize](#personalize)
 
-[A more complete readme is available here](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Readme.pdf) 
-| [New to Github? Get started here.](http://htmlpreview.github.com/?https://github.com/Esri/esri.github.com/blob/master/help/esri-getting-to-know-github.html)
+[A static documentation is included in the download](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Readme.pdf) 
+| [New to Github? Get started here](http://htmlpreview.github.com/?https://github.com/Esri/esri.github.com/blob/master/help/esri-getting-to-know-github.html)
 
-#### Install the web application
+#### Install
 
 These instructions assume that you have a Web server like [Internet Information Services(IIS)](http://www.iis.net/) installed and setup on your machine. If you are using another Web server the general installation steps will be the same but you will need to check your Web server's documentation for specific information on deploying and testing the application.
 
@@ -30,7 +33,7 @@ These instructions assume that you have a Web server like [Internet Information 
 2. (Optional). If your application edits features in a feature service or generates requests that exceed 2000 characters you may need to setup and use a proxy page. Common situations where you may exceed the URL length are, using complext polygons as input to a task or specifying a spatial reference using well-known text (wkt). View the [Using the proxy page](http://help.arcgis.com/en/webapi/javascript/arcgis/jshelp/#ags_proxy) help topic for details on installing and configuring a proxy page.
 3. Test the page using the following URL: http://localhost/[template name]/index.html, where [template name] is the name of the folder where you extracted the zip contents.
 
-#### Configure the application
+#### Configure
 
 The minimal steps to configure the application are the following:
 
@@ -40,7 +43,7 @@ The minimal steps to configure the application are the following:
 	- **webmaps**: unique identifier(s) of the web map(s) you want to use
 	- **layerIndex**: if using one webmap, dictate the layer index of the layer to be revealed. The value is defined by the order of the layer the web map table of contents (0 is the top layer)
 
-#### Personalize the application
+#### Personalize
 
 More customization are accessible through three files :
 
@@ -49,7 +52,7 @@ More customization are accessible through three files :
 	- **popupColors**: popup header background colors
 	- **legend**: dictate if the legend panel is displayed in the side panel
 	- **description**: dictate if the description panel is displayed in the side panel
-	- **sidePanelDescription**: Text that appears in the description panel. Valid HTML string expected
+	- **sidePanelDescription**: Text that appears in the description panel
     - **title**: if not specified the ArcGIS.com map's title is used
     - **subtitle**: if not specified the ArcGIS.com webmap's summary is used
 2. app/swipe-config.js offers to customize the header and the application colors:
@@ -69,6 +72,16 @@ We would love to hear from you!
 * [@EsriStoryMaps](http://twitter.com/EsriStoryMaps)
 * [ArcGIS Blog](http://blogs.esri.com/esri/arcgis/)
 
+## What's new?
+
+#### Swipe 1.0 released on 07/05/2013
+ * Responsive web design that offer a new user experience on Smartphone
+ * Offer an interactive builder in ArcGIS Online
+ * Choose the swipe style between a vertical bar or a spy glass
+ * Popup managment
+ * Support revealing graphics layer
+ * Localized in 22 languages
+
 ## Issues
 
 Find a bug or want to request a new feature?  Please let us know by submitting an issue.
@@ -76,6 +89,162 @@ Find a bug or want to request a new feature?  Please let us know by submitting a
 ## Contributing
 
 Anyone and everyone is welcome to contribute.
+
+## Customize the look and feel
+Most of the look and feel customization can be done using the user download and including the css/html override directly into index.html. 
+If you want to change the behavior of one functionality or want to add new one, you will need to read the developer guide below.
+
+The easiest way to find the id or path to the DOM element that you want to customize is to use your browser developer tool, read documentation for for [Chrome](https://developers.google.com/chrome-developer-tools/), [Safari](http://developer.apple.com/library/safari/#documentation/AppleApplications/Conceptual/Safari_Developer_Guide/2SafariDeveloperTools/SafariDeveloperTools.html), [Firefox](https://getfirebug.com/).
+
+Here are some customization examples that have to be included inside a \<style\> element after the \<body\> element like below :
+
+      ...
+      <body class="claro">
+         <style>
+            #element {
+               /* changes */
+            }
+         </style>
+      <div id="header">
+      ...
+
+#### Use an image as the background of the desktop header
+
+      #headerDesktop {
+         background: url('resources/my_background.jpg');
+      }
+
+To remove the bottom border:
+
+      #header {
+         background: none !important;
+      }
+
+#### Customizing the links in the top right of the header
+
+Hide the link to the external website and the social buttons:
+
+      #header .social {
+         visibility: hidden; 
+      }
+
+Same but reuse the vertical space for the logo:
+
+      #header .social {
+         display: none;
+      }
+
+Hide only the social buttons:
+
+      #header .social > span:not(.msLink) {
+         display: none;
+      }
+
+The external link can be configured through maptour-config.js file. 
+
+To hide the text, empty the HEADER_LINK_TEXT property.
+
+To display multiple line text, empty the HEADER_LINK_URL and configure HEADER_LINK_TEXT with html markup like 
+
+      <a href='http://myorganization.com' target='_blank'>My organization</a><br /><a href='http://myorganization.com/myproject' target='_blank'>My project</a>
+
+#### Customizing the header logo
+
+The logo image can be configured through maptour-config.js file. To hide the logo, empty the HEADER_LOGO_URL property.
+
+The logo dimension is constrained to 250x50px. To use more horizontal or vertical space you need to remove this restriction using:
+
+      #headerDesktop .logo img {
+         max-width: none;
+         max-height: 90px;
+      }
+      
+You can save 10 more px by changing the top margin of the logo:
+
+      #headerDesktop .rightArea {
+         padding-top: 15px;
+      }
+
+      #headerDesktop .logo img {
+         max-width: none;
+         max-height: 100px;
+      }
+
+
+## Developer guide
+
+This developer guide is intended to developer that wants to modify behavior or add new functionalities to the Map Tour application. If you only need to customize look and feel of the application, you should be able to do so using the User download.
+It requires basic knowledge of HTML, Javascript and CSS languages.
+
+### Developer archive
+
+Download and unzip the [Developer download](https://github.com/Esri/swipe-map-storytelling-template-js/archive/master.zip) or clone the repo.
+
+| File                                       | Contains                                                              |
+| ------------------------------------------ | --------------------------------------------------------------------- |
+| **Swipe/**            	             | Swipe source folder                                                |
+| **Swipe/src/**                             | The application source code                                           |
+| **Swipe/deploy/**                          | The ready to be deployed Map Tour application                         |
+| **Swipe/tools/**                           | Developer tools to build deploy/ from src/                            |
+| Storytelling-Swipe-1.0.zip      	     | User download archive	                                             |
+| Readme.pdf       		             | The detailed readme guide                                             |
+| Readme.md                                  | This document                                                         |
+| storytelling-swipe-map-template-js.png     | The application screenshot                                            |
+| license.txt                                | The application license                                               |
+
+
+### Introduction
+
+To build a production version of the application from the source code, you need:
+ * a Windows OS 
+ * [Node.js](http://nodejs.org/)
+ * [Java Runtime version 6 or higher](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html)
+
+The build script use: 
+ * [RequireJS](http://requirejs.org/) to optimize the Map Tour code 
+ * [Google Closure Compiler](https://developers.google.com/closure/compiler/) and [YUI Compressor](http://yui.github.com/yuicompressor/) to optimize external dependencies
+
+ The script will be ported to a full node.js later on. 
+
+### Design
+Map Tour relies on AMD and Dojo loader [AMD](http://help.arcgis.com/en/webapi/javascript/arcgis/jshelp/#inside_dojo_amd) for application structure.
+
+The application is structured as this:
+
+| Path          			                  	| Contains																				|
+| ---------------------------------------------	|  ------------------------------------------------------------------------------------ |
+| app/      				                     	| Package structured Javascript and CSS source code 									|
+| app/swipe-config.js			            	| Configuration file (loaded at execution time) 										|
+| app/storymaps/builder/		         		| Builder modules common with other storymaps templates (main module is Builder.js)		|
+| app/storymaps/core/		         			| Core modules common with other storymaps templates (main module is Core.js)			|
+| app/storymaps/swipe/builder/	         	| UI components of the interactive builder (main module is BuilderView.js) 				|
+| app/storymaps/swipe/core/		         	| Core modules (main module is MainView.js) 											|
+| app/storymaps/swipe/ui/ 		         	| UI components of the viewer grouped by target device 									|
+| app/storymaps/swipe/ui/Responsive.css      	| CSS Media queries rules							 									|
+| app/storymaps/swipe/BuildConfigBuilder.js 	| Require.js build configuration file for the interactive builder						|
+| app/storymaps/swipe/BuildConfigViewer.js 	| Require.js build configuration file for the viewer 									|
+| app/storymaps/ui/ 			               	| UI components common with other storymaps templates 									|
+| app/storymaps/utils/ 			            	| Utility modules common with other storymaps templates  								|
+| lib/ 					                     	| External dependencies 																|
+| resources/nls/                  				| Externalized text strings of the application  										|														|
+| resources/icons/ 			               		| Icons 																				|
+
+The main dependencies are:
+ * [jQuery](http://jquery.com/)
+ * [Bootstrap](http://twitter.github.com/bootstrap/)
+
+### How to use the application from the source code
+ * Make accessible the src folder to your web server
+ * Edit index.html to the web map you want to use
+
+### How to build application from the source code
+  * Open a terminal and navigate to the tools folder 
+  * Run the following command:
+
+        build.bat
+
+The deploy folder now contains the built application that you can deploy to your web server.
+
 
 ## Licensing
 Copyright 2012 Esri
