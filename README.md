@@ -14,9 +14,9 @@ a better experience on smartphone and an interactive builder on ArcGIS Online, s
 
 
 Help content:
- * [Introduction]()
- * [How to deploy a Swipe application]()
- * [FAQ]()
+ * [Introduction](#introduction)
+ * [How to deploy a Swipe application](#how-to-deploy-a-swipe-application)
+ * [FAQ](#faq)
  * [Feedback](#feedback)
  * [What's new](#whats-new)
  * [Issues](#issues)
@@ -93,6 +93,16 @@ More customization are accessible through three files :
 	- **COLORS**: header and panel background colors
 3. commonConfig.js contains the optional Bing Maps key:
     - **bingMapsKey**: if the map uses data from Bing Maps, enter your Bing Maps Key
+
+## FAQ
+
+### Is the template compatible with previous version?
+Yes, but some settings changed.
+
+### Can I deploy Swipe on Portal for ArcGIS
+Yes, you will just need to configure the sharing URL in index.html. 
+The interactive builder will be available.
+Swipe should be included in future releases of Portal for ArcGIS (after 10.2).
 
 ## Feedback
 
