@@ -97,7 +97,8 @@ More customization are accessible through three files :
 ## FAQ
 
 ### Is the template compatible with previous version?
-Yes, but some settings changed.
+Yes, some configuration parameter changed name but they are all available. 
+UI customization will require changes.
 
 ### Can I deploy Swipe on Portal for ArcGIS
 Yes, you will just need to configure the sharing URL in index.html. 
