@@ -1,4 +1,4 @@
-# Swipe
+# Swipe 
 
 A storytelling template that enables users to reveal a layer of a web map or another web map 
 using a vertical bar or a spy glass. This is a new version of the popular swipe template that provide 
