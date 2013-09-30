@@ -6,21 +6,22 @@
 				step2: "CARGANDO DATOS",
 				step3: "INICIALIZANDO",
 				fail: "La carga de la comparativa de mapas ha fallado",
-				loadBuilder: "CAMBIANDO A MODO DE CREADOR",
+				loadBuilder: "CAMBIANDO A MODO DE BUILDER",
 				failButton: "Reintentar"
 			},
 			errors: {
 				boxTitle: "Se ha producido un error",
+				portalSelf: "Error muy grave: no se ha podido obtener la configuración del portal",
 				invalidConfig: "Error muy grave: configuración no válida",
 				invalidConfigNoWebmap: "Error muy grave: configuración no válida (no se ha especificado mapa Web)",
 				createMap: "No se puede crear el mapa",
 				invalidApp: "Error muy grave: la aplicación no se puede cargar",
-				initMobile: "Bienvenido a la aplicación Web para la comparativa. La aplicación no está configurada. El creador interactivo no está admitido en dispositivos móviles.",
-				noBuilderIE8: "El creador interactivo de comparativas no es compatible con las versiones anteriores a Internet Explorer 9.",
+				initMobile: "Bienvenido a la aplicación Web para la comparativa. La aplicación no está configurada. El builder interactivo no es compatible con dispositivos móviles.",
+				noBuilderIE8: "El builder interactivo de comparativas no es compatible con las versiones anteriores a Internet Explorer 9.",
 				noLayerView: "Bienvenido a la aplicación Web para la comparativa.<br />La aplicación aún no está configurada.",
 				appSave: "Error al guardar la aplicación web",
 				mapSave: "Error al guardar el mapa web",
-				notAuthorized: "No está autorizado a configurar esta aplicación",
+				notAuthorized: "No tienes autorización para acceder a esta aplicación",
 				conflictingProjectionsTitle: "Conflicto de proyecciones",
 				conflictingProjections: "La comparativa de mapas no admite el uso de dos mapas web con distintas proyecciones. Abre los ajustes y utiliza un mapa web que use la misma proyección que el primer mapa.",
 				cpButton: "Cerrar"
@@ -33,7 +34,8 @@
 			},
 			desktopView: {
 				storymapsText: "Un mapa de historias",
-				builderButton: "Cambiar el modo de creador"
+				builderButton: "Cambiar a modo de builder",
+				bitlyTooltip: "Consigue un enlace corto a la aplicación"
 			}
 		},
 		builder: {
@@ -43,6 +45,7 @@
 				buttonDiscard: "CANCELAR",
 				buttonSettings: "Configuración",
 				buttonView: "Modo Vista",
+				buttonItem: "Abre el elemento de la aplicación web",
 				noPendingChange: "Sin cambios pendientes",
 				unSavedChangeSingular: "1 cambio sin guardar",
 				unSavedChangePlural: "cambios no guardados",
@@ -86,15 +89,19 @@
 				settingsLogoCustomTargetPlaceholder: "Enlace click-through",
 				settingsLogoSocialExplain: "Personaliza el enlace superior derecho del encabezado.",
 				settingsLogoSocialText: "Texto",
-				settingsLogoSocialLink: "Vínculo"
+				settingsLogoSocialLink: "Vínculo",
+				settingsLogoSocialDisabled: "El administrador ha deshabilitado esta entidad"
 			},
 			settingsExtent: {
 				settingsTabExtent: "Extensión",
 				settingsExtentExplain: "Establecer la extensión inicial mediante el mapa interactivo siguiente.",
-				settingsExtentExplainBottom: "La extensión que definas modificará la extensión inicial del mapa web.",
+				settingsExtentExplainBottom: "La extensión que definas modificará la extensión inicial del mapa web. Ten en cuenta que si estás llevando a cabo una serie comparativa no se usará esa extensión.",
+				settingsExtentDateLineError: "La extensión no puede atravesar el meridiano de longitud 180º",
+				settingsExtentDateLineError2: "Error al calcular la extensión",
 				settingsExtentDrawBtn: "Dibuja una nueva extensión",
 				settingsExtentModifyBtn: "Edita la extensión actual",
-				settingsExtentApplyBtn: "Aplica en el mapa principal"
+				settingsExtentApplyBtn: "Aplica en el mapa principal",
+				settingsExtentUseMainMap: "Usa la extensión del mapa principal"
 			}
         },
 		swipe: {
@@ -132,7 +139,7 @@
 				settingsDataModelExplainSpyGlass: "Elige la capa o el mapa Web que aparecerá en el catalejo.",
 				settingsDataModelOneMap: "Un mapa Web con una sola capa",
 				settingsDataModel1Explain: "Selecciona la capa que controlará la comparativa de mapas.",
-				settingsDataModel1Warning: "Solo se pueden usar los servicios dinámicos, de teselas e imágenes. Si la capa está oculta por las capas superiores, la comparativa de mapas no tendrá ningún efecto.",
+				settingsDataModel1Warning: "Si la capa está oculta por capas superiores, la comparativa de mapas no tendrá ningún efecto.",
 				settingsDataModel1SpyGlassExplain: "Selecciona la capa que aparecerá en el catalejo.",
 				settingsDataModelTwoMaps: "Dos mapas Web",
 				settingsDataModelLayerIds: "ID de capa de mapa Web",
@@ -145,7 +152,7 @@
 				settingsDataModel2Explain: "Comparar con otro mapa Web.",
 				settingsDataModel2SpyGlassExplain: "Deja al descubierto otro mapa Web.",
 				settingsDataModel2HelpTitle: "Cómo encontrar el ID de un mapa Web",
-				settingsDataModel2HelpContent: "Copia y pega los dígitos que hay tras el signo "=" en la URL del mapa Web"
+				settingsDataModel2HelpContent: "Copia y pega los dígitos que hay tras el signo \"=\" en la URL del mapa Web"
 			},
 			settingsLegend: {
 				settingsTabLegend: "Diseño de la aplicación",
@@ -153,8 +160,9 @@
 				settingsLegendEnable: "Activar leyenda",
 				settingsDescriptionEnable: "Activar descripción",
 				settingsBookmarksEnable: "Activar series de comparativas",
-				settingsLegendHelpTitle: "Cómo delimitar el contenido de la leyenda",
-				settingsLegendHelpContent: "Utiliza la tabla de contenido del visor de mapas Web de ArcGIS.com (ocultar en leyenda)",
+				settingsPopupDisable: "Habilitar ventana emergente",
+				settingsLegendHelpContent: "Utiliza la tabla de contenido del visor de mapas web de ArcGIS.com (ocultar en leyenda) para delimitar el contenido de la leyenda.",
+				settingsSeriesHelpContent: "En el momento de la primera activación, tus marcadores de mapa web se usarán para completar previamente la barra de series. Si más tarde deshabilitas esa opción, tu configuración de series no se descartará y estará disponible si decides activar la serie de nuevo.",
 				preview: "Vista previa de la interfaz de usuario"
 			},
 			settingsSwipePopup: {
@@ -171,6 +179,13 @@
 				initHeader: "Bienvenido a Swipe Builder",
 				modalNext: "Siguiente",
 				modalApply: "Abrir la aplicación"
+			},
+			seriesPanel: {
+				title: "Título",
+				descr: "Descripción",
+				discard: "Descartar marcadores",
+				saveExtent: "Configurar extensión de marcadores",
+				discardDisabled: "No puedes eliminar ese marcador. Las series comparativas pueden deshabilitarse en la Configuración."
 			}
 		}
     })

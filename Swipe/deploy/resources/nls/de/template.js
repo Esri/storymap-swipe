@@ -11,6 +11,7 @@
 			},
 			errors: {
 				boxTitle: "Ein Fehler ist aufgetreten",
+				portalSelf: "Schwerwiegender Fehler: Die Portalkonfiguration konnte nicht abgerufen werden",
 				invalidConfig: "Schwerwiegender Fehler: Ungültige Konfiguration",
 				invalidConfigNoWebmap: "Schwerwiegender Fehler: Ungültige Konfiguration (keine Webkarte angegeben)",
 				createMap: "Karte konnte nicht erstellt werden",
@@ -20,7 +21,7 @@
 				noLayerView: "Willkommen bei der Webanwendung \"Ausblenden\".<br />Die Anwendung ist noch nicht konfiguriert.",
 				appSave: "Fehler beim Speichern der Webanwendung",
 				mapSave: "Fehler beim Speichern der Webkarte",
-				notAuthorized: "Sie sind nicht autorisiert, diese Anwendung zu konfigurieren",
+				notAuthorized: "Sie sind nicht autorisiert, auf diese Anwendung zuzugreifen",
 				conflictingProjectionsTitle: "In Konflikt stehende Projektionen",
 				conflictingProjections: "Für zwei Webkarten mit unterschiedlichen Projektionen kann \"Ausblenden\ nicht verwendet werden. Bitte gehen Sie zu den Einstellungen und wählen Sie eine Webkarte, die die gleiche Projektion wie die erste Webkarte aufweist.",
 				cpButton: "Schließen"
@@ -33,7 +34,8 @@
 			},
 			desktopView: {
 				storymapsText: "Eine Story Map",
-				builderButton: "Zum Generator-Modus wechseln"
+				builderButton: "Zum Generator-Modus wechseln",
+				bitlyTooltip: "Kurzlink zur Anwendung abrufen"
 			}
 		},
 		builder: {
@@ -43,6 +45,7 @@
 				buttonDiscard: "ABBRECHEN",
 				buttonSettings: "Einstellungen",
 				buttonView: "Anzeigemodus",
+				buttonItem: "Webanwendungselement öffnen",
 				noPendingChange: "Keine ausstehende Änderung",
 				unSavedChangeSingular: "1 nicht gespeicherte Änderung",
 				unSavedChangePlural: "nicht gespeicherte Änderungen",
@@ -86,15 +89,19 @@
 				settingsLogoCustomTargetPlaceholder: "Link zum Durchklicken",
 				settingsLogoSocialExplain: "Den Link rechts oben für die Kopfzeile anpassen.",
 				settingsLogoSocialText: "Text",
-				settingsLogoSocialLink: "Link"
+				settingsLogoSocialLink: "Link",
+				settingsLogoSocialDisabled: "Diese Funktion wurde vom Administrator deaktiviert"
 			},
 			settingsExtent: {
 				settingsTabExtent: "Ausdehnung",
 				settingsExtentExplain: "Die Anfangsausdehnung über die nachstehende interaktive Karte festlegen.",
-				settingsExtentExplainBottom: "Die definierte Ausdehnung ändert die Anfangsausdehnung Ihrer Webkarte.",
+				settingsExtentExplainBottom: "Die definierte Ausdehnung ändert die Anfangsausdehnung Ihrer Webkarte. Beachten Sie, dass die Ausdehnung nicht verwendet wird, wenn Sie eine Ausblendereihe festlegen.",
+				settingsExtentDateLineError: "Die Ausdehnung darf nicht über den Meridian von 180° Längengrad hinausreichen",
+				settingsExtentDateLineError2: "Fehler beim Berechnen der Ausdehnung",
 				settingsExtentDrawBtn: "Eine neue Ausdehnung darstellen",
 				settingsExtentModifyBtn: "Die aktuelle Ausdehnung bearbeiten",
-				settingsExtentApplyBtn: "Auf Hauptkarte anwenden"
+				settingsExtentApplyBtn: "Auf Hauptkarte anwenden",
+				settingsExtentUseMainMap: "Ausdehnung der Haupkarte verwenden"
 			}
         },
 		swipe: {
@@ -132,7 +139,7 @@
 				settingsDataModelExplainSpyGlass: "Layer oder Webkarte auswählen, der bzw. die im Fernglas angezeigt werden soll.",
 				settingsDataModelOneMap: "Eine Webkarte, einzelner Layer",
 				settingsDataModel1Explain: "Layer auswählen, der mit dem Werkzeug \"Ausblenden\" gesteuert wird.",
-				settingsDataModel1Warning: "Es können nur die Services \"Dynamisch\", \"Kachel\" oder \"Bild\" verwendet werden. Wenn der Layer von darüberliegenden Layern verdeckt wird, hat \"Ausblenden\" keine Wirkung.",
+				settingsDataModel1Warning: "Wenn der Layer von darüberliegenden Layern verdeckt wird, hat \"Ausblenden\" keine Wirkung.",
 				settingsDataModel1SpyGlassExplain: "Layer auswählen, der im Fernglas angezeigt werden soll.",
 				settingsDataModelTwoMaps: "Zwei Webkarten",
 				settingsDataModelLayerIds: "Webkarten-Layer-IDs",
@@ -153,8 +160,9 @@
 				settingsLegendEnable: "Legende aktivieren",
 				settingsDescriptionEnable: "Beschreibung aktivieren",
 				settingsBookmarksEnable: "Ausblendereihe aktivieren",
-				settingsLegendHelpTitle: "Optimieren des Legendeninhalts",
-				settingsLegendHelpContent: "Inhaltsverzeichnis des ArcGIS.com-Webkarten-Viewers verwenden (in Legende ausblenden)",
+				settingsPopupDisable: "Pop-up aktivieren",
+				settingsLegendHelpContent: "Verwenden Sie das Inhaltsverzeichnis des ArcGIS.com-Webkarten-Viewers, um den Legendeninhalt zu optimieren (In Legende ausblenden)",
+				settingsSeriesHelpContent: "Bei der ersten Aktivierung werden Ihre Webkarten-Lesezeichen verwendet, um die Leiste der Reihe vorab auszufüllen. Wenn Sie die Reihen-Option später deaktivieren, geht die Konfiguration der Reihe nicht verloren, sondern steht bei einer eventuellen späteren Aktivierung der Serie wieder zur Verfügung.",
 				preview: "Benutzeroberflächen-Vorschau"
 			},
 			settingsSwipePopup: {
@@ -171,6 +179,13 @@
 				initHeader: "Willkommen beim Builder für \"Ausblenden\"",
 				modalNext: "Weiter",
 				modalApply: "App öffnen"
+			},
+			seriesPanel: {
+				title: "Titel",
+				descr: "Beschreibung",
+				discard: "Lesezeichen verwerfen",
+				saveExtent: "Lesezeichenausdehnung festlegen",
+				discardDisabled: "Sie können dieses Lesezeichen nicht entfernen. Das Ausblenden von Reihen lässt sich in den Einstellungen deaktivieren."
 			}
 		}
     })
