@@ -335,14 +335,6 @@ The main dependencies are:
  * Make accessible the src folder to your web server
  * Edit index.html to the web map you want to use
 
-### How to build application from the source code
-  * Open a terminal and navigate to the tools folder 
-  * Run the following command:
-
-        build.bat
-
-The deploy folder now contains the built application that you can deploy to your web server.
-
 
 ## Licensing
 Copyright 2012 Esri
