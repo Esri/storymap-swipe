@@ -1,4 +1,4 @@
-# Swipe 
+# Swipe
 
 A storytelling template that enables users to reveal a layer of a web map or another web map 
 using a vertical bar or a spy glass. This is a new version of the popular swipe template that provide 
@@ -10,7 +10,7 @@ a better experience on smartphone and an interactive builder on ArcGIS Online, s
 | [User Download (source code not included)](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Storytelling-Swipe-1.0.zip)
 | [Developer Download (include source code)](https://github.com/Esri/swipe-map-storytelling-template-js/archive/master.zip)
 
-**Latest release is version version 1.0**, if you want to be informed of new releases, we recommend you to watch these repository.
+**Latest release is version version 1.1**, if you want to be informed of new releases, we recommend you to watch these repository.
 
 
 Help content:
@@ -78,6 +78,7 @@ The minimal steps to configure the application are the following:
 More customization are accessible through three files :
 
 1. Index.html offers major settings:
+  - **popup**: web map popups can be disabled in the application by setting this property to false
 	- **popupTitles**: text that appears in pop-up header
 	- **popupColors**: popup header background colors
 	- **legend**: dictate if the legend panel is displayed in the side panel
@@ -85,6 +86,8 @@ More customization are accessible through three files :
 	- **sidePanelDescription**: Text that appears in the description panel
     - **title**: if not specified the ArcGIS.com map's title is used
     - **subtitle**: if not specified the ArcGIS.com webmap's summary is used
+  - **series**: dictate if a series is used in the application.  A series is a tabbed navigation tool to guide viewers through particular geographic extents with appropriate titles and descriptions.
+  - **bookmarks**: list of places with titles and descriptions (if series is enabled)
 2. app/swipe-config.js offers to customize the header and the application colors:
     - **HEADER_LOGO_URL**: path to the header logo image (blank to disable)
 	- **HEADER_LOGO_TARGET**: logo click-through link
@@ -114,6 +117,50 @@ We would love to hear from you!
 * [ArcGIS Blog](http://blogs.esri.com/esri/arcgis/)
 
 ## What's new?
+
+#### Swipe 1.1 released on 09/18/2013
+
+Major version with the following new functionalities:
+ 
+ * Swipe Series.  This is a tabbed scene navigation tool that will take the user to a certain extent and display the author’s title and description for that scene.  The titles are displayed in the tooltip for each button of each scene.  In the builder, any bookmarks from the webmaps are imported on initial swipe series creation.
+ * Ability to disable web map popups in application
+ * Support Portal for ArcGIS
+ * Embed mode that remove header (available through the embed URL parameter or through configuration file)
+ * Better Facebook and Twitter sharing (use the application title/description and the first point thumbnail)
+ * New header button to get a bitly short link
+ * New settings option to disable Facebook/Twitter and Bitly button
+ * New button to open the Web Application item page
+ * New configuration option to disable individual social sharing services
+ * New button in the Settings extent tab to use the current map extent 
+ * Better vertical centering of the header logo (appear centered whatever it’s size)
+ * Use the Organization/Portal helper services and Bing Maps configuration (allow to define Geometry, Geocode Service and Bing Maps key at the Organization/Portal level without configuring the template)
+
+
+Bug Fixes:
+
+ * Mobile data/popup for 2 layers & spy glass (only one popup showed before)
+ * Popups with two maps (each with feature layers).  Was not displaying before
+ * Issue of not being able to close the popup at all times
+ * Closing of popup clears the highlight of the selected feature
+ * Prevented the iPad vertical bounce effect 
+ * On Ipad, when entering text with the virtual keyboard, the layout is often broken after the keyboard close
+ * Setting an initial extent across the dateline is authorized
+ * Header title/subtitle are not restored when using discard
+ * The error box that appear on loading if the webmap is not found is partially hidden on mobile
+ * Loading issue on IE8/9 when the template is deployed on an intranet
+ * IE with 2 maps, the popup of the right map is not correct til swipe or map move (shows left popup initially)
+ * Popup with 2 layers does not update with map pan
+ * Mobile swipe series view for description and title is not updated live (on edit)
+ * Mobile swipe series view for long description (will expand with click)
+ * If on mobile legend view and resize to desktop, arrows will remain visible (and “no legend” message if no legend)
+ * If on mobile data view and resize to desktop, and back to data, the popup info no longer is there (but will reload if you swipe to map view and back to data)
+
+Technical Changes:
+
+ * Use ArcGIS API for Javascript 3.7
+ * The build script isn’t limited to Windows environment (now uses grunt)
+ * Switched to on style event
+ * Embedded jQuery and removed sharethis
 
 #### Swipe 1.0 released on 07/05/2013
  * Responsive web design that offer a new user experience on Smartphone
@@ -236,16 +283,26 @@ Download and unzip the [Developer download](https://github.com/Esri/swipe-map-st
 
 ### Introduction
 
-To build a production version of the application from the source code, you need:
- * a Windows OS 
- * [Node.js](http://nodejs.org/)
- * [Java Runtime version 6 or higher](http://www.oracle.com/technetwork/java/javase/downloads/jre7-downloads-1880261.html)
+To build a production version of the application from the source code, you first need to install [Node.js](http://nodejs.org/).
 
-The build script use: 
- * [RequireJS](http://requirejs.org/) to optimize the Swipe code 
- * [Google Closure Compiler](https://developers.google.com/closure/compiler/) and [YUI Compressor](http://yui.github.com/yuicompressor/) to optimize external dependencies
+Then initialize the environment by running the following commands in the template root:
+ * `npm install`
+ * `npm install –g grunt-cli`
 
- The script will be ported to a full node.js later on. 
+This will create a new `node-modules` folder in your project root with all tools to build the project. If you have trouble running the second command, [this may help you](https://github.com/gruntjs/grunt-cli#installing-grunt-cli-locally).
+
+### How to use the application from the source code
+ * Make accessible the src folder to your web server
+ * Configure the default credential to be used to authorize you against the webmap or web application item in `storymaps/core/Core.js` (look for `// Automatic login in development mode` around line 150)
+ * If using a Portal for ArcGIS instance configure the sharing url `app/swipe-config.js` (last properties)
+ * If you are not using a modern browser you have to [set-up a proxy](https://developers.arcgis.com/en/javascript/jshelp/ags_proxy.html) on your development computer and configure the url in `app/swipe-config.js` (you can use a relative path)
+ * Use or use the URL parameters `webmap` and `appid` to specify the item to be loaded (all parameters from index.html are ignored in development mode)
+
+### How to build application from the source code
+  * Open a terminal and navigate to the root folder 
+  * Run the following command: `grunt`
+
+The deploy folder now contains the built application that you can deploy to your web server.
 
 ### Design
 Swipe relies on AMD and Dojo loader [AMD](http://help.arcgis.com/en/webapi/javascript/arcgis/jshelp/#inside_dojo_amd) for application structure.
