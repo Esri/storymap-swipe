@@ -58,7 +58,6 @@ define([], function(){
 			_carousel.onMoveOut(function () {
 				//
 			});
-			
 		}
 		
 		function setColor(bgColor)

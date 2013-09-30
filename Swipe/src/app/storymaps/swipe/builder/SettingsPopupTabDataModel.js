@@ -1,5 +1,5 @@
-define([], 
-	function () {
+define(["dojo/topic"], 
+	function (topic) {
 		return function SettingsPopupTabDataModel(titleContainer, contentContainer, popupApplyButton) 
 		{
 			// Clone the #popupView template into a new DIV
@@ -7,9 +7,10 @@ define([],
 			
 			// Events
 			$(contentContainer).find(".inputWebmapId2").keyup(checkWebmapsValidity);
+			$(contentContainer).find(".inputWebmapId2").blur(function(){ $(window).scrollTop(0); });
 			$(contentContainer).find('.btnSelect').fastClick(onDataModelChange)
 			
-			dojo.subscribe("LAYOUT_CHANGE", configureWebmapsModelLbl);
+			topic.subscribe("LAYOUT_CHANGE", configureWebmapsModelLbl);
 			
 			this.init = function(settings) 
 			{			

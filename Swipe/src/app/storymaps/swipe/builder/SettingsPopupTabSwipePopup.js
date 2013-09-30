@@ -1,11 +1,14 @@
-define([], 
-	function () {
+define(["dojo/topic"], 
+	function (topic) {
 		return function SettingsPopupTabSwipePopup(titleContainer, contentContainer) 
 		{
 			// Clone the #popupView template into a new DIV
 			$(contentContainer).append($('#popupView-popup').children().clone());
 			
-			dojo.subscribe("LAYOUT_CHANGE", configureHeader);
+			topic.subscribe("LAYOUT_CHANGE", configureHeader);
+			
+			$(contentContainer).find(".selectPopup1").blur(function(){ console.log("OOOO"); $(window).scrollTop(0); });
+			$(contentContainer).find(".selectPopup2").blur(function(){ $(window).scrollTop(0); });
 			
 			this.init = function(settings) 
 			{			
@@ -50,14 +53,16 @@ define([],
 				};
 			}
 			
-			function getPopupTitles(){
+			function getPopupTitles()
+			{
 				return [
 					$(contentContainer).find(".selectPopup2").val(),
 					$(contentContainer).find(".selectPopup1").val()
 				];
 			}
 			
-			function getPopupColors(){
+			function getPopupColors()
+			{
 				return [
 					$(contentContainer).find("#popup2Color").spectrum("get").toHex(),
 					$(contentContainer).find("#popup1Color").spectrum("get").toHex()

@@ -8,7 +8,8 @@ define(["storymaps/swipe/core/WebApplicationData",
 		"storymaps/swipe/builder/SettingsPopupTabSwipePopup",
 		"storymaps/builder/SettingsPopupTabColors",
 		"storymaps/builder/SettingsPopupTabHeader",
-		"storymaps/builder/SettingsPopupTabExtent"], 
+		"storymaps/builder/SettingsPopupTabExtent",
+		"dojo/topic"], 
 	function (
 		WebApplicationData, 
 		SettingsPopup,
@@ -19,8 +20,8 @@ define(["storymaps/swipe/core/WebApplicationData",
 		SettingsPopupTabSwipePopup,
 		SettingsPopupTabColors, 
 		SettingsPopupTabHeader, 
-		SettingsPopupTabExtent
-		)
+		SettingsPopupTabExtent,
+		topic)
 	{
 		return function BuilderView() 
 		{
@@ -30,7 +31,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 			this.init = function(settingsPopup)
 			{
 				_settingsPopup = settingsPopup;
-				dojo.subscribe("SETTINGS_POPUP_SAVE", settingsPopupSave);
+				topic.subscribe("SETTINGS_POPUP_SAVE", settingsPopupSave);
 			}
 			
 			//
@@ -67,7 +68,8 @@ define(["storymaps/swipe/core/WebApplicationData",
 						{
 							legend: WebApplicationData.getLegend(),
 							description: WebApplicationData.getDescription(),
-							bookmarks: WebApplicationData.getBookmarks()
+							bookmarks: WebApplicationData.getSeries(),
+							popup: WebApplicationData.getPopup()
 						},
 						{
 							popupColors: WebApplicationData.getPopupColors(),
@@ -83,12 +85,12 @@ define(["storymaps/swipe/core/WebApplicationData",
 							linkText: WebApplicationData.getHeaderLinkText() == undefined ? APPCFG.HEADER_LINK_TEXT : WebApplicationData.getHeaderLinkText(),
 							linkURL: WebApplicationData.getHeaderLinkURL() == undefined ? APPCFG.HEADER_LINK_URL : WebApplicationData.getHeaderLinkURL(),
 							// For the simulator
-							colors: WebApplicationData.getColors()
+							colors: WebApplicationData.getColors(),
+							social: WebApplicationData.getSocial()
 						},
 						{
 							extent: Helper.getWebMapExtentFromItem(app.data.getWebMapItem().item)
 						}
-						
 					]
 				);
 			}
@@ -110,7 +112,9 @@ define(["storymaps/swipe/core/WebApplicationData",
 				// UI Layout
 				WebApplicationData.setLegend(data.settings[2].legend);
 				WebApplicationData.setDescription(data.settings[2].description);
-				WebApplicationData.setBookmarks(data.settings[2].bookmarks);
+				WebApplicationData.setSeries(data.settings[2].series);
+				WebApplicationData.setSeriesBookmarks(data.settings[2].bookmarks);
+				WebApplicationData.setPopup(data.settings[2].popup);
 				
 				// Popup
 				WebApplicationData.setPopupColors(data.settings[3].popupColors);
@@ -133,6 +137,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 					WebApplicationData.setLogoURL(NO_LOGO_OPTION);
 				}
 				WebApplicationData.setLogoTarget(data.settings[5].logoTarget);
+				WebApplicationData.setSocial(data.settings[5].social);
 				
 				// Extent
 				var extent = Helper.serializeExtentToItem(data.settings[6].extent);
@@ -146,8 +151,8 @@ define(["storymaps/swipe/core/WebApplicationData",
 				else
 					app.spyGlass.updateSettings(WebApplicationData.getPopupColors(), WebApplicationData.getPopupTitles());
 				
-				dojo.publish("BUILDER_INCREMENT_COUNTER", 1);
-				dojo.publish("CORE_UPDATE_UI");
+				topic.publish("BUILDER_INCREMENT_COUNTER", 1);
+				topic.publish("CORE_UPDATE_UI");
 			}
 			
 			this.resize = function()

@@ -1,0 +1,62 @@
+#footer {
+	position: absolute;
+	bottom: 0px;
+	left: 0px;
+	right: 0px;
+	width: 100%;
+	background-color:#c2c2c2;
+	z-index: 50;
+}
+
+#footerMobile {
+	display: none;
+	height:100px;
+	border-top:1px solid #999;
+}
+
+#footerMobile .carousel {
+	height: 100%;
+	-ms-touch-action: none;
+}
+
+#footerMobile .carousel .tpPreview {
+	height:100px;
+	cursor: pointer;
+}
+
+#footerMobile .carousel > div > div {
+	overflow: hidden;
+}
+
+#footerMobile .tpImgContainer {
+	margin-left: 0px;
+	margin-right: 6px;
+} 
+
+#footerMobile .tpName {
+	padding-top: 2px;
+	font-size: 20px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	word-break: break-all;
+	word-wrap: break-word;
+	max-height: 24px;
+	padding-right: 2px;
+}
+
+#footerMobile .tpDescription {
+	font-size: 14px;
+	margin-top: 12px;
+	margin-left: 4px;
+	padding-right: 4px;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 3;
+	-webkit-box-orient: vertical;
+	max-height: 54px;
+	word-wrap: break-word;
+}

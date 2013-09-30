@@ -1,13 +1,32 @@
-define(["storymaps/swipe/core/WebApplicationData",
+define(["esri/arcgis/Portal",
+		"storymaps/swipe/core/WebApplicationData",
 		"storymaps/builder/BuilderPanel",
 		"storymaps/builder/SettingsPopup",
 		"storymaps/swipe/builder/InitPopup",
 		"storymaps/swipe/core/SwipeHelper",
 		"storymaps/utils/Helper",
+		"storymaps/utils/WebMapHelper",
 		"dojo/_base/lang",
 		"dojo/has",
-		"esri/IdentityManager"],
-	function(WebApplicationData, BuilderPanel, SettingsPopup, InitPopup, SwipeHelper, Helper, lang, has)
+		"esri/IdentityManager",
+		"esri/request",
+		"dojo/topic",
+		"dojo/on"],
+	function(
+		esriPortal, 
+		WebApplicationData, 
+		BuilderPanel, 
+		SettingsPopup, 
+		InitPopup, 
+		SwipeHelper, 
+		Helper, 
+		WebMapHelper,
+		lang, 
+		has,
+		IdentityManager,
+		esriRequest,
+		topic,
+		on)
 	{
 		var _core = null;
 		var _builderView = null;
@@ -27,7 +46,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 			_core = core;
 			_builderView = builderView;
 			
-			$(document).ready(dojo.hitch(this, function(){
+			$(document).ready(lang.hitch(this, function(){
 				console.log("swipe.builder.Builder - init");
 
 				if( ! Helper.getAppID(_core.isProd()) ) {
@@ -43,8 +62,8 @@ define(["storymaps/swipe/core/WebApplicationData",
 				_settingsPopup.init(_builderView);
 				_settingsPopup.initLocalization();
 				
-				dojo.subscribe("BUILDER_INCREMENT_COUNTER", _builderPanel.incrementSaveCounter);	
-				dojo.subscribe("HEADER_EDITED", headerEdited);
+				topic.subscribe("BUILDER_INCREMENT_COUNTER", _builderPanel.incrementSaveCounter);	
+				topic.subscribe("HEADER_EDITED", headerEdited);
 				
 				// Reload / close confirmation if there is unsaved change
 				window.onbeforeunload = function (e) {
@@ -121,14 +140,13 @@ define(["storymaps/swipe/core/WebApplicationData",
 		function saveApp()
 		{
 			var portalUrl = getPortalURL();
-			var portal = new esri.arcgis.Portal(portalUrl);
+			var portal = new esriPortal.Portal(portalUrl);
 
-			dojo.connect(esri.id, "onDialogCreate", styleIdentityManagerForSave);
+			on(IdentityManager, "dialog-create", styleIdentityManagerForSave);
 			portal.signIn().then(
 				function(){
-					var itemId = Helper.getAppID(_core.isProd()),
-						uid = esri.id.findCredential(portalUrl).userId,
-						token  = esri.id.findCredential(portalUrl).token,
+					var uid = IdentityManager.findCredential(portalUrl).userId,
+						token  = IdentityManager.findCredential(portalUrl).token,
 						appItem = lang.clone(app.data.getAppItem());
 
 					// Remove properties that don't have to be committed
@@ -146,7 +164,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 						text: JSON.stringify(WebApplicationData.get())
 					});
 
-					var saveRq = esri.request(
+					var saveRq = esriRequest(
 						{
 							url: portalUrl + "/sharing/content/users/" + uid + (appItem.ownerFolder ? ("/" + appItem.ownerFolder) : "") + "/addItem",
 							handleAs: 'json',
@@ -178,11 +196,11 @@ define(["storymaps/swipe/core/WebApplicationData",
 				var portalUrl = getPortalURL(),
 					item = app.data.getWebMapItem().item,
 					itemData = app.data.getWebMapItem().itemData,
-					uid = esri.id.findCredential(portalUrl).userId,
-					token  = esri.id.findCredential(portalUrl).token;
+					uid = IdentityManager.findCredential(portalUrl).userId,
+					token  = IdentityManager.findCredential(portalUrl).token;
 				
 				// Cleanup item data
-				Helper.prepareWebmapItemForCloning(itemData);
+				WebMapHelper.prepareWebmapItemForCloning({ itemData: itemData });
 
 				var rqData = {
 					f: 'json',
@@ -198,7 +216,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 					token: token
 				};
 
-				var saveRq = esri.request(
+				var saveRq = esriRequest(
 					{
 						url: portalUrl + "/sharing/content/users/" + uid + (item.ownerFolder ? ("/" + item.ownerFolder) : "") + "/addItem",
 						handleAs: 'json',
@@ -250,9 +268,9 @@ define(["storymaps/swipe/core/WebApplicationData",
 			$(".esriSignInDialog").find("#dijitDialogPaneContentAreaLoginText").css("display", "none");
 
 			// Setup a more friendly text
-			$(".esriSignInDialog").find(".dijitDialogPaneContentArea:first-child").find(":first-child").first().after("<div id='dijitDialogPaneContentAreaAtlasLoginText'>"+i18n.builder.builder.signIn+" <a href='http://" + esri.id._arcgisUrl + "' title='" + esri.id._arcgisUrl + "' target='_blank'>" + esri.id._arcgisUrl + "</a> "+i18n.builder.builder.signInTwo+"</div>");
+			$(".esriSignInDialog").find(".dijitDialogPaneContentArea:first-child").find(":first-child").first().after("<div id='dijitDialogPaneContentAreaAtlasLoginText'>"+i18n.builder.builder.signIn+" <a href='http://" + IdentityManager._arcgisUrl + "' title='" + IdentityManager._arcgisUrl + "' target='_blank'>" + IdentityManager._arcgisUrl + "</a> "+i18n.builder.builder.signInTwo+"</div>");
 			
-			dojo.connect(esri.id, "onDialogCancel", function (info){ 
+			on(IdentityManager, "dialog-cancel", function (info){ 
 				$("#builderPanel .builder-settings").popover('hide');
 			});
 		}
@@ -260,14 +278,13 @@ define(["storymaps/swipe/core/WebApplicationData",
 		function cleanApp()
 		{
 			var portalUrl = getPortalURL();
-			var portal = new esri.arcgis.Portal(portalUrl);
+			var portal = new esriPortal.Portal(portalUrl);
 
-			dojo.connect(esri.id, "onDialogCreate", styleIdentityManagerForSave);
+			on(IdentityManager, "dialog-create", styleIdentityManagerForSave);
 			portal.signIn().then(
 				function(){
-					var itemId = Helper.getAppID(_core.isProd()),
-						uid = esri.id.findCredential(portalUrl).userId,
-						token  = esri.id.findCredential(portalUrl).token,
+					var uid = IdentityManager.findCredential(portalUrl).userId,
+						token  = IdentityManager.findCredential(portalUrl).token,
 						appItem = lang.clone(app.data.getAppItem());
 
 					// Remove properties that don't have to be committed
@@ -285,7 +302,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 						text: JSON.stringify(WebApplicationData.getBlank())
 					});
 
-					var saveRq = esri.request(
+					var saveRq = esriRequest(
 						{
 							url: portalUrl + "/sharing/content/users/" + uid + (appItem.ownerFolder ? ("/" + appItem.ownerFolder) : "") + "/addItem",
 							handleAs: 'json',
@@ -296,12 +313,20 @@ define(["storymaps/swipe/core/WebApplicationData",
 						}
 					);
 					
-					saveRq.then(saveWebmap, appSaveFailed);
+					saveRq.then(
+						function(){
+							console.log("Web Application data cleaned successfully");
+						}, function(){
+							console.log("Web Application data cleaning has failed");
+						}
+					);
 				},
 				function(error) {
-					appSaveFailed("APP", error);
+					console.error("Web Application data cleaning has failed", error);
 				}
 			);
+			
+			return "Cleaning ...";
 		}
 		
 		return {

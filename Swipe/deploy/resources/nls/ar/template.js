@@ -11,6 +11,7 @@
 			},
 			errors: {
 				boxTitle: "حدث خطأ",
+				portalSelf: "خطأ فادح: فشل في الحصول على تكوين المدخل",
 				invalidConfig: "خطأ فادح: تكوين غير صحيح",
 				invalidConfigNoWebmap: "خطأ فادح: تكوين غير صحيح (لا توجد خرائط ويب محددة)",
 				createMap: "تعذر إنشاء الخريطة",
@@ -20,7 +21,7 @@
 				noLayerView: "مرحبًا في تطبيق السحب على الويب. <br /> لم يتم تكوين التطبيق بعد.",
 				appSave: "خطأ اثناء حفظ تطبيق الويب",
 				mapSave: "خطأ أثناء حفظ خريطة الويب",
-				notAuthorized: "أنت لست مخولاً لتكوين التطبيق",
+				notAuthorized: "لست مخولاً لتكوين التطبيق للوصول إلى هذا التطبيق",
 				conflictingProjectionsTitle: "تعارض الإسقاطات",
 				conflictingProjections: "لا يدعم السحب استخدام اثنان من خرائط الويب ذات إسقاطات مختلفة. الرجاء فتح الإعدادات واستخدم خريطة الويب التي تستخدم نفس الإسقاط لخريطة الويب الأولى.",
 				cpButton: "إغلاق"
@@ -33,7 +34,8 @@
 			},
 			desktopView: {
 				storymapsText: "قصة داخل خريطة",
-				builderButton: "الانتقال إلى وضع المنشئ"
+				builderButton: "الانتقال إلى وضع المنشئ",
+				bitlyTooltip: "الحصول على رابط قصير إلى التطبيق"
 			}
 		},
 		builder: {
@@ -43,6 +45,7 @@
 				buttonDiscard: "إلغاء الأمر",
 				buttonSettings: "الإعدادات",
 				buttonView: "عرض الوضع",
+				buttonItem: "فتح عنصر تطبيق الويب",
 				noPendingChange: "لا يوجد تغيير معلق",
 				unSavedChangeSingular: "1 تغيير غير محفوظ",
 				unSavedChangePlural: "تغييرات غير محفوظة",
@@ -86,15 +89,19 @@
 				settingsLogoCustomTargetPlaceholder: "انقر فوق الرابط",
 				settingsLogoSocialExplain: "تخصيص عنوان الرابط الموجود أعلى اليمين.",
 				settingsLogoSocialText: "النص",
-				settingsLogoSocialLink: "رابط"
+				settingsLogoSocialLink: "رابط",
+				settingsLogoSocialDisabled: "لقد تم تعطيل هذا المعلم بواسطة المدير"
 			},
 			settingsExtent: {
 				settingsTabExtent: "المدى",
 				settingsExtentExplain: "تعيين النطاق الأولي خلال الخريطة التفاعلية الموضحة أدناه.",
-				settingsExtentExplainBottom: "سيقوم النطاق الذي تم تعريفه بتعديل النطاق الأولي لخريطة الويب.",
+				settingsExtentExplainBottom: "سيقوم النطاق الذي تم تعريفه بتعديل النطاق الأولي لخريطة الويب. لاحظ أنه إذا كنت تقوم بعمل سلسلة من السحب، فلن يتم استخدام هذا النطاق.",
+				settingsExtentDateLineError: "لا يجب أن يتجاوز النطاق خط الطول 180 درجة",
+				settingsExtentDateLineError2: "حدث خطأ أثناء حساب النطاق",
 				settingsExtentDrawBtn: "ارسم النطاق الجديد",
 				settingsExtentModifyBtn: "تحرير النطاق الحالي",
-				settingsExtentApplyBtn: "التطبيق على الخريطة الرئيسية"
+				settingsExtentApplyBtn: "التطبيق على الخريطة الرئيسية",
+				settingsExtentUseMainMap: "استخدام نطاق الخريطة الأساسي"
 			}
         },
 		swipe: {
@@ -132,7 +139,7 @@
 				settingsDataModelExplainSpyGlass: "اختر الطبقة أو خريطة الويب التي ستظهر في المنظار.",
 				settingsDataModelOneMap: "خريطة ويب واحدة وطبقة فردية",
 				settingsDataModel1Explain: "حدد الطبقة ليتم التحكم فيها من قبل أداة السحب.",
-				settingsDataModel1Warning: "يمكن فقط استخدام خدمات الصور والتجانبات والخدمات الديناميكية. إذا كانت الطبقة مختفية من قبل الطبقات، لن يكون السحب ذو تأثير يذكر.",
+				settingsDataModel1Warning: "إذا كانت الطبقة مختفية من قبل الطبقات العلوية، لن يكون السحب ذو تأثير يذكر.",
 				settingsDataModel1SpyGlassExplain: "حدد الطبقة لتظهر داخل المنظار.",
 				settingsDataModelTwoMaps: "اثنان من خرائط الويب",
 				settingsDataModelLayerIds: "معرفات طبقة خريطة الويب",
@@ -145,7 +152,7 @@
 				settingsDataModel2Explain: "اسحب مع خريطة ويب أخرى",
 				settingsDataModel2SpyGlassExplain: "كشف خريطة ويب أخرى.",
 				settingsDataModel2HelpTitle: "كيفية إيجاد معرف خريطة الويب",
-				settingsDataModel2HelpContent: "انسخ والصق الأرقام بعد علامة "=" داخل عنوان URL لخريطة الويب"
+				settingsDataModel2HelpContent: "انسخ والصق الأرقام بعد علامة \"=\" داخل عنوان URL لخريطة الويب"
 			},
 			settingsLegend: {
 				settingsTabLegend: "التخطيط الطباعي للتطبيق",
@@ -153,8 +160,9 @@
 				settingsLegendEnable: "تمكين وسيلة الإيضاح",
 				settingsDescriptionEnable: "تمكين الوصف",
 				settingsBookmarksEnable: "تمكين سلاسل السحب",
-				settingsLegendHelpTitle: "كيفية تنقية محتوى وسيلة الإيضاح",
-				settingsLegendHelpContent: "استخدم جدول محتويات عارض خريطة الويب ArcGIS.com (مخفي في وسيلة الإيضاح)",
+				settingsPopupDisable: "تمكين عنصر منبثق",
+				settingsLegendHelpContent: "لتحسين محتوى مفتاح الخريطة، استخدم جدول محتويات عارض خريطة الويب ArcGIS.com (مخفي في وسيلة الإيضاح)",
+				settingsSeriesHelpContent: "في التفعيل الأول، سيتم استخدام العلامات المرجعية لخرائط الويب لإعادة تعبئة شريط السلسلة. إذا قمت بتعطيل خيار السلسلة لاحقًا، لن يتم تجاهل تكوين السلسلة وسيتوفر عند تقرير تمكين السلسلة مجددًا.",
 				preview: "معاينة واجهة المستخدم"
 			},
 			settingsSwipePopup: {
@@ -171,6 +179,13 @@
 				initHeader: "مرحبًا بك في منشئ السحب",
 				modalNext: "التالي",
 				modalApply: "فتح التطبيق"
+			},
+			seriesPanel: {
+				title: "العنوان",
+				descr: "الوصف",
+				discard: "تجاهل العلامة المرجعية",
+				saveExtent: "تعيين نطاق العلامة المرجعية",
+				discardDisabled: "لا يمكنك إزالة العلامة المرجعية. يمكن تعطيل سلسلة السحب في الإعدادات."
 			}
 		}
     })

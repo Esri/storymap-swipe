@@ -51,6 +51,10 @@ label {
 	z-index: 40;
 }
 
+#infoWindow.disable{
+	display: none;
+}
+
 .mobile-view #infoWindow {
 	display: none;
 }

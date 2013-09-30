@@ -5,13 +5,14 @@
 	}
 }
 
-@media screen and (max-width: 767px), screen and (orientation:portrait) {
+@media screen and (max-width: 767px), screen and (orientation:portrait) { 
+/* TODO orientation:portrait is causing resize to mobile problem (screen is taller than wider)*/
 	#headerDesktop {
 		display: none;
 	}
 	
 	#header {
-		height: 41px;
+		height: 41px !important;
 		background-color: #c2c2c2;
 	}
 	
@@ -46,9 +47,19 @@
 	#lensTool.twoLayers{
 		background-image: url('../../../../resources/icons/mobile-spyglass-1.png');
 	}
+	
 	#lensTool.twoMaps{
 		background-image: url('../../../../resources/icons/mobile-spyglass-2.png');
 	}
+	
+	#lensTool.safariFix {
+		background-image: url('../../../../resources/icons/mobile-spyglass-1.png');
+	}
+	
+	#lensMapNode.safariFix #lensMapNode_container {
+		clip: rect(8px 193px 193px 8px) !important;
+	}
+
 	#lensTool {
 		width: 200px;
 		height: 200px;

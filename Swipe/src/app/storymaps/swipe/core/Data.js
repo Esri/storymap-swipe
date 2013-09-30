@@ -43,7 +43,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 
 		this.updateAfterSave = function()
 		{
-			// 
+			WebApplicationData.updateAfterSave();
 		}
 		
 		this.getWebAppData = function()
@@ -51,10 +51,9 @@ define(["storymaps/swipe/core/WebApplicationData",
 			return WebApplicationData.get();
 		}
 		
-		this.userIsAppOwnerOrAdmin = function()
+		this.userIsAppOwner = function()
 		{
-			return Helper.getPortalRole() == "account_admin" 
-					|| (Helper.getPortalUser() != null && Helper.getPortalUser() == this.getAppItem().owner)
+			return (Helper.getPortalUser() != null && Helper.getPortalUser() == this.getAppItem().owner)
 					|| (app.portal && app.portal.getPortalUser() && app.portal.getPortalUser().username == this.getAppItem().owner);	
 		}
 	}

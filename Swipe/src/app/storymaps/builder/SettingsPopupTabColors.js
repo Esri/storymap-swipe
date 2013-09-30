@@ -34,12 +34,12 @@ define([],
 					$(_inputHeaderColor).spectrum("set", settings.colors[0]);	
 					$(_inputMiddleColor).spectrum("set", settings.colors[1]);	
 				}
-			}
+			};
 			
 			this.show = function()
 			{
 				//
-			}
+			};
 			
 			this.save = function()
 			{		
@@ -53,7 +53,7 @@ define([],
 					];
 				}
 				else {
-					var scheme = $.grep(colorSchemes,function(n,i){return n.name == schemeName})[0];
+					var scheme = $.grep(colorSchemes,function(n){return n.name == schemeName})[0];
 					colors = [
 						scheme.headerColor,
 						scheme.panelColor
@@ -63,7 +63,7 @@ define([],
 				return {
 					colors: colors
 				};
-			}
+			};
 	
 			function getCurrentScheme() 
 			{
@@ -134,16 +134,16 @@ define([],
 				});
 			}
 			
-			function onColorSchemeRadioClick(event)
+			function onColorSchemeRadioClick()
 			{
 				updatePickers();
 				
 				// Har link to update the logo tab
 				if (getSelectedSchemeIndex() == colorSchemes.length) {
-					$("#headerSimulator", contentContainer).css("background-color", $(_inputHeaderColor).val());			
+					$("#headerSimulator", contentContainer).css("background-color", $(_inputHeaderColor).val());		
 				}
 				else {
-					var scheme = $.grep(colorSchemes,function(n,i){
+					var scheme = $.grep(colorSchemes,function(n){
 						return n.name == getCurrentScheme();
 					})[0]; 
 					$("#headerSimulator", contentContainer).css("background-color", scheme.headerColor);

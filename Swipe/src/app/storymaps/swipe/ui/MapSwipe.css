@@ -56,7 +56,7 @@
 	width: 82px;
 	height: 52px;
 	position: absolute;
-	z-index: 99;
+	z-index: 50;
 	background-image: url('../../../../resources/icons/swipe-arrows.png');
 }
 
@@ -91,3 +91,8 @@
 .ui-resizable-ne { cursor: ne-resize; width: 9px; height: 9px; right: -5px; top: -5px;}
 
 .ui-resizable-e.touch { cursor: e-resize; width: 15px; right: -5px; top: 0; height: 100%; }
+
+/* disable popup */
+.esriPopup.disable{
+	display: none;
+}

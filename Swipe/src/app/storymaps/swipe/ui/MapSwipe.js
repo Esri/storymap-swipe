@@ -1,5 +1,28 @@
-define(["esri/widgets","dijit/registry", "dojo/has"],
-	function(Widgets, registry, has)
+define(["dojo/dnd/move",
+		"esri/widgets",
+		"dijit/registry", 
+		"dojo/has", 
+		"esri/geometry/Point", 
+		"esri/geometry/Extent",
+		"esri/geometry/screenUtils", 
+		"dojo/on",
+		"dojo/_base/connect", 
+		"dojo/query", 
+		"dojo/dom",
+		"dojo/dom-style"],
+	function(
+		Move,
+		Widgets, 
+		registry, 
+		has, 
+		Point, 
+		Extent,
+		screenUtils, 
+		on,
+		connect, 
+		query, 
+		dom,
+		domStyle)
 	{
 		return function MapSwipe(container)
 		{
@@ -7,6 +30,7 @@ define(["esri/widgets","dijit/registry", "dojo/has"],
 			var _layers = null;
 			var _popupColors = null;
 			var _popupTitles = null;
+			var _popup = true;
 			var _xOffset = null;
 			
 			var _lastSwiperEventPoint = null;
@@ -15,17 +39,25 @@ define(["esri/widgets","dijit/registry", "dojo/has"],
 			var _pointTest = null;
 			var _popupState = null;
 			
-			this.init = function(webMapArray, layers, popupColors, popupTitles, xOffset)
+			this.init = function(webMapArray, layers, popupColors, popupTitles, xOffset, popup)
 			{
-				console.log("MapSwipe init", webMapArray, layers, popupColors, popupTitles);
+				console.log("MapSwipe init", webMapArray, layers, popupColors, popupTitles, popup);
 				_webMapArray = webMapArray;
 				_layers = layers;
 				_popupColors = popupColors;
 				_popupTitles = popupTitles;
 				_xOffset = xOffset;
+				_popup = popup;
 				
 				$('#infoWindowTabImg').css('display', 'none');
 				$('#infoWindow').css('display', 'none');
+				
+				if (!_popup) {
+					//$('.esriPopup').addClass('disable');
+					$.each(app.popup, function(i){
+						app.popup[i].destroy();
+					})
+				}
 
 				setUpPopup();
 								
@@ -42,10 +74,11 @@ define(["esri/widgets","dijit/registry", "dojo/has"],
 				
 				_popupColors = popupColors;
 				_popupTitles = popupTitles;
-				if (_webMapArray.length == 1)
-					if(_lastSwiperEventPoint)
-						setPopup(_lastSwiperEventPoint);					
-				else
+				if (_webMapArray.length == 1) {
+					if (_lastSwiperEventPoint) 
+						setPopup(_lastSwiperEventPoint);
+				}
+				else 
 					setSwiperPopupHeader();
 			}
 			
@@ -54,8 +87,14 @@ define(["esri/widgets","dijit/registry", "dojo/has"],
 			
 			function setUpPopup()
 			{
-				$('.esriPopup .titleButton').css('display', 'none');
+				/*$('.esriPopup .titleButton').css('display', 'none');
+				$('.esriPopup .title').css('display', 'none');*/
+				
+				$('.esriPopup').css('visibility', 'hidden');
 				$('.esriPopup .title').css('display', 'none');
+				$('.esriPopup .prev').css('display', 'none');
+				$('.esriPopup .next').css('display', 'none');
+				$('.esriPopup .maximize').css('display', 'none');
 				
 				// Add a div that will hold the custom title as it's tricky to edit the popup title
 				$('.esriPopup .title').after('<div class="swipeTitle"></div>');
@@ -69,14 +108,17 @@ define(["esri/widgets","dijit/registry", "dojo/has"],
 			
 			function setUpClipper()
 			{
+				// Hide elements for 2 webmaps model
 				$('#resizeWrapper').css('width', '0%');
 				$('#mainMap1').css('width', '0%');
 				
-				var node = dojo.query(container + " #sliderDiv");
-				var sliderDiv = new dojo.dnd.move.parentConstrainedMoveable(node[0], {
+				var node = query(container + " #sliderDiv");
+				var sliderDiv = new Move.parentConstrainedMoveable(node[0], {
 	        		area: "mainMap0",
 	        		within: true
 	      		});
+				
+				app.sliderDiv = sliderDiv;
 				
 				if(has("touch"))
 					$('.moveable').addClass('touch');
@@ -92,8 +134,8 @@ define(["esri/widgets","dijit/registry", "dojo/has"],
 				clipLayer(sliderDiv);
 				
 				// TODO: should not be needed here
-				app.maps[0].reposition();
-				app.maps[0].resize();
+				//app.maps[0].reposition();
+				//app.maps[0].resize();
 			}
 			
 			function clipLayer(slider)
@@ -104,27 +146,31 @@ define(["esri/widgets","dijit/registry", "dojo/has"],
 
 				getClip(clipVal);
 				
-				dojo.connect(app.popup[0], "onSetFeatures", function() 
-				{
-					setPopup(mapPoint);
-				});
-				
-				dojo.connect(_webMapArray[0], 'onClick', function(evt) 
+				on(_webMapArray[0], 'click', function(evt) 
 				{	
+					// Hide popup in case no data is found for layer.  Popup will be shown if found during popup check (setPopup())
+					$('.esriPopup').css('visibility', 'hidden');
 					mapPoint = evt;	
 					$("#swipeImg").fadeOut();
-	        	});
+					_popupState = 'open';
+	        	});				
 				
-				dojo.connect(slider, 'onMove', function(args) 
+				on(app.popup[0], "set-features", function() 
+				{
+					setTimeout(function (){
+						setPopup(mapPoint, 0);
+					});
+				});
+								
+				connect.connect(slider, 'onMove', function(args) 
 				{
 					//sliderDiv.style.top = "0px"; 
-					
 					var left = parseInt(slider.node.offsetLeft);
 					if (left <=0 || left >= (_webMapArray[0].width)) 
 						return;       
 					clipVal = left;
-					setPopup(mapPoint);
 					getClip(clipVal);
+					setPopup(mapPoint);
 	        	});
 				
 				$(window).resize(function()
@@ -132,26 +178,23 @@ define(["esri/widgets","dijit/registry", "dojo/has"],
 					slider.node.style.height = _webMapArray[0].height + "px";
 				});
 				
-				dojo.connect(slider, "onMoveStart", function(args) {
-					//dojo._setOpacity(this.node, 0.5);
+				connect.connect(slider, "onMoveStart", function(args) {
 					$("#swipeImg").fadeOut();
 	          	});
 				
-				dojo.connect(slider, "onMoveStop", function(args)
+				on(_webMapArray[0], 'pan', function(args) 
 				{
-					//dojo._setOpacity(this.node, 1.0);
-	        	});
-	        	
-				
-				dojo.connect(_webMapArray[0], 'onPan', function(args) 
-				{
-					setPopup(mapPoint);
 	          		getClip(slider.node.offsetLeft);				
+	        	});
+				
+				on(_webMapArray[0], 'pan-end', function(args) 
+				{
+					setPopup(mapPoint);			
 	        	});
 				
 				var isGraphics = app.maps[0].getLayer(_layers[0]).type == "Feature Layer";
 				if(isGraphics){
-					dojo.connect(_webMapArray[0], 'onPanEnd', function(args) 
+					on(_webMapArray[0], 'pan-end', function(args) 
 					{
 		          		getClip(slider.node.offsetLeft);				
 		        	});
@@ -159,21 +202,24 @@ define(["esri/widgets","dijit/registry", "dojo/has"],
 					var layer = app.maps[0].getLayer(_layers[0]);
 						
 					if(layer._collection)
-						dojo.connect(app.maps[0], 'onZoomEnd', getClip(slider.node.offsetLeft));
+						dojo.connect(app.maps[0], 'onZoomEnd', function(){
+							getClip(slider.node.offsetLeft)
+						});
 					else {
 						var opacity = layer._params && layer._params.opacity ? layer._params.opacity : 1.0;
 						var updateIsZoom = false;
 						
-						dojo.connect(app.maps[0], 'onZoomStart', function(){
+						on(app.maps[0], 'zoom-start', function(){
 							updateIsZoom = true;
 						});
 						
-						dojo.connect(app.maps[0].getLayer(_layers[0]), 'onUpdateStart', function(){
+						// To prevent flashing of graphics on zoom
+						on(app.maps[0].getLayer(_layers[0]), 'update-start', function(){
 							if( updateIsZoom )
 								app.maps[0].getLayer(_layers[0]).setOpacity(0.0);
 						});
 					
-						dojo.connect(app.maps[0].getLayer(_layers[0]), 'onUpdateEnd', function(){
+						on(app.maps[0].getLayer(_layers[0]), 'update-end', function(){
 							if( updateIsZoom ) 
 								app.maps[0].getLayer(_layers[0]).setOpacity(opacity);
 							getClip(slider.node.offsetLeft)
@@ -184,7 +230,7 @@ define(["esri/widgets","dijit/registry", "dojo/has"],
 				
 	        	if (_webMapArray[0].navigationMode === "css-transforms") 
 				{
-	          		dojo.connect(_webMapArray[0], 'onPan', function(args) {
+	          		on(_webMapArray[0], 'pan', function(args) {
 	          			getClip(slider.node.offsetLeft);
 	        		});
 	      		}
@@ -193,9 +239,9 @@ define(["esri/widgets","dijit/registry", "dojo/has"],
 			function hideGraphics(val)
 			{
 				//val += 12;
-				var ll = app.maps[0].toMap(new esri.geometry.Point(0, app.maps[0].height, app.maps[0].spatialReference));
-				var ur = app.maps[0].toMap(new esri.geometry.Point(val, 0, app.maps[0].spatialReference));
-				var leftExtent = new esri.geometry.Extent(ll.x, ll.y, ur.x, ur.y, app.maps[0].spatialReference);
+				var ll = app.maps[0].toMap(new Point(0, app.maps[0].height, app.maps[0].spatialReference));
+				var ur = app.maps[0].toMap(new Point(val, 0, app.maps[0].spatialReference));
+				var leftExtent = new Extent(ll.x, ll.y, ur.x, ur.y, app.maps[0].spatialReference);
 	
 				$.each(_webMapArray[0].getLayer(_layers[0]).graphics, function(i, graphic){
 					var center = graphic.geometry.type == 'point' ? graphic.geometry : graphic.geometry.getExtent().getCenter();
@@ -208,7 +254,7 @@ define(["esri/widgets","dijit/registry", "dojo/has"],
 			
 			function getClip(val)
 			{
-				var swipeDiv = dojo.byId("sliderDiv");
+				var swipeDiv = dom.byId("sliderDiv");
 				var clipDiv = _webMapArray[0].getLayer(_layers[0])._div; 
 				
 				if (swipeDiv != null) {
@@ -248,53 +294,18 @@ define(["esri/widgets","dijit/registry", "dojo/has"],
 						hideGraphics(leftval);
 						return;
 					}
-			                    
-			        // If CSS Transformation is applied to the layer (i.e. swipediv), 
-			        // record the amount of translation and adjust clip rect accordingly
-			        var tx = 0, ty = 0;
-					if (_webMapArray[0].navigationMode === "css-transforms")
-					{
-			        	var prefix = "";
-						if (dojo.isWebKit) 
-			            	prefix = "-webkit-";
-						else if (dojo.isFF)
-			            	prefix = "-moz-";
-						else if (dojo.isIE) 
-			          		prefix = "-ms-";
-						else if (dojo.isOpera) 
-			            	prefix = "-o-";
-			                      
-			        	var transformValue = clipDiv.style.getPropertyValue(prefix + "transform");
-	
-			        	if(transformValue) 
-						{
-							if(transformValue.toLowerCase().indexOf("translate3d") !== -1) 
-							{
-								transformValue = transformValue.replace("translate3d(", "").replace(")", "").replace(/px/ig, "").replace(/\s/i, "").split(",");				
-							}
+
+					var sliderPos = dojo.position(dojo.byId("sliderDiv"));
+					var layerPos = dojo.position(clipDiv);
+
+					var x = sliderPos.x - layerPos.x;
+					var y = sliderPos.y - layerPos.y;
 						
-							else if(transformValue.toLowerCase().indexOf("translate") !== -1) 
-							{
-						  		transformValue = transformValue.replace("translate(", "").replace(")", "").replace(/px/ig, "").replace(/\s/i, "").split(",");
-							} 
-												
-							try 
-							{
-								tx = parseFloat(transformValue[0]);
-								ty = parseFloat(transformValue[1]);
-							} 
-							catch(e) 
-							{
-								alert("Error cannot continue");
-								console.error(e);
-							}
-			            	leftval -= tx;
-			            	rightval -= tx;
-			            	topval -= ty;
-			            	bottomval -= ty;
-			        	}
-			        }
-			                    
+					leftval = x;
+					bottomval = sliderPos.h + (sliderPos.y - layerPos.y);
+					rightval = 0 - layerPos.x;
+					topval = y;
+           
 			        //Syntax for clip "rect(top,right,bottom,left)" commas b/w values is standard syntax, w/o is backwards compatible
 			        //var clipstring = "rect(0px " + val + "px " + map.height + "px " + " 0px)";      
 			        //var clipString = "rect(" + topval + "px " + rightval + "px " + bottomval + "px " + leftval + "px)";
@@ -305,12 +316,12 @@ define(["esri/widgets","dijit/registry", "dojo/has"],
 			
 			function setPopup(evt)
 			{
-				if( ! evt || ! app.popup[0] )
+				if( ! evt || ! app.popup[0] || _popupState == 'closed'  || !_popup)
 					return;
-
+				var screenGeom = screenUtils.toScreenGeometry(app.maps[0].extent, app.maps[0].width, app.maps[0].height, evt.mapPoint);
 				var isGraphics = app.maps[0].getLayer(_layers[0]).type == "Feature Layer";
-				var clipLeft = parseInt(dojo.byId("sliderDiv").style.left.split("px",1));
-				var isOnSpecificLayer = evt.pageX < clipLeft;
+				var clipLeft = parseInt(dom.byId("sliderDiv").style.left.split("px",1));
+				var isOnSpecificLayer = screenGeom.x < clipLeft;
 				var specificLayerId = _layers[0] + (isGraphics ? "" : "_1"); // TODO is that _1 safe ?
 				var colorTitleIndex = isOnSpecificLayer ? 1 : 0;
 				
@@ -331,21 +342,25 @@ define(["esri/widgets","dijit/registry", "dojo/has"],
 						$('.esriPopup .titlePane').css('backgroundColor', '#' + _popupColors[colorTitleIndex]);
 						$('.esriPopup .swipeTitle').html(_popupTitles[colorTitleIndex] || '&nbsp;');
 						$('.esriPopup .swipeTitle').append('<div id="popup0" class="closePopup"><a ><i class="icon-remove icon-white"></i></a></div>');
+						$('.esriPopup').css('visibility', 'visible');
 						
-	        			dojo.connect(dojo.byId("popup0"), 'onclick', function(){
-							$('.esriPopup').css('visibility', 'hidden');
+	        			on(query(".titleButton.close"), 'click', function(){
+							//$('.esriPopup').css('visibility', 'hidden');
+							_popupState = 'closed';
 						})
 						
 						app.popup[0].select(i);
-						var feature = app.popup[0].getSelectedFeature();
+						//var feature = app.popup[0].getSelectedFeature();
+						_popupState = 'open';
 						break;
 					}
 				}
 				
 				if( ! dataFound ) {
-					$('.esriPopup .titlePane').css('backgroundColor', '#' + _popupColors[0]);
+					/*$('.esriPopup .titlePane').css('backgroundColor', '#' + _popupColors[0]);
 					$('.esriPopup .swipeTitle').html(_popupTitles[0] || '&nbsp;');
-					$('.esriPopup .swipeTitle').append('<div id="popup0" class="closePopup"><a ><i class="icon-remove icon-white"></i></a></div>');
+					$('.esriPopup .swipeTitle').append('<div id="popup0" class="closePopup"><a ><i class="icon-remove icon-white"></i></a></div>');*/
+					$('.esriPopup').css('visibility', 'hidden');
 				}
 				
 				// Mobile popup
@@ -393,7 +408,7 @@ define(["esri/widgets","dijit/registry", "dojo/has"],
 				
 				setSwiperPopupHeader();
 				
-				dojo.connect(_webMapArray[0], 'onClick', function(evt, source)
+				on(_webMapArray[0], 'click', function(evt, source)
 				{	
 					app.popup[0].hide();
 					app.popup[1].hide();
@@ -411,12 +426,14 @@ define(["esri/widgets","dijit/registry", "dojo/has"],
 					_webMapArray[1].onClick(evt, "other");
 	        	});
 				
-				dojo.connect(app.popup[0], "onSetFeatures", function() 
+				on(app.popup[0], "set-features", function() 
 				{
-					setSwipePopup(mapPoint, 0);
+					setTimeout(function (){
+						setSwipePopup(mapPoint, 0);
+					}, 0);
 				});
 				
-				dojo.connect(_webMapArray[1], 'onClick', function(evt, source)
+				on(_webMapArray[1], 'click', function(evt, source)
 				{	
 					app.popup[0].hide();
 					app.popup[1].hide();
@@ -426,12 +443,6 @@ define(["esri/widgets","dijit/registry", "dojo/has"],
 					
 					if(app.popup[1].isShowing == true)
 						return;				
-	
-					if( app.popup[1].deferreds ) {
-						app.popup[1].deferreds[0].then(function(){
-							setSwipePopup(mapPoint, 1);
-						});
-					}
 							
 					if(source == "other")
 						return;
@@ -439,7 +450,14 @@ define(["esri/widgets","dijit/registry", "dojo/has"],
 					_webMapArray[0].onClick(evt, "other");	
 	        	});
 				
-				dojo.connect(_webMapArray[0], 'onPanEnd', function(args)
+				on(app.popup[1], "set-features", function() 
+				{
+					setTimeout(function (){
+						setSwipePopup(mapPoint, 1);
+					}, 0);
+				});
+				
+				on(_webMapArray[0], 'pan-end', function(args)
 				{
 					var popupAnchor = {};
 					if (app.popup[0].isShowing == true) {
@@ -453,7 +471,7 @@ define(["esri/widgets","dijit/registry", "dojo/has"],
 					setSwipePopup(popupAnchor);
 	        	});
 				
-				dojo.connect(_webMapArray[1], 'onPanEnd', function(args)
+				on(_webMapArray[1], 'pan-end', function(args)
 				{
 					var popupAnchor = {};
 					if (app.popup[0].isShowing == true) {
@@ -484,7 +502,7 @@ define(["esri/widgets","dijit/registry", "dojo/has"],
 				popup1.after($('#mainMap1').find('.esriPopup'));
 				
 				//Hide slider from clip method
-				dojo.style(dojo.byId('sliderDiv'), "display", "none");
+				domStyle.set(dom.byId('sliderDiv'), "display", "none");
 				
 				initiateSwipe();
 			}
@@ -494,27 +512,31 @@ define(["esri/widgets","dijit/registry", "dojo/has"],
 				$('.esriPopup .titlePane').eq(0).css('backgroundColor', '#' + _popupColors[0]);
 				$('.esriPopup .swipeTitle').eq(0).html(_popupTitles[0] || '&nbsp;');
 				$('.esriPopup .swipeTitle').eq(0).append('<div id="closePopup0" class="closePopup"><a ><i class="icon-remove icon-white"></i></a></div>');
-						
-	        	dojo.connect(dojo.byId("closePopup0"), 'onclick', function(){
-					_popupState = 'closed';
-					$('.esriPopup').css('visibility', 'hidden');
-				})
+
+				if( dom.byId("closePopup0") ) {
+					on(dom.byId("closePopup0"), 'click', function(){
+						_popupState = 'closed';
+						$('.esriPopup').css('visibility', 'hidden');
+					});
+				}		
 				
 				$('.esriPopup .titlePane').eq(1).css('backgroundColor', '#' + _popupColors[1]);
 				$('.esriPopup .swipeTitle').eq(1).html(_popupTitles[1] || '&nbsp;');
 				$('.esriPopup .swipeTitle').eq(1).append('<div id="closePopup1" class="closePopup"><a ><i class="icon-remove icon-white"></i></a></div>');
-						
-	        	dojo.connect(dojo.byId("closePopup1"), 'onclick', function(){
-					_popupState = 'closed';
-					$('.esriPopup').css('visibility', 'hidden');
-				})
+				
+				if( dom.byId("closePopup1") ) {
+					on(dom.byId("closePopup1"), 'click', function(){
+						_popupState = 'closed';
+						$('.esriPopup').css('visibility', 'hidden');
+					});
+				}
 			}
 			
 			// Should take care of showing mapDiv2
 			function resizeMapDiv(mapPoint) 
 			{
-				$("#mainMap1").css('width', dojo.byId('mainMap0').clientWidth);
-				$("#mainMap1").css('height', dojo.byId('mainMap0').clientHeight);
+				$("#mainMap1").css('width', dom.byId('mainMap0').clientWidth);
+				$("#mainMap1").css('height', dom.byId('mainMap0').clientHeight);
 				if(_webMapArray[0])
 				{
 					_webMapArray[0].resize();
@@ -551,7 +573,7 @@ define(["esri/widgets","dijit/registry", "dojo/has"],
 			
 			function initiateSwipe() 
 			{
-				$("#mainMap1").css('width', dojo.byId('mainMap0').clientWidth);
+				$("#mainMap1").css('width', dom.byId('mainMap0').clientWidth);
 				$("#resizeWrapper").css("width", $('#mainMap0').width() / 2 + _xOffset);
 				
 				$("#swipeImg1").css('left',($('#mainMap0').width()/2 - 44 + _xOffset + "px"));
@@ -560,24 +582,26 @@ define(["esri/widgets","dijit/registry", "dojo/has"],
 				
 				app.maps[1].resize(true);
 				_webMapArray[1].setExtent(_webMapArray[0].extent).then(function(){
-					dojo.connect(_webMapArray[0], "onExtentChange", syncMap2);
-					dojo.connect(_webMapArray[1], "onExtentChange", syncMap1);
+					on(_webMapArray[0], "extent-change", syncMap2);
+					on(_webMapArray[1], "extent-change", syncMap1);
 					_inProgress = false;
 				});
 			}
 			
 			function setSwipePopup(evt, mapIndex)
 			{
-				if( ! evt || _popupState == 'closed')
+				if( ! evt || _popupState == 'closed' || !_popup)
 					return;
+
+				_pointTest = evt.pageY ? evt.mapPoint : _pointTest;
 				
-				_pointTest = evt.y ? evt.mapPoint : _pointTest;
-				
-				var targetPopup = evt.x > $('#resizeWrapper').width() ? 0 : 1;
+				var evtX = evt.pageX || evt.x;
+				var targetPopup = evtX > $('#resizeWrapper').width() ? 0 : 1;
 				
 				app.popup[targetPopup].show(_pointTest);
 				app.popup[targetPopup ? 0 : 1].hide();
 				
+				//Can we use targetPopup in place of mapIndex?
 				if( mapIndex != null ) 
 					setMobilePopup(mapIndex, (app.popup[mapIndex].features || [null])[0]);
 			}

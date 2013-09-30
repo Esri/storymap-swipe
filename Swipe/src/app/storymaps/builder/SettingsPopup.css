@@ -1,5 +1,6 @@
 #settingsPopup {
 	width: 650px;
+	margin-left: -325px;
 }
 
 #settingsPopup, #settingsPopup .modal-body {
@@ -28,5 +29,5 @@
 }
 
 #settingsPopup .savePopover {
-	width: 185px;
+	width: 180px;
 }

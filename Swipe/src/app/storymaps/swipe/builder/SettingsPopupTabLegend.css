@@ -40,12 +40,17 @@
 	margin-left: 5px !important;
 }
 
-.viewLegend .legendtooltip {
-	margin-left: 22px;
+.viewLegend .legendInfo, .viewLegend .seriesInfo {
+	vertical-align: -4px;
 }
 
 .viewLegend .legendtooltip-popover {
 	min-width: 290px !important;
+}
+
+.viewLegend .seriestooltip-popover {
+	max-width: 300px !important;
+	width: 300px !important;
 }
 
 .viewLegend a {

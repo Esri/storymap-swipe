@@ -3,6 +3,7 @@
 	<head>
 		<title></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 		
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -11,14 +12,13 @@
 		<link type="image/ico" rel="icon"  href="//resources.esri.com/favicon.ico">
 
 		<meta property="og:title" content="Swipe"/>
-		<meta property="og:image" content="resources/icons/esri-logo.jpg"/>
 		<meta property="og:description" content="A storytelling template that enables users to view and compare two layers of a web map using a vertical bar or a spyglass."/>
+		<meta property="og:image" content="http://www.arcgis.com/sharing/rest/content/items/dcaadc9aae1948c5b2df9adf8698f9cc/info/thumbnail/thumbnail.png"/>
 
 		<script type="text/javascript">
 			//--------------------------------
 			//     Template configuration
 			//--------------------------------
-			configOptions = {
 				//----------------------------------
 				// Swipe Style
 				//----------------------------------
@@ -34,9 +34,14 @@
 				// If using one webmap, enter the layer index of the layer to be revealed. 
 				// Index is defined by the web map table of contents (0 is the top layer).
 				layerIndex: 1, 
+				// Alternatively you can also reuse a web application ID created through the interactive builder in ArcGIS.com 
+				// This allow to reuse the settings like the header configuration without having to edit any configuration here
+				appid: "",
 				//----------------------------------
 				// Pop-up
 				//----------------------------------
+				// Web map popups can be disabled in the application when set to false
+				popup: true,
 				// Text that appears in pop-up header to help user associate pop-up with the correct map.
 				// First string will be used for the right map or spyglass map, and the second string is used for the right map or main map in spyglass mode
 				popupTitles: ["",""],
@@ -50,26 +55,58 @@
 				// Dictate if the description panel is displayed in the side panel.
 				description: true,
 				// Text that appears in the description panel of the side panel. Valid HTML string expected.
-				sidePanelDescription: "A longer description can be displayed here",
+				sidePanelDescription: "",
+				// Dictate if a series is used in the application.  A series is a tabbed navigation tool to guide viewers through particular geographic
+				// extents with appropriate titles and descriptions.
+				series: false,
+				// List of places if series is enabled
+				bookmarks: [
+					/*{
+						name: "Bookmark 1",
+						description: "Bookmark 1 description",
+						extent: {
+							type: "extent",
+							xmax: -4552500.675205263,
+							xmin: -16801993.08007121,
+							ymax: 7906059.491489781,
+							ymin: 49555.976228313986,
+							spatialReference: {
+								wkid: 102100
+							}
+						}
+					},
+					{
+						name: "Bookmark 2",
+						description: "Bookmark 2 description",
+						extent: {
+							type: "extent",
+							xmax: -12685400.484745855,
+							xmin: -14216587.03535409,
+							ymax: 5082781.414749258,
+							ymin: 4100718.475341579,
+							spatialReference: {
+								wkid: 102100
+							}
+						}
+					}*/
+				],
 				//----------------------------------
 				// Header
 				//----------------------------------
 				// The application header title, if no title is specified, the webmap's title is used
 				title: "",
 				// The application header subtitle, if not specified the ArcGIS.com web map's summary is used
-				subtitle: "",
-				//----------------------------------
-				// Server
-				//----------------------------------
-				// Optionally specify a proxy for specific deployment
-				//proxyurl: "//www.arcgis.com/sharing/proxy",
-				// Optionally specify the sharing service URL if you are using Portal for ArcGIS
-				sharingurl: "//www.arcgis.com/sharing/content/items"
+				subtitle: ""
 			};
+			// Optionally sharing and proxy URLs can be configured in app/swipe-config.js. This is only required  
+			//  when the webmap is not hosted on ArcGIS Online or a Portal for ArcGIS instance and the template isn't deployed as /home/StorytellingSwipe/ or /apps/StorytellingSwipe/. 
+			// Optionally Bing Maps key, Geometry and Geocode service's URLs can be configured in app/commonConfig.js. This is only required 
+			//  if the Organization or Portal for ArcGIS instance default configuration has to be overwritten. If the application is deployed 
+			//  on Portal for ArcGIS as /home/StorytellingSwipe/ or /apps/StorytellingSwipe/, that configuration is available in ../commonConfig.js
 		</script>
 
 		<script type="text/javascript">
-			var version = '1.0';
+			var version = '1.1';
 			var isProduction = true;
 
 			function loadJS(url, isExternal)
@@ -96,8 +133,8 @@
 				document.getElementsByTagName("head")[0].appendChild(el);
 			}
 			
-			loadCSS("//js.arcgis.com/3.6/js/esri/css/esri.css", true);
-			loadCSS("//js.arcgis.com/3.6/js/dojo/dijit/themes/claro/claro.css", true);		
+			loadCSS("//jsdev.arcgis.com/3.7/js/esri/css/esri.css", true);
+			loadCSS("//jsdev.arcgis.com/3.7/js/dojo/dijit/themes/claro/claro.css", true);		
 
 			if( isProduction ) {
 				loadCSS("app/swipe-min.css");
@@ -112,9 +149,10 @@
 				loadCSS("app/storymaps/core/Core.css");
 				loadCSS("app/storymaps/ui/header/Header.css");
 				loadCSS("app/storymaps/ui/mapCommand/MapCommand.css");
+				loadCSS("app/storymaps/swipe/ui/desktop/seriesPanel.css");
 				
 				loadCSS("app/storymaps/swipe/core/MainView.css");
-				loadCSS("app/storymaps/swipe/ui/desktop/SwipeSidePanel.css");
+				loadCSS("app/storymaps/swipe/ui/desktop/SidePanel.css");
 				
 				loadCSS("app/storymaps/builder/Builder.css");
 				loadCSS("app/storymaps/builder/BuilderPanel.css");
@@ -131,6 +169,7 @@
 				loadCSS("app/storymaps/builder/SettingsPopupTabExtent.css");
 				
 				loadCSS("app/storymaps/swipe/ui/mobile/MobileSwipeView.css");
+				loadCSS("app/storymaps/swipe/ui/mobile/Carousel.css");
 				
 				loadCSS("app/storymaps/swipe/ui/MapSwipe.css");
 				loadCSS("app/storymaps/swipe/ui/SpyGlass.css");
@@ -142,18 +181,18 @@
 			var dojoConfig = {
 				parseOnLoad: true,
 				isDebug: false,
+				useDeferredInstrumentation: true,
+				cacheBust: ! isProduction,
 				packages: [
 					{
 						name: 'storymaps',
 						location: location.pathname.replace(/\/[^/]+$/, '/') + 'app/storymaps'
 					},
 					{
-						name: 'esriTemplate',
-						location: location.pathname.replace(/\/[^/]+$/, '/') + 'resources'
-					},
-					{
 						name: "templateConfig",
-						location: path_location
+						// If the template is deployed on a Portal (apps path contains /apps/StorytellingSwipe/ or /home/StorytellingSwipe/)
+						// commonConfig.js is loaded from the parent folder, otherwise it's is loaded from the app folder
+						location: /(\/apps\/|\/home\/)(StorytellingSwipe\/)/.test(document.location.pathname) ? path_location.substr(0,path_location.lastIndexOf('/StorytellingSwipe')) : path_location.replace(/\/+$/, '') + '/app'
 					}
 				]
 			};
@@ -186,8 +225,9 @@
 						<span class="msLink">
 							<a href="http://storymaps.esri.com" target="_blank"></a>
 						</span>
-						<span class='st_facebook'></span>
-						<span class='st_twitter'></span>
+						<div class="shareIcon share_facebook"></div>
+						<div class="shareIcon share_twitter"></div>
+						<a class="shareIcon share_bitly"></a>
 					</div>
 					<div class="logo">
 						<a target="_blank">
@@ -204,10 +244,15 @@
 						<button type="button" class="btn builder-discard"></button>
 						<button type="button" class="btn builder-settings"></button>
 						<button type="button" class="btn small builder-view"></button>
+						<button type="button" class="btn small builder-item"></button>
 					</div>
 					<div id="save-counter"></div>
 				</div>
 			</div>
+		</div>
+		<div id="seriesPanel">
+			<div id="seriesNav"></div>
+			<div id="seriesBuilder"></div>
 		</div>
 		<div id="contentPanel" class="mobileView">
 			<!-- Map panel -->
@@ -234,11 +279,16 @@
 					<div id="infoWindowTabImg"></div>
 				</div>
             </div>
-			<div id="sidePanel"></div>
-			<div id="swipeSidePanel">
+			<div id="sidePanel">
 				<div id="descriptionPanel">
-					<div id="description">
-						<textarea id="descriptionArea" style="width: 100%; height: 100%;"></textarea>
+					<div id="textEditPanel"></div>
+					<div id="descriptionTitle">
+					</div>
+					<div id="descriptionContent">
+					</div>
+					<div id="seriesControls">
+						<button type="button" class="btn btn-danger series-discard"></button>
+						<button type="button" class="btn btn-success series-extentSave"></button>
 					</div>
 				</div>
 				<div id="legendTitle"></div>
@@ -267,6 +317,20 @@
 				<div class="explain"></div>
 			</div>
 			<div class="swiper infoWindowView"></div> 
+		</div>
+		<div id="seriesTextView">
+			<div id="seriesViewLabel" class="seriesButton seriesView">
+				<p class="seriesLabel">1</p>
+			</div>
+			<div id="seriesTitle"></div>
+			<div id="seriesDescription"></div>
+		</div>
+		
+		<!-- Mobile swipe-series footer -->
+		<div id="footer">
+			<div id="footerMobile">
+				<div class="carousel"></div>
+			</div>
 		</div>
 
 		<!-- Loading indicator -->
@@ -340,16 +404,32 @@
 					</form>
 					<p></p>
 					<form class="form-horizontal form2">
-						<div class="control-group">
-							<label class="control-label" for="selectSocialText"></label>
-							<div class="controls">
-								<input id="selectSocialText" type="text" />
-							</div>
+						<div class="socialConfig">
+							<label class="checkbox">
+								<input type="checkbox" class="enableFB" />
+								<span>Facebook</span>
+							</label>
+							<label class="checkbox">
+								<input type="checkbox" class="enableTwitter" />
+								<span>Twitter</span>
+							</label>
+							<label class="checkbox">
+								<input type="checkbox" class="enableBitly" />
+								<span>Bitly</span>
+							</label>
 						</div>
-						<div class="control-group">
-							<label class="control-label" for="selectSocialLink"></label>
-							<div class="controls">
-								<input id="selectSocialLink" type="text" />
+						<div>
+							<div class="control-group">
+								<label class="control-label" for="selectSocialText"></label>
+								<div class="controls">
+									<input id="selectSocialText" type="text" />
+								</div>
+							</div>
+							<div class="control-group">
+								<label class="control-label" for="selectSocialLink"></label>
+								<div class="controls">
+									<input id="selectSocialLink" type="text" />
+								</div>
 							</div>
 						</div>
 					</form>
@@ -361,10 +441,12 @@
 					<div class="extentMapControl">
 						<button class="btn btn-small" id="extentModify"></button>
 						<button class="btn btn-small" id="extentDraw"></button>
+						<button class="btn btn-small" id="extentUseMainMap"></button>
 						<button class="btn btn-small" id="extentApply"></button>
 					</div>
 					<div id="extentMap"></div>
 					<div class="explain2"></div>
+					<div class="dateLineError"></div>
 				</div>
 			</div>
 			<div class="modal-footer">
@@ -476,13 +558,20 @@
 								</label>
 								<label class="checkbox">
 									<input type="checkbox" name="optionsLegend" value="legend" checked>
-									<span class="legendText"></span>
+									<span class="legendText"></span> <span class="legendInfo"></span>
 								</label>
-								<div class="legendInfo"></div>
+								<label class="checkbox" style="margin-top: -3px;">
+									<input type="checkbox" name="optionsBookmarks" value="bookmarks">
+									<span class="bookmarksText"></span> <span class="seriesInfo"></span>
+								</label>
+								<label class="checkbox" style="margin-top: -3px;">
+									<input type="checkbox" name="optionsPopup" value="popup" checked>
+									<span class="popupText"></span> <span class="popupInfo"></span>
+								</label>
 							</div>
 							<div id="uiSimulator">
 								<div></div>
-								<img />
+								<img class="uiSimImg"/>
 							</div>
 						</div>
 					</form>
@@ -538,9 +627,7 @@
 		</div>
 
 		<script type="text/javascript">
-			loadJS('//js.arcgis.com/3.6/init.js', true);
-			
-			loadJS('//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js', true);
+			loadJS('//jsdev.arcgis.com/3.7/init.js', true);			
 			loadJS('app/swipe-config.js');
 			
 			function getUrlVar(name)
@@ -565,22 +652,17 @@
 					loadJS('app/swipe-viewer-min.js');
 			}
 			else {
+				loadJS('lib/_jquery.1.9.1.min.js');
 				loadJS('lib/animateClip.js');
 				loadJS('lib/bootstrap/js/bootstrap.min.js');
 				loadJS('lib/spin.min.js');
 				loadJS('lib/cubiq.swipeview.js');
 				loadJS('lib/jquery.fastClick.js');
 				loadJS('lib/spectrum/spectrum.js');
-				loadJS('lib/sharethis.buttons.js');
 				loadJS('lib/jquery-ui-1.10.3.custom.min.js');
 				loadJS('lib/jquery.ui.touch-punch.min.js');
 				loadJS('lib/nicEdit.js');
 			}
-		</script>
-		
-		<!-- sharethis.com social media sharing -->
-		<script type="text/javascript">
-			stLight.options({publisher:'77225c91-2742-42f7-b1b4-bddda99a9bde'});
 		</script>
 
 		<!-- Enable Google Analytics on storymaps.esri.com -->
@@ -599,8 +681,6 @@
 		</script>
 
 		<script type="text/javascript">
-			dojo.require("templateConfig/commonConfig");
-			
 			var loadingIndicator = {};
 			var i18n = null;
 			
@@ -613,26 +693,38 @@
 			}
 			else {
 				dojo.addOnLoad(function() {
-					require(["dojo/i18n", "storymaps/ui/loadingIndicator/LoadingIndicator", "esri/map", "dojo/domReady!", "esri/arcgis/Portal", "esri/arcgis/utils", "dojo/ready"], function(jsapiBundle, LoadingIndicator) {
-						i18n = jsapiBundle.getLocalization("esriTemplate", "template");
-						loadingIndicator = new LoadingIndicator("loadingIndicator", "loadingMessage");
-						loadingIndicator.init();
-						loadingIndicator.setMessage(i18n.viewer.loading.step1);
-						
-						require(["storymaps/core/Core", "storymaps/swipe/core/MainView"], function(Core, MainView){
-							var urlParams = esri.urlToObject(document.location.search).query || {};
-							var isInBuilderMode = urlParams.edit != null;
+					require([
+							"dojo/i18n!./resources/nls/template.js?v=" + version, 
+							"storymaps/ui/loadingIndicator/LoadingIndicator", 
+							"esri/urlUtils", 
+							"templateConfig/commonConfig.js?v=" + version,
+							"dojo/domReady!", 
+							"dojo/ready"
+						], function(
+							_i18n, 
+							LoadingIndicator, 
+							urlUtils
+						){
+							i18n = _i18n;
+							loadingIndicator = new LoadingIndicator("loadingIndicator", "loadingMessage");
+					 		loadingIndicator.init();
+							loadingIndicator.setMessage(i18n.viewer.loading.step1);
 							
-							if (isInBuilderMode) {
-								require(["storymaps/builder/Builder", "storymaps/swipe/builder/BuilderView"], function(Builder, BuilderView) {
-								Core.init(new MainView(), Builder);
-								Builder.init(Core, new BuilderView());
-							});
-							}
-							else
-								Core.init(new MainView());
-						});
-					});
+						 	require(["storymaps/core/Core", "storymaps/swipe/core/MainView"], function(Core, MainView){
+						 		var urlParams = urlUtils.urlToObject(document.location.search).query || {};
+						 		var isInBuilderMode = urlParams.edit != null;
+						 		
+						 		if (isInBuilderMode) {
+						 			require(["storymaps/builder/Builder", "storymaps/swipe/builder/BuilderView"], function(Builder, BuilderView) {
+						 				Core.init(new MainView(), Builder);
+						 				Builder.init(Core, new BuilderView());
+						 			});
+						 		}
+						 		else
+						 			Core.init(new MainView());
+						 	});
+				 		}
+					);
 				});
 			 }
 		</script>

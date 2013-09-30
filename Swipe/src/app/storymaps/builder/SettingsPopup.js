@@ -1,5 +1,5 @@
-define(["storymaps/swipe/core/WebApplicationData"], 
-	function (WebApplicationData) {
+define(["storymaps/swipe/core/WebApplicationData", "dojo/topic"], 
+	function (WebApplicationData, topic) {
 		return function SettingsPopup(container, colorSchemes, defaultLogoURL) 
 		{
 			var _tabs = [];
@@ -21,7 +21,7 @@ define(["storymaps/swipe/core/WebApplicationData"],
 				});
 				
 				app.builder.settingsPopupSaveConfirmationCallback = saveConfirmationCallback;
-			}
+			};
 			
 			this.present = function(settings, lockOnTabIndex) 
 			{			
@@ -37,7 +37,7 @@ define(["storymaps/swipe/core/WebApplicationData"],
 				
 				displayTab(lockOnTabIndex ? lockOnTabIndex : 0);
 				
-				if( lockOnTabIndex != undefined ) {
+				if( lockOnTabIndex ) {
 					_tabsBar.addClass("disabled");
 					_tabsBar.eq(lockOnTabIndex).removeClass("disabled");
 					
@@ -48,9 +48,9 @@ define(["storymaps/swipe/core/WebApplicationData"],
 					displayTab(0);
 				
 				$(container).modal({keyboard: lockOnTabIndex == undefined });
-			}
+			};
 			
-			function onTabClick(event) 
+			function onTabClick() 
 			{
 				if ( $(this).hasClass("disabled") )
 					return;
@@ -59,7 +59,7 @@ define(["storymaps/swipe/core/WebApplicationData"],
 			}
 			
 			function save(saveConfirmed)
-			{		
+			{
 				var settings = [];
 				var tabError = -1;
 				
@@ -78,7 +78,9 @@ define(["storymaps/swipe/core/WebApplicationData"],
 						|| WebApplicationData.getWebmaps().toString() != settings[1].webmaps.toString()
 						|| WebApplicationData.getLayers().toString() != settings[1].layers.toString() 
 						|| WebApplicationData.getLegend() != settings[2].legend
-						|| WebApplicationData.getDescription() != settings[2].description);
+						|| WebApplicationData.getDescription() != settings[2].description
+						|| WebApplicationData.getSeries() != settings[2].series
+						|| WebApplicationData.getPopup() != settings[2].popup);
 						
 				if( saveConfirmed !== true && needConfirmation ) {
 					createConfirmationPopover();
@@ -86,7 +88,7 @@ define(["storymaps/swipe/core/WebApplicationData"],
 				}
 				
 				if (tabError == -1) 
-					dojo.publish("SETTINGS_POPUP_SAVE", { settings: settings });
+					topic.publish("SETTINGS_POPUP_SAVE", { settings: settings });
 				else {
 					displayTab(tabError);
 					return false;

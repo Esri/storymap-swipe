@@ -1,5 +1,17 @@
-define(["storymaps/swipe/core/WebApplicationData", "storymaps/swipe/builder/SettingsPopupTabDataModel","storymaps/swipe/builder/SettingsPopupTabLayout", "storymaps/swipe/builder/SettingsPopupTabLegend", "storymaps/swipe/builder/SettingsPopupTabSwipePopup"], 
-	function (WebApplicationData, SettingsPopupTabDataModel, SettingsPopupTabLayout, SettingsPopupTabLegend, SettingsPopupTabSwipePopup) {
+define(["storymaps/swipe/core/WebApplicationData", 
+		"storymaps/swipe/builder/SettingsPopupTabDataModel",
+		"storymaps/swipe/builder/SettingsPopupTabLayout", 
+		"storymaps/swipe/builder/SettingsPopupTabLegend", 
+		"storymaps/swipe/builder/SettingsPopupTabSwipePopup",
+		"dojo/Deferred"], 
+	function (
+		WebApplicationData, 
+		SettingsPopupTabDataModel, 
+		SettingsPopupTabLayout, 
+		SettingsPopupTabLegend, 
+		SettingsPopupTabSwipePopup,
+		Deferred
+	){
 		return function InitPopup(container) 
 		{
 			var _tabs = [];
@@ -7,7 +19,6 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/swipe/builder/Sett
 			
 			var _tabsBar = $(container).find(".tab");
 			var _tabContent = $(container).find(".tab-content");
-
 			var _btnNext = $(container).find(".btnSave");
 
 			_tabsBar.click(onTabClick);
@@ -21,13 +32,13 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/swipe/builder/Sett
 					new SettingsPopupTabLegend(_tabsBar.eq(2), _tabContent.eq(2)),
 					new SettingsPopupTabSwipePopup(_tabsBar.eq(3), _tabContent.eq(3))
 				];
-				
+				$("#initPopup").addClass('started')
 				initLocalization();
 			}
 			
 			this.present = function(settings, lockOnTabIndex) 
 			{			
-				_initDeferred = new dojo.Deferred(); 
+				_initDeferred = new Deferred(); 
 				_tabs[0].init({});
 				_tabs[1].init({
 					webmaps: WebApplicationData.getWebmaps(),
@@ -76,11 +87,9 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/swipe/builder/Sett
 				
 				var dataResult = _tabs[1].save();
 				if (dataResult) {
-					console.log("check dataResult ", dataResult);
 					WebApplicationData.setWebmaps(dataResult.webmaps);
 					WebApplicationData.setDataModel(dataResult.dataModel);
 					WebApplicationData.setLayers(dataResult.layers);
-					
 					configOptions.webmaps = dataResult.webmaps;
 				}
 				else {
@@ -90,10 +99,10 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/swipe/builder/Sett
 				
 				var legendResult = _tabs[2].save();
 				if (legendResult) {
-					console.log("check legend result ", legendResult);
 					WebApplicationData.setLegend(legendResult.legend);
 					WebApplicationData.setDescription(legendResult.description);
-					WebApplicationData.setBookmarks(legendResult.bookmarks);
+					WebApplicationData.setSeries(legendResult.series);
+					WebApplicationData.setSeriesBookmarks(legendResult.bookmarks);
 				}
 				else {
 					displayTab(2);
@@ -102,7 +111,6 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/swipe/builder/Sett
 				
 				var popupResult = _tabs[3].save();
 				if (popupResult) {
-					console.log("check popupResult ", popupResult);
 					WebApplicationData.setPopupColors(popupResult.popupColors);
 					WebApplicationData.setPopupTitles(popupResult.popupTitles);
 				}

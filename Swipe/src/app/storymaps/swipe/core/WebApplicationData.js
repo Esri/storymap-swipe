@@ -1,4 +1,4 @@
-define(["dojo/_base/lang"], function(lang){
+define(["dojo/_base/lang", "esri/geometry/Extent"], function(lang, Extent){
 	/**
 	 * WebApplicationData
 	 * @class WebApplicationData
@@ -19,13 +19,26 @@ define(["dojo/_base/lang"], function(lang){
 			if( ! data || ! data.values )
 				return;
 			
-			_data = data; 
+			_data = data;
+			
+			// Instance Extent Object for bookmarks
+			if( _data.values.bookmarks ) {
+				$.each(_data.values.bookmarks, function(i, bkmk){
+					bkmk.extent = new Extent(bkmk.extent);
+				});
+			}
 		},
 		get: function()
 		{
 			var data = lang.clone(_data);
-			data.values.template = "Swipe";
-			data.values.templateVersion = version;
+			
+			if( ! data.values.template )
+				data.values.template = "Swipe";
+			if( ! data.values.templateCreation )
+				data.values.templateCreation = version;
+				
+			data.values.templateLastEdit = version;
+			
 			return data;
 		},
 		getBlank: function()
@@ -39,6 +52,10 @@ define(["dojo/_base/lang"], function(lang){
 		restoreOriginalData: function()
 		{
 			this.set(_originalData);
+		},
+		updateAfterSave: function()
+		{
+			_originalData = lang.clone(_data);
 		},
 		getWebmap: function()
 		{
@@ -159,6 +176,14 @@ define(["dojo/_base/lang"], function(lang){
 		{
 			_data.values.legend = legend;
 		},
+		getPopup: function()
+		{
+			return _data.values.popup != null ? _data.values.popup : configOptions.popup;
+		},
+		setPopup: function(popup)
+		{
+			_data.values.popup = popup;
+		},
 		getDescription: function()
 		{
 			return _data.values.description != null ? _data.values.description : configOptions.description;
@@ -169,7 +194,7 @@ define(["dojo/_base/lang"], function(lang){
 		},
 		getBookmarks: function()
 		{
-			return _data.values.bookmarks;
+			return _data.values.bookmarks || configOptions.bookmarks;
 		},
 		setBookmarks: function(bookmarks)
 		{
@@ -195,6 +220,38 @@ define(["dojo/_base/lang"], function(lang){
 		setSidePanelDescription: function(description)
 		{
 			_data.values.sidePanelDescription = description;
+		},
+		getSeries: function()
+		{
+			return _data.values.series || configOptions.series;
+		},
+		setSeries: function(series)
+		{
+			_data.values.series = series;
+		},
+		getSeriesBookmarks: function()
+		{
+			if( configOptions.bookmarks && configOptions.bookmarks.length ) {
+				$.each(configOptions.bookmarks, function(i, bkmk){
+					bkmk.extent = new Extent(bkmk.extent);
+				});
+				return configOptions.bookmarks;
+			}
+			
+			return _data.values.bookmarks || [];
+		},
+		setSeriesBookmarks: function(bookmarks)
+		{
+			if(bookmarks && bookmarks.length)
+				_data.values.bookmarks = bookmarks;
+		},
+		getSocial: function()
+		{
+			return _data.values.social;
+		},
+		setSocial: function(social)
+		{
+			_data.values.social = social;
 		}
 	}
 });

@@ -2,6 +2,7 @@
 	display: none;
 	overflow:hidden;
 	width: 580px;
+	margin-left: -290px;
 }
 
 #initPopup .modal-body {

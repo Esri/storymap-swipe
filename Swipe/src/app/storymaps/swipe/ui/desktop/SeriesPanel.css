@@ -1,0 +1,104 @@
+#seriesPanel{
+	left: 0;
+	height: 0;
+	width: 100%;
+	background: #fff;
+	color:#444;
+}
+
+#seriesControls{
+	display: none;
+	position: absolute;
+	width: 100%; 
+	text-align: center;
+	margin-left: -4px;
+	bottom: 4px;
+}
+
+#seriesControls.series{
+	display: block;
+}
+
+.seriesButton{
+	display: table-cell;
+	text-align: center;
+	background: #828282;
+	height: 30px;
+	width: 40px;
+	margin-left: 4px;
+	float: left;
+	white-space: nowrap;
+	cursor: pointer;
+}
+
+.seriesButton.selected{
+	background: #c4c4c4 !important;
+}
+
+.seriesLabel{
+	margin-top: 6px;
+	color: #fff;
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
+.addSeriesButton{
+	display: table-cell;
+	text-align: center;
+	background: #01cc01;
+	height: 30px;
+	width: 40px;
+	margin-left: 4px;
+	float: left;
+	white-space: nowrap;
+	cursor: pointer;
+}
+
+#seriesNav .tooltip .tooltip-inner {
+	word-wrap: break-word;
+}
+
+/*
+ * Swipe Series Text
+ */
+
+#seriesTextView {
+	height: 100%;
+	width: 100%;
+	display: none;
+	position: absolute;
+	bottom: 0;
+	left: 0;
+	background-color: #FFF;
+	z-index: 51;
+}
+
+#seriesTitle {
+	height: 5%;
+	margin-top: 60px;
+	font-size: 20px;
+	font-weight: bold;
+	text-align: left;
+	overflow: hidden;
+	text-overflow: ellipsis;
+	display: -webkit-box;
+	-webkit-line-clamp: 1;
+	-webkit-box-orient: vertical;
+	word-break: break-all;
+	word-wrap: break-word;
+	max-height: 24px;
+	margin-left: 60px;
+}
+
+#seriesDescription {
+	height: 95%;
+	margin-top: 20px;	
+	margin-left: 60px;
+	margin-right: 60px;
+	text-align: left;
+	overflow: auto;
+}
+
+.seriesView{
+	margin-top: 60px;
+}

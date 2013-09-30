@@ -1,5 +1,5 @@
-define(["storymaps/swipe/core/WebApplicationData"], 
-	function (WebApplicationData) {
+define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "dojo/topic"], 
+	function (WebApplicationData, Helper, topic) {
 		return function BuilderPanel(container, builderSave) 
 		{
 			var _this = this;
@@ -24,7 +24,8 @@ define(["storymaps/swipe/core/WebApplicationData"],
 				
 				container.find('.builder-save').click(save);
 				container.find('.builder-settings').click(showSettingsPopup);
-			}
+				container.find('.builder-item').click(openItem);
+			};
 			
 			//
 			// Panel buttons
@@ -51,7 +52,7 @@ define(["storymaps/swipe/core/WebApplicationData"],
 					WebApplicationData.restoreOriginalData();
 					app.data.discardChanges();
 					resetSaveCounter();
-					dojo.publish("CORE_UPDATE_UI");
+					topic.publish("CORE_UPDATE_UI");
 					changeBuilderPanelButtonState(true);
 				}
 	
@@ -64,11 +65,20 @@ define(["storymaps/swipe/core/WebApplicationData"],
 				_builderView.openSettingPopup(false);
 			}
 	
-			function switchToView(confirmed) {
+			function switchToView(confirmed)
+			{
 				if( confirmed )
 					document.location = '?' + document.location.search.split('edit')[0].slice(1, -1);
 				else
 					container.find(".builder-view").popover('hide');
+			}
+			
+			function openItem()
+			{
+				window.open(
+					Helper.getItemURL(configOptions.sharingurl, app.data.getAppItem().id),
+					'_blank'
+				);
 			}
 			
 			//
@@ -86,13 +96,14 @@ define(["storymaps/swipe/core/WebApplicationData"],
 				closePopover();
 				resetSaveCounter();
 				changeBuilderPanelButtonState(true);
-			}
+			};
 			
 			this.saveFailed = function()
 			{
 				container.find(".builder-settings").next(".popover").find(".stepSave").css("display", "none");
 				container.find(".builder-settings").next(".popover").find(".stepFailed").css("display", "block");
-			}
+				changeBuilderPanelButtonState(true);
+			};
 			
 			//
 			// Counter
@@ -100,8 +111,8 @@ define(["storymaps/swipe/core/WebApplicationData"],
 			
 			this.hasPendingChange = function()
 			{
-				return container.find("#save-counter").html() && $("#save-counter").html() != i18n.builder.builder.noPendingChange;
-			}
+				return container.find("#save-counter").html() && container.find("#save-counter").html() != i18n.builder.builder.noPendingChange;
+			};
 	
 			this.incrementSaveCounter = function(nb)
 			{
@@ -124,7 +135,7 @@ define(["storymaps/swipe/core/WebApplicationData"],
 
 				container.find("#save-counter").html(value);
 				container.find("#save-counter").css("color", "#FFF");
-			}
+			};
 	
 			function resetSaveCounter()
 			{
@@ -204,8 +215,8 @@ define(["storymaps/swipe/core/WebApplicationData"],
 					trigger: 'manual',
 					placement: 'bottom',
 					content: '<script>'
-								+ '$("' + containerId + ' .builder-settings").next(".popover").addClass("settings-popover");'
-								+ '$("' + containerId + ' .builder-settings").next(".popover").css("margin-left", - $("' + containerId + ' button").eq(0).width() - $("' + containerId + ' button").eq(0).width() / 2 + 5 + "px");'
+								+ '$("' + containerId + ' .builder-settings").next(".popover").css("margin-left", "0px").addClass("settings-popover");'
+								+ 'setTimeout(function(){$("' + containerId + ' .builder-settings").next(".popover").css("margin-left", - ($(".builder-save").outerWidth()/2 + $(".builder-discard").outerWidth() + $(".builder-settings").outerWidth()/2+8));}, 0);'
 								+ '$("' + containerId + ' .builder-settings").next(".popover").find(".stepSave").css("display", "block");'
 								+ '$("' + containerId + ' .builder-settings").next(".popover").find(".stepSaved").css("display", "none");'
 								+ '$("' + containerId + ' .builder-settings").next(".popover").find(".stepFailed").css("display", "none");'
@@ -277,7 +288,7 @@ define(["storymaps/swipe/core/WebApplicationData"],
 						
 				// Reposition
 				container.css("margin-left", $("body").width() / 2 - container.outerWidth() / 2);
-			}
+			};
 			
 			function initLocalization()
 			{
@@ -287,6 +298,7 @@ define(["storymaps/swipe/core/WebApplicationData"],
 				container.find('button').eq(2).html(i18n.builder.builder.buttonSettings.toUpperCase());
 				//container.find('button').eq(2).html('<img src="resources/icons/builder-settings.png" style="vertical-align: -6px;" alt="' + i18n.builder.builder.buttonSettings + '" />');
 				container.find('button').eq(3).html('<img src="resources/icons/builder-view.png" style="vertical-align: -6px;" alt="' + i18n.builder.builder.buttonView + '" />');
+				container.find('button').eq(4).html('<i class="icon-file"></i>').attr("title", i18n.builder.builder.buttonItem);
 				container.find('#save-counter').html(i18n.builder.builder.noPendingChange);
 			}
 		}

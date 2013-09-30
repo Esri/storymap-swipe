@@ -1,5 +1,5 @@
-define([], 
-	function () {
+define(["dojo/topic"], 
+	function (topic) {
 		return function SettingsPopupTabLayout(titleContainer, contentContainer) 
 		{
 			// Clone the #popupView template into a new DIV
@@ -33,14 +33,14 @@ define([],
 			{
 				var selectedLayoutIndex = $(event.target).parent().index() == 2 ? 1 : 0;
 				selectLayout(selectedLayoutIndex);
-				dojo.publish("LAYOUT_CHANGE", selectedLayoutIndex == 0 ? "swipe" : "spyglass");
+				topic.publish("LAYOUT_CHANGE", selectedLayoutIndex == 0 ? "swipe" : "spyglass");
 			}
 			
 			function selectLayout(index)
 			{
 				$(contentContainer).find('.layout-box').removeClass("selected");
 				$(contentContainer).find('.layout-box').eq(index ? 1 : 0).addClass("selected");
-				dojo.publish("LAYOUT_CHANGE", index == 0 ? "swipe" : "spyglass");
+				topic.publish("LAYOUT_CHANGE", index == 0 ? "swipe" : "spyglass");
 			}
 	
 			this.initLocalization = function()
