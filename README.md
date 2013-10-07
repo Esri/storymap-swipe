@@ -49,7 +49,7 @@ Main features are:
 
 ## How to deploy a Swipe application
 
-1. [Download](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Storytelling-Swipe-1.0.zip)
+1. [Download](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Storytelling-Swipe-1.1.zip)
 2. [Install](#install)
 3. [Configure](#configure)
 4. [Personalize](#personalize)
@@ -266,7 +266,7 @@ It requires basic knowledge of HTML, Javascript and CSS languages.
 
 ### Developer archive
 
-Download and unzip the [Developer download](https://github.com/Esri/swipe-map-storytelling-template-js/archive/master.zip) or clone the repo.
+Download and unzip the [Developer download](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Storytelling-Swipe-1.1-Master.zip) or clone the repo.
 
 | File                                       | Contains                                                              |
 | ------------------------------------------ | --------------------------------------------------------------------- |
@@ -274,7 +274,7 @@ Download and unzip the [Developer download](https://github.com/Esri/swipe-map-st
 | **Swipe/src/**                             | The application source code                                           |
 | **Swipe/deploy/**                          | The ready to be deployed Swipe application                         |
 | **Swipe/tools/**                           | Developer tools to build deploy/ from src/                            |
-| Storytelling-Swipe-1.0.zip      	     | User download archive	                                             |
+| Storytelling-Swipe-1.1.zip      	     | User download archive	                                             |
 | Readme.pdf       		             | The detailed readme guide                                             |
 | Readme.md                                  | This document                                                         |
 | storytelling-swipe-map-template-js.png     | The application screenshot                                            |
