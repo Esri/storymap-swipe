@@ -8,7 +8,7 @@ a better experience on smartphone and an interactive builder on ArcGIS Online, s
 
 [View it live](http://storymaps.esri.com/templates/swipe/) 
 | [User Download (source code not included)](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Storytelling-Swipe-1.1.zip)
-| [Developer Download (include source code)](https://github.com/Esri/swipe-map-storytelling-template-js/archive/master.zip)
+| [Developer Download (include source code)](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Storytelling-Swipe-1.1-Master.zip)
 
 **Latest release is version version 1.1**, if you want to be informed of new releases, we recommend you to watch these repository.
 
