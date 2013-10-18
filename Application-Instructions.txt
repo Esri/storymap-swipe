@@ -1,9 +1,0 @@
-﻿View live readme and download latest source code at: https://github.com/Esri/swipe-map-storytelling-template-js
-
-This page includes:
- - Examples
- - Feature Overview
- - Hosting Instructions
- - Configuration Instructions
- - Additional Resources
- - Application License
