@@ -11,6 +11,7 @@
 			},
 			errors: {
 				boxTitle: "Įvyko klaida",
+				portalSelf: "Kritinė klaida: Nepavyko gauti portalo konfigūracijos",
 				invalidConfig: "Kritinė klaida: Neteisinga konfigūracija",
 				invalidConfigNoWebmap: "Kritinė klaida: Neteisinga konfigūracija (nenurodytas internetinis žemėlapis)",
 				createMap: "Žemėlapio sukurti nepavyko",
@@ -20,7 +21,7 @@
 				noLayerView: "Sveiki atvykę į keitiklio internetinę aplikaciją.<br />Aplikacija dar nesukonfigūruota.",
 				appSave: "Klaida įrašant internetinę aplikaciją",
 				mapSave: "Klaida įrašant internetinį žemėlapį",
-				notAuthorized: "Neturite teisių konfigūruoti šią aplikaciją",
+				notAuthorized: "Neturite teisių pasiekti šią aplikaciją",
 				conflictingProjectionsTitle: "Nesuderinamos projekcijos",
 				conflictingProjections: "Keitiklis nepalaiko dviejų internetinių žemėlapių su skirtingomis projekcijomis. Atidarykite nustatymus ir naudokite internetinį žemėlapį, naudojantį tą pačią projekciją kaip ir pirmasis internetinis žemėlapis.",
 				cpButton: "Uždaryti"
@@ -33,7 +34,8 @@
 			},
 			desktopView: {
 				storymapsText: "Pristatomasis žemėlapis",
-				builderButton: "Perjungti į kūrimo būseną"
+				builderButton: "Perjungti į kūrimo būseną",
+				bitlyTooltip: "Gauti sutrumpintą aplikacijos nuorodą"
 			}
 		},
 		builder: {
@@ -43,6 +45,7 @@
 				buttonDiscard: "ATSISAKYTI",
 				buttonSettings: "Nuostatos",
 				buttonView: "Peržiūros būsena",
+				buttonItem: "Atverti aplikaciją",
 				noPendingChange: "Laukiančių pakeitimų nėra",
 				unSavedChangeSingular: "1 neišsaugotas pakeitimas",
 				unSavedChangePlural: "neišsaugoti pakeitimai",
@@ -86,15 +89,19 @@
 				settingsLogoCustomTargetPlaceholder: "Vieno mygtuko paspaudimo nuoroda",
 				settingsLogoSocialExplain: "Priderinkite antraštės viršutinę dešinę nuorodą.",
 				settingsLogoSocialText: "Tekstas",
-				settingsLogoSocialLink: "Nuoroda"
+				settingsLogoSocialLink: "Nuoroda",
+				settingsLogoSocialDisabled: "Šią funkciją išjungė Administratorius"
 			},
 			settingsExtent: {
 				settingsTabExtent: "Aprėptis",
 				settingsExtentExplain: "Nustatykite pradinę aprėptį žemiau esančiame interaktyviame žemėlapyje.",
-				settingsExtentExplainBottom: "Jūsų nurodyta aprėptis pakeis internetinio žemėlapio pradinę aprėptį.",
+				settingsExtentExplainBottom: "Jūsų nurodyta aprėptis pakeis internetinio žemėlapio pradinę aprėptį. Jei naudojamas žemėlapių sukeitimas, ši aprėptis nebus naudojama.",
+				settingsExtentDateLineError: "Aprėptis negali būti abipus 180° ilgumos",
+				settingsExtentDateLineError2: "Klaida apskaičiuojant aprėptį",
 				settingsExtentDrawBtn: "Brėžti naują aprėptį",
 				settingsExtentModifyBtn: "Redaguoti esamą aprėptį",
-				settingsExtentApplyBtn: "Taikyti pagrindiniame žemėlapyje"
+				settingsExtentApplyBtn: "Taikyti pagrindiniame žemėlapyje",
+				settingsExtentUseMainMap: "Naudoti pagrindinę žemėlapio aprėptį"
 			}
         },
 		swipe: {
@@ -132,7 +139,7 @@
 				settingsDataModelExplainSpyGlass: "Pasirinkite sluoksnį arba internetinį žemėlapį, kuris atsiras po didinamuoju stiklu",
 				settingsDataModelOneMap: "Vienas internetinis žemėlapis, vienas sluoksnis",
 				settingsDataModel1Explain: "Pasirinkite sluoksnį, kontroliuojamą keitiklio įrankio.",
-				settingsDataModel1Warning: "Gali būti naudojami tik dinaminės, išklotinių ir vaizdų paslaugos. Jei sluoksnis paslėptas po aukščiau esančiais sluoksniais, keitiklis neturės jokio poveikio.",
+				settingsDataModel1Warning: "Jei sluoksnis paslėptas po aukščiau esančiais sluoksniais, keitiklis neturės jokio poveikio.",
 				settingsDataModel1SpyGlassExplain: "Pasirinkite sluoksnį, kuris atsiras po didinamuoju stiklu.",
 				settingsDataModelTwoMaps: "Du internetiniai žemėlapiai",
 				settingsDataModelLayerIds: "Internetinio žemėlapio sluoksnių ID",
@@ -153,8 +160,9 @@
 				settingsLegendEnable: "Įjungti legendą",
 				settingsDescriptionEnable: "Įjungti aprašą",
 				settingsBookmarksEnable: "Įjungti keitiklių serijas",
-				settingsLegendHelpTitle: "Kaip pakeisti legendos turinį",
-				settingsLegendHelpContent: "Naudokite ArcGIS.com internetinio žemėlapio peržiūros aplikacijos turinį (Paslėpti legendoje)",
+				settingsPopupDisable: "Įgalinti informacinį langą",
+				settingsLegendHelpContent: "Legendos nustatymui naudokite ArcGIS.com internetinio žemėlapio peržiūros aplikacijos turinį (Paslėpti legendoje)",
+				settingsSeriesHelpContent: "Aktyvuojant pirmą kartą, jūsų internetinio(-ių) žemėlapio(-ių) žymės bus panaudotos preliminariai užpildant serijų juostą. Jei vėliau išjungsite šį pasirinkimą, jūsų serijų konfigūracija nebus pamestair bus galima jei nuspręsite vėl įgalinti serijas.",
 				preview: "Vartotojo sąsajos peržiūra"
 			},
 			settingsSwipePopup: {
@@ -171,6 +179,13 @@
 				initHeader: "Sveiki atvykę į Keitiklio kūrėją",
 				modalNext: "Toliau",
 				modalApply: "Atidaryti aplikaciją"
+			},
+			seriesPanel: {
+				title: "Pavadinimas",
+				descr: "Aprašas",
+				discard: "Pašalinti žymę",
+				saveExtent: "Nustatyti žymės aprėptį",
+				discardDisabled: "Negalite pašalinti šios žymės. Keitiklio serijos gali būti išjungos nustatymuose."
 			}
 		}
     })

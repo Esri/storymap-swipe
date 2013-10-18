@@ -11,6 +11,7 @@
 			},
 			errors: {
 				boxTitle: "오류가 발생했습니다.",
+				portalSelf: "오류: 포털 구성을 가져오지 못했습니다.",
 				invalidConfig: "오류: 잘못된 구성",
 				invalidConfigNoWebmap: "오류: 잘못된 구성(웹 맵을 지정하지 않음)",
 				createMap: "맵을 생성할 수 없음",
@@ -20,7 +21,7 @@
 				noLayerView: "스와이프 웹 응용프로그램을 시작합니다.<br />응용프로그램이 아직 구성되지 않았습니다.",
 				appSave: "웹 응용프로그램을 저장하는 동안 오류가 발생했습니다.",
 				mapSave: "웹 맵을 저장하는 동안 오류가 발생했습니다.",
-				notAuthorized: "이 응용프로그램을 구성할 권한이 없습니다.",
+				notAuthorized: "이 응용프로그램에 액세스할 권한이 없습니다.",
 				conflictingProjectionsTitle: "투영 충돌",
 				conflictingProjections: "사용 중인 두 웹 맵의 투영이 서로 다른 경우에는 스와이프가 지원되지 않습니다. 설정을 열어 첫 번째 웹 맵과 같은 투영을 사용하는 웹 맵을 사용하세요.",
 				cpButton: "닫기"
@@ -33,7 +34,8 @@
 			},
 			desktopView: {
 				storymapsText: "스토리 맵",
-				builderButton: "빌더 모드로 전환"
+				builderButton: "빌더 모드로 전환",
+				bitlyTooltip: "응용프로그램의 짧은 링크를 가져옵니다."
 			}
 		},
 		builder: {
@@ -43,6 +45,7 @@
 				buttonDiscard: "취소",
 				buttonSettings: "설정",
 				buttonView: "보기 모드",
+				buttonItem: "웹 응용프로그램 항목 열기",
 				noPendingChange: "보류 중인 변경 사항 없음",
 				unSavedChangeSingular: "저장되지 않은 변경 사항 1개",
 				unSavedChangePlural: "저장되지 않은 변경 사항",
@@ -86,15 +89,19 @@
 				settingsLogoCustomTargetPlaceholder: "클릭 이동 링크",
 				settingsLogoSocialExplain: "헤더 오른쪽 상단 링크를 사용자 정의합니다.",
 				settingsLogoSocialText: "텍스트",
-				settingsLogoSocialLink: "링크"
+				settingsLogoSocialLink: "링크",
+				settingsLogoSocialDisabled: "이 기능은 관리자가 사용하지 않도록 설정했습니다."
 			},
 			settingsExtent: {
 				settingsTabExtent: "범위",
 				settingsExtentExplain: "아래의 대화형 맵을 통해 초기 범위를 설정합니다.",
-				settingsExtentExplainBottom: "정의한 범위에 따라 웹 맵 초기 범위가 수정됩니다.",
+				settingsExtentExplainBottom: "정의한 범위에 따라 웹 맵 초기 범위가 수정됩니다. 단, 스와이프 계열을 수행하는 경우에는 해당 범위가 사용되지 않습니다.",
+				settingsExtentDateLineError: "범위는 180° 경도의 자오선을 교차할 수 없습니다.",
+				settingsExtentDateLineError2: "범위를 계산하는 중 오류가 발생했습니다.",
 				settingsExtentDrawBtn: "새 범위 그리기",
 				settingsExtentModifyBtn: "현재 범위 편집",
-				settingsExtentApplyBtn: "기본 맵에 적용"
+				settingsExtentApplyBtn: "기본 맵에 적용",
+				settingsExtentUseMainMap: "기본 맵 범위 사용"
 			}
         },
 		swipe: {
@@ -132,7 +139,7 @@
 				settingsDataModelExplainSpyGlass: "망원경에 표시할 레이어 또는 웹 맵을 선택합니다.",
 				settingsDataModelOneMap: "웹 맵 하나, 단일 레이어",
 				settingsDataModel1Explain: "스와이프 도구를 사용하여 제어할 레이어를 선택합니다.",
-				settingsDataModel1Warning: "동적 타일 및 이미지 서비스만 사용할 수 있습니다. 레이어가 상위 레이어에 의해 숨겨진 경우에는 스와이프가 적용되지 않습니다.",
+				settingsDataModel1Warning: "레이어가 상위 레이어에 의해 숨겨진 경우에는 스와이프가 적용되지 않습니다.",
 				settingsDataModel1SpyGlassExplain: "망원경 내에 표시할 레이어를 선택합니다.",
 				settingsDataModelTwoMaps: "웹 맵 두 개",
 				settingsDataModelLayerIds: "웹 맵 레이어 ID",
@@ -153,8 +160,9 @@
 				settingsLegendEnable: "범례 사용",
 				settingsDescriptionEnable: "설명 사용",
 				settingsBookmarksEnable: "스와이프 계열 사용",
-				settingsLegendHelpTitle: "범례 컨텐츠를 세부적으로 조정하는 방법",
-				settingsLegendHelpContent: "ArcGIS.com web map viewer 목차 사용(범례에서 숨겨짐)",
+				settingsPopupDisable: "팝업 사용",
+				settingsLegendHelpContent: "범례 컨텐츠를 세분화하려면 ArcGIS.com web map viewer 목차를 사용하세요(범례에서 숨겨짐).",
+				settingsSeriesHelpContent: "처음 활성화하면 웹 맵 책갈피로 계열 모음이 미리 채워집니다. 나중에 계열 옵션을 사용하지 않도록 설정하면 계열 구성이 삭제됩니다. 또한 다시 사용하도록 설정하면 계열 옵션을 사용할 수 있습니다.",
 				preview: "UI 미리보기"
 			},
 			settingsSwipePopup: {
@@ -171,6 +179,13 @@
 				initHeader: "스와이프 빌더 시작",
 				modalNext: "다음",
 				modalApply: "앱 열기"
+			},
+			seriesPanel: {
+				title: "제목",
+				descr: "설명",
+				discard: "책갈피 취소",
+				saveExtent: "책갈피 범위 설정",
+				discardDisabled: "책갈피를 제거할 수 없습니다. 스와이프 계열이 설정에서 사용하지 않도록 설정되어 있을 수 있습니다."
 			}
 		}
     })

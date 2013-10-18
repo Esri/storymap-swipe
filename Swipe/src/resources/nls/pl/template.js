@@ -11,17 +11,18 @@
 			},
 			errors: {
 				boxTitle: "Wystąpił błąd",
+				portalSelf: "Błąd krytyczny: Nie można pobrać konfiguracji portalu",
 				invalidConfig: "Błąd krytyczny: Nieprawidłowa konfiguracja",
 				invalidConfigNoWebmap: "Błąd krytyczny: Nieprawidłowa konfiguracja (brak zdefiniowanej mapy internetowej)",
 				createMap: "Nie można utworzyć mapy",
 				invalidApp: "Błąd krytyczny: Nie można wczytać aplikacji",
-				initMobile: "Witamy w internetowej aplikacji odsłaniania. Aplikacja nie została skonfigurowana. Interaktywny kreator nie jest obsługiwany na urządzeniach przenośnych.",
+				initMobile: "Witamy w internetowej aplikacji swipe (z funkcją odsłaniania). Aplikacja nie została skonfigurowana. Interaktywny kreator nie jest obsługiwany na urządzeniach przenośnych.",
 				noBuilderIE8: "Interaktywny kreator narzędzia odsłaniania nie jest obsługiwany przez przeglądarkę Internet Explorer w wersji starszej niż 9.",
-				noLayerView: "Witamy w internetowej aplikacji odsłaniania.<br />Aplikacja nie została jeszcze skonfigurowana.",
+				noLayerView: "Witamy w internetowej aplikacji swipe (z funkcją odsłaniania).<br />Aplikacja nie została jeszcze skonfigurowana.",
 				appSave: "Błąd podczas zapisywania aplikacji internetowej",
 				mapSave: "Błąd podczas zapisywania mapy internetowej",
-				notAuthorized: "Nie masz odpowiednich uprawnień do przeprowadzenia konfiguracji aplikacji.",
-				conflictingProjectionsTitle: "Konfliktujące odwzorowania",
+				notAuthorized: "Nie masz uprawnień do uzyskania dostępu do tej aplikacji.",
+				conflictingProjectionsTitle: "Konflikt odwzorowań",
 				conflictingProjections: "Narzędzie odsłaniania nie obsługuje dwóch map internetowych o różnych odwzorowaniach. Przejdź do ustawień i wybierz mapę internetową o tym samym odwzorowaniu co pierwsza użyta mapa.",
 				cpButton: "Zamknij"
 			},
@@ -33,16 +34,18 @@
 			},
 			desktopView: {
 				storymapsText: "Mapa z historią",
-				builderButton: "Przełącz w tryb konstruktora"
+				builderButton: "Przełącz do trybu kreatora",
+				bitlyTooltip: "Pobierz skrócone łącze do aplikacji"
 			}
 		},
 		builder: {
 			builder: {
-				panelHeader: "APPLICATION CONFIGURATION",
-				buttonSave: "SAVE",
-				buttonDiscard: "CANCEL",
+				panelHeader: "KONFIGURACJA APLIKACJI",
+				buttonSave: "ZAPISZ",
+				buttonDiscard: "ANULUJ",
 				buttonSettings: "Ustawienia",
 				buttonView: "Tryb wyświetlania",
+				buttonItem: "Otwórz element aplikacji internetowej",
 				noPendingChange: "Brak oczekujących zmian",
 				unSavedChangeSingular: "1 niezapisana zmiana",
 				unSavedChangePlural: "niezapisane zmiany",
@@ -86,15 +89,19 @@
 				settingsLogoCustomTargetPlaceholder: "łącze przekierowujące do innej strony",
 				settingsLogoSocialExplain: "Dostosuj łącze nagłówka wyświetlane u góry po prawej.",
 				settingsLogoSocialText: "Tekst",
-				settingsLogoSocialLink: "Łącze"
+				settingsLogoSocialLink: "Łącze",
+				settingsLogoSocialDisabled: "Opcja ta została wyłączona przez Administratora"
 			},
 			settingsExtent: {
 				settingsTabExtent: "Zasięg",
 				settingsExtentExplain: "Ustaw początkowy zasięg za pomocą poniższej mapy interaktywnej.",
-				settingsExtentExplainBottom: "Zdefiniowany zasięg zostanie użyty do modyfikacji początkowego zasięgu mapy internetowej.",
+				settingsExtentExplainBottom: "Zdefiniowany zasięg zostanie użyty do modyfikacji początkowego zasięgu mapy internetowej. Prosimy pamiętać, że zasięg ten nie będzie używany podczas korzystania z serii odsłaniania.",
+				settingsExtentDateLineError: "Zasięg nie może przebiegać przez południk 180°",
+				settingsExtentDateLineError2: "Błąd w obliczaniu zasięgu",
 				settingsExtentDrawBtn: "Określ nowy zasięg",
 				settingsExtentModifyBtn: "Zmień bieżący zasięg",
-				settingsExtentApplyBtn: "Zastosuj do mapy głównej"
+				settingsExtentApplyBtn: "Zastosuj do mapy głównej",
+				settingsExtentUseMainMap: "Użyj głównego zasięgu mapy"
 			}
         },
 		swipe: {
@@ -123,7 +130,7 @@
 				settingsLayoutSpyGlass: "Lunetka",
 				settingsLayoutSelected: "Wybrany układ",
 				settingsLayoutSelect: "Wybierz ten układ",
-				settingsSaveConfirm: "Niektóre z dokonanych zmian wymagają zapisania i ponownego wczytania aplikacji"
+				settingsSaveConfirm: "Niektóre z wprowadzonych zmian wymagają zapisania i ponownego wczytania aplikacji"
 			},
 			settingsDataModel: {
 				settingsTabDataModel: "Warstwa odsłaniana",
@@ -132,7 +139,7 @@
 				settingsDataModelExplainSpyGlass: "Wybierz warstwę lub mapę internetową, która pojawi się w lunetce.",
 				settingsDataModelOneMap: "Jedna mapa internetowa, pojedyncza warstwa",
 				settingsDataModel1Explain: "Wybierz warstwę, która ma być kontrolowana przez narzędzie odsłaniania.",
-				settingsDataModel1Warning: "Można użyć jedynie usług dynamicznych, kafelkowych lub rastrowych. Jeśli warstwa jest ukryta pod górnymi warstwami, użycie odsłaniania nie przyniesie rezultatów.",
+				settingsDataModel1Warning: "Jeśli warstwa jest ukryta pod górnymi warstwami, użycie odsłaniania nie przyniesie rezultatów.",
 				settingsDataModel1SpyGlassExplain: "Wybierz warstwę, która ma pojawić się w lunetce.",
 				settingsDataModelTwoMaps: "Dwie mapy internetowe",
 				settingsDataModelLayerIds: "Identyfikatory warstwy mapy internetowej",
@@ -153,8 +160,9 @@
 				settingsLegendEnable: "Włącz legendę",
 				settingsDescriptionEnable: "Włącz opis",
 				settingsBookmarksEnable: "Włącz serię odsłaniania",
-				settingsLegendHelpTitle: "Jak ulepszyć zawartość legendy",
-				settingsLegendHelpContent: "Korzystanie ze spisu treści przeglądarki map ArcGIS.com (Ukryj w legendzie)",
+				settingsPopupDisable: "Włącz okno podręczne",
+				settingsLegendHelpContent: "Aby ulepszyć zawartość legendy, skorzystaj z tabeli zawartości przeglądarki map ArcGIS.com (Ukryj w legendzie)",
+				settingsSeriesHelpContent: "Podczas pierwszej aktywacji zakładki mapy internetowej zostaną użyte do wstępnego wypełnienia paska serii. Jeżeli wyłączysz później opcję serii, konfiguracja serii nie zostanie odrzucona i pozostanie dostępna, gdy zdecydujesz się ją włączyć ponownie.",
 				preview: "Podgląd interfejsu użytkownika"
 			},
 			settingsSwipePopup: {
@@ -171,6 +179,13 @@
 				initHeader: "Witamy w kreatorze aplikacji odsłaniania",
 				modalNext: "Dalej",
 				modalApply: "Otwórz aplikację"
+			},
+			seriesPanel: {
+				title: "Tytuł",
+				descr: "Opis",
+				discard: "Odrzuć zakładkę",
+				saveExtent: "Ustaw zasięg zakładki",
+				discardDisabled: "Nie można usunąć tej zakładki. Serie odsłaniania można wyłączyć w Ustawieniach."
 			}
 		}
     })

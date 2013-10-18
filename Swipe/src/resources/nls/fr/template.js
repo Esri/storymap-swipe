@@ -2,7 +2,7 @@
 	({
 		viewer: {
 			loading: {
-				step1: "CHARGEMENT DE L’APPLICATION",
+				step1: "CHARGEMENT DE L\’APPLICATION",
 				step2: "CHARGEMENT DES DONNEES",
 				step3: "INITIALISATION",
 				fail: "Echec de chargement du balayage",
@@ -10,19 +10,20 @@
 				failButton: "Réessayez"
 			},
 			errors: {
-				boxTitle: "Une erreur s’est produite",
+				boxTitle: "Une erreur s\’est produite",
+				portalSelf: "Erreur fatale : échec de l\'obtention de la configuration du portail",
 				invalidConfig: "Erreur fatale : configuration non valide",
 				invalidConfigNoWebmap: "Erreur fatale : configuration non valide (aucune carte Web n\'est spécifiée)",
 				createMap: "Impossible de créer la carte",
-				invalidApp: "Erreur fatale : impossible de charger l’application",
-				initMobile: "Bienvenue dans l’application Web de balayage. L’application n’est pas configurée. Le générateur interactif n’est pas pris en charge sur les appareils mobiles.",
+				invalidApp: "Erreur fatale : impossible de charger l\’application",
+				initMobile: "Bienvenue dans l\’application Web de balayage. L\’application n\’est pas configurée. Le générateur interactif n\’est pas pris en charge sur les appareils mobiles.",
 				noBuilderIE8: "Le générateur interactif de balayage n\'est pas pris en charge avant la version 9 d\'Internet Explorer.",
-				noLayerView: "Bienvenue dans l’application Web de balayage.<br />L’application n’est pas encore configurée.",
-				appSave: "Erreur d’enregistrement de l’application Web",
-				mapSave: "Erreur d’enregistrement de la carte Web",
-				notAuthorized: "Vous n’êtes pas autorisé à configurer cette application",
+				noLayerView: "Bienvenue dans l\’application Web de balayage.<br />L\’application n\’est pas encore configurée.",
+				appSave: "Erreur d\’enregistrement de l\’application Web",
+				mapSave: "Erreur d\’enregistrement de la carte Web",
+				notAuthorized: "Vous n\’êtes pas autorisé à accéder à cette application",
 				conflictingProjectionsTitle: "Projections conflictuelles",
-				conflictingProjections: "Le balayage ne prend pas en charge l'utilisation de deux cartes Web avec des projections différentes. Ouvrez les paramètres et utilisez une carte Web dotée de la même projection que la première carte Web.",
+				conflictingProjections: "Le balayage ne prend pas en charge l\'utilisation de deux cartes Web avec des projections différentes. Ouvrez les paramètres et utilisez une carte Web dotée de la même projection que la première carte Web.",
 				cpButton: "Fermer"
 			},
 			mobileView: {
@@ -33,16 +34,18 @@
 			},
 			desktopView: {
 				storymapsText: "Carte de narration",
-				builderButton: "Mode de générateur"
+				builderButton: "Mode de générateur",
+				bitlyTooltip: "Obtenir un lien court vers l\'application"
 			}
 		},
 		builder: {
 			builder: {
-				panelHeader: "CONFIGURATION DE L’APPLICATION",
+				panelHeader: "CONFIGURATION DE L\’APPLICATION",
 				buttonSave: "ENREGISTRER",
 				buttonDiscard: "ANNULER",
 				buttonSettings: "Paramètres",
-				buttonView: "Mode d’affichage",
+				buttonView: "Mode d\’affichage",
+				buttonItem: "Ouvrir l\'élément d\'application Web",
 				noPendingChange: "Aucune modification en attente",
 				unSavedChangeSingular: "1 modification non enregistrée",
 				unSavedChangePlural: "modifications non enregistrées",
@@ -52,14 +55,14 @@
 				popoverOpenViewExplain: "En ouvrant la visionneuse, vous perdez les modifications non enregistrées",
 				popoverOpenViewOk: "OK",
 				popoverOpenViewCancel: "Annuler",
-				popoverSaveWhenDone: "N’oubliez pas d’enregistrer lorsque vous avez terminé",
-				closeWithPendingChange: "Voulez-vous vraiment confirmer l’opération ? Vos modifications seront perdues.",
+				popoverSaveWhenDone: "N\’oubliez pas d\’enregistrer lorsque vous avez terminé",
+				closeWithPendingChange: "Voulez-vous vraiment confirmer l\’opération ? Vos modifications seront perdues.",
 				gotIt: "OK",
-				savingApplication: "Enregistrement de l’application",
-				saveSuccess: "L’application a été enregistrée",
-				saveError: "L’enregistrement a échoué, réessayez",
+				savingApplication: "Enregistrement de l\’application",
+				saveSuccess: "L\’application a été enregistrée",
+				saveError: "L\’enregistrement a échoué, réessayez",
 				signIn: "Connectez-vous avec un compte sur",
-				signInTwo: "pour enregistrer l’application."
+				signInTwo: "pour enregistrer l\’application."
 			},
 			header:{
 				editMe: "Modifier",
@@ -67,7 +70,7 @@
 				templateSubtitle: "Définir le sous-titre du modèle"
 			},
 			settings: {
-				settingsHeader: "Paramètres de l’application",
+				settingsHeader: "Paramètres de l\’application",
 				modalCancel: "Annuler",
 				modalApply: "Appliquer"
 			},
@@ -78,23 +81,27 @@
 			},
 			settingsHeader: {
 				settingsTabLogo: "En-tête",
-				settingsLogoExplain: "Personnalisez le logo d’en-tête (250 x 50 px au maximum).",
+				settingsLogoExplain: "Personnalisez le logo d\’en-tête (250 x 50 px au maximum).",
 				settingsLogoEsri: "Logo Esri",
 				settingsLogoNone: "Aucun logo",
 				settingsLogoCustom: "Logo personnalisé",
-				settingsLogoCustomPlaceholder: "URL de l’image",
+				settingsLogoCustomPlaceholder: "URL de l\’image",
 				settingsLogoCustomTargetPlaceholder: "Lien",
-				settingsLogoSocialExplain: "Personnalisez le lien d’en-tête en haut à droite.",
+				settingsLogoSocialExplain: "Personnalisez le lien d\’en-tête en haut à droite.",
 				settingsLogoSocialText: "Texte",
-				settingsLogoSocialLink: "Lien"
+				settingsLogoSocialLink: "Lien",
+				settingsLogoSocialDisabled: "Cette entité a été désactivée par l\'administrateur"
 			},
 			settingsExtent: {
 				settingsTabExtent: "Etendue",
-				settingsExtentExplain: "Définissez l’étendue initiale au moyen de la carte interactive ci-dessous.",
-				settingsExtentExplainBottom: "L'étendue que vous définissez modifiera l'étendue initiale de votre carte Web.",
+				settingsExtentExplain: "Définissez l\’étendue initiale au moyen de la carte interactive ci-dessous.",
+				settingsExtentExplainBottom: "L\'étendue que vous définissez modifiera l\'étendue initiale de votre carte Web. Notez que si vous effectuez une série de balayages, cette étendue ne sera pas utilisée.",
+				settingsExtentDateLineError: "L'étendue ne peut pas traverser le méridien de 180° de longitude",
+				settingsExtentDateLineError2: "Erreur de calcul de l'étendue",
 				settingsExtentDrawBtn: "Tracer une nouvelle étendue",
-				settingsExtentModifyBtn: "Modifier l’étendue actuelle",
-				settingsExtentApplyBtn: "Appliquer à la carte principale"
+				settingsExtentModifyBtn: "Modifier l\’étendue actuelle",
+				settingsExtentApplyBtn: "Appliquer à la carte principale",
+				settingsExtentUseMainMap: "Utiliser l'étendue de carte principale"
 			}
         },
 		swipe: {
@@ -132,7 +139,7 @@
 				settingsDataModelExplainSpyGlass: "Sélectionnez la couche ou la carte Web qui apparaîtra dans la longue-vue.",
 				settingsDataModelOneMap: "Une carte Web, couche unique",
 				settingsDataModel1Explain: "Sélectionnez une couche à contrôler par l\'outil de balayage.",
-				settingsDataModel1Warning: "Seuls les services dynamiques, de tuiles et d\'images peuvent être utilisés. Si la couche est masquée par des couches supérieures, le balayage sera sans effet.",
+				settingsDataModel1Warning: "Si la couche est masquée par des couches supérieures, le balayage sera sans effet.",
 				settingsDataModel1SpyGlassExplain: "Sélectionner la couche devant apparaître dans la longue-vue.",
 				settingsDataModelTwoMaps: "Deux cartes Web",
 				settingsDataModelLayerIds: "ID de couches de carte Web",
@@ -153,8 +160,9 @@
 				settingsLegendEnable: "Activer la légende",
 				settingsDescriptionEnable: "Activer la description",
 				settingsBookmarksEnable: "Activer la série de balayages",
-				settingsLegendHelpTitle: "Comment améliorer le contenu de la légende",
-				settingsLegendHelpContent: "Utiliser la table des matières de la visionneuse de cartes Web ArcGIS.com (Masquer dans la légende)",
+				settingsPopupDisable: "Activer la fenêtre contextuelle",
+				settingsLegendHelpContent: "Pour affiner le contenu de la légende, utilisez la table des matières de la visionneuse de carte Web ArcGIS.com (Masquer dans la légende)",
+				settingsSeriesHelpContent: "Lors de la première activation, les géosignets de vos cartes Web seront utilisés pour renseigner la barre de la série. Si vous désactivez l\'option de série par la suite, la configuration de votre série ne sera pas annulée et elle sera disponible si vous décidez de réactiver la série.",
 				preview: "Aperçu de l\'interface utilisateur"
 			},
 			settingsSwipePopup: {
@@ -171,6 +179,13 @@
 				initHeader: "Bienvenue dans le Générateur de balayages",
 				modalNext: "Suivant",
 				modalApply: "Ouvrir l\'application"
+			},
+			seriesPanel: {
+				title: "Titre",
+				descr: "Description",
+				discard: "Ignorer le géosignet",
+				saveExtent: "Définir l\'étendue du géosignet",
+				discardDisabled: "Vous ne pouvez pas supprimer ce géosignet. La série de balayages peut être désactivée dans les paramètres."
 			}
 		}
     })

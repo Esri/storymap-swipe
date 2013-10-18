@@ -11,6 +11,7 @@
 			},
 			errors: {
 				boxTitle: "A apărut o eroare",
+				portalSelf: "Eroare fatală: Eşec la obţinerea configuraţiei portalului",
 				invalidConfig: "Eroare gravă: Configurare incorectă",
 				invalidConfigNoWebmap: "Eroare gravă: Configurare incorectă (nu a fost specificată nicio hartă web)",
 				createMap: "Imposibil de creat harta",
@@ -20,7 +21,7 @@
 				noLayerView: "Bine aţi venit la aplicaţia web Swipe.<br />Aplicaţia nu este configurată încă.",
 				appSave: "Eroare la salvarea aplicaţiei web",
 				mapSave: "Eroare la salvarea hărţii web",
-				notAuthorized: "Nu sunteţi autorizat pentru a configura această aplicaţie",
+				notAuthorized: "Nu sunteţi autorizat pentru a accesa această aplicaţie",
 				conflictingProjectionsTitle: "Proiecţii în conflict",
 				conflictingProjections: "Instrumentul de preluare nu suportă utilizarea a două hărţi cu proiecţii diferite. Deschideţi setările şi utilizaţi o hartă web care foloseşte aceeaşi proiecţie ca şi prima hartă web.",
 				cpButton: "Închidere"
@@ -33,7 +34,8 @@
 			},
 			desktopView: {
 				storymapsText: "O hartă informativă",
-				builderButton: "Comutare la modul Instrument de creare"
+				builderButton: "Comutare la modul Instrument de creare",
+				bitlyTooltip: "Obţinere link scurt către aplicaţie"
 			}
 		},
 		builder: {
@@ -43,6 +45,7 @@
 				buttonDiscard: "ANULARE",
 				buttonSettings: "Setări",
 				buttonView: "Mod de vizualizare",
+				buttonItem: "Deschidere element aplicaţie web",
 				noPendingChange: "Nicio modificare în aşteptare",
 				unSavedChangeSingular: "O modificare nesalvată",
 				unSavedChangePlural: "modificări nesalvate",
@@ -86,15 +89,19 @@
 				settingsLogoCustomTargetPlaceholder: "Link de accesare cu clic",
 				settingsLogoSocialExplain: "Personalizaţi linkul din colţul din dreapta sus al antetului.",
 				settingsLogoSocialText: "Text",
-				settingsLogoSocialLink: "Link"
+				settingsLogoSocialLink: "Link",
+				settingsLogoSocialDisabled: "Acest obiect spaţial a fost dezactivat de administrator"
 			},
 			settingsExtent: {
 				settingsTabExtent: "Extindere",
 				settingsExtentExplain: "Setaţi extinderea iniţială prin harta interactivă de mai jos.",
-				settingsExtentExplainBottom: "Extinderea pe care o definiţi va modifica extinderea iniţială a hărţii web.",
+				settingsExtentExplainBottom: "Extinderea pe care o definiţi va modifica extinderea iniţială a hărţii web.Reţineţi că, dacă efectuaţi o serie Swipe, extinderea respectivă nu va fi utilizată.",
+				settingsExtentDateLineError: "Extinderea nu poate traversa meridianul cu longitudinea 180°",
+				settingsExtentDateLineError2: "Eroare la calculul extinderii",
 				settingsExtentDrawBtn: "Trasare extindere nouă",
 				settingsExtentModifyBtn: "Editare extindere curentă",
-				settingsExtentApplyBtn: "Aplicare pe harta principală"
+				settingsExtentApplyBtn: "Aplicare pe harta principală",
+				settingsExtentUseMainMap: "Utilizare extindere principală a hărţii"
 			}
         },
 		swipe: {
@@ -132,7 +139,7 @@
 				settingsDataModelExplainSpyGlass: "Alegeţi stratul tematic sau harta web care va apărea în ochean.",
 				settingsDataModelOneMap: "O hartă web, un singur strat tematic",
 				settingsDataModel1Explain: "Selectaţi un strat tematic de controlat de către instrumentul Swipe.",
-				settingsDataModel1Warning: "Se pot utiliza numai serviciile Dinamic, Tile şi Imagine. Dacă stratul tematic este ascuns de straturi tematice superioare, preluarea nu va avea niciun efect.",
+				settingsDataModel1Warning: "Dacă stratul tematic este ascuns de straturi tematice superioare, preluarea nu va avea niciun efect.",
 				settingsDataModel1SpyGlassExplain: "Selectaţi stratul tematic care să apară în ochean.",
 				settingsDataModelTwoMaps: "Două hărţi web",
 				settingsDataModelLayerIds: "ID-uri strat tematic de hartă web",
@@ -153,8 +160,9 @@
 				settingsLegendEnable: "Activare legendă",
 				settingsDescriptionEnable: "Activare descriere",
 				settingsBookmarksEnable: "Activare serii Swipe",
-				settingsLegendHelpTitle: "Modul de rafinare a conţinutului legendei",
-				settingsLegendHelpContent: "Utilizarea cuprinsului aplicaţiei de vizualizare a hărţilor web din ArcGIS.com (Ascunderea în legendă)",
+				settingsPopupDisable: "Activare pop-up",
+				settingsLegendHelpContent: "Pentru a rafina conţinutul legendei, utilizaţi cuprinsului aplicaţiei de vizualizare a hărţilor web din ArcGIS.com (Ascunderea în legendă)",
+				settingsSeriesHelpContent: "La prima activare, semnele de carte pentru hărţi web vor fi utilizate pentru a popula în prealabil bara seriei. Dacă dezactivaţi ulterior opţiunea, configuraţia seriei nu va fi eliminată şi va fi disponibilă dacă decideţi să activaţi seria din nou.",
 				preview: "Previzualizare interfaţă cu utilizatorul"
 			},
 			settingsSwipePopup: {
@@ -171,6 +179,13 @@
 				initHeader: "Bine aţi venit la builderul instrumentului de preluare",
 				modalNext: "Înainte",
 				modalApply: "Deschidere aplicaţie"
+			},
+			seriesPanel: {
+				title: "Titlu",
+				descr: "Descriere",
+				discard: "Eliminare semn de carte",
+				saveExtent: "Setare extindere semn de carte",
+				discardDisabled: "Nu puteţi elimina acest semn de carte. Seriile Swipe pot fi dezactivate din Setări."
 			}
 		}
     })

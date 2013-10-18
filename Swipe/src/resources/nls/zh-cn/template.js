@@ -11,6 +11,7 @@
 			},
 			errors: {
 				boxTitle: "发生错误",
+				portalSelf: "严重错误: 获取门户配置失败",
 				invalidConfig: "严重错误: 配置无效",
 				invalidConfigNoWebmap: "严重错误: 配置无效(未指定 web 地图)",
 				createMap: "无法创建地图",
@@ -20,7 +21,7 @@
 				noLayerView: "欢迎使用卷帘 web 应用程序。<br />尚未配置该应用程序。",
 				appSave: "保存 web 应用程序时出错",
 				mapSave: "保存 web 地图时出错",
-				notAuthorized: "未经授权，无法配置该应用程序",
+				notAuthorized: "您无权访问该应用程序",
 				conflictingProjectionsTitle: "投影冲突",
 				conflictingProjections: "卷帘不支持两个具有不同投影的 web 地图。请打开设置并使用与首个 web 地图具有相同投影的 web 地图。",
 				cpButton: "关闭"
@@ -33,7 +34,8 @@
 			},
 			desktopView: {
 				storymapsText: "故事地图",
-				builderButton: "切换到构建器模式"
+				builderButton: "切换到构建器模式",
+				bitlyTooltip: "获取应用程序的短链接"
 			}
 		},
 		builder: {
@@ -43,6 +45,7 @@
 				buttonDiscard: "取消",
 				buttonSettings: "设置",
 				buttonView: "视图模式",
+				buttonItem: "打开 Web 应用程序项目",
 				noPendingChange: "无待决的更改",
 				unSavedChangeSingular: "1 个未保存的更改",
 				unSavedChangePlural: "未保存的更改",
@@ -86,15 +89,19 @@
 				settingsLogoCustomTargetPlaceholder: "点击链接",
 				settingsLogoSocialExplain: "自定义标题右上方的链接。",
 				settingsLogoSocialText: "文本",
-				settingsLogoSocialLink: "链接"
+				settingsLogoSocialLink: "链接",
+				settingsLogoSocialDisabled: "此功能已被管理员禁用"
 			},
 			settingsExtent: {
 				settingsTabExtent: "范围",
 				settingsExtentExplain: "通过下面的交互式地图设置初始范围。",
-				settingsExtentExplainBottom: "您定义的范围将修改您的 web 地图初始范围。",
+				settingsExtentExplainBottom: "您定义的范围将修改您的 web 地图初始范围。请注意，如果您正在执行卷帘操作，则不会使用该范围。",
+				settingsExtentDateLineError: "范围不可跨越 180° 经线",
+				settingsExtentDateLineError2: "计算范围时出错",
 				settingsExtentDrawBtn: "确定一个新范围",
 				settingsExtentModifyBtn: "编辑当前范围",
-				settingsExtentApplyBtn: "应用到主地图"
+				settingsExtentApplyBtn: "应用到主地图",
+				settingsExtentUseMainMap: "使用主地图范围"
 			}
         },
 		swipe: {
@@ -132,7 +139,7 @@
 				settingsDataModelExplainSpyGlass: "选择在望远镜中显示的图层或 web 地图。",
 				settingsDataModelOneMap: "一幅 web 地图，单个图层",
 				settingsDataModel1Explain: "选择由卷帘工具控制的图层。",
-				settingsDataModel1Warning: "只能使用动态服务、切片服务和影像服务。当图层被上层图层隐藏时，卷帘不起任何作用。",
+				settingsDataModel1Warning: "如果图层被上面的图层所遮盖，则卷帘无任何效果。",
 				settingsDataModel1SpyGlassExplain: "选择要在望远镜中显示的图层。",
 				settingsDataModelTwoMaps: "两幅 web 地图",
 				settingsDataModelLayerIds: "Web 地图图层 ID",
@@ -153,8 +160,9 @@
 				settingsLegendEnable: "启用图例",
 				settingsDescriptionEnable: "启用描述",
 				settingsBookmarksEnable: "启用卷帘系列",
-				settingsLegendHelpTitle: "如何优化图例内容",
-				settingsLegendHelpContent: "使用 ArcGIS.com web 地图查看器内容列表 (在图例中隐藏)",
+				settingsPopupDisable: "启用弹出",
+				settingsLegendHelpContent: "要优化图例内容，请使用 ArcGIS.com web 地图查看器内容列表(隐藏在图例中)",
+				settingsSeriesHelpContent: "首次激活时，将使用您的 web 地图书签预填充该系列条形图。如果您稍后禁用此系列选项，您的系列配置也不会被放弃，再次启用该系列时还可使用此系列配置。",
 				preview: "UI 预览"
 			},
 			settingsSwipePopup: {
@@ -171,6 +179,13 @@
 				initHeader: "欢迎使用 Swipe Builder",
 				modalNext: "下一步",
 				modalApply: "打开应用程序"
+			},
+			seriesPanel: {
+				title: "标题",
+				descr: "描述",
+				discard: "放弃书签",
+				saveExtent: "设置书签范围",
+				discardDisabled: "无法移除书签。可在设置中禁用卷帘系列。"
 			}
 		}
     })

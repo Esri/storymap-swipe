@@ -5,24 +5,25 @@
 				step1: "RAKENDUSE LAADIMINE",
 				step2: "ANDMETE LAADIMINE",
 				step3: "LÄHTESTAMINE",
-				fail: "Vabandust, svaipimise laadimine nurjus",
+				fail: "Vabandust, rullimisvahendi laadimine nurjus",
 				loadBuilder: "VAHETA KOOSTAJA TÜÜP",
 				failButton: "Proovi uuesti"
 			},
 			errors: {
 				boxTitle: "Esines tõrge",
+				portalSelf: "Totaalne viga: Portaali seadistuse hankimine nurjus",
 				invalidConfig: "Totaalne viga: vigane konfiguratsioon",
 				invalidConfigNoWebmap: "Totaalne viga: Vigane konfiguratsioon (ühtegi veebikaarti ei ole määratud)",
 				createMap: "Võimetu koostama kaarti",
 				invalidApp: "Totaalne viga: Rakendust ei saa laadida",
-				initMobile: "Tere tulemast svaipimise veebirakendusse. Antud rakendus ei ole seadistatud. Interaktiivne koostaja ei ole mobiilsetes seadmetes toetatud.",
-				noBuilderIE8: "Svaipimise interaktiivne koostaja ei ole toetatud Internet Explorer 9 eelse(te)s  versiooni(de)s.",
-				noLayerView: "Tere tulemast svaipimise veebirakendusse.<br />Antud rakendus ei ole veel seadistatud.",
+				initMobile: "Tere tulemast rullimise veebirakendusse. Antud rakendus ei ole seadistatud. Interaktiivne koostaja ei ole mobiilsetes seadmetes toetatud.",
+				noBuilderIE8: "Rullimise interaktiivne koostaja ei ole toetatud Internet Explorer 9 eelse(te)s  versiooni(de)s.",
+				noLayerView: "Tere tulemast rullimise veebirakendusse.<br />Antud rakendus ei ole veel seadistatud.",
 				appSave: "Viga veebirakenduse salvestamisel",
 				mapSave: "Viga veebikaardi salvestamisel",
-				notAuthorized: "Te ei ole selle rakenduse konfigureerimiseks autoriseeritud",
+				notAuthorized: "Te ei ole sellele rakendusele ligipääsuks autoriseeritud",
 				conflictingProjectionsTitle: "Konfliktsed projektsioonid",
-				conflictingProjections: "Svaipimine ei ole toetatud kahe erineva projektsiooniga veebikaardil. Palun avage seaded ja kasutage veebikaarti, mis kasutab esimese kaardiga samasugust projektsiooni.",
+				conflictingProjections: "Rullimine ei ole toetatud kahe erineva projektsiooniga veebikaardil. Palun avage seaded ja kasutage veebikaarti, mis kasutab esimese kaardiga samasugust projektsiooni.",
 				cpButton: "Sulge"
 			},
 			mobileView: {
@@ -33,7 +34,8 @@
 			},
 			desktopView: {
 				storymapsText: "Kaardilugu",
-				builderButton: "Vaheta koostamise režiimile"
+				builderButton: "Vaheta koostamise režiimile",
+				bitlyTooltip: "Tekita kiirlink rakendusele"
 			}
 		},
 		builder: {
@@ -43,6 +45,7 @@
 				buttonDiscard: "TÜHISTA",
 				buttonSettings: "Seaded",
 				buttonView: "Vaaterežiim",
+				buttonItem: "Ava veebirakenduse sisu",
 				noPendingChange: "Ühtegi muudatust ei ole ootel",
 				unSavedChangeSingular: "1 mittesalvestatud muudatus",
 				unSavedChangePlural: "mittesalvestatud muudatused",
@@ -73,7 +76,7 @@
 			},
 			settingsColors: {
 				settingsTabColor: "Teema",
-				settingsColorExplain: "Vali appi teema või määra enda värvid.",
+				settingsColorExplain: "Vali appi teema või määra  värvid.",
 				settingsLabelColor: "Päise ja küljepaneeli taustvärvid"
 			},
 			settingsHeader: {
@@ -86,21 +89,25 @@
 				settingsLogoCustomTargetPlaceholder: "Kliki läbi lingi",
 				settingsLogoSocialExplain: "Kohanda päist ülemise paremal pool asuva lingi kaudu.",
 				settingsLogoSocialText: "Tekst",
-				settingsLogoSocialLink: "Link"
+				settingsLogoSocialLink: "Link",
+				settingsLogoSocialDisabled: "See funktsionaalsus on administraatori poolt välja lülitatud"
 			},
 			settingsExtent: {
 				settingsTabExtent: "Kuvaulatus",
 				settingsExtentExplain: "Määra sisemine ulatus läbi alloleva interaktiivse kaardi.",
-				settingsExtentExplainBottom: "Ulatus, mille määrad, muudab Teie veebikaardi sisemist ulatust.",
+				settingsExtentExplainBottom: "Määratud ulatus muudab veebikaardi sisemist ulatust. Pange tähele, et kui teete rullimise seeriaid, siis ulatust ei kasutata.",
+				settingsExtentDateLineError: "Ulatus ei saa ületada 180° pikkuskraadi",
+				settingsExtentDateLineError2: "Viga ulatuse arvutamisel",
 				settingsExtentDrawBtn: "Joonista uus ulatus",
 				settingsExtentModifyBtn: "Muuda praegust ulatust",
-				settingsExtentApplyBtn: "Kehtesta peamisele kaardile"
+				settingsExtentApplyBtn: "Kehtesta peamisele kaardile",
+				settingsExtentUseMainMap: "Kasuta peamist kaardi ulatust"
 			}
         },
 		swipe: {
 			mobileData: {
 				noData: "Pole andmeid, mida kuvada!",
-				noDataExplain: "Koputage kaardile, et valida objekt ning tulge siia tagasi",
+				noDataExplain: "Koputa kaardile, et valida objekt ning tule siia tagasi",
 				noDataMap: "Sellel kaardil pole andmeid",
 				noPopup: "Selle objekti kohta ei leitud hüpikakent"
 			},
@@ -114,25 +121,25 @@
 			},
 			infoWindow: {
 				noFeature: "Pole andmeid, mida kuvada",
-				noFeatureExplain: "Koputage kaardile, et valida objekt"
+				noFeatureExplain: "Koputa kaardile, et valida objekt"
 			},
 			settingsLayout: {
-				settingsTabLayout: "Svaipimise stiil",
-				settingsLayoutExplain: "Vali svaipimise töövahendi stiil.",
+				settingsTabLayout: "Rullimise stiil",
+				settingsLayoutExplain: "Vali rullimisvahendi stiil.",
 				settingsLayoutSwipe: "Vertikaalne riba",
 				settingsLayoutSpyGlass: "Pikksilm",
 				settingsLayoutSelected: "Valitud kujundus",
 				settingsLayoutSelect: "Vali see kujundus",
-				settingsSaveConfirm: "Mõned Teie muudatustest eeldavad, et salvestate tööseisu ning avate rakenduse uuesti"
+				settingsSaveConfirm: "Mõned muudatustest eeldavad, et salvestad tööseisu ning avad rakenduse uuesti"
 			},
 			settingsDataModel: {
-				settingsTabDataModel: "Svaipimise kiht",
-				settingsDataModelExplainSwipe: "Vali kiht või veebikaart, mis ilmub ja kaob koos svaipimisega.",
+				settingsTabDataModel: "Rullitav kiht",
+				settingsDataModelExplainSwipe: "Vali kiht või veebikaart, mis ilmub ja kaob rullimisega.",
 				settingsDataModelExplainSwipe2: "",
 				settingsDataModelExplainSpyGlass: "Vali kiht või veebikaart, mis ilmub pikksilma.",
 				settingsDataModelOneMap: "Üks veebikaart, üks kiht",
-				settingsDataModel1Explain: "Vali kiht, mis on kontrollitud svaipimise tööriista poolt.",
-				settingsDataModel1Warning: "Kasutatavad on ainult dünaamilise soisuga, pildiüksuste ja piltide teenused. Svaipimine ei oma efekti, kui vastav kiht on peidetud ülemiste kihtide  alla.",
+				settingsDataModel1Explain: "Vali kiht, mida kontrollib rullimisvahend.",
+				settingsDataModel1Warning: "Rullimine ei mõju, kui vastav kiht on peidetud ülemiste kihtide alla.",
 				settingsDataModel1SpyGlassExplain: "Vali kiht, mis ilmub pikksilma.",
 				settingsDataModelTwoMaps: "Kaks veebikaarti",
 				settingsDataModelLayerIds: "Veebikaardi kihi ID-d",
@@ -142,19 +149,20 @@
 				settingsDataModelWebmapGlassId1: "Peamise veebikaardi ID",
 				settingsDataModelWebmapGlassId2: "Pikksilma veebikaardi ID",
 				settingsDataModelSelect: "Vali see tüüp",
-				settingsDataModel2Explain: "Svaibi mõne teise veebikaardiga.",
+				settingsDataModel2Explain: "Rulli mõne teise veebikaardiga.",
 				settingsDataModel2SpyGlassExplain: "Ilmu teises veebikaardis.",
 				settingsDataModel2HelpTitle: "Kuidas leida veebikaardi ID-d",
 				settingsDataModel2HelpContent: "Kopeeri ja kleebi numbrid pärast '=' märki veebikaardi URL sisust"
 			},
 			settingsLegend: {
-				settingsTabLegend: "Appi paigutus",
+				settingsTabLegend: "Rakenduse paigutus",
 				settingsLegendExplain: "Vali rakenduse paigutuse seaded.",
 				settingsLegendEnable: "Lülita legend sisse",
 				settingsDescriptionEnable: "Lülita kirjeldus sisse",
-				settingsBookmarksEnable: "Võimalda svaipimise seeriad",
-				settingsLegendHelpTitle: "Kuidas täiustada legendi sisu",
-				settingsLegendHelpContent: "Kasuta ArcGIS.com veebikaardi akna kihtide loendit (peida legendis)",
+				settingsBookmarksEnable: "Võimalda rullimise seeriad",
+				settingsPopupDisable: "Luba hüpikaken",
+				settingsLegendHelpContent: "Legendi sisu täpsustamiseks kasuta ArcGIS.com veebikaardi akna kihtide loendit (peidetud legendi)",
+				settingsSeriesHelpContent: "Esimesel aktiveerimisel kasutatakse Teie lõpliku veebikaardi järjehoidjaid seeriate eelmääramiseks. Kui lülitate parameetri hiljem välja, Teie seeriate seadistusest ei loobuta ja see on kättesaadav taas kui te otsustate seeria taas lubada.",
 				preview: "UI vaade"
 			},
 			settingsSwipePopup: {
@@ -168,9 +176,16 @@
 				settingsSwipePopupColor: "Päise värv"
 			},
 			initPopup: {
-				initHeader: "Tere tulemast svaipimise koostajasse",
+				initHeader: "Tere tulemast rullimise koostajasse",
 				modalNext: "Järgmine",
 				modalApply: "Ava app"
+			},
+			seriesPanel: {
+				title: "Pealkiri",
+				descr: "Kirjeldus",
+				discard: "Loobu järjehoidjast",
+				saveExtent: "Määra järjehoidja ulatus",
+				discardDisabled: "Te ei saa seda järjehoidjat eemaldada. Vahetamise seeriaid saab keelata seadetest."
 			}
 		}
     })

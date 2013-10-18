@@ -11,6 +11,7 @@
 			},
 			errors: {
 				boxTitle: "Det har oppstått en feil",
+				portalSelf: "Alvorlig feil: Kan ikke hente portalkonfigurasjon",
 				invalidConfig: "Alvorlig feil: Ugyldig konfigurasjon",
 				invalidConfigNoWebmap: "Alvorlig feil: Ugyldig konfigurasjon (webkart ikke spesifisert)",
 				createMap: "Kan ikke opprette kart",
@@ -20,7 +21,7 @@
 				noLayerView: "Velkommen til webprogrammet for sveiping.<br />Programmet er ennå ikke konfigurert.",
 				appSave: "Feil under lagring av webapplikasjonen",
 				mapSave: "Feil under lagring av webkartet",
-				notAuthorized: "Du har ikke tillatelse til å konfigurere denne applikasjonen",
+				notAuthorized: "Du har ikke tillatelse til å bruke denne applikasjonen",
 				conflictingProjectionsTitle: "Projeksjonskonflikt",
 				conflictingProjections: "Swipe støtter ikke bruk av to webkart med ulik projeksjon. Åpne Innstillinger og bruk et webkart med samme projeksjon som det første webkartet.",
 				cpButton: "Lukk"
@@ -33,7 +34,8 @@
 			},
 			desktopView: {
 				storymapsText: "Et fortellingskart",
-				builderButton: "Gå over til byggermodus"
+				builderButton: "Gå over til byggermodus",
+				bitlyTooltip: "Få en kort kobling til applikasjonen"
 			}
 		},
 		builder: {
@@ -43,6 +45,7 @@
 				buttonDiscard: "AVBRYT",
 				buttonSettings: "Innstillinger",
 				buttonView: "Visningsmodus",
+				buttonItem: "Åpne webapplikasjonselementet",
 				noPendingChange: "Ingen ventende endring",
 				unSavedChangeSingular: "1 ulagret endring",
 				unSavedChangePlural: "ulagrede endringer",
@@ -86,15 +89,19 @@
 				settingsLogoCustomTargetPlaceholder: "Gjennomklikkingskobling",
 				settingsLogoSocialExplain: "Tilpass overskriftkoblingen øverst til høyre.",
 				settingsLogoSocialText: "Tekst",
-				settingsLogoSocialLink: "Kobling"
+				settingsLogoSocialLink: "Kobling",
+				settingsLogoSocialDisabled: "Administratoren har deaktivert denne funksjonen"
 			},
 			settingsExtent: {
 				settingsTabExtent: "Utstrekning",
 				settingsExtentExplain: "Angi begynnerutstrekningen via det interaktive kartet nedenfor.",
-				settingsExtentExplainBottom: "Utstrekningen du definerer, endrer begynnerutstrekningen av webkartet.",
+				settingsExtentExplainBottom: "Utstrekningen du definerer, endrer webkartets opprinnelige utstrekning. Legg merke til at hvis du foretar en sveipeserie, blir ikke denne utstrekningen brukt.",
+				settingsExtentDateLineError: "Utstrekningen kan ikke være over den 180. lengdegraden",
+				settingsExtentDateLineError2: "Feil ved beregning av utstrekningen",
 				settingsExtentDrawBtn: "Tegn en ny utstrekning",
 				settingsExtentModifyBtn: "Rediger gjeldende utstrekning",
-				settingsExtentApplyBtn: "Bruk på hovedkart"
+				settingsExtentApplyBtn: "Bruk på hovedkart",
+				settingsExtentUseMainMap: "Bruk utstrekningen for hovedkartet"
 			}
         },
 		swipe: {
@@ -132,7 +139,7 @@
 				settingsDataModelExplainSpyGlass: "Velg hvilket lag eller webkart som skal vises i kikkerten.",
 				settingsDataModelOneMap: "Ett webkart, ett enkelt lag",
 				settingsDataModel1Explain: "Velg et lag som skal styres av sveipeverktøyet.",
-				settingsDataModel1Warning: "Bare flis-, bilde- og dynamiske tjenester kan brukes. Hvis laget er skjult av overliggende lag, har ikke sveiping noen virkning.",
+				settingsDataModel1Warning: "Hvis laget er skjult av overliggende lag, har ikke sveipingen noen virkning.",
 				settingsDataModel1SpyGlassExplain: "Velg laget som skal vises i kikkerten.",
 				settingsDataModelTwoMaps: "To webkart",
 				settingsDataModelLayerIds: "ID-er for webkartlag",
@@ -153,8 +160,9 @@
 				settingsLegendEnable: "Aktiver tegnforklaring",
 				settingsDescriptionEnable: "Aktiver beskrivelse",
 				settingsBookmarksEnable: "Aktiver sveipeserier",
-				settingsLegendHelpTitle: "Slik begrenser du innholdet i tegnforklaringen",
-				settingsLegendHelpContent: "Bruk innholdsfortegnelsen til kartvisningsprogrammet for ArcGIS.com (skjul i tegnforklaringen)",
+				settingsPopupDisable: "Aktiver sprettoppvindu",
+				settingsLegendHelpContent: "Hvis du vil finjustere innholdet i tegnforklaringen, bruker du innholdsfortegnelsen for kartviseren på ArcGIS.com (skjul i tegnforklaringen)",
+				settingsSeriesHelpContent: "Ved første aktivering brukes webkartbokmerker til å forhåndsutfylle seriestolpen. Hvis du senere deaktiverer dette seriealternativet, fjernes ikke seriekonfigurasjonen, og den vil være tilgjengelig hvis du bestemmer deg for å aktivere serien på nytt.",
 				preview: "Forhåndsvisning av brukergrensesnitt"
 			},
 			settingsSwipePopup: {
@@ -171,6 +179,13 @@
 				initHeader: "Velkommen til Swipe-verktøyet",
 				modalNext: "Neste",
 				modalApply: "Åpne appen"
+			},
+			seriesPanel: {
+				title: "Tittel",
+				descr: "Beskrivelse",
+				discard: "Fjern bokmerke",
+				saveExtent: "Angi utstrekning for bokmerke",
+				discardDisabled: "Du kan ikke fjerne dette bokmerket. Du kan deaktivere sveipeserier i innstillingene."
 			}
 		}
     })

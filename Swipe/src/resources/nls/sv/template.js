@@ -11,6 +11,7 @@
 			},
 			errors: {
 				boxTitle: "Ett fel har inträffat",
+				portalSelf: "Allvarligt fel: det gick inte att hämta portalkonfigurationen",
 				invalidConfig: "Allvarligt fel: ogiltig konfiguration",
 				invalidConfigNoWebmap: "Allvarligt fel: ogiltig konfiguration (ingen webbkarta angiven)",
 				createMap: "Det gick inte att skapa kartan",
@@ -33,7 +34,8 @@
 			},
 			desktopView: {
 				storymapsText: "En berättelsekarta",
-				builderButton: "Växla till byggläget"
+				builderButton: "Växla till byggläget",
+				bitlyTooltip: "Hämta en kort länk till applikationen"
 			}
 		},
 		builder: {
@@ -43,6 +45,7 @@
 				buttonDiscard: "AVBRYT",
 				buttonSettings: "Inställningar",
 				buttonView: "Visningsläge",
+				buttonItem: "Öppna webbapplikationsobjektet",
 				noPendingChange: "Ingen väntande ändring",
 				unSavedChangeSingular: "1 osparad ändring",
 				unSavedChangePlural: "osparade ändringar",
@@ -86,15 +89,19 @@
 				settingsLogoCustomTargetPlaceholder: "Genomklickningslänkar",
 				settingsLogoSocialExplain: "Anpassa den övre högra rubriklänken.",
 				settingsLogoSocialText: "Text",
-				settingsLogoSocialLink: "Länk"
+				settingsLogoSocialLink: "Länk",
+				settingsLogoSocialDisabled: "Den här funktionen har inaktiverats av administratören"
 			},
 			settingsExtent: {
 				settingsTabExtent: "Utbredning",
 				settingsExtentExplain: "Ange den ursprungliga utbredningen via den interaktiva kartan nedan.",
-				settingsExtentExplainBottom: "Den utbredning du definierar ändrar webbkartans ursprungliga utbredning.",
+				settingsExtentExplainBottom: "Den utbredning du definierar ändrar webbkartans ursprungliga utbredning. Om du kör en svepserie kommer den här utbredningen inte att användas.",
+				settingsExtentDateLineError: "Det går inte att ha en utbredning över 180°-meridianen",
+				settingsExtentDateLineError2: "Det gick inte att beräkna utbredningen",
 				settingsExtentDrawBtn: "Rita en ny utbredning",
 				settingsExtentModifyBtn: "Redigera aktuell utbredning",
-				settingsExtentApplyBtn: "Använd på huvudkartan"
+				settingsExtentApplyBtn: "Använd på huvudkartan",
+				settingsExtentUseMainMap: "Använd huvudkartans utbredning"
 			}
         },
 		swipe: {
@@ -132,7 +139,7 @@
 				settingsDataModelExplainSpyGlass: "Välj det lager eller den webbkarta som ska visas i kikaren.",
 				settingsDataModelOneMap: "En webbkarta, ett lager",
 				settingsDataModel1Explain: "Välj ett lager som ska styras med svepverktyget.",
-				settingsDataModel1Warning: "Du kan endast använda dynamiska tjänster, tiletjänster och bildtjänster. Om lagret är dolt under högre lager har inte svepverktyget någon effekt.",
+				settingsDataModel1Warning: "Om lagret är dolt av högre lager har det ingen effekt när du sveper.",
 				settingsDataModel1SpyGlassExplain: "Välj det lager som ska visas i kikaren.",
 				settingsDataModelTwoMaps: "Två webbkartor",
 				settingsDataModelLayerIds: "ID för webbkartlager",
@@ -153,8 +160,9 @@
 				settingsLegendEnable: "Aktivera teckenförklaring",
 				settingsDescriptionEnable: "Aktivera beskrivning",
 				settingsBookmarksEnable: "Aktivera svepserie",
-				settingsLegendHelpTitle: "Förfina innehållet i teckenförklaringen",
-				settingsLegendHelpContent: "Använd innehållsförteckningen i webbkartvyn på ArcGIS.com (Dölj i teckenförklaringen)",
+				settingsPopupDisable: "Aktivera popup-fönster",
+				settingsLegendHelpContent: "Om du vill förfina innehållsförteckningen använder du innehållsförteckningen i webbkartvyn på ArcGIS.com (Dölj i teckenförklaringen)",
+				settingsSeriesHelpContent: "Vid den första aktiveringen används webbkartans bokmärken för att fylla i seriefältet. Om du inaktiverar alternativet försvinner inte seriekonfigurationen utan finns kvar om du aktiverar alternativet igen.",
 				preview: "Förhandsgranska användargränssnitt"
 			},
 			settingsSwipePopup: {
@@ -171,6 +179,13 @@
 				initHeader: "Välkommen till Svep-byggverktyget",
 				modalNext: "Nästa",
 				modalApply: "Öppna applikationen"
+			},
+			seriesPanel: {
+				title: "Titel",
+				descr: "Beskrivning",
+				discard: "Ignorera bokmärke",
+				saveExtent: "Ange utbredning för bokmärke",
+				discardDisabled: "Det går inte att ta bort det här bokmärket. Du kan inaktivera svepserier i inställningarna."
 			}
 		}
     })

@@ -11,6 +11,7 @@
 			},
 			errors: {
 				boxTitle: "Ocorreu um erro",
+				portalSelf: "Erro fatal: Falha ao obter configuração do portal",
 				invalidConfig: "Erro fatal: configuração inválida",
 				invalidConfigNoWebmap: "Erro fatal: Configuração inválida (nenhum mapa da web especificado)",
 				createMap: "Não foi possível criar o mapa",
@@ -20,7 +21,7 @@
 				noLayerView: "Bem-Vindo ao aplicativo da web Oscilar.<br />O aplicativo não está configurado",
 				appSave: "Erro ao salvar o aplicativo da web",
 				mapSave: "Erro ao salvar o mapa da web",
-				notAuthorized: "Você não está autorizado para configurar este aplicativo",
+				notAuthorized: "Você não está autorizado para acessar este aplicativo.",
 				conflictingProjectionsTitle: "Projeções em Conflito",
 				conflictingProjections: "A ferramenta Oscilar não suporta dois mapas da web com projeções diferentes. Abra as configurações e utilize um mapa da web que utiliza a mesma projeção que o primeiro mapa da web.",
 				cpButton: "Fechar"
@@ -33,7 +34,8 @@
 			},
 			desktopView: {
 				storymapsText: "Um mapa histórico",
-				builderButton: "Trocar para modo do construtor"
+				builderButton: "Trocar para modo do construtor",
+				bitlyTooltip: "Obtenha um link curto para o aplicativo"
 			}
 		},
 		builder: {
@@ -43,6 +45,7 @@
 				buttonDiscard: "CANCELAR",
 				buttonSettings: "Configurações",
 				buttonView: "Modo de visualização",
+				buttonItem: "Abra o item do Aplicativo da Web",
 				noPendingChange: "Nenhuma alteração pendente",
 				unSavedChangeSingular: "1 alteração não salva",
 				unSavedChangePlural: "alterações não salvas",
@@ -86,15 +89,19 @@
 				settingsLogoCustomTargetPlaceholder: "Clicar pelo link",
 				settingsLogoSocialExplain: "Personalizar o link no cabeçalho superior direito.",
 				settingsLogoSocialText: "Texto",
-				settingsLogoSocialLink: "Link"
+				settingsLogoSocialLink: "Link",
+				settingsLogoSocialDisabled: "Este recurso foi desabilitado pelo Administrador"
 			},
 			settingsExtent: {
 				settingsTabExtent: "Extensão",
 				settingsExtentExplain: "Configure a extensão inicial pelo mapa interativo abaixo.",
-				settingsExtentExplainBottom: "A extensão que você define modificará sua extensão inicial do mapa da web.",
+				settingsExtentExplainBottom: "A extensão que você define modificará sua extensão inicial do mapa da web. Observe que se você estiver realizando uma série de oscilações esta extensão não será utilizada.",
+				settingsExtentDateLineError: "A extensão não pode cruzar o meridiano de longitude de 180°",
+				settingsExtentDateLineError2: "Erro ao calcular a extensão",
 				settingsExtentDrawBtn: "Desenhar uma nova extensão",
 				settingsExtentModifyBtn: "Editar a extensão atual",
-				settingsExtentApplyBtn: "Aplicar no mapa principal"
+				settingsExtentApplyBtn: "Aplicar no mapa principal",
+				settingsExtentUseMainMap: "Utilizar extensão de mapa atual"
 			}
         },
 		swipe: {
@@ -132,7 +139,7 @@
 				settingsDataModelExplainSpyGlass: "Escolha a camada ou mapa da web que aparecerá na luneta.",
 				settingsDataModelOneMap: "Um mapa da web, única camada",
 				settingsDataModel1Explain: "Selecione uma camada a ser controlada pela ferramenta Oscilar.",
-				settingsDataModel1Warning: "Somente serviços de Imagem, Mosaico e Dinâmicos podem ser utilizados. Se a camada estiver ocultada por camadas superiores, a oscilação não terá efeito.",
+				settingsDataModel1Warning: "Se a camada estiver ocultada por camadas superiores, a oscilação não terá efeito.",
 				settingsDataModel1SpyGlassExplain: "Selecione a camada para aparecer na luneta.",
 				settingsDataModelTwoMaps: "Dois mapas da web",
 				settingsDataModelLayerIds: "IDs da Camada do Mapa da Web",
@@ -153,8 +160,9 @@
 				settingsLegendEnable: "Habilitar Legenda",
 				settingsDescriptionEnable: "Habilitar Descrição",
 				settingsBookmarksEnable: "Habilitar série do Oscilar",
-				settingsLegendHelpTitle: "Como refinar o conteúdo da legenda",
-				settingsLegendHelpContent: "Utilizar área de controle do visualizador de mapa do ArcGIS.com (Oculto na Legenda)",
+				settingsPopupDisable: "Habilitar pop-up",
+				settingsLegendHelpContent: "Para refinar o conteúdo da legenda, utilize a área de controle do visualizador de mapa da web do ArcGIS.com (Oculto na Legenda)",
+				settingsSeriesHelpContent: "Na primeira ativação, seus marcadores de mapas da web serão utilizados para preencher a barra de série. Se você desabilitar a opção de série posteriormente, a sua configuração de série não será descartada e estará disponível se você decidir habilitar a série novamente.",
 				preview: "Visualizar ID"
 			},
 			settingsSwipePopup: {
@@ -171,6 +179,13 @@
 				initHeader: "Bem-Vindo ao Construtor de Oscilação",
 				modalNext: "Avançar",
 				modalApply: "Abrir o aplicativo"
+			},
+			seriesPanel: {
+				title: "Título",
+				descr: "Descrição",
+				discard: "Descartar Marcador",
+				saveExtent: "Configurar Extensão do Marcador",
+				discardDisabled: "Você não pode remover este marcador. A troca de série pode ser desabilitada nas Configurações."
 			}
 		}
     })

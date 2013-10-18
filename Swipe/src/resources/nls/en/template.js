@@ -11,6 +11,7 @@ define(
 			},
 			errors: {
 				boxTitle: "An error has occurred",
+				portalSelf: "Fatal error: Failed to get portal configuration",
 				invalidConfig: "Fatal error: Invalid configuration",
 				invalidConfigNoWebmap: "Fatal error: Invalid configuration (no web map specified)",
 				createMap: "Unable to create map",
@@ -20,7 +21,7 @@ define(
 				noLayerView: "Welcome to the Swipe web application.<br />The application is not configured yet.",
 				appSave: "Error saving the web application",
 				mapSave: "Error saving the web map",
-				notAuthorized: "You are not authorized to configure this application",
+				notAuthorized: "You are not authorized to access this application",
 				conflictingProjectionsTitle: "Conflicting Projections",
 				conflictingProjections: "Swipe does not support using two webmaps with different projections. Please open settings and use a webmap that use the same projection than the first webmap.",
 				cpButton: "Close"
@@ -33,7 +34,8 @@ define(
 			},
 			desktopView: {
 				storymapsText: "A story map",
-				builderButton: "Switch to builder mode"
+				builderButton: "Switch to builder mode",
+				bitlyTooltip: "Get a short link to the application"
 			}
 		},
 		builder: {
@@ -43,6 +45,7 @@ define(
 				buttonDiscard: "CANCEL",
 				buttonSettings: "Settings",
 				buttonView: "View mode",
+				buttonItem: "Open the Web Application item",
 				noPendingChange: "No pending change",
 				unSavedChangeSingular: "1 unsaved change",
 				unSavedChangePlural: "unsaved changes",
@@ -86,15 +89,19 @@ define(
 				settingsLogoCustomTargetPlaceholder: "Click-through link",
 				settingsLogoSocialExplain: "Customize the header top right link.",
 				settingsLogoSocialText: "Text",
-				settingsLogoSocialLink: "Link"
+				settingsLogoSocialLink: "Link",
+				settingsLogoSocialDisabled: "This feature has been disabled by the Administrator"
 			},
 			settingsExtent: {
 				settingsTabExtent: "Extent",
 				settingsExtentExplain: "Set the initial extent through the interactive map below.",
-				settingsExtentExplainBottom: "The extent you define will modify your web map initial extent.",
+				settingsExtentExplainBottom: "The extent you define will modify your web map initial extent. Note that if you are doing a swipe series that extent won't be used.",
+				settingsExtentDateLineError: "The extent cannot be across the meridian of 180° longitude",
+				settingsExtentDateLineError2: "Error computing the extent",
 				settingsExtentDrawBtn: "Draw a new extent",
 				settingsExtentModifyBtn: "Edit the current extent",
-				settingsExtentApplyBtn: "Apply on main map"
+				settingsExtentApplyBtn: "Apply on main map",
+				settingsExtentUseMainMap: "Use main map extent"
 			}
         },
 		swipe: {
@@ -132,7 +139,7 @@ define(
 				settingsDataModelExplainSpyGlass: "Choose the layer or the web map that will appear in the spyglass.",
 				settingsDataModelOneMap: "One web map, single layer",
 				settingsDataModel1Explain: "Select a layer to be controlled by the swipe tool.",
-				settingsDataModel1Warning: "Only Dynamic, Tile and Image services can be used. If the layer is hidden by upper layers, swipe won't have any effect.",
+				settingsDataModel1Warning: "If the layer is hidden by upper layers, swipe won't have any effect.",
 				settingsDataModel1SpyGlassExplain: "Select the layer to appear within the spyglass.",
 				settingsDataModelTwoMaps: "Two web maps",
 				settingsDataModelLayerIds: "Web map Layer IDs",
@@ -153,8 +160,9 @@ define(
 				settingsLegendEnable: "Enable Legend",
 				settingsDescriptionEnable: "Enable Description",
 				settingsBookmarksEnable: "Enable Swipe series",
-				settingsLegendHelpTitle: "How to refine legend content",
-				settingsLegendHelpContent: "Use ArcGIS.com web map viewer table of contents (Hide in Legend)",
+				settingsPopupDisable: "Enable popup",
+				settingsLegendHelpContent: "To refine the legend content, use ArcGIS.com web map viewer table of contents (Hide in Legend)",
+				settingsSeriesHelpContent: "On first activation, your web map(s) bookmarks will be used to pre-populate the series bar. If you disable the series option later, your series configuration won't be discarded and will be available if you decide to enable the series again.",
 				preview: "UI preview"
 			},
 			settingsSwipePopup: {
@@ -171,6 +179,13 @@ define(
 				initHeader: "Welcome to the Swipe Builder",
 				modalNext: "Next",
 				modalApply: "Open the app"
+			},
+			seriesPanel: {
+				title: "Title",
+				descr: "Description",
+				discard: "Discard Bookmark",
+				saveExtent: "Set Bookmark Extent",
+				discardDisabled: "You can't remove that bookmark. Swipe series can be disabled in the Settings."
 			}
 		}
     })

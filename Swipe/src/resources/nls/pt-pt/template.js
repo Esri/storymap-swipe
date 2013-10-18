@@ -11,6 +11,7 @@
 			},
 			errors: {
 				boxTitle: "Ocorreu um erro",
+				portalSelf: "Erro fatal: falha na obtenção da configuração do portal",
 				invalidConfig: "Erro fatal: configuração não válida",
 				invalidConfigNoWebmap: "Erro fatal: configuração não válida (não foi definido um mapa web)",
 				createMap: "Não foi possível criar o mapa",
@@ -33,7 +34,8 @@
 			},
 			desktopView: {
 				storymapsText: "Um mapa de história",
-				builderButton: "Mudar para modo de construtor"
+				builderButton: "Mudar para modo de construtor",
+				bitlyTooltip: "Obter uma pequena ligação para a aplicação"
 			}
 		},
 		builder: {
@@ -43,6 +45,7 @@
 				buttonDiscard: "CANCELAR",
 				buttonSettings: "Configurações",
 				buttonView: "Ver modo",
+				buttonItem: "Abrir o item de Aplicação Web",
 				noPendingChange: "Nenhuma alteração pendente",
 				unSavedChangeSingular: "1 alteração não guardada",
 				unSavedChangePlural: "alterações não guardadas",
@@ -86,15 +89,19 @@
 				settingsLogoCustomTargetPlaceholder: "Ligação para clicar",
 				settingsLogoSocialExplain: "Personalize a ligação superior direita do cabeçalho.",
 				settingsLogoSocialText: "Texto",
-				settingsLogoSocialLink: "Ligação"
+				settingsLogoSocialLink: "Ligação",
+				settingsLogoSocialDisabled: "Esta funcionalidade foi desativada pelo Admnistrador"
 			},
 			settingsExtent: {
 				settingsTabExtent: "Extensão",
 				settingsExtentExplain: "Defina a extensão inicial através do mapa interativo abaixo.",
 				settingsExtentExplainBottom: "A extensão definida irá modificar a extensão inicial do seu mapa web.",
+				settingsExtentDateLineError: "A extensão não pode ser ao longo do meridiano de180° de longitude",
+				settingsExtentDateLineError2: "Erro ao calcular extensão",
 				settingsExtentDrawBtn: "Desenhar uma nova extensão",
 				settingsExtentModifyBtn: "Editar a extensão atual",
-				settingsExtentApplyBtn: "Aplicar ao mapa principal"
+				settingsExtentApplyBtn: "Aplicar ao mapa principal",
+				settingsExtentUseMainMap: "Utilizar a extensão do mapa principal"
 			}
         },
 		swipe: {
@@ -153,8 +160,9 @@
 				settingsLegendEnable: "Ativar Legenda",
 				settingsDescriptionEnable: "Ativar Descrição",
 				settingsBookmarksEnable: "Ativar série de Varrimento",
-				settingsLegendHelpTitle: "Como ajustar o conteúdo da legenda",
+				settingsPopupDisable: "Ativar janelas popup",
 				settingsLegendHelpContent: "Utilize o índice do visualizador de mapas do ArcGIS.com (Ocultar em Legenda)",
+				settingsSeriesHelpContent: "Durante a primeira ativação, os seus eventuais marcadores de mapas web serão utilizados para pré-preencher a barra de séries. Se desativar esta opção mais tarde, as configurações das suas séries não serão perdidas, reativar esta opção irá carregar o estado antes da desativação.",
 				preview: "Pré-visualizar IU"
 			},
 			settingsSwipePopup: {
@@ -171,6 +179,13 @@
 				initHeader: "Bem-vindo ao Builder de Varrimento",
 				modalNext: "Seguinte",
 				modalApply: "Abrir a aplicação"
+			},
+			seriesPanel: {
+				title: "Título",
+				descr: "Descrição",
+				discard: "Rejeitar Marcador",
+				saveExtent: "Definir a extensão do Marcador",
+				discardDisabled: "Não pode remover aquele marcador. As séries Swipe podem ser desativadas nas Definições."
 			}
 		}
     })

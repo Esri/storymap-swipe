@@ -11,6 +11,7 @@
 			},
 			errors: {
 				boxTitle: "אירעה שגיאה",
+				portalSelf: "שגיאה חמורה: נכשל ניסיון לקבל תצורת פורטל",
 				invalidConfig: "שגיאה קריטית: קביעת תצורה לא תקינה",
 				invalidConfigNoWebmap: "שגיאה קריטית: קביעת תצורה לא תקינה (לא הוגדר web map)",
 				createMap: "לא ניתן ליצור מפה",
@@ -20,7 +21,7 @@
 				noLayerView: "ברוכים הבאים לאפליקצית ה- web של כלי ה- swipe. <br />עדיין לא הוגדרה תצורה לאפליקציה.",
 				appSave: "שגיאה בשמירת אפליקצית ה- web",
 				mapSave: "שגיאה בשמירת ה- web map",
-				notAuthorized: "אינך מורשה לקבוע תצורה עבור אפליקציה זו",
+				notAuthorized: "אינך מורשה לגשת לאפליקציה זו",
 				conflictingProjectionsTitle: "היטלים סותרים",
 				conflictingProjections: "כלי ה- Swipe לא ישים כאשר ישנם היטלים שונים לשני webmaps. אנא פתח את ההגדרות והשתמש ב- webmap שמשתמשת באותו היטל של ה- webmap הראשון.",
 				cpButton: "סגור"
@@ -33,7 +34,8 @@
 			},
 			desktopView: {
 				storymapsText: "מפת סיפור",
-				builderButton: "עבור למצב בנייה"
+				builderButton: "עבור למצב בנייה",
+				bitlyTooltip: "קבל קישור קצר ליישום"
 			}
 		},
 		builder: {
@@ -43,6 +45,7 @@
 				buttonDiscard: "ביטול",
 				buttonSettings: "הגדרות",
 				buttonView: "מצב צפיה",
+				buttonItem: "פתח פריט של אפליקצית web",
 				noPendingChange: "אין שינוי לביצוע",
 				unSavedChangeSingular: "שינוי אחד שלא נשמר",
 				unSavedChangePlural: "שינויים שלא נשמרו",
@@ -69,7 +72,7 @@
 			settings: {
 				settingsHeader: "הגדרות אפליקציה",
 				modalCancel: "ביטול",
-				modalApply: "החל"
+				modalApply: "בצע"
 			},
 			settingsColors: {
 				settingsTabColor: "נושא",
@@ -86,15 +89,19 @@
 				settingsLogoCustomTargetPlaceholder: "קישור זמין",
 				settingsLogoSocialExplain: "התאם הלינק בצד ימין עליון של הכותרת העליונה",
 				settingsLogoSocialText: "טקסט",
-				settingsLogoSocialLink: "קישור"
+				settingsLogoSocialLink: "קישור",
+				settingsLogoSocialDisabled: "תכונה זו הוגדרה כלא זמינה על ידי המנהל"
 			},
 			settingsExtent: {
 				settingsTabExtent: "תיחום",
 				settingsExtentExplain: "בחר את התיחום ההתחלתי באמצעות המפה האינטראקטיבית שלהלן.",
-				settingsExtentExplainBottom: "התיחום אותו הגדרת ישנה את התיחום ההתחלתי של ה- web map שלך.",
+				settingsExtentExplainBottom: "התיחום אותו הגדרת ישנה את התיחום ההתחלתי של ה- web map שלך. שים לב שאם אתה עושה סדרות swipe תיחום זה לא יהיה בשימוש.",
+				settingsExtentDateLineError: "התיחום לא יכול להיותבין המרידיאן של קו אורך 180°",
+				settingsExtentDateLineError2: "שגיאה בחישוב התיחום",
 				settingsExtentDrawBtn: "שרטט תיחום חדש",
 				settingsExtentModifyBtn: "ערוך את התיחום הנוכחי",
-				settingsExtentApplyBtn: "יישם על המפה המרכזית"
+				settingsExtentApplyBtn: "יישם על המפה המרכזית",
+				settingsExtentUseMainMap: "השתמש בתיחום של המפה הראשית"
 			}
         },
 		swipe: {
@@ -132,7 +139,7 @@
 				settingsDataModelExplainSpyGlass: "בחר את השכבה או את ה- web map שתופיע במשקפת.",
 				settingsDataModelOneMap: "web map אחד, שכבה אחת",
 				settingsDataModel1Explain: "בחר שכבה שתנוהל על ידי כלי ה- swipe.",
-				settingsDataModel1Warning: "ניתן להשתמש רק בשירותי תמונה, אריחים ודינאמיים. אם השכבה נסתרת על ידי שכבות עליונות יותר, לכלי ה- swipe אין השפעה.",
+				settingsDataModel1Warning: "אם השכבה מוסתרת על ידי שכבות עליונות יותר, לכלי ה- swipe לא תהיה השפעה.",
 				settingsDataModel1SpyGlassExplain: "בחר את השכבה שתופיע בתוך ה- spyglass.",
 				settingsDataModelTwoMaps: "שני web maps",
 				settingsDataModelLayerIds: "ה-  IDs של שכבת ה- Web map",
@@ -153,8 +160,9 @@
 				settingsLegendEnable: "הדלק מקרא",
 				settingsDescriptionEnable: "הדלק תיאור",
 				settingsBookmarksEnable: "הדלק סדרת Swipe",
-				settingsLegendHelpTitle: "כיצד לעדן את תוכן המקרא",
-				settingsLegendHelpContent: "השתמש בתוכן העניינים של צפיין ה- ArcGIS.com web map (מוסתר במקרא)",
+				settingsPopupDisable: "אפשר חלון קופץ",
+				settingsLegendHelpContent: "כדי לעדן את תוכן המקרא, השתמש בתוכן העניינים של צפיין ה- ArcGIS.com web map (הסתר במקרא)",
+				settingsSeriesHelpContent: "באקטיבציה הראשונה, סימניות ה- web map ישמשו לאכלוס מראש של מוט הסדרה. אם תהפוך את אפשרות הסדרה ללא פעילה בשלב מאוחר יותר, תצורת הסדרה שלך תכלל ותהיה זמינה אם מחליטים לאפשר את הסדרה שוב.",
 				preview: "תצוגה מקדימה של UI"
 			},
 			settingsSwipePopup: {
@@ -171,6 +179,13 @@
 				initHeader: "ברוכים הבאים לבונה ה- Swipe",
 				modalNext: "הבא",
 				modalApply: "פתח את האפליקציה"
+			},
+			seriesPanel: {
+				title: "כותרת",
+				descr: "תיאור",
+				discard: "אל תשמור סימניות",
+				saveExtent: "הגדר תיחום סימניות",
+				discardDisabled: "אינך יכול להסיר סימניה זו. ניתן להפוך סדרות swipe ללא פעילות בהגדרות."
 			}
 		}
     })

@@ -5,22 +5,23 @@
 				step1: "IELĀDĒ APLIKĀCIJU",
 				step2: "IELĀDĒ DATUS",
 				step3: "INICIALIZĒŠANA",
-				fail: "Atvainojiet, Pārvilkt ielādēšana neizdevās",
+				fail: "Diemžēl neizdevās pārvilkt ielādēšanu",
 				loadBuilder: "PĀRSLĒGT UZ BUILDER MODE",
 				failButton: "Atkārtot"
 			},
 			errors: {
 				boxTitle: "Kļūda",
+				portalSelf: "Fatāla kļūda: Neizdevās iegūt portāla konfigurāciju",
 				invalidConfig: "Fatāla kļūda: konfigurācijas neveiksme",
-				invalidConfigNoWebmap: "Fatāla kļūda: konfigurācijas neveiksme (nav norādīta web karte)",
+				invalidConfigNoWebmap: "Fatāla kļūda: nederīga konfigurācija (nav norādīta web karte)",
 				createMap: "Nevar izveidot karti",
 				invalidApp: "Fatāla kļūda: aplikāciju nevar ielādēt",
-				initMobile: "Laipni lūdzam pārvilkšanas web aplikācijā. Aplikācija nav konfigurēta. Interaktīvais būvētājs netiek atbalstīta uz mobilajām ierīcēm.",
-				noBuilderIE8: "Pārvilkt interaktīvais būvētājs neatbalsta Internet Explorer pirms 9 versiju.",
+				initMobile: "Laipni lūdzam pārvilkšanas web aplikācijā. Aplikācija nav konfigurēta. Interaktīvais būvētājs netiek atbalstīts mobilajās ierīcēs.",
+				noBuilderIE8: "Pārvilkšanas interaktīvais veidotājs netiek atbalstīts pārlūkprogrammas Internet Explorer versijās, kas jaunākas par 9. versiju.",
 				noLayerView: "Laipni lūdzam Pārvilkt web aplikācijā.<br />Aplikācija vēl nav konfigurēta.",
 				appSave: "Kļūda, saglabājot web aplikāciju",
 				mapSave: "Kļūda, saglabājot web karti",
-				notAuthorized: "Jums nav atļauts konfigurēt šo aplikāciju",
+				notAuthorized: "Jums nav atļauts piekļūt šai aplikācijai",
 				conflictingProjectionsTitle: "Konfliktējošas projekcijas",
 				conflictingProjections: "Pārvilkt neatbalsta divu web karšu ar dažādām projekcijām lietošanu. Lūdzu, atveriet iestatījumus un izmantojiet web karti, kas izmanto to pašu projekciju nekā pirmā web karte.",
 				cpButton: "Aizvērt"
@@ -33,7 +34,8 @@
 			},
 			desktopView: {
 				storymapsText: "Stāstu karte",
-				builderButton: "Pārslēgties uz veidotāja režīmu"
+				builderButton: "Pārslēgties uz veidotāja režīmu",
+				bitlyTooltip: "Iegūt īsceļu uz aplikāciju"
 			}
 		},
 		builder: {
@@ -43,6 +45,7 @@
 				buttonDiscard: "ATCELT",
 				buttonSettings: "Iestatījumi",
 				buttonView: "Skata režīms",
+				buttonItem: "Atvērt web aplikācijas vienību",
 				noPendingChange: "Nav neizpildītu izmaiņu",
 				unSavedChangeSingular: "1 nesaglabāta izmaiņa",
 				unSavedChangePlural: "nesaglabātas izmaiņas",
@@ -86,23 +89,27 @@
 				settingsLogoCustomTargetPlaceholder: "Klikšķis caur saiti",
 				settingsLogoSocialExplain: "Pielāgot galvenes labās augšējās saites.",
 				settingsLogoSocialText: "Teksts",
-				settingsLogoSocialLink: "Saite"
+				settingsLogoSocialLink: "Saite",
+				settingsLogoSocialDisabled: "Administrators ir atspējojis elementu."
 			},
 			settingsExtent: {
 				settingsTabExtent: "Pārklājums",
-				settingsExtentExplain: "Izmantojot interaktīvo karti zemāk, iestatiet sākotnējo pārklājumu.",
-				settingsExtentExplainBottom: "Jūsu definētais pārklājums modificēs web kartes sākotnējo pārklājumu.",
+				settingsExtentExplain: "Izmantojot zemāk esošo interaktīvo karti, iestatiet sākotnējo pārklājumu.",
+				settingsExtentExplainBottom: "Jūsu definētais pārklājums modificēs web kartes sākotnējo pārklājumu. Atcerieties ja jūs veicat kartes lasīšanas serijas, šis pārklājums netiks lietots.",
+				settingsExtentDateLineError: "Pārklājums nevar būt pāri 180° meridiāna garumam.",
+				settingsExtentDateLineError2: "Kļūda aprēķinot pārklājumu",
 				settingsExtentDrawBtn: "Zīmēt jaunu pārklājumu",
 				settingsExtentModifyBtn: "Rediģēt pašreizējo pārklājumu",
-				settingsExtentApplyBtn: "Lietot galvenajā kartē"
+				settingsExtentApplyBtn: "Lietot galvenajā kartē",
+				settingsExtentUseMainMap: "Lietot galveno kartes pārklājumu"
 			}
         },
 		swipe: {
 			mobileData: {
-				noData: "Nav datu attēlošanai!",
+				noData: "Nav nekādu parādāmu datu",
 				noDataExplain: "Pieskarieties kartei, lai izvēlētos elementu un atgriezieties šeit",
 				noDataMap: "Nav datu par šo karti",
-				noPopup: "Nav atrasti uznirstošie logi šim elementam"
+				noPopup: "Nav atrasti šī elementa uznirstošie logi"
 			},
 			mobileLegend: {
 				noLegend: "Nav leģendas, ko parādīt."
@@ -117,35 +124,35 @@
 				noFeatureExplain: "Pieskarieties kartei, lai izvēlētos elementu"
 			},
 			settingsLayout: {
-				settingsTabLayout: "Pārvilkt stils",
-				settingsLayoutExplain: "Izvēlieties stilu priekš rīka pārvilkt.",
+				settingsTabLayout: "Pārvilkšanas stils",
+				settingsLayoutExplain: "Izvēlieties pārvilkšanas rīka stilu.",
 				settingsLayoutSwipe: "Vertikāla josla",
 				settingsLayoutSpyGlass: "Tālskatis",
 				settingsLayoutSelected: "Izvēlētais izkārtojums",
 				settingsLayoutSelect: "Izvēlieties šo izkārtojumu",
-				settingsSaveConfirm: "Dažas no jūsu izmaiņām pieprasa saglabāt un pārlādēt aplikāciju"
+				settingsSaveConfirm: "Lai dažas no jūsu veiktajām izmaiņām stātos spēkā, ir nepieciešams saglabāt un atkārtoti ielādēt aplikāciju."
 			},
 			settingsDataModel: {
-				settingsTabDataModel: "Pārvilkt slānis",
-				settingsDataModelExplainSwipe: "Izvēlieties slāni vai web karti, kas parādīsies un pazudīs ar pārvikšanu.",
+				settingsTabDataModel: "Pārvilkšanas slānis",
+				settingsDataModelExplainSwipe: "Izvēlieties slāni vai web karti, kas tiks radīta, bet pārvelkot vairs netiks rādīta.",
 				settingsDataModelExplainSwipe2: "",
-				settingsDataModelExplainSpyGlass: "Izvēlieties slāni vai web karti, kas parādīsies tālskatī.",
+				settingsDataModelExplainSpyGlass: "Izvēlieties slāni vai web karti, kas tiks rādīta tālskatī.",
 				settingsDataModelOneMap: "Viena web karte, viens slānis",
-				settingsDataModel1Explain: "Izvēlieties slāni, ko kontrolē pārvilkšanas rīks.",
-				settingsDataModel1Warning: "Tikai Dinamikas, Mozaikas un Attēlu servisus var izmantot. Ja slānis ir paslēpts augšējos slāņos, pārvilkšanai nebūs nekādas ietekmes.",
-				settingsDataModel1SpyGlassExplain: "Izvēlieties slāni, ko parādīt tālskata ietvaros.",
+				settingsDataModel1Explain: "Izvēlieties slāni, ko kontrolēs pārvilkšanas rīks.",
+				settingsDataModel1Warning: "Ja slānis ir paslēpts augšējos slāņos, pārvilkšanai nebūs nekāda efekta.",
+				settingsDataModel1SpyGlassExplain: "Izvēlieties slāni, ko parādīt tālskatī.",
 				settingsDataModelTwoMaps: "Divas web kartes",
 				settingsDataModelLayerIds: "Web kartes slāņa ID",
 				settingsDataModelSelected: "Izvēlieties tipu",
-				settingsDataModelWebmapSwipeId1: "Labās web kartes ID",
-				settingsDataModelWebmapSwipeId2: "Kreisās web kartes ID",
+				settingsDataModelWebmapSwipeId1: "Labās puses web kartes ID",
+				settingsDataModelWebmapSwipeId2: "Kreisās puses web kartes ID",
 				settingsDataModelWebmapGlassId1: "Galvenās web kartes ID",
 				settingsDataModelWebmapGlassId2: "Tālskata web kartes ID",
 				settingsDataModelSelect: "Izvēlieties šo tipu",
 				settingsDataModel2Explain: "Pārvilkt ar citu web karti.",
 				settingsDataModel2SpyGlassExplain: "Atklāt citu web karti.",
 				settingsDataModel2HelpTitle: "Kā atrast web kartes ID",
-				settingsDataModel2HelpContent: "Kopēt un ielīmēt ciparus aiz "=" zīmes iekš URL no web kartes"
+				settingsDataModel2HelpContent: "Kopēt un ielīmēt ciparus aiz zīmes \"=\" vietrādī URL no web kartes"
 			},
 			settingsLegend: {
 				settingsTabLegend: "Lietotnes izkārtojums",
@@ -153,24 +160,32 @@
 				settingsLegendEnable: "Iespējot leģendu",
 				settingsDescriptionEnable: "Iespējot aprakstu",
 				settingsBookmarksEnable: "Iespējot sēriju Pārvilkt",
-				settingsLegendHelpTitle: "Kā uzlabot leģendas saturu",
-				settingsLegendHelpContent: "Izmantojiet ArcGIS.com web kartes skatītāja satura tabulu (Paslēpt leģendā)",
+				settingsPopupDisable: "Iespējot uznirstošo logu",
+				settingsLegendHelpContent: "Lai attīrītu leģendas saturu izmantojiet ArcGIS.com web kartes skatītāja satura tabulu (Paslēpt leģendā)",
+				settingsSeriesHelpContent: "Pirmajā aktivizācijas reizē, web karšu grāmatzīmes tiks izmantotas, lai ierpiekš aizpildītu sēriju joslas. Ja jūs atiespējosiet sērijas izvēlnii vēlāk, jūsu sērijas konfigurācija netiks atmesta un būs pieejama, ja iespējosiet sēriju atkal.",
 				preview: "Saskarnes priekšskatījums"
 			},
 			settingsSwipePopup: {
 				settingsSwipePopup: "Uznirstošie logi",
 				settingsSwipePopupExplain: "Pielāgot izskatu uznirstošā loga galvenē, lai palīdzētu lietotājam saistīt uznirstošā logu ar kartēm slāņiem.",
-				settingsSwipePopupSwipe1: "Kreisā Karte",
-				settingsSwipePopupSwipe2: "Labā Karte",
-				settingsSwipePopupGlass1: "Galvenā Karte",
-				settingsSwipePopupGlass2: "Tālskata Karte",
+				settingsSwipePopupSwipe1: "Kreisās puses karte",
+				settingsSwipePopupSwipe2: "Labās puses karte",
+				settingsSwipePopupGlass1: "Galvenā karte",
+				settingsSwipePopupGlass2: "Tālskata karte",
 				settingsSwipePopupTitle: "Galvenes virsraksts",
 				settingsSwipePopupColor: "Galvenes krāsa"
 			},
 			initPopup: {
-				initHeader: "Laipni lūdzam Pārvilkt veidotājā",
+				initHeader: "Laipni lūdzam pārvilkšanas veidotājā",
 				modalNext: "Nākošais",
 				modalApply: "Atveriet lietotni"
+			},
+			seriesPanel: {
+				title: "Virsraksts",
+				descr: "Apraksts",
+				discard: "Atmest grāmatzīmi",
+				saveExtent: "Iesatīt grāmatzīmes pārklājumu",
+				discardDisabled: "Jūs nevarat noņemt grāmatzīmi. Pārvilktās sērijas var tikt atiespējotas iestatījumu sadaļā."
 			}
 		}
     })

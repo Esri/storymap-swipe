@@ -11,6 +11,7 @@
 			},
 			errors: {
 				boxTitle: "Si è verificato un errore",
+				portalSelf: "Errore irreversibile: impossibile ottenere la configurazione del portale",
 				invalidConfig: "Errore irreversibile: configurazione non valida",
 				invalidConfigNoWebmap: "Errore irreversibile: configurazione non valida (nessuna mappa Web specificata)",
 				createMap: "Impossibile creare la mappa",
@@ -20,7 +21,7 @@
 				noLayerView: "Benvenuto nell\'applicazione Web per scorrimento con dito.<br />L\'applicazione non è ancora configurata.",
 				appSave: "Errore durante il salvataggio dell\'applicazione Web",
 				mapSave: "Errore durante il salvataggio della mappa Web",
-				notAuthorized: "L\'utente non è autorizzato a configurare questa applicazione",
+				notAuthorized: "L\'utente non è autorizzato ad accedere a questa applicazione",
 				conflictingProjectionsTitle: "Proiezioni in conflitto",
 				conflictingProjections: "Scorrimento non supportato in caso di utilizzo di due mappe Web con proiezioni differenti. Aprire la pagina delle impostazioni e utilizzare una mappa Web con proiezione uguale alla prima mappa Web.",
 				cpButton: "Chiudi"
@@ -33,7 +34,8 @@
 			},
 			desktopView: {
 				storymapsText: "Mappa collegata a una storia",
-				builderButton: "Passa a modalità generatore"
+				builderButton: "Passa a modalità generatore",
+				bitlyTooltip: "Ottieni un collegamento breve all\'applicazione"
 			}
 		},
 		builder: {
@@ -43,6 +45,7 @@
 				buttonDiscard: "ANNULLA",
 				buttonSettings: "Impostazioni",
 				buttonView: "Modalità visualizzazione",
+				buttonItem: "Aprire l\'elemento dell\'applicazione Web",
 				noPendingChange: "Nessuna modifica in sospeso",
 				unSavedChangeSingular: "1 modifica non salvata",
 				unSavedChangePlural: "modifiche non salvate",
@@ -86,15 +89,19 @@
 				settingsLogoCustomTargetPlaceholder: "Collegamento clickthrough",
 				settingsLogoSocialExplain: "Personalizzare il collegamento in alto a destra nell\'intestazione.",
 				settingsLogoSocialText: "Testo",
-				settingsLogoSocialLink: "Collegamento"
+				settingsLogoSocialLink: "Collegamento",
+				settingsLogoSocialDisabled: "Questa feature è stata disabilitata dall\'Amministratore"
 			},
 			settingsExtent: {
 				settingsTabExtent: "Estensione",
 				settingsExtentExplain: "Impostare l\'estensione iniziale mediante la mappa interattiva riportata di seguito.",
-				settingsExtentExplainBottom: "L\'estensione definita modificherà l\'estensione iniziale della mappa Web.",
+				settingsExtentExplainBottom: "L\'estensione specificata modificherà l\'estensione iniziale della mappa Web. Tenere presente che tale estensione non verrà utilizzata se si sta effettuando una serie di scorrimenti.",
+				settingsExtentDateLineError: "L\'estensione non può attraversare il meridiano per 180° di longitudine",
+				settingsExtentDateLineError2: "Errore di calcolo dell\'estensione",
 				settingsExtentDrawBtn: "Disegna una nuova estensione",
 				settingsExtentModifyBtn: "Modifica l\'estensione corrente",
-				settingsExtentApplyBtn: "Applica su mappa principale"
+				settingsExtentApplyBtn: "Applica su mappa principale",
+				settingsExtentUseMainMap: "Usa estensione della mappa principale"
 			}
         },
 		swipe: {
@@ -132,7 +139,7 @@
 				settingsDataModelExplainSpyGlass: "Scegliere il layer o la mappa Web da visualizzare nel cannocchiale.",
 				settingsDataModelOneMap: "Una mappa Web, singolo layer",
 				settingsDataModel1Explain: "Selezionare un layer da controllare con lo strumento di scorrimento con il dito.",
-				settingsDataModel1Warning: "È possibile utilizzare solo i servizi Dynamic, Tile e Image. Se il layer è nascosto dai layer superiori, lo scorrimento non ha alcun effetto.",
+				settingsDataModel1Warning: "Se il layer è nascosto dai layer superiori, lo scorrimento non ha alcun effetto.",
 				settingsDataModel1SpyGlassExplain: "Selezionare il layer da visualizzare nel cannocchiale.",
 				settingsDataModelTwoMaps: "Due mappe Web",
 				settingsDataModelLayerIds: "ID layer mappa Web",
@@ -153,8 +160,9 @@
 				settingsLegendEnable: "Abilita legenda",
 				settingsDescriptionEnable: "Abilita descrizione",
 				settingsBookmarksEnable: "Abilita serie di scorrimenti con dito",
-				settingsLegendHelpTitle: "Come ottimizzare il contenuto della legenda",
-				settingsLegendHelpContent: "Utilizza il sommario del map viewer Web di ArcGIS.com (Nascondi nella legenda)",
+				settingsPopupDisable: "Abilita popup",
+				settingsLegendHelpContent: "Per definire il contenuto della legenda, utilizzare il sommario del map viewer Web di ArcGIS.com (Nascondi nella legenda)",
+				settingsSeriesHelpContent: "Al momento della prima attivazione, verranno utilizzati i segnalibri delle mappe Web per prepopolare la barra della serie. Se in seguito l\'opzione viene disabilitata, la configurazione della serie non verrà eliminata e risulterà disponibile se si decide di riabilitare la serie.",
 				preview: "Anteprima interfaccia utente"
 			},
 			settingsSwipePopup: {
@@ -171,6 +179,13 @@
 				initHeader: "Benvenuto in Swipe Builder",
 				modalNext: "Avanti",
 				modalApply: "Apri l\'app"
+			},
+			seriesPanel: {
+				title: "Titolo",
+				descr: "Descrizione",
+				discard: "Annulla segnalibro",
+				saveExtent: "Impostare l\'estensione del segnalibro",
+				discardDisabled: "Impossibile rimuovere il segnalibro. È possibile disabilitare la serie di scorrimenti nelle impostazioni."
 			}
 		}
     })

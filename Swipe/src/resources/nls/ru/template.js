@@ -6,11 +6,12 @@
 				step2: "ЗАГРУЗКА ДАННЫХ",
 				step3: "ИНИЦИАЛИЗАЦИЯ",
 				fail: "Загрузка инструмента Шторка (Swipe) не удалась",
-				loadBuilder: "ПЕРЕКЛЮЧИТЬСЯ В РЕЖИМ КОМПОНОВКИ",
+				loadBuilder: "ПЕРЕКЛЮЧИТЬСЯ В РЕЖИМ КОНСТРУКТОРА",
 				failButton: "Повторить"
 			},
 			errors: {
 				boxTitle: "Произошла ошибка",
+				portalSelf: "Критическая ошибка: не удалось получить конфигурацию портала",
 				invalidConfig: "Критическая ошибка: недопустимая конфигурация",
 				invalidConfigNoWebmap: "Критическая ошибка: недопустимая конфигурация (веб-карта не выбрана)",
 				createMap: "Не удалось создать карту",
@@ -20,7 +21,7 @@
 				noLayerView: "Добро пожаловать в веб-приложение Штрока (Swipe).<br />Приложение еще не настроено.",
 				appSave: "Ошибка при сохранении веб-приложения",
 				mapSave: "Ошибка при сохранении веб-карты",
-				notAuthorized: "Вы не авторизованы для настройки данного приложения",
+				notAuthorized: "Вы не авторизованы для доступа к данному приложению",
 				conflictingProjectionsTitle: "Конфликтующие проекции",
 				conflictingProjections: "Шторка не поддерживает использование двух веб-карт с различными проекциями. Откройте настройки и используйте веб-карту с той же проекцией, что и первая веб-карта.",
 				cpButton: "Закрыть"
@@ -33,7 +34,8 @@
 			},
 			desktopView: {
 				storymapsText: "Карта истории",
-				builderButton: "Переключиться в режим компоновки"
+				builderButton: "Переключиться в режим компоновки",
+				bitlyTooltip: "Получить короткую ссылку на приложение"
 			}
 		},
 		builder: {
@@ -43,6 +45,7 @@
 				buttonDiscard: "ОТМЕНА",
 				buttonSettings: "Настройки",
 				buttonView: "Режим просмотра",
+				buttonItem: "Открыть элемент Веб-приложение",
 				noPendingChange: "Нет предполагаемых изменений",
 				unSavedChangeSingular: "1 несохраненное изменение",
 				unSavedChangePlural: "несохраненных изменений",
@@ -86,15 +89,19 @@
 				settingsLogoCustomTargetPlaceholder: "Переход по ссылке",
 				settingsLogoSocialExplain: "Настроить верхнюю правую ссылку заголовка.",
 				settingsLogoSocialText: "Текст",
-				settingsLogoSocialLink: "Ссылка"
+				settingsLogoSocialLink: "Ссылка",
+				settingsLogoSocialDisabled: "Объект был отключен администратором"
 			},
 			settingsExtent: {
 				settingsTabExtent: "Экстент",
 				settingsExtentExplain: "Выберите начальный экстент через интерактивную карту, показанную ниже.",
-				settingsExtentExplainBottom: "Указанный вами экстент обновит исходный экстент веб-карты.",
+				settingsExtentExplainBottom: "Указанный вами экстент обновит исходный экстент веб-карты. Если вы создаете серию карт со шторками, этот экстент использоваться не будет.",
+				settingsExtentDateLineError: "Экстент не может продолжаться за меридиан 180°",
+				settingsExtentDateLineError2: "Ошибка вычисления экстента",
 				settingsExtentDrawBtn: "Нарисовать новый экстент",
 				settingsExtentModifyBtn: "Изменить текущий экстент",
-				settingsExtentApplyBtn: "Применить на главной карте"
+				settingsExtentApplyBtn: "Применить на главной карте",
+				settingsExtentUseMainMap: "Использовать экстент основной карты"
 			}
         },
 		swipe: {
@@ -132,7 +139,7 @@
 				settingsDataModelExplainSpyGlass: "Выберите слой или веб-карту, которые появятся в подзорной трубе.",
 				settingsDataModelOneMap: "Одна веб-карта, простой слой",
 				settingsDataModel1Explain: "Выберите слой, который будет контролироваться инструментом Шторка (Swipe).",
-				settingsDataModel1Warning: "Могут использоваться только динамические сервисы, сервисы изображений и кэшированные сервисы. Если слой скрыт под другими слоями, инструмент \"Спрятать\" не даст никакого результата.",
+				settingsDataModel1Warning: "Если слой скрыт под другими слоями, использование шторки не даст никакого результата.",
 				settingsDataModel1SpyGlassExplain: "Выберите слой, появляющийся в подзорной трубе.",
 				settingsDataModelTwoMaps: "Две веб-карты",
 				settingsDataModelLayerIds: "ID слоя веб-карты",
@@ -153,8 +160,9 @@
 				settingsLegendEnable: "Включить легенду",
 				settingsDescriptionEnable: "Включить описание",
 				settingsBookmarksEnable: "Включить несколько шторок",
-				settingsLegendHelpTitle: "Как улучшить содержание легенды",
-				settingsLegendHelpContent: "Используйте таблицу содержания вьюера веб-карты ArcGIS.com (Скрыта в легенде)",
+				settingsPopupDisable: "Включить всплывающее окно",
+				settingsLegendHelpContent: "Для настройки содержания легенды используйте таблицу содержания вьюера веб-карт ArcGIS.com (Скрыть в легенде)",
+				settingsSeriesHelpContent: "При первой активации закладки веб-карты будут использоваться для заполнения линейки серий. Если вы впоследствии отключите эту опцию, настройка серий не будет утрачена и станет доступной  при следующем включении серии.",
 				preview: "Просмотр UI"
 			},
 			settingsSwipePopup: {
@@ -171,6 +179,13 @@
 				initHeader: "Начало работы со Шторкой",
 				modalNext: "Далее",
 				modalApply: "Открыть приложение"
+			},
+			seriesPanel: {
+				title: "Название",
+				descr: "Описание",
+				discard: "Сброс закладки",
+				saveExtent: "Задать экстент закладки",
+				discardDisabled: "Вы не можете удалить эту закладку. Серию шторок можно отключить в Настройках."
 			}
 		}
     })

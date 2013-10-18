@@ -11,6 +11,7 @@
 			},
 			errors: {
 				boxTitle: "Der opstod en fejl",
+				portalSelf: "Uoprettelig fejl: Kunne ikke hente portalkonfiguration",
 				invalidConfig: "Uoprettelig fejl: Ugyldig konfiguration",
 				invalidConfigNoWebmap: "Uoprettelig fejl: Ugyldig konfiguration (intet webkort angivet)",
 				createMap: "Kan ikke oprette kort",
@@ -20,7 +21,7 @@
 				noLayerView: "Velkommen til Swipe-webapplikationen.<br />Applikationen er endnu ikke konfigureret.",
 				appSave: "Fejl ved lagring af webapplikationen",
 				mapSave: "Fejl ved lagring af webkortet",
-				notAuthorized: "Du har ikke autorisation til at konfigurere denne applikation",
+				notAuthorized: "Du er ikke autoriseret til at få adgang til denne applikation",
 				conflictingProjectionsTitle: "Konfliktende projektioner",
 				conflictingProjections: "Swipe understøtter ikke, at man bruger to webkort med forskellige projektioner. Åbn indstillinger, og brug et webkort, der anvender den samme projektion som det første webkort.",
 				cpButton: "Luk"
@@ -33,7 +34,8 @@
 			},
 			desktopView: {
 				storymapsText: "Et historiekort",
-				builderButton: "Skift til builder-tilstand"
+				builderButton: "Skift til builder-tilstand",
+				bitlyTooltip: "Hent et kortere link til applikationen"
 			}
 		},
 		builder: {
@@ -43,6 +45,7 @@
 				buttonDiscard: "ANNULLÉR",
 				buttonSettings: "Indstillinger",
 				buttonView: "Visningstilstand",
+				buttonItem: "Åbn webapplikationselement",
 				noPendingChange: "Ingen ventende ændringer",
 				unSavedChangeSingular: "1 ikke-gemt ændring",
 				unSavedChangePlural: "ikke-gemte ændringer",
@@ -86,15 +89,19 @@
 				settingsLogoCustomTargetPlaceholder: "Klik gennem-link",
 				settingsLogoSocialExplain: "Tilpas header-linket øverst til højre.",
 				settingsLogoSocialText: "Tekst",
-				settingsLogoSocialLink: "Link"
+				settingsLogoSocialLink: "Link",
+				settingsLogoSocialDisabled: "Dette objekt er blevet deaktiveret af administratoren"
 			},
 			settingsExtent: {
 				settingsTabExtent: "Område",
 				settingsExtentExplain: "Indstil startudstrækningen via det interaktive kort nedenfor.",
-				settingsExtentExplainBottom: "Den udstrækning, du definerer, ændrer dit webkorts oprindelige udstrækning.",
+				settingsExtentExplainBottom: "Den udstrækning, du definerer, vil ændre dit webkorts oprindelige udstrækning. Bemærk, at hvis du udfører en swipe-serie, vil denne udstrækning ikke blive brugt.",
+				settingsExtentDateLineError: "Udstrækningen må ikke krydse meridianen på længdegraden 180°",
+				settingsExtentDateLineError2: "Fejl ved behandlingen af udstrækningen",
 				settingsExtentDrawBtn: "Tegn ny udstrækning",
 				settingsExtentModifyBtn: "Redigér den aktuelle udstrækning",
-				settingsExtentApplyBtn: "Anvend på hovedkort"
+				settingsExtentApplyBtn: "Anvend på hovedkort",
+				settingsExtentUseMainMap: "Brug hovedkortudstrækning"
 			}
         },
 		swipe: {
@@ -132,7 +139,7 @@
 				settingsDataModelExplainSpyGlass: "Vælg det lag eller webkort, der vises i kikkerten.",
 				settingsDataModelOneMap: "Et webkort, enkelt lag",
 				settingsDataModel1Explain: "Vælg et lag, der skal styres af swipe-værktøjet.",
-				settingsDataModel1Warning: "Kun dynamiske, tile- og billedtjenester kan anvendes. Hvis laget er skjult af øvre lag, har swipe ingen effekt.",
+				settingsDataModel1Warning: "Hvis laget er skjult af lag oven på det, har swipe ingen virkning.",
 				settingsDataModel1SpyGlassExplain: "Marker det lag, der skal vises i kikkerten.",
 				settingsDataModelTwoMaps: "To webkort",
 				settingsDataModelLayerIds: "ID for webkort-lag",
@@ -150,11 +157,12 @@
 			settingsLegend: {
 				settingsTabLegend: "App-layout",
 				settingsLegendExplain: "Vælg indstillinger for applikationslayout.",
-				settingsLegendEnable: "Aktiver signaturforklaring",
-				settingsDescriptionEnable: "Aktiver beskrivelse",
-				settingsBookmarksEnable: "Aktiver Swipe-serie",
-				settingsLegendHelpTitle: "Sådan forbedres indholdet af signaturforklaringer",
-				settingsLegendHelpContent: "Brug ArcGIS.com-webkortviserens indholdsfortegnelse (Skjul i signaturforklaring)",
+				settingsLegendEnable: "Aktiv\ér signaturforklaring",
+				settingsDescriptionEnable: "Aktiv\ér beskrivelse",
+				settingsBookmarksEnable: "Aktiv\ér Swipe-serie",
+				settingsPopupDisable: "Aktiv\ér pop-up-vindue",
+				settingsLegendHelpContent: "Hvis du vil forfine signaturforklaringens indhold, kan du bruge indholdsfortegnelsen i ArcGIS.com-webkortviseren (Skjul i signaturforklaring)",
+				settingsSeriesHelpContent: "Ved første aktivering vil dine webkortbogmærker blive anvendt til at udfylde serielinjen på forhånd. Hvis du deaktiverer seriefunktionen senere, slettes din seriekonfiguration ikke, og den vil være tilgængelig, hvis du aktiverer serien igen.",
 				preview: "UI-forhåndsvisning"
 			},
 			settingsSwipePopup: {
@@ -171,6 +179,13 @@
 				initHeader: "Velkommen til Swipe Builder",
 				modalNext: "Næste",
 				modalApply: "Åbn app\'en"
+			},
+			seriesPanel: {
+				title: "Titel",
+				descr: "Beskrivelse",
+				discard: "Slet bogmærke",
+				saveExtent: "Indstil bogmærkeudstrækning",
+				discardDisabled: "Du kan ikke fjerne dette bogmærke. Swipe-serier kan deaktiveres under Indstillinger."
 			}
 		}
     })
