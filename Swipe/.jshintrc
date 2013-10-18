@@ -1,0 +1,10 @@
+{
+  "dojo": true,
+  "jQuery": true,
+  "globals": {
+	"$": false,
+	"esri": false,
+	"app": false,
+	"i18n": false
+  }
+}

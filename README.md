@@ -8,7 +8,7 @@ a better experience on smartphone and an interactive builder on ArcGIS Online, s
 
 [View it live](http://storymaps.esri.com/templates/swipe/) 
 | [User Download (source code not included)](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Storytelling-Swipe-1.1.zip)
-| [Developer Download (include source code)](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Storytelling-Swipe-1.1-Master.zip)
+| [Developer Download (include source code)](https://github.com/Esri/swipe-map-storytelling-template-js/archive/master.zip)
 
 **Latest release is version version 1.1**, if you want to be informed of new releases, we recommend you to watch these repository.
 
@@ -176,7 +176,7 @@ Find a bug or want to request a new feature?  Please let us know by submitting a
 
 ## Contributing
 
-Anyone and everyone is welcome to contribute.
+Esri welcomes contributions from anyone and everyone. Please see our [guidelines for contributing](https://github.com/esri/contributing)
 
 ## Customize the look and feel
 Most of the look and feel customization can be done using the user download and including the css/html override directly into index.html. 
@@ -266,7 +266,7 @@ It requires basic knowledge of HTML, Javascript and CSS languages.
 
 ### Developer archive
 
-Download and unzip the [Developer download](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Storytelling-Swipe-1.1-Master.zip) or clone the repo.
+Download and unzip the [Developer download](https://github.com/Esri/swipe-map-storytelling-template-js/archive/master.zip) or clone the repo.
 
 | File                                       | Contains                                                              |
 | ------------------------------------------ | --------------------------------------------------------------------- |
@@ -285,7 +285,7 @@ Download and unzip the [Developer download](https://github.com/Esri/swipe-map-st
 
 To build a production version of the application from the source code, you first need to install [Node.js](http://nodejs.org/).
 
-Then initialize the environment by running the following commands in the template root:
+Then initialize the environment by running the following commands in the Swipe folder:
  * `npm install`
  * `npm install –g grunt-cli`
 
@@ -299,7 +299,7 @@ This will create a new `node-modules` folder in your project root with all tools
  * Use or use the URL parameters `webmap` and `appid` to specify the item to be loaded (all parameters from index.html are ignored in development mode)
 
 ### How to build application from the source code
-  * Open a terminal and navigate to the root folder 
+  * Open a terminal and navigate to the Swipe folder 
   * Run the following command: `grunt`
 
 The deploy folder now contains the built application that you can deploy to your web server.
@@ -337,7 +337,7 @@ The main dependencies are:
 
 
 ## Licensing
-Copyright 2012 Esri
+Copyright 2013 Esri
 
 Licensed under the Apache License, Version 2.0 (the "License");
 you may not use this file except in compliance with the License.
