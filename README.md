@@ -208,27 +208,10 @@ To remove the bottom border:
          background: none !important;
       }
 
+
 #### Customizing the links in the top right of the header
 
-Hide the link to the external website and the social buttons:
-
-      #header .social {
-         visibility: hidden; 
-      }
-
-Same but reuse the vertical space for the logo:
-
-      #header .social {
-         display: none;
-      }
-
-Hide only the social buttons:
-
-      #header .social > span:not(.msLink) {
-         display: none;
-      }
-
-The external link can be configured through swipe-config.js file. 
+The button can now be disabled through app/swipe-config.js file and many other property are available.
 
 To hide the text, empty the HEADER_LINK_TEXT property.
 
@@ -238,7 +221,7 @@ To display multiple line text, empty the HEADER_LINK_URL and configure HEADER_LI
 
 #### Customizing the header logo
 
-The logo image can be configured through swipe-config.js file. To hide the logo, empty the HEADER_LOGO_URL property.
+The logo image can be configured through app/swipe-config.js file. To hide the logo, empty the HEADER_LOGO_URL property.
 
 The logo dimension is constrained to 250x50px. To use more horizontal or vertical space you need to remove this restriction using:
 
