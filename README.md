@@ -43,7 +43,7 @@ Main features are:
 * Choose the swipe style between a vertical bar or a spy glass
 * Reveal a layer of a webmap or a second web map
 * Choose to include a legend and/or a description as a left side panel
-* Pop-ups are displayed hover the Map when using the vertical bar and on a right panel when using the spy glass
+* Pop-ups are displayed over the Map when using the vertical bar and on a right panel when using the spy glass
 * Customize the appearance of the pop-ups header to help user associate pop-ups with maps layers
 
 
