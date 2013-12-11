@@ -133,12 +133,12 @@
 				settingsSaveConfirm: "En del av ändringarna kräver att du sparar och hämtar applikationen igen"
 			},
 			settingsDataModel: {
-				settingsTabDataModel: "Sveplager",
-				settingsDataModelExplainSwipe: "Välj det lager eller den webbkarta som ska visas och försvinna när du sveper.",
+				settingsTabDataModel: "Sveptyp",
+				settingsDataModelExplainSwipe: "Vad vill du att användarna ska svepa?",
 				settingsDataModelExplainSwipe2: "",
 				settingsDataModelExplainSpyGlass: "Välj det lager eller den webbkarta som ska visas i kikaren.",
-				settingsDataModelOneMap: "En webbkarta, ett lager",
-				settingsDataModel1Explain: "Välj ett lager som ska styras med svepverktyget.",
+				settingsDataModelOneMap: "Ett lager i en webbkarta",
+				settingsDataModel1Explain: "Välj det lager som ska svepas.",
 				settingsDataModel1Warning: "Om lagret är dolt av högre lager har det ingen effekt när du sveper.",
 				settingsDataModel1SpyGlassExplain: "Välj det lager som ska visas i kikaren.",
 				settingsDataModelTwoMaps: "Två webbkartor",
@@ -151,7 +151,7 @@
 				settingsDataModelSelect: "Välj den här typen",
 				settingsDataModel2Explain: "Svep med en annan webbkarta.",
 				settingsDataModel2SpyGlassExplain: "Visa en annan webbkarta.",
-				settingsDataModel2HelpTitle: "Hitta webbkart-ID",
+				settingsDataModel2HelpTitle: "Hitta ett webbkart-ID",
 				settingsDataModel2HelpContent: "Kopiera och klistra in siffror efter tecknet '=' i webbkartans webbadress"
 			},
 			settingsLegend: {
@@ -161,9 +161,16 @@
 				settingsDescriptionEnable: "Aktivera beskrivning",
 				settingsBookmarksEnable: "Aktivera svepserie",
 				settingsPopupDisable: "Aktivera popup-fönster",
+				settingsLocationSearchEnable: "Aktivera sökning med lokaliserare",
+				settingsGeolocatorEnable: "Aktivera geolokalisering",
 				settingsLegendHelpContent: "Om du vill förfina innehållsförteckningen använder du innehållsförteckningen i webbkartvyn på ArcGIS.com (Dölj i teckenförklaringen)",
-				settingsSeriesHelpContent: "Vid den första aktiveringen används webbkartans bokmärken för att fylla i seriefältet. Om du inaktiverar alternativet försvinner inte seriekonfigurationen utan finns kvar om du aktiverar alternativet igen.",
-				preview: "Förhandsgranska användargränssnitt"
+				settingsSeriesHelpContent: "En svepserie är ett tabbat navigeringsalternativ som hjälper användaren till en viss utbredning och visar en titel och beskrivande text i sidopanelen. Vid den första aktiveringen importeras webbkartans bokmärken och används för att fylla i seriefältet. Om du inaktiverar alternativet stängs seriefältet, men seriekonfigurationen finns kvar för framtida användning.", 
+				settingsSeriesHelpContent2: "Med hjälp av en svepserie kan du skapa och redigera ett urval platser med tillhörande rubriker och text. Om det finns bokmärken i webbkartan visas dessa. Du kan inaktivera serien, men konfigurationen finns ändå kvar och kan användas senare.",
+				settingsSeriesHelpLink: "Här finns ett exempel på en applikation med en svepserie",
+				preview: "Förhandsgranska användargränssnitt",
+				settingsLocateButtonExplain: "Den här funktionen kan användas på de flesta mobila enheter och datorwebbläsare (inklusive Internet Explorer 9+).",
+				settingsLocateButton: "Aktivera knappen Hitta på webbläsare som stöds",
+				settingsAddressSearch: "Aktivera ett adressökverktyg"
 			},
 			settingsSwipePopup: {
 				settingsSwipePopup: "Popupfönster",
@@ -178,6 +185,7 @@
 			initPopup: {
 				initHeader: "Välkommen till Svep-byggverktyget",
 				modalNext: "Nästa",
+				modalPrev: "Föregående",
 				modalApply: "Öppna applikationen"
 			},
 			seriesPanel: {

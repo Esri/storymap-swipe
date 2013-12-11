@@ -1,0 +1,5 @@
+.noFloat{
+	float: none !important;
+	width: 500px !important;
+	text-align: center !important;
+}

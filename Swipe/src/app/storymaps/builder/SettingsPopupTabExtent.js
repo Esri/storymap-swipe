@@ -66,8 +66,9 @@ define(["storymaps/utils/Helper",
 				
 				var layer = _extentMap.getLayer("extentlayer");
 				layer.clear();
-				layer.add(createExtentGraphics(app.maps[0].extent));
-				_extentMap.setExtent(app.maps[0].extent.expand(2));
+				layer.add(createExtentGraphics(app.mainMap.extent));
+				_extentMap.setExtent(app.mainMap.extent.expand(2));
+				_userExtent = app.mainMap.extent;
 			});
 			
 			extentApplyBtn.click(function(){
@@ -205,7 +206,7 @@ define(["storymaps/utils/Helper",
 					});
 				});
 				
-				var basemap = app.maps[0].getLayer(app.maps[0].layerIds[0]);
+				var basemap = app.mainMap.getLayer(app.mainMap.layerIds[0]);
 				_extentMap.addLayer(Helper.cloneLayer(basemap));
 				
 				if (extent.spatialReference.wkid != basemap.spatialReference.wkid) {

@@ -30,6 +30,7 @@ define(["dojo/_base/lang", "esri/geometry/Extent"], function(lang, Extent){
 		},
 		get: function()
 		{
+			app.sidePanel.checkDescription(true);
 			var data = lang.clone(_data);
 			
 			if( ! data.values.template )
@@ -79,17 +80,20 @@ define(["dojo/_base/lang", "esri/geometry/Extent"], function(lang, Extent){
 			if( _data.values.layers )
 				return _data.values.layers;
 			
-			if( ! app.maps[0] )
+			if( ! app.maps[0] && ! app.map)
 				return null;
-			
-			var layers = app.maps[0].layerIds || [];
-			layers.concat(app.maps[0].graphicsLayerIds);
+				
+			var mainMap = app.mode == "TWO_LAYERS" ? app.map : app.maps[0];
+
+			var layers = mainMap.layerIds || [];
+			layers.concat(mainMap.graphicsLayerIds);
 			
 			var layer = layers[layers.length - 1 - configOptions.layerIndex];
 			if( layer )
 				return [layer];
-			if ( app.maps[0].layerIds[0] )
-				return [app.maps[0].layerIds[app.maps[0].layerIds.length-1]];
+
+			if ( mainMap.layerIds[0] )
+				return [mainMap.layerIds[mainMap.layerIds.length-1]];
 			return null;
 		},
 		setLayers: function(layers)
@@ -183,6 +187,22 @@ define(["dojo/_base/lang", "esri/geometry/Extent"], function(lang, Extent){
 		setPopup: function(popup)
 		{
 			_data.values.popup = popup;
+		},
+		getLocationSearch: function()
+		{
+			return _data.values.locationSearch != null ? _data.values.locationSearch : configOptions.locationSearch;
+		},
+		setLocationSearch: function(locationSearch)
+		{
+			_data.values.locationSearch = locationSearch;
+		},
+		getGeolocator: function()
+		{
+			return _data.values.geolocator != null ? _data.values.geolocator : configOptions.geolocator;
+		},
+		setGeolocator: function(geolocator)
+		{
+			_data.values.geolocator = geolocator;
 		},
 		getDescription: function()
 		{

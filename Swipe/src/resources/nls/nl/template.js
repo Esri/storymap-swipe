@@ -133,12 +133,12 @@
 				settingsSaveConfirm: "Voor een aantal veranderingen moet u de applicatie opslaan en opnieuw laden"
 			},
 			settingsDataModel: {
-				settingsTabDataModel: "Swipe-laag",
-				settingsDataModelExplainSwipe: "Kies de laag of de webmap die door swipe moet verschijnen en verdwijnen.",
+				settingsTabDataModel: "Swipe-type",
+				settingsDataModelExplainSwipe: "Waarop mogen gebruikers swipe toepassen?",
 				settingsDataModelExplainSwipe2: "",
 				settingsDataModelExplainSpyGlass: "Kies de laag of de webmap die in de verrekijker moet verschijnen.",
-				settingsDataModelOneMap: "Een webmap, enkele laag",
-				settingsDataModel1Explain: "Selecteer een laag die door de swipe tool bediend wordt.",
+				settingsDataModelOneMap: "Een kaartlaag in een webmap",
+				settingsDataModel1Explain: "Selecteer de laag waarop swipe moet worden toegepast",
 				settingsDataModel1Warning: "Als de laag door bovenliggende lagen verborgen wordt, heeft swipe geen effect.",
 				settingsDataModel1SpyGlassExplain: "Selecteer de laag die binnen de verrekijker moet verschijnen.",
 				settingsDataModelTwoMaps: "Twee webmaps",
@@ -151,8 +151,8 @@
 				settingsDataModelSelect: "Selecteer dit type",
 				settingsDataModel2Explain: "Swipe met een andere webmap.",
 				settingsDataModel2SpyGlassExplain: "Een andere webmap weergeven.",
-				settingsDataModel2HelpTitle: "De ID van de webmap vinden",
-				settingsDataModel2HelpContent: "Kopieer en plak tekens achter het '='  teken in de URL van de webmap"
+				settingsDataModel2HelpTitle: "Hoe vind ik de ID van een webmap?",
+				settingsDataModel2HelpContent: "Kopieer en plak tekens achter het \'=\'  teken in de URL van de webmap"
 			},
 			settingsLegend: {
 				settingsTabLegend: "Indeling app",
@@ -161,9 +161,16 @@
 				settingsDescriptionEnable: "Omschrijving inschakelen",
 				settingsBookmarksEnable: "Swipe-reeks inschakelen",
 				settingsPopupDisable: "Pop-up inschakelen",
+				settingsLocationSearchEnable: "Zoeken naar locaties inschakelen",
+				settingsGeolocatorEnable: "Geografische locator inschakelen",
 				settingsLegendHelpContent: "Om de inhoud van de legenda te verfijnen, gebruikt u de inhoudsopgave van de ArcGIS.com-webmap viewer (Verbergen in Legenda)",
-				settingsSeriesHelpContent: "Bij de eerste activering worden de bladwijzers voor uw webmaps gebruikt om de reeksbalk vooraf in te vullen. Als u de reeksoptie later uitschakelt, wordt uw reeksconfiguratie niet verwijderd en blijft deze beschikbaar als u de reeks opnieuw wilt inschakelen.",
-				preview: "Voorbeeldweergave UI"
+				settingsSeriesHelpContent: "Swipe-reeks is een navigatie-optie met tabbladen die de raadpleger naar een specifiek extent zal leiden en een titel en beschrijving in het deelvenster aan de zijkant zal weergeven. Tijdens de initiële activering worden de bladwijzers van de webmap(s) geïmporteerd en gebruikt om de reeksbalk vooraf in te vullen. Als u de reeksoptie uitschakelt, wordt de reeksbalk uitgeschakeld, maar de reeksconfiguratie wordt behouden voor toekomstig gebruik.", 
+				settingsSeriesHelpContent2: "Met de Swipe-reeks kunt u een reeks locaties maken en bewerken met bijbehorende titels en tekst. Als uw webmap bladwijzers bevat, dan zullen deze worden weergegeven. U kunt de reeks uitschakelen, maar de configuratie wordt bewaard voor toekomstig gebruik.",
+				settingsSeriesHelpLink: "Bekijk hier een voorbeeld van een applicatie met een Swipe-reeks",
+				preview: "Voorbeeldweergave UI",
+				settingsLocateButtonExplain: "Deze functionaliteit wordt ondersteund op de meeste mobiele apparaten en desktopbrowsers (inclusief Internet Explorer 9+).",
+				settingsLocateButton: "Schakel een knop \'Locatie\' in op ondersteunde browsers",
+				settingsAddressSearch: "Schakel een tool voor het zoeken naar adressen in"
 			},
 			settingsSwipePopup: {
 				settingsSwipePopup: "Pop-upvenster",
@@ -178,6 +185,7 @@
 			initPopup: {
 				initHeader: "Welkom bij de Swipe Builder",
 				modalNext: "Volgende",
+				modalPrev: "Vorige",
 				modalApply: "Open de app"
 			},
 			seriesPanel: {

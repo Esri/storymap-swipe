@@ -1,10 +1,12 @@
 define(["storymaps/ui/inlineFieldEdit/InlineFieldEdit", 
 		"dojo/has", 
-		"dojo/topic"], 
+		"dojo/topic",
+		"esri/urlUtils"], 
 	function(
 		InlineFieldEdit, 
 		has, 
-		topic
+		topic,
+		urlUtils
 	){
 		/**
 		 * Header
@@ -74,11 +76,13 @@ define(["storymaps/ui/inlineFieldEdit/InlineFieldEdit",
 				this.setSocial(social, true);
 
 				$(selector).css("display", "block");
+				app.requestBitly = requestBitly;
 			};
 			
 			this.resize = function(widthViewport)
 			{
-				$(selector + " #headerDesktop .textArea").width(widthViewport - $(selector + " #headerDesktop .rightArea").outerWidth() - 35);
+				var rightAreaWidth = Math.max($(selector + " #headerDesktop .headerLogoImg").outerWidth() + 50, $(selector + " #headerDesktop .rightArea").outerWidth() + 20);
+				$(selector + " #headerDesktop .textArea").width(widthViewport - rightAreaWidth - 15);
 			};
 	
 			this.hideMobileBanner = function(immediate)
@@ -159,6 +163,10 @@ define(["storymaps/ui/inlineFieldEdit/InlineFieldEdit",
 				);
 					
 				if( initialCfg ) {
+					$(selector + " .share_facebook").unbind('click');
+					$(selector + " .share_twitter").unbind('click');
+					$(selector + " .share_bitly").unbind('click');
+					
 					$(selector + " .share_facebook").fastClick(shareFacebook);
 					$(selector + " .share_twitter").fastClick(shareTwitter);
 					$(selector + " .share_bitly").fastClick(shareBitly);
@@ -195,33 +203,43 @@ define(["storymaps/ui/inlineFieldEdit/InlineFieldEdit",
 			
 			function shareBitly()
 			{
-				var urls = ["http://api.bitly.com/v3/shorten?callback=?", "https://api-ssl.bitly.com/v3/shorten?callback=?"];
-				var url = location.protocol == 'http:' ? urls[0] : urls[1];
-				
-				$(selector).find(".share_bitly").popover('destroy');
 				$(selector).find(".share_bitly").popover({
 					trigger: 'manual',
 					placement: 'left',
 					html: true,
 					content: 
-						  '<div style="width:140px; height:30px">'
-						+ ' <div id="bitlyLoad" style="position:absolute; top: 16px; left: 24px; width:130px; text-align:center;">'
-						+ '  <img src="resources/icons/loader-upload.gif" alt="Loading" />'
-						+ ' </div>'
-						+ ' <input id="bitlyInput" type="text" value="" style="display:none; width: 130px; margin-bottom: 0px;"/>'
-						+ '</div>'
-						+ '<script>'
-						+ ' $(document).on("click touchstart", function(src) { if( ! src || ! src.target || ! $(src.target).parents(".popover").length ){ $(".share_bitly").popover("hide"); $(document).off("click"); } });'
-						+ '</script>'
-				}).popover('show');
+                          '<div style="width:140px; height:30px">'
+                        + ' <div id="bitlyLoad" style="position:absolute; top: 16px; left: 24px; width:130px; text-align:center;">'
+                        + '  <img src="resources/icons/loader-upload.gif" alt="Loading" />'
+                        + ' </div>'
+                        + ' <input id="bitlyInput" type="text" value="" style="display:none; width: 130px; margin-bottom: 0px;"/>'
+                        + '</div>'
+                        + '<script>'
+                        + ' $(document).on("click touchstart", function(src) { if( ! src || ! src.target || ! $(src.target).parents(".popover").length ){ $(".share_bitly").popover("hide"); $(document).off("click"); } });'
+                        + '</script>'
+				}).popover('toggle');
+				
+				requestBitly();
+			}
+			
+			function requestBitly()
+			{
+				var bitlyUrls = [
+					"http://api.bitly.com/v3/shorten?callback=?", 
+					"https://api-ssl.bitly.com/v3/shorten?callback=?"
+				];
+				var bitlyUrl = location.protocol == 'http:' ? bitlyUrls[0] : bitlyUrls[1];
+				
+				var urlParams = urlUtils.urlToObject(document.location.search).query || {};
+				var targetUrl = document.location.href;
 				
 				$.getJSON(
-					url, 
+					bitlyUrl, 
 					{ 
 						"format": "json",
 						"apiKey": APPCFG.HEADER_SOCIAL.bitly.key,
 						"login": APPCFG.HEADER_SOCIAL.bitly.login,
-						"longUrl": document.location.href
+						"longUrl": targetUrl
 					},
 					function(response)
 					{
@@ -255,7 +273,7 @@ define(["storymaps/ui/inlineFieldEdit/InlineFieldEdit",
 					if( _builderButtonHidden )
 						$(selector + " #builderPanel").fadeIn("fast");
 					_builderButtonHidden = false;
-				}, has("ios") || has("ie") == 10 ? 500 : 100);
+				}, has("ios") || has("ie") >= 10 ? 500 : 100);
 				
 				setTimeout(function(){ 
 					topic.publish("HEADER_EDITED", {
@@ -263,10 +281,12 @@ define(["storymaps/ui/inlineFieldEdit/InlineFieldEdit",
 						value: value
 					});
 					$(selector + ' #headerMobile .banner .' + $(src).attr("class")).html(value);
-				}, has("ios") || has("ie") == 10 ? 700 : 0);
+				}, has("ios") || has("ie") >= 10 ? 700 : 0);
+				app.builder.hideSaveConfirmation();
 			}
 	
-			this.switchToBuilder = function() {
+			this.switchToBuilder = function() 
+			{
 				if( document.location.search.match(/appid/) )
 					document.location = document.location.protocol + '//' + document.location.host + document.location.pathname + document.location.search + "&edit" + document.location.hash;
 				else if ( document.location.search.slice(-1) == '?' )

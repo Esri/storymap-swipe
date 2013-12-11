@@ -23,7 +23,7 @@ define({
 				mapSave: "Error saving the web map",
 				notAuthorized: "You are not authorized to access this application",
 				conflictingProjectionsTitle: "Conflicting Projections",
-				conflictingProjections: "Swipe does not support using two webmaps with different projections. Please open settings and use a webmap that use the same projection than the first webmap.",
+				conflictingProjections: "Swipe does not support using two web maps with different projections. Please open settings and use a web map that use the same projection than the first web map.",
 				cpButton: "Close"
 			},
 			mobileView: {
@@ -65,7 +65,7 @@ define({
 				signInTwo: "to save the application."
 			},
 			header:{
-				editMe: "Edit me !",
+				editMe: "Edit me!",
 				templateTitle: "Set template title",
 				templateSubtitle: "Set template subtitle"
 			},
@@ -96,7 +96,7 @@ define({
 				settingsTabExtent: "Extent",
 				settingsExtentExplain: "Set the initial extent through the interactive map below.",
 				settingsExtentExplainBottom: "The extent you define will modify your web map initial extent. Note that if you are doing a swipe series that extent won't be used.",
-				settingsExtentDateLineError: "The extent cannot be across the meridian of 180Â° longitude",
+				settingsExtentDateLineError: "The extent cannot be across the meridian of 180° longitude",
 				settingsExtentDateLineError2: "Error computing the extent",
 				settingsExtentDrawBtn: "Draw a new extent",
 				settingsExtentModifyBtn: "Edit the current extent",
@@ -116,7 +116,7 @@ define({
 			},
 			swipeSidePanel: {
 				editTooltip: "Set the side panel description",
-				editMe: "Edit me !",
+				editMe: "Edit me!",
 				legendTitle: "Legend"
 			},
 			infoWindow: {
@@ -133,12 +133,12 @@ define({
 				settingsSaveConfirm: "Some of your changes require that you save and reload the application"
 			},
 			settingsDataModel: {
-				settingsTabDataModel: "Swipe Layer",
-				settingsDataModelExplainSwipe: "Choose the layer or the web map that will appear and disappear with swipe.",
+				settingsTabDataModel: "Swipe Type",
+				settingsDataModelExplainSwipe: "What do you want users to swipe?",
 				settingsDataModelExplainSwipe2: "",
 				settingsDataModelExplainSpyGlass: "Choose the layer or the web map that will appear in the spyglass.",
-				settingsDataModelOneMap: "One web map, single layer",
-				settingsDataModel1Explain: "Select a layer to be controlled by the swipe tool.",
+				settingsDataModelOneMap: "A layer in a web map",
+				settingsDataModel1Explain: "Select the layer you want to be swiped",
 				settingsDataModel1Warning: "If the layer is hidden by upper layers, swipe won't have any effect.",
 				settingsDataModel1SpyGlassExplain: "Select the layer to appear within the spyglass.",
 				settingsDataModelTwoMaps: "Two web maps",
@@ -151,7 +151,7 @@ define({
 				settingsDataModelSelect: "Select this type",
 				settingsDataModel2Explain: "Swipe with another web map.",
 				settingsDataModel2SpyGlassExplain: "Reveal another web map.",
-				settingsDataModel2HelpTitle: "How to find web map's ID",
+				settingsDataModel2HelpTitle: "How do I find a web map's ID?",
 				settingsDataModel2HelpContent: "Copy and paste digits after the '=' sign in the URL of the web map"
 			},
 			settingsLegend: {
@@ -161,9 +161,16 @@ define({
 				settingsDescriptionEnable: "Enable Description",
 				settingsBookmarksEnable: "Enable Swipe series",
 				settingsPopupDisable: "Enable popup",
+				settingsLocationSearchEnable: "Enable locator search",
+				settingsGeolocatorEnable: "Enable geolocator",
 				settingsLegendHelpContent: "To refine the legend content, use ArcGIS.com web map viewer table of contents (Hide in Legend)",
-				settingsSeriesHelpContent: "On first activation, your web map(s) bookmarks will be used to pre-populate the series bar. If you disable the series option later, your series configuration won't be discarded and will be available if you decide to enable the series again.",
-				preview: "UI preview"
+				settingsSeriesHelpContent: "Swipe series is a tabbed navigation option that will guide the viewer to a particular extent and display a title and description text in the side panel.  During initial activation, the bookmarks from the web map(s) will be imported and used to pre-populate the series bar.  Disabling the series option turns off the series bar, but the series configuration is preserved for future use.", 
+				settingsSeriesHelpContent2: "Swipe series lets you create and edit a selection of locations with accompanying titles and text.  If your web map has bookmarks, they'll be displayed.  You can disable the series, but the configuration will be preserved for future use.",
+				settingsSeriesHelpLink: "See an example of an application with a swipe series here",
+				preview: "UI preview",
+				settingsLocateButtonExplain: "This functionality is supported on most mobile devices and desktop browsers (including Internet Explorer 9+).",
+				settingsLocateButton: "Enable a 'Locate' button on supported browsers",
+				settingsAddressSearch: "Enable an address search tool"
 			},
 			settingsSwipePopup: {
 				settingsSwipePopup: "Pop-up",
@@ -178,6 +185,7 @@ define({
 			initPopup: {
 				initHeader: "Welcome to the Swipe Builder",
 				modalNext: "Next",
+				modalPrev: "Previous",
 				modalApply: "Open the app"
 			},
 			seriesPanel: {

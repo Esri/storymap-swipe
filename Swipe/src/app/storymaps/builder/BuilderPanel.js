@@ -119,9 +119,17 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 				var value = container.find("#save-counter").html();
 				if (! _this.hasPendingChange()) {
 					value = 0;
-					if( _displayBuilderSaveIntro )
+						
+					if (_displayBuilderSaveIntro) {
 						// Timer cause the header can be hidden
-						setTimeout(function(){ container.find(".builder-save").popover('show'); }, 250);	
+						setTimeout(function(){
+							container.find(".builder-save").popover('show');
+						}, 250);
+						setTimeout(function(){
+							if( _displayBuilderSaveIntro )
+								container.find(".builder-save").popover('destroy');
+						},  3500);
+					}	
 				}
 	
 				if( value == 0 ) {
@@ -193,11 +201,10 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 				// Confirmation that user need to use the save button
 				container.find(".builder-save").popover({
 					trigger: 'manual',
+					placement: 'left',
 					html: true,
-					content: '<script>setTimeout(function(){$("' + containerId + ' .builder-save").next(".popover").css("margin-left", $("' + containerId + ' > div").width() + 30).addClass("builderPanelPopover");}, 0);'
-								+ '</script>'
+					content: '<script>$("' + containerId + ' .builder-save").next(".popover").addClass("save-popover");</script>'
 								+ i18n.builder.builder.popoverSaveWhenDone
-								+ ' <button type="button" class="btn btn-success btn-small" onclick="app.builder.closeBuilderSaveIntro()">'+i18n.builder.builder.gotIt+'</button> '
 				});
 				
 				//container.find('.builder-settings').attr('title', i18n.builder.builder.buttonSettings);
@@ -296,7 +303,6 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 				container.find('button').eq(0).html(i18n.builder.builder.buttonSave);
 				container.find('button').eq(1).html(i18n.builder.builder.buttonDiscard);
 				container.find('button').eq(2).html(i18n.builder.builder.buttonSettings.toUpperCase());
-				//container.find('button').eq(2).html('<img src="resources/icons/builder-settings.png" style="vertical-align: -6px;" alt="' + i18n.builder.builder.buttonSettings + '" />');
 				container.find('button').eq(3).html('<img src="resources/icons/builder-view.png" style="vertical-align: -6px;" alt="' + i18n.builder.builder.buttonView + '" />');
 				container.find('button').eq(4).html('<i class="icon-file"></i>').attr("title", i18n.builder.builder.buttonItem);
 				container.find('#save-counter').html(i18n.builder.builder.noPendingChange);

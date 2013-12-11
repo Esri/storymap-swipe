@@ -15,12 +15,13 @@ define(["dojo/dom-construct",
 		"storymaps/swipe/core/SwipeHelper",
 		"storymaps/utils/Helper",
 		"dojo/has",
-		"esri/dijit/Popup",
 		"esri/config",
 		"dojo/topic",
 		"dojo/on",
 		"dojo/Deferred",
-		"dojo/DeferredList"], 
+		"dojo/DeferredList",
+		"esri/dijit/Geocoder",
+		"dojo/_base/lang"], 
 	function (
 		domConstruct,
 		win,
@@ -36,12 +37,13 @@ define(["dojo/dom-construct",
 		SwipeHelper,
 		Helper,
 		has,
-		Popup,
 		esriConfig,
 		topic,
 		on,
 		Deferred,
-		DeferredList)
+		DeferredList,
+		Geocoder,
+		lang)
 	{
 		return function MainView() 
 		{
@@ -49,7 +51,7 @@ define(["dojo/dom-construct",
 			var _this = this;
 			
 			this.init = function(core) 
-			{			
+			{		
 				_core = core;
 				
 				// Do not allow builder under IE 9
@@ -75,32 +77,18 @@ define(["dojo/dom-construct",
 				app.mobileCarousel = new MobileCarousel("#footerMobile", app.isInBuilderMode);
 				
 				topic.subscribe("CORE_UPDATE_EXTENT", function(extent){
-					app.maps[0].setExtent(extent, true);
+					app.mainMap.setExtent(extent, true);
 				});
-				app.popup = [];
-				app.popup[0] = new Popup(
-					{
-						highlight:true,
-						offsetX:0
-	      			},
-					domConstruct.create("div")
-				);
-				
-				app.popup[1] = new Popup(
-					{
-						highlight:true,
-						offsetX:0
-	      			},
-					domConstruct.create("div")
-				);
 				
 				// Prevent iPad vertical bounce effect
 				// except on few containers that needs that
 				$(document).bind(
 					'touchmove',
 					function(e) {
-						if( ! $(e.target).parents('#legendPanel').length )
-						e.preventDefault();
+						if( ! $(e.target).parents('#legendPanel').length && ! $(e.target).parents('#descriptionPanel').length 
+						&& ! $(e.target).parents('#seriesTextView').length && ! $(e.target).parents('#infoWindowView').length 
+						&& ! $(e.target).parents('#legendView').length && ! $(e.target).hasClass('subtitle') )
+							e.preventDefault();
 					}
 				);
 				
@@ -113,6 +101,8 @@ define(["dojo/dom-construct",
 				var description = WebApplicationData.getDescription();
 				var legend = WebApplicationData.getLegend();
 				var descriptionText = WebApplicationData.getSidePanelDescription();
+				var layout = WebApplicationData.getLayout();
+				var dataModel = app.mode;
 				
 				loadingIndicator.setMessage(i18n.viewer.loading.step3);
 				
@@ -121,7 +111,7 @@ define(["dojo/dom-construct",
 				if(legend == null)
 					legend = true;
 				if( ! descriptionText && app.isInBuilderMode )
-					descriptionText = i18n.builder.header.editMe;
+					descriptionText = i18n.swipe.swipeSidePanel.editMe;
 				
 				app.sidePanel.init(
 					descriptionText, 
@@ -130,26 +120,26 @@ define(["dojo/dom-construct",
 					description, 
 					legend, 
 					WebApplicationData.getLayers(),
-					WebApplicationData.getSeries() || configOptions.series
+					WebApplicationData.getSeries() || configOptions.series,
+					layout,
+					dataModel
 				);
 				
 				if (has("ie") == undefined || has("ie") > 8) {
-					app.mobileInfoWindowView.init(
-						[
-							$('#infoView-mobile1'),
-							$('#infoView-mobile0') 
-						], 
-						appColors[1]
-					);
-					app.mobileLegendView.init(
-						[
-							"<div id='legendView2'></div>", 
-							"<div id='legendView1'></div>"
-						],
-						appColors[1]
-					);
-					$('#legendView1').parent().css('overflow-y', 'auto');
-					$('#legendView2').parent().css('overflow-y', 'auto');
+					if (WebApplicationData.getPopup()) {
+						app.mobileInfoWindowView.init([$('#infoView-mobile1'), $('#infoView-mobile0')], appColors[1]);
+						app.isPopup = true;
+					}					
+					else
+						$('#rightViewLink').css('display', 'none');
+					
+					if (WebApplicationData.getLegend()) {
+						app.mobileLegendView.init(["<div id='legendView2'></div>", "<div id='legendView1'></div>"], appColors[1]);
+						$('#legendView1').parent().css('overflow-y', 'auto');
+						$('#legendView2').parent().css('overflow-y', 'auto');
+					}
+					else
+						$('#leftViewLink').css('display', 'none');
 				}
 				
 				var bookmarkExtent = null;
@@ -171,12 +161,23 @@ define(["dojo/dom-construct",
 					$('#descriptionTitle').removeClass('series');
 					$('#descriptionContent').removeClass('series');
 				}
+				
+				if (WebApplicationData.getLocationSearch()){
+					var geocoderParams = lang.mixin(
+						{
+							map: app.mainMap
+						},
+						Helper.createGeocoderOptions()
+					);
+					var geocoder = new Geocoder(geocoderParams, "locationSearch");
+        			geocoder.startup();
+				}
 
 				// Make sure that everyone has expected size before setting the extent
 				$(window).resize();
 				
 				_this.setMapExtent(bookmarkExtent || Helper.getWebMapExtentFromItem(app.data.getWebMapItem().item)).then(function()
-				{
+				{ 
 					// 2 webmaps with different projection warning
 					if(app.maps.length == 2 && app.maps[0].spatialReference.wkid != app.maps[1].spatialReference.wkid){
 						_core.appInitComplete();
@@ -197,7 +198,7 @@ define(["dojo/dom-construct",
 					}
 					else {
 						app.mapSwipe.init(
-							app.maps, 
+							app.mode == "TWO_LAYERS" ? [app.map] : app.maps, 
 							WebApplicationData.getLayers(), 
 							WebApplicationData.getPopupColors(), 
 							WebApplicationData.getPopupTitles(), 
@@ -207,7 +208,8 @@ define(["dojo/dom-construct",
 					}
 						
 					if( app.mode == "TWO_WEBMAPS" ) {
-						on.once(app.maps[1], "extent-change", function(){
+						var index = (WebApplicationData.getLayout() == "swipe") ? 0 : 1;
+						on.once(app.maps[index], "extent-change", function(){
 							setTimeout(function(){
 								_core.appInitComplete();
 							}, WebApplicationData.getLayout() == "spyglass" ? 3000 : 1000);
@@ -228,7 +230,7 @@ define(["dojo/dom-construct",
 				if(!$("#footerMobile").is(':visible'))
 					return;
 					
-				app.maps[0].setExtent(WebApplicationData.getSeriesBookmarks()[index].extent)
+				app.mainMap.setExtent(WebApplicationData.getSeriesBookmarks()[index].extent)
 			}
 			
 			this.appInitComplete = function()
@@ -243,8 +245,14 @@ define(["dojo/dom-construct",
 				else {
 					$("#mainMap1_zoom_slider").addClass('open');
 					$("#mainMap0_zoom_slider").addClass('open');
-					$("#mainMap_zoom_location").addClass('open')
+					$.each($(".mapCommandLocation"), function(i, locator){
+						$(locator).addClass('open');
+					});
 				}
+				if( WebApplicationData.getGeolocator())
+					$('#mainMap_zoom_location').show()
+				else
+					$('#mainMap_zoom_location').hide()
 				
 				if( app.seriesPanel )
 					app.seriesPanel.appIsReady();
@@ -276,6 +284,14 @@ define(["dojo/dom-construct",
 				app.sidePanel.update(appColors[1], appColors[0]);
 				app.mobileInfoWindowView.update(appColors[1]);
 				app.mobileLegendView.update(appColors[1]);
+				if( WebApplicationData.getGeolocator())
+					$('#mainMap_zoom_location').show()
+				else
+					$('#mainMap_zoom_location').hide()									
+				if( WebApplicationData.getLocationSearch())
+					$('#locationSearch').show()
+				else
+					$('#locationSearch').hide()
 			}
 			
 			this.resize = function(cfg)
@@ -287,7 +303,7 @@ define(["dojo/dom-construct",
 					$("#fatalError").css("display", cfg.isMobileView ? "block": "none");
 				}
 				if (cfg.isMobileView)
-					if(location.hash==("#description"))
+					if(location.hash!=("#map"))
 						location.hash = "map";
 					else
 						_this.onHashChange();
@@ -309,11 +325,12 @@ define(["dojo/dom-construct",
 						$("#seriesPanel").show();
 					}
 				}
-				if (!WebApplicationData.getSeries()){
+				if (!WebApplicationData.getSeries() && !app.seriesPanel.started){
 					$("#footerMobile").hide();
 					$("#seriesPanel").hide();
 				}
 				if (cfg.isMobileView == false) {
+					location.hash = ""
 					$('#infoWindowView').css('display', 'none');
 					$('#legendView').css('display', 'none');
 					$("#footerMobile").hide();
@@ -329,7 +346,7 @@ define(["dojo/dom-construct",
 			this.centerMap = function(geom, zoomLevel)
 			{
 				if( ! zoomLevel )			
-					app.maps[0].centerAt(geom);
+					app.mainMap.centerAt(geom);
 				else
 					app.map.centerAndZoom(geom, zoomLevel);
 			}
@@ -338,7 +355,8 @@ define(["dojo/dom-construct",
 			{
 				var mapsReady = new Deferred();
 				var mapsDeferred = [];
-				$.each(app.maps, function(i, map){
+				var maps = app.mode == "TWO_LAYERS" ? [app.map] : app.maps
+				$.each(maps, function(i, map){
 					mapsDeferred.push(map.setExtent(extent, true));
 				});
 				new DeferredList(mapsDeferred).then(function(){
@@ -350,10 +368,10 @@ define(["dojo/dom-construct",
 			this.zoomToDeviceLocation = function(success, geom)
 			{
 				if( success ) {   	
-					if( app.maps[0].spatialReference.wkid == 102100 )
+					if( app.mainMap.spatialReference.wkid == 102100 )
 						geom = webMercatorUtils.geographicToWebMercator(geom);
-					else if ( app.maps[0].spatialReference.wkid != 4326 ) {
-						esriConfig.defaults.geometryService.project([geom], app.maps[0].spatialReference, function(features){
+					else if ( app.mainMap.spatialReference.wkid != 4326 ) {
+						esriConfig.defaults.geometryService.project([geom], app.mainMap.spatialReference, function(features){
 							if( ! features || ! features[0] )
 								return;
                                       

@@ -7,7 +7,7 @@
 				step3: "PRADEDAMA",
 				fail: "Atsiprašome keitiklio krovimas nepavyko",
 				loadBuilder: "PERSIJUNGIAMA Į KŪRIMO REŽIMĄ",
-				failButton: "Bandyti vėl"
+				failButton: "Pakartoti"
 			},
 			errors: {
 				boxTitle: "Įvyko klaida",
@@ -24,7 +24,7 @@
 				notAuthorized: "Neturite teisių pasiekti šią aplikaciją",
 				conflictingProjectionsTitle: "Nesuderinamos projekcijos",
 				conflictingProjections: "Keitiklis nepalaiko dviejų internetinių žemėlapių su skirtingomis projekcijomis. Atidarykite nustatymus ir naudokite internetinį žemėlapį, naudojantį tą pačią projekciją kaip ir pirmasis internetinis žemėlapis.",
-				cpButton: "Uždaryti"
+				cpButton: "Užverti"
 			},
 			mobileView: {
 				hideIntro: "SLĖPTI ĮŽANGĄ",
@@ -54,7 +54,7 @@
 				no: "Ne",
 				popoverOpenViewExplain: "Atverdami peržiūros programą, prarasite visus neįrašytus pakeitimus",
 				popoverOpenViewOk: "Gerai",
-				popoverOpenViewCancel: "Atsisakyti",
+				popoverOpenViewCancel: "Atšaukti",
 				popoverSaveWhenDone: "Užbaigus nepamirškite įrašyti",
 				closeWithPendingChange: "Ar tikrai patvirtinate šį veiksmą ? Atlikti pakeitimai bus prarasti.",
 				gotIt: "Gerai",
@@ -71,7 +71,7 @@
 			},
 			settings: {
 				settingsHeader: "Aplikacijos nuostatos",
-				modalCancel: "Atsisakyti",
+				modalCancel: "Atšaukti",
 				modalApply: "Vykdyti"
 			},
 			settingsColors: {
@@ -133,12 +133,12 @@
 				settingsSaveConfirm: "Kai kurie jūsų pakeitimai reikalauja išsaugoti ir perkrauti aplikaciją"
 			},
 			settingsDataModel: {
-				settingsTabDataModel: "Keitiklio sluoksnis",
-				settingsDataModelExplainSwipe: "Pasirinkite sluoksnį internetiniame žemėlapyje, kuris pasirodys iš išnyks naudojant keitiklį.",
+				settingsTabDataModel: "Keitiklio tipas",
+				settingsDataModelExplainSwipe: "Ką norite, kad vartotojai keistų?",
 				settingsDataModelExplainSwipe2: "",
 				settingsDataModelExplainSpyGlass: "Pasirinkite sluoksnį arba internetinį žemėlapį, kuris atsiras po didinamuoju stiklu",
-				settingsDataModelOneMap: "Vienas internetinis žemėlapis, vienas sluoksnis",
-				settingsDataModel1Explain: "Pasirinkite sluoksnį, kontroliuojamą keitiklio įrankio.",
+				settingsDataModelOneMap: "Sluoksnis internetiniame žemėlapyje",
+				settingsDataModel1Explain: "Pasirinkite sluoksnį, kurį norite keisti",
 				settingsDataModel1Warning: "Jei sluoksnis paslėptas po aukščiau esančiais sluoksniais, keitiklis neturės jokio poveikio.",
 				settingsDataModel1SpyGlassExplain: "Pasirinkite sluoksnį, kuris atsiras po didinamuoju stiklu.",
 				settingsDataModelTwoMaps: "Du internetiniai žemėlapiai",
@@ -151,8 +151,8 @@
 				settingsDataModelSelect: "Pasirinkite šį tipą",
 				settingsDataModel2Explain: "Keisti kitu internetiniu žemėlapiu.",
 				settingsDataModel2SpyGlassExplain: "Atidengti kitą internetinį žemėlapį.",
-				settingsDataModel2HelpTitle: "Kaip surasti žemėlapių ID",
-				settingsDataModel2HelpContent: "Nukopijuokite skaičius po '=' ženklo, esančio internetinio žemėlapio URL"
+				settingsDataModel2HelpTitle: "Kaip surasti internetinio žemėlapio ID",
+				settingsDataModel2HelpContent: "Nukopijuokite skaičius po \'=\' ženklo, esančio internetinio žemėlapio URL"
 			},
 			settingsLegend: {
 				settingsTabLegend: "Aplikacijos išdėstymas",
@@ -161,9 +161,16 @@
 				settingsDescriptionEnable: "Įjungti aprašą",
 				settingsBookmarksEnable: "Įjungti keitiklių serijas",
 				settingsPopupDisable: "Įgalinti informacinį langą",
+				settingsLocationSearchEnable: "Įgalitnti lokatoriaus paiešką",
+				settingsGeolocatorEnable: "Įgalinti geolokatorių",
 				settingsLegendHelpContent: "Legendos nustatymui naudokite ArcGIS.com internetinio žemėlapio peržiūros aplikacijos turinį (Paslėpti legendoje)",
-				settingsSeriesHelpContent: "Aktyvuojant pirmą kartą, jūsų internetinio(-ių) žemėlapio(-ių) žymės bus panaudotos preliminariai užpildant serijų juostą. Jei vėliau išjungsite šį pasirinkimą, jūsų serijų konfigūracija nebus pamestair bus galima jei nuspręsite vėl įgalinti serijas.",
-				preview: "Vartotojo sąsajos peržiūra"
+				settingsSeriesHelpContent: "Keitiklių serija yra navigavimo galimybė, supažindinanti vartotoją su tam tikra aprėptimi ir atvaizduoja pavadinimą bei aprašymo tekstą šoninėje panelėje. Aktyvuojant pirmą kartą, jūsų internetinio(-ių) žemėlapio(-ių) žymės bus panaudotos preliminariai užpildant serijų juostą. Šio pasirinkimo išjungimas, išjungia ir serijų juostą, tačiau serijų konfigūracija bus išlaikoma tolimesniam naudojimui.", 
+				settingsSeriesHelpContent2: "Keitiklių serijos leidžia jums sukurti ir redaguoti pažymėtas vietas su kartu esančiais pavadinimais ir tekstu. Jei jūsų internetinis žemėlapis turi žymių, jos bus atvaizduotos. Galite išjungti serijas, bet konfigūracija bus išsaugota ateičiai.",
+				settingsSeriesHelpLink: "Peržiūrėkite aplikacijos su keitiklių serijomis pavyzdį čia",
+				preview: "Vartotojo sąsajos peržiūra",
+				settingsLocateButtonExplain: "Šis funkcionalumas palaikomas daugelyje mobilių įrenginių ir darbastalio naršyklių (įskaitant Internet Explorer 9+).",
+				settingsLocateButton: "Įgalinti \'Rasti\' mygtuką palaikomose naršyklėse",
+				settingsAddressSearch: "Įgalinti adreso paieškos įrankį"
 			},
 			settingsSwipePopup: {
 				settingsSwipePopup: "Iškylantis langas",
@@ -177,7 +184,8 @@
 			},
 			initPopup: {
 				initHeader: "Sveiki atvykę į Keitiklio kūrėją",
-				modalNext: "Toliau",
+				modalNext: "Sekantis",
+				modalPrev: "Ankstesnis",
 				modalApply: "Atidaryti aplikaciją"
 			},
 			seriesPanel: {

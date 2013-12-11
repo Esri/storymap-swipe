@@ -11,9 +11,23 @@
 		<link type="image/ico" rel="shortcut icon" href="//resources.esri.com/favicon.ico">
 		<link type="image/ico" rel="icon"  href="//resources.esri.com/favicon.ico">
 
+		<!-- 
+			To correctly reference your application in search engine:
+			 - create and fill out extensively an ArcGIS.com item that link to your final application
+			 - edit the following four tags as well as the upper title tag on line 4
+		-->
+		<meta name="description" content="This story map was created with the Esri Swipe application in ArcGIS Online.">
+
+		<!-- Facebook sharing -->
 		<meta property="og:title" content="Swipe"/>
-		<meta property="og:description" content="A storytelling template that enables users to view and compare two layers of a web map using a vertical bar or a spyglass."/>
-		<meta property="og:image" content="http://www.arcgis.com/sharing/rest/content/items/dcaadc9aae1948c5b2df9adf8698f9cc/info/thumbnail/thumbnail.png"/>
+		<meta property="og:description" content="This story map was created with the Esri Swipe application in ArcGIS Online."/>
+		<meta property="og:image" content="resources/icons/esri-globe.png"/>
+
+		<!-- 
+			This template is released under the Apache License V2.0 by Esri http://www.esri.com/
+			Checkout the project repository on GitHub to access source code, latest revision, developer documentation, FAQ and tips
+			https://github.com/Esri/swipe-map-storytelling-template-js
+		-->
 
 		<script type="text/javascript">
 			//--------------------------------
@@ -57,6 +71,10 @@
 				description: true,
 				// Text that appears in the description panel of the side panel. Valid HTML string expected.
 				sidePanelDescription: "",
+				// Address location search widget
+				locationSearch: false,
+				// Location button that locates user (on supported browsers)
+				geolocator: false,
 				// Dictate if a series is used in the application.  A series is a tabbed navigation tool to guide viewers through particular geographic
 				// extents with appropriate titles and descriptions.
 				series: false,
@@ -107,7 +125,7 @@
 		</script>
 
 		<script type="text/javascript">
-			var version = '1.1';
+			var version = '1.2';
 			var isProduction = false;
 
 			function loadJS(url, isExternal)
@@ -134,15 +152,17 @@
 				document.getElementsByTagName("head")[0].appendChild(el);
 			}
 			
-			loadCSS("//js.arcgis.com/3.7/js/esri/css/esri.css", true);
-			loadCSS("//js.arcgis.com/3.7/js/dojo/dijit/themes/claro/claro.css", true);		
+			loadCSS("//js.arcgis.com/3.8/js/esri/css/esri.css", true);
+			loadCSS("//js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css", true);
 
 			if( isProduction ) {
 				loadCSS("app/swipe-min.css");
 			}
 			else {
+				loadCSS("lib/fuelux/wizard.css");
 				loadCSS("lib/bootstrap/css/bootstrap.min.css");
 				loadCSS("lib/spectrum/spectrum.css");
+				
 				
 				loadCSS("app/storymaps/ui/inlineFieldEdit/InlineFieldEdit.css");
 				loadCSS("app/storymaps/ui/loadingIndicator/LoadingIndicator.css");
@@ -198,6 +218,9 @@
 				]
 			};
 		</script>
+		<!--[if IE 7]>
+			<link rel="stylesheet" href="resources/font/storymaps-icons-ie7.css">
+		<![endif]-->
 	</head>
 	<body class="claro">
 		<div id="header">
@@ -226,9 +249,9 @@
 						<span class="msLink">
 							<a href="http://storymaps.esri.com" target="_blank"></a>
 						</span>
-						<div class="shareIcon share_facebook"></div>
-						<div class="shareIcon share_twitter"></div>
-						<a class="shareIcon share_bitly"></a>
+						<i class="shareIcon share_facebook icon-facebook-squared-1"></i>
+						<i class="icon-twitter-1 shareIcon share_twitter"></i>
+						<i class="icon-link shareIcon share_bitly"></i>
 					</div>
 					<div class="logo">
 						<a target="_blank">
@@ -236,7 +259,7 @@
 						</a>
 					</div>
 				</div>
-				<button type="button" class="switchBuilder btn btn-success"></button>
+				<button type="button" class="switchBuilder btn"></button>
 				<!-- Builder top panel -->
 				<div id="builderPanel">
 					<h4></h4>
@@ -260,13 +283,16 @@
 			<div id="mapPanel">
                 <div id="mainMap0">
                     <div id="hoverInfo"></div>
-                    <div class="moveable" id="sliderDiv"></div>
-                    <img id="swipeImg" src='resources/icons/swipe-arrows.png'/>
+                    <div class="moveable" id="sliderDiv">
+                    	<div id="swipeImg"></div>
+					</div>
+                    
                 </div>
+				<div id="swipeImg1"></div>
                 <div id="resizeWrapper">
                     <div id="mainMap1"></div>
                 </div>
-				<img id="swipeImg1" src='resources/icons/swipe-arrows.png'/>
+				
 				<div>
 					<div id="lensWin">	
 						<div id="lensMapNode">	
@@ -279,13 +305,16 @@
 					<div id="infoWindowContent" data-dojo-type="dijit/layout/ContentPane"></div>
 					<div id="infoWindowTabImg"></div>
 				</div>
+				<div id="locationSearch"></div>
             </div>
-			<div id="sidePanel">
+			<!-- In order for the animate clip method to work on the side panel, a clip property must be already set -->
+			<div id="sidePanel" style="clip: rect(0px 10000px 10000px 0px);">
 				<div id="descriptionPanel">
 					<div id="textEditPanel"></div>
 					<div id="descriptionTitle">
 					</div>
 					<div id="descriptionContent">
+						<div id="descriptionContentInner"></div>
 					</div>
 					<div id="seriesControls">
 						<button type="button" class="btn btn-danger series-discard"></button>
@@ -298,6 +327,7 @@
 					<div id="legend1"></div>
 				</div>
 				<div id="sidePanelTabImg" class="open closeImg"></div>
+				<div id="sidePanelUnderTabImg" class="open closeImg"></div>
 			</div>
 		</div>
 
@@ -370,7 +400,7 @@
 					<p></p>
 					<form class="form-horizontal">
 						<div id="colorScheme" class="control-group" style="margin-bottom: 5px">
-							<label class="control-label"></label>
+							<label class="control-label noFloat"></label>
 							<div class="controls"></div>
 						</div>
 					</form>
@@ -462,32 +492,38 @@
 			<div class="modal-header">
 				<h3></h3>
 			</div>
-			<div class="initPopupHeader modal-tabs">
-				<div class="tab"></div>
-				<span class="tabspacer">>></span>
-				<div class="tab"></div>
-				<span class="tabspacer">>></span>
-				<div class="tab"></div>
-				<span class="tabspacer">>></span>
-				<div class="tab"></div> 
+			
+			<div id="builderWizard" class="wizard">
+				<ul class="steps">
+					<li data-target="#step1" class="active tab"><span class="badge badge-info"></span><span class="wizardLabel"></span><span class="chevron"></span></li>
+					<li data-target="#step2" class="tab"><span class="badge"></span><span class="wizardLabel"></span><span class="chevron"></span></li>
+					<li data-target="#step3" class="tab"><span class="badge"></span><span class="wizardLabel"></span><span class="chevron"></span></li>
+					<li data-target="#step4" class="tab"><span class="badge"></span><span class="wizardLabel"></span><span class="chevron"></span></li>
+				</ul>
 			</div>
-			<div class="modal-body">
+			<div class="step-content">
 				<!-- Layout -->
-				<div class="tab-content viewLayout">					
-				</div>
+				<div class="step-pane active viewLayout" id="step1"></div>
 				<!-- Data Model-->
-				<div class="tab-content viewDataModel">														
-				</div>
+				<div class="step-pane viewDataModel" id="step2"></div>
 				<!-- Legend -->
-				<div class="tab-content viewLegend">
-				</div>
+				<div class="step-pane viewLegend" id="step3"></div>
 				<!-- Popup -->
-				<div class="tab-content viewPopup">  
-				</div>			
+				<div class="step-pane viewPopup" id="step4"></div>
 			</div>
+
 			<div class="modal-footer">
 				<span class="error"></span>
-				<button class="btnSave btn btn-primary" data-dismiss="modal"></button>
+				<div class="actions">
+					<button type="button" class="btn btn-prev">
+						<i class="icon-arrow-left"></i>
+						<span class="prev" style="margin-left:  2px;"></span>
+					</button>
+					<button type="button" class="btn btn-next btn-save" data-dismiss="modal">
+						<span class="next" style="margin-right:  2px;"></span>
+						<i class="icon-arrow-right"></i>
+					</button>
+				</div>
 			</div>
 		</div>
 		
@@ -520,6 +556,7 @@
 							<div class="controls">
 								<input class="inputWebmapId1" type="text" maxlength="32" disabled>
 							</div>
+							<a class="btn btn-small switchMapIds"><i class="icon-retweet"></i></a>
 							<label class="control-label" for="inputWebmapId2"></label>
 							<div class="controls">
 								<input class="inputWebmapId2" type="text" maxlength="32"/>
@@ -557,17 +594,25 @@
 									<input type="checkbox" name="optionsDescription" value="description" checked>
 									<span class="descriptionText"></span>
 								</label>
-								<label class="checkbox">
+								<label class="checkbox" style="margin-bottom: 1px;">
 									<input type="checkbox" name="optionsLegend" value="legend" checked>
 									<span class="legendText"></span> <span class="legendInfo"></span>
 								</label>
-								<label class="checkbox" style="margin-top: -3px;">
+								<label class="checkbox" style="margin-bottom: 1px;">
 									<input type="checkbox" name="optionsBookmarks" value="bookmarks">
 									<span class="bookmarksText"></span> <span class="seriesInfo"></span>
 								</label>
-								<label class="checkbox" style="margin-top: -3px;">
+								<label class="checkbox">
 									<input type="checkbox" name="optionsPopup" value="popup" checked>
 									<span class="popupText"></span> <span class="popupInfo"></span>
+								</label>
+								<label class="checkbox">
+									<input type="checkbox" name="optionsLocationSearch" value="locationSearch" >
+									<span class="locationSearchText"></span> <span class="locationSearchInfo"></span>
+								</label>
+								<label class="checkbox" style="width:225px;">
+									<input type="checkbox" name="optionsGeolocator" value="geolocator" >
+									<span class="geolocatorText"></span> <span class="geolocatorInfo"></span>
 								</label>
 							</div>
 							<div id="uiSimulator">
@@ -628,7 +673,7 @@
 		</div>
 
 		<script type="text/javascript">
-			loadJS('//js.arcgis.com/3.7/init.js', true);			
+			loadJS('//js.arcgis.com/3.8/init.js', true);			
 			loadJS('app/swipe-config.js');
 			
 			function getUrlVar(name)
@@ -663,6 +708,7 @@
 				loadJS('lib/jquery-ui-1.10.3.custom.min.js');
 				loadJS('lib/jquery.ui.touch-punch.min.js');
 				loadJS('lib/nicEdit.js');
+				loadJS('lib/fuelux/wizard.js');
 			}
 		</script>
 
@@ -684,7 +730,7 @@
 		<script type="text/javascript">
 			var loadingIndicator = {};
 			var i18n = null;
-			
+
 			if (document.location.protocol == "file:") {
 				$(document).ready(function() {
 					$("#fatalError .error-title").html("Application loading failed");
@@ -694,8 +740,7 @@
 			}
 			else {
 				dojo.addOnLoad(function() {
-					require([
-							"dojo/i18n!./resources/nls/template.js?v=" + version, 
+					require(["dojo/i18n!./resources/nls/template.js?v=" + version, 
 							"storymaps/ui/loadingIndicator/LoadingIndicator", 
 							"esri/urlUtils", 
 							"templateConfig/commonConfig.js?v=" + version,

@@ -3,14 +3,16 @@ define(["storymaps/swipe/core/WebApplicationData",
 		"storymaps/swipe/builder/SettingsPopupTabLayout", 
 		"storymaps/swipe/builder/SettingsPopupTabLegend", 
 		"storymaps/swipe/builder/SettingsPopupTabSwipePopup",
-		"dojo/Deferred"], 
+		"dojo/Deferred",
+		"dojo/topic"], 
 	function (
 		WebApplicationData, 
 		SettingsPopupTabDataModel, 
 		SettingsPopupTabLayout, 
 		SettingsPopupTabLegend, 
 		SettingsPopupTabSwipePopup,
-		Deferred
+		Deferred,
+		topic
 	){
 		return function InitPopup(container) 
 		{
@@ -18,11 +20,15 @@ define(["storymaps/swipe/core/WebApplicationData",
 			var _initDeferred = null;
 			
 			var _tabsBar = $(container).find(".tab");
-			var _tabContent = $(container).find(".tab-content");
-			var _btnNext = $(container).find(".btnSave");
+			var _tabContent = $(container).find(".step-pane");
+			var _btnPrev = $(container).find(".btn-prev");
+			var _btnNext = $(container).find(".btn-next");
 
-			_tabsBar.click(onTabClick);
+			_btnPrev.click(prev);
 			_btnNext.click(next);
+			
+			$('#builderWizard').wizard();
+			$(container).find('.btn-prev').attr('disabled','disabled')
 			
 			this.init = function()
 			{
@@ -32,8 +38,9 @@ define(["storymaps/swipe/core/WebApplicationData",
 					new SettingsPopupTabLegend(_tabsBar.eq(2), _tabContent.eq(2)),
 					new SettingsPopupTabSwipePopup(_tabsBar.eq(3), _tabContent.eq(3))
 				];
-				$("#initPopup").addClass('started')
+				$("#initPopup").addClass('started');
 				initLocalization();
+				topic.subscribe("POPUP_CHANGE", controlPopupOptions);
 			}
 			
 			this.present = function(settings, lockOnTabIndex) 
@@ -66,12 +73,35 @@ define(["storymaps/swipe/core/WebApplicationData",
 			function next()
 			{
 				var currentTab = $("#initPopup .tab.active").index("#initPopup .tab");
-				if ( currentTab < 3 && ! _btnNext.hasClass('btn-success') ) {
+				$(container).find('.btn-prev').attr('disabled',false)
+				if ( currentTab < 3 && !_btnNext.hasClass('btn-success')) {
 					displayTab(++currentTab);
+					$("#initPopup .tab.active").find('.badge').addClass('badge-info');
+					$("#initPopup .tab").eq(currentTab-1).find('.badge').addClass('badge-success');
+					if (currentTab == 3) {
+						_btnNext.addClass('btn-success');
+						$(container).find('.next').html(i18n.swipe.initPopup.modalApply);
+					}
 					return false;
 				}
 				
 				return save();
+			}
+			
+			function prev()
+			{
+				var currentTab = $("#initPopup .tab.active").index("#initPopup .tab");
+				if (currentTab == 1)
+					$(container).find('.btn-prev').attr('disabled','disabled')
+				if (currentTab > 0) {
+					displayTab(--currentTab);
+					_btnNext.removeClass('btn-success');
+					$("#initPopup .tab").eq(currentTab+1).find('.badge').removeClass('badge-success');
+					$("#initPopup .tab").eq(currentTab).find('.badge').removeClass('badge-success');
+					$("#initPopup .tab").eq(currentTab+1).find('.badge').removeClass('badge-info');
+					$("#initPopup .tab.active").find('.badge').addClass('badge-info');
+					$(container).find('.next').html(i18n.swipe.initPopup.modalNext);
+				}
 			}
 			
 			function save()
@@ -101,8 +131,11 @@ define(["storymaps/swipe/core/WebApplicationData",
 				if (legendResult) {
 					WebApplicationData.setLegend(legendResult.legend);
 					WebApplicationData.setDescription(legendResult.description);
+					WebApplicationData.setPopup(legendResult.popup);
 					WebApplicationData.setSeries(legendResult.series);
 					WebApplicationData.setSeriesBookmarks(legendResult.bookmarks);
+					WebApplicationData.setLocationSearch(legendResult.locationSearch);
+					WebApplicationData.setGeolocator(legendResult.geolocator);
 				}
 				else {
 					displayTab(2);
@@ -117,7 +150,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 				else {
 					displayTab(2);
 					return false;
-				}		
+				}	
 				_initDeferred.resolve();
 				return true;
 			}
@@ -128,11 +161,26 @@ define(["storymaps/swipe/core/WebApplicationData",
 				_tabContent.hide();
 				
 				_tabsBar.eq(index).addClass("active");
+
 				_tabs[index].show();
 				_tabContent.eq(index).show();
 				
 				if( index == 3 )
 					$(container).find('.btnSave').html(i18n.swipe.initPopup.modalApply).removeClass('btn-primary').addClass('btn-success');
+			}
+			
+			function controlPopupOptions(popupEnabled)
+			{
+				if (popupEnabled == false) {
+					_btnNext.addClass('btn-success');
+					$(container).find('.next').html(i18n.swipe.initPopup.modalApply);
+					$('#builderWizard').find('.tab').eq(3).addClass('disabled');
+				}
+				else {
+					_btnNext.removeClass('btn-success');
+					$('#builderWizard').find('.tab').eq(3).removeClass('disabled');
+					$(container).find('.next').html(i18n.swipe.initPopup.modalNext);
+				}
 			}
 	
 			function initLocalization()
@@ -142,8 +190,9 @@ define(["storymaps/swipe/core/WebApplicationData",
 				$.each(_tabs, function(i, tab){
 					tab.initLocalization();
 				});
-				
-				$(container).find('.btnSave').html(i18n.swipe.initPopup.modalNext);
+
+				$(container).find('.prev').html(i18n.swipe.initPopup.modalPrev);
+				$(container).find('.next').html(i18n.swipe.initPopup.modalNext);
 				$(container).find('.error').html(i18n.swipe.initPopup.tabError);
 			}
 		}

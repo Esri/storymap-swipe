@@ -56,6 +56,8 @@ define(["storymaps/swipe/core/WebApplicationData", "dojo/topic"],
 					return;
 				
 				displayTab($(this).index());
+				if(!WebApplicationData.getPopup())
+					$('.settingsPopupHeader').find('.tab').eq(3).addClass('disabled');
 			}
 			
 			function save(saveConfirmed)
@@ -71,7 +73,6 @@ define(["storymaps/swipe/core/WebApplicationData", "dojo/topic"],
 					
 					settings.push(result);
 				});
-				
 				// Information popover if the data model or the layout has changed
 				var needConfirmation = (WebApplicationData.getLayout() != settings[0].layout 
 						|| WebApplicationData.getDataModel() != settings[1].dataModel

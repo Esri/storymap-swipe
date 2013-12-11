@@ -133,12 +133,12 @@
 				settingsSaveConfirm: "تتطلب بعض من التغيرات حفظ التطبيق وإعادة تحميله مرة أخرى"
 			},
 			settingsDataModel: {
-				settingsTabDataModel: "طبقة السحب",
-				settingsDataModelExplainSwipe: "اختر الطبقة أو خريطة الويب التي ستظهر وتختفي أثناء السحب.",
+				settingsTabDataModel: "نوع السحب",
+				settingsDataModelExplainSwipe: "ما ترغب أن يقوم المستخدمين بسحبه؟",
 				settingsDataModelExplainSwipe2: "",
 				settingsDataModelExplainSpyGlass: "اختر الطبقة أو خريطة الويب التي ستظهر في المنظار.",
-				settingsDataModelOneMap: "خريطة ويب واحدة وطبقة فردية",
-				settingsDataModel1Explain: "حدد الطبقة ليتم التحكم فيها من قبل أداة السحب.",
+				settingsDataModelOneMap: "الطبقة في خريطة الويب",
+				settingsDataModel1Explain: "تحديد الطبقة التي تود سحبها",
 				settingsDataModel1Warning: "إذا كانت الطبقة مختفية من قبل الطبقات العلوية، لن يكون السحب ذو تأثير يذكر.",
 				settingsDataModel1SpyGlassExplain: "حدد الطبقة لتظهر داخل المنظار.",
 				settingsDataModelTwoMaps: "اثنان من خرائط الويب",
@@ -151,7 +151,7 @@
 				settingsDataModelSelect: "حدد هذا النوع",
 				settingsDataModel2Explain: "اسحب مع خريطة ويب أخرى",
 				settingsDataModel2SpyGlassExplain: "كشف خريطة ويب أخرى.",
-				settingsDataModel2HelpTitle: "كيفية إيجاد معرف خريطة الويب",
+				settingsDataModel2HelpTitle: "كيف أقوم بالعثور على معرف خريطة الويب؟",
 				settingsDataModel2HelpContent: "انسخ والصق الأرقام بعد علامة \"=\" داخل عنوان URL لخريطة الويب"
 			},
 			settingsLegend: {
@@ -161,9 +161,16 @@
 				settingsDescriptionEnable: "تمكين الوصف",
 				settingsBookmarksEnable: "تمكين سلاسل السحب",
 				settingsPopupDisable: "تمكين عنصر منبثق",
+				settingsLocationSearchEnable: "تمكين بحث محدد المواقع",
+				settingsGeolocatorEnable: "تمكين محدد المواقع الجغرافي",
 				settingsLegendHelpContent: "لتحسين محتوى مفتاح الخريطة، استخدم جدول محتويات عارض خريطة الويب ArcGIS.com (مخفي في وسيلة الإيضاح)",
-				settingsSeriesHelpContent: "في التفعيل الأول، سيتم استخدام العلامات المرجعية لخرائط الويب لإعادة تعبئة شريط السلسلة. إذا قمت بتعطيل خيار السلسلة لاحقًا، لن يتم تجاهل تكوين السلسلة وسيتوفر عند تقرير تمكين السلسلة مجددًا.",
-				preview: "معاينة واجهة المستخدم"
+				settingsSeriesHelpContent: "سلاسل السحب هي خيارات التنقل التي سترشد العارض خلال النطاق المحدد وعرض العنوان ونص الوصف في اللوحة الجانبية. أثناء التفعيل الأولي، سيتم استيراد العلامات المرجعية من خرائط الويب وسيتم استخدامها لإعادة تعبئة شريط السلاسل. يقوم تعطيل خيار السلاسل بإيقاف تشغيل شريط السلاسل،لكن يتم الاحتفاظ بتكوين السلاسل للاستخدام المستقبلي.", 
+				settingsSeriesHelpContent2: "تتيح عملية سحب السلسلة إنشاء وتحرير مجموعة مختارة من المواقع مع النص والعناوين المصاحبة. إذا كانت خريطة الويب الخاص بك لديها علامات مرجعية، فإنه سيتم عرضهم. ويمكنك تعطيل هذه السلسلة، ولكن سيتم الاحتفاظ بالتكوين للاستخدام في المستقبل.",
+				settingsSeriesHelpLink: "راجع مثال على التطبيق مع سحب السلاسل هنا",
+				preview: "معاينة واجهة المستخدم",
+				settingsLocateButtonExplain: "يتم دعم هذه الوظيفة على معظم أجهزة الجوال ومستعرضات سطح المكتب (بما في ذلك Internet Explorer 9+(.",
+				settingsLocateButton: "تمكين زر 'تحديد الموقع' على المستعرضات المدعومة",
+				settingsAddressSearch: "تمكين أداة البحث عن العنوان"
 			},
 			settingsSwipePopup: {
 				settingsSwipePopup: "العنصر المنبثق",
@@ -178,6 +185,7 @@
 			initPopup: {
 				initHeader: "مرحبًا بك في منشئ السحب",
 				modalNext: "التالي",
+				modalPrev: "السابق",
 				modalApply: "فتح التطبيق"
 			},
 			seriesPanel: {

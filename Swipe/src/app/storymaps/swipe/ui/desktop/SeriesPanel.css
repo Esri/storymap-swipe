@@ -54,6 +54,13 @@
 	cursor: pointer;
 }
 
+.addSeriesLabel{
+	margin-top: 6px;
+	color: #fff;
+	font-size: 14px;
+	font-family: Arial, Helvetica, sans-serif;
+}
+
 #seriesNav .tooltip .tooltip-inner {
 	word-wrap: break-word;
 }

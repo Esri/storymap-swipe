@@ -133,11 +133,11 @@
 				settingsSaveConfirm: "É necessário guardar e reiniciar a aplicação para aplicar algumas das alterações efetuadas"
 			},
 			settingsDataModel: {
-				settingsTabDataModel: "Camada de Varrimento",
+				settingsTabDataModel: "Tipo de Varrimento",
 				settingsDataModelExplainSwipe: "Selecione a camada ou o mapa web que irá aparecer e desaparecer com o varrimento.",
 				settingsDataModelExplainSwipe2: "",
 				settingsDataModelExplainSpyGlass: "Selecione a camada ou o mapa web que irá aparecer na luneta.",
-				settingsDataModelOneMap: "Um mapa web, camada única",
+				settingsDataModelOneMap: "Uma camada num mapa web",
 				settingsDataModel1Explain: "Selecione uma camada para ser controlada pela ferramenta de varrimento.",
 				settingsDataModel1Warning: "Só é possível utilizar serviços Dinâmicos, de Mosaicos e de Imagens. Se a camada estiver tapada por camadas superiores, o varrimento não terá qualquer efeito.",
 				settingsDataModel1SpyGlassExplain: "Selecione a camada que irá aparecer dentro da luneta.",
@@ -161,9 +161,16 @@
 				settingsDescriptionEnable: "Ativar Descrição",
 				settingsBookmarksEnable: "Ativar série de Varrimento",
 				settingsPopupDisable: "Ativar janelas popup",
+				settingsLocationSearchEnable: "Ativar pesquisa de localizadores",
+				settingsGeolocatorEnable: "Ativar geolocalizador",
 				settingsLegendHelpContent: "Utilize o índice do visualizador de mapas do ArcGIS.com (Ocultar em Legenda)",
-				settingsSeriesHelpContent: "Durante a primeira ativação, os seus eventuais marcadores de mapas web serão utilizados para pré-preencher a barra de séries. Se desativar esta opção mais tarde, as configurações das suas séries não serão perdidas, reativar esta opção irá carregar o estado antes da desativação.",
-				preview: "Pré-visualizar IU"
+				settingsSeriesHelpContent: "As Séries de Varrimento são uma opção de navegação por separadores que permite guiar o visualizador para uma extensão em particular, e exibir um título e descrição no painel lateral. Durante a primeira ativação, os seus eventuais marcadores de mapas web serão utilizados para pré-preencher a barra de séries. Se desativar esta opção mais tarde, as configurações das suas séries não serão perdidas, reativar esta opção irá carregar o estado antes da desativação.", 
+				settingsSeriesHelpContent2: "A aplicação de varrimento permite-lhe criar e editar uma selecção de localizações que acompanham os títulos e texto. Se o seu mapa web possui marcadores, eles serão exibidos. Pode desativar esta opção, mas a configuração será preservada para futuras utilizações.",
+				settingsSeriesHelpLink: "Consulte aqui um exemplo de uma aplicação de varrimento",
+				preview: "Pré-visualizar IU",
+				settingsLocateButtonExplain: "Esta funcionalidade é suportada na maioria dos dispositivos móveis e navegadores de internet (incluindo o Internet Explorer 9+).",
+				settingsLocateButton: "Ativar navegadores que suportam um botão 'Localizar'",
+				settingsAddressSearch: "Ativar uma ferramenta de pesquisa de moradas"
 			},
 			settingsSwipePopup: {
 				settingsSwipePopup: "Janela Pop-up",
@@ -178,6 +185,7 @@
 			initPopup: {
 				initHeader: "Bem-vindo ao Builder de Varrimento",
 				modalNext: "Seguinte",
+				modalPrev: "Anterior",
 				modalApply: "Abrir a aplicação"
 			},
 			seriesPanel: {

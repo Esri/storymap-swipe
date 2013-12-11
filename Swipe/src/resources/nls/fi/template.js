@@ -133,12 +133,12 @@
 				settingsSaveConfirm: "Jotkin muutokset edellyttävät sovelluksen tallennusta ja uudelleenkäynnistystä."
 			},
 			settingsDataModel: {
-				settingsTabDataModel: "Pyyhkäisytaso",
-				settingsDataModelExplainSwipe: "Valitse karttataso tai web-kartta, joka tulee näkyviin ja häviää näkyvistä pyyhkäisytyökalulla.",
+				settingsTabDataModel: "Pyyhkäisytyyppi",
+				settingsDataModelExplainSwipe: "Mitä haluat käyttäjien pyyhkäisevän?",
 				settingsDataModelExplainSwipe2: "",
 				settingsDataModelExplainSpyGlass: "Valitse karttataso tai web-kartta, joka tulee näkyviin kiikarissa.",
-				settingsDataModelOneMap: "Yksi web-kartta, yksi taso",
-				settingsDataModel1Explain: "Valitse karttataso, johon pyyhkäisytyökalu vaikuttaa.",
+				settingsDataModelOneMap: "Web-kartassa oleva karttataso",
+				settingsDataModel1Explain: "Valitse karttataso, jota haluat pyyhkäistävän",
 				settingsDataModel1Warning: "Jos karttataso on piirtojärjestyksessä ylempänä olevien karttatasojen peitossa, pyyhkäisyt eivät vaikuta mitenkään.",
 				settingsDataModel1SpyGlassExplain: "Valitse karttataso, joka näkyy kiikarissa.",
 				settingsDataModelTwoMaps: "Kaksi web-karttaa",
@@ -151,7 +151,7 @@
 				settingsDataModelSelect: "Valitse tämä tyyppi",
 				settingsDataModel2Explain: "Pyyhkäise toisella web-kartalla.",
 				settingsDataModel2SpyGlassExplain: "Näytä toinen web-kartta.",
-				settingsDataModel2HelpTitle: "Web-kartan tunnuksen etsiminen",
+				settingsDataModel2HelpTitle: "Miten löydän web-kartan tunnuksen?",
 				settingsDataModel2HelpContent: "Kopioi ja liitä web-kartan URL-osoitteessa olevan '='-merkin jälkeiset luvut."
 			},
 			settingsLegend: {
@@ -161,9 +161,16 @@
 				settingsDescriptionEnable: "Ota kuvaus käyttöön",
 				settingsBookmarksEnable: "Ota sarjapyyhkäisy käyttöön",
 				settingsPopupDisable: "Ota ponnahdusikkunat käyttöön",
+				settingsLocationSearchEnable: "Ota käyttöön paikanninhaku",
+				settingsGeolocatorEnable: "Ota käyttöön paikannin",
 				settingsLegendHelpContent: "Jos haluat määrittää selitteen sisällön, käytä ArcGIS.com-sivuston web-kartan katseluohjelman sisällysluetteloa (Piilota selitteessä)",
-				settingsSeriesHelpContent: "Kun otat asetuksen käyttöön ensimmäisen kerran, sarjapalkki täytetään valmiiksi web-kartan kirjanmerkkien avulla. Jos poistat sarjan asetuksen käytöstä myöhemmin, sarjan määrityksiä ei hylätä, vaan ne ovat käytettävissä, jos päätät ottaa sarjan käyttöön uudelleen.",
-				preview: "Käyttöliittymän esikatselu"
+				settingsSeriesHelpContent: "Pyyhintäsarja on välilehdellinen navigointivalinta, joka ohjaa katselijan tiettyyn laajuuteen ja näyttää otsikon ja kuvaavan tekstin sivupaneelissa. Kun otat asetuksen käyttöön ensimmäisen kerran, web-kartan(/-karttojen) kirjanmerkit tuodaan ja niillä täytetään valmiiksi sarjapalkki. Jos poistat sarjan asetuksen käytöstä, sarjapalkki poistuu käytöstä, mutta sarjan määritykset tallennetaan tulevaa käyttöä varten.", 
+				settingsSeriesHelpContent2: "Pyyhkäisysarjan avulla voit luoda ja muokata sijaintivalikoimaa ja sijainteihin liittyviä otsikoita ja tekstejä. Jos web-kartassa on kirjanmerkkejä, ne tulevat näkyviin. Voit tuoda näkyviin sarjan, mutta kokoonpano säilytetään tulevaa käyttöä varten.",
+				settingsSeriesHelpLink: "Tarkastele tässä esimerkkiä sovelluksesta, jossa on pyyhkäisysarja",
+				preview: "Käyttöliittymän esikatselu",
+				settingsLocateButtonExplain: "Kyseinen toiminto on tuettu useimmissa mobiililaitteissa ja tietokoneiden selaimissa (mm. Internet Explorer 9 ja uudemmat versiot).",
+				settingsLocateButton: "Ota Paikanna-painiketta tukevat selaimet käyttöön",
+				settingsAddressSearch: "Ota osoitehakutyökalu käyttöön"
 			},
 			settingsSwipePopup: {
 				settingsSwipePopup: "Ponnahdusikkuna",
@@ -178,6 +185,7 @@
 			initPopup: {
 				initHeader: "Tervetuloa käyttämään pyyhkäisyn luontitoimintoa",
 				modalNext: "Seuraava",
+				modalPrev: "Edellinen",
 				modalApply: "Avaa sovellus"
 			},
 			seriesPanel: {

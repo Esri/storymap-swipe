@@ -139,13 +139,16 @@ define(["esri/arcgis/Portal",
 
 		function saveApp()
 		{
-			var portalUrl = getPortalURL();
-			var portal = new esriPortal.Portal(portalUrl);
+			if ( ! app.portal ) {
+				console.error("Fatal error - not signed in");
+				appSaveFailed("APP");
+				return;
+			}
 
-			on(IdentityManager, "dialog-create", styleIdentityManagerForSave);
-			portal.signIn().then(
+			app.portal.signIn().then(
 				function(){
-					var uid = IdentityManager.findCredential(portalUrl).userId,
+					var portalUrl = getPortalURL(),
+						uid = IdentityManager.findCredential(portalUrl).userId,
 						token  = IdentityManager.findCredential(portalUrl).token,
 						appItem = lang.clone(app.data.getAppItem());
 
@@ -156,6 +159,10 @@ define(["esri/arcgis/Portal",
 					delete appItem.numRatings;
 					delete appItem.numViews;
 					delete appItem.size;
+					
+					// Transform arrays
+					appItem.tags = appItem.tags ? appItem.tags.join(',') : '';
+           			appItem.typeKeywords = appItem.typeKeywords ? appItem.typeKeywords.join(',') : '';
 
 					appItem = lang.mixin(appItem, {
 						f: "json",
@@ -194,13 +201,17 @@ define(["esri/arcgis/Portal",
 			
 			if( app.data.initialExtentHasBeenEdited ) {
 				var portalUrl = getPortalURL(),
-					item = app.data.getWebMapItem().item,
+					item = lang.clone(app.data.getWebMapItem().item),
 					itemData = app.data.getWebMapItem().itemData,
 					uid = IdentityManager.findCredential(portalUrl).userId,
 					token  = IdentityManager.findCredential(portalUrl).token;
 				
 				// Cleanup item data
 				WebMapHelper.prepareWebmapItemForCloning({ itemData: itemData });
+				
+				// Transform arrays
+         		item.tags = item.tags ? item.tags.join(',') : '';
+        		item.typeKeywords = item.typeKeywords ? item.typeKeywords.join(',') : '';
 
 				var rqData = {
 					f: 'json',
@@ -277,13 +288,15 @@ define(["esri/arcgis/Portal",
 		
 		function cleanApp()
 		{
-			var portalUrl = getPortalURL();
-			var portal = new esriPortal.Portal(portalUrl);
+			if ( ! app.portal ) {
+				console.error("Fatal error - not signed in");
+				return;
+			}
 
-			on(IdentityManager, "dialog-create", styleIdentityManagerForSave);
-			portal.signIn().then(
+			app.portal.signIn().then(
 				function(){
-					var uid = IdentityManager.findCredential(portalUrl).userId,
+					var portalUrl = getPortalURL(),
+						uid = IdentityManager.findCredential(portalUrl).userId,
 						token  = IdentityManager.findCredential(portalUrl).token,
 						appItem = lang.clone(app.data.getAppItem());
 

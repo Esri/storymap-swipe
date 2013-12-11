@@ -1,0 +1,230 @@
+.wizard {
+  position: relative;
+  overflow: hidden;
+  background-color: #f9f9f9;
+  border: 1px solid #d4d4d4;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+  *zoom: 1;
+  -webkit-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+     -moz-box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+          box-shadow: 0 1px 4px rgba(0, 0, 0, 0.065);
+}
+
+.wizard:before,
+.wizard:after {
+  display: table;
+  line-height: 0;
+  content: "";
+}
+
+.wizard:after {
+  clear: both;
+}
+
+.badge {
+  padding-right: 4px;
+  padding-left: 4px;
+  -webkit-border-radius: 9px;
+     -moz-border-radius: 9px;
+          border-radius: 9px;
+  display: inline-block;
+  font-size: 11.844px;
+  font-weight: bold;
+  line-height: 14px;
+  color: #ffffff;
+  text-shadow: 0 -1px 0 rgba(0, 0, 0, 0.25);
+  white-space: nowrap;
+  vertical-align: baseline;
+  background-color: #999999;
+}
+
+.badge-info {
+  background-color: #3a87ad;
+}
+
+.badge:empty {
+  display: none;
+}
+
+a.label:hover,
+a.label:focus,
+a.badge:hover,
+a.badge:focus {
+  color: #ffffff;
+  text-decoration: none;
+  cursor: pointer;
+}
+
+.badge-important {
+  background-color: #b94a48;
+}
+
+.badge-important[href] {
+  background-color: #953b39;
+}
+
+.badge-warning {
+  background-color: #f89406;
+}
+
+.badge-warning[href] {
+  background-color: #c67605;
+}
+
+.badge-success {
+  background-color: #468847;
+}
+
+
+.wizard ul {
+  width: auto;
+  padding: 0;
+  margin: 0;
+  list-style: none outside none;
+}
+
+.wizard ul.previous-disabled li.complete {
+  cursor: default;
+}
+
+.wizard ul.previous-disabled li.complete:hover {
+  color: #468847;
+  cursor: default;
+  background: #f3f4f5;
+}
+
+.wizard ul.previous-disabled li.complete:hover .chevron:before {
+  border-left-color: #f3f4f5;
+}
+
+.wizard ul li {
+  position: relative;
+  float: left;
+  height: 46px;
+  padding: 0 20px 0 30px !important;
+  margin: 0;
+  font-size: 16px;
+  line-height: 46px;
+  color: #999999;
+  cursor: default;
+  background: #ededed;
+}
+
+.wizard ul li .chevron {
+  position: absolute;
+  top: 0;
+  right: -14px;
+  z-index: 1;
+  display: block;
+  border: 24px solid transparent;
+  border-right: 0;
+  border-left: 14px solid #d4d4d4;
+}
+
+.wizard ul li .chevron:before {
+  position: absolute;
+  top: -24px;
+  right: 1px;
+  display: block;
+  border: 24px solid transparent;
+  border-right: 0;
+  border-left: 14px solid #ededed;
+  content: "";
+}
+
+.wizard ul li.complete {
+  color: #468847;
+  background: #f3f4f5;
+}
+
+.wizard ul li.complete:hover {
+  cursor: pointer;
+  background: #e7eff8;
+}
+
+.wizard ul li.complete:hover .chevron:before {
+  border-left: 14px solid #e7eff8;
+}
+
+.wizard ul li.complete .chevron:before {
+  border-left: 14px solid #f3f4f5;
+}
+
+.wizard ul li.active {
+  color: #3a87ad;
+  background: #f1f6fc;
+}
+
+.wizard ul li.active .chevron:before {
+  border-left: 14px solid #f1f6fc;
+}
+
+.wizard ul li .badge {
+  margin-right: 8px;
+}
+
+.wizard ul li:first-child {
+  padding-left: 20px;
+  border-radius: 4px 0 0 4px;
+}
+
+.wizard .actions {
+  position: absolute;
+  right: 0;
+  z-index: 1000;
+  float: right;
+  padding-right: 15px;
+  padding-left: 15px;
+  line-height: 46px;
+  vertical-align: middle;
+  background-color: #e5e5e5;
+  border-left: 1px solid #d4d4d4;
+}
+
+.wizard .actions a {
+  margin-right: 8px;
+  font-size: 12px;
+  line-height: 45px;
+}
+
+.wizard .actions .btn-prev i {
+  margin-right: 5px;
+}
+
+.wizard .actions .btn-next i {
+  margin-left: 5px;
+}
+
+.step-content{
+	height: 335px;
+	overflow: hidden;
+	position: relative;
+	max-height: 400px;
+	padding: 15px;
+}
+
+.step-content .step-pane {
+  display: none;
+  overflow: auto;
+}
+
+.step-content .active {
+  display: block;
+}
+
+.step-content .active .btn-group .active {
+  display: inline-block;
+}
+
+.btn.disabled,
+.btn[disabled] {
+  cursor: default;
+  background-image: none;
+  opacity: 0.65;
+  filter: alpha(opacity=65);
+  -webkit-box-shadow: none;
+     -moz-box-shadow: none;
+          box-shadow: none;
+}

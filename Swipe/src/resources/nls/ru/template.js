@@ -133,12 +133,12 @@
 				settingsSaveConfirm: "Некоторые внесенные изменения требуют сохранения и перезагрузки приложения"
 			},
 			settingsDataModel: {
-				settingsTabDataModel: "Слой Шторка (Swipe)",
-				settingsDataModelExplainSwipe: "Выберите слой или веб-карту, которые будут появляться и исчезать за шторкой.",
+				settingsTabDataModel: "Тип шторки",
+				settingsDataModelExplainSwipe: "Что пользователи должны сдвигать?",
 				settingsDataModelExplainSwipe2: "",
 				settingsDataModelExplainSpyGlass: "Выберите слой или веб-карту, которые появятся в подзорной трубе.",
-				settingsDataModelOneMap: "Одна веб-карта, простой слой",
-				settingsDataModel1Explain: "Выберите слой, который будет контролироваться инструментом Шторка (Swipe).",
+				settingsDataModelOneMap: "Слой на веб-карте",
+				settingsDataModel1Explain: "Выберите слой, который будет управляться инструментом Шторка.",
 				settingsDataModel1Warning: "Если слой скрыт под другими слоями, использование шторки не даст никакого результата.",
 				settingsDataModel1SpyGlassExplain: "Выберите слой, появляющийся в подзорной трубе.",
 				settingsDataModelTwoMaps: "Две веб-карты",
@@ -151,7 +151,7 @@
 				settingsDataModelSelect: "Выбрать этот тип",
 				settingsDataModel2Explain: "Спрятать под другой веб-картой.",
 				settingsDataModel2SpyGlassExplain: "Показать другую веб-карту.",
-				settingsDataModel2HelpTitle: "Как найти ID веб карты",
+				settingsDataModel2HelpTitle: "Как найти ID веб-карты?",
 				settingsDataModel2HelpContent: "Скопируйте и вставьте цифры, расположенные после знака '=' в URL веб-карты"
 			},
 			settingsLegend: {
@@ -161,9 +161,16 @@
 				settingsDescriptionEnable: "Включить описание",
 				settingsBookmarksEnable: "Включить несколько шторок",
 				settingsPopupDisable: "Включить всплывающее окно",
+				settingsLocationSearchEnable: "Включить поиск локатора",
+				settingsGeolocatorEnable: "Включить геолокатор",
 				settingsLegendHelpContent: "Для настройки содержания легенды используйте таблицу содержания вьюера веб-карт ArcGIS.com (Скрыть в легенде)",
-				settingsSeriesHelpContent: "При первой активации закладки веб-карты будут использоваться для заполнения линейки серий. Если вы впоследствии отключите эту опцию, настройка серий не будет утрачена и станет доступной  при следующем включении серии.",
-				preview: "Просмотр UI"
+				settingsSeriesHelpContent: "Серии шторок - это опция навигации, позволяющая пользователю переходить к определенному экстенту и отображать текст заголовка и описания на боковой панели.  При первоначальном включении закладки с веб-карт будут импортированы и использованы для создания серий.  Отключение опции работы с сериями приводит к отключению панели серий, но настройки серий остаются для использования в будущем.", 
+				settingsSeriesHelpContent2: "Серии шторок позволяют создавать и редактировать выбранные местоположения, а также их заголовки и текст. Если ваша веб-карта содержит закладки, то они будут отображаться. Вы можете отменить отображение серии шторок, но их настройки сохранятся для будущей работы.",
+				settingsSeriesHelpLink: "См. пример приложения с серией шторок здесь",
+				preview: "Просмотр UI",
+				settingsLocateButtonExplain: "Эта функция поддерживается на большинстве браузеров мобильных устройств и настольных браузеров (включая Internet Explorer 9+).",
+				settingsLocateButton: "Включить в поддерживаемых браузерах кнопку Размещение",
+				settingsAddressSearch: "Включить инструмент поиска адреса"
 			},
 			settingsSwipePopup: {
 				settingsSwipePopup: "Всплывающая информация",
@@ -178,6 +185,7 @@
 			initPopup: {
 				initHeader: "Начало работы со Шторкой",
 				modalNext: "Далее",
+				modalPrev: "Предыдущий",
 				modalApply: "Открыть приложение"
 			},
 			seriesPanel: {

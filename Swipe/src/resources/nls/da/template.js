@@ -133,12 +133,12 @@
 				settingsSaveConfirm: "Nogle af dine ændringer kræver, at du gemmer og genindlæser applikationen"
 			},
 			settingsDataModel: {
-				settingsTabDataModel: "Swipe-lag",
-				settingsDataModelExplainSwipe: "Vælg det lag eller webkort, der vises og forsvinder med swipe.",
+				settingsTabDataModel: "Swipe-type",
+				settingsDataModelExplainSwipe: "Hvad ønsker du, at brugerne skal bruge swipe-værktøjet til?",
 				settingsDataModelExplainSwipe2: "",
 				settingsDataModelExplainSpyGlass: "Vælg det lag eller webkort, der vises i kikkerten.",
-				settingsDataModelOneMap: "Et webkort, enkelt lag",
-				settingsDataModel1Explain: "Vælg et lag, der skal styres af swipe-værktøjet.",
+				settingsDataModelOneMap: "Et lag i et webkort",
+				settingsDataModel1Explain: "Vælg det lag, der skal styres af swipe-værktøjet",
 				settingsDataModel1Warning: "Hvis laget er skjult af lag oven på det, har swipe ingen virkning.",
 				settingsDataModel1SpyGlassExplain: "Marker det lag, der skal vises i kikkerten.",
 				settingsDataModelTwoMaps: "To webkort",
@@ -151,7 +151,7 @@
 				settingsDataModelSelect: "Vælg denne type",
 				settingsDataModel2Explain: "Swipe med et andet webkort.",
 				settingsDataModel2SpyGlassExplain: "Vis et andet webkort.",
-				settingsDataModel2HelpTitle: "Sådan finder du et webkorts ID",
+				settingsDataModel2HelpTitle: "Hvordan finder jeg et webkorts ID?",
 				settingsDataModel2HelpContent: "Kopiér tallene efter \'=\' -tegnet i webkortets URL"
 			},
 			settingsLegend: {
@@ -161,9 +161,16 @@
 				settingsDescriptionEnable: "Aktiv\ér beskrivelse",
 				settingsBookmarksEnable: "Aktiv\ér Swipe-serie",
 				settingsPopupDisable: "Aktiv\ér pop-up-vindue",
+				settingsLocationSearchEnable: "Aktiv\ér lokatorsøgning",
+				settingsGeolocatorEnable: "Aktiv\ér geolokator",
 				settingsLegendHelpContent: "Hvis du vil forfine signaturforklaringens indhold, kan du bruge indholdsfortegnelsen i ArcGIS.com-webkortviseren (Skjul i signaturforklaring)",
-				settingsSeriesHelpContent: "Ved første aktivering vil dine webkortbogmærker blive anvendt til at udfylde serielinjen på forhånd. Hvis du deaktiverer seriefunktionen senere, slettes din seriekonfiguration ikke, og den vil være tilgængelig, hvis du aktiverer serien igen.",
-				preview: "UI-forhåndsvisning"
+				settingsSeriesHelpContent: "Når du trykker på swipe-serien, vil kortviseren navigere til en bestemt udstrækning og vise en titel og en beskrivelsestekst i sidepanelet. Ved første aktivering importeres dine webkortbogmærker, og de anvendes til at udfylde serielinjen på forhånd. Hvis du deaktiverer seriefunktionen, slås seriellinjen fra, men seriekonfigurationen bevares til fremtidig brug.", 
+				settingsSeriesHelpContent2: "Med swipe-serien kan du oprette og redigere et udvalg af steder med ledsagende titler og tekst. Hvis dit webkort har bogmærker, bliver disse vist. Du kan deaktivere serien, men konfigurationen vil blive bevaret til fremtidig brug.",
+				settingsSeriesHelpLink: "Se et eksempel på en applikation med swipe-serien her",
+				preview: "UI-forhåndsvisning",
+				settingsLocateButtonExplain: "Denne funktionalitet understøttes på de fleste mobile enheder og pc-browsere (inkl. Internet Explorer 9+).",
+				settingsLocateButton: "Aktiv\ér browsere, der har en 'Find'-knap",
+				settingsAddressSearch: "Aktiv\ér et adressesøgningsværktøj"
 			},
 			settingsSwipePopup: {
 				settingsSwipePopup: "Pop-up-vindue",
@@ -178,6 +185,7 @@
 			initPopup: {
 				initHeader: "Velkommen til Swipe Builder",
 				modalNext: "Næste",
+				modalPrev: "Forrige",
 				modalApply: "Åbn app\'en"
 			},
 			seriesPanel: {

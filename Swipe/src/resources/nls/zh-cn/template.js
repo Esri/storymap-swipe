@@ -133,12 +133,12 @@
 				settingsSaveConfirm: "其中一些更改需要您保存和重新加载应用程序"
 			},
 			settingsDataModel: {
-				settingsTabDataModel: "卷帘图层",
-				settingsDataModelExplainSwipe: "选择随卷帘显示和消失的图层或 web 地图。",
+				settingsTabDataModel: "卷帘类型",
+				settingsDataModelExplainSwipe: "您希望用户对哪些对象执行卷帘操作?",
 				settingsDataModelExplainSwipe2: "",
 				settingsDataModelExplainSpyGlass: "选择在望远镜中显示的图层或 web 地图。",
-				settingsDataModelOneMap: "一幅 web 地图，单个图层",
-				settingsDataModel1Explain: "选择由卷帘工具控制的图层。",
+				settingsDataModelOneMap: "Web 地图中的图层",
+				settingsDataModel1Explain: "选择要对其进行卷帘操作的图层",
 				settingsDataModel1Warning: "如果图层被上面的图层所遮盖，则卷帘无任何效果。",
 				settingsDataModel1SpyGlassExplain: "选择要在望远镜中显示的图层。",
 				settingsDataModelTwoMaps: "两幅 web 地图",
@@ -151,8 +151,8 @@
 				settingsDataModelSelect: "选择该类型",
 				settingsDataModel2Explain: "随另一 web 地图卷起。",
 				settingsDataModel2SpyGlassExplain: "显示另一 web 地图。",
-				settingsDataModel2HelpTitle: "如何查找 web 地图 ID",
-				settingsDataModel2HelpContent: "复制并粘贴 web 地图 URL 中 '=' 符号后面的数字"
+				settingsDataModel2HelpTitle: "如何查找 web 地图 ID？",
+				settingsDataModel2HelpContent: "复制并粘贴 web 地图 URL 中\“=\”符号后面的数字"
 			},
 			settingsLegend: {
 				settingsTabLegend: "应用程序布局",
@@ -160,10 +160,17 @@
 				settingsLegendEnable: "启用图例",
 				settingsDescriptionEnable: "启用描述",
 				settingsBookmarksEnable: "启用卷帘系列",
-				settingsPopupDisable: "启用弹出",
+				settingsPopupDisable: "启用弹出窗口",
+				settingsLocationSearchEnable: "启用定位器搜索",
+				settingsGeolocatorEnable: "启用地理定位器",
 				settingsLegendHelpContent: "要优化图例内容，请使用 ArcGIS.com web 地图查看器内容列表(隐藏在图例中)",
-				settingsSeriesHelpContent: "首次激活时，将使用您的 web 地图书签预填充该系列条形图。如果您稍后禁用此系列选项，您的系列配置也不会被放弃，再次启用该系列时还可使用此系列配置。",
-				preview: "UI 预览"
+				settingsSeriesHelpContent: "卷帘系列是一种选项卡式的导航选项，它可将查看器设置为特定范围，并在侧面板中显示标题和描述文本。在首次激活时，将导入 web 地图的书签并将其用于预填充系列条形图。禁用系列选项将关闭系列条形图，但系列配置将被保留供以后使用。", 
+				settingsSeriesHelpContent2: "通过卷帘系列可创建和编辑一系列具有随附标题和文本的位置。如果 web 地图具有书签，则会显示这些书签。您可以禁用卷帘系列，但配置将保留以供之后使用。",
+				settingsSeriesHelpLink: "在此处查看具有卷帘系列的应用程序示例",
+				preview: "UI 预览",
+				settingsLocateButtonExplain: "此功能在大多数移动设备和桌面浏览器 (包括 Internet Explorer 9+) 中都受支持。",
+				settingsLocateButton: "启用支持“定位”按钮的浏览器",
+				settingsAddressSearch: "启用地址搜索工具"
 			},
 			settingsSwipePopup: {
 				settingsSwipePopup: "弹出窗口",
@@ -178,6 +185,7 @@
 			initPopup: {
 				initHeader: "欢迎使用 Swipe Builder",
 				modalNext: "下一步",
+				modalPrev: "上一步",
 				modalApply: "打开应用程序"
 			},
 			seriesPanel: {

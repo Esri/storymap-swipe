@@ -7,10 +7,10 @@ a better experience on smartphone and an interactive builder on ArcGIS Online, s
 ![App](https://raw.github.com/Esri/swipe-map-storytelling-template-js/master/storytelling-swipe-map-template-js.png)
 
 [View it live](http://storymaps.esri.com/templates/swipe/) 
-| [User Download (source code not included)](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Storytelling-Swipe-1.1.zip)
+| [User Download (source code not included)](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Storytelling-Swipe-1.2.zip)
 | [Developer Download (include source code)](https://github.com/Esri/swipe-map-storytelling-template-js/archive/master.zip)
 
-**Latest release is version version 1.1**, if you want to be informed of new releases, we recommend you to watch these repository.
+**Latest release is version version 1.2**, if you want to be informed of new releases, we recommend you to watch these repository.
 
 
 Help content:
@@ -49,7 +49,7 @@ Main features are:
 
 ## How to deploy a Swipe application
 
-1. [Download](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Storytelling-Swipe-1.1.zip)
+1. [Download](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Storytelling-Swipe-1.2.zip)
 2. [Install](#install)
 3. [Configure](#configure)
 4. [Personalize](#personalize)
@@ -84,6 +84,8 @@ More customization are accessible through three files :
 	- **legend**: dictate if the legend panel is displayed in the side panel
 	- **description**: dictate if the description panel is displayed in the side panel
 	- **sidePanelDescription**: Text that appears in the description panel
+    - **locationSearch**: dictate if an address location search widget is displayed in application
+    - **geolocator**: dictate if a locate button is displayed (on supported browsers) that displays users location
     - **title**: if not specified the ArcGIS.com map's title is used
     - **subtitle**: if not specified the ArcGIS.com webmap's summary is used
   - **series**: dictate if a series is used in the application.  A series is a tabbed navigation tool to guide viewers through particular geographic extents with appropriate titles and descriptions.
@@ -118,11 +120,36 @@ We would love to hear from you!
 
 ## What's new?
 
+#### Swipe 1.2 released on 12/11/2013
+
+New functionalities:
+
+ * Address search tool (geocoder widget).
+ * Locater button now an optional display element in viewer.
+ * Spyglass map now has zoom capability.
+ * Arrow images on swipe bar are now draggable.
+ * Side panel is now sized dynamically to its content (if it contains one element, i.e. legend, or description).
+ * Side panel closes vertically if it contains one element.
+ * Ability to switch the position (left -> right) of web maps in two web maps mode (convenient button in the builder).
+ * Ability to organize series tabs in the builder by dragging them to desired position.
+ * Legend titles now display ellipsis if title is too long.
+ * Hyperlink button in the builder rich text editor (descriptions area) for better authoring experience.
+ 
+Bug Fixes:
+
+ * When using a spyglass and a series, the map click in the spyglass was offset and would return the wrong feature.
+ * The map area below the side panel was not interactive.
+ * In one web map mode, the legend now better reflects the layout of the map.
+
+Technical Changes:
+
+ * Use ArcGIS API for Javascript 3.8
+
 #### Swipe 1.1 released on 09/18/2013
 
 Major version with the following new functionalities:
  
- * Swipe Series.  This is a tabbed scene navigation tool that will take the user to a certain extent and display the author‚Äôs title and description for that scene.  The titles are displayed in the tooltip for each button of each scene.  In the builder, any bookmarks from the webmaps are imported on initial swipe series creation.
+ * Swipe Series.  This is a tabbed scene navigation tool that will take the user to a certain extent and display the authorís title and description for that scene.  The titles are displayed in the tooltip for each button of each scene.  In the builder, any bookmarks from the webmaps are imported on initial swipe series creation.
  * Ability to disable web map popups in application
  * Support Portal for ArcGIS
  * Embed mode that remove header (available through the embed URL parameter or through configuration file)
@@ -132,7 +159,7 @@ Major version with the following new functionalities:
  * New button to open the Web Application item page
  * New configuration option to disable individual social sharing services
  * New button in the Settings extent tab to use the current map extent 
- * Better vertical centering of the header logo (appear centered whatever it‚Äôs size)
+ * Better vertical centering of the header logo (appear centered whatever itís size)
  * Use the Organization/Portal helper services and Bing Maps configuration (allow to define Geometry, Geocode Service and Bing Maps key at the Organization/Portal level without configuring the template)
 
 
@@ -152,13 +179,13 @@ Bug Fixes:
  * Popup with 2 layers does not update with map pan
  * Mobile swipe series view for description and title is not updated live (on edit)
  * Mobile swipe series view for long description (will expand with click)
- * If on mobile legend view and resize to desktop, arrows will remain visible (and ‚Äúno legend‚Äù message if no legend)
+ * If on mobile legend view and resize to desktop, arrows will remain visible (and ìno legendî message if no legend)
  * If on mobile data view and resize to desktop, and back to data, the popup info no longer is there (but will reload if you swipe to map view and back to data)
 
 Technical Changes:
 
  * Use ArcGIS API for Javascript 3.7
- * The build script isn‚Äôt limited to Windows environment (now uses grunt)
+ * The build script isnít limited to Windows environment (now uses grunt)
  * Switched to on style event
  * Embedded jQuery and removed sharethis
 
@@ -257,7 +284,7 @@ Download and unzip the [Developer download](https://github.com/Esri/swipe-map-st
 | **Swipe/src/**                             | The application source code                                           |
 | **Swipe/deploy/**                          | The ready to be deployed Swipe application                         |
 | **Swipe/tools/**                           | Developer tools to build deploy/ from src/                            |
-| Storytelling-Swipe-1.1.zip      	     | User download archive	                                             |
+| Storytelling-Swipe-1.2.zip      	     | User download archive	                                             |
 | Readme.pdf       		             | The detailed readme guide                                             |
 | Readme.md                                  | This document                                                         |
 | storytelling-swipe-map-template-js.png     | The application screenshot                                            |
@@ -270,7 +297,7 @@ To build a production version of the application from the source code, you first
 
 Then initialize the environment by running the following commands in the Swipe folder:
  * `npm install`
- * `npm install ‚Äìg grunt-cli`
+ * `npm install ñg grunt-cli`
 
 This will create a new `node-modules` folder in your project root with all tools to build the project. If you have trouble running the second command, [this may help you](https://github.com/gruntjs/grunt-cli#installing-grunt-cli-locally).
 

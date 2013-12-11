@@ -133,12 +133,12 @@
 				settingsSaveConfirm: "Algunos de tus cambios requieren que guardes y vuelvas a cargar la aplicación"
 			},
 			settingsDataModel: {
-				settingsTabDataModel: "Cambiar capa",
-				settingsDataModelExplainSwipe: "Elige la capa o el mapa Web que aparecerá y desaparecerá con la comparativa.",
+				settingsTabDataModel: "Tipo de comparación",
+				settingsDataModelExplainSwipe: "¿Qué quieres que comparen los usuarios?",
 				settingsDataModelExplainSwipe2: "",
 				settingsDataModelExplainSpyGlass: "Elige la capa o el mapa Web que aparecerá en el catalejo.",
-				settingsDataModelOneMap: "Un mapa Web con una sola capa",
-				settingsDataModel1Explain: "Selecciona la capa que controlará la comparativa de mapas.",
+				settingsDataModelOneMap: "Una capa en un mapa web",
+				settingsDataModel1Explain: "Selecciona la capa que quieras comparar",
 				settingsDataModel1Warning: "Si la capa está oculta por capas superiores, la comparativa de mapas no tendrá ningún efecto.",
 				settingsDataModel1SpyGlassExplain: "Selecciona la capa que aparecerá en el catalejo.",
 				settingsDataModelTwoMaps: "Dos mapas Web",
@@ -151,7 +151,7 @@
 				settingsDataModelSelect: "Selecciona este tipo",
 				settingsDataModel2Explain: "Comparar con otro mapa Web.",
 				settingsDataModel2SpyGlassExplain: "Deja al descubierto otro mapa Web.",
-				settingsDataModel2HelpTitle: "Cómo encontrar el ID de un mapa Web",
+				settingsDataModel2HelpTitle: "¿Cómo puedo encontrar el ID de un mapa Web?",
 				settingsDataModel2HelpContent: "Copia y pega los dígitos que hay tras el signo \"=\" en la URL del mapa Web"
 			},
 			settingsLegend: {
@@ -161,9 +161,16 @@
 				settingsDescriptionEnable: "Activar descripción",
 				settingsBookmarksEnable: "Activar series de comparativas",
 				settingsPopupDisable: "Habilitar ventana emergente",
+				settingsLocationSearchEnable: "Habilitar la búsqueda del localizador",
+				settingsGeolocatorEnable: "Habilitar geolocalizador",
 				settingsLegendHelpContent: "Utiliza la tabla de contenido del visor de mapas web de ArcGIS.com (ocultar en leyenda) para delimitar el contenido de la leyenda.",
-				settingsSeriesHelpContent: "En el momento de la primera activación, tus marcadores de mapa web se usarán para completar previamente la barra de series. Si más tarde deshabilitas esa opción, tu configuración de series no se descartará y estará disponible si decides activar la serie de nuevo.",
-				preview: "Vista previa de la interfaz de usuario"
+				settingsSeriesHelpContent: "Las series comparativas es una opción de navegación por pestañas que guía al usuario a una extensión concreta y muestra un título y un texto descriptivo en el panel lateral. En el momento de la primera activación, los marcadores de mapas web se importarán y usarán para rellenar la barra de series. Si deshabilitas esta opción, la barra de series se desactivará, pero la configuración de las series se conservará para usarse de nuevo.", 
+				settingsSeriesHelpContent2: "Las series de comparativas te permiten crear y editar una selección de ubicaciones junto con títulos y texto. Si tu mapa Web tiene marcadores de posición, se mostrarán. Puedes desactivar las series, pero la configuración se mantendrá para su uso futuro.",
+				settingsSeriesHelpLink: "Mira un ejemplo de una aplicación con una serie de comparativas aquí",
+				preview: "Vista previa de la interfaz de usuario",
+				settingsLocateButtonExplain: "Esta funcionalidad es compatible con la mayoría de dispositivos móviles y navegadores de escritorio (incluido Internet Explorer 9+).",
+				settingsLocateButton: "Habilitar un botón \"Localizar\" en navegadores compatibles",
+				settingsAddressSearch: "Habilitar una herramienta de búsqueda de direcciones"
 			},
 			settingsSwipePopup: {
 				settingsSwipePopup: "Ventana emergente",
@@ -178,6 +185,7 @@
 			initPopup: {
 				initHeader: "Bienvenido a Swipe Builder",
 				modalNext: "Siguiente",
+				modalPrev: "Anterior",
 				modalApply: "Abrir la aplicación"
 			},
 			seriesPanel: {

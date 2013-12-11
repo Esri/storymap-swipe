@@ -74,8 +74,8 @@ define(function(){
 			$('#seriesViewLabel').find('.seriesLabel').html(parseInt(app.bookmarkIndex)+1);
 			if(showDescription)
 				location.hash = "description";
-			else
-				showDescription = true;
+			//else
+				//showDescription = true;
 		}
 		
 		function render(slides)
@@ -139,15 +139,12 @@ define(function(){
 		function initEvents(slides)
 		{
 			$(".tpPreview").click(function(e){
-				if( Math.abs(e.clientX - _mouseDownPosition[0]) < 10 && Math.abs(e.clientY - _mouseDownPosition[1]) < 10 )
+				if (Math.abs(e.clientX - _mouseDownPosition[0]) < 10 && Math.abs(e.clientY - _mouseDownPosition[1]) < 10) {
 					var title = $(this).find('.tpName').html();
 					var description = $(this).find('.tpDescription').html();
 					var showDescription = true;
 					_this.setDescriptionView(title, description, showDescription);
-					/*$('#seriesTitle').html(title);
-					$('#seriesDescription').html(description);
-					$('#seriesViewLabel').find('.seriesLabel').html(parseInt(app.bookmarkIndex)+1);
-					location.hash = "description";*/
+				}
 			});
 			
 			$('#seriesTextView').click(function(){

@@ -35,7 +35,7 @@
 			desktopView: {
 				storymapsText: "מפת סיפור",
 				builderButton: "עבור למצב בנייה",
-				bitlyTooltip: "קבל קישור קצר ליישום"
+				bitlyTooltip: "קבל קישור קצר לאפליקציה"
 			}
 		},
 		builder: {
@@ -81,7 +81,7 @@
 			},
 			settingsHeader: {
 				settingsTabLogo: "כותרת עליונה",
-				settingsLogoExplain: "התאם את הלוגו של הכותרת העליונה (המקסימום הוא 250 x 50 פיקסלים)",
+				settingsLogoExplain: "התאם את הלוגו של הכותרת העליונה (המקסימום הוא 250 x‏ 50 פיקסלים)",
 				settingsLogoEsri: "לוגו של Esri",
 				settingsLogoNone: "אין לוגו",
 				settingsLogoCustom: "לוגו מותאם",
@@ -133,11 +133,11 @@
 				settingsSaveConfirm: "חלק מהשינויים שלך דורשים שמירה וטעינה מחדש של האפליקציה"
 			},
 			settingsDataModel: {
-				settingsTabDataModel: "שכבת Swipe",
-				settingsDataModelExplainSwipe: "בחר את השכבה או את ה- web map שתופיע ותיעלם כאשר יבוצע swipe.",
+				settingsTabDataModel: "סוג Swipe",
+				settingsDataModelExplainSwipe: "למה אתה רוצה שמשתמשים יבצעו swipe?",
 				settingsDataModelExplainSwipe2: "",
 				settingsDataModelExplainSpyGlass: "בחר את השכבה או את ה- web map שתופיע במשקפת.",
-				settingsDataModelOneMap: "web map אחד, שכבה אחת",
+				settingsDataModelOneMap: "שכבה ב- web map",
 				settingsDataModel1Explain: "בחר שכבה שתנוהל על ידי כלי ה- swipe.",
 				settingsDataModel1Warning: "אם השכבה מוסתרת על ידי שכבות עליונות יותר, לכלי ה- swipe לא תהיה השפעה.",
 				settingsDataModel1SpyGlassExplain: "בחר את השכבה שתופיע בתוך ה- spyglass.",
@@ -161,9 +161,16 @@
 				settingsDescriptionEnable: "הדלק תיאור",
 				settingsBookmarksEnable: "הדלק סדרת Swipe",
 				settingsPopupDisable: "אפשר חלון קופץ",
+				settingsLocationSearchEnable: "הפעל חיפוש עיגון כתובות",
+				settingsGeolocatorEnable: "הפעל חיפוש מרחבי",
 				settingsLegendHelpContent: "כדי לעדן את תוכן המקרא, השתמש בתוכן העניינים של צפיין ה- ArcGIS.com web map (הסתר במקרא)",
-				settingsSeriesHelpContent: "באקטיבציה הראשונה, סימניות ה- web map ישמשו לאכלוס מראש של מוט הסדרה. אם תהפוך את אפשרות הסדרה ללא פעילה בשלב מאוחר יותר, תצורת הסדרה שלך תכלל ותהיה זמינה אם מחליטים לאפשר את הסדרה שוב.",
-				preview: "תצוגה מקדימה של UI"
+				settingsSeriesHelpContent: "Swipe להסדרות היא אפשרות ניווט באמצעות כרטיסיות שתדריך את הצופה לתיחום מסוים והצג הכותרת וטקסט תיאור בפאנל בצד. במהלך הפעלה ראשונית, סימניות מה- web map ייבוא וישמשו לאכלוס מראש של מוט הסדרה. הפסקת אפשרות הסדרה מכבה את מוט הסדרה, אבל תצורת הסדרות נשמרת לשימוש עתידי.", 
+				settingsSeriesHelpContent2: "סדרת ה-Swipe מאפשרת לך ליצור ולערוך מבחר מיקומים מלווים בכיתוביות כותרות וטקסט. אם ל- web map יש סימניות, הן יוצגו. אתה יכול לבטל את הסדרה, אך ההגדרות תישמרנה לשימוש עתידי.",
+				settingsSeriesHelpLink: "ראה כאן דוגמא לאלפליקציה עם סדרת ה-Swipe",
+				preview: "תצוגה מקדימה של UI",
+				settingsLocateButtonExplain: "פונקציונליות זו נתמכת ברוב המכשירים הניידים ובדפדפנים השולחניים (Internet Explorer 9).",
+				settingsLocateButton: "הפוך לפעיל את כפתור 'איתור' לדפדפנים נתמכים",
+				settingsAddressSearch: "הפוך לפעיל כלי חיפוש כתובת"
 			},
 			settingsSwipePopup: {
 				settingsSwipePopup: "חלונית קופצת",
@@ -178,6 +185,7 @@
 			initPopup: {
 				initHeader: "ברוכים הבאים לבונה ה- Swipe",
 				modalNext: "הבא",
+				modalPrev: "קודם",
 				modalApply: "פתח את האפליקציה"
 			},
 			seriesPanel: {

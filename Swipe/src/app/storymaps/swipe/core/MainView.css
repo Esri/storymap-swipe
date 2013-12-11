@@ -32,13 +32,15 @@
 
 .swiper.right {
 	right: 0;
-	background-image: url('../../../../resources/icons/swipeRight.png');
+	/*background-image: url('../../../../resources/icons/swipeRight.png');*/
+	background: url('../../../../resources/icons/sprite-icons.png') -536px -1760px;
 	background-repeat: no-repeat;
 }
 
 .swiper.left {
 	left: 0;
-	background-image: url('../../../../resources/icons/swipeLeft.png');
+	/*background-image: url('../../../../resources/icons/swipeLeft.png');*/
+	background: url('../../../../resources/icons/sprite-icons.png') -536px -1662px;
 	background-repeat: no-repeat;
 }
 
@@ -52,4 +54,24 @@
 	width: 220px;
 	margin-right: auto;
 	margin-left: auto;
+}
+
+#locationSearch {
+	display: block;
+	position: absolute;
+	z-index: 99;
+	top: 20px;
+	right: 25px;
+}
+
+#locationSearch input {
+	border-radius:0;
+	margin-bottom: 0;
+	box-shadow: none;
+	-moz-box-shadow: none;
+	-webkit-box-shadow: none;
+}
+
+#locationSearch .esriGeocoderIcon { 
+	margin-top: 8px;
 }

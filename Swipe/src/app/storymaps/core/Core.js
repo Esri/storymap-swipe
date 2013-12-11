@@ -24,7 +24,9 @@ define(["esri/map",
 		"dojo/Deferred",
 		"dojo/DeferredList",
 		"dojo/query",
-		"dijit/registry"],
+		"dijit/registry",
+		"esri/dijit/Popup",
+		"dojo/dom-construct"],
 	function(Map,
 				arcgisPortal,
 				arcgisUtils,
@@ -48,7 +50,9 @@ define(["esri/map",
 				Deferred,
 				DeferredList,
 				query,
-				registry)
+				registry,
+				Popup,
+				domConstruct)
 	{
 		/**
 		 * Core
@@ -88,6 +92,8 @@ define(["esri/map",
 			app = {
 				map: null,
 				maps: [],
+				mainMap: null,
+				rootMapId: null,
 				mapResponse: [],
 				currentMapIndex: -1,
 				portal: null,
@@ -95,6 +101,8 @@ define(["esri/map",
 				mode: "TWO_LAYERS",
 				layout: "swipe",
 				data: new Data(),
+				popup: [],
+				isPopup: false,
 				// Builder
 				builder: builder,
 				isInBuilderMode: isInBuilderMode,
@@ -175,17 +183,23 @@ define(["esri/map",
 			// they override the configuration file values
 		
 			esriRequest({
-				url: arcgisUtils.arcgisUrl.split('/sharing/')[0] + "/sharing/rest/portals/self",
-				content: {"f": "json"},
-				callbackParamName: "callback"
-			}).then(lang.hitch(this, function(response){
-				var geometryServiceURL, geocodeServiceURL;
-				
+                url: arcgisUtils.arcgisUrl.split('/sharing/')[0] + "/sharing/rest/portals/self",
+                content: {"f": "json"},
+                callbackParamName: "callback"
+        	}).then(lang.hitch(this, function(response){
+				var geometryServiceURL, geocodeServices;
+		            
 				if (commonConfig && commonConfig.helperServices) {
 					if (commonConfig.helperServices.geometry && commonConfig.helperServices.geometry) 
-						geometryServiceURL = location.protocol + commonConfig.helperServices.geometry.url;
+				    	geometryServiceURL = location.protocol + commonConfig.helperServices.geometry.url;
 					if (commonConfig.helperServices.geocode && commonConfig.helperServices.geocode.length && commonConfig.helperServices.geocode[0].url) 
-						geocodeServiceURL = commonConfig.helperServices.geocode[0].url;
+						geocodeServices = commonConfig.helperServices.geocode;
+					// Deprecated syntax
+					else if (commonConfig.helperServices.geocode && commonConfig.helperServices.geocode && commonConfig.helperServices.geocode.url) 
+						geocodeServices = [{
+							name: "myGeocoder",
+							url: commonConfig.helperServices.geocode.url
+						}];
 				}
 				
 				if (response.helperServices) {
@@ -193,19 +207,19 @@ define(["esri/map",
 						geometryServiceURL = response.helperServices.geometry.url;
 					
 					if (response.helperServices.geocode && response.helperServices.geocode.length && response.helperServices.geocode[0].url ) 
-						geocodeServiceURL = response.helperServices.geocode[0].url;
+						geocodeServices = response.helperServices.geocode;
 				}
-
+				
 				esriConfig.defaults.geometryService = new GeometryService(geometryServiceURL);
-				configOptions.geocodeServiceUrl = geocodeServiceURL;
-
+				configOptions.geocodeServices = geocodeServices;
+				
 				if( response.bingKey )
-					commonConfig.bingMapsKey = response.bingKey;
-
+				        commonConfig.bingMapsKey = response.bingKey;
+				
 				initStep3();
-			}), function(){
-				initError("portalSelf");
-			});
+		    }), function(){
+		            initError("portalSelf");
+		    });
 		}
 		
 		function initStep3()
@@ -256,11 +270,8 @@ define(["esri/map",
 			var urlParams = urlUtils.urlToObject(document.location.search).query || {};
 			var forceLogin = urlParams.forceLogin != undefined;
 			
-			// If forceLogin parameter in URL
-			//  OR development
-			//  OR production and there is a cookie -> sign in the user by reusing the cookie
-			//  OR production, builder and no esri cookie -> shoud always redirect to portal login page
-			if ( forceLogin || ! isProd() || (isProd() && Helper.getPortalUser()) || (isProd() && app.isInBuilderMode && ! Helper.getPortalUser()) )
+			// If forceLogin or builder
+			if ( forceLogin || app.isInBuilderMode )
 				portalLogin().then(
 					function() {						
 						loadWebMappingAppStep2(appId);
@@ -269,7 +280,7 @@ define(["esri/map",
 						initError("notAuthorized");
 					}
 				);
-			// Production in user mode without cookie or dev in view/edit
+			// Production in view mode
 			else
 				loadWebMappingAppStep2(appId);
 		}
@@ -313,6 +324,8 @@ define(["esri/map",
 				}
 
 				var webmapsIds = WebApplicationData.getWebmaps();
+				var webmapId = WebApplicationData.getWebmap();
+				app.rootMapId = webmapId;
 				// If in builder, check that user is app owner or org admin
 				if( app.isInBuilderMode && !app.data.userIsAppOwner() ) {
 					initError("notAuthorized");	
@@ -321,10 +334,10 @@ define(["esri/map",
 				
 				if (webmapsIds && webmapsIds.length == 2 && WebApplicationData.getDataModel() == "TWO_WEBMAPS")
 					loadWebmapsIds(webmapsIds);
-				else if (webmapsIds && WebApplicationData.getDataModel() && WebApplicationData.getLayers() != null)
-					loadWebMap(webmapsIds[0]);
-				else if (webmapsIds && app.isInBuilderMode)
-					loadWebMap(webmapsIds[0]);
+				else if (webmapId && WebApplicationData.getDataModel() && WebApplicationData.getLayers() != null)
+					loadWebMap(webmapId);
+				else if (webmapId && app.isInBuilderMode)
+					loadWebMap(webmapId);
 				else if (webmapsIds && ! app.isInBuilderMode) {
 					if( app.data.userIsAppOwner() ){
 						loadingIndicator.setMessage(i18n.viewer.loading.loadBuilder);
@@ -356,12 +369,13 @@ define(["esri/map",
 				{
 					app.initInProgress = false;
 					prepareAppForWebmapReload();
-					
+
 					var webmapsIds = WebApplicationData.getWebmaps();
-					if (webmapsIds && webmapsIds.length == 2)
+					var webmapId = WebApplicationData.getWebmap();
+					if (webmapsIds && webmapsIds.length == 2 && WebApplicationData.getDataModel() == "TWO_WEBMAPS")
 						loadWebmapsIds(WebApplicationData.getWebmaps());
 					else
-						loadWebMap(webmapsIds[0]);
+						loadWebMap(webmapId);
 				},
 				function()
 				{
@@ -383,14 +397,17 @@ define(["esri/map",
 			app.portal = new arcgisPortal.Portal(portalUrl);
 
 			on(IdentityManager, "dialog-create", styleIdentityManagerForLoad);
-			app.portal.signIn().then(
-				function() {
-					resultDeferred.resolve();
-				},
-				function(error) {
-					resultDeferred.reject();
-				}
-			);
+			
+			app.portal.on("load", function(){
+				app.portal.signIn().then(
+					function() {
+						resultDeferred.resolve();
+					},
+					function(error) {
+						resultDeferred.reject();
+					}
+				);
+			});
 			
 			return resultDeferred;
 		}
@@ -417,11 +434,28 @@ define(["esri/map",
 			
 			index = index || 0;
 			
+			var switchCheck = false;
+			
+			if (index == 0 && WebApplicationData.getLayout() == "swipe" && app.mode == "TWO_WEBMAPS") {
+				index = 1;
+				switchCheck = true;
+			}
+			if( index == 1  && WebApplicationData.getLayout() == "swipe" && app.mode == "TWO_WEBMAPS" && switchCheck == false)
+				index = 0;
+			
 			var webmapInitCallbackDone = new Deferred();
 			var divId = "mainMap" + index;
 			
 			if( index == 1  && WebApplicationData.getLayout() == "spyglass" && app.mode == "TWO_WEBMAPS")
 				divId = "lensMapNode";	
+
+			app.popup[index] = new Popup(
+				{
+					highlight:true,
+					offsetX:0
+      			},
+				domConstruct.create("div")
+			);
 			
 			arcgisUtils.createMap(webmapId, divId, {
 				mapOptions: {
@@ -450,38 +484,24 @@ define(["esri/map",
 		{
 			console.log("swipe.core.Core - webMapInitCallback");	
 
+			app.mainMap = app.map;
 			if( app.mode == "TWO_WEBMAPS" ){
 				var index = $.inArray(response.itemInfo.item.id, WebApplicationData.getWebmaps());//getWebmapIndex(response.itemInfo.item.id);
 				app.mapResponse[index] = response;
 				app.maps[index] = response.map;
+				app.mainMap = app.maps[0];
+				if( response.itemInfo.item.id = app.rootMapId)
+					app.map = response.map;
 				
 				if (index == 0) {
 					app.data.setWebMapItem(response.itemInfo);
-					app.map = response.map;
+					app.maps[0] = response.map;
 				}
 				else {
 					webmapInitCallbackDone.resolve();
 				}
 				
 				if (WebApplicationData.getLegend() || configOptions.legend) {
-					//Put the resize map legend on the left (seems counter-intuitive)
-					if (app.mode == "TWO_WEBMAPS" && WebApplicationData.getLayout() == "swipe") {
-						if (index == 0) {
-							var legend1 = new Legend({
-								map: app.maps[0],
-								layerInfos: (arcgisUtils.getLegendLayers(response))
-							}, "legend1");
-							legend1.startup();
-						}
-						else {
-							var legend0 = new Legend({
-								map: app.maps[1],
-								layerInfos: (arcgisUtils.getLegendLayers(response))
-							}, "legend0");
-							legend0.startup();
-						}
-					}
-					else{
 						if (index == 0) {
 							var legend0 = new Legend({
 								map: app.maps[0],
@@ -495,24 +515,23 @@ define(["esri/map",
 								layerInfos: (arcgisUtils.getLegendLayers(response))
 							}, "legend1");
 							legend1.startup();
-						}
-					}			
+						}			
 				}
 					
 			}
 			else {
-				app.maps = [response.map];
+				app.map = response.map;
 				app.mapResponse[0] = response;
 				app.data.setWebMapItem(response.itemInfo);
 				// Check that the layer is found in the webmap or select the last layer
-				var layer = app.maps[0].getLayer(WebApplicationData.getLayers()[0]) || {};
+				var layer = app.map.getLayer(WebApplicationData.getLayers()[0]) || {};
 				var layerId = layer.id;
-				var layersIds = (app.maps[0].layerIds || []).concat(app.maps[0].graphicsLayerIds);
+				var layersIds = (app.map.layerIds || []).concat(app.map.graphicsLayerIds);
 				var layerFound = $.grep(layersIds, function(_layerId) { return _layerId == layerId; });
 				
 				if( ! layerFound.length ) {
-					layerId = (app.maps[0].layerIds||[]).concat(app.maps[0].graphicsLayerIds).slice(-1);
-					layer = app.maps[0].getLayer(layerId);
+					layerId = (app.map.layerIds||[]).concat(app.map.graphicsLayerIds).slice(-1);
+					layer = app.map.getLayer(layerId);
 					WebApplicationData.setLayers(layerId);
 				}
 				
@@ -529,13 +548,13 @@ define(["esri/map",
 					});
 					
 					var legend0 = new Legend({
-							map: app.maps[0],
+							map: app.map,
 							layerInfos: legend0Layer
 						}, "legend0");
 					legend0.startup();
 					
 					var legend1 = new Legend({
-							map: app.maps[0],
+							map: app.map,
 							layerInfos: legend1Layer
 						}, "legend1");
 					legend1.startup();
@@ -577,7 +596,7 @@ define(["esri/map",
 			}
 
 			if( app.isInBuilderMode && WebApplicationData.getWebmaps().length != 2 && ! WebApplicationData.getDataModel() ) {
-				on(app.maps[0], "update-end", openInitPopup);
+				on(app.map, "update-end", openInitPopup);
 				// Security
 				setTimeout(openInitPopup, 5000);
 				return;
@@ -591,18 +610,26 @@ define(["esri/map",
 			console.log("swipe.core.Core - initMap");
 			
 			var index = 0;
-			if(WebApplicationData.getLayout() == "swipe" && app.mode == "TWO_WEBMAPS")
-				index = 1;
-			// with map
-			// Map command buttons
+
 			new MapCommand(
-				app.maps[index], 
+				app.mainMap, 
 				function(){
-					app.maps[0].setExtent(Helper.getWebMapExtentFromItem(app.data.getWebMapItem().item));
+					app.mainMap.setExtent(Helper.getWebMapExtentFromItem(app.data.getWebMapItem().item));
 				},
 				_mainView.zoomToDeviceLocation
-				//app.isInBuilderMode ? _mainView.zoomToDeviceLocation : null
+
 			);
+			
+			if ( app.mode == "TWO_WEBMAPS" ){
+				new MapCommand(
+					app.maps[1], 
+					function(){
+						app.maps[1].setExtent(Helper.getWebMapExtentFromItem(app.data.getWebMapItem().item));
+					},
+					_mainView.zoomToDeviceLocation
+	
+				);
+			}
 
 			// Resize everything after picture has been set
 			handleWindowResize();
@@ -761,8 +788,8 @@ define(["esri/map",
 			
 			if (! isMobileView || (isMobileView && isOnMobileMapView)){
 				try {
-					if ( app.maps[0] )
-						app.maps[0].resize(true);
+					if ( app.map )
+						app.mainMap.resize(true);
 					else if ( app.maps[1] && app.mode != "TWO_WEBMAPS" && app.layout != "spyglass" )
 						app.maps[1].resize(true);
 				} catch( e ) { }
@@ -825,6 +852,10 @@ define(["esri/map",
 			
 			$("#legendPanel").html('<div id="legend0"></div><div id="legend1"></div>');
 			
+			if( app.map ) {
+				app.map.destroy();
+				app.map = null;
+			}
 			if( app.maps[0] ) {
 				app.maps[0].destroy();
 				app.maps[0] = null;
@@ -833,6 +864,11 @@ define(["esri/map",
 				app.maps[1].destroy();
 				app.maps[1] = null;
 			}
+			
+			if(app.popup[0])
+				app.popup[0].destroy();
+			if(app.popup[1])
+				app.popup[1].destroy();
 			
 			$("#header").css("display", "inherit");
 			$("#footer").css("display", "inherit");

@@ -32,6 +32,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 			{
 				_settingsPopup = settingsPopup;
 				topic.subscribe("SETTINGS_POPUP_SAVE", settingsPopupSave);
+				topic.subscribe("POPUP_CHANGE", controlPopupOptions);
 			}
 			
 			//
@@ -63,13 +64,16 @@ define(["storymaps/swipe/core/WebApplicationData",
 							dataModel : WebApplicationData.getDataModel(),
 							layers: WebApplicationData.getLayers(),
 							webmaps: WebApplicationData.getWebmaps(),
-							layout: WebApplicationData.getLayout()
+							layout: WebApplicationData.getLayout(),
+							webmap: WebApplicationData.getWebmap()
 						},
 						{
 							legend: WebApplicationData.getLegend(),
 							description: WebApplicationData.getDescription(),
 							bookmarks: WebApplicationData.getSeries(),
-							popup: WebApplicationData.getPopup()
+							popup: WebApplicationData.getPopup(),
+							locationSearch: WebApplicationData.getLocationSearch(),
+							geolocator: WebApplicationData.getGeolocator()
 						},
 						{
 							popupColors: WebApplicationData.getPopupColors(),
@@ -93,6 +97,9 @@ define(["storymaps/swipe/core/WebApplicationData",
 						}
 					]
 				);
+
+				controlPopupOptions(app.isPopup);
+				
 			}
 	
 			function settingsPopupSave(data)
@@ -115,6 +122,8 @@ define(["storymaps/swipe/core/WebApplicationData",
 				WebApplicationData.setSeries(data.settings[2].series);
 				WebApplicationData.setSeriesBookmarks(data.settings[2].bookmarks);
 				WebApplicationData.setPopup(data.settings[2].popup);
+				WebApplicationData.setLocationSearch(data.settings[2].locationSearch);
+				WebApplicationData.setGeolocator(data.settings[2].geolocator);
 				
 				// Popup
 				WebApplicationData.setPopupColors(data.settings[3].popupColors);
@@ -170,6 +179,14 @@ define(["storymaps/swipe/core/WebApplicationData",
 					logoURL = null;
 				
 				return logoURL;
+			}
+			
+			function controlPopupOptions(enablePopup)
+			{
+				if (enablePopup == true)
+					$('.settingsPopupHeader').find('.tab').eq(3).removeClass('disabled');
+				else 
+					$('.settingsPopupHeader').find('.tab').eq(3).addClass('disabled');
 			}
 		}
 	}

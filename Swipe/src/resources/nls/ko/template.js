@@ -133,12 +133,12 @@
 				settingsSaveConfirm: "일부 변경 사항은 응용프로그램을 저장하고 다시 로드해야 합니다."
 			},
 			settingsDataModel: {
-				settingsTabDataModel: "스와이프 레이어",
-				settingsDataModelExplainSwipe: "스와이프와 함께 표시되고 사라지는 레이어 또는 웹 맵을 선택합니다.",
+				settingsTabDataModel: "스와이프 유형",
+				settingsDataModelExplainSwipe: "사용자가 무엇을 스와이프하기를 원하시나요?",
 				settingsDataModelExplainSwipe2: "",
 				settingsDataModelExplainSpyGlass: "망원경에 표시할 레이어 또는 웹 맵을 선택합니다.",
-				settingsDataModelOneMap: "웹 맵 하나, 단일 레이어",
-				settingsDataModel1Explain: "스와이프 도구를 사용하여 제어할 레이어를 선택합니다.",
+				settingsDataModelOneMap: "웹 맵의 레이어",
+				settingsDataModel1Explain: "스와이프하기를 원하는 레이어를 선택하세요.",
 				settingsDataModel1Warning: "레이어가 상위 레이어에 의해 숨겨진 경우에는 스와이프가 적용되지 않습니다.",
 				settingsDataModel1SpyGlassExplain: "망원경 내에 표시할 레이어를 선택합니다.",
 				settingsDataModelTwoMaps: "웹 맵 두 개",
@@ -161,9 +161,16 @@
 				settingsDescriptionEnable: "설명 사용",
 				settingsBookmarksEnable: "스와이프 계열 사용",
 				settingsPopupDisable: "팝업 사용",
+				settingsLocationSearchEnable: "로케이터 검색 사용",
+				settingsGeolocatorEnable: "지오로케이터 사용",
 				settingsLegendHelpContent: "범례 컨텐츠를 세분화하려면 ArcGIS.com web map viewer 목차를 사용하세요(범례에서 숨겨짐).",
-				settingsSeriesHelpContent: "처음 활성화하면 웹 맵 책갈피로 계열 모음이 미리 채워집니다. 나중에 계열 옵션을 사용하지 않도록 설정하면 계열 구성이 삭제됩니다. 또한 다시 사용하도록 설정하면 계열 옵션을 사용할 수 있습니다.",
-				preview: "UI 미리보기"
+				settingsSeriesHelpContent: "스와이프 계열은 뷰어를 특정 범위로 안내하고 사이드 패널에 제목 및 설명 텍스트를 표시하는 탭이 지정된 탐색 옵션입니다. 초기 활성화 중에 웹 맵의 책갈피를 가져오며 이를 통해 계열 모음이 미리 채워집니다. 계열 옵션을 비활성화하면 계열 모음이 꺼지지만 계열 구성은 나중에 사용할 수 있도록 유지됩니다.", 
+				settingsSeriesHelpContent2: "스와이프 계열을 사용하면 선택한 위치 및 함께 제공되는 제목과 텍스트를 생성하고 편집할 수 있습니다. 웹 맵에 책갈피가 있으면 책갈피가 표시됩니다. 계열을 비활성화할 수도 있지만 구성은 나중에 사용할 수 있도록 유지됩니다.",
+				settingsSeriesHelpLink: "스와이프 계열이 포함된 응용프로그램 예제 확인",
+				preview: "UI 미리보기",
+				settingsLocateButtonExplain: "이 기능은 대부분의 모바일 장치와 데스크탑 브라우저(Internet Explorer 9 이상 포함)에서 지원됩니다.",
+				settingsLocateButton: "지원되는 브라우저에서 '찾기' 버튼 사용",
+				settingsAddressSearch: "주소 검색 도구 사용"
 			},
 			settingsSwipePopup: {
 				settingsSwipePopup: "팝업",
@@ -178,6 +185,7 @@
 			initPopup: {
 				initHeader: "스와이프 빌더 시작",
 				modalNext: "다음",
+				modalPrev: "이전",
 				modalApply: "앱 열기"
 			},
 			seriesPanel: {

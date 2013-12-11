@@ -1,5 +1,5 @@
-define([], 
-	function () {
+define(["storymaps/utils/Helper"], 
+	function (Helper) {
 		return function SettingsPopupTabHeader(titleContainer, contentContainer, defaultLogoURL) 
 		{
 			var _logoInput = $(contentContainer).find("#logoInput");
@@ -120,11 +120,18 @@ define([],
 					logoTarget = _logoTargetInput.val();
 				}
 				
+				// Basic XSS check
+				var linkText = $("#selectSocialText", contentContainer).val() || '';
+				linkText = linkText.replace(/<\/?script>/g,'');
+				
+				var linkURL = $("#selectSocialLink", contentContainer).val() || '';
+				linkURL = linkURL.replace(/<\/?script>/g,'');
+				
 				return {
 					logoURL: logoURL,
-					logoTarget: logoTarget,
-					linkText: $("#selectSocialText", contentContainer).val(),
-					linkURL: $("#selectSocialLink", contentContainer).val(),
+					logoTarget: Helper.prependURLHTTP(logoTarget),
+					linkText: linkText,
+					linkURL: Helper.prependURLHTTP(linkURL),
 					social: {
 						facebook: $(".enableFB").prop('checked'),
 						twitter: $(".enableTwitter").prop('checked'),

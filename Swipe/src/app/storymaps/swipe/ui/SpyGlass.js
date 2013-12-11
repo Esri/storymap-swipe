@@ -93,7 +93,11 @@ define(["dojo/_base/declare",
 						app.popup[i].destroy();
 					})
 				}
-				
+
+				_this._isGraphics = false;
+				if(app.mainMap.getLayer(_layers[0]))
+					_this._isGraphics = app.mainMap.getLayer(_layers[0]).type == "Feature Layer";
+
 				// function to define the boundaries for the lens window
 				// this is used in the constrainedMoveable constructor
 				var mbFunction = function(){
@@ -112,53 +116,81 @@ define(["dojo/_base/declare",
 							_this._moving = false;
 							return;
 						}
+
+						var seriesPanelHeight = parseInt($('#seriesPanel').css('height'));
+						if($('#seriesPanel').css('display') == 'none')
+							seriesPanelHeight = 0;
 						
 						var x = evt.pageX;
-						var y = evt.pageY - $("#header").height();
+						var y = evt.pageY - $("#header").height() - seriesPanelHeight;
 						
 						evt.x = x;
 						evt.y = y;
 						evt.screenPoint = {x: x, y: y};
 						evt.type = "click";
 						evt.fromLens = true;
-						evt.mapPoint = app.maps[0].toMap(new Point(x, y, app.maps[0].spatialReference));
+						evt.mapPoint = app.mainMap.toMap(new Point(x, y, app.mainMap.spatialReference));
 						
-						app.maps[0].onClick(evt, "other");
+						app.mainMap.onClick(evt, "other");
 						_this._moving = false;
 					}, 100);
 				};
 				
+				var handleLensDblClick = function(){
+					var mapLevel = parseInt(dom.byId("mainMap0").getAttribute("data-zoom"));
+					app.mainMap.setZoom(mapLevel + 1);
+				}
+				
+				$('#lensTool').click(function(e) {
+    				var that = this;
+    				setTimeout(function() {
+        				var dblclick = parseInt($(that).data('double'), 10);
+        				if (dblclick > 0) {
+            				$(that).data('double', dblclick-1);
+        				} else {
+            				handleLensClick.call(this, e);
+        				}
+    				}, 300);
+				}).dblclick(function(e) {
+    				$(this).data('double', 2);
+    				handleLensDblClick.call();
+				});
+				
 				var $touchArea = $('#lensTool'),
-				    touchStarted = false, // detect if a touch event is started
-				    currX = 0,
-				    currY = 0,
-				    cachedX = 0,
-				    cachedY = 0;
-				
-				//setting the events listeners
-				$touchArea.on('touchstart mousedown',function (e){
-				    e.preventDefault();
-				    cachedX = e.pageX;
-				    cachedY = e.pageY;
-				    touchStarted = true;
-				    setTimeout(function (){
-				        currX = e.pageX;
-				        currY = e.pageY;
-				        if ((cachedX === currX) && !touchStarted && (cachedY === currY)) {
-						    handleLensClick(e.originalEvent);
-				        }
-				    }, 200);
-				});
-				$touchArea.on('touchend mouseup touchcancel',function (e){
-				    e.preventDefault();
-				    touchStarted = false;
-				});
-				$touchArea.on('touchmove mousemove',function (e){
-				    e.preventDefault();
-				});
-				
-				on(dom.byId("lensTool"), 'click', function(evt){
-					handleLensClick(evt);
+                    touchStarted = false, // detect if a touch event is started
+                    currX = 0,
+                    currY = 0,
+                    cachedX = 0,
+                    cachedY = 0;
+                
+                //setting the events listeners
+                $touchArea.on('touchstart mousedown',function (e){
+                    e.preventDefault();
+                    cachedX = e.pageX;
+                    cachedY = e.pageY;
+                    touchStarted = true;
+                    setTimeout(function (){
+                        currX = e.pageX;
+                        currY = e.pageY;
+                        if ((cachedX === currX) && !touchStarted && (cachedY === currY)) {
+                                    handleLensClick(e.originalEvent);
+                        }
+                    }, 200);
+                });
+                $touchArea.on('touchend mouseup touchcancel',function (e){
+                    e.preventDefault();
+                    touchStarted = false;
+                });
+                $touchArea.on('touchmove mousemove',function (e){
+                    e.preventDefault();
+                });
+								
+				on(dom.byId("lensWin"), (!has("mozilla") ? "mousewheel" : "DOMMouseScroll"), function(e){
+   					var scroll = e[(!has("mozilla") ? "wheelDelta" : "detail")] * (!has("mozilla") ? 1 : -1);
+					var mapLevel = parseInt(dom.byId("mainMap0").getAttribute("data-zoom"));
+					var wheelDelta = !has("mozilla") ? 120 : 3;
+					var mapZoom = scroll/wheelDelta;
+					app.mainMap.setZoom(mapLevel + mapZoom)
 				});
 				
 				// make the window moveable
@@ -189,18 +221,22 @@ define(["dojo/_base/declare",
 						_this._displayedPopupIndex = _this._clickOnLens ? 1 : 0;
 					}
 					else {
-						_this.calculateSpyExtent();
-						//getPopupFeature(0, 0);
 						_this._displayedPopupIndex = 0;
+						if(!_this._isGraphics)
+							_this.clipGlass();
+						else
+							_this.clipGraphics();
+						
 					}
 				});
 				
-				on(app.popup[1], "set-features", function(e) 
-				{
-					getPopupFeature(1, 0, _this._clickOnLens ? true : false);
-				});
+				if (mode == "TWO_WEBMAPS") {
+					on(app.popup[1], "set-features", function(e){
+						getPopupFeature(1, 0, _this._clickOnLens ? true : false);
+					});
+				}
 				
-				on(app.maps[0], "click", function(evt){
+				on(app.mainMap, "click", function(evt){
 					_this._popupClosedByUser = false;
 					app.popup[0].hide();
 					_this._clickPoint = evt;
@@ -222,6 +258,7 @@ define(["dojo/_base/declare",
 				if( app.maps[1] ) {
 					on(app.maps[1], "click", function(evt){
 						app.popup[1].hide();
+						console.log("$$$$ ", evt);
 					});
 				}
 				
@@ -234,8 +271,7 @@ define(["dojo/_base/declare",
 				if (mode == "TWO_WEBMAPS") 
 				{
 					$('#lensTool').addClass("twoMaps");
-					esriConfig.defaults.map.panDuration = 0;
-					//esriConfig.defaults.map.zoomDuration = 0; -->> CAUSES CRAZY MAP RENDER ON ZOOM					
+					esriConfig.defaults.map.panDuration = 0;				
 					
 					// Used?
 					var center = (function(){
@@ -267,71 +303,80 @@ define(["dojo/_base/declare",
 				{
 					//set up two layers
 					$('#lensTool').addClass("twoLayers");
-					
-					_this._isGraphics = app.maps[0].getLayer(_layers[0]).type == "Feature Layer";
 					if (!_this._isGraphics) {
 						connect.connect(this.draggableWin, "onMove", lang.hitch(this, this.clipGlass));
-						on(app.maps[0], "pan", lang.hitch(this, function(){
+						on(app.map, "pan", lang.hitch(this, function(){
 							this.clipGlass("pan");
 						}));
 						
 						if (has("touch")) {
-							connect.connect(this.draggableWin, "onMoveStop", lang.hitch(this, this.calculateSpyExtent));
-							on(app.maps[0], "pan-end", lang.hitch(this, this.calculateSpyExtent));
+							connect.connect(this.draggableWin, "onMoveStop", lang.hitch(this, this.clipGlass));
+							on(app.map, "pan-end", lang.hitch(this, this.clipGlass));
 						}				
 					}
-					
-					connect.connect(this.draggableWin, "onMove", lang.hitch(this, this.calculateSpyExtent));
-					on(app.maps[0], "pan", lang.hitch(this, this.calculateSpyExtent));
+					else
+						connect.connect(this.draggableWin, "onMove", lang.hitch(this, this.clipGraphics));
+						on(app.map, "pan", lang.hitch(this, this.clipGraphics));
 					
 					if (_this._isGraphics) {
-						var layer = app.maps[0].getLayer(_layers[0]);
-						
-						if(layer._collection)
-							on(app.maps[0], 'zoom-end', lang.hitch(this, this.calculateSpyExtent));
-						else {
-							var opacity = layer._params && layer._params.opacity ? layer._params.opacity : 1.0;
-							var updateIsZoom = false;
-							
-							on(app.maps[0], 'zoom-start', function(){
-								updateIsZoom = true;
-							});
-							
-							on(app.maps[0].getLayer(_layers[0]), 'update-start', function(){
-								if( updateIsZoom )
-									app.maps[0].getLayer(_layers[0]).setOpacity(0.0);
-							});
-						
-							on(app.maps[0].getLayer(_layers[0]), 'update-end', lang.hitch(this, function(){
-								if( updateIsZoom ) 
-									app.maps[0].getLayer(_layers[0]).setOpacity(opacity);
-								this.calculateSpyExtent();
-								updateIsZoom = false;
-							}));
-						}
+						on(app.map, 'zoom-end', lang.hitch(this, this.clipGraphics));
 					}
 
 					$(window).resize(function(){
 						if (!_this._isGraphics)
 							_this.clipGlass();
 						else
-							this.calculateSpyExtent;
+							this.clipGraphics;
 					})
 					
 					if(!_this._isGraphics)
 						setTimeout(this.clipGlass, 0);
 					else
-						setTimeout(this.calculateSpyExtent, 1500);
+						setTimeout(this.clipGraphics, 1500);
 
 					$('#lensWin').css({borderRadius: 0});
 				}
 				
 				if( _this._isGraphics ) {
-					on(app.maps[0], "pan-end", lang.hitch(this, this.calculateSpyExtent));
+					on(app.map, "pan-end", lang.hitch(this, this.clipGraphics));
 				}
 
 				this._started = true;			
     		},
+			
+			clipGraphics: function()
+			{
+				if( !_this._isGraphics )
+					return
+				var spyGlassDiv = $("#lensWin");
+				var leftval = parseFloat(spyGlassDiv.css('left'));
+				var rightval = parseInt($('#lensWin').css('width'));
+				var topval = parseFloat(spyGlassDiv.css('top'));
+				var bottomval = parseInt($('#lensWin').css('height'));
+				
+				var layer = app.mainMap.getLayer(_layers[0])._div;
+				var tr = layer.getTransform();
+				// if we got the transform object
+				if (tr) {
+					// if layer is offset x
+					if (tr.hasOwnProperty('dx')) {
+						leftval += -(tr.dx);
+					}
+					// if layer is offset y
+					if (tr.hasOwnProperty('dy')) {
+						topval += -(tr.dy);
+					}
+				}
+				
+				layer.setClip({
+					x: leftval + 9,
+					y: topval + 9,
+					width: rightval - 18,
+					height: bottomval - 18
+				})
+				
+				_this.calculateSpyExtent();	
+			},
 
 			syncLensExtent: function() 
 			{
@@ -340,10 +385,10 @@ define(["dojo/_base/declare",
 				// create new extent for the lens map
 				// lower-left x and y, add 400 to the y coordinate get to the minimum y
 				// the height of the map is actually still 400
-				var ll = app.maps[0].toMap(new Point(bb.l, bb.t + 400, app.maps[0].spatialReference));
+				var ll = app.mainMap.toMap(new Point(bb.l, bb.t + 400, app.mainMap.spatialReference));
 				// upper-right x and y
-				var ur = app.maps[0].toMap(new Point(bb.l + 400, bb.t, app.maps[0].spatialReference));
-				_spyExtent = new Extent(ll.x, ll.y, ur.x, ur.y, app.maps[0].spatialReference);
+				var ur = app.mainMap.toMap(new Point(bb.l + 400, bb.t, app.mainMap.spatialReference));
+				_spyExtent = new Extent(ll.x, ll.y, ur.x, ur.y, app.mainMap.spatialReference);
 
 				_this._lensMap.setExtent(_spyExtent);
 				
@@ -393,27 +438,13 @@ define(["dojo/_base/declare",
 			clipGlass: function(mapEvt) 
 			{
 				var spyGlassDiv = $("#lensWin");
-				var webMapArray = app.maps;
-				var clipDiv = webMapArray[0].getLayer(_layers[0])._div;
+				var clipDiv = app.map.getLayer(_layers[0])._div;
 				if (spyGlassDiv != null) 
 				{			                    
 					_leftVal = parseFloat(spyGlassDiv.css('left'));
 					_topVal = parseFloat(spyGlassDiv.css('top'));						
 					_rightVal = _leftVal + parseInt($('#lensWin').css('width'));
 					_bottomVal = _topVal + parseInt($('#lensWin').css('height'));
-					
-					/*if($("#lensTool").css("width") == "200px"){
-						_leftVal += 6;
-						_rightVal += -6;
-						_topVal += 6;
-						_bottomVal += -6;
-					}
-					else{
-						_leftVal += 9;
-						_rightVal += -9;
-						_topVal += 9;
-						_bottomVal += -9;
-					}*/
 
 					var lensPos = $("#lensWin").position();
 					var layerPos = $(clipDiv).position();
@@ -437,19 +468,16 @@ define(["dojo/_base/declare",
 				    //Syntax for clip "rect(top,right,bottom,left)" commas b/w values is standard syntax, w/o is backwards compatible
 					var clipString = "rect(" + _topVal + "px, " + _rightVal + "px, " + _bottomVal + "px, " + _leftVal + "px)";
 					clipDiv.style.clip = clipString;
-					//_this._displayedPopupIndex = _this.checkSelectedFeature();					
+					//_this._displayedPopupIndex = _this.checkSelectedFeature();
+					_this.calculateSpyExtent();				
 			   }
 			},
 			
 			calculateSpyExtent: function(hideGraphics)
-			{
-				//TODO MOVE, messes up graphics in mobile
-				//if($('#lensTool').css("width")=="200px")
-					//return;
-					
-				var mapExtent = app.maps[0].extent;
-				var mapWidth = app.maps[0].width;
-				var mapHeight = app.maps[0].height;
+			{				
+				var mapExtent = app.map.extent;
+				var mapWidth = app.map.width;
+				var mapHeight = app.map.height;
 				
 				if (_this._isGraphics) {
 					var spyGlassDiv = $("#lensWin");
@@ -482,21 +510,19 @@ define(["dojo/_base/declare",
 				var projMin = screenUtils.toMapGeometry(mapExtent, mapWidth, mapHeight, min);
 				
 				spyExtent = new Extent(projMin.x, projMin.y, projMax.x, projMax.y, new SpatialReference(
-					app.maps[0].spatialReference
+					app.map.spatialReference
 				));
 		
 				var colorTitleIndex = null;
 		
-				spyExtent = new Extent(projMin.x, projMin.y, projMax.x, projMax.y, new SpatialReference( app.maps[0].spatialReference ));
+				spyExtent = new Extent(projMin.x, projMin.y, projMax.x, projMax.y, new SpatialReference( app.map.spatialReference ));
 				
 				_this.checkSelectedFeature(spyExtent);
-				if(_this._isGraphics)
-					_this.hideGraphics(spyExtent);
 			},
 			
 			hideGraphics: function(spyExtent)
 			{
-				$.each(app.maps[0].getLayer(_layers[0]).graphics, function(i, graphic){
+				$.each(app.map.getLayer(_layers[0]).graphics, function(i, graphic){
 					var center = graphic.geometry.type == 'point' ? graphic.geometry : graphic.geometry.getExtent().getCenter();
 					if(spyExtent.contains(center))
 						graphic.show();
@@ -508,14 +534,14 @@ define(["dojo/_base/declare",
 			//  Used for 2 layers
 			checkSelectedFeature: function(spyExtent)
 			{
-				if(!_popup)
+				if(!_popup || !app.popup[0].features)
 					return;
 				
 				spyExtent = spyExtent;
 				if (_this._clickPoint != null && app.popup[0].features) {
 					var isOnSpecificLayer = spyExtent.contains(_this._clickPoint.mapPoint);
 					var specificLayerId = _layers[0] + (_this._isGraphics ? "" : "_1"); // TODO is that _1 safe ?
-					colorTitleIndex = isOnSpecificLayer ? 1 : 0;
+					colorTitleIndex = isOnSpecificLayer ? 0 : 1;
 					
 					// Find feature that is not currently selected to set mobile infowindow (mobile infowindow of selected feature is set in setInfoWindow())
 					for (var i = 0; i < app.popup[0].features.length; i++) {
@@ -528,6 +554,8 @@ define(["dojo/_base/declare",
 							registry.byId("infoView-mobile" + 1).set("content", feature.getContent());
 							$("#infoWindowView .noData").hide();
 							$('.swiper.infoWindowView').css('display', 'block');
+							if(_this._isGraphics)
+								app.popup[0]._highlighted._graphicsLayer.graphics[0].hide()
 							break;
 						}
 					}
@@ -538,6 +566,8 @@ define(["dojo/_base/declare",
 						if ((isOnSpecificLayer && layerId == specificLayerId) || (!isOnSpecificLayer && layerId != specificLayerId)) {
 							app.popup[0].select(i);
 							getPopupFeature(0, colorTitleIndex);
+							if(_this._isGraphics)
+								app.popup[0]._highlighted._graphicsLayer.graphics[0].show()
 							break;
 						}
 					}
@@ -585,11 +615,7 @@ define(["dojo/_base/declare",
 				$("#infoWindow").animate({
 					right: (direction=="in") ? -240 : 3
 				},{
-					duration: 1000/*,
-					complete: function(){
-						if(direction=="in")
-							$("#infoWindow").css('display', 'none') 
-					}*/
+					duration: 1000
 				}
 				);			
 			},
@@ -597,9 +623,6 @@ define(["dojo/_base/declare",
 			{
 				if( ! this._started )
 					return;
-				
-				//_popupColors = popupColors.reverse();
-				//_popupTitles = popupTitles.reverse();
 				
 				if( this._displayedPopupIndex == null )
 					return;
@@ -610,48 +633,26 @@ define(["dojo/_base/declare",
 	});
 	
 	function getPopupFeature(index, popupAttrIndex, map2Click)
-	{		
+	{	
 		if(!_popup)
 			return;
 		
 		var feature = app.popup[index].getSelectedFeature();
-		if (_mode == "TWO_WEBMAPS") {
-			_popupColors2 = [_popupColors[1], _popupColors[0]]; 
-			_popupTitles2 = [_popupTitles[1], _popupTitles[0]];
-			if (!feature) {
-				$('#infoWindowTitle').css('backgroundColor', '#' + _popupColors2[(popupAttrIndex)]);
-				$('#infoWindowTitle').html(_popupTitles2[popupAttrIndex] || '&nbsp;');
-				$('#infoWindowContent').html(i18n.swipe.mobileData.noPopup);
-				return
-			}
-			setInfoWindow(feature, index, map2Click);
+		if (!feature) {
+			$('#infoWindowTitle').css('backgroundColor', '#' + _popupColors[(popupAttrIndex)]);
+			$('#infoWindowTitle').html(_popupTitles[popupAttrIndex] || '&nbsp;');
+			$('#infoWindowContent').html(i18n.swipe.mobileData.noPopup);
+			return
+		}
+		setInfoWindow(feature, index, map2Click);
 			
-			if (map2Click != false) {
-				$('#infoWindowTitle').css('backgroundColor', '#' + _popupColors2[(popupAttrIndex)]);
-				$('#infoWindowTitle').html(_popupTitles2[popupAttrIndex] || '&nbsp;');
-				if (_this.getInfoWindowState() == "close" && !_this._popupClosedByUser) {
-					_this.openInfoWindow();
-				}
+		if (map2Click != false) {
+			$('#infoWindowTitle').css('backgroundColor', '#' + _popupColors[(popupAttrIndex)]);
+			$('#infoWindowTitle').html(_popupTitles[popupAttrIndex] || '&nbsp;');
+			if (_this.getInfoWindowState() == "close" && !_this._popupClosedByUser) {
+				_this.openInfoWindow();
 			}
-		}
-		
-		else {
-			if (!feature) {
-				$('#infoWindowTitle').css('backgroundColor', '#' + _popupColors[(popupAttrIndex)]);
-				$('#infoWindowTitle').html(_popupTitles[popupAttrIndex] || '&nbsp;');
-				$('#infoWindowContent').html(i18n.swipe.mobileData.noPopup);
-				return
-			}
-			setInfoWindow(feature, index, map2Click);
-
-			if (map2Click != false) {
-				$('#infoWindowTitle').css('backgroundColor', '#' + _popupColors[(popupAttrIndex)]);
-				$('#infoWindowTitle').html(_popupTitles[popupAttrIndex] || '&nbsp;');
-					if (_this.getInfoWindowState() == "close" && ! _this._popupClosedByUser) {
-					_this.openInfoWindow();
-				}
-			}
-		}
+		}		
 	}
 	
 	function setInfoWindow(feature, popupIndex, map2Click)

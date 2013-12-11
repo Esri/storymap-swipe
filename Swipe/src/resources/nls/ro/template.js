@@ -133,12 +133,12 @@
 				settingsSaveConfirm: "Unele modificări necesită salvarea şi reîncărcarea aplicaţiei"
 			},
 			settingsDataModel: {
-				settingsTabDataModel: "Strat tematic Swipe",
-				settingsDataModelExplainSwipe: "Alegeţi stratul tematic sau harta web care va apărea şi dispărea cu Swipe.",
+				settingsTabDataModel: "Tip preluare",
+				settingsDataModelExplainSwipe: "Ce doriţi să preia utilizatorii?",
 				settingsDataModelExplainSwipe2: "",
 				settingsDataModelExplainSpyGlass: "Alegeţi stratul tematic sau harta web care va apărea în ochean.",
-				settingsDataModelOneMap: "O hartă web, un singur strat tematic",
-				settingsDataModel1Explain: "Selectaţi un strat tematic de controlat de către instrumentul Swipe.",
+				settingsDataModelOneMap: "Un strat tematic într-o hartă Web",
+				settingsDataModel1Explain: "Selectaţi stratul tematic care doriţi să fie preluat",
 				settingsDataModel1Warning: "Dacă stratul tematic este ascuns de straturi tematice superioare, preluarea nu va avea niciun efect.",
 				settingsDataModel1SpyGlassExplain: "Selectaţi stratul tematic care să apară în ochean.",
 				settingsDataModelTwoMaps: "Două hărţi web",
@@ -151,7 +151,7 @@
 				settingsDataModelSelect: "Selectaţi acest tip",
 				settingsDataModel2Explain: "Swipe cu altă hartă web.",
 				settingsDataModel2SpyGlassExplain: "Aduceţi în prim-plan altă hartă web.",
-				settingsDataModel2HelpTitle: "Cum găsiţi ID-urile hărţilor web",
+				settingsDataModel2HelpTitle: "Cum găsesc ID-ul unei hărţi web?",
 				settingsDataModel2HelpContent: "Copiaţi şi lipiţi cifre după semnul „=” în URL-ul hărţii web"
 			},
 			settingsLegend: {
@@ -161,9 +161,16 @@
 				settingsDescriptionEnable: "Activare descriere",
 				settingsBookmarksEnable: "Activare serii Swipe",
 				settingsPopupDisable: "Activare pop-up",
+				settingsLocationSearchEnable: "Activare căutare în localizator",
+				settingsGeolocatorEnable: "Activare localizator geografic",
 				settingsLegendHelpContent: "Pentru a rafina conţinutul legendei, utilizaţi cuprinsului aplicaţiei de vizualizare a hărţilor web din ArcGIS.com (Ascunderea în legendă)",
-				settingsSeriesHelpContent: "La prima activare, semnele de carte pentru hărţi web vor fi utilizate pentru a popula în prealabil bara seriei. Dacă dezactivaţi ulterior opţiunea, configuraţia seriei nu va fi eliminată şi va fi disponibilă dacă decideţi să activaţi seria din nou.",
-				preview: "Previzualizare interfaţă cu utilizatorul"
+				settingsSeriesHelpContent: "Seria de preluare reprezintă o opţiune de navigare cu file care ghidează vizualizatorul către o anumită extindere şi afişează un titlu şi text descriptiv în panoul lateral. În timpul activării iniţiale, marcajele din hărţile Web vor fi importate şi utilizate pentru a popula în prealabil bara seriei. Dezactivarea opţiunii de serie dezactivează bara seriei, dar configuraţia seriei se păstrează pentru utilizare ulterioară.", 
+				settingsSeriesHelpContent2: "Seriile de acţiuni vă permit să creaţi şi să editaţi o selecţie de locaţii împreună cu titlurile şi textele care le însoţesc. Dacă harta dvs. web conţine semne de carte, acestea vor fi afişate. Puteţi dezactiva seriile, însă configuraţia va fi păstrată pentru a fi utilizată în viitor.",
+				settingsSeriesHelpLink: "Vedeţi aici un exemplu de aplicaţie cu o serie de acţiuni",
+				preview: "Previzualizare interfaţă cu utilizatorul",
+				settingsLocateButtonExplain: "Această funcţionalitate este acceptată pe majoritatea dispozitivelor mobile şi browserelor desktop (inclusiv Internet Explorer 9+).",
+				settingsLocateButton: "Activare buton \„Localizare\” pe browsere acceptate",
+				settingsAddressSearch: "Activare instrument de căutare adrese"
 			},
 			settingsSwipePopup: {
 				settingsSwipePopup: "Mesaj pop-up",
@@ -178,6 +185,7 @@
 			initPopup: {
 				initHeader: "Bine aţi venit la builderul instrumentului de preluare",
 				modalNext: "Înainte",
+				modalPrev: "Anteriorul",
 				modalApply: "Deschidere aplicaţie"
 			},
 			seriesPanel: {

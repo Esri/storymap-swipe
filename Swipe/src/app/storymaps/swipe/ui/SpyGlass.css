@@ -26,15 +26,15 @@ label {
 }
 
 #lensTool.twoLayers {
-	background-image: url('../../../../resources/icons/spyglass-1.png');
+	background: url('../../../../resources/icons/sprite-icons.png') -536px -530px;
 }
 
 #lensTool.twoMaps {
-	background-image: url('../../../../resources/icons/spyglass-2.png');
+	background: url('../../../../resources/icons/sprite-icons.png') -536px -841px;
 }
 
 #lensTool.safariFix {
-	background-image: url('../../../../resources/icons/spyglass-1.png');
+	background: url('../../../../resources/icons/sprite-icons.png') -536px -530px;
 }
 
 #lensMapNode.safariFix #lensMapNode_container {
@@ -82,11 +82,12 @@ label {
 
 .noFeature {
 	position: absolute;
-	top: 47%;
+	top: 46%;
 	height: 50%;
 	text-align: center;
 	font-weight: bold;
 	font-size: 18px;
+	padding-right: 14px;
 }
 
 #infoWindowTabImg {
@@ -97,11 +98,21 @@ label {
 	margin-bottom: -30px;
 	position: absolute;
 	width: 25px;
-	background-image: url('../../../../resources/icons/infoWindow-open.png');
+	background: url('../../../../resources/icons/sprite-icons.png') 0 -992px;
+	opacity: 0.75;
+}
+
+#infoWindowTabImg:hover {
+	opacity: 1;
 }
 
 #infoWindowTabImg.closeImg {
-	background-image: url('../../../../resources/icons/infoWindow-close.png');
+	background: url('../../../../resources/icons/sprite-icons.png') 0 -802px;
+	opacity: 0.75;
+}
+
+#infoWindowTabImg.closeImg:hover {
+	opacity: 1;
 }
 
 .mobile-view #infoWindowTabImg {
@@ -111,7 +122,7 @@ label {
 /*esri popup stuff*/
 
 .header {
-	text-align: center;
+	/*text-align: center;*/
 }
 
 .gallery {

@@ -71,15 +71,18 @@ define(["dojo/topic"],
 			
 			function configureHeader(layout)
 			{
-				var map1Lbl = layout == "swipe" ? i18n.swipe.settingsSwipePopup.settingsSwipePopupSwipe1 : i18n.swipe.settingsSwipePopup.settingsSwipePopupGlass2;
-				var map2Lbl = layout == "swipe" ? i18n.swipe.settingsSwipePopup.settingsSwipePopupSwipe2 : i18n.swipe.settingsSwipePopup.settingsSwipePopupGlass1;
+				var map1Lbl = layout == "swipe" ? i18n.swipe.settingsSwipePopup.settingsSwipePopupSwipe1 : i18n.swipe.settingsSwipePopup.settingsSwipePopupGlass1;
+				var map2Lbl = layout == "swipe" ? i18n.swipe.settingsSwipePopup.settingsSwipePopupSwipe2 : i18n.swipe.settingsSwipePopup.settingsSwipePopupGlass2;
 				$(contentContainer).find('.popup1Title').html(map1Lbl);
 				$(contentContainer).find('.popup2Title').html(map2Lbl);
 			}
 	
 			this.initLocalization = function()
 			{
-				$(titleContainer).html(i18n.swipe.settingsSwipePopup.settingsSwipePopup);
+				if($(titleContainer).find('.wizardLabel')[0])
+					$(titleContainer).find('.wizardLabel').html(i18n.swipe.settingsSwipePopup.settingsSwipePopup);
+				else
+					$(titleContainer).html(i18n.swipe.settingsSwipePopup.settingsSwipePopup);
 				
 				$(contentContainer).find('p').html(i18n.swipe.settingsSwipePopup.settingsSwipePopupExplain);
 				$(contentContainer).find('.popup1HeaderTitle').html(i18n.swipe.settingsSwipePopup.settingsSwipePopupTitle);

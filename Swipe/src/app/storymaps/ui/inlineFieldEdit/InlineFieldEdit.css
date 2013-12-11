@@ -14,7 +14,7 @@
 	display: inline-block;
 	width: 25px;
 	height: 25px;
-	background: url(../../../../resources/icons/builder-edit-fields.png) 3px 2px;
+	background: url('../../../../resources/icons/sprite-icons.png') 3px 2px;
 	background-repeat: no-repeat;
 	cursor: pointer;
 	background-color: rgb(237,237,237);

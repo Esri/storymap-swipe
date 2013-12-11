@@ -119,3 +119,18 @@
 .dropdown-menu > li > a {
 	text-align: center !important;
 }
+
+.switchMapIds{
+	position: absolute;
+	right: 17px;
+	bottom: 125px;
+}
+
+.viewDataModel .model2 { 
+	padding-left: 0px;
+	padding-right: 0px;
+}
+
+.switchMapIds.settings{
+	bottom: 100px;
+}

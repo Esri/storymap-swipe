@@ -1,163 +1,252 @@
 #sidePanel {
-	height: 100%;
 	left: 0;
 	position: absolute;
-	width: 350px;
+	width: 355px;
+}
+
+#sidePanel.single {
+	height: auto;
+	min-height: 1%;
+}
+
+#sidePanel.singleSeries {
+	height: auto;
+	min-height: 1%;
+}
+
+#sidePanel.builder {
+	min-height: 40%;
+	max-height: 60%;
 }
 
 #descriptionPanel {
-	position: relative;
-	top: 0;
-	left: 0;
-	border-bottom: 1px solid black;
-	height: 57%;
-	background-color: #ececec;
-	z-index: 99;
+    position: relative;
+    top: 0;
+    left: 0;
+    border-bottom: 1px solid black;
+    height: 55%;
+    background-color: #ececec;
+    z-index: 99;
 }
 
-#textEditPanel{
-	display: none;
-	width: 99% !important;
+#descriptionPanel.single {
+    height: 100%;
 }
 
-#textEditPanel.builder{
-	display: block;
+#textEditPanel {
+    display: none;
+    width: 99% !important;
 }
-#descriptionTitle{
-	height: 0;
-	font-weight: bold;
-	text-align: center;
-	padding: 4px;
-	overflow-y: auto;
-	overflow-x: hidden;
-	display: none;
+
+#textEditPanel.builder {
+    display: block;
+}
+
+#descriptionTitle {
+    height: 0;
+    font-weight: bold;
+    font-family: Arial,Helvetica,sans-serif;
+    padding: 0 15px 0px 15px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    display: none;
+}
+
+body.builder-mode #descriptionTitle {
+	border: 1px dotted grey;
+	margin: 0 15px 15px 15px;
+	padding: 8px 0 8px 0;
 }
 
 #descriptionTitle.series {
-	height: 10%;
-	display: block;
+    height: auto;
+    display: block;
+}
+
+#descriptionTitle.viewer {
+    padding: 10px 15px 5px 15px;
 }
 
 #descriptionContent {
-	height: 100%;
-	background-color: white;
-	overflow-y: auto;
-	overflow-x: hidden;
-	padding: 4px;
+    height: 95%;
+    background-color: white;
+    overflow-y: auto;
+    overflow-x: hidden;
+    font-family: Arial,Helvetica,sans-serif;
+	padding: 15px 15px 0px 15px;
 }
 
-#descriptionContent.series {
-	height: 90%;
+body.builder-mode #descriptionContentInner {
+	border: 1px dotted grey;
+	height: auto;
+	min-height: 150px;
+}	
+	
+#descriptionContentInner ul{
+    padding: 0px 0px 0px 35px;
 }
 
-/*.builder-mode #description {
-	position: absolute !important;
-	top: 0;
-	left: 0;
-}*/
+#descriptionContentInner a{
+	text-decoration: underline;
+}
+
+#descriptionContent.builder {
+    height: 90% !important;
+    outline: none;
+}
+
+body.builder-mode #descriptionContent.builder.series {
+    height: 55% !important;
+}
 
 #description ul {
-	margin: 0px;
-	padding-left: 40px;
+    margin: 0px;
+    padding-left: 40px;
 }
 
 #legendPanel {
-	position: relative;
-	left: 0;
-	top: 25px;
-	height: 40%;
-	width: 100%;
-	background-color: white;
-	z-index: 99;
-	overflow-x: hidden;
-	font-size: 90%
+    position: relative;
+    left: 0;
+    top: 25px;
+    height: 42%;
+    padding: 10px 15px 0px 15px;
+    background-color: white;
+    z-index: 99;
+    overflow-x: hidden;
+    font-size: 90%;
+}
+
+#legendPanel.only{
+    min-height: 1% !important;
+    max-height: 100% !important;
 }
 
 #legendTitle {
-	position: absolute !important;
-	left: 0;
-	height:25px;
-	width: 100%;
-	background-color: white;
-	color: white;
-	z-index: 99;
-	text-align: center;
-	vertical-align: middle;
+    position: absolute !important;
+    left: 0;
+    height:25px;
+    width: 100%;
+    background-color: white;
+    color: white;
+    z-index: 99;
+    text-align: center;
+    vertical-align: middle;
 }
 
 #legend0 {
-	/*position: absolute !important;
-	left: 0;*/
-	width: 50%;
-	height: 100%;
-	float: left;
-	/*background-color: white !important;*/
-	/*overflow: hidden;*/
+    left: 0;
+    width: 50%;
+    height: 100%;
+    float: left;
 }
 
 #legend1 {
-	/*position: absolute !important;
-	left: 50%;*/
-	width: 50%;
-	height: 100%;
-	float: right;
-	/*background-color: white !important;*/
-	/*overflow-x: hidden;
-	overflow-y: scroll;*/
+    width: 50%;
+    height: 100%;
+    float: right;
 }
 
 #sidePanelTabImg {
-	top: 50%;
-	cursor: pointer;
-	height: 45px;
-	right: -25px;
-	margin-top: -22px;
-	position: absolute;
-	width: 25px;
-	background-image: url('../../../../../resources/icons/panel-close.png');
-	z-index: 99;
+    top: 50%;
+    cursor: pointer;
+    height: 45px;
+    right: -25px;
+    margin-top: -22px;
+    position: absolute;
+    width: 25px;
+    background: url('../../../../../resources/icons/sprite-icons.png') -536px 0;
+    z-index: 99;
+    opacity: 0.75;
+}
+
+#sidePanelTabImg:hover {
+    opacity: 1;
 }
 
 #sidePanelTabImg.closeImg {
-	background-image: url('../../../../../resources/icons/panel-open.png');
+    background: url('../../../../../resources/icons/sprite-icons.png') -536px -265px;
+    opacity: 0.75;
+}
+
+#sidePanelTabImg.closeImg:hover {
+    opacity: 1;
+}
+
+#sidePanelUnderTabImg {
+    cursor: pointer;
+    height: 25px;
+    right: 50%;
+    margin-right: -22px;
+    position: absolute;
+    width: 45px;
+    background: url('../../../../../resources/icons/sprite-icons.png') -536px -190px;
+    z-index: 99;
+    display: none;
+    opacity: 0.75;
+}
+
+#sidePanelUnderTabImg:hover {
+    opacity: 1;
+}
+
+#sidePanelUnderTabImg.closeImg {
+    background: url('../../../../../resources/icons/sprite-icons.png') -536px -455px;
+    opacity: 0.75;
+}
+
+#sidePanelUnderTabImg.closeImg:hover {
+    opacity: 1;
 }
 
 .mobile-view #sidePanel {
-	display: none;
+    display: none;
 }
 
 #mainMap_zoom_location.open{
-	position: absolute;
-	left: 370px;
+    position: absolute;
+    left: 370px;
 }
 
 #mainMap0_zoom_slider.open {
-	position: absolute;
-	left: 370px;
+    position: absolute;
+    left: 370px;
 }
 
 #mainMap1_zoom_slider.open {
-	position: absolute;
-	left: 370px;
+    position: absolute;
+    left: 370px;
 }
 
 #mainMap_zoom_location.closed{
-	position: absolute;
-	left: 20px;
+    position: absolute;
+    left: 20px;
 }
 
 #mainMap0_zoom_slider.closed {
-	position: absolute;
-	left: 20px;
+    position: absolute;
+    left: 20px;
 }
 
 #mainMap1_zoom_slider.closed {
-	position: absolute;
-	left: 20px;
+    position: absolute;
+    left: 20px;
 }
 
-/* Legend dijit override */
+/*Legend dijit override */
 .esriLegendServiceLabel {
-	word-break: break-all;
-	word-wrap: break-word;
+    display: block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    width: 150px;
+}
+
+/* nicEdit link style adjustments */
+.href{
+    width: 206px !important;
+}
+
+.nicEdit-hrefLabel{
+    text-align: left !important;
+    float: none !important;
 }

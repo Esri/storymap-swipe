@@ -3,9 +3,9 @@
 		viewer: {
 			loading: {
 				step1: "WCZYTYWANIE APLIKACJI",
-				step2: "WYCZYTYWANIE DANYCH",
+				step2: "WCZYTYWANIE DANYCH",
 				step3: "INICJOWANIE",
-				fail: "Przepraszamy, wczytywanie narzędzia odsłaniania nie powiodło się",
+				fail: "Przepraszamy, wczytywanie narzędzia zwijania nie powiodło się",
 				loadBuilder: "PRZEŁĄCZANIE DO TRYBU KREATORA",
 				failButton: "Ponów próbę"
 			},
@@ -16,14 +16,14 @@
 				invalidConfigNoWebmap: "Błąd krytyczny: Nieprawidłowa konfiguracja (brak zdefiniowanej mapy internetowej)",
 				createMap: "Nie można utworzyć mapy",
 				invalidApp: "Błąd krytyczny: Nie można wczytać aplikacji",
-				initMobile: "Witamy w internetowej aplikacji swipe (z funkcją odsłaniania). Aplikacja nie została skonfigurowana. Interaktywny kreator nie jest obsługiwany na urządzeniach przenośnych.",
-				noBuilderIE8: "Interaktywny kreator narzędzia odsłaniania nie jest obsługiwany przez przeglądarkę Internet Explorer w wersji starszej niż 9.",
-				noLayerView: "Witamy w internetowej aplikacji swipe (z funkcją odsłaniania).<br />Aplikacja nie została jeszcze skonfigurowana.",
+				initMobile: "Witamy w internetowej aplikacji swipe (z funkcją zwijania). Aplikacja nie została skonfigurowana. Interaktywny kreator nie jest obsługiwany na urządzeniach przenośnych.",
+				noBuilderIE8: "Interaktywny kreator narzędzia zwijania nie jest obsługiwany przez przeglądarkę Internet Explorer w wersji starszej niż 9.",
+				noLayerView: "Witamy w internetowej aplikacji swipe (z funkcją zwijania).<br />Aplikacja nie została jeszcze skonfigurowana.",
 				appSave: "Błąd podczas zapisywania aplikacji internetowej",
 				mapSave: "Błąd podczas zapisywania mapy internetowej",
 				notAuthorized: "Nie masz uprawnień do uzyskania dostępu do tej aplikacji.",
 				conflictingProjectionsTitle: "Konflikt odwzorowań",
-				conflictingProjections: "Narzędzie odsłaniania nie obsługuje dwóch map internetowych o różnych odwzorowaniach. Przejdź do ustawień i wybierz mapę internetową o tym samym odwzorowaniu co pierwsza użyta mapa.",
+				conflictingProjections: "Narzędzie zwijania nie obsługuje dwóch map internetowych o różnych odwzorowaniach. Przejdź do ustawień i wybierz mapę internetową o tym samym odwzorowaniu co pierwsza użyta mapa.",
 				cpButton: "Zamknij"
 			},
 			mobileView: {
@@ -95,7 +95,7 @@
 			settingsExtent: {
 				settingsTabExtent: "Zasięg",
 				settingsExtentExplain: "Ustaw początkowy zasięg za pomocą poniższej mapy interaktywnej.",
-				settingsExtentExplainBottom: "Zdefiniowany zasięg zostanie użyty do modyfikacji początkowego zasięgu mapy internetowej. Prosimy pamiętać, że zasięg ten nie będzie używany podczas korzystania z serii odsłaniania.",
+				settingsExtentExplainBottom: "Zdefiniowany zasięg zostanie użyty do modyfikacji początkowego zasięgu mapy internetowej. Należy pamiętać, że zasięg ten nie będzie używany podczas korzystania z serii zwijania.",
 				settingsExtentDateLineError: "Zasięg nie może przebiegać przez południk 180°",
 				settingsExtentDateLineError2: "Błąd w obliczaniu zasięgu",
 				settingsExtentDrawBtn: "Określ nowy zasięg",
@@ -124,8 +124,8 @@
 				noFeatureExplain: "Dotknij mapę, aby wybrać obiekt"
 			},
 			settingsLayout: {
-				settingsTabLayout: "Styl odsłaniania",
-				settingsLayoutExplain: "Wybierz styl dla narzędzia odsłaniania.",
+				settingsTabLayout: "Styl zwijania",
+				settingsLayoutExplain: "Wybierz styl dla narzędzia zwijania.",
 				settingsLayoutSwipe: "Pasek pionowy",
 				settingsLayoutSpyGlass: "Lunetka",
 				settingsLayoutSelected: "Wybrany układ",
@@ -133,13 +133,13 @@
 				settingsSaveConfirm: "Niektóre z wprowadzonych zmian wymagają zapisania i ponownego wczytania aplikacji"
 			},
 			settingsDataModel: {
-				settingsTabDataModel: "Warstwa odsłaniana",
-				settingsDataModelExplainSwipe: "Wybierz warstwę lub mapę internetową, która będzie pojawiać się i znikać po zastosowaniu odsłaniania.",
+				settingsTabDataModel: "Typ zwijania",
+				settingsDataModelExplainSwipe: "Co mogą zwijać użytkownicy?",
 				settingsDataModelExplainSwipe2: "",
 				settingsDataModelExplainSpyGlass: "Wybierz warstwę lub mapę internetową, która pojawi się w lunetce.",
-				settingsDataModelOneMap: "Jedna mapa internetowa, pojedyncza warstwa",
-				settingsDataModel1Explain: "Wybierz warstwę, która ma być kontrolowana przez narzędzie odsłaniania.",
-				settingsDataModel1Warning: "Jeśli warstwa jest ukryta pod górnymi warstwami, użycie odsłaniania nie przyniesie rezultatów.",
+				settingsDataModelOneMap: "Warstwa mapy internetowej",
+				settingsDataModel1Explain: "Wybierz warstwę, która ma być zwijana.",
+				settingsDataModel1Warning: "Jeśli warstwa jest ukryta pod górnymi warstwami, użycie zwijania nie przyniesie rezultatów.",
 				settingsDataModel1SpyGlassExplain: "Wybierz warstwę, która ma pojawić się w lunetce.",
 				settingsDataModelTwoMaps: "Dwie mapy internetowe",
 				settingsDataModelLayerIds: "Identyfikatory warstwy mapy internetowej",
@@ -151,7 +151,7 @@
 				settingsDataModelSelect: "Wybierz ten typ",
 				settingsDataModel2Explain: "Odsłanianie z inną mapą internetową.",
 				settingsDataModel2SpyGlassExplain: "Odkryj kolejną mapę internetową.",
-				settingsDataModel2HelpTitle: "Jak odnaleźć identyfikator mapy internetowej",
+				settingsDataModel2HelpTitle: "Jak odnaleźć identyfikator mapy internetowej?",
 				settingsDataModel2HelpContent: "Skopiuj i wklej cyfry po znaku „=” w adresie URL mapy internetowej"
 			},
 			settingsLegend: {
@@ -159,11 +159,18 @@
 				settingsLegendExplain: "Wybierz ustawienia układu aplikacji.",
 				settingsLegendEnable: "Włącz legendę",
 				settingsDescriptionEnable: "Włącz opis",
-				settingsBookmarksEnable: "Włącz serię odsłaniania",
+				settingsBookmarksEnable: "Włącz serię zwijania",
 				settingsPopupDisable: "Włącz okno podręczne",
+				settingsLocationSearchEnable: "Włącz wyszukiwanie przy użyciu lokatora",
+				settingsGeolocatorEnable: "Włącz geolokator",
 				settingsLegendHelpContent: "Aby ulepszyć zawartość legendy, skorzystaj z tabeli zawartości przeglądarki map ArcGIS.com (Ukryj w legendzie)",
-				settingsSeriesHelpContent: "Podczas pierwszej aktywacji zakładki mapy internetowej zostaną użyte do wstępnego wypełnienia paska serii. Jeżeli wyłączysz później opcję serii, konfiguracja serii nie zostanie odrzucona i pozostanie dostępna, gdy zdecydujesz się ją włączyć ponownie.",
-				preview: "Podgląd interfejsu użytkownika"
+				settingsSeriesHelpContent: "Seria zwijania to opcja nawigacji przy użyciu kart, która kieruje użytkownika w pewnym zakresie i wyświetla tytuł oraz tekst opisu w panelu bocznym. Podczas pierwszej aktywacji zakładki mapy internetowej zostaną użyte do wstępnego wypełnienia paska serii. Jeżeli wyłączysz później opcję serii, zostanie też wyłączony pasek serii, ale konfiguracja serii zostanie zachowana na przyszłość.", 
+				settingsSeriesHelpContent2: "Serie zwijania umożliwiają tworzenie i edycję wybranych lokalizacji z towarzyszącymi im tytułami i tekstem. Jeśli dana mapa internetowa zawiera zakładki, zostaną one wyświetlone. Istnieje możliwość wyłączenia serii, ale ta konfiguracja zostanie zapisana do późniejszego wykorzystania.",
+				settingsSeriesHelpLink: "Tutaj znajduje się przykładowa aplikacja zawierająca serie zwijania",
+				preview: "Podgląd interfejsu użytkownika",
+				settingsLocateButtonExplain: "Ten sposób działania jest obsługiwany w większości urządzeń mobilnych i przeglądarek komputerowych (łącznie z programem Internet Explorer 9 i nowszymi wersjami).",
+				settingsLocateButton: "Włącz przycisk Lokalizuj w obsługiwanych przeglądarkach",
+				settingsAddressSearch: "Włącz narzędzie wyszukiwania adresów"
 			},
 			settingsSwipePopup: {
 				settingsSwipePopup: "Okno podręczne",
@@ -178,6 +185,7 @@
 			initPopup: {
 				initHeader: "Witamy w kreatorze aplikacji odsłaniania",
 				modalNext: "Dalej",
+				modalPrev: "Wstecz",
 				modalApply: "Otwórz aplikację"
 			},
 			seriesPanel: {
@@ -185,7 +193,7 @@
 				descr: "Opis",
 				discard: "Odrzuć zakładkę",
 				saveExtent: "Ustaw zasięg zakładki",
-				discardDisabled: "Nie można usunąć tej zakładki. Serie odsłaniania można wyłączyć w Ustawieniach."
+				discardDisabled: "Nie można usunąć tej zakładki. Serie zwijania można wyłączyć w Ustawieniach."
 			}
 		}
     })

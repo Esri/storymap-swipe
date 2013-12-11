@@ -133,12 +133,12 @@
 				settingsSaveConfirm: "Per alcune modifiche è necessario salvare e ricaricare l\'applicazione"
 			},
 			settingsDataModel: {
-				settingsTabDataModel: "Sottrai layer",
-				settingsDataModelExplainSwipe: "Scegliere il layer o la mappa Web da visualizzare o nascondere con lo scorrimento con il dito.",
+				settingsTabDataModel: "Tipo di scorrimento con il dito",
+				settingsDataModelExplainSwipe: "Su che cosa gli utenti possono scorrere con il dito?",
 				settingsDataModelExplainSwipe2: "",
 				settingsDataModelExplainSpyGlass: "Scegliere il layer o la mappa Web da visualizzare nel cannocchiale.",
-				settingsDataModelOneMap: "Una mappa Web, singolo layer",
-				settingsDataModel1Explain: "Selezionare un layer da controllare con lo strumento di scorrimento con il dito.",
+				settingsDataModelOneMap: "Un layer in una mappa Web",
+				settingsDataModel1Explain: "Selezionare un layer da scorrere con il dito",
 				settingsDataModel1Warning: "Se il layer è nascosto dai layer superiori, lo scorrimento non ha alcun effetto.",
 				settingsDataModel1SpyGlassExplain: "Selezionare il layer da visualizzare nel cannocchiale.",
 				settingsDataModelTwoMaps: "Due mappe Web",
@@ -161,9 +161,16 @@
 				settingsDescriptionEnable: "Abilita descrizione",
 				settingsBookmarksEnable: "Abilita serie di scorrimenti con dito",
 				settingsPopupDisable: "Abilita popup",
+				settingsLocationSearchEnable: "Abilita ricerca con localizzatore",
+				settingsGeolocatorEnable: "Abilita geolocalizzatore",
 				settingsLegendHelpContent: "Per definire il contenuto della legenda, utilizzare il sommario del map viewer Web di ArcGIS.com (Nascondi nella legenda)",
-				settingsSeriesHelpContent: "Al momento della prima attivazione, verranno utilizzati i segnalibri delle mappe Web per prepopolare la barra della serie. Se in seguito l\'opzione viene disabilitata, la configurazione della serie non verrà eliminata e risulterà disponibile se si decide di riabilitare la serie.",
-				preview: "Anteprima interfaccia utente"
+				settingsSeriesHelpContent: "La serie di scorrimenti con dito è un\'opzione di spostamento tra le schede che guida il visualizzatore a una particolare estensione e visualizza un testo e una descrizione nel pannello laterale. Durante l\'attivazione iniziale i segnalibri delle mappe Web verranno importati e utilizzati per pre-popolare la barra della serie. Se si disabilita l\'opzione relativa alla serie viene disattivata anche la barra corrispondente, tuttavia la configurazione della serie viene mantenuta per usi futuri.", 
+				settingsSeriesHelpContent2: "La serie di scorrimenti consente di creare e modificare una selezione di posizioni unitamente ai titoli e al testo cui sono associate. Verranno visualizzati gli eventuali segnalibri presenti nella mappa Web. È possibile disabilitare la serie, ma la configurazione verrà mantenuta per usi futuri.",
+				settingsSeriesHelpLink: "Per un esempio di applicazione con una serie di scorrimenti, vedere qui",
+				preview: "Anteprima interfaccia utente",
+				settingsLocateButtonExplain: "Questa funzionalità è supportata nella maggior parte dei browser per dispositivi mobili e desktop (incluso Internet Explorer 9 e versioni successive).",
+				settingsLocateButton: "Abilita un pulsante Trova posizione nei browser supportati",
+				settingsAddressSearch: "Abilita uno strumento per la ricerca di indirizzi"
 			},
 			settingsSwipePopup: {
 				settingsSwipePopup: "Popup",
@@ -178,6 +185,7 @@
 			initPopup: {
 				initHeader: "Benvenuto in Swipe Builder",
 				modalNext: "Avanti",
+				modalPrev: "Indietro",
 				modalApply: "Apri l\'app"
 			},
 			seriesPanel: {

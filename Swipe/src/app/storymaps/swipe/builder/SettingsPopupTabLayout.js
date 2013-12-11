@@ -45,7 +45,10 @@ define(["dojo/topic"],
 	
 			this.initLocalization = function()
 			{
-				$(titleContainer).html(i18n.swipe.settingsLayout.settingsTabLayout);
+				if($(titleContainer).find('.wizardLabel')[0])
+					$(titleContainer).find('.wizardLabel').html(i18n.swipe.settingsLayout.settingsTabLayout);
+				else
+					$(titleContainer).html(i18n.swipe.settingsLayout.settingsTabLayout);
 				
 				$(contentContainer).find('p').html(i18n.swipe.settingsLayout.settingsLayoutExplain);
 				$(contentContainer).find('.layout-box:nth-child(2) div').html(i18n.swipe.settingsLayout.settingsLayoutSwipe);

@@ -96,12 +96,12 @@
 				settingsTabExtent: "Etendue",
 				settingsExtentExplain: "Définissez l\’étendue initiale au moyen de la carte interactive ci-dessous.",
 				settingsExtentExplainBottom: "L\'étendue que vous définissez modifiera l\'étendue initiale de votre carte Web. Notez que si vous effectuez une série de balayages, cette étendue ne sera pas utilisée.",
-				settingsExtentDateLineError: "L'étendue ne peut pas traverser le méridien de 180° de longitude",
-				settingsExtentDateLineError2: "Erreur de calcul de l'étendue",
+				settingsExtentDateLineError: "L\'étendue ne peut pas traverser le méridien de 180° de longitude",
+				settingsExtentDateLineError2: "Erreur de calcul de l\'étendue",
 				settingsExtentDrawBtn: "Tracer une nouvelle étendue",
 				settingsExtentModifyBtn: "Modifier l\’étendue actuelle",
 				settingsExtentApplyBtn: "Appliquer à la carte principale",
-				settingsExtentUseMainMap: "Utiliser l'étendue de carte principale"
+				settingsExtentUseMainMap: "Utiliser l\'étendue de carte principale"
 			}
         },
 		swipe: {
@@ -133,12 +133,12 @@
 				settingsSaveConfirm: "Certaines de vos modifications nécessitent d\'enregistrer et de recharger l\'application"
 			},
 			settingsDataModel: {
-				settingsTabDataModel: "Balayer une couche",
-				settingsDataModelExplainSwipe: "Sélectionnez la couche ou la carte Web qui apparaît et disparaît avec le balayage.",
+				settingsTabDataModel: "Balayer un type",
+				settingsDataModelExplainSwipe: "Que voulez-vous que les utilisateurs balayent ?",
 				settingsDataModelExplainSwipe2: "",
 				settingsDataModelExplainSpyGlass: "Sélectionnez la couche ou la carte Web qui apparaîtra dans la longue-vue.",
-				settingsDataModelOneMap: "Une carte Web, couche unique",
-				settingsDataModel1Explain: "Sélectionnez une couche à contrôler par l\'outil de balayage.",
+				settingsDataModelOneMap: "Une couche dans une carte Web",
+				settingsDataModel1Explain: "Sélectionnez la couche à balayer",
 				settingsDataModel1Warning: "Si la couche est masquée par des couches supérieures, le balayage sera sans effet.",
 				settingsDataModel1SpyGlassExplain: "Sélectionner la couche devant apparaître dans la longue-vue.",
 				settingsDataModelTwoMaps: "Deux cartes Web",
@@ -151,7 +151,7 @@
 				settingsDataModelSelect: "Sélectionner ce type",
 				settingsDataModel2Explain: "Balayer avec une autre carte Web.",
 				settingsDataModel2SpyGlassExplain: "Révéler une autre carte Web.",
-				settingsDataModel2HelpTitle: "Comment trouver l\'ID d\'une carte Web",
+				settingsDataModel2HelpTitle: "Comment trouver l\'ID d\'une carte Web ?",
 				settingsDataModel2HelpContent: "Copiez et collez les chiffres après le signe « = » dans l\'URL de la carte Web"
 			},
 			settingsLegend: {
@@ -161,9 +161,16 @@
 				settingsDescriptionEnable: "Activer la description",
 				settingsBookmarksEnable: "Activer la série de balayages",
 				settingsPopupDisable: "Activer la fenêtre contextuelle",
+				settingsLocationSearchEnable: "Activer la recherche de localisateur",
+				settingsGeolocatorEnable: "Activer le géolocalisateur",
 				settingsLegendHelpContent: "Pour affiner le contenu de la légende, utilisez la table des matières de la visionneuse de carte Web ArcGIS.com (Masquer dans la légende)",
-				settingsSeriesHelpContent: "Lors de la première activation, les géosignets de vos cartes Web seront utilisés pour renseigner la barre de la série. Si vous désactivez l\'option de série par la suite, la configuration de votre série ne sera pas annulée et elle sera disponible si vous décidez de réactiver la série.",
-				preview: "Aperçu de l\'interface utilisateur"
+				settingsSeriesHelpContent: "La série de balayages est une option de navigation par onglets qui guide la visionneuse vers une étendue particulière et qui affiche un titre et un texte de description dans le volet latéral. Lors de la première activation, les géosignets des cartes Web sont importés et utilisés pour renseigner la barre de la série. Si vous désactivez l\'option de série, la barre de série est désactivée, mais la configuration de votre série est conservée pour une utilisation ultérieure.", 
+				settingsSeriesHelpContent2: "La série de balayages vous permet de créer et de mettre à jour une sélection d\'emplacements accompagnés de titres et de texte. Si votre carte Web comprend des géosignets, ils s\'afficheront. Vous pouvez désactiver la série, mais la configuration sera conservée pour une utilisation future.",
+				settingsSeriesHelpLink: "Consultez un exemple d\'application avec une série de balayages ici",
+				preview: "Aperçu de l\'interface utilisateur",
+				settingsLocateButtonExplain: "Cette fonctionnalité est prise en charge par la plupart des appareils mobiles et des navigateurs bureautiques (y compris Internet Explorer 9+).",
+				settingsLocateButton: "Activer un bouton \'Localiser\' sur les navigateurs pris en charge",
+				settingsAddressSearch: "Activer un outil de recherche d\'adresses"
 			},
 			settingsSwipePopup: {
 				settingsSwipePopup: "Fenêtre contextuelle",
@@ -178,6 +185,7 @@
 			initPopup: {
 				initHeader: "Bienvenue dans le Générateur de balayages",
 				modalNext: "Suivant",
+				modalPrev: "Précédent",
 				modalApply: "Ouvrir l\'application"
 			},
 			seriesPanel: {

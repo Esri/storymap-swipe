@@ -59,12 +59,15 @@ define(["dojo/dom"],
 			
 			this.setMessage = function(message, isFail)
 			{
+				spinnerNode.style.display = "block";
+				
 				if( messageNode ) {
 					if( isFail )
 						messageNode.style.marginTop = "-50px";
 					
 					messageNode.innerHTML = message;
 					messageNode.style.visibility = "visible";
+					messageNode.style.display = "block";
 				}
 			};
 			

@@ -65,7 +65,7 @@
 				signInTwo: "pro uložení aplikace."
 			},
 			header:{
-				editMe: "Edituj mě!",
+				editMe: "Edituj mě !",
 				templateTitle: "Nastavit název šablony",
 				templateSubtitle: "Nastavit podnadpis šablony"
 			},
@@ -133,12 +133,12 @@
 				settingsSaveConfirm: "Některé ze změn vyžadují uložení a opětovné spuštění aplikace"
 			},
 			settingsDataModel: {
-				settingsTabDataModel: "Vrstva překryvu",
-				settingsDataModelExplainSwipe: "Vyberte vrstvu nebo webovou mapu, která se bude při překrývání zobrazovat a skrývat.",
+				settingsTabDataModel: "Typ překrývání",
+				settingsDataModelExplainSwipe: "Co chcete, aby uživatelé překrývali?",
 				settingsDataModelExplainSwipe2: "",
 				settingsDataModelExplainSpyGlass: "Vyberte vrstvu nebo webovou mapu, která se zobrazí v lupě.",
-				settingsDataModelOneMap: "Jedna webová mapa, jedna vrstva",
-				settingsDataModel1Explain: "Vyberte vrstvu k ovládání nástrojem překrývání.",
+				settingsDataModelOneMap: "Vrstva ve webové mapě",
+				settingsDataModel1Explain: "Vyberte vrstvu, kterou chcete překrýt",
 				settingsDataModel1Warning: "Pokud je vrstva zakrytá svrchnějšími vrstvami, překrývání se nijak neprojeví.",
 				settingsDataModel1SpyGlassExplain: "Vyberte vrstvu, která se zobrazí v lupě.",
 				settingsDataModelTwoMaps: "Dvě webové mapy",
@@ -151,7 +151,7 @@
 				settingsDataModelSelect: "Vybrat tento typ",
 				settingsDataModel2Explain: "Proveďte překrytí jinou webovou mapou.",
 				settingsDataModel2SpyGlassExplain: "Odkryjte jinou webovou mapu.",
-				settingsDataModel2HelpTitle: "Jak vyhledat identifikátor webové mapy",
+				settingsDataModel2HelpTitle: "Jak najdu ID webové mapy?",
 				settingsDataModel2HelpContent: "Překopírovat číslice po rovnítku (=) v URL webové mapy"
 			},
 			settingsLegend: {
@@ -160,10 +160,17 @@
 				settingsLegendEnable: "Povolit legendu",
 				settingsDescriptionEnable: "Povolit popis",
 				settingsBookmarksEnable: "Povolit série překrývání",
-				settingsPopupDisable: "Povolit vyskakovací obsah",
+				settingsPopupDisable: "Povolit vyskakovací okna",
+				settingsLocationSearchEnable: "Povolit vyhledávání lokátoru",
+				settingsGeolocatorEnable: "Povolit geolokátor",
 				settingsLegendHelpContent: "Chcete-li doplnit obsah legendy, použijte obsah prohlížeče webových map ArcGIS.com (Skrýt v legendě)",
-				settingsSeriesHelpContent: "Při první aktivaci budou vaše záložky webových map použity k naplnění lišty série. Pokud tuto možnost série později vypnete, vaše konfigurace série nebude zrušena a bude k dispozici, rozhodnete-li se sérii opět povolit.",
-				preview: "Náhled uživatelského rozhraní"
+				settingsSeriesHelpContent: "Série překrývání je možnost navigace s pomocí karet, která diváka vede ke konkrétnímu rozsahu a zobrazí název a textový popis v postranním panelu. Během počáteční aktivace se importují záložky z webové mapy / webových map a použijí se k prvotnímu zaplnění lišty série. Zakázáním možnosti série lištu série vypnete, ale konfigurace série zůstane uložena pro budoucí použití.", 
+				settingsSeriesHelpContent2: "Série překrývání vám umožní vytvořit a editovat výběr lokalit s připojenými nadpisy a textem. Pokud má vaše webová mapa záložky, budou zobrazeny. Sérii můžete zakázat, ale konfigurace bude uložena pro budoucí použití.",
+				settingsSeriesHelpLink: "Zde se podívejte na příklad aplikace se sérií překrývání",
+				preview: "Náhled uživatelského rozhraní",
+				settingsLocateButtonExplain: "Tato funkcionalita je podporována na většině mobilních zařízení a stolních prohlížečů (včetně Internet Explorer 9+).",
+				settingsLocateButton: "Povolit tlačítko 'Hledat' v podporovaných prohlížečích",
+				settingsAddressSearch: "Povolit nástroj pro vyhledávání adres"
 			},
 			settingsSwipePopup: {
 				settingsSwipePopup: "Vyskakovací okno",
@@ -178,6 +185,7 @@
 			initPopup: {
 				initHeader: "Vítá vás nástroj pro tvorbu překrývání.",
 				modalNext: "Další",
+				modalPrev: "Předchozí",
 				modalApply: "Otevřít aplikaci"
 			},
 			seriesPanel: {

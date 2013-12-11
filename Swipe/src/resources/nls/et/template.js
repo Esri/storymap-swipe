@@ -48,7 +48,7 @@
 				buttonItem: "Ava veebirakenduse sisu",
 				noPendingChange: "Ühtegi muudatust ei ole ootel",
 				unSavedChangeSingular: "1 mittesalvestatud muudatus",
-				unSavedChangePlural: "mittesalvestatud muudatused",
+				unSavedChangePlural: "mittesalvestatud muudatust",
 				popoverDiscard: "Olete kindel, et soovite loobuda salvestamata muudatustest?",
 				yes: "Jah",
 				no: "Ei",
@@ -76,7 +76,7 @@
 			},
 			settingsColors: {
 				settingsTabColor: "Teema",
-				settingsColorExplain: "Vali appi teema või määra  värvid.",
+				settingsColorExplain: "Vali apiga seotud teema või määra  värvid.",
 				settingsLabelColor: "Päise ja küljepaneeli taustvärvid"
 			},
 			settingsHeader: {
@@ -128,17 +128,17 @@
 				settingsLayoutExplain: "Vali rullimisvahendi stiil.",
 				settingsLayoutSwipe: "Vertikaalne riba",
 				settingsLayoutSpyGlass: "Pikksilm",
-				settingsLayoutSelected: "Valitud kujundus",
-				settingsLayoutSelect: "Vali see kujundus",
+				settingsLayoutSelected: "Valitud paigutus",
+				settingsLayoutSelect: "Vali see paigutus",
 				settingsSaveConfirm: "Mõned muudatustest eeldavad, et salvestad tööseisu ning avad rakenduse uuesti"
 			},
 			settingsDataModel: {
-				settingsTabDataModel: "Rullitav kiht",
-				settingsDataModelExplainSwipe: "Vali kiht või veebikaart, mis ilmub ja kaob rullimisega.",
+				settingsTabDataModel: "Rullitav tüüp",
+				settingsDataModelExplainSwipe: "Mida kasutajad peaksid rullima?",
 				settingsDataModelExplainSwipe2: "",
 				settingsDataModelExplainSpyGlass: "Vali kiht või veebikaart, mis ilmub pikksilma.",
-				settingsDataModelOneMap: "Üks veebikaart, üks kiht",
-				settingsDataModel1Explain: "Vali kiht, mida kontrollib rullimisvahend.",
+				settingsDataModelOneMap: "Kiht veebikaardil",
+				settingsDataModel1Explain: "Vali kiht rullimiseks",
 				settingsDataModel1Warning: "Rullimine ei mõju, kui vastav kiht on peidetud ülemiste kihtide alla.",
 				settingsDataModel1SpyGlassExplain: "Vali kiht, mis ilmub pikksilma.",
 				settingsDataModelTwoMaps: "Kaks veebikaarti",
@@ -151,8 +151,8 @@
 				settingsDataModelSelect: "Vali see tüüp",
 				settingsDataModel2Explain: "Rulli mõne teise veebikaardiga.",
 				settingsDataModel2SpyGlassExplain: "Ilmu teises veebikaardis.",
-				settingsDataModel2HelpTitle: "Kuidas leida veebikaardi ID-d",
-				settingsDataModel2HelpContent: "Kopeeri ja kleebi numbrid pärast '=' märki veebikaardi URL sisust"
+				settingsDataModel2HelpTitle: "Kuidas leida veebikaardi ID-d?",
+				settingsDataModel2HelpContent: "Kopeeri ja kleebi numbrid pärast \'=\' märki veebikaardi URL sisust"
 			},
 			settingsLegend: {
 				settingsTabLegend: "Rakenduse paigutus",
@@ -161,9 +161,16 @@
 				settingsDescriptionEnable: "Lülita kirjeldus sisse",
 				settingsBookmarksEnable: "Võimalda rullimise seeriad",
 				settingsPopupDisable: "Luba hüpikaken",
+				settingsLocationSearchEnable: "Luba asukoha otsing",
+				settingsGeolocatorEnable: "Luba geolokaator",
 				settingsLegendHelpContent: "Legendi sisu täpsustamiseks kasuta ArcGIS.com veebikaardi akna kihtide loendit (peidetud legendi)",
-				settingsSeriesHelpContent: "Esimesel aktiveerimisel kasutatakse Teie lõpliku veebikaardi järjehoidjaid seeriate eelmääramiseks. Kui lülitate parameetri hiljem välja, Teie seeriate seadistusest ei loobuta ja see on kättesaadav taas kui te otsustate seeria taas lubada.",
-				preview: "UI vaade"
+				settingsSeriesHelpContent: "Rullimiste seeria on vahelehtedega navigeerimise valik, mis viib vaataja konkreetsele kuvaulatusele ja kuvab pealkirja ning kirjeldust külje paneelil. Algselt aktiveerimiseks imporditakse veebikaardi järjehoidjad ja kasutatakse seeriate lehe eelgenereerimiseks. Seeriate valiku keelamine lülitab välja ka seeriate riba, aga seeriate konfiguratsioon säilitatakse tulevikus kasutamiseks.", 
+				settingsSeriesHelpContent2: "Vahetamise seeriad lubab teil luua ja muuta asukohtade selektsiooni koos vastavate pealkirjade ja tekstidega. Kui teie veebikaartidel on järjehoidjad, siis kuvatakse neid. Võite keelata seeriad, kuid konfiguratsioon säilitatakse võimalikuks kasutuseks tulevikuks.",
+				settingsSeriesHelpLink: "Vaata vahetatavate seeriatega rakenduse näidet siit",
+				preview: "UI vaade",
+				settingsLocateButtonExplain: "Funktsionaalsus on toetatud enamustel nutiseadmetel ja töökoha brauserites (k.a Internet Explorer 9+).",
+				settingsLocateButton: "Luba positsioneerimise nupp toetatud brauserites",
+				settingsAddressSearch: "Luba aadressi otsimise tööriist"
 			},
 			settingsSwipePopup: {
 				settingsSwipePopup: "Hüpikaken",
@@ -178,6 +185,7 @@
 			initPopup: {
 				initHeader: "Tere tulemast rullimise koostajasse",
 				modalNext: "Järgmine",
+				modalPrev: "Eelmine",
 				modalApply: "Ava app"
 			},
 			seriesPanel: {

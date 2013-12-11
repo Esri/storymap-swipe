@@ -133,12 +133,12 @@
 				settingsSaveConfirm: "Algumas de suas alterações exigem que você salve e recarregue o aplicativo"
 			},
 			settingsDataModel: {
-				settingsTabDataModel: "Ocultar Camada",
-				settingsDataModelExplainSwipe: "Escolha a camada ou mapa da web que aparecerá ou desaparecerá ao oscilar.",
+				settingsTabDataModel: "Tipo de Oscilação",
+				settingsDataModelExplainSwipe: "O que você deseja que seja oscilado pelos usuários?",
 				settingsDataModelExplainSwipe2: "",
 				settingsDataModelExplainSpyGlass: "Escolha a camada ou mapa da web que aparecerá na luneta.",
-				settingsDataModelOneMap: "Um mapa da web, única camada",
-				settingsDataModel1Explain: "Selecione uma camada a ser controlada pela ferramenta Oscilar.",
+				settingsDataModelOneMap: "Uma camada em um mapa da web",
+				settingsDataModel1Explain: "Selecione uma camada que deseja que seja oscilada",
 				settingsDataModel1Warning: "Se a camada estiver ocultada por camadas superiores, a oscilação não terá efeito.",
 				settingsDataModel1SpyGlassExplain: "Selecione a camada para aparecer na luneta.",
 				settingsDataModelTwoMaps: "Dois mapas da web",
@@ -151,8 +151,8 @@
 				settingsDataModelSelect: "Selecionar este tipo",
 				settingsDataModel2Explain: "Oscilar com outro mapa da web.",
 				settingsDataModel2SpyGlassExplain: "Revelar com outro mapa da web.",
-				settingsDataModel2HelpTitle: "Como encontrar ID do mapa da web",
-				settingsDataModel2HelpContent: "Copie e cole os dígitos após o sinal '=' na URL do mapa da web"
+				settingsDataModel2HelpTitle: "Como encontrar ID do mapa da web?",
+				settingsDataModel2HelpContent: "Copie e cole os dígitos após o sinal \'=\' na URL do mapa da web"
 			},
 			settingsLegend: {
 				settingsTabLegend: "Layout do Aplicativo",
@@ -161,9 +161,16 @@
 				settingsDescriptionEnable: "Habilitar Descrição",
 				settingsBookmarksEnable: "Habilitar série do Oscilar",
 				settingsPopupDisable: "Habilitar pop-up",
+				settingsLocationSearchEnable: "Habilitar pesquisa do localizador",
+				settingsGeolocatorEnable: "Habilitar geolocalizador",
 				settingsLegendHelpContent: "Para refinar o conteúdo da legenda, utilize a área de controle do visualizador de mapa da web do ArcGIS.com (Oculto na Legenda)",
-				settingsSeriesHelpContent: "Na primeira ativação, seus marcadores de mapas da web serão utilizados para preencher a barra de série. Se você desabilitar a opção de série posteriormente, a sua configuração de série não será descartada e estará disponível se você decidir habilitar a série novamente.",
-				preview: "Visualizar ID"
+				settingsSeriesHelpContent: "A série Oscilar é uma opção de navegação por abas, que irá orientar o visualizador até uma extensão em particular e exibir um texto de descrição e título no painel lateral. Durante a ativação inicial, os marcadores de mapa da web serão importados e utilizados para preencher a barra de série. Desabilitar a opção em série desligará a barra de série, mas a configuração de série é preservada para utilização futura.", 
+				settingsSeriesHelpContent2: "A série de oscilação permite a você criar e editar uma seleção de posições com acompanhamento de títulos e texto.  Se seu mapa da web tiver marcadores, eles serão exibidos.  Você pode desativar a série, mas a configuração será preservada para uso futuro.",
+				settingsSeriesHelpLink: "Consulte um exemplo de um aplicativo com uma série de oscilação aqui",
+				preview: "Visualizar ID",
+				settingsLocateButtonExplain: "Esta funcionalidade é suportada na maioria dos dispositivos móveis e navegadores desktop (incluindo Internet Explorer 9 +).",
+				settingsLocateButton: "Habilitar botão \'Localizar\' dos navegadores suportados",
+				settingsAddressSearch: "Habilitar uma ferramenta de pesquisa de endereço"
 			},
 			settingsSwipePopup: {
 				settingsSwipePopup: "Pop-up",
@@ -178,6 +185,7 @@
 			initPopup: {
 				initHeader: "Bem-Vindo ao Construtor de Oscilação",
 				modalNext: "Avançar",
+				modalPrev: "Anterior",
 				modalApply: "Abrir o aplicativo"
 			},
 			seriesPanel: {

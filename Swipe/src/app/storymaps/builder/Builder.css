@@ -112,6 +112,14 @@
 	display: none;
 }
 
+.save-popover {
+	width: 170px;
+	z-index: 5555;
+	color: #30750A;
+	font-weight: bold;
+	font-size: 14px;
+}
+
 .builder-save {
 	margin-left: 12px;
 }

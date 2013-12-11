@@ -81,6 +81,12 @@ define(["dojo/has"],
 				var icon = input.parent().find('.text_edit_icon');
 				var labelNonEditable = label.parent().first();
 				
+				if( value === "" )
+					value = i18n.builder.header.editMe;
+				
+				// Basic XSS check
+				value = value.replace(/<\/?script>/g,'');
+				
 				label.parent().parent().removeClass("isEditing");
 				label.html(value);
 				label.show();

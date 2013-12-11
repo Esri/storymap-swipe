@@ -133,12 +133,12 @@
 				settingsSaveConfirm: "Lai dažas no jūsu veiktajām izmaiņām stātos spēkā, ir nepieciešams saglabāt un atkārtoti ielādēt aplikāciju."
 			},
 			settingsDataModel: {
-				settingsTabDataModel: "Pārvilkšanas slānis",
-				settingsDataModelExplainSwipe: "Izvēlieties slāni vai web karti, kas tiks radīta, bet pārvelkot vairs netiks rādīta.",
+				settingsTabDataModel: "Pārvilkšanas tips",
+				settingsDataModelExplainSwipe: "Ko jūs vēlaties lai lietotāji pārvelk?",
 				settingsDataModelExplainSwipe2: "",
 				settingsDataModelExplainSpyGlass: "Izvēlieties slāni vai web karti, kas tiks rādīta tālskatī.",
-				settingsDataModelOneMap: "Viena web karte, viens slānis",
-				settingsDataModel1Explain: "Izvēlieties slāni, ko kontrolēs pārvilkšanas rīks.",
+				settingsDataModelOneMap: "Slānis web kartē",
+				settingsDataModel1Explain: "Izvēlieties slāni, ko vēlaties pārvilkt",
 				settingsDataModel1Warning: "Ja slānis ir paslēpts augšējos slāņos, pārvilkšanai nebūs nekāda efekta.",
 				settingsDataModel1SpyGlassExplain: "Izvēlieties slāni, ko parādīt tālskatī.",
 				settingsDataModelTwoMaps: "Divas web kartes",
@@ -151,7 +151,7 @@
 				settingsDataModelSelect: "Izvēlieties šo tipu",
 				settingsDataModel2Explain: "Pārvilkt ar citu web karti.",
 				settingsDataModel2SpyGlassExplain: "Atklāt citu web karti.",
-				settingsDataModel2HelpTitle: "Kā atrast web kartes ID",
+				settingsDataModel2HelpTitle: "Kā atrast web kartes ID?",
 				settingsDataModel2HelpContent: "Kopēt un ielīmēt ciparus aiz zīmes \"=\" vietrādī URL no web kartes"
 			},
 			settingsLegend: {
@@ -161,9 +161,16 @@
 				settingsDescriptionEnable: "Iespējot aprakstu",
 				settingsBookmarksEnable: "Iespējot sēriju Pārvilkt",
 				settingsPopupDisable: "Iespējot uznirstošo logu",
+				settingsLocationSearchEnable: "Iespējot meklētāja meklēšanu",
+				settingsGeolocatorEnable: "Iespējot ģeolokatoru",
 				settingsLegendHelpContent: "Lai attīrītu leģendas saturu izmantojiet ArcGIS.com web kartes skatītāja satura tabulu (Paslēpt leģendā)",
-				settingsSeriesHelpContent: "Pirmajā aktivizācijas reizē, web karšu grāmatzīmes tiks izmantotas, lai ierpiekš aizpildītu sēriju joslas. Ja jūs atiespējosiet sērijas izvēlnii vēlāk, jūsu sērijas konfigurācija netiks atmesta un būs pieejama, ja iespējosiet sēriju atkal.",
-				preview: "Saskarnes priekšskatījums"
+				settingsSeriesHelpContent: "Pārvilkšanas sērijas ir cilņu navigācijas opcija, kas virzīs skatītāju uz noteiktu pārklājumu un attēlos virsrakstu un apraksta tekstu sānu panelī. Sākotnējās aktivizācijas laikā, web karšu grāmatzīmes tiks importētas un izmantotas, lai aizpildītu seriju joslu. Sēriju opciju atiespējošana izslēgs sēriju joslu, bet sēriju konfigurācija tiks saglabāta izmantošanai nākotnē.", 
+				settingsSeriesHelpContent2: "Pārvilkšanas sērijas ļauj izveidot un rediģēt izvēlētus izvietojumus ar pavadošajiem virsrakstiem un tekstiem. Ja jūsu web kartei ir grāmatzīmes, tās tiks attēlotas. Jūs varat atiespējot sērijas, bet konfigurācija tiks saglabāta izmantošanai nākotnē.",
+				settingsSeriesHelpLink: "Aopskatiet aplikācijas piemēru ar pārvilkšanas sērijām šeit",
+				preview: "Saskarnes priekšskatījums",
+				settingsLocateButtonExplain: "Šī funkcionalitāte tiek atbalstīta uz vairuma mobilo ierīču un darbvirsmas pārlūkiem (ieskaitot Internet Explorer 9+).",
+				settingsLocateButton: "Iespējot \'Atrast izvietojumu\' pogu atblastītajos pārlūkos",
+				settingsAddressSearch: "Iespējot adreses meklēšanas rīku"
 			},
 			settingsSwipePopup: {
 				settingsSwipePopup: "Uznirstošie logi",
@@ -178,6 +185,7 @@
 			initPopup: {
 				initHeader: "Laipni lūdzam pārvilkšanas veidotājā",
 				modalNext: "Nākošais",
+				modalPrev: "Iepriekšējs",
 				modalApply: "Atveriet lietotni"
 			},
 			seriesPanel: {

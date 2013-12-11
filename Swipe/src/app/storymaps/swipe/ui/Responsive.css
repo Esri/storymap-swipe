@@ -45,15 +45,15 @@
 	}
 	
 	#lensTool.twoLayers{
-		background-image: url('../../../../resources/icons/mobile-spyglass-1.png');
+		background: url('../../../../resources/icons/sprite-icons.png') 0 -1399px;
 	}
 	
 	#lensTool.twoMaps{
-		background-image: url('../../../../resources/icons/mobile-spyglass-2.png');
+		background: url('../../../../resources/icons/sprite-icons.png') 0 -1649px;
 	}
 	
 	#lensTool.safariFix {
-		background-image: url('../../../../resources/icons/mobile-spyglass-1.png');
+		background: url('../../../../resources/icons/sprite-icons.png') 0 -1399px;
 	}
 	
 	#lensMapNode.safariFix #lensMapNode_container {
@@ -76,6 +76,10 @@
 	
 	.claro.mobile-view {
 		background-color: transparent;
+	}
+	
+	#locationSearch {
+		display: none;
 	}
 	
 }

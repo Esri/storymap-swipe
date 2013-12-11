@@ -133,12 +133,12 @@
 				settingsSaveConfirm: "Für einige Änderungen muss die Anwendung gespeichert und neu geladen werden"
 			},
 			settingsDataModel: {
-				settingsTabDataModel: "Layer für \"Ausblenden\"",
-				settingsDataModelExplainSwipe: "Layer oder Webkarte auswählen, der bzw. die mit \"Ausblenden\" ein- und ausgeblendet wird.",
+				settingsTabDataModel: "Ausblendungstyp",
+				settingsDataModelExplainSwipe: "Welche Elemente sollen Benutzer ausblenden können?",
 				settingsDataModelExplainSwipe2: "",
 				settingsDataModelExplainSpyGlass: "Layer oder Webkarte auswählen, der bzw. die im Fernglas angezeigt werden soll.",
-				settingsDataModelOneMap: "Eine Webkarte, einzelner Layer",
-				settingsDataModel1Explain: "Layer auswählen, der mit dem Werkzeug \"Ausblenden\" gesteuert wird.",
+				settingsDataModelOneMap: "Ein Layer in einer Webkarte",
+				settingsDataModel1Explain: "Wählen Sie den Layer aus, der ausgeblendet werden soll",
 				settingsDataModel1Warning: "Wenn der Layer von darüberliegenden Layern verdeckt wird, hat \"Ausblenden\" keine Wirkung.",
 				settingsDataModel1SpyGlassExplain: "Layer auswählen, der im Fernglas angezeigt werden soll.",
 				settingsDataModelTwoMaps: "Zwei Webkarten",
@@ -151,7 +151,7 @@
 				settingsDataModelSelect: "Diesen Typ auswählen",
 				settingsDataModel2Explain: "Mit anderer Webkarte ausblenden.",
 				settingsDataModel2SpyGlassExplain: "Andere Webkarte einblenden.",
-				settingsDataModel2HelpTitle: "Suchen der Webkarten-ID",
+				settingsDataModel2HelpTitle: "Suchen der ID einer Webkarte",
 				settingsDataModel2HelpContent: "Kopieren Sie die Ziffern nach dem Zeichen '=' in der URL der Webkarte, und fügen Sie sie ein"
 			},
 			settingsLegend: {
@@ -161,9 +161,16 @@
 				settingsDescriptionEnable: "Beschreibung aktivieren",
 				settingsBookmarksEnable: "Ausblendereihe aktivieren",
 				settingsPopupDisable: "Pop-up aktivieren",
+				settingsLocationSearchEnable: "Locator-Suche aktivieren",
+				settingsGeolocatorEnable: "Geolocator aktivieren",
 				settingsLegendHelpContent: "Verwenden Sie das Inhaltsverzeichnis des ArcGIS.com-Webkarten-Viewers, um den Legendeninhalt zu optimieren (In Legende ausblenden)",
-				settingsSeriesHelpContent: "Bei der ersten Aktivierung werden Ihre Webkarten-Lesezeichen verwendet, um die Leiste der Reihe vorab auszufüllen. Wenn Sie die Reihen-Option später deaktivieren, geht die Konfiguration der Reihe nicht verloren, sondern steht bei einer eventuellen späteren Aktivierung der Serie wieder zur Verfügung.",
-				preview: "Benutzeroberflächen-Vorschau"
+				settingsSeriesHelpContent: "\"Ausblendereihe\" ist die Navigationsoption einer Registerkarte, die den Viewer zu einer bestimmten Ausdehnung führt und einen Titel und einen Beschreibungstext im Seitenfenster anzeigt. Bei der ersten Aktivierung werden Ihre Webkarten-Lesezeichen verwendet, um die Leiste der Reihe vorab auszufüllen. Durch Deaktivieren der Reihen-Option wird die Leiste der Reihen deaktiviert, die Konfiguration der Reihe wird jedoch zur zukünftigen Verwendung beibehalten.", 
+				settingsSeriesHelpContent2: "Mit Ausblendereihen können Sie eine Auswahl von Positionen mit zugehörigen Titeln und Texten erstellen und bearbeiten.  Wenn Ihre Webkarte über Lesezeichen verfügt, werden diese angezeigt.  Sie können die Reihen deaktivieren, die Konfiguration wird jedoch zur zukünftigen Verwendung beibehalten.",
+				settingsSeriesHelpLink: "Nachfolgend finden Sie ein Beispiel für eine Anwendung mit einer Ausblendereihe",
+				preview: "Benutzeroberflächen-Vorschau",
+				settingsLocateButtonExplain: "Diese Funktion wird auf den meisten mobilen Geräten und Desktop-Browsern (einschließlich Internet Explorer 9+) unterstützt.",
+				settingsLocateButton: "Schaltfläche \"Suchen\" für unterstützte Browser aktivieren",
+				settingsAddressSearch: "Werkzeug für Adressensuche aktivieren"
 			},
 			settingsSwipePopup: {
 				settingsSwipePopup: "Pop-up",
@@ -178,6 +185,7 @@
 			initPopup: {
 				initHeader: "Willkommen beim Builder für \"Ausblenden\"",
 				modalNext: "Weiter",
+				modalPrev: "Zurück",
 				modalApply: "App öffnen"
 			},
 			seriesPanel: {

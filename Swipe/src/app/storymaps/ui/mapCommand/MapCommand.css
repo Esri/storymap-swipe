@@ -1,3 +1,13 @@
+.mapCommandHomeBtn {
+	background: url(../../../../resources/icons/mapcommand-home.png);
+	background-repeat: no-repeat;
+	background-position: 5px 5px;
+}
+
+.mapCommandHomeBtn.touch {
+	background-position: 7px 7px;
+}
+
 .esriSimpleSlider {
 	-webkit-tap-highlight-color: rgba(0,0,0,0);
 }

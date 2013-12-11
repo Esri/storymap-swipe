@@ -6,19 +6,24 @@ define(["dojo/topic"],
 			$(contentContainer).append($('#popupView-dataModel').children().clone());		
 			
 			// Events
+			$(contentContainer).find(".inputWebmapId1").keyup(checkWebmapsValidity);
 			$(contentContainer).find(".inputWebmapId2").keyup(checkWebmapsValidity);
 			$(contentContainer).find(".inputWebmapId2").blur(function(){ $(window).scrollTop(0); });
-			$(contentContainer).find('.btnSelect').fastClick(onDataModelChange)
+			$(contentContainer).find('.btnSelect').fastClick(onDataModelChange);
+			$(contentContainer).find('.switchMapIds').fastClick(switchMapIds);
 			
 			topic.subscribe("LAYOUT_CHANGE", configureWebmapsModelLbl);
 			
 			this.init = function(settings) 
-			{			
+			{
 				selectDataModel(settings.dataModel == "TWO_WEBMAPS" ? 1 : 0);
 				buildLayersModel(settings.layers);
 				buildWebmapsModel(settings.webmaps);
 				configureWebmapsModelLbl(settings.layout);
 				checkWebmapsValidity();
+				
+				if($(contentContainer).parent().parent()[0].id == 'settingsPopup')
+					$('.switchMapIds').addClass('settings');
 			}
 			
 			this.show = function()
@@ -52,7 +57,7 @@ define(["dojo/topic"],
 			{
 				if( getSelectedDataModel() != "TWO_WEBMAPS" )
 					popupApplyButton.removeAttr("disabled");					
-				else if( $(contentContainer).find(".inputWebmapId2").val().length != 32 )
+				else if( $(contentContainer).find(".inputWebmapId1").val().length != 32 || $(contentContainer).find(".inputWebmapId2").val().length != 32)
 					popupApplyButton.attr("disabled", "disabled");
 				else if ($(contentContainer).find('.inputWebmapId1').val() == $(contentContainer).find('.inputWebmapId2').val())
 					popupApplyButton.attr("disabled", "disabled");
@@ -72,6 +77,16 @@ define(["dojo/topic"],
 				selectDataModel($(event.target).parent().index() == 2 ? 1 : 0)
 			}
 			
+			function switchMapIds()
+			{
+				var map1 = $(contentContainer).find(".inputWebmapId1").val();
+				var map2 = $(contentContainer).find(".inputWebmapId2").val();
+				$(contentContainer).find(".inputWebmapId1").val(map2);
+				$(contentContainer).find(".inputWebmapId2").val(map1);
+				map1 == app.rootMapId ? $(contentContainer).find(".inputWebmapId2").attr('disabled', 'disabled') : $(contentContainer).find(".inputWebmapId2").attr('disabled', false);
+				map2 == app.rootMapId ? $(contentContainer).find(".inputWebmapId1").attr('disabled', 'disabled') : $(contentContainer).find(".inputWebmapId1").attr('disabled', false);
+			}
+			
 			function buildLayersModel(layers)
 			{
 				// Create the layer list if it wasn't already created
@@ -79,10 +94,10 @@ define(["dojo/topic"],
 					return;
 				
 				// Loop through all webmap layers
-				var layersIds = (app.maps[0].layerIds || []).concat(app.maps[0].graphicsLayerIds);
+				var layersIds = (app.map.layerIds || []).concat(app.map.graphicsLayerIds);
 				$.each(layersIds, function(i, layerId)
 				{
-					var layer = app.maps[0].getLayer(layerId);
+					var layer = app.map.getLayer(layerId);
 					var layerName = layer && layer.arcgisProps && layer.arcgisProps.title ? layer.arcgisProps.title : (layer && layer.name ? layer.name : layerId);
 
 					// Exclude basemap
@@ -94,7 +109,7 @@ define(["dojo/topic"],
 					// If parent service isn't present it's a client rendering so we need to keep it
 					if( layer.layerId >= 0 ) {
 						var serviceName = layer.id.split('_').slice(0,-1).join('_');
-						if( $.inArray(serviceName, app.maps[0].layerIds) >= 0 )
+						if( $.inArray(serviceName, app.map.layerIds) >= 0 )
 							return;
 					}
 					
@@ -120,14 +135,18 @@ define(["dojo/topic"],
 				webmaps = webmaps || [];
 				$(contentContainer).find('.inputWebmapId1').val(webmaps[0]);
 				$(contentContainer).find('.inputWebmapId2').val(webmaps[1]);
+				var map1 = $(contentContainer).find(".inputWebmapId1").val();
+				var map2 = $(contentContainer).find(".inputWebmapId2").val();
+				map1 == app.rootMapId ? $(contentContainer).find(".inputWebmapId1").attr('disabled', 'disabled') : $(contentContainer).find(".inputWebmapId1").attr('disabled', false);
+				map2 == app.rootMapId ? $(contentContainer).find(".inputWebmapId2").attr('disabled', 'disabled') : $(contentContainer).find(".inputWebmapId2").attr('disabled', false);				
 			}
 			
 			function configureWebmapsModelLbl(layout)
 			{
 				var dataModelTitle = layout == "swipe" ? i18n.swipe.settingsDataModel.settingsDataModelExplainSwipe : i18n.swipe.settingsDataModel.settingsDataModelExplainSpyGlass;
 								
-				var webmap1Lbl = layout == "swipe" ? i18n.swipe.settingsDataModel.settingsDataModelWebmapSwipeId1 : i18n.swipe.settingsDataModel.settingsDataModelWebmapGlassId1;
-				var webmap2Lbl = layout == "swipe" ? i18n.swipe.settingsDataModel.settingsDataModelWebmapSwipeId2 : i18n.swipe.settingsDataModel.settingsDataModelWebmapGlassId2;
+				var webmap1Lbl = layout == "swipe" ? i18n.swipe.settingsDataModel.settingsDataModelWebmapSwipeId2 : i18n.swipe.settingsDataModel.settingsDataModelWebmapGlassId1;
+				var webmap2Lbl = layout == "swipe" ? i18n.swipe.settingsDataModel.settingsDataModelWebmapSwipeId1 : i18n.swipe.settingsDataModel.settingsDataModelWebmapGlassId2;
 				
 				var dataModel1Lbl = layout == "swipe" ? i18n.swipe.settingsDataModel.settingsDataModel1Explain : i18n.swipe.settingsDataModel.settingsDataModel1SpyGlassExplain;
 				var dataModel2Lbl = layout == "swipe" ? i18n.swipe.settingsDataModel.settingsDataModel2Explain : i18n.swipe.settingsDataModel.settingsDataModel2SpyGlassExplain;
@@ -140,7 +159,7 @@ define(["dojo/topic"],
 				$(contentContainer).find('.model1.alert').html(dataModel1Lbl);
 				$(contentContainer).find('.model2.alert').html(
 					dataModel2Lbl
-					+ ' <a class="webmapidtooltip">' + i18n.swipe.settingsDataModel.settingsDataModel2HelpTitle + '</a>'
+					+ ' <a class="webmapidtooltip">' + '<br />' + i18n.swipe.settingsDataModel.settingsDataModel2HelpTitle + '</a>'
 				);
 				
 				$(contentContainer).find('.webmapidtooltip').popover({
@@ -149,13 +168,14 @@ define(["dojo/topic"],
 					html: true,
 					content: '<div style="text-align: center">' 
 						+  i18n.swipe.settingsDataModel.settingsDataModel2HelpContent
-						+  '<img style="margin-top: 6px" src="resources/icons/tooltip-map-id.png" width="220px" height="128px"/>'
+						+  '<img style="margin-top: 6px" src="resources/icons/tooltip-map-id.png" width="220px" height="126px"/>'
 						+ '</div>' 
 				});
 			}
 			
 			function selectDataModel(index)
 			{
+				index == 0 ? app.mainMap = app.map : app.mainMap = (app.maps[0] || app.map);
 				$(contentContainer).find('.dataModel-box').removeClass("selected");
 				$(contentContainer).find('.dataModel-box').eq(index ? 1 : 0).addClass("selected selectedDataModel");
 				
@@ -167,7 +187,10 @@ define(["dojo/topic"],
 	
 			this.initLocalization = function()
 			{
-				$(titleContainer).html(i18n.swipe.settingsDataModel.settingsTabDataModel);
+				if($(titleContainer).find('.wizardLabel')[0])
+					$(titleContainer).find('.wizardLabel').html(i18n.swipe.settingsDataModel.settingsTabDataModel);
+				else
+					$(titleContainer).html(i18n.swipe.settingsDataModel.settingsTabDataModel);
 				$(contentContainer).find('p').html(i18n.swipe.settingsDataModel.settingsDataModelExplainSwipe);
 				$(contentContainer).find('.model1').html(i18n.swipe.settingsDataModel.settingsDataModelOneMap);
 				$(contentContainer).find('.model2').html(i18n.swipe.settingsDataModel.settingsDataModelTwoMaps);

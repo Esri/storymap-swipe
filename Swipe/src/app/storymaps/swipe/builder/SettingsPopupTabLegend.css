@@ -3,7 +3,7 @@
 }
 
 .viewLegend .legendContainer {
-	margin-top: 45px;
+	margin-top: 23px;
 }
 
 #initPopup .viewLegend .legendContainer {
@@ -53,6 +53,10 @@
 	width: 300px !important;
 }
 
+.viewLegend .geolocatortooltip-popover {
+	width: 280px !important;
+}
+
 .viewLegend a {
 	font-weight: normal;
 	text-decoration: underline;
@@ -65,7 +69,7 @@
 }
 
 #initPopup .viewLegend #uiSimulator {
-	top: 45px;
+	top: 75px;
 }
 
 .viewLegend #uiSimulator div {
