@@ -120,12 +120,12 @@ We would love to hear from you!
 
 ## What's new?
 
-#### Swipe 1.2 released on 12/11/2013
+#### Swipe 1.2 released on 12/10/2013
 
 New functionalities:
 
  * Address search tool (geocoder widget).
- * Locater button now an optional display element in viewer.
+ * Locator button now an optional display element in viewer.
  * Spyglass map now has zoom capability.
  * Arrow images on swipe bar are now draggable.
  * Side panel is now sized dynamically to its content (if it contains one element, i.e. legend, or description).
@@ -134,12 +134,15 @@ New functionalities:
  * Ability to organize series tabs in the builder by dragging them to desired position.
  * Legend titles now display ellipsis if title is too long.
  * Hyperlink button in the builder rich text editor (descriptions area) for better authoring experience.
+ * Header subtitle display a scrollbar when needed
+ * Updated social sharing icons
  
 Bug Fixes:
 
  * When using a spyglass and a series, the map click in the spyglass was offset and would return the wrong feature.
  * The map area below the side panel was not interactive.
  * In one web map mode, the legend now better reflects the layout of the map.
+ * Header title/subtitle could overflow the logog and social sharing links
 
 Technical Changes:
 
@@ -149,7 +152,7 @@ Technical Changes:
 
 Major version with the following new functionalities:
  
- * Swipe Series.  This is a tabbed scene navigation tool that will take the user to a certain extent and display the author’s title and description for that scene.  The titles are displayed in the tooltip for each button of each scene.  In the builder, any bookmarks from the webmaps are imported on initial swipe series creation.
+ * Swipe Series.  This is a tabbed scene navigation tool that will take the user to a certain extent and display the authorï¿½s title and description for that scene.  The titles are displayed in the tooltip for each button of each scene.  In the builder, any bookmarks from the webmaps are imported on initial swipe series creation.
  * Ability to disable web map popups in application
  * Support Portal for ArcGIS
  * Embed mode that remove header (available through the embed URL parameter or through configuration file)
@@ -159,7 +162,7 @@ Major version with the following new functionalities:
  * New button to open the Web Application item page
  * New configuration option to disable individual social sharing services
  * New button in the Settings extent tab to use the current map extent 
- * Better vertical centering of the header logo (appear centered whatever it’s size)
+ * Better vertical centering of the header logo (appear centered whatever itï¿½s size)
  * Use the Organization/Portal helper services and Bing Maps configuration (allow to define Geometry, Geocode Service and Bing Maps key at the Organization/Portal level without configuring the template)
 
 
@@ -179,13 +182,13 @@ Bug Fixes:
  * Popup with 2 layers does not update with map pan
  * Mobile swipe series view for description and title is not updated live (on edit)
  * Mobile swipe series view for long description (will expand with click)
- * If on mobile legend view and resize to desktop, arrows will remain visible (and “no legend” message if no legend)
+ * If on mobile legend view and resize to desktop, arrows will remain visible (and ï¿½no legendï¿½ message if no legend)
  * If on mobile data view and resize to desktop, and back to data, the popup info no longer is there (but will reload if you swipe to map view and back to data)
 
 Technical Changes:
 
  * Use ArcGIS API for Javascript 3.7
- * The build script isn’t limited to Windows environment (now uses grunt)
+ * The build script isnï¿½t limited to Windows environment (now uses grunt)
  * Switched to on style event
  * Embedded jQuery and removed sharethis
 
@@ -297,7 +300,7 @@ To build a production version of the application from the source code, you first
 
 Then initialize the environment by running the following commands in the Swipe folder:
  * `npm install`
- * `npm install –g grunt-cli`
+ * `npm install ï¿½g grunt-cli`
 
 This will create a new `node-modules` folder in your project root with all tools to build the project. If you have trouble running the second command, [this may help you](https://github.com/gruntjs/grunt-cli#installing-grunt-cli-locally).
 
