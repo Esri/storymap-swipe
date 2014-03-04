@@ -120,6 +120,20 @@ We would love to hear from you!
 
 ## What's new?
 
+#### Swipe 1.3 released on 03/04/2014
+
+Major changes:
+ * Interactive builder overall user experience improvement (see below)
+
+Interactive builder evolution:
+ * New share dialog that allow to share the Tour publicly (or within author's Organization)
+ * Improved user experience of the builder top button bar, initialization and import dialog
+ * Support authoring an app without existing web application item
+ * Web map picker widget provides a GUI for selecting web maps from your personal, general AGOL, and your Organization's content
+
+Developer evolution:
+ * Use ArcGIS API for Javascript 3.9
+
 #### Swipe 1.2 released on 12/10/2013
 
 New functionalities:
