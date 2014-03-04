@@ -1,0 +1,33 @@
+@media only screen and (max-height : 708px) {
+	#helpPopup {
+		top: 50% !important;
+		margin-top: -304px;
+	}
+}
+
+@media only screen and (max-height : 607px) {
+	#helpPopup {
+		top: 0px !important;
+		margin-top: 0px;
+	}
+}
+
+@media only screen and (min-device-width : 768px)  and (max-device-width : 1024px)  and (orientation : landscape) {
+	/* ipad */
+	#helpPopup .modal-body {
+		height: 370px;
+	}
+}
+
+#helpPopup .tab {
+	min-width: 0px;
+}
+
+#helpPopup a {
+	font-weight: normal;
+	text-decoration: underline;
+}
+
+#helpPopup ul {
+	margin-left: 30px;
+}

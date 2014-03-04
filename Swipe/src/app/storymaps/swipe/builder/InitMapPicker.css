@@ -1,0 +1,25 @@
+/*
+ * All screens
+ */
+#initMapPopup {
+	top: 50% !important;
+	margin-top: -200px !important;
+}
+
+#initMapPopup .modal-body {
+	overflow: visible;
+}
+
+
+#initMapPopup .hide {
+	display: none;
+}
+
+#initMapPopup .header {
+	margin-bottom: 15px;
+}
+
+#initMapPopup .webmap-id-input > div {
+	margin-bottom: 15px;
+	font-size: 18px;
+}
