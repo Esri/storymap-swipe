@@ -114,7 +114,7 @@ Swipe should be included in future releases of Portal for ArcGIS (after 10.2).
 
 We would love to hear from you!
 * Email us at storymaps@esri.com
-* [StoryMaps Website](http://storymaps.esri.com/home/)
+* [StoryMaps Website](http://storymaps.arcgis.com/en/)
 * [@EsriStoryMaps](http://twitter.com/EsriStoryMaps)
 * [ArcGIS Blog](http://blogs.esri.com/esri/arcgis/)
 
