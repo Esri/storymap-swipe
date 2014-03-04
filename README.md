@@ -7,10 +7,10 @@ a better experience on smartphone and an interactive builder on ArcGIS Online, s
 ![App](https://raw.github.com/Esri/swipe-map-storytelling-template-js/master/storytelling-swipe-map-template-js.png)
 
 [View it live](http://storymaps.esri.com/templates/swipe/) 
-| [User Download (source code not included)](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Storytelling-Swipe-1.2.zip)
+| [User Download (source code not included)](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Storytelling-Swipe-1.3.zip)
 | [Developer Download (include source code)](https://github.com/Esri/swipe-map-storytelling-template-js/archive/master.zip)
 
-**Latest release is version version 1.2**, if you want to be informed of new releases, we recommend you to watch these repository.
+**Latest release is version version 1.3**, if you want to be informed of new releases, we recommend you to watch these repository.
 
 
 Help content:
@@ -152,7 +152,7 @@ Technical Changes:
 
 Major version with the following new functionalities:
  
- * Swipe Series.  This is a tabbed scene navigation tool that will take the user to a certain extent and display the author�s title and description for that scene.  The titles are displayed in the tooltip for each button of each scene.  In the builder, any bookmarks from the webmaps are imported on initial swipe series creation.
+ * Swipe Series.  This is a tabbed scene navigation tool that will take the user to a certain extent and display the author's title and description for that scene.  The titles are displayed in the tooltip for each button of each scene.  In the builder, any bookmarks from the webmaps are imported on initial swipe series creation.
  * Ability to disable web map popups in application
  * Support Portal for ArcGIS
  * Embed mode that remove header (available through the embed URL parameter or through configuration file)
@@ -162,7 +162,7 @@ Major version with the following new functionalities:
  * New button to open the Web Application item page
  * New configuration option to disable individual social sharing services
  * New button in the Settings extent tab to use the current map extent 
- * Better vertical centering of the header logo (appear centered whatever it�s size)
+ * Better vertical centering of the header logo (appear centered whatever it's size)
  * Use the Organization/Portal helper services and Bing Maps configuration (allow to define Geometry, Geocode Service and Bing Maps key at the Organization/Portal level without configuring the template)
 
 
@@ -182,13 +182,13 @@ Bug Fixes:
  * Popup with 2 layers does not update with map pan
  * Mobile swipe series view for description and title is not updated live (on edit)
  * Mobile swipe series view for long description (will expand with click)
- * If on mobile legend view and resize to desktop, arrows will remain visible (and �no legend� message if no legend)
+ * If on mobile legend view and resize to desktop, arrows will remain visible (and 'no legend' message if no legend)
  * If on mobile data view and resize to desktop, and back to data, the popup info no longer is there (but will reload if you swipe to map view and back to data)
 
 Technical Changes:
 
  * Use ArcGIS API for Javascript 3.7
- * The build script isn�t limited to Windows environment (now uses grunt)
+ * The build script isn't limited to Windows environment (now uses grunt)
  * Switched to on style event
  * Embedded jQuery and removed sharethis
 
@@ -300,7 +300,7 @@ To build a production version of the application from the source code, you first
 
 Then initialize the environment by running the following commands in the Swipe folder:
  * `npm install`
- * `npm install �g grunt-cli`
+ * `npm install -g grunt-cli`
 
 This will create a new `node-modules` folder in your project root with all tools to build the project. If you have trouble running the second command, [this may help you](https://github.com/gruntjs/grunt-cli#installing-grunt-cli-locally).
 
