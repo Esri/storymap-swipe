@@ -1,7 +1,7 @@
 #initPopup {
 	display: none;
 	overflow:hidden;
-	width: 580px;
+	width: 620px;
 	margin-left: -290px;
 }
 
@@ -38,4 +38,15 @@
 .initPopupHeader button {
 	border-radius: 0 !important;
 	width: 34%;
+}
+
+#initPopup .viewDataModel .dataModel-box .browseMaps {
+	display: inline-block;
+	position: absolute;
+	right: 50px;
+	bottom: 159px;
+}
+
+#initPopup .browseMaps2 {
+	bottom: 94px !important;
 }

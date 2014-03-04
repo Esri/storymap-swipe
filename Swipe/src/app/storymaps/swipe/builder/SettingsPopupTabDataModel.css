@@ -134,3 +134,20 @@
 .switchMapIds.settings{
 	bottom: 100px;
 }
+
+.miniInput{
+	text-align: left;
+	margin-left: -35px;
+	width: 170px;
+}
+
+.viewDataModel .dataModel-box .browseMaps {
+	display: inline-block;
+	position: absolute;
+	right: 60px;
+	bottom: 136px;
+}
+
+.browseMaps2 {
+	bottom: 71px !important;
+}

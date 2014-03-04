@@ -1,6 +1,6 @@
 define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "dojo/topic"], 
 	function (WebApplicationData, Helper, topic) {
-		return function BuilderPanel(container, builderSave) 
+		return function BuilderPanel(container, builderSave, builderDirectCreationFirstSave, saveWebmap) 
 		{
 			var _this = this;
 			var _displayBuilderSaveIntro = true;
@@ -23,8 +23,11 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 				app.builder.hideSaveConfirmation = hideSaveConfirmation;
 				
 				container.find('.builder-save').click(save);
+				container.find(".builder-share").click(function(){
+					app.builder.openSharePopup(false);
+				});
 				container.find('.builder-settings').click(showSettingsPopup);
-				container.find('.builder-item').click(openItem);
+				container.find('.builder-help').click(showHelpPopup);
 			};
 			
 			//
@@ -39,10 +42,46 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 				closeBuilderSaveIntro();
 				container.find(".builder-settings").popover('show');
 				
+				
+				if (app.isDirectCreationFirstSave) {
+					var appTitle = $('#headerDesktop .title .text_edit_label').text();
+					var appSubTitle = $('#headerDesktop .subtitle .text_edit_label').text();
+					if ( appSubTitle == i18n.builder.header.editMe )
+						appSubTitle = "";
+					
+					if ( ! appTitle || appTitle == i18n.builder.header.editMe ) {
+						_this.saveFailed("NONAME");
+						return;
+					}
+					
+					// Save the webmap
+					// If ok get the new id
+					// Call saveApp
+					// If ok call appSaveSucceeded
+					builderDirectCreationFirstSave(appTitle, appSubTitle);
+				}
+				/*else if (app.isGalleryCreation) {
+					builderGalleryCreationFirstSave();
+				}*/
+				else {
+					// Save the app 
+					// If OK and needed call save webmap 
+					// If OK call appSaveSucceeded
+					builderSave(function(response){
+						if (!response || !response.success) {
+							appSaveFailed("APP");
+							return;
+						}
+						else
+							saveWebmap(response);
+					});
+					//builderSave(appSaveSucceeded);
+				}
+				
 				// Save the app 
 				// If OK and needed call save webmap 
 				// If OK call appSaveSucceeded
-				builderSave();
+				//builderSave();
 			}
 	
 			function discard(confirmed)
@@ -63,6 +102,14 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 			{
 				closePopover();
 				_builderView.openSettingPopup(false);
+			}
+			
+			function showHelpPopup()
+			{
+				closePopover();
+				window.open('http://storymaps.arcgis.com/en/app-list/swipe/','_blank');
+				//app.builder.openHelpPopup();
+				
 			}
 	
 			function switchToView(confirmed)
@@ -87,21 +134,40 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 			
 			this.saveSucceeded = function()
 			{
-				container.find(".builder-settings").next(".popover").find(".stepSave").css("display", "none");
-				container.find(".builder-settings").next(".popover").find(".stepSaved").css("display", "block");
-				setTimeout(function(){
+				//container.find(".builder-settings").next(".popover").find(".stepSaved").css("display", "block");
+				/*setTimeout(function(){
 					container.find(".builder-settings").popover('hide');
-				}, 3500);
+				}, 2500);*/
+				
+				container.find(".builder-settings").popover('hide');
+				
+				if( app.isDirectCreationFirstSave || app.isGalleryCreation )
+					app.builder.openSharePopup(true);
 
 				closePopover();
 				resetSaveCounter();
 				changeBuilderPanelButtonState(true);
 			};
 			
-			this.saveFailed = function()
+			this.saveFailed = function(source)
 			{
 				container.find(".builder-settings").next(".popover").find(".stepSave").css("display", "none");
-				container.find(".builder-settings").next(".popover").find(".stepFailed").css("display", "block");
+				//container.find(".builder-settings").next(".popover").find(".stepFailed").css("display", "block");
+				if (source == "NONAME") {
+					container.find(".builder-settings").next(".popover").find(".stepFailed3").css("display", "block");
+					
+					$("#headerDesktop .title").addClass("titleEmpty");
+					
+					container.find(".builder-save").attr("disabled", false);
+					container.find(".builder-settings").attr("disabled", false);
+					container.find(".builder-help").attr("disabled", false);
+					
+					return;
+				}
+				else 
+					container.find(".builder-save").next(".popover").find(".stepFailed").css("display", "block");
+				
+				
 				changeBuilderPanelButtonState(true);
 			};
 			
@@ -222,11 +288,12 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 					trigger: 'manual',
 					placement: 'bottom',
 					content: '<script>'
-								+ '$("' + containerId + ' .builder-settings").next(".popover").css("margin-left", "0px").addClass("settings-popover");'
-								+ 'setTimeout(function(){$("' + containerId + ' .builder-settings").next(".popover").css("margin-left", - ($(".builder-save").outerWidth()/2 + $(".builder-discard").outerWidth() + $(".builder-settings").outerWidth()/2+8));}, 0);'
+								+ '$("' + containerId + ' .builder-settings").next(".popover").css("margin-left", "0px").addClass("save-popover-2");'
+								+ 'setTimeout(function(){$("' + containerId + ' .builder-settings").next(".popover").css("margin-left", - ($(".builder-save").outerWidth()/2 + $(".builder-share").outerWidth() + $(".builder-settings").outerWidth()/2+8));}, 0);'
 								+ '$("' + containerId + ' .builder-settings").next(".popover").find(".stepSave").css("display", "block");'
 								+ '$("' + containerId + ' .builder-settings").next(".popover").find(".stepSaved").css("display", "none");'
 								+ '$("' + containerId + ' .builder-settings").next(".popover").find(".stepFailed").css("display", "none");'
+								+ '$("' + containerId + ' .builder-settings").next(".popover").find(".stepFailed3").css("display", "none");'
 								+ '</script>'
 								+ '<div class="stepSave" style="margin-top: 3px">'
 								+  i18n.builder.builder.savingApplication + '... <img src="resources/icons/loader-upload.gif" class="addSpinner" alt="Uploading">'
@@ -237,6 +304,10 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 								+ '</div>'
 								+ '<div class="stepFailed" style="color: red;">'
 								+  i18n.builder.builder.saveError + ' '
+								+ '<button type="button" class="btn btn-danger btn-small" onclick="app.builder.hideSaveConfirmation()" style="vertical-align: 1px;">'+i18n.builder.builder.gotIt+'</button> '
+								+ '</div>'
+								+ '<div class="stepHidden stepFailed3" style="color: red;">'
+								+  i18n.builder.builder.saveError3 + ' '
 								+ '<button type="button" class="btn btn-danger btn-small" onclick="app.builder.hideSaveConfirmation()" style="vertical-align: 1px;">'+i18n.builder.builder.gotIt+'</button> '
 								+ '</div>'
 				});
@@ -277,12 +348,27 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 			function hideSaveConfirmation()
 			{
 				container.find(".builder-settings").popover('hide');
+				$("#headerDesktop .title").removeClass("titleEmpty");
 			}
 			
 			function changeBuilderPanelButtonState(activate)
 			{
-				container.find("div > button").attr("disabled", ! activate);
+				container.find(".builder-cmd").attr("disabled", ! activate);
 			}
+			
+			this.updateSharingStatus = function()
+			{
+				if( app.isDirectCreationFirstSave || app.isGalleryCreation ) {
+					$("#sharing-status").html("<span style='color: #FFF'>; " + i18n.swipe.share.shareStatus1 + "</span>");
+					container.find('.builder-share').attr("disabled", "disabled");
+				}
+				else if ( app.data.getAppItem().access == "public" )
+					$("#sharing-status").html("; " + i18n.swipe.share.shareStatus2);
+				else if ( app.data.getAppItem().access == "account" )
+					$("#sharing-status").html("; " + i18n.swipe.share.shareStatus3);
+				else
+					$("#sharing-status").html("; " + i18n.swipe.share.shareStatus4);
+			};
 			
 			this.resize = function()
 			{
@@ -301,10 +387,12 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 			{
 				container.find('h4').html(i18n.builder.builder.panelHeader);
 				container.find('button').eq(0).html(i18n.builder.builder.buttonSave);
-				container.find('button').eq(1).html(i18n.builder.builder.buttonDiscard);
+				container.find('button').eq(1).html(i18n.builder.builder.buttonShare.toUpperCase());
+				//container.find('button').eq(1).html(i18n.builder.builder.buttonDiscard);
 				container.find('button').eq(2).html(i18n.builder.builder.buttonSettings.toUpperCase());
-				container.find('button').eq(3).html('<img src="resources/icons/builder-view.png" style="vertical-align: -6px;" alt="' + i18n.builder.builder.buttonView + '" />');
-				container.find('button').eq(4).html('<i class="icon-file"></i>').attr("title", i18n.builder.builder.buttonItem);
+				container.find('button').eq(3).html(i18n.builder.builder.buttonHelp.toUpperCase());
+				//container.find('button').eq(3).html('<img src="resources/icons/builder-view.png" style="vertical-align: -6px;" alt="' + i18n.builder.builder.buttonView + '" />');
+				//container.find('button').eq(4).html('<i class="icon-file"></i>').attr("title", i18n.builder.builder.buttonItem);
 				container.find('#save-counter').html(i18n.builder.builder.noPendingChange);
 			}
 		}

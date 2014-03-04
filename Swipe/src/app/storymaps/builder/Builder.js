@@ -33,7 +33,9 @@ define(["esri/arcgis/Portal",
 		
 		var _builderPanel = new BuilderPanel(
 			$('#builderPanel'),
-			saveApp
+			saveApp,
+			builderDirectCreationFirstSave,
+			saveWebmap
 		);
 		var _settingsPopup = new SettingsPopup(
 				$('#settingsPopup'), 
@@ -49,7 +51,7 @@ define(["esri/arcgis/Portal",
 			$(document).ready(lang.hitch(this, function(){
 				console.log("swipe.builder.Builder - init");
 
-				if( ! Helper.getAppID(_core.isProd()) ) {
+				if( ! Helper.getAppID(_core.isProd()) && ! app.isDirectCreation && ! app.isGalleryCreation) {
 					console.error("swipe.builder.Builder - abort builder initialization, no appid supplied");
 					return;
 				}
@@ -81,6 +83,11 @@ define(["esri/arcgis/Portal",
 			}));
 			
 			app.cleanApp = cleanApp;
+		}
+		
+		function appInitComplete()
+		{
+			_builderPanel.updateSharingStatus();
 		}
 		
 		function resize()
@@ -137,7 +144,7 @@ define(["esri/arcgis/Portal",
 		// Web mapping application save
 		//
 
-		function saveApp()
+		function saveApp(nextFunction)
 		{
 			if ( ! app.portal ) {
 				console.error("Fatal error - not signed in");
@@ -182,7 +189,7 @@ define(["esri/arcgis/Portal",
 						}
 					);
 					
-					saveRq.then(saveWebmap, appSaveFailed);
+					saveRq.then(nextFunction, appSaveFailed);
 				},
 				function(error) {
 					appSaveFailed("APP", error);
@@ -190,16 +197,119 @@ define(["esri/arcgis/Portal",
 			);
 		}
 		
+		function builderDirectCreationFirstSave(title, subtitle)
+		{
+			if ( ! app.portal ) {
+				console.error("Fatal error - not signed in");
+				appSaveFailed("APP");
+				return;
+			}
+			
+			var uid = IdentityManager.findCredential(getPortalURL()).userId;
+			
+			// Create the app item
+			app.data.setAppItem(
+				lang.mixin(
+					Helper.getBlankAppJSON(),
+					{
+						title: title,
+						snippet: subtitle,
+						uploaded: Date.now(),
+						modified: Date.now(),
+						owner: uid,
+						access: 'private'
+					}
+				)
+			);
+			
+			// Update the webmap item
+			/*var webMapItem = app.data.getWebMapItem();
+			lang.mixin(
+				webMapItem.item, 
+				{
+					title: title,
+					snippet: subtitle,
+					uploaded: Date.now(),
+					modified: Date.now(),
+					owner: uid,
+					access: 'private'
+				}
+			);*/
+
+			app.portal.signIn().then(
+				function(){
+					saveWebmap(function(response){
+						if( ! response || ! response.success ) {
+							appSaveFailed("WEBMAP");
+							return;
+						}
+						
+						// Save the webmp id in the app definition
+						//WebApplicationData.setWebmap(response.id);
+						
+						// Update the webmap item
+						/*var webMapItem = app.data.getWebMapItem();
+						lang.mixin(
+							webMapItem.item, 
+							{
+								id: response.id,
+								item: response.item
+							}
+						);*/
+					
+						// Save the app
+						saveApp(function(response2){
+							if (!response2 || !response2.success) {
+								appSaveFailed("APP");
+								return;
+							}
+							
+							// Update the app item
+							app.data.setAppItem(
+								lang.mixin(
+									app.data.getAppItem(), 
+									{
+										id: response2.id,
+										item: response2.item,
+										url: document.location.protocol + '//' + document.location.host + document.location.pathname + '?appid=' + response2.id
+									}
+								)
+							);
+							
+							// Save the app a second time
+							saveApp(function(response3){
+								if (!response3 || !response3.success) {
+									appSaveFailed("APP");
+									return;
+								}
+								
+								console.log('swipe.builder.Builder - firstSaveForDirectCreation - appid:', response3.id);
+								
+								appSaveSucceeded({
+									success: true
+								});
+								app.isDirectCreationFirstSave = false;
+								app.isCreationLayout = false;
+								app.isCreationSpyglass = false;
+								_builderPanel.updateSharingStatus();
+								
+								History.replaceState({}, "", "?appid=" + response3.id + "&edit");
+							});
+						});
+					});
+			},
+			function(error){
+				appSaveFailed("APP", error);
+			});
+		}
+		
 		//
 		// Web Map save
 		//
 		
-		function saveWebmap(response)
+		function saveWebmap(nextFunction)
 		{
-			if( ! response || ! response.success )
-				appSaveFailed("APP");
-			
-			if( app.data.initialExtentHasBeenEdited ) {
+			if( app.data.initialExtentHasBeenEdited || app.isDirectCreationFirstSave) {
 				var portalUrl = getPortalURL(),
 					item = lang.clone(app.data.getWebMapItem().item),
 					itemData = app.data.getWebMapItem().itemData,
@@ -227,7 +337,7 @@ define(["esri/arcgis/Portal",
 					token: token
 				};
 
-				var saveRq = esriRequest(
+				/*var saveRq = esriRequest(
 					{
 						url: portalUrl + "/sharing/content/users/" + uid + (item.ownerFolder ? ("/" + item.ownerFolder) : "") + "/addItem",
 						handleAs: 'json',
@@ -236,12 +346,128 @@ define(["esri/arcgis/Portal",
 					{
 						usePost: true
 					}
-				);
-
-				saveRq.then(appSaveSucceeded, appSaveFailed);
+				);*/
+				
+				if (app.data.initialExtentHasBeenEdited) {
+					var saveRq = esriRequest(
+						{
+							url: portalUrl + "/sharing/content/users/" + uid + (item.ownerFolder ? ("/" + item.ownerFolder) : "") + "/addItem",
+							handleAs: 'json',
+							content: rqData
+						},
+						{
+							usePost: true
+						}
+					);
+					saveRq.then(appSaveSucceeded, appSaveFailed);
+					
+				}
+				
+				else 
+					nextFunction({
+						success: true
+					})
 			}
 			else
-				appSaveSucceeded(response);
+				appSaveSucceeded({success: true});
+		}
+		
+		//
+		// Sharing
+		//
+		
+		function shareAppAndWebmap(sharingMode, callback)
+		{
+			// Kind of shitty
+			// Can only be used to add more privilege
+			
+			// Looks like sharing to private imply a unshareItems request first 
+ 			// => don't use it that code to share private without more test
+			if ( sharingMode != "public" && sharingMode != "account" )
+				sharingMode = "public";
+			
+			// Find items to share - only if they aren't already shared to the proper level 
+			var targetItems = [];
+			if( sharingMode == "account" ) {
+				if( app.data.getWebMapItem().item.access == "private" && app.data.getWebMapItem().item.owner == app.portal.getPortalUser().username )
+ 					targetItems.push(app.data.getWebMapItem().item.id);
+					
+				if(app.mode == "TWO_WEBMAPS"){
+					if( app.data.getWebMapItem2().item.access == "private" && app.data.getWebMapItem2().item.owner == app.portal.getPortalUser().username )
+ 						targetItems.push(app.data.getWebMapItem2().item.id);
+						
+				}
+				
+ 				if ( app.data.getAppItem().access == "private" )
+ 					targetItems.push(app.data.getAppItem().id);
+ 			}
+ 			else {
+ 				if( app.data.getWebMapItem().item.access != "public" && app.data.getWebMapItem().item.owner == app.portal.getPortalUser().username )
+					targetItems.push(app.data.getWebMapItem().item.id);
+					
+				if (app.mode == "TWO_WEBMAPS") {
+					if( app.data.getWebMapItem2().item.access != "public" && app.data.getWebMapItem2().item.owner == app.portal.getPortalUser().username )
+						targetItems.push(app.data.getWebMapItem2().item.id);
+				}
+				if ( app.data.getAppItem().access != "public" )
+					targetItems.push(app.data.getAppItem().id);
+			}
+			
+			// Also update eventual FS if needed
+			// TODO: no check if user is the owner or not
+			//if ( app.data.sourceIsFS() && app.data.getFSSourceLayerItemId() ) 
+				//targetItems.push(app.data.getFSSourceLayerItemId());
+			
+			shareItems(targetItems.join(','), sharingMode).then(function(response){
+				var success = response 
+					&& response.results 
+					&& response.results.length == targetItems.length;
+				
+				if (success) {
+					$.each(response.results, function(i, result){
+						if( ! result.success )
+							success = false;
+					});
+					
+					app.data.getWebMapItem().item.access = sharingMode;
+					app.data.getAppItem().access = sharingMode;
+					_builderPanel.updateSharingStatus();
+				}
+				
+				callback(success);
+			});	
+		}
+		
+		function shareItems(items, sharing)
+		{
+			var portalUrl = getPortalURL(),
+				uid = IdentityManager.findCredential(portalUrl).userId,
+				token  = IdentityManager.findCredential(portalUrl).token;
+
+			var params = {
+				f: "json",
+				token: token,
+				items: items,
+				groups: '',
+				everyone: '',
+				account: ''
+			};
+			
+			if ( sharing == "public" )
+				params.everyone = true;
+			if ( sharing == "account" )
+				params.account = true;
+
+			return esriRequest(
+				{
+					url: portalUrl + "/sharing/content/users/" + uid + "/shareItems",
+					handleAs: 'json',
+					content: params
+				},
+				{
+					usePost: true
+				}
+			);
 		}
 		
 		//
@@ -260,8 +486,7 @@ define(["esri/arcgis/Portal",
 
 		function appSaveFailed(source, error)
 		{
-			_builderPanel.saveFailed();
-			changeBuilderPanelButtonState(true);
+			_builderPanel.saveFailed(source, error);
 		}
 		
 		//
@@ -345,7 +570,9 @@ define(["esri/arcgis/Portal",
 		return {
 			init: init,
 			resize: resize,
-			presentInitPopup: presentInitPopup
+			appInitComplete: appInitComplete,
+			presentInitPopup: presentInitPopup,
+			shareAppAndWebmap: shareAppAndWebmap
 		};
 	}
 );

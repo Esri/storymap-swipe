@@ -82,6 +82,11 @@
 	color: #999;
 }
 
+#sharing-status {
+	font-family: "Helvetica Neue",Helvetica,Arial,sans-serif;
+	font-size: 12px;
+}
+
 #builderPanel .popover-content {
 	padding: 6px 10px;
 }
@@ -126,6 +131,20 @@
 
 .builder-settings {
 	margin-left: 11px;
+}
+
+.save-popover-2 {
+	text-align: center;
+	min-height: 40px;
+	min-width: 280px !important;
+	max-width: 360px !important;
+	color: #30750A;
+	font-weight: bold;
+	font-size: 14px;
+}
+
+.save-popover-2 .popover-title {
+	display: none;
 }
 
 .settings-popover {

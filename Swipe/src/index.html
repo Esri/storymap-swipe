@@ -125,7 +125,7 @@
 		</script>
 
 		<script type="text/javascript">
-			var version = '1.2';
+			var version = '1.3';
 			var isProduction = false;
 
 			function loadJS(url, isExternal)
@@ -152,8 +152,8 @@
 				document.getElementsByTagName("head")[0].appendChild(el);
 			}
 			
-			loadCSS("//js.arcgis.com/3.8/js/esri/css/esri.css", true);
-			loadCSS("//js.arcgis.com/3.8/js/dojo/dijit/themes/claro/claro.css", true);
+			loadCSS("//js.arcgis.com/3.9/js/esri/css/esri.css", true);
+			loadCSS("//js.arcgis.com/3.9/js/dojo/dijit/themes/claro/claro.css", true);
 
 			if( isProduction ) {
 				loadCSS("app/swipe-min.css");
@@ -178,16 +178,20 @@
 				loadCSS("app/storymaps/builder/Builder.css");
 				loadCSS("app/storymaps/builder/BuilderPanel.css");
 				loadCSS("app/storymaps/swipe/builder/BuilderView.css");
+				loadCSS("app/storymaps/swipe/builder/HelpPopup.css");
+				loadCSS("app/storymaps/swipe/builder/SharePopup.css");
 				
 				loadCSS("app/storymaps/builder/SettingsPopup.css");
 				loadCSS("app/storymaps/swipe/builder/SettingsPopupTabLayout.css");
 				loadCSS("app/storymaps/swipe/builder/SettingsPopupTabDataModel.css");
 				loadCSS("app/storymaps/swipe/builder/SettingsPopupTabLegend.css");
 				loadCSS("app/storymaps/swipe/builder/SettingsPopupTabSwipePopup.css");
-				loadCSS("app/storymaps//swipe/builder/InitPopup.css");
+				loadCSS("app/storymaps/swipe/builder/InitPopup.css");
+				loadCSS("app/storymaps/swipe/builder/InitMapPicker.css");
 				loadCSS("app/storymaps/builder/SettingsPopupTabColors.css");
 				loadCSS("app/storymaps/builder/SettingsPopupTabHeader.css");
 				loadCSS("app/storymaps/builder/SettingsPopupTabExtent.css");
+				loadCSS("app/storymaps/ui/SelectMapWidget/browse-dialog/css/browse-dialog.css");
 				
 				loadCSS("app/storymaps/swipe/ui/mobile/MobileSwipeView.css");
 				loadCSS("app/storymaps/swipe/ui/mobile/Carousel.css");
@@ -214,7 +218,14 @@
 						// If the template is deployed on a Portal (apps path contains /apps/StorytellingSwipe/ or /home/StorytellingSwipe/)
 						// commonConfig.js is loaded from the parent folder, otherwise it's is loaded from the app folder
 						location: /(\/apps\/|\/home\/)(StorytellingSwipe\/)/.test(document.location.pathname) ? path_location.substr(0,path_location.lastIndexOf('/StorytellingSwipe')) : path_location.replace(/\/+$/, '') + '/app'
+					},
+					{
+						name: 'lib-build',
+						location: location.pathname.replace(/\/[^/]+$/, '/') + 'lib-build'
 					}
+				],
+				aliases: [
+					['text', 'lib-build/text']
 				]
 			};
 		</script>
@@ -247,7 +258,7 @@
 				<div class="rightArea">
 					<div class="social">
 						<span class="msLink">
-							<a href="http://storymaps.esri.com" target="_blank"></a>
+							<a href="http://storymaps.arcgis.com/" target="_blank"></a>
 						</span>
 						<i class="shareIcon share_facebook icon-facebook-squared-1"></i>
 						<i class="icon-twitter-1 shareIcon share_twitter"></i>
@@ -260,17 +271,19 @@
 					</div>
 				</div>
 				<button type="button" class="switchBuilder btn"></button>
-				<!-- Builder top panel -->
+				<!-- Builder top panel -->			
 				<div id="builderPanel">
 					<h4></h4>
 					<div>
-						<button type="button" class="btn builder-save"></button>
-						<button type="button" class="btn builder-discard"></button>
-						<button type="button" class="btn builder-settings"></button>
-						<button type="button" class="btn small builder-view"></button>
-						<button type="button" class="btn small builder-item"></button>
+						<button type="button" class="btn builder-cmd builder-save"></button>
+						<button type="button" class="btn builder-cmd builder-share"></button>
+						<button type="button" class="btn builder-cmd builder-settings"></button>
+						<button type="button" class="btn builder-cmd builder-help"></button>
 					</div>
-					<div id="save-counter"></div>
+					<div id="status-bar">
+						<span id="save-counter"></span>
+						<span id="sharing-status"></span>
+					</div>
 				</div>
 			</div>
 		</div>
@@ -400,7 +413,7 @@
 					<p></p>
 					<form class="form-horizontal">
 						<div id="colorScheme" class="control-group" style="margin-bottom: 5px">
-							<label class="control-label noFloat"></label>
+							<label class="control-label"></label>
 							<div class="controls"></div>
 						</div>
 					</form>
@@ -556,11 +569,12 @@
 							<div class="controls">
 								<input class="inputWebmapId1" type="text" maxlength="32" disabled>
 							</div>
-							<a class="btn btn-small switchMapIds"><i class="icon-retweet"></i></a>
+							<a class="btn btn-mini switchMapIds"><i class="icon-retweet"></i></a>
 							<label class="control-label" for="inputWebmapId2"></label>
 							<div class="controls">
 								<input class="inputWebmapId2" type="text" maxlength="32"/>
 							</div>
+						<a class="btn btn-mini browseMaps" "><i class="icon-search"></i></a> 
 						</div>
 					</div>
 					<button class="btnSelect btn"></button>
@@ -610,7 +624,7 @@
 									<input type="checkbox" name="optionsLocationSearch" value="locationSearch" >
 									<span class="locationSearchText"></span> <span class="locationSearchInfo"></span>
 								</label>
-								<label class="checkbox" style="width:225px;">
+								<label class="checkbox" style="margin-bottom: 1px;">
 									<input type="checkbox" name="optionsGeolocator" value="geolocator" >
 									<span class="geolocatorText"></span> <span class="geolocatorInfo"></span>
 								</label>
@@ -659,6 +673,88 @@
 			</div>
 		</div>
 		
+		<!-- Share popup -->
+		<div class="modal hide" id="sharePopup" data-backdrop="static" tabindex="-1">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h3></h3>
+			</div>
+			<div class="modal-body">
+				<div class="first-save hide">
+					<div class="header"></div>
+					<div class="question question1"></div>
+					<div class="answer answer1"></div>
+					<div class="question question2"></div>
+					<div class="answer answer2"></div>
+				</div>
+				<div class="share">
+					<div class="not-shared hide">
+						<div class="header"></div>
+						<div class="share-btn">
+							<button class="btn btn-sharePublic"></button>
+							<button class="btn btn-shareOrga"></button>
+						</div>
+						<div class="share-warning"></div>
+						<div class="footer">
+							<a class="btn-learnmore"></a>
+							| <a class="btn-preview"></a>
+						</div>
+					</div>
+					<div class="shared-dialog">
+						<div class="header"></div>
+						<div class="share-link"></div>
+						
+						<div class="question shared-question1"></div>
+						<div class="collapse answer shared-answer1"></div>
+						
+						<div class="question shared-question2"></div>
+						<div class="collapse answer shared-answer2"></div>
+						
+						<div class="question shared-question3"></div>
+						<div class="collapse answer shared-answer3"></div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<span class="footer-status success"></span>
+				<span class="footer-status error"></span>
+				<button class="btnClose btn" data-dismiss="modal" aria-hidden="true"></button>
+			</div>
+		</div>
+		
+		<!-- Help popup -->
+		<div class="modal hide" id="helpPopup" data-backdrop="static" tabindex="-1">
+			<div class="modal-header">
+				<button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
+				<h3></h3>
+			</div>
+			<div class="modal-body">
+				<div id="help-tab1"></div>
+				<div id="help-tab2"></div>
+				<div id="help-tab3"></div>
+			</div>
+			<div class="modal-footer">
+				<button class="btnClose btn" data-dismiss="modal" aria-hidden="true"></button>
+			</div>
+		</div>
+		
+		<!-- Direct creation popup -->
+		<div class="modal hide" id="initMapPopup" data-backdrop="static" tabindex="-1">
+			<div class="modal-header">
+				<h3></h3>
+			</div>
+			<div class="modal-body">
+				<div class="mapPicker">
+					<div class="mapPicker-dialog">
+						<div class="header"></div>
+						<div class="webmap-id-input"></div>
+					</div>
+				</div>
+			</div>
+			<div class="modal-footer">
+				<button class="btnClose btn btn-success" data-dismiss="modal" aria-hidden="true"></button>
+			</div>
+		</div>
 		<!-- Fatal error box -->
 		<div id="fatalError">
 			<table border="0">
@@ -673,7 +769,7 @@
 		</div>
 
 		<script type="text/javascript">
-			loadJS('//js.arcgis.com/3.8/init.js', true);			
+			loadJS('//js.arcgis.com/3.9/init.js', true);			
 			loadJS('app/swipe-config.js');
 			
 			function getUrlVar(name)
@@ -692,7 +788,7 @@
 			}
 			
 			if( isProduction ) {
-				if( getUrlVar('edit') )
+				if( getUrlVar('edit')|| getUrlVar('fromScratch') || getUrlVar('fromscratch'))
 					loadJS('app/swipe-builder-min.js');
 				else
 					loadJS('app/swipe-viewer-min.js');
@@ -702,6 +798,7 @@
 				loadJS('lib/animateClip.js');
 				loadJS('lib/bootstrap/js/bootstrap.min.js');
 				loadJS('lib/spin.min.js');
+				loadJS('lib/history.min.js');
 				loadJS('lib/cubiq.swipeview.js');
 				loadJS('lib/jquery.fastClick.js');
 				loadJS('lib/spectrum/spectrum.js');
@@ -712,7 +809,7 @@
 			}
 		</script>
 
-		<!-- Enable Google Analytics on storymaps.esri.com -->
+		<!-- Enable Google Analytics on http://storymaps.esri.com/ -->
 		<script type="text/javascript">
 			if (window.location.href.toLowerCase().indexOf("storymaps.esri.com") >= 0) {
 				var _gaq = _gaq || [];
@@ -756,10 +853,11 @@
 					 		loadingIndicator.init();
 							loadingIndicator.setMessage(i18n.viewer.loading.step1);
 							
-						 	require(["storymaps/core/Core", "storymaps/swipe/core/MainView"], function(Core, MainView){
-						 		var urlParams = urlUtils.urlToObject(document.location.search).query || {};
-						 		var isInBuilderMode = urlParams.edit != null;
-						 		
+						 	require(["storymaps/core/Core", "storymaps/swipe/core/MainView", "storymaps/utils/Helper"], function(Core, MainView, Helper){
+						 		var urlParams = Helper.getUrlParams();
+
+						 		var isInBuilderMode = urlParams.edit != null || urlParams.fromScratch != null || urlParams.fromscratch != null;
+
 						 		if (isInBuilderMode) {
 						 			require(["storymaps/builder/Builder", "storymaps/swipe/builder/BuilderView"], function(Builder, BuilderView) {
 						 				Core.init(new MainView(), Builder);

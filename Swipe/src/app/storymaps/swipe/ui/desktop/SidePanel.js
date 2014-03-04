@@ -296,7 +296,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 				queue: false
 			}, 750);
 
-			$("#mainMap_zoom_location").animate({
+			$(".mapCommandLocation").animate({
 				left: (direction=="up") ? 20 : 370,
 				queue: false
 			}, 750);
@@ -314,6 +314,10 @@ define(["storymaps/swipe/core/WebApplicationData",
 				}, 750);
 				$("#mainMap1_zoom_slider").animate({
 					left: (direction == "up") ? 20 : 370,
+					queue: false
+				}, 750);
+				$("#mainMap_zoom_location").animate({
+					left: (direction=="up") ? 20 : 370,
 					queue: false
 				}, 750);
 			}

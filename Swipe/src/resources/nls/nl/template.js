@@ -7,6 +7,8 @@
 				step3: "INITIALISEREN",
 				fail: "Laden Swipe mislukt",
 				loadBuilder: "OVERSCHAKELEN NAAR BUILDER MODUS",
+				redirectSignIn: "OMLEIDEN NAAR AANMELDINGSPAGINA",
+				redirectSignIn2: "(na het aanmelden wordt u naar hier omgeleid)",
 				failButton: "Opnieuw proberen"
 			},
 			errors: {
@@ -42,6 +44,8 @@
 			builder: {
 				panelHeader: "APPLICATIECONFIGURATIE",
 				buttonSave: "OPSLAAN",
+				buttonHelp: "Help",
+				buttonShare: "Delen",
 				buttonDiscard: "ANNULEREN",
 				buttonSettings: "Instellingen",
 				buttonView: "Weergavemodus",
@@ -61,6 +65,8 @@
 				savingApplication: "Applicatie opslaan",
 				saveSuccess: "Applicatie opgeslagen",
 				saveError: "Opslaan mislukt, probeer het opnieuw",
+				saveError2: "Opslaan is mislukt vanwege een ongeldige HTML-tag in een naam of beschrijving",
+				saveError3: "De titel mag niet leeg zijn",
 				signIn: "Meld u aan met een account op",
 				signInTwo: "om de applicatie op te slaan."
 			},
@@ -96,7 +102,7 @@
 				settingsTabExtent: "Extent",
 				settingsExtentExplain: "Stel het begin-extent in met de interactieve kaart hieronder.",
 				settingsExtentExplainBottom: "Het extent dat u definieert, zal het oorspronkelijke extent van de webmap wijzigen. Merk op dat dit extent niet zal worden gebruikt als u een Swipe-reeks uitvoert.",
-				settingsExtentDateLineError: "Het extent mag niet op de meridiaan van 180° lengtegraad zijn",
+				settingsExtentDateLineError: "Het extent mag niet op de meridiaan van 180ï¿½ lengtegraad zijn",
 				settingsExtentDateLineError2: "Fout bij het berekenen van het extent",
 				settingsExtentDrawBtn: "Een nieuw extent tekenen",
 				settingsExtentModifyBtn: "Het huidige extent bewerken",
@@ -152,7 +158,9 @@
 				settingsDataModel2Explain: "Swipe met een andere webmap.",
 				settingsDataModel2SpyGlassExplain: "Een andere webmap weergeven.",
 				settingsDataModel2HelpTitle: "Hoe vind ik de ID van een webmap?",
-				settingsDataModel2HelpContent: "Kopieer en plak tekens achter het \'=\'  teken in de URL van de webmap"
+				settingsDataModel2HelpContent: "Kopieer en plak tekens achter het \'=\'  teken in de URL van de webmap",
+				switchMaps: "Kaarten wijzigen",
+				browseWebMaps: "Webmaps doorbladeren"
 			},
 			settingsLegend: {
 				settingsTabLegend: "Indeling app",
@@ -183,7 +191,7 @@
 				settingsSwipePopupColor: "Kleur header"
 			},
 			initPopup: {
-				initHeader: "Welkom bij de Swipe Builder",
+				initHeader: "Welkom bij de Swipe/Spyglass Builder",
 				modalNext: "Volgende",
 				modalPrev: "Vorige",
 				modalApply: "Open de app"
@@ -194,6 +202,77 @@
 				discard: "Bladwijzer negeren",
 				saveExtent: "Bladwijzer extent instellen",
 				discardDisabled: "U kunt de bladwijzer niet verwijderen. Swipe-reeks kan worden uitgeschakeld in de Instellingen."
+			},
+			helpPopup: {
+				title: "Help",
+				close: "Sluiten",
+				tab1: {
+					div1: "De template Swipe/Verrekijker is ontworpen om twee afzonderlijke webmaps of twee lagen van één webmap te vergelijken in een aantrekkelijke, gebruiksvriendelijke webapplicatie die kan worden gebruikt in elke webbrowser op elk apparaat, waaronder smartphones en tablets.",
+					div2: "Voor meer informatie over de template Swipe/Verrekijker, inclusief voorbeelden die door gebruikers zijn gemaakt, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> gaat u naar de website met kaartverhalen van Esri</a>. U kunt ons ook volgen op Twitter op <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
+					div3: "We horen graag van u! Als u een vraag hebt, een nieuw object wilt aanvragen of problemen ondervindt, gaat u naar het <a href='http://links.esri.com/storymaps/forum' target='_blank'>gebruikersforum voor kaartverhalen</a>."
+				}
+			},
+			share: {
+				firstSaveTitle: "Applicatie is opgeslagen",
+				firstSaveHeader: "Uw applicatie is nu opgeslagen in ArcGIS Online. Lees de volgende antwoorden op veelgestelde vragen.",
+				firstSaveA1: "Als u niet vertrouwd bent met ArcGIS Online of u zoekt een snelle manier om toegang te krijgen tot de ontwerpinterface, kunt u de volgende koppeling opslaan: %LINK1%",
+				firstSaveA1bis: "De applicatie is ook te vinden in uw <a href='%LINK2%' target='_blank'>ArcGIS Online-contentfolder</a>.",
+				firstSaveQ2: "Wordt mijn applicatie gedeeld?",
+				firstSaveA2: "Momenteel wordt uw applicatie niet gedeeld. Als u deze wilt delen, gebruikt u de knop DELEN.",
+				shareTitle: "Uw applicatie delen",
+				sharePrivateHeader: "Uw applicatie wordt niet gedeeld, wilt u deze delen?",
+				sharePrivateBtn1: "Openbaar delen",
+				sharePrivateBtn2: "Delen met Mijn Organisatie",
+				sharePrivateProgress: "Delen wordt uitgevoerd...",
+				sharePrivateErr: "Delen is mislukt. Probeer het opnieuw of",
+				sharePrivateOk: "Delen is bijgewerkt. Bezig met laden...",
+				shareStatus1: "Applicatie is niet opgeslagen",
+				shareStatus2: "Applicatie wordt openbaar gedeeld",
+				shareStatus3: "Applicatie wordt gedeeld binnen de organisatie",
+				shareStatus4: "Application wordt niet gedeeld",
+				sharePreviewAsUser: "Voorbeeld",
+				shareHeader1: "Uw applicatie is <strong>openbaar toegankelijk</strong>.",
+				shareHeader2: "Uw applicatie is toegankelijk voor leden van uw organisatie (aanmelden is vereist).",
+				shareLinkHeader: "De applicatie delen met uw publiek",
+				shareLinkOpen: "OPENEN",
+				learnMore: "Meer weten",
+				shareQ1Opt1: "Hoe houd ik de applicatie privé?",
+				shareQ1Opt2: "Hoe kan ik de applicatie privé houden of openbaar delen?",
+				shareA1: "Gebruik %SHAREIMG% op <a href='%LINK1%' target='_blank'>de applicatie-itempagina</a>. Als u de webmap ook ongedeeld wilt maken, gebruikt u <a href='%LINK2%' target='_blank'>de webmap-itempagina</a>.",
+				shareA1bis: "Als u het delen van de featureservice ongedaan wilt maken, gebruikt u <a href='%LINK1%' target='_blank'>de Featureservice-itempage</a>.",
+				shareQ2: "Hoe kan ik de applicatie later bewerken?",
+				shareQ2bis: "Hoe keer ik terug naar de ontwerpinterface?",
+				shareA2div1: "Sla de volgende koppeling op %LINK1% en gebruik deze opnieuw of gebruik <a href='%LINK2%' target='_blank'>de applicatie-itempagina</a>.",
+				shareA2div2: "Als u bent aangemeld bij ArcGIS.com als de eigenaar van de applicatie, bevat de applicatie een knop om de interactieve builder te openen:",				
+				shareQ3: "Waar zijn de gegevens opgeslagen?",
+				shareA3: "De applicatieconfiguratie wordt opgeslagen in dit webapplicatie-item</a>.",
+				shareWarning: "%WITH% delen is uitgeschakeld omdat u niet de eigenaar bent van de <a href='%LINK%' target='_blank'>webmap</a>.",
+ 				shareWarningWith1: "Openbaar",
+ 				shareWarningWith2: "Openbaar en met de organisatie"
+			},
+			directCreation: {
+				header: "Welkom bij de Swipe/Spyglass Builder",
+				mapPickHeader: "Als u wilt beginnen, voert u een geldige webmap-ID in of gebruikt u de zoekknop om door webmaps te bladeren.",
+				launchBuilder: "Builder starten",
+				chooseWebmapLbl: "Webmap kiezen...",
+				explain2: "Als u een Swipe- of Verrekijker-kaartverhaal wilt maken, gebruikt u de onderstaande knop om de bestaande ArcGIS Online-webmap die u wilt gebruiken, te selecteren. Of u kunt ook de ID van de webmap in het onderstaande veld plakken.",
+				explain3: "Als u twee webmaps wilt gebruiken in uw kaartverhaal, wordt u om de tweede webmap gevraagd wanneer u die optie selecteert.",
+				webmapPlaceholder: "Een webmap-ID invoeren..."
+			}
+		},
+		configure: {
+			mapdlg:{
+				items:{
+					organizationLabel: "Mijn Organisatie",
+					onlineLabel: "ArcGIS Online",
+					contentLabel: "Mijn Content",
+					favoritesLabel: "Mijn Favorieten"
+				},
+				title: "Webmap selecteren",
+				searchTitle: "Zoeken",
+				ok: "OK",
+				cancel: "Annuleren",
+				placeholder: "Zoekterm invoeren"
 			}
 		}
     })

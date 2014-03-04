@@ -92,6 +92,14 @@ a:hover {
  * Modal Styling
  */
 
+.modal-backdrop {
+	z-index: 940;	
+}
+
+.modal {
+	z-index: 945;
+}
+
 .modal-header {
 	border-bottom:none;
 	-webkit-border-top-left-radius: 4px;

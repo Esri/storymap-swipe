@@ -175,8 +175,8 @@ define(["storymaps/ui/inlineFieldEdit/InlineFieldEdit",
 			
 			function shareFacebook()
 			{
-				var options = '&p[title]=' + encodeURIComponent($(selector + ' #headerMobile .title').html())
-								+ '&p[summary]=' + encodeURIComponent($(selector + ' #headerMobile .subtitle').html())
+				var options = '&p[title]=' + encodeURIComponent($(selector + ' #headerMobile .title').text())
+								+ '&p[summary]=' + encodeURIComponent($(selector + ' #headerMobile .subtitle').text())
 								+ '&p[url]=' + encodeURIComponent(document.location.href)
 								+ '&p[images][0]=' + encodeURIComponent($("meta[property='og:image']").attr("content"));
 				
@@ -189,7 +189,7 @@ define(["storymaps/ui/inlineFieldEdit/InlineFieldEdit",
 			
 			function shareTwitter()
 			{
-				var options = 'text=' + encodeURIComponent($(selector + ' #headerMobile .title').html())
+				var options = 'text=' + encodeURIComponent($(selector + ' #headerMobile .title').text())
 								+ '&url=' + encodeURIComponent(document.location.href)
 								+ '&related=EsriStoryMaps'
 								+ '&hashtags=storymap'; 
@@ -232,6 +232,12 @@ define(["storymaps/ui/inlineFieldEdit/InlineFieldEdit",
 				
 				var urlParams = urlUtils.urlToObject(document.location.search).query || {};
 				var targetUrl = document.location.href;
+											
+				if ( app.isInBuilderMode ) {
+					targetUrl = targetUrl.replace(/\?edit&/, '?');
+					targetUrl = targetUrl.replace(/\?edit/, '');
+					targetUrl = targetUrl.replace(/&edit/, '');
+				}
 				
 				$.getJSON(
 					bitlyUrl, 

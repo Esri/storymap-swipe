@@ -6,7 +6,7 @@
             pkg: grunt.file.readJSON('package.json'),
 			
 			clean: {
-				deploy: ['deploy/'],
+				deploy: ['deploy/*'],
 				css: [
 					'deploy/app/Responsive.css', 
 					'deploy/app/css/', 
@@ -53,32 +53,35 @@
             },
 			
 			requirejs: {
-			  viewer: {
 				options: {
-				  baseUrl: "src/app/",
+					baseUrl: "src/app/",
 					paths: {
 						'dojo': 'empty:',
 						'esri': 'empty:',
 						'dijit': 'empty:',
-						'dojox': 'empty:'
+						'dojox': 'empty:',
+						// SelectMapWidget config
+						'dgrid': 'empty:', 
+						'put-selector': 'empty:',
+						'lib-build': '../lib-build/',
+						'text': '../lib-build/text'
 					},
-					name: 'storymaps/' + APP_NAME + '/BuildConfigViewer',
-					out: 'deploy/app/' + APP_NAME + '-app-viewer-min.js'
+					stubModules: [
+						'text'
+					]
+				},
+				viewer: {
+					options: {
+						name: 'storymaps/' + APP_NAME + '/BuildConfigViewer',
+						out: 'deploy/app/' + APP_NAME + '-app-viewer-min.js'
+					}
+				},
+				builder: {
+					options: {
+						name: 'storymaps/' + APP_NAME + '/BuildConfigBuilder',
+						out: 'deploy/app/' + APP_NAME + '-app-builder-min.js'
+					}
 				}
-			  },
-			  builder: {
-				options: {
-				  baseUrl: "src/app/",
-					paths: {
-						'dojo': 'empty:',
-						'esri': 'empty:',
-						'dijit': 'empty:',
-						'dojox': 'empty:'
-					},
-					name: 'storymaps/' + APP_NAME + '/BuildConfigBuilder',
-					out: 'deploy/app/' + APP_NAME + '-app-builder-min.js'
-				}
-			  }
 			},
 			
 			cssmin: {

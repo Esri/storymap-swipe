@@ -1,6 +1,9 @@
 define(["storymaps/swipe/core/WebApplicationData", 
 		"storymaps/builder/SettingsPopup",
 		"storymaps/utils/Helper",
+		"storymaps/swipe/builder/HelpPopup",
+		"storymaps/swipe/builder/SharePopup",
+		"storymaps/swipe/builder/InitMapPicker",
 		// Settings tab
 		"storymaps/swipe/builder/SettingsPopupTabDataModel",
 		"storymaps/swipe/builder/SettingsPopupTabLayout",
@@ -14,6 +17,9 @@ define(["storymaps/swipe/core/WebApplicationData",
 		WebApplicationData, 
 		SettingsPopup,
 		Helper,
+		HelpPopup,
+		SharePopup,
+		InitMapPicker,
 		SettingsPopupTabDataModel,
 		SettingsPopupTabLayout,
 		SettingsPopupTabLegend,
@@ -27,12 +33,20 @@ define(["storymaps/swipe/core/WebApplicationData",
 		{
 			var NO_LOGO_OPTION = "NO_LOGO";
 			var _settingsPopup = null;
+			var _helpPopup = new HelpPopup($('#helpPopup'));
+			var _sharePopup = new SharePopup($('#sharePopup'));
+			var _initMapPicker = new InitMapPicker($('#initMapPopup'));
+			
+			
 			
 			this.init = function(settingsPopup)
 			{
 				_settingsPopup = settingsPopup;
 				topic.subscribe("SETTINGS_POPUP_SAVE", settingsPopupSave);
 				topic.subscribe("POPUP_CHANGE", controlPopupOptions);
+				app.builder.openHelpPopup = openHelpPopup;
+				app.builder.openSharePopup = openSharePopup;
+				app.builder.initMapPicker = openInitMapPicker;
 			}
 			
 			//
@@ -179,6 +193,33 @@ define(["storymaps/swipe/core/WebApplicationData",
 					logoURL = null;
 				
 				return logoURL;
+			}
+			
+			//
+			// Help popup
+			//
+			
+			function openHelpPopup(tabIndex)
+			{
+				_helpPopup.present(tabIndex);
+			}
+			
+			//
+			// Direct creation first save
+			//
+			
+			function openSharePopup(isFirstSave)
+			{
+				_sharePopup.present(isFirstSave);
+			}
+			
+			//
+			// Direct creation map picker
+			//
+			
+			function openInitMapPicker(loadWebMap)
+			{
+				_initMapPicker.present(loadWebMap);
 			}
 			
 			function controlPopupOptions(enablePopup)

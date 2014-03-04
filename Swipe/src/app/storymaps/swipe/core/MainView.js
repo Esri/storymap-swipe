@@ -250,9 +250,9 @@ define(["dojo/dom-construct",
 					});
 				}
 				if( WebApplicationData.getGeolocator())
-					$('#mainMap_zoom_location').show()
+					$('.mapCommandLocation').show()
 				else
-					$('#mainMap_zoom_location').hide()
+					$('.mapCommandLocation').hide()
 				
 				if( app.seriesPanel )
 					app.seriesPanel.appIsReady();
@@ -285,9 +285,9 @@ define(["dojo/dom-construct",
 				app.mobileInfoWindowView.update(appColors[1]);
 				app.mobileLegendView.update(appColors[1]);
 				if( WebApplicationData.getGeolocator())
-					$('#mainMap_zoom_location').show()
+					$('.mapCommandLocation').show()
 				else
-					$('#mainMap_zoom_location').hide()									
+					$('.mapCommandLocation').hide()									
 				if( WebApplicationData.getLocationSearch())
 					$('#locationSearch').show()
 				else
@@ -296,12 +296,18 @@ define(["dojo/dom-construct",
 			
 			this.resize = function(cfg)
 			{
-				if( app.initInProgress ) {
+				if( app.initInProgress) {
 					// Display the fatal error dialog box on mobile or the data popup on desktop
 					$("#loadingOverlay").css("top", cfg.isMobileView ? "0px" : $("#header").height());
 					$("#header").css("display", cfg.isMobileView ? "none" : "block");
 					$("#fatalError").css("display", cfg.isMobileView ? "block": "none");
 				}
+				if ($('#initMapPopup').css('display') == 'block') {
+					$("#header").css("display", "none");
+					$('#contentPanel').css('display', 'none !important');
+				}
+				if(app.isDirectCreation || app.isGalleryCreation)
+					$("#fatalError").css("display", cfg.isMobileView ? "block": "none");
 				if (cfg.isMobileView)
 					if(location.hash!=("#map"))
 						location.hash = "map";

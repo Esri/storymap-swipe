@@ -1,5 +1,5 @@
 .viewLegend {
-	height: 220px;
+	height: 230px;
 }
 
 .viewLegend .legendContainer {
@@ -31,7 +31,7 @@
 }
 
 .viewLegend .legendControls {
-	margin-left: 30px !important;
+	margin-left: 0px !important;
 	margin-top: 6px;
 	position: absolute;
 }
@@ -40,7 +40,7 @@
 	margin-left: 5px !important;
 }
 
-.viewLegend .legendInfo, .viewLegend .seriesInfo {
+.viewLegend .legendInfo, .viewLegend .seriesInfo, .viewLegend .geolocatorInfo {
 	vertical-align: -4px;
 }
 
@@ -76,4 +76,8 @@
 	text-align: center;
 	margin-bottom: 4px;
 	font-weight: bold;
+}
+
+.legendControls .checkbox {
+	max-width: 335px;
 }

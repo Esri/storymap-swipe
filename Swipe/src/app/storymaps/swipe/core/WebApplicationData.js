@@ -58,16 +58,27 @@ define(["dojo/_base/lang", "esri/geometry/Extent"], function(lang, Extent){
 		{
 			_originalData = lang.clone(_data);
 		},
-		getWebmap: function()
+		getWebmap: function(condition)
 		{
-			return _data.values.webmap || configOptions.webmap;
+			if( _data.values.webmap )
+				return _data.values.webmap 
+			if( condition == false )
+				return null
+				
+			return configOptions.webmap;
 		},
-		getWebmaps: function()
+		setWebmap: function(webmap)
+		{
+			_data.values.webmap = webmap;
+		},
+		getWebmaps: function(condition)
 		{
 			if( _data.values.webmaps )
 				return _data.values.webmaps;
 			if( _data.values.webmap )
 				return [_data.values.webmap];
+			if( condition == false )
+				return null
 			
 			return configOptions.webmaps;
 		},

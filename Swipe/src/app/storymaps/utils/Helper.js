@@ -34,6 +34,22 @@ define(["dojo/cookie",
 						|| navigator.userAgent.match(/BlackBerry/i)
 						|| navigator.userAgent.match(/IEMobile/i);
 			},
+			browserSupportHistory: function()
+			{
+				return !!(window.history && history.pushState);
+			},
+			// Get URL parameters IE9 history not supported friendly
+			getUrlParams: function()
+			{
+				var urlParams = urlUtils.urlToObject(document.location.search).query;
+				if ( urlParams )
+					return urlParams;
+				
+				if( ! this.browserSupportHistory() && ! urlParams )
+					return urlUtils.urlToObject(document.location.hash).query || {};
+				
+				return {};
+			},
 			getWebmapsIDs: function(isProd)
 			{
 				var urlParams = urlUtils.urlToObject(document.location.search).query || {};
@@ -68,6 +84,43 @@ define(["dojo/cookie",
 					return configOptions.appid;
 				
 				return urlParams.appid;
+			},
+			getBlankAppJSON: function()
+			{
+				return {
+					"itemType": "text",
+					"guid": null,
+					"name": null,
+					"type": "Web Mapping Application",
+					"typeKeywords": ["JavaScript", "Map", "Mapping Site", "Online Map", "Ready To Use", "selfConfigured", "Web Map", "Story Maps", "Swipe", "Spyglass"],
+					"description": null,
+					"tags": ["Story Map", "Swipe", "Spyglass"],
+					"snippet": null,
+					"thumbnail": "thumbnail/ago_downloaded.png",
+					"documentation": null,
+					"extent": [],
+					"lastModified": -1,
+					"spatialReference": null,
+					"accessInformation": null,
+					"licenseInfo": null,
+					"culture": "en-us",
+					"properties": null,
+					/*"url": "http://story.maps.arcgis.com/apps/MapTour/index.html?appid=353325e3cd4d4059b3e1972d00c210e0&webmap=2972b44e39314972807f683215cf0652",*/
+					"size": 116,
+					"appCategories": [],
+					"industries": [],
+					"languages": [],
+					"largeThumbnail": null,
+					"banner": null,
+					"screenshots": [],
+					"listed": false,
+					"ownerFolder": null,
+					"commentsEnabled": true,
+					"numComments": 0,
+					"numRatings": 0,
+					"avgRating": 0.0,
+					"numViews": 1
+				};
 			},
 			getGraphicsLayerByName: function(map, name)
 			{
@@ -178,7 +231,6 @@ define(["dojo/cookie",
 			getPortalUser: function()
 			{
 				var esriCookie = cookie('esri_auth');
-				
 				if( ! esriCookie )
 					return;
 				
@@ -189,7 +241,7 @@ define(["dojo/cookie",
 						&& esriCookie.customBaseUrl 
 						&& (esriCookie.urlKey + '.' + esriCookie.customBaseUrl).toLowerCase() != document.location.hostname.toLowerCase())
 					return;
-				
+					
 				return esriCookie ? esriCookie.email : null;
 			},
 			getPortalRole: function()
@@ -218,6 +270,10 @@ define(["dojo/cookie",
 			{
 				var portalUrl = sharingUrl.split('/sharing/')[0];
 				return portalUrl + '/home/item.html?id=' + id;
+			},
+			getMyContentURL: function(sharingurl)
+			{
+				return sharingurl.split('/sharing/')[0] + '/home/content.html';
 			},
 			browserSupportAttachementUsingFileReader: function()
 			{

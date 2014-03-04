@@ -1,16 +1,38 @@
-define(["dojo/topic"], 
-	function (topic) {
+define(["dojo/topic",
+	"dojo/on",
+	"dojo/dom",
+	"storymaps/ui/SelectMapWidget/browse-dialog/js/BrowseIdDlg",
+	"dijit/registry"], 
+	function (
+		topic,
+		on,
+		dom,
+		BrowseIdDlg,
+		registry
+	) {
 		return function SettingsPopupTabDataModel(titleContainer, contentContainer, popupApplyButton) 
 		{
+			var _browseDlg = null;
 			// Clone the #popupView template into a new DIV
 			$(contentContainer).append($('#popupView-dataModel').children().clone());		
 			
 			// Events
 			$(contentContainer).find(".inputWebmapId1").keyup(checkWebmapsValidity);
 			$(contentContainer).find(".inputWebmapId2").keyup(checkWebmapsValidity);
+			$(contentContainer).find(".inputWebmapId1").bind('paste', null, function(){
+				setTimeout(function(){
+					checkWebmapsValidity();
+				}, 250);		
+			});
+			$(contentContainer).find(".inputWebmapId2").bind('paste', null, function(){
+				setTimeout(function(){
+					checkWebmapsValidity();
+				}, 250);		
+			});
 			$(contentContainer).find(".inputWebmapId2").blur(function(){ $(window).scrollTop(0); });
 			$(contentContainer).find('.btnSelect').fastClick(onDataModelChange);
 			$(contentContainer).find('.switchMapIds').fastClick(switchMapIds);
+			$(contentContainer).find('.browseMaps').fastClick(showMapPicker);
 			
 			topic.subscribe("LAYOUT_CHANGE", configureWebmapsModelLbl);
 			
@@ -22,13 +44,62 @@ define(["dojo/topic"],
 				configureWebmapsModelLbl(settings.layout);
 				checkWebmapsValidity();
 				
+				if (registry.byId("browse-id-dialog")) {
+					registry.byId("browse-id-dialog").destroy();
+					registry.byId("browse-id-search-box").destroy();
+					registry.byId("gallery").destroy();
+				}
+
+				if(app.browseDlg)
+					app.browseDlg.destroy();
+								
+				var browseParams = {
+					portal: app.portal,
+					galleryType: "webmap" //valid values are webmap or group
+				};
+				app.browseDlg = new BrowseIdDlg(browseParams);
+				$('.dijitDialogCloseIcon').css('display', 'none');
+				
+				//When the dialog is closed do something with the webmap id 
+		        on(app.browseDlg, "close", function(){
+		            if(app.browseDlg.get("selected") !== null){
+						if ($('.inputWebmapId1').hasClass('miniInput')) {
+							$('.inputWebmapId1').val(app.browseDlg.get("selected"));
+							$('.inputWebmapId1').keyup();
+						}
+						else {
+							$('.inputWebmapId2').val(app.browseDlg.get("selected"));
+							$('.inputWebmapId2').keyup();
+						}
+		            }
+					displaySettingsDialogue(true);
+		        });
+				
+				on(app.browseDlg._grid, "onItemClick", function(e){
+					displaySettingsDialogue(true);
+					if(app.browseDlg.get("selected") !== null){
+						$('.miniInput').val(app.browseDlg.get("selected"));
+		            }
+					app.browseDlg.onClose();
+				});
+				
+				on(app.browseDlg, "cancel", function(){
+					displaySettingsDialogue(true);
+				});
+				
+				var dlg = registry.byId('browse-id-dialog');
+				dlg._onKey = function(evt){
+					if (evt.keyCode == 27) 
+						dojo.stopEvent(evt);						
+				}
+				
 				if($(contentContainer).parent().parent()[0].id == 'settingsPopup')
 					$('.switchMapIds').addClass('settings');
 			}
 			
 			this.show = function()
 			{
-				//
+				checkWebmapsValidity()
 			}
 			
 			this.save = function()
@@ -72,6 +143,12 @@ define(["dojo/topic"],
 				];
 			}
 			
+			function showMapPicker()
+			{
+				displaySettingsDialogue(false)
+				app.browseDlg.show();
+			}
+			
 			function onDataModelChange(event)
 			{
 				selectDataModel($(event.target).parent().index() == 2 ? 1 : 0)
@@ -85,6 +162,10 @@ define(["dojo/topic"],
 				$(contentContainer).find(".inputWebmapId2").val(map1);
 				map1 == app.rootMapId ? $(contentContainer).find(".inputWebmapId2").attr('disabled', 'disabled') : $(contentContainer).find(".inputWebmapId2").attr('disabled', false);
 				map2 == app.rootMapId ? $(contentContainer).find(".inputWebmapId1").attr('disabled', 'disabled') : $(contentContainer).find(".inputWebmapId1").attr('disabled', false);
+			
+				$(contentContainer).find("input").removeClass('miniInput'); 
+				$(contentContainer).find(".inputWebmapId1").attr('disabled') == 'disabled' ? $(contentContainer).find(".inputWebmapId2").addClass('miniInput') : $(contentContainer).find(".inputWebmapId1").addClass('miniInput');
+				$(contentContainer).find(".inputWebmapId1").attr('disabled') == 'disabled' ? $(contentContainer).find(".browseMaps").addClass('browseMaps2') : $(contentContainer).find(".browseMaps").removeClass('browseMaps2');
 			}
 			
 			function buildLayersModel(layers)
@@ -101,7 +182,7 @@ define(["dojo/topic"],
 					var layerName = layer && layer.arcgisProps && layer.arcgisProps.title ? layer.arcgisProps.title : (layer && layer.name ? layer.name : layerId);
 
 					// Exclude basemap
-					if( ! layer || layer._basemapGalleryLayerType == "basemap" || layer._basemapGalleryLayerType == "reference" )
+					if( ! layer || layer._basemapGalleryLayerType == "basemap" || layer._basemapGalleryLayerType == "reference" || layerId == "locateLayer")
 						return;
 					
 					// Exclude layer of dynamic services if the parent service is present
@@ -139,6 +220,10 @@ define(["dojo/topic"],
 				var map2 = $(contentContainer).find(".inputWebmapId2").val();
 				map1 == app.rootMapId ? $(contentContainer).find(".inputWebmapId1").attr('disabled', 'disabled') : $(contentContainer).find(".inputWebmapId1").attr('disabled', false);
 				map2 == app.rootMapId ? $(contentContainer).find(".inputWebmapId2").attr('disabled', 'disabled') : $(contentContainer).find(".inputWebmapId2").attr('disabled', false);				
+
+				$(contentContainer).find("input").removeClass('miniInput'); 
+				$(contentContainer).find(".inputWebmapId1").attr('disabled') == 'disabled' ? $(contentContainer).find(".inputWebmapId2").addClass('miniInput') : $(contentContainer).find(".inputWebmapId1").addClass('miniInput');
+				$(contentContainer).find(".inputWebmapId1").attr('disabled') == 'disabled' ? $(contentContainer).find(".browseMaps").addClass('browseMaps2') : $(contentContainer).find(".browseMaps").removeClass('browseMaps2');
 			}
 			
 			function configureWebmapsModelLbl(layout)
@@ -171,6 +256,24 @@ define(["dojo/topic"],
 						+  '<img style="margin-top: 6px" src="resources/icons/tooltip-map-id.png" width="220px" height="126px"/>'
 						+ '</div>' 
 				});
+				
+				/*$(contentContainer).find('.switchMapIds').popover({
+					trigger: 'hover',
+					placement: 'left',
+					html: true,
+					content: '<div style="text-align: center">' 
+						+  i18n.swipe.settingsDataModel.switchMaps
+						+ '</div>' 
+				});*/
+				
+				/*$(contentContainer).find('.browseMaps').popover({
+					trigger: 'hover',
+					placement: 'left',
+					html: true,
+					content: '<div style="text-align: center">' 
+						+  i18n.swipe.settingsDataModel.browseWebMaps
+						+ '</div>' 
+				});*/
 			}
 			
 			function selectDataModel(index)
@@ -183,6 +286,11 @@ define(["dojo/topic"],
 				$(contentContainer).find('.dataModel-box-content').eq(index ? 0 : 1).addClass("fade");
 				
 				checkWebmapsValidity();
+			}
+			
+			function displaySettingsDialogue(condition){
+				var settingsDialogue = $(contentContainer[0].parentNode.parentNode.id).selector || $(contentContainer[0].parentNode.parentNode.id);
+				condition == true ? $('#' + settingsDialogue).show() : $('#' + settingsDialogue).hide();
 			}
 	
 			this.initLocalization = function()

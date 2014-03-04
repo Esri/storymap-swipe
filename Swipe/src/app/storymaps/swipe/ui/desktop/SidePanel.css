@@ -236,8 +236,8 @@ body.builder-mode #descriptionContent.builder.series {
 .esriLegendServiceLabel {
     display: block;
     overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
+    /*text-overflow: ellipsis;*/
+   /* white-space: nowrap;*/
     width: 150px;
 }
 

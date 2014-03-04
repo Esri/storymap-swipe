@@ -44,7 +44,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 			}
 			
 			this.present = function(settings, lockOnTabIndex) 
-			{			
+			{		
 				_initDeferred = new Deferred(); 
 				_tabs[0].init({});
 				_tabs[1].init({
@@ -55,7 +55,13 @@ define(["storymaps/swipe/core/WebApplicationData",
 				_tabs[3].init({
 					layout: "swipe"
 				});
-				displayTab(0);
+				if (app.isCreationLayout) {
+					displayTab(1);
+					$(container).find('.btn-prev').attr('disabled', false);
+					_tabs[0].selectLayout(app.isCreationLayout == "swipe" ? 0 : 1)				
+				}
+				else 
+					displayTab(0);
 				
 				$(container).modal({keyboard: false});
 
@@ -91,6 +97,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 			function prev()
 			{
 				var currentTab = $("#initPopup .tab.active").index("#initPopup .tab");
+				$(container).find('.btn-next').attr('disabled',false)
 				if (currentTab == 1)
 					$(container).find('.btn-prev').attr('disabled','disabled')
 				if (currentTab > 0) {

@@ -258,7 +258,6 @@ define(["dojo/_base/declare",
 				if( app.maps[1] ) {
 					on(app.maps[1], "click", function(evt){
 						app.popup[1].hide();
-						console.log("$$$$ ", evt);
 					});
 				}
 				

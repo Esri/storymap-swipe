@@ -7,6 +7,8 @@
 				step3: "INICIALIZANDO",
 				fail: "Desculpe, falha ao carregar a ferramenta Oscilar",
 				loadBuilder: "TROCANDO PARA MODO DO CONSTRUTOR",
+				redirectSignIn: "REDIRECIONANDO PARA PÁGINA DE REGISTRO",
+				redirectSignIn2: "(você será redirecionado aqui após registrar)",
 				failButton: "Tentar Novamente"
 			},
 			errors: {
@@ -42,6 +44,8 @@
 			builder: {
 				panelHeader: "CONFIGURAÇÃO DO MAPA",
 				buttonSave: "SALVAR",
+				buttonHelp: "Ajuda",
+				buttonShare: "Compartilhar",
 				buttonDiscard: "CANCELAR",
 				buttonSettings: "Configurações",
 				buttonView: "Modo de visualização",
@@ -61,6 +65,8 @@
 				savingApplication: "Salvando aplicativo",
 				saveSuccess: "Aplicativo salvo com sucesso",
 				saveError: "Falha ao salvar, tente novamente",
+				saveError2: "Falha ao salvar devido a uma tag de html inválida em um nome ou descrição",
+				saveError3: "O título não pode estar vazio",
 				signIn: "Registre-se com uma conta em",
 				signInTwo: "para salvar o aplicativo."
 			},
@@ -96,7 +102,7 @@
 				settingsTabExtent: "Extensão",
 				settingsExtentExplain: "Configure a extensão inicial pelo mapa interativo abaixo.",
 				settingsExtentExplainBottom: "A extensão que você define modificará sua extensão inicial do mapa da web. Observe que se você estiver realizando uma série de oscilações esta extensão não será utilizada.",
-				settingsExtentDateLineError: "A extensão não pode cruzar o meridiano de longitude de 180°",
+				settingsExtentDateLineError: "A extensão não pode cruzar o meridiano de longitude de 180ï¿½",
 				settingsExtentDateLineError2: "Erro ao calcular a extensão",
 				settingsExtentDrawBtn: "Desenhar uma nova extensão",
 				settingsExtentModifyBtn: "Editar a extensão atual",
@@ -152,7 +158,9 @@
 				settingsDataModel2Explain: "Oscilar com outro mapa da web.",
 				settingsDataModel2SpyGlassExplain: "Revelar com outro mapa da web.",
 				settingsDataModel2HelpTitle: "Como encontrar ID do mapa da web?",
-				settingsDataModel2HelpContent: "Copie e cole os dígitos após o sinal \'=\' na URL do mapa da web"
+				settingsDataModel2HelpContent: "Copie e cole os dígitos após o sinal \'=\' na URL do mapa da web",
+				switchMaps: "Trocar mapas",
+				browseWebMaps: "Procurar mapas da web"
 			},
 			settingsLegend: {
 				settingsTabLegend: "Layout do Aplicativo",
@@ -169,7 +177,7 @@
 				settingsSeriesHelpLink: "Consulte um exemplo de um aplicativo com uma série de oscilação aqui",
 				preview: "Visualizar ID",
 				settingsLocateButtonExplain: "Esta funcionalidade é suportada na maioria dos dispositivos móveis e navegadores desktop (incluindo Internet Explorer 9 +).",
-				settingsLocateButton: "Habilitar botão \'Localizar\' dos navegadores suportados",
+				settingsLocateButton: "Habilitar botão \'Localizar\' em navegadores suportados",
 				settingsAddressSearch: "Habilitar uma ferramenta de pesquisa de endereço"
 			},
 			settingsSwipePopup: {
@@ -183,7 +191,7 @@
 				settingsSwipePopupColor: "Cor do Cabeçalho"
 			},
 			initPopup: {
-				initHeader: "Bem-Vindo ao Construtor de Oscilação",
+				initHeader: "Bem-Vindo ao Builder de Oscilar/Luneta",
 				modalNext: "Avançar",
 				modalPrev: "Anterior",
 				modalApply: "Abrir o aplicativo"
@@ -194,6 +202,77 @@
 				discard: "Descartar Marcador",
 				saveExtent: "Configurar Extensão do Marcador",
 				discardDisabled: "Você não pode remover este marcador. A troca de série pode ser desabilitada nas Configurações."
+			},
+			helpPopup: {
+				title: "Ajuda",
+				close: "Fechar",
+				tab1: {
+					div1: "O modelo Oscilar/Luneta é projetado para comparar dois mapas da web separados ou duas camadas de um único mapa da web em um aplicativo da web atrativo, de fácil uso que pode ser utilizado em qualquer navegador da web em qualquer dispositivo, incluindo smartphones e tablets.",
+					div2: "Para informações adicionais sobre o modelo Oscilar/Luneta, incluindo exemplos criados por usuários, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> visite o site da web Mapas Históricos</a>. Você também pode nos seguir pelo Twitter em <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
+					div3: "Nós adoraríamos ouvir sua opinião! Se você tem uma pergunta, deseja solicitar uma nova feição ou se você localizou um erro, visite <a href='http://links.esri.com/storymaps/forum' target='_blank'>Story Maps User Forum</a>."
+				}
+			},
+			share: {
+				firstSaveTitle: "Application salvo com sucesso",
+				firstSaveHeader: "Seu Application está agora salvo no ArcGIS Online. Leia as seguintes respostas para perguntas mais frequentes.",
+				firstSaveA1: "Se você não estiver familiarizado com ArcGIS Online ou deseja um atalho para acessar a interface de criação, você pode salvar o seguinte link: %LINK1%",
+				firstSaveA1bis: "O Application também pode ser encontrado na sua <a href='%LINK2%' target='_blank'>pasta de conteúdo do ArcGIS Online</a>.",
+				firstSaveQ2: "Meu Application está compartilhado?",
+				firstSaveA2: "Atualmente seu Application não está compartilhado. Para compartilhá-lo, utilize o botão COMPARTILHAR.",
+				shareTitle: "Compartilhe seu Application",
+				sharePrivateHeader: "Seu Application não está compartilhado, gostaria de compartilhá-lo?",
+				sharePrivateBtn1: "Compartilhar publicamente",
+				sharePrivateBtn2: "Compartilhar com minha Organização",
+				sharePrivateProgress: "Compartilhamento em progresso...",
+				sharePrivateErr: "Falha ao compartilhar, tente novamente ou",
+				sharePrivateOk: "Compatilhando atualizados com sucesso, carregando...",
+				shareStatus1: "O Application não está salvo",
+				shareStatus2: "O Application está publicamente compartilhado",
+				shareStatus3: "O Application está compartilhado dentro da organização",
+				shareStatus4: "O Application não está compartilhado",
+				sharePreviewAsUser: "Visualizar",
+				shareHeader1: "Seu Application está <strong>publicamente acessível</strong>.",
+				shareHeader2: "Seu Application é acessível por seus membros da organização (registro é necessário).",
+				shareLinkHeader: "Compartilhe o Application com seu público",
+				shareLinkOpen: "ABRIR",
+				learnMore: "Obtenha mais informações",
+				shareQ1Opt1: "Como eu mantenho o Application privado?",
+				shareQ1Opt2: "Como eu mantenho o Application privado ou compartilho publicamente?",
+				shareA1: "Utilize %SHAREIMG% na <a href='%LINK1%' target='_blank'>página de item do aplicativo</a>. Se você também desejar descompartilhar o mapa web, utilize <a href='%LINK2%' target='_blank'>página de item do mapa da web</a>.",
+				shareA1bis: "Se você também desejar cancelar o compartilhamento do Serviço de Feição, utilize <a href='%LINK1%' target='_blank'>a página de item do Serviço de Feição</a>.",
+				shareQ2: "Como eu edito o Application posteriormente?",
+				shareQ2bis: "Como eu volto para a criação de interface?",
+				shareA2div1: "Salve e reutilize a link seguinte %LINK1% ou utilize <a href='%LINK2%' target='_blank'>a página de item do aplicativo</a>.",
+				shareA2div2: "Como o proprietário do aplicativo, quando você está conectado no ArcGIS.com, o aplicativo inclui um botão para abrir o construtor interativo:",				
+				shareQ3: "Onde os dados estão armazenados?",
+				shareA3: "A configuração do Application é armazenada neste item do aplicativo da web</ a>.",
+				shareWarning: "O compartilhamento %WITH% foi desabilitada, pois você não é o proprietário do <a href='%LINK%' target='_blank'>mapa da web</a>.",
+ 				shareWarningWith1: "publicamente",
+ 				shareWarningWith2: "publicamente e com a Organização"
+			},
+			directCreation: {
+				header: "Bem-Vindo ao Builder de Oscilar/Luneta",
+				mapPickHeader: "Para iniciar, insira um ID de mapa da web válido ou utilize o botão de pesquisa para consultar mapas da web.",
+				launchBuilder: "Inciar Builder",
+				chooseWebmapLbl: "Escolher mapa da web...",
+				explain2: "Para criar um mapa histórico do modelo Oscilar ou Luneta, utilize o botão abaixo para escolher o mapa da web existente do ArcGIS Online que você deseja utilizar. Alternativamente, você pode colar o ID do mapa da web no campo abaixo.",
+				explain3: "Se desejar utilizar dois mapas da web em seu mapa histórico, você será solicitado para o segundo mapa da web posteriormente, ao escolher esta opção.",
+				webmapPlaceholder: "Inserir um ID de mapa da web..."
+			}
+		},
+		configure: {
+			mapdlg:{
+				items:{
+					organizationLabel: "Minha Organização",
+					onlineLabel: "ArcGIS Online",
+					contentLabel: "Meu Conteúdo",
+					favoritesLabel: "Meus Favoritos"
+				},
+				title: "Selecionar Mapa da Web",
+				searchTitle: "Pesquisar",
+				ok: "Ok",
+				cancel: "Cancelar",
+				placeholder: "Inserir termo de pesquisa"
 			}
 		}
     })
