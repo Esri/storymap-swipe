@@ -49,7 +49,7 @@ Main features are:
 
 ## How to deploy a Swipe application
 
-1. [Download](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Storytelling-Swipe-1.2.zip)
+1. [Download](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Storytelling-Swipe-1.3.zip)
 2. [Install](#install)
 3. [Configure](#configure)
 4. [Personalize](#personalize)
@@ -114,7 +114,7 @@ Swipe should be included in future releases of Portal for ArcGIS (after 10.2).
 
 We would love to hear from you!
 * Email us at storymaps@esri.com
-* [StoryMaps Website](http://storymaps.esri.com/home/)
+* [StoryMaps Website](http://storymaps.arcgis.com/en/)
 * [@EsriStoryMaps](http://twitter.com/EsriStoryMaps)
 * [ArcGIS Blog](http://blogs.esri.com/esri/arcgis/)
 
@@ -301,7 +301,7 @@ Download and unzip the [Developer download](https://github.com/Esri/swipe-map-st
 | **Swipe/src/**                             | The application source code                                           |
 | **Swipe/deploy/**                          | The ready to be deployed Swipe application                         |
 | **Swipe/tools/**                           | Developer tools to build deploy/ from src/                            |
-| Storytelling-Swipe-1.2.zip      	     | User download archive	                                             |
+| Storytelling-Swipe-1.3.zip      	     | User download archive	                                             |
 | Readme.pdf       		             | The detailed readme guide                                             |
 | Readme.md                                  | This document                                                         |
 | storytelling-swipe-map-template-js.png     | The application screenshot                                            |
