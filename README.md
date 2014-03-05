@@ -301,7 +301,7 @@ Download and unzip the [Developer download](https://github.com/Esri/swipe-map-st
 | **Swipe/src/**                             | The application source code                                           |
 | **Swipe/deploy/**                          | The ready to be deployed Swipe application                         |
 | **Swipe/tools/**                           | Developer tools to build deploy/ from src/                            |
-| Storytelling-Swipe-1.2.zip      	     | User download archive	                                             |
+| Storytelling-Swipe-1.3.zip      	     | User download archive	                                             |
 | Readme.pdf       		             | The detailed readme guide                                             |
 | Readme.md                                  | This document                                                         |
 | storytelling-swipe-map-template-js.png     | The application screenshot                                            |
