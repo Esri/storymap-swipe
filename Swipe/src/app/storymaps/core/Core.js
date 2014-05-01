@@ -632,6 +632,7 @@ define(["esri/map",
 								layerInfos: (arcgisUtils.getLegendLayers(response))
 							}, "legend0");
 							legend0.startup();
+							hideEmptyLegend0(legend0);
 						}
 						else {
 							var legend1 = new Legend({
@@ -639,6 +640,7 @@ define(["esri/map",
 								layerInfos: (arcgisUtils.getLegendLayers(response))
 							}, "legend1");
 							legend1.startup();
+							hideEmptyLegend1(legend1);
 						}			
 				}
 					
@@ -682,6 +684,8 @@ define(["esri/map",
 							layerInfos: legend1Layer
 						}, "legend1");
 					legend1.startup();
+
+					hideEmptyLegend(legend0, legend1);
 				}
 			}
 			
@@ -727,6 +731,29 @@ define(["esri/map",
 			}
 			else if( app.mode == "TWO_LAYERS" )
 				setTimeout(_mainView.webmapLoaded, 0);
+		}
+
+		function hideEmptyLegend(legend0, legend1) {
+		  hideEmptyLegend0(legend0);
+		  hideEmptyLegend1(legend1);
+		}
+
+		function hideEmptyLegend0(legend0) {
+		  if (legend0.layers.length == 0) {
+		    $("#legend0").css("display", "none");
+		    $("#legend1").css("width", "100%");
+		    //Increase width of other legend title
+		    $("#legend1 .esriLegendServiceLabel").css("width", "300px");
+		  }
+		}
+
+		function hideEmptyLegend1(legend1) {
+		  if (legend1.layers.length == 0) {
+		    $("#legend0").css("width", "100%");
+		    $("#legend1").css("display", "none");
+		    //Increase width of other legend title
+		    $("#legend0 .esriLegendServiceLabel").css("width", "300px");
+		  }
 		}
 
 		function appInitComplete()
