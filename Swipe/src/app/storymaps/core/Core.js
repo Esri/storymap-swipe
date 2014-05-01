@@ -585,7 +585,8 @@ define(["esri/map",
 					slider: divId != "lensMapNode",
 					autoResize: false,
 					infoWindow: app.popup[index],
-					showAttribution: divId != "lensMapNode"
+					showAttribution: divId != "lensMapNode",
+					maxZoom: getMaxZoom()
 				},
 				ignorePopups: false,
 				bingMapsKey: commonConfig.bingMapsKey
@@ -598,6 +599,15 @@ define(["esri/map",
 			return webmapInitCallbackDone;
 		}
 		
+		function getMaxZoom() {
+		  if (configOptions.maximumZoom != undefined && configOptions.maximumZoom > 0) {
+		    return configOptions.maximumZoom;
+		  }
+		  else {
+		    return -1;
+		  }
+		}
+
 		function getWebmapIndex(webmapId)
 		{
 			return $.inArray(webmapId, Helper.getWebmapsIDs(isProd()));
