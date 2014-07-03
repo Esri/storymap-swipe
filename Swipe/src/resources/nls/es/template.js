@@ -25,7 +25,7 @@
 				mapSave: "Error al guardar el mapa web",
 				notAuthorized: "No tienes autorización para acceder a esta aplicación",
 				conflictingProjectionsTitle: "Conflicto de proyecciones",
-				conflictingProjections: "La comparativa de mapas no admite el uso de dos mapas web con distintas proyecciones. Abre los ajustes y utiliza un mapa web que use la misma proyección que el primer mapa.",
+				conflictingProjections: "La comparativa de mapas no admite el uso de dos mapas web con distintas proyecciones. Abre los ajustes y utiliza un mapa web que use la misma proyección que el primer mapa web.",
 				cpButton: "Cerrar"
 			},
 			mobileView: {

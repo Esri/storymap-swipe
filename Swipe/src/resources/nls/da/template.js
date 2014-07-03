@@ -25,7 +25,7 @@
 				mapSave: "Fejl ved lagring af webkortet",
 				notAuthorized: "Du er ikke autoriseret til at få adgang til denne applikation",
 				conflictingProjectionsTitle: "Konfliktende projektioner",
-				conflictingProjections: "Swipe understøtter ikke, at man bruger to webkort med forskellige projektioner. Åbn indstillinger, og brug et webkort, der anvender den samme projektion som det første webkort.",
+				conflictingProjections: "Swipe understøtter ikke brug af to webkort med forskellige projektioner. Åbn indstillinger, og brug et webkort, der anvender den samme projektion som det første webkort.",
 				cpButton: "Luk"
 			},
 			mobileView: {
@@ -165,20 +165,20 @@
 			settingsLegend: {
 				settingsTabLegend: "App-layout",
 				settingsLegendExplain: "Vælg indstillinger for applikationslayout.",
-				settingsLegendEnable: "Aktiv\ér signaturforklaring",
-				settingsDescriptionEnable: "Aktiv\ér beskrivelse",
-				settingsBookmarksEnable: "Aktiv\ér Swipe-serie",
-				settingsPopupDisable: "Aktiv\ér pop-up-vindue",
-				settingsLocationSearchEnable: "Aktiv\ér lokatorsøgning",
-				settingsGeolocatorEnable: "Aktiv\ér geolokator",
+				settingsLegendEnable: "Aktivér signaturforklaring",
+				settingsDescriptionEnable: "Aktivér beskrivelse",
+				settingsBookmarksEnable: "Aktivér Swipe-serie",
+				settingsPopupDisable: "Aktivér pop-up-vindue",
+				settingsLocationSearchEnable: "Aktivér lokatorsøgning",
+				settingsGeolocatorEnable: "Aktivér geolokator",
 				settingsLegendHelpContent: "Hvis du vil forfine signaturforklaringens indhold, kan du bruge indholdsfortegnelsen i ArcGIS.com-webkortviseren (Skjul i signaturforklaring)",
 				settingsSeriesHelpContent: "Når du trykker på swipe-serien, vil kortviseren navigere til en bestemt udstrækning og vise en titel og en beskrivelsestekst i sidepanelet. Ved første aktivering importeres dine webkortbogmærker, og de anvendes til at udfylde serielinjen på forhånd. Hvis du deaktiverer seriefunktionen, slås seriellinjen fra, men seriekonfigurationen bevares til fremtidig brug.", 
 				settingsSeriesHelpContent2: "Med swipe-serien kan du oprette og redigere et udvalg af steder med ledsagende titler og tekst. Hvis dit webkort har bogmærker, bliver disse vist. Du kan deaktivere serien, men konfigurationen vil blive bevaret til fremtidig brug.",
 				settingsSeriesHelpLink: "Se et eksempel på en applikation med swipe-serien her",
 				preview: "UI-forhåndsvisning",
 				settingsLocateButtonExplain: "Denne funktionalitet understøttes på de fleste mobile enheder og pc-browsere (inkl. Internet Explorer 9+).",
-				settingsLocateButton: "Aktiv\ér browsere, der har en \'Find\'-knap",
-				settingsAddressSearch: "Aktiv\ér et adressesøgningsværktøj"
+				settingsLocateButton: "Aktivér browsere, der har en \'Find\'-knap",
+				settingsAddressSearch: "Aktivér et adressesøgningsværktøj"
 			},
 			settingsSwipePopup: {
 				settingsSwipePopup: "Pop-up-vindue",
@@ -207,7 +207,7 @@
 				title: "Hjælp",
 				close: "Luk",
 				tab1: {
-					div1: "Skabelonen Swipe/Kikkert er beregnet til at sammenligne to forskellige webkort eller to lag på \ét webkort i en attraktive, brugervenlig webapplikation, som kan bruges i en vilkårlig browser eller på en vilkårlig enhed, herunder smartphone og tablets.",
+					div1: "Skabelonen Swipe/Kikkert er beregnet til at sammenligne to forskellige webkort eller to lag på ét webkort i en attraktive, brugervenlig webapplikation, som kan bruges i en vilkårlig browser eller på en vilkårlig enhed, herunder smartphone og tablets.",
 					div2: "Yderligere oplysninger om Swipe/Kikkert-skabelonen, inkl. eksempler oprettet af brugere, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> finder du på Story Maps-webstedet</a>. Du kan også følge os på Twitter på <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
 					div3: "Vi vil meget gerne høre fra dig! Hvad enten du har spørgsmål, ønsker at bestille et nyt objekt eller mener, at du har fundet en fejl, vil vi bede dig om at besøge <a href='http://links.esri.com/storymaps/forum' target='_blank'>Story Maps User Forum</a>."
 				}

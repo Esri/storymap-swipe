@@ -13,11 +13,11 @@
 			},
 			errors: {
 				boxTitle: "Esines tõrge",
-				portalSelf: "Fataaltõrge: portaali seadistuse hankimine nurjus",
-				invalidConfig: "Fataaltõrge: vigane konfiguratsioon",
-				invalidConfigNoWebmap: "Fatalltõrge: vigane konfiguratsioon (ühtegi veebikaarti ei ole määratud)",
+				portalSelf: "Fataalne viga: portaali seadistuse hankimine nurjus",
+				invalidConfig: "Fataalne viga: vigane konfiguratsioon",
+				invalidConfigNoWebmap: "Fataalne viga: vigane konfiguratsioon (ühtegi veebikaarti ei ole määratud)",
 				createMap: "Võimetu koostama kaarti",
-				invalidApp: "Fataaltõrge: rakendust ei saa laadida",
+				invalidApp: "Fataalne viga: rakendust ei saa laadida",
 				initMobile: "Tere tulemast rullimise veebirakendusse. Antud rakendus ei ole seadistatud. Interaktiivne koostaja ei ole mobiilsetes seadmetes toetatud.",
 				noBuilderIE8: "Rullimise interaktiivne koostaja ei ole toetatud Internet Explorer 9 eelse(te)s  versiooni(de)s.",
 				noLayerView: "Tere tulemast rullimise veebirakendusse.<br />Antud rakendus ei ole veel seadistatud.",
@@ -25,7 +25,7 @@
 				mapSave: "Viga veebikaardi salvestamisel",
 				notAuthorized: "Teil ei ole luba sellele rakendusele juurde pääseda",
 				conflictingProjectionsTitle: "Konfliktsed projektsioonid",
-				conflictingProjections: "Rullimine ei ole toetatud kahe erineva projektsiooniga veebikaardil. Palun avage seaded ja kasutage veebikaarti, mis kasutab esimese kaardiga samasugust projektsiooni.",
+				conflictingProjections: "Rullimisel ei toetata kahe erineva projektsiooniga veebikaardi kasutamist. Avage sätte ja kasutage veebikaarti, mis kasutab samasugust projektsiooni nagu esimene kaart.",
 				cpButton: "Sulge"
 			},
 			mobileView: {
@@ -214,9 +214,9 @@
 			},
 			share: {
 				firstSaveTitle: "Rakendus on salvestatud",
-				firstSaveHeader: "Teie rakendus on nüüd salvestatud ArcGIS Online\'i keskkonda. Lugege järgnevate korduma kippuvate küsimuste vastuseid.",
+				firstSaveHeader: "Teie rakendus on nüüd salvestatud ArcGIS Online’i keskkonda. Lugege järgnevate korduma kippuvate küsimuste vastuseid.",
 				firstSaveA1: "Kui te ei ole tuttav ArcGIS Online keskkonnaga või soovite otseteed redigeerimise liidesele, siis võite salvestada järgmise lingi: %LINK1%",
-				firstSaveA1bis: "Rakenduse leiate samuti oma <a href='%LINK2%' target='_blank'>ArcGIS Online\'i sisu kaustast</a>.",
+				firstSaveA1bis: "Rakenduse leiate samuti oma <a href='%LINK2%' target='_blank'>ArcGIS Online’i sisu kaustast</a>.",
 				firstSaveQ2: "Kas minu rakendus on jagatud?",
 				firstSaveA2: "Hetkel pole teie rakendus jagatud. Selle jagamiseks kasutage nuppu JAGA.",
 				shareTitle: "Rakenduse jagamine",
@@ -252,10 +252,10 @@
 			},
 			directCreation: {
 				header: "Tere tulemast kasutama Rullimise/pikksilma koostajat",
-				mapPickHeader: "Alustamiseks sisestage veebikaaardi id või kasutage otsingunuppu veebikaartide sirvimiseks.",
+				mapPickHeader: "Alustamiseks sisestage veebikaardi id või kasutage otsingunuppu veebikaartide sirvimiseks.",
 				launchBuilder: "Käivita koostur",
 				chooseWebmapLbl: "Valige veebikaart...",
-				explain2: "Rullimise või pikksilma kaardiloo loomiseks kasutage allolevat nuppu kasutatava olemasoleva ArcGIS Online\'i veebikaardi valimiseks. Teiseks võimaluseks on veebikaardi ID kleepimine allpool olevale väljale.",
+				explain2: "Rullimise või pikksilma kaardiloo loomiseks kasutage allolevat nuppu kasutatava olemasoleva ArcGIS Online’i veebikaardi valimiseks. Teiseks võimaluseks on veebikaardi ID kleepimine allpool olevale väljale.",
 				explain3: "Kui soovite kaardiloos kasutada kahte veebikaarti, siis küsitakse selle valiku valimisel hiljem teist veebikaarti.",
 				webmapPlaceholder: "Sisestage kaardi id..."
 			}

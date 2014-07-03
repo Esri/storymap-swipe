@@ -25,7 +25,7 @@
 				mapSave: "Kļūda, saglabājot web karti",
 				notAuthorized: "Jums nav atļauts piekļūt šai lietotnei",
 				conflictingProjectionsTitle: "Konfliktējošas projekcijas",
-				conflictingProjections: "Pārvilkt neatbalsta divu web karšu ar dažādām projekcijām lietošanu. Lūdzu, atveriet iestatījumus un izmantojiet web karti, kas izmanto to pašu projekciju nekā pirmā web karte.",
+				conflictingProjections: "Vilkšana neatbalsta divu tīmekļa karšu izmantošanu ar dažādām projekcijām. Lūdzu, atveriet iestatījumus un izmantojiet tīmekļa karti, kurā izmantota tā pati projekcija, kas pirmajā tīmekļa kartē.",
 				cpButton: "Aizvērt"
 			},
 			mobileView: {

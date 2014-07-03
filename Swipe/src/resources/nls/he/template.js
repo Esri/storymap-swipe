@@ -71,7 +71,7 @@
 				signInTwo: "כדי לשמור את האפליקציה."
 			},
 			header:{
-				editMe: "ערוך אותי !",
+				editMe: "ערוך אותי!",
 				templateTitle: "קבע כותרת תבנית",
 				templateSubtitle: "קבע כותרת משנה לתבנית"
 			},
@@ -122,7 +122,7 @@
 			},
 			swipeSidePanel: {
 				editTooltip: "קבע את תיאור הפאנל הצידי",
-				editMe: "ערוך אותי !",
+				editMe: "ערוך אותי!",
 				legendTitle: "מקרא"
 			},
 			infoWindow: {

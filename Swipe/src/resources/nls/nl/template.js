@@ -25,7 +25,7 @@
 				mapSave: "Fout bij het opslaan van de webmap",
 				notAuthorized: "U bent niet gemachtigd om deze applicatie te openen",
 				conflictingProjectionsTitle: "Conflicterende projecties",
-				conflictingProjections: "Swipe ondersteunt het gebruik van twee webmaps met verschillende projecties niet. Ga naar de instellingen en gebruik een webmap met dezelfde projectie als de eerste webmap.",
+				conflictingProjections: "Swipe biedt geen ondersteuning voor het gebruik van twee webmaps met verschillende projecties. Ga naar de instellingen en gebruik een webmap met dezelfde projectie als de eerste webmap.",
 				cpButton: "Sluiten"
 			},
 			mobileView: {

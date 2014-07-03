@@ -25,7 +25,7 @@
 				mapSave: "Erro ao guardar o mapa web",
 				notAuthorized: "Não tem autorização para configurar esta aplicação",
 				conflictingProjectionsTitle: "Projeções em Conflito",
-				conflictingProjections: "A ferramenta de varrimento não suporta a utilização de dois mapas web com projeções diferentes. Abra as definições e utilize um mapa web que utilize uma projeção igual à do primeiro mapa.",
+				conflictingProjections: "A ferramenta de varrimento não suporta a utilização de dois mapas web com projeções diferentes. Abra as definições e utilize um mapa web que utilize uma projeção igual à do primeiro mapa web.",
 				cpButton: "Fechar"
 			},
 			mobileView: {
@@ -71,7 +71,7 @@
 				signInTwo: "para guardar a aplicação."
 			},
 			header:{
-				editMe: "Editar-me!",
+				editMe: "Edite-me!",
 				templateTitle: "Definir título do modelo",
 				templateSubtitle: "Definir subtítulo do modelo"
 			},
@@ -122,7 +122,7 @@
 			},
 			swipeSidePanel: {
 				editTooltip: "Definir a descrição do painel lateral",
-				editMe: "Editar-me!",
+				editMe: "Edite-me!",
 				legendTitle: "Legenda"
 			},
 			infoWindow: {

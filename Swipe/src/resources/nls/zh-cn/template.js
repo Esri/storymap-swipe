@@ -244,7 +244,7 @@
 				shareQ2bis: "如何返回制作界面？",
 				shareA2div1: "保存并重新使用以下链接 %LINK1%，或使用<a href='%LINK2%' target='_blank'>应用程序项目页面</a>。",
 				shareA2div2: "作为应用程序所有者，当您登录到 ArcGIS.com 后，可使用应用程序中的按钮来打开交互式构建器:",				
-				shareQ3: "数据存储位置在哪?",
+				shareQ3: "数据存储在哪儿？",
 				shareA3: "应用程序配置存储在此 Web 应用程序项目中</a>。",
 				shareWarning: "已禁止共享 %WITH%，因为您不是 <a href='%LINK%' target='_blank'>webmap</a> 的所有者。",
  				shareWarningWith1: "公开",

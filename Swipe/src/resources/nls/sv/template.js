@@ -25,7 +25,7 @@
 				mapSave: "Det uppstod ett fel när webbkartan skulle sparas",
 				notAuthorized: "Du är inte behörig att konfigurera det här programmet",
 				conflictingProjectionsTitle: "Projektionerna är i konflikt",
-				conflictingProjections: "Svep-verktyget går inte att använda med två webbkartor som har olika projektioner. Öppna inställningarna och använd en webbkarta med samma projektion som den första webbkartan.",
+				conflictingProjections: "Svep går inte att använda med två webbkartor som har olika projektioner. Öppna inställningarna och använd en webbkarta med samma projektion som den första webbkartan.",
 				cpButton: "Stäng"
 			},
 			mobileView: {

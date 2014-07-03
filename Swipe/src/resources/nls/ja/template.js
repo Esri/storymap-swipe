@@ -228,7 +228,7 @@
 				sharePrivateOk: "共有の更新に成功しました。読み込んでいます...",
 				shareStatus1: "アプリケーションが保存されていません",
 				shareStatus2: "アプリケーションがパブリックに共有されています",
-				shareStatus3: "アプリケーションが組織内で共有されています",
+				shareStatus3: "アプリケーションが組織サイト内で共有されています",
 				shareStatus4: "アプリケーションが共有されていません",
 				sharePreviewAsUser: "プレビュー",
 				shareHeader1: "アプリケーションには<strong>すべてのユーザがアクセスできます</strong>。",

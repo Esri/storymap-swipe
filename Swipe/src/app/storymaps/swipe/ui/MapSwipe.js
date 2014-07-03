@@ -41,6 +41,9 @@ define(["dojo/dnd/move",
 			var _pointTest = null;
 			var _popupState = null;
 			
+			var _popupTest = null;
+			var _clickPoint = null;
+			
 			this.init = function(webMapArray, layers, popupColors, popupTitles, xOffset, popup)
 			{
 				console.log("MapSwipe init", webMapArray, layers, popupColors, popupTitles, popup);
@@ -340,7 +343,7 @@ define(["dojo/dnd/move",
 				var isGraphics = app.mainMap.getLayer(_layers[0]).type == "Feature Layer";
 				var clipLeft = parseInt(dom.byId("sliderDiv").style.left.split("px",1));
 				var isOnSpecificLayer = screenGeom.x > clipLeft;
-				var specificLayerId = _layers[0] + (isGraphics ? "" : "_1"); // TODO is that _1 safe ?
+				var specificLayerId = _layers[0] /*+ (isGraphics ? "" : "_1")*/; // TODO is that _1 safe ?
 				var colorTitleIndex = isOnSpecificLayer ? 0 : 1;
 				
 				_lastSwiperEventPoint = evt;
@@ -354,6 +357,7 @@ define(["dojo/dnd/move",
 				for(var i=0; i < app.popup[0].features.length; i++) {
 					var feature = app.popup[0].features[i];
 					var layerId = feature._graphicsLayer.id;
+					layerId = layerId.slice(0,-2);  // Probably not safe either, what if longer?  should look for _ at end, then slice?
 					if ( (isOnSpecificLayer && layerId == specificLayerId) || (!isOnSpecificLayer && layerId != specificLayerId) ) {
 						dataFound = true;
 						
@@ -445,6 +449,14 @@ define(["dojo/dnd/move",
 				{	
 					app.popup[0].hide();
 					app.popup[1].hide();
+					
+					var z = {};
+					if (evt.target.e_graphic && evt.target.e_graphic.geometry.type == "point") {
+						z.screenPoint = app.maps[0].toScreen(evt.target.e_graphic.geometry);
+					}
+					else
+						z = evt;
+					
 					$("#swipeImg1").fadeOut();
 					$("#swipeImg2").fadeOut();
 					
@@ -456,8 +468,8 @@ define(["dojo/dnd/move",
 	
 					if(source == "other")
 						return;
-						
-					_webMapArray[1].onClick(evt, "other");
+					
+					_webMapArray[1].onClick(z, "other");	
 	        	});
 				
 				on(app.popup[0], "set-features", function() 
@@ -471,6 +483,12 @@ define(["dojo/dnd/move",
 				{	
 					app.popup[0].hide();
 					app.popup[1].hide();
+					var z = {};
+					if (evt.target.e_graphic && evt.target.e_graphic.geometry.type == "point") {
+						z.screenPoint = app.maps[1].toScreen(evt.target.e_graphic.geometry);
+					}
+					else
+						z = evt;
 					
 					mapPoint = evt;
 					_popupState = 'open';
@@ -480,8 +498,8 @@ define(["dojo/dnd/move",
 							
 					if(source == "other")
 						return;
-						
-					_webMapArray[0].onClick(evt, "other");	
+
+					_webMapArray[0].onClick(z, "other");	
 	        	});
 				
 				on(app.popup[1], "set-features", function() 
@@ -632,7 +650,7 @@ define(["dojo/dnd/move",
 			{
 				if( ! evt || _popupState == 'closed' || !_popup)
 					return;
-
+				
 				_pointTest = evt.pageY ? evt.mapPoint : _pointTest;
 				
 				var evtX = evt.pageX || evt.x;

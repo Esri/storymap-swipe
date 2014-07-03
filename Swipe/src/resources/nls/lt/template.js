@@ -25,7 +25,7 @@
 				mapSave: "Klaida įrašant internetinį žemėlapį",
 				notAuthorized: "Neturite teisių pasiekti šią aplikaciją",
 				conflictingProjectionsTitle: "Nesuderinamos projekcijos",
-				conflictingProjections: "Keitiklis nepalaiko dviejų internetinių žemėlapių su skirtingomis projekcijomis. Atidarykite nustatymus ir naudokite internetinį žemėlapį, naudojantį tą pačią projekciją kaip ir pirmasis internetinis žemėlapis.",
+				conflictingProjections: "Keitiklis nepalaiko dviejų interneto žemėlapių su skirtingomis projekcijomis. Atidarykite nustatymus ir naudokite interneto žemėlapį, naudojantį tą pačią projekciją kaip ir pirmasis interneto žemėlapis.",
 				cpButton: "Užverti"
 			},
 			mobileView: {
@@ -266,7 +266,7 @@
 					organizationLabel: "Organizacija",
 					onlineLabel: "ArcGIS Online",
 					contentLabel: "Turinys",
-					favoritesLabel: "Mano Mėgstamiausi"
+					favoritesLabel: "Mėgstamiausi"
 				},
 				title: "Pasirinkti internetinį žemėlapį",
 				searchTitle: "Ieškoti",

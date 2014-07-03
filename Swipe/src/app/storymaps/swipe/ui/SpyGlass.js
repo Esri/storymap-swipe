@@ -120,19 +120,21 @@ define(["dojo/_base/declare",
 						var seriesPanelHeight = parseInt($('#seriesPanel').css('height'));
 						if($('#seriesPanel').css('display') == 'none')
 							seriesPanelHeight = 0;
-						
+
 						var x = evt.pageX;
 						var y = evt.pageY - $("#header").height() - seriesPanelHeight;
-						
+							
 						evt.x = x;
 						evt.y = y;
 						evt.screenPoint = {x: x, y: y};
 						evt.type = "click";
 						evt.fromLens = true;
 						evt.mapPoint = app.mainMap.toMap(new Point(x, y, app.mainMap.spatialReference));
+						evt.graphic = null;
 						
 						app.mainMap.onClick(evt, "other");
 						_this._moving = false;
+						
 					}, 100);
 				};
 				
@@ -238,7 +240,8 @@ define(["dojo/_base/declare",
 				
 				on(app.mainMap, "click", function(evt){
 					_this._popupClosedByUser = false;
-					app.popup[0].hide();
+					//app.popup[0].hide();
+					$('.esriPopup').css('visibility', 'hidden')
 					_this._clickPoint = evt;
 					
 					_this._clickOnLens = evt.fromLens;
@@ -251,13 +254,22 @@ define(["dojo/_base/declare",
 					evt.screenPoint.x = x;
 					evt.screenPoint.y = y;
 
-					if (mode == "TWO_WEBMAPS") 
-						app.maps[1].onClick(evt, "other");
+					if (mode == "TWO_WEBMAPS") {
+						var z = {};
+						if (evt.target.e_graphic && evt.target.e_graphic.geometry.type == "point") {
+							z.screenPoint = app.maps[1].toScreen(evt.target.e_graphic.geometry);
+						}
+						else
+							z = evt;
+						
+						app.maps[1].onClick(z, "other");
+					}
 				});
 				
 				if( app.maps[1] ) {
 					on(app.maps[1], "click", function(evt){
-						app.popup[1].hide();
+						$('.esriPopup').css('visibility', 'hidden')
+						//app.popup[1].hide();
 					});
 				}
 				
@@ -345,7 +357,8 @@ define(["dojo/_base/declare",
 			
 			clipGraphics: function()
 			{
-				if( !_this._isGraphics )
+				// TODO TEST (added or app.mode == two wemaps)
+				if( !_this._isGraphics || app.mode == "TWO_WEBMAPS")
 					return
 				var spyGlassDiv = $("#lensWin");
 				var leftval = parseFloat(spyGlassDiv.css('left'));
@@ -438,7 +451,7 @@ define(["dojo/_base/declare",
 			{
 				var spyGlassDiv = $("#lensWin");
 				var clipDiv = app.map.getLayer(_layers[0])._div;
-				if (spyGlassDiv != null) 
+				if (spyGlassDiv != null)
 				{			                    
 					_leftVal = parseFloat(spyGlassDiv.css('left'));
 					_topVal = parseFloat(spyGlassDiv.css('top'));						

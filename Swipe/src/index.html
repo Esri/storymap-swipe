@@ -125,7 +125,7 @@
 		</script>
 
 		<script type="text/javascript">
-			var version = '1.3.1';
+			var version = '1.4';
 			var isProduction = false;
 
 			function loadJS(url, isExternal)
@@ -152,8 +152,8 @@
 				document.getElementsByTagName("head")[0].appendChild(el);
 			}
 			
-			loadCSS("//js.arcgis.com/3.9/js/esri/css/esri.css", true);
-			loadCSS("//js.arcgis.com/3.9/js/dojo/dijit/themes/claro/claro.css", true);
+			loadCSS("//js.arcgis.com/3.10/js/esri/css/esri.css", true);
+			loadCSS("//js.arcgis.com/3.10/js/dojo/dijit/themes/claro/claro.css", true);
 
 			if( isProduction ) {
 				loadCSS("app/swipe-min.css");
@@ -170,7 +170,7 @@
 				loadCSS("app/storymaps/core/Core.css");
 				loadCSS("app/storymaps/ui/header/Header.css");
 				loadCSS("app/storymaps/ui/mapCommand/MapCommand.css");
-				loadCSS("app/storymaps/swipe/ui/desktop/seriesPanel.css");
+				loadCSS("app/storymaps/swipe/ui/desktop/SeriesPanel.css");
 				
 				loadCSS("app/storymaps/swipe/core/MainView.css");
 				loadCSS("app/storymaps/swipe/ui/desktop/SidePanel.css");
@@ -285,6 +285,7 @@
 						<span id="sharing-status"></span>
 					</div>
 				</div>
+				
 			</div>
 		</div>
 		<div id="seriesPanel">
@@ -755,6 +756,7 @@
 				<button class="btnClose btn btn-success" data-dismiss="modal" aria-hidden="true"></button>
 			</div>
 		</div>
+		
 		<!-- Fatal error box -->
 		<div id="fatalError">
 			<table border="0">
@@ -769,7 +771,7 @@
 		</div>
 
 		<script type="text/javascript">
-			loadJS('//js.arcgis.com/3.9/init.js', true);			
+			loadJS('//js.arcgis.com/3.10/init.js', true);			
 			loadJS('app/swipe-config.js');
 			
 			function getUrlVar(name)

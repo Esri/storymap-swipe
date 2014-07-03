@@ -71,7 +71,7 @@
 				signInTwo: "pro uložení aplikace."
 			},
 			header:{
-				editMe: "Edituj mě !",
+				editMe: "Edituj mě!",
 				templateTitle: "Nastavit název šablony",
 				templateSubtitle: "Nastavit podnadpis šablony"
 			},
@@ -122,7 +122,7 @@
 			},
 			swipeSidePanel: {
 				editTooltip: "Nastavit popis postranního panelu",
-				editMe: "Edituj mě !",
+				editMe: "Edituj mě!",
 				legendTitle: "Legenda"
 			},
 			infoWindow: {
