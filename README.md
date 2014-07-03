@@ -120,6 +120,9 @@ We would love to hear from you!
 
 ## What's new?
 
+#### Swipe 1.4 released on 07/02/2014
+Coming soon.
+
 #### Swipe 1.3.1 released on 03/27/2014
 
 Bug Fixes:
