@@ -79,6 +79,7 @@ define(["dojo/_base/declare",
 				//Needed to prevent spyglass movement from expanding window beyond map
 				$('#mapPanel').css('overflowX', 'hidden');
 				
+				$('.esriPopup').addClass('hidePopup')
 				$('#infoWindowTitle').html(i18n.swipe.infoWindow.noFeature);
 				$('#infoWindowContent').html('<div class="noFeature">' + i18n.swipe.infoWindow.noFeatureExplain + '</div>');
 				
@@ -240,7 +241,7 @@ define(["dojo/_base/declare",
 				
 				on(app.mainMap, "click", function(evt){
 					_this._popupClosedByUser = false;
-					//app.popup[0].hide();
+					
 					$('.esriPopup').css('visibility', 'hidden')
 					_this._clickPoint = evt;
 					
@@ -269,7 +270,6 @@ define(["dojo/_base/declare",
 				if( app.maps[1] ) {
 					on(app.maps[1], "click", function(evt){
 						$('.esriPopup').css('visibility', 'hidden')
-						//app.popup[1].hide();
 					});
 				}
 				
