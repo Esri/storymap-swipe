@@ -7,8 +7,6 @@
 				step3: "正在初始化",
 				fail: "抱歉，卷帘加载失败",
 				loadBuilder: "切换到构建器模式",
-				redirectSignIn: "重定向到登录页面",
-				redirectSignIn2: "(登录后您将重定向到此处)",
 				failButton: "重试"
 			},
 			errors: {
@@ -44,8 +42,6 @@
 			builder: {
 				panelHeader: "应用程序配置",
 				buttonSave: "保存",
-				buttonHelp: "帮助",
-				buttonShare: "共享",
 				buttonDiscard: "取消",
 				buttonSettings: "设置",
 				buttonView: "视图模式",
@@ -65,8 +61,6 @@
 				savingApplication: "保存应用程序",
 				saveSuccess: "应用程序保存成功",
 				saveError: "保存失败，请重试",
-				saveError2: "由于名称或描述中存在无效 html 标签，因此保存失败",
-				saveError3: "标题不能为空",
 				signIn: "请使用帐户登录",
 				signInTwo: "保存应用程序。"
 			},
@@ -158,9 +152,7 @@
 				settingsDataModel2Explain: "随另一 web 地图卷起。",
 				settingsDataModel2SpyGlassExplain: "显示另一 web 地图。",
 				settingsDataModel2HelpTitle: "如何查找 web 地图 ID？",
-				settingsDataModel2HelpContent: "复制并粘贴 web 地图 URL 中\“=\”符号后面的数字",
-				switchMaps: "切换地图",
-				browseWebMaps: "浏览 Web 地图"
+				settingsDataModel2HelpContent: "复制并粘贴 web 地图 URL 中\“=\”符号后面的数字"
 			},
 			settingsLegend: {
 				settingsTabLegend: "应用程序布局",
@@ -177,7 +169,7 @@
 				settingsSeriesHelpLink: "在此处查看具有卷帘系列的应用程序示例",
 				preview: "UI 预览",
 				settingsLocateButtonExplain: "此功能在大多数移动设备和桌面浏览器 (包括 Internet Explorer 9+) 中都受支持。",
-				settingsLocateButton: "在受支持的浏览器中启用\“定位\”按钮",
+				settingsLocateButton: "启用支持“定位”按钮的浏览器",
 				settingsAddressSearch: "启用地址搜索工具"
 			},
 			settingsSwipePopup: {
@@ -191,7 +183,7 @@
 				settingsSwipePopupColor: "页眉颜色"
 			},
 			initPopup: {
-				initHeader: "欢迎访问卷帘/望远镜构建器",
+				initHeader: "欢迎使用 Swipe Builder",
 				modalNext: "下一步",
 				modalPrev: "上一步",
 				modalApply: "打开应用程序"
@@ -202,77 +194,6 @@
 				discard: "放弃书签",
 				saveExtent: "设置书签范围",
 				discardDisabled: "无法移除书签。可在设置中禁用卷帘系列。"
-			},
-			helpPopup: {
-				title: "帮助",
-				close: "关闭",
-				tab1: {
-					div1: "卷帘/望远镜模板旨在通过一个简单易用而又吸引人的 Web 应用程序(可通过包括智能手机和平板电脑在内的任意设备上的任意 Web 浏览器使用该应用程序)，对两个单独的 Web 地图或一个 Web 地图中的两个图层进行比较。",
-					div2: "有关卷帘/望远镜模板的附加信息(包括用户创建的示例)，<a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'>请访问故事地图网站</a>。您也可以关注我们的 Twitter，<a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>。",
-					div3: "我们非常期待您的参与! 如果您有任何疑问、想要请求新特性或者发现漏洞，请访问<a href='http://links.esri.com/storymaps/forum' target='_blank'>故事地图用户论坛</a>。"
-				}
-			},
-			share: {
-				firstSaveTitle: "应用程序已成功保存",
-				firstSaveHeader: "您的应用程序现已保存到 ArcGIS Online 中。请阅读下面的常见问题解答。",
-				firstSaveA1: "如果您不熟悉 ArcGIS Online，或需要访问创作界面的快捷方式，则可以保存以下链接: %LINK1%",
-				firstSaveA1bis: "还可以在您的 <a href='%LINK2%' target='_blank'>ArcGIS Online 内容文件夹</a>中找到此应用程序。",
-				firstSaveQ2: "我的应用程序是否已共享?",
-				firstSaveA2: "您的应用程序当前没有共享。要共享，请使用\“共享\”按钮。",
-				shareTitle: "共享您的应用程序",
-				sharePrivateHeader: "您的应用程序没有共享，是否希望将其共享?",
-				sharePrivateBtn1: "公开共享",
-				sharePrivateBtn2: "与我的组织共享",
-				sharePrivateProgress: "正在进行共享...",
-				sharePrivateErr: "共享失败，请重试或",
-				sharePrivateOk: "共享更新成功，正在加载...",
-				shareStatus1: "应用程序未保存",
-				shareStatus2: "应用程序已公开共享",
-				shareStatus3: "应用程序已在组织中共享",
-				shareStatus4: "应用程序未共享",
-				sharePreviewAsUser: "预览",
-				shareHeader1: "您的应用程序可以<strong>公开访问</strong>。",
-				shareHeader2: "您的应用程序可供您的组织成员访问(需要登录)。",
-				shareLinkHeader: "将应用程序共享给受众",
-				shareLinkOpen: "打开",
-				learnMore: "了解详细信息",
-				shareQ1Opt1: "如何将应用程序私有化?",
-				shareQ1Opt2: "如何将应用程序私有化或将其公开共享?",
-				shareA1: "使用<a href='%LINK1%' target='_blank'>应用程序项目页面</a>中的 %SHAREIMG%。如果还希望取消共享 Web 地图，请使用 <a href='%LINK2%' target='_blank'>Web 地图项目页面</a>。",
-				shareA1bis: "如果还想要取消共享要素服务，请使用<a href='%LINK1%' target='_blank'>要素服务项目页面</a>。",
-				shareQ2: "如何在稍后对应用程序进行编辑?",
-				shareQ2bis: "如何返回制作界面？",
-				shareA2div1: "保存并重新使用以下链接 %LINK1%，或使用<a href='%LINK2%' target='_blank'>应用程序项目页面</a>。",
-				shareA2div2: "作为应用程序所有者，当您登录到 ArcGIS.com 后，可使用应用程序中的按钮来打开交互式构建器:",				
-				shareQ3: "数据存储在哪儿？",
-				shareA3: "应用程序配置存储在此 Web 应用程序项目中</a>。",
-				shareWarning: "已禁止共享 %WITH%，因为您不是 <a href='%LINK%' target='_blank'>webmap</a> 的所有者。",
- 				shareWarningWith1: "公开",
- 				shareWarningWith2: "公开并在组织内共享"
-			},
-			directCreation: {
-				header: "欢迎访问卷帘/望远镜构建器",
-				mapPickHeader: "要开始此过程，请输入有效的 Web 地图 id，或使用搜索按钮浏览 Web 地图。",
-				launchBuilder: "启动构建器",
-				chooseWebmapLbl: "选择 Web 地图...",
-				explain2: "要创建卷帘或望远镜故事地图，请使用如下按钮选择想要使用的现有 ArcGIS Online Web 地图。或者，也可以将该 Web 地图的 ID 粘贴到如下字段中。",
-				explain3: "如果您想在故事地图中使用两个 Web 地图，系统会在您选择该选项后提示您提供另一个 Web 地图。",
-				webmapPlaceholder: "输入 Web 地图 ID..."
-			}
-		},
-		configure: {
-			mapdlg:{
-				items:{
-					organizationLabel: "我的组织",
-					onlineLabel: "ArcGIS Online",
-					contentLabel: "我的内容",
-					favoritesLabel: "我的收藏夹"
-				},
-				title: "选择 Web 地图",
-				searchTitle: "搜索",
-				ok: "确定",
-				cancel: "取消",
-				placeholder: "输入搜索词"
 			}
 		}
     })

@@ -80,6 +80,7 @@ define(["dojo/_base/declare",
 				$('#mapPanel').css('overflowX', 'hidden');
 				
 				$('.esriPopup').addClass('hidePopup')
+				
 				$('#infoWindowTitle').html(i18n.swipe.infoWindow.noFeature);
 				$('#infoWindowContent').html('<div class="noFeature">' + i18n.swipe.infoWindow.noFeatureExplain + '</div>');
 				
@@ -241,7 +242,6 @@ define(["dojo/_base/declare",
 				
 				on(app.mainMap, "click", function(evt){
 					_this._popupClosedByUser = false;
-					
 					$('.esriPopup').css('visibility', 'hidden')
 					_this._clickPoint = evt;
 					

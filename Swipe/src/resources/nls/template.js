@@ -254,10 +254,10 @@ define({
 				header: "Welcome to the Swipe/Spyglass Builder",
 				mapPickHeader: "To get started, please input a valid web map id, or use the search button to browse web maps.",
 				launchBuilder: "Launch Builder",
-				chooseWebmapLbl: "Choose web map...",
-				explain2: "To create a Swipe or Spyglass story map, use the button below to choose the existing ArcGIS Online web map you want to use. Alternatively, you can paste the ID of the web map into the field below.",
-				explain3: "If you want to use two web maps in your story map, you'll be prompted for the second web map later when you choose that option.",
-				webmapPlaceholder: "Enter a web map id..."
+		        chooseWebmapLbl: "Choose web map...",
+		        explain2: "To create a Swipe or Spyglass story map, use the button below to choose the existing ArcGIS Online web map you want to use. Alternatively, you can paste the ID of the web map into the field below.",
+		        explain3: "If you want to use two web maps in your story map, you'll be prompted for the second web map later when you choose that option.",
+		        webmapPlaceholder: "Enter a web map id..."
 			}
 		},
 		configure: {

@@ -7,8 +7,6 @@
 				step3: "INICIALIZAR",
 				fail: "Não foi possível carregar o Varrimento",
 				loadBuilder: "A MUDAR PARA O MODO DE BUILDER",
-				redirectSignIn: "A REDIRECIONAR PARA A PÁGINA DE INÍCIO DE SESSÃO",
-				redirectSignIn2: "(será redirecionado para aqui depois de iniciar sessão)",
 				failButton: "Tentar Novamente"
 			},
 			errors: {
@@ -25,7 +23,7 @@
 				mapSave: "Erro ao guardar o mapa web",
 				notAuthorized: "Não tem autorização para configurar esta aplicação",
 				conflictingProjectionsTitle: "Projeções em Conflito",
-				conflictingProjections: "A ferramenta de varrimento não suporta a utilização de dois mapas web com projeções diferentes. Abra as definições e utilize um mapa web que utilize uma projeção igual à do primeiro mapa web.",
+				conflictingProjections: "A ferramenta de varrimento não suporta a utilização de dois mapas web com projeções diferentes. Abra as definições e utilize um mapa web que utilize uma projeção igual à do primeiro mapa.",
 				cpButton: "Fechar"
 			},
 			mobileView: {
@@ -44,8 +42,6 @@
 			builder: {
 				panelHeader: "CONFIGURAÇÃO DA APLICAÇÃO",
 				buttonSave: "GUARDAR",
-				buttonHelp: "Ajuda",
-				buttonShare: "Partilhar",
 				buttonDiscard: "CANCELAR",
 				buttonSettings: "Configurações",
 				buttonView: "Ver modo",
@@ -65,13 +61,11 @@
 				savingApplication: "A guardar a aplicação",
 				saveSuccess: "Aplicação guardada com sucesso",
 				saveError: "Falha ao guardar, tente novamente",
-				saveError2: "Não foi guardado, falhou devido a uma palavra chave HTML inválida no nome ou a descrição",
-				saveError3: "O título não pode ser vazio",
 				signIn: "Inicie sessão com uma conta em",
 				signInTwo: "para guardar a aplicação."
 			},
 			header:{
-				editMe: "Edite-me!",
+				editMe: "Editar-me!",
 				templateTitle: "Definir título do modelo",
 				templateSubtitle: "Definir subtítulo do modelo"
 			},
@@ -122,7 +116,7 @@
 			},
 			swipeSidePanel: {
 				editTooltip: "Definir a descrição do painel lateral",
-				editMe: "Edite-me!",
+				editMe: "Editar-me!",
 				legendTitle: "Legenda"
 			},
 			infoWindow: {
@@ -158,9 +152,7 @@
 				settingsDataModel2Explain: "Varrer com outro mapa web.",
 				settingsDataModel2SpyGlassExplain: "Revelar outro mapa web.",
 				settingsDataModel2HelpTitle: "Como descobrir o ID do mapa web",
-				settingsDataModel2HelpContent: "Copie e cole os dígitos que aparecem depois do sinal \'=\' no URL do mapa web",
-				switchMaps: "Alternar mapas",
-				browseWebMaps: "Navegar em mapas web"
+				settingsDataModel2HelpContent: "Copie e cole os dígitos que aparecem depois do sinal \'=\' no URL do mapa web"
 			},
 			settingsLegend: {
 				settingsTabLegend: "Layout da Aplicação",
@@ -177,7 +169,7 @@
 				settingsSeriesHelpLink: "Consulte aqui um exemplo de uma aplicação de varrimento",
 				preview: "Pré-visualizar IU",
 				settingsLocateButtonExplain: "Esta funcionalidade é suportada na maioria dos dispositivos móveis e navegadores de internet (incluindo o Internet Explorer 9+).",
-				settingsLocateButton: "Ativar um botão \'Localizar\' em navegadores suportados",
+				settingsLocateButton: "Ativar navegadores que suportam um botão 'Localizar'",
 				settingsAddressSearch: "Ativar uma ferramenta de pesquisa de moradas"
 			},
 			settingsSwipePopup: {
@@ -191,7 +183,7 @@
 				settingsSwipePopupColor: "Cor do Cabeçalho"
 			},
 			initPopup: {
-				initHeader: "Bem-vindo(a) ao Swipe/Spyglass Builder",
+				initHeader: "Bem-vindo ao Builder de Varrimento",
 				modalNext: "Seguinte",
 				modalPrev: "Anterior",
 				modalApply: "Abrir a aplicação"
@@ -202,77 +194,6 @@
 				discard: "Rejeitar Marcador",
 				saveExtent: "Definir a extensão do Marcador",
 				discardDisabled: "Não pode remover aquele marcador. As séries Swipe podem ser desativadas nas Definições."
-			},
-			helpPopup: {
-				title: "Ajuda",
-				close: "Fechar",
-				tab1: {
-					div1: "O modelo Swipe/Spyglassfoi concebido para comparar dois mapas web ou camadas, ou duas camadas de um único mapa numa aplicação web atrativa, fácil de utilizar, que pode ser utilizada em qualquer navegador web ou em qualquer dispositivo, incluindo smartphones e tablets.",
-					div2: "Para mais informações sobre o modelo de Varrimento/Lupa, incluindo exemplos criados por utilizadores, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> visite o site web dos Story Maps</a>. Pode ainda seguir-nos no Twitter em <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
-					div3: "Gostaríamos de ter notícias suas! Não hesite em partilhar a sua Apresentação de Mapa connosco:"
-				}
-			},
-			share: {
-				firstSaveTitle: "Aplicação guardada com sucesso",
-				firstSaveHeader: "A sua aplicação está agora guardada em ArcGIS Online. Por favor, leia as seguintes respostas a perguntas frequentes.",
-				firstSaveA1: "Se não está familiarizado com o ArcGIS Online ou pretende um atalho para aceder ao interface de construção, pode guardar a seguinte ligação: %LINK1%",
-				firstSaveA1bis: "A aplicação pode ainda ser encontrada na sua <a href='%LINK2%' target='_blank'>Pasta de conteúdo ArcGIS Online</a>.",
-				firstSaveQ2: "A minha aplicação é partilhada?",
-				firstSaveA2: "De momento, a sua aplicação não é partilhada. Para a partilhar, utilize o botão PARTILHAR.",
-				shareTitle: "Partilhe a sua aplicação",
-				sharePrivateHeader: "A sua aplicação não é partilhada. Pretende partilhá-la?",
-				sharePrivateBtn1: "Partilhar publicamente",
-				sharePrivateBtn2: "Partilhar com a organização",
-				sharePrivateProgress: "Partilha em progresso...",
-				sharePrivateErr: "A partilha falhou, tente novamente ou",
-				sharePrivateOk: "A partilha foi atualizada com sucesso, a carregar...",
-				shareStatus1: "A aplicação não está guardada",
-				shareStatus2: "A aplicação é partilhada publicamente",
-				shareStatus3: "A aplicação é partilhada com a organização",
-				shareStatus4: "A aplicação não é partilhada",
-				sharePreviewAsUser: "Pré-Visualizar",
-				shareHeader1: "A sua aplicação encontra-se <strong>acessível ao público</strong>.",
-				shareHeader2: "A sua aplicação está acessível aos membros da sua organização (é necessário início de sessão).",
-				shareLinkHeader: "Partilhe a aplicação com o seu público",
-				shareLinkOpen: "ABRIR",
-				learnMore: "Obtenha mais informações",
-				shareQ1Opt1: "Como posso manter a Aplicação privada?",
-				shareQ1Opt2: "Como posso manter a Aplicação privada ou partilhá-la publicamente?",
-				shareA1: "Utilize %SHAREIMG% na <a href='%LINK1%' target='_blank'>página da aplicação do item</a>. Se também quiser deixar de partilhar o mapa web, recorra à <a href='%LINK2%' target='_blank'>página do item de mapa web</a>.",
-				shareA1bis: "Se pretende parar de partilhar o serviço de elementos, utilize <a href='%LINK1%' target='_blank'>a página de detalhes do serviço de elementos</a>.",
-				shareQ2: "Como posso editar a Aplicação mais tarde?",
-				shareQ2bis: "Como volto mais tarde ao interface de construção?",
-				shareA2div1: "Guarde e reutilize a seguinte ligação %LINK1% ou utilize <a href='%LINK2%' target='_blank'>a página de detalhes do item</a>.",
-				shareA2div2: "Como proprietário da aplicação, quando inicia sessão no ArcGIS.com, a aplicação incluí um botão para abrir o construtor interativo:",				
-				shareQ3: "Onde estão guardados os dados?",
-				shareA3: "A configuração da aplicação encontra-se armazenada neste item de aplicação web</a>.",
-				shareWarning: "A partilha de %WITH% foi desativado porque não é o proprietário do <a href='%LINK%' target='_blank'>mapa web</a>.",
- 				shareWarningWith1: "publicamente",
- 				shareWarningWith2: "publicamente e com a Organização"
-			},
-			directCreation: {
-				header: "Bem-vindo(a) ao Swipe/Spyglass Builder",
-				mapPickHeader: "Para começar, por favor introduza um id de mapa válido ou utilize o botão procurar para procurar mapas web.",
-				launchBuilder: "Iniciar o Builder",
-				chooseWebmapLbl: "Escolha o mapa web...",
-				explain2: "Para criar um story map de Varrimento ou Lupa, utilize o botão abaixo para escolher o mapa web ArcGIS Online existente que pretende utilizar. Em alternativa, pode colar a ID do mapa web no campo abaixo.",
-				explain3: "Caso queira utiliza dois mapas web no seu story map, será dirigido para a segunda camada de mapa ao selecionar essa opção.",
-				webmapPlaceholder: "Insira uma id de mapa web..."
-			}
-		},
-		configure: {
-			mapdlg:{
-				items:{
-					organizationLabel: "A Organização",
-					onlineLabel: "ArcGIS Online",
-					contentLabel: "O Meu Conteúdo",
-					favoritesLabel: "Os Meus Favoritos"
-				},
-				title: "Selecionar Mapa Web",
-				searchTitle: "Pesquisar",
-				ok: "Ok",
-				cancel: "Cancelar",
-				placeholder: "Introduzir termo de pesquisa"
 			}
 		}
     })

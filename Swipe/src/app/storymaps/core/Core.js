@@ -157,8 +157,8 @@ define(["esri/map",
 			if ( true && !isProd() ) {
 				on(IdentityManager, 'dialog-create', function(){
 					on(IdentityManager.dialog, 'show', function(){
-						IdentityManager.dialog.txtUser_.set('value', 'guest');
-						IdentityManager.dialog.txtPwd_.set('value', 'guest');
+						IdentityManager.dialog.txtUser_.set('value', 'mcooney'/*'guest'*/);
+						IdentityManager.dialog.txtPwd_.set('value', 'timeless'/*'guest'*/);
 						IdentityManager.dialog.btnSubmit_.onClick();
 					});
 				});
@@ -589,7 +589,8 @@ define(["esri/map",
 					usePopupManager: true
 				},
 				ignorePopups: false,
-				bingMapsKey: commonConfig.bingMapsKey
+				bingMapsKey: commonConfig.bingMapsKey,
+				editable: false
 			}).then(lang.hitch(this, function(response){
 				 webMapInitCallback(response, webmapInitCallbackDone);
 			}), function(){

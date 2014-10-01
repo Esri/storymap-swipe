@@ -7,25 +7,23 @@
 				step3: "LÄHTESTAMINE",
 				fail: "Vabandust, rullimisvahendi laadimine nurjus",
 				loadBuilder: "VAHETA KOOSTAJA TÜÜP",
-				redirectSignIn: "SUUNAN ÜMBER SISSELOGIMISE LEHELE",
-				redirectSignIn2: "(Teid suunatakse peale sisselogimist siia)",
 				failButton: "Proovi uuesti"
 			},
 			errors: {
 				boxTitle: "Esines tõrge",
-				portalSelf: "Fataalne viga: portaali seadistuse hankimine nurjus",
-				invalidConfig: "Fataalne viga: vigane konfiguratsioon",
-				invalidConfigNoWebmap: "Fataalne viga: vigane konfiguratsioon (ühtegi veebikaarti ei ole määratud)",
+				portalSelf: "Totaalne viga: Portaali seadistuse hankimine nurjus",
+				invalidConfig: "Totaalne viga: vigane konfiguratsioon",
+				invalidConfigNoWebmap: "Totaalne viga: Vigane konfiguratsioon (ühtegi veebikaarti ei ole määratud)",
 				createMap: "Võimetu koostama kaarti",
-				invalidApp: "Fataalne viga: rakendust ei saa laadida",
+				invalidApp: "Totaalne viga: Rakendust ei saa laadida",
 				initMobile: "Tere tulemast rullimise veebirakendusse. Antud rakendus ei ole seadistatud. Interaktiivne koostaja ei ole mobiilsetes seadmetes toetatud.",
 				noBuilderIE8: "Rullimise interaktiivne koostaja ei ole toetatud Internet Explorer 9 eelse(te)s  versiooni(de)s.",
 				noLayerView: "Tere tulemast rullimise veebirakendusse.<br />Antud rakendus ei ole veel seadistatud.",
 				appSave: "Viga veebirakenduse salvestamisel",
 				mapSave: "Viga veebikaardi salvestamisel",
-				notAuthorized: "Teil ei ole luba sellele rakendusele juurde pääseda",
+				notAuthorized: "Te ei ole sellele rakendusele ligipääsuks autoriseeritud",
 				conflictingProjectionsTitle: "Konfliktsed projektsioonid",
-				conflictingProjections: "Rullimisel ei toetata kahe erineva projektsiooniga veebikaardi kasutamist. Avage sätte ja kasutage veebikaarti, mis kasutab samasugust projektsiooni nagu esimene kaart.",
+				conflictingProjections: "Rullimine ei ole toetatud kahe erineva projektsiooniga veebikaardil. Palun avage seaded ja kasutage veebikaarti, mis kasutab esimese kaardiga samasugust projektsiooni.",
 				cpButton: "Sulge"
 			},
 			mobileView: {
@@ -44,8 +42,6 @@
 			builder: {
 				panelHeader: "RAKENDUSE KONFIGURATSIOON",
 				buttonSave: "SALVESTA",
-				buttonHelp: "Abi",
-				buttonShare: "Jaga",
 				buttonDiscard: "TÜHISTA",
 				buttonSettings: "Seaded",
 				buttonView: "Vaaterežiim",
@@ -65,8 +61,6 @@
 				savingApplication: "Salvestan rakenduse",
 				saveSuccess: "Rakenduse salvestamine õnnestus",
 				saveError: "Salvestamine ebaõnnestus, palun proovi uuesti",
-				saveError2: "Salvestamine nurjus vigase HTML-sildi tõttu nimes või kirjelduses",
-				saveError3: "Pealkiri ei saa olla tühi",
 				signIn: "Palun logige konto kaudu sisse",
 				signInTwo: ", et salvestada rakendus."
 			},
@@ -96,24 +90,24 @@
 				settingsLogoSocialExplain: "Kohanda päist ülemise paremal pool asuva lingi kaudu.",
 				settingsLogoSocialText: "Tekst",
 				settingsLogoSocialLink: "Link",
-				settingsLogoSocialDisabled: "See funktsioon on administraatori poolt välja lülitatud"
+				settingsLogoSocialDisabled: "See funktsionaalsus on administraatori poolt välja lülitatud"
 			},
 			settingsExtent: {
 				settingsTabExtent: "Kuvaulatus",
 				settingsExtentExplain: "Määra sisemine ulatus läbi alloleva interaktiivse kaardi.",
 				settingsExtentExplainBottom: "Määratud ulatus muudab veebikaardi sisemist ulatust. Pange tähele, et kui teete rullimise seeriaid, siis ulatust ei kasutata.",
-				settingsExtentDateLineError: "Ulatus ei saa ületada 180ï¿½ pikkuskraadi",
-				settingsExtentDateLineError2: "Ulatuse arvutamise viga",
+				settingsExtentDateLineError: "Ulatus ei saa ületada 180° pikkuskraadi",
+				settingsExtentDateLineError2: "Viga ulatuse arvutamisel",
 				settingsExtentDrawBtn: "Joonista uus ulatus",
 				settingsExtentModifyBtn: "Muuda praegust ulatust",
 				settingsExtentApplyBtn: "Kehtesta peamisele kaardile",
-				settingsExtentUseMainMap: "Kasuta peamist kaardiulatust"
+				settingsExtentUseMainMap: "Kasuta peamist kaardi ulatust"
 			}
         },
 		swipe: {
 			mobileData: {
 				noData: "Pole andmeid, mida kuvada!",
-				noDataExplain: "Puuduta kaarti, et valida objekt ning tule siia tagasi",
+				noDataExplain: "Koputa kaardile, et valida objekt ning tule siia tagasi",
 				noDataMap: "Sellel kaardil pole andmeid",
 				noPopup: "Selle objekti kohta ei leitud hüpikakent"
 			},
@@ -127,7 +121,7 @@
 			},
 			infoWindow: {
 				noFeature: "Pole andmeid, mida kuvada",
-				noFeatureExplain: "Objekti valimiseks puudutage kaarti"
+				noFeatureExplain: "Koputa kaardile, et valida objekt"
 			},
 			settingsLayout: {
 				settingsTabLayout: "Rullimise stiil",
@@ -158,9 +152,7 @@
 				settingsDataModel2Explain: "Rulli mõne teise veebikaardiga.",
 				settingsDataModel2SpyGlassExplain: "Ilmu teises veebikaardis.",
 				settingsDataModel2HelpTitle: "Kuidas leida veebikaardi ID-d?",
-				settingsDataModel2HelpContent: "Kopeeri ja kleebi numbrid pärast \'=\' märki veebikaardi URL sisust",
-				switchMaps: "Vaheta kaarti",
-				browseWebMaps: "Sirvi veebikaarte"
+				settingsDataModel2HelpContent: "Kopeeri ja kleebi numbrid pärast \'=\' märki veebikaardi URL sisust"
 			},
 			settingsLegend: {
 				settingsTabLegend: "Rakenduse paigutus",
@@ -177,7 +169,7 @@
 				settingsSeriesHelpLink: "Vaata vahetatavate seeriatega rakenduse näidet siit",
 				preview: "UI vaade",
 				settingsLocateButtonExplain: "Funktsionaalsus on toetatud enamustel nutiseadmetel ja töökoha brauserites (k.a Internet Explorer 9+).",
-				settingsLocateButton: "Luba asukoha määramise nupp toetatud brauserites",
+				settingsLocateButton: "Luba positsioneerimise nupp toetatud brauserites",
 				settingsAddressSearch: "Luba aadressi otsimise tööriist"
 			},
 			settingsSwipePopup: {
@@ -191,7 +183,7 @@
 				settingsSwipePopupColor: "Päise värv"
 			},
 			initPopup: {
-				initHeader: "Tere tulemast koosturisse Võrdlus/pikksilm",
+				initHeader: "Tere tulemast rullimise koostajasse",
 				modalNext: "Järgmine",
 				modalPrev: "Eelmine",
 				modalApply: "Ava app"
@@ -202,77 +194,6 @@
 				discard: "Loobu järjehoidjast",
 				saveExtent: "Määra järjehoidja ulatus",
 				discardDisabled: "Te ei saa seda järjehoidjat eemaldada. Vahetamise seeriaid saab keelata seadetest."
-			},
-			helpPopup: {
-				title: "Abi",
-				close: "Sulge",
-				tab1: {
-					div1: "Mall Rullimine/pikksilm on loodud kahe erineva veebikaardi või ühe veebikaardi kahe kihi võrdlemiseks meeldivas ja lihtsasti kasutatavas veebirakenduses, mida saab kasutada mis tahes veebibrauseris ja seadmes, k.a nutitelefonides ja tahvelarvutites.",
-					div2: "Lisateabe saamiseks malli Rullimine/pikksilm kohta (sh kasutajate loodud näidised) <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> külastage kaardilugude veebisaiti</a>. Saate jälgida ka meie Twitteri kontot <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
-					div3: "Ootame tagasisidet!  Kui teil on küsimusi, soovite küsida uue funktsiooni kohta või arvate, et olete leidnud vea, siis külastage meid <a href='http://links.esri.com/storymaps/forum' target='_blank'>Kaardilugude kasutajate foorumis</a>."
-				}
-			},
-			share: {
-				firstSaveTitle: "Rakendus on salvestatud",
-				firstSaveHeader: "Teie rakendus on nüüd salvestatud ArcGIS Online’i keskkonda. Lugege järgnevate korduma kippuvate küsimuste vastuseid.",
-				firstSaveA1: "Kui te ei ole tuttav ArcGIS Online keskkonnaga või soovite otseteed redigeerimise liidesele, siis võite salvestada järgmise lingi: %LINK1%",
-				firstSaveA1bis: "Rakenduse leiate samuti oma <a href='%LINK2%' target='_blank'>ArcGIS Online’i sisu kaustast</a>.",
-				firstSaveQ2: "Kas minu rakendus on jagatud?",
-				firstSaveA2: "Hetkel pole teie rakendus jagatud. Selle jagamiseks kasutage nuppu JAGA.",
-				shareTitle: "Rakenduse jagamine",
-				sharePrivateHeader: "Teie rakendus pole jagatud, kas soovite selle jagada?",
-				sharePrivateBtn1: "Jaga avalikult",
-				sharePrivateBtn2: "Jaga oma organisatsiooniga",
-				sharePrivateProgress: "Jagamine...",
-				sharePrivateErr: "Jagamine ebaõnnestus, proovige uuesti või",
-				sharePrivateOk: "Jagamine uuendatud edukalt, laadin...",
-				shareStatus1: "Rakendus pole salvestatud",
-				shareStatus2: "Rakendus on jagatud avalikult",
-				shareStatus3: "Rakendus on jagatud organisatsiooniga",
-				shareStatus4: "Rakendus pole jagatud",
-				sharePreviewAsUser: "Eelvaade",
-				shareHeader1: "Teie rakendus on <strong>avalikult kättesaadav</strong>.",
-				shareHeader2: "Teie rakendus on kättesaadav organisatsiooni liikmetele (sisselogimine nõutud).",
-				shareLinkHeader: "Jagage rakendust oma sihtrühmaga",
-				shareLinkOpen: "AVA",
-				learnMore: "Loe lähemalt",
-				shareQ1Opt1: "Kuidas saan hoida rakenduse privaatsena?",
-				shareQ1Opt2: "Kuidas saan hoida rakenduse privaatsena või jagada seda avalikult?",
-				shareA1: "Kasutage nuppu %SHAREIMG% <a href='%LINK1%' target='_blank'>rakenduse üksuse lehel</a>. Kui soovite tühistada ka veebikaardi jagamise, siis kasutage <a href='%LINK2%' target='_blank'>veebikaardi üksuse lehte</a>.",
-				shareA1bis: "Kui soovite jagamise eemaldada ka objektiteenuselt, kasutage <a href='%LINK1%' target='_blank'>objektiteenuse sisu lehte</a>.",
-				shareQ2: "Kuidas saab rakendust hiljem muuta?",
-				shareQ2bis: "Kuidas ma pääsen tagasi loomise liidesesse?",
-				shareA2div1: "Salvestage ja taaskasutage järgnevat linki %LINK1% või kasutage <a href='%LINK2%' target='_blank'>rakenduse sisu lehte</a>.",
-				shareA2div2: "Kui olete rakenduse omanikuna ArcGIS.com’i sisse logitud, sisaldab rakendus nuppu interaktiivse koosturi avamiseks.",				
-				shareQ3: "Kuhu on andmed majutatud?",
-				shareA3: "Rakenduse konfiguratsioon on salvestatud selles veebirakenduse üksuses</a>.",
-				shareWarning: "%WITH% jagamine on keelatud, kuna te pole <a href='%LINK%' target='_blank'>veebikaardi</a> omanik.",
- 				shareWarningWith1: "Avalikult",
- 				shareWarningWith2: "Avalikult ja organisatsiooniga"
-			},
-			directCreation: {
-				header: "Tere tulemast kasutama Rullimise/pikksilma koostajat",
-				mapPickHeader: "Alustamiseks sisestage veebikaardi id või kasutage otsingunuppu veebikaartide sirvimiseks.",
-				launchBuilder: "Käivita koostur",
-				chooseWebmapLbl: "Valige veebikaart...",
-				explain2: "Rullimise või pikksilma kaardiloo loomiseks kasutage allolevat nuppu kasutatava olemasoleva ArcGIS Online’i veebikaardi valimiseks. Teiseks võimaluseks on veebikaardi ID kleepimine allpool olevale väljale.",
-				explain3: "Kui soovite kaardiloos kasutada kahte veebikaarti, siis küsitakse selle valiku valimisel hiljem teist veebikaarti.",
-				webmapPlaceholder: "Sisestage kaardi id..."
-			}
-		},
-		configure: {
-			mapdlg:{
-				items:{
-					organizationLabel: "Minu organisatsioon",
-					onlineLabel: "ArcGIS Online",
-					contentLabel: "Minu sisu",
-					favoritesLabel: "Minu lemmikud"
-				},
-				title: "Vali veebikaart",
-				searchTitle: "Otsi",
-				ok: "Ok",
-				cancel: "Tühista",
-				placeholder: "Sisestage otsingusõnad"
 			}
 		}
     })

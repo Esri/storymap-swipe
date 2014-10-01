@@ -357,10 +357,12 @@ define(["dojo/dnd/move",
 				for(var i=0; i < app.popup[0].features.length; i++) {
 					var feature = app.popup[0].features[i];
 					var layerId = feature._graphicsLayer.id;
-					layerId = layerId.slice(0,-2);  // Probably not safe either, what if longer?  should look for _ at end, then slice?
+				
+					if(layerId.charAt(layerId.length-2) === '_')
+						layerId = layerId.split('_').slice(0, -1).join('_')
+
 					if ( (isOnSpecificLayer && layerId == specificLayerId) || (!isOnSpecificLayer && layerId != specificLayerId) ) {
 						dataFound = true;
-						
 						$('.esriPopup .titlePane').css('backgroundColor', '#' + _popupColors[colorTitleIndex]);
 						$('.esriPopup .swipeTitle').html(_popupTitles[colorTitleIndex] || '&nbsp;');
 						$('.esriPopup .swipeTitle').append('<div id="popup0" class="closePopup"><a ><i class="icon-remove icon-white"></i></a></div>');
@@ -372,7 +374,6 @@ define(["dojo/dnd/move",
 						
 						if(isGraphics)
 							app.popup[0]._highlighted._graphicsLayer.graphics[0].show()
-						
 						app.popup[0].select(i);
 						_popupState = 'open';
 						break;
@@ -445,7 +446,7 @@ define(["dojo/dnd/move",
 				
 				setSwiperPopupHeader();
 				
-				on(_webMapArray[0], 'click', function(evt, source)
+				on(_webMapArray[0], 'click', function(evt)
 				{	
 					app.popup[0].hide();
 					app.popup[1].hide();
@@ -466,10 +467,12 @@ define(["dojo/dnd/move",
 					if(app.popup[0].isShowing == true)
 						return;				
 	
-					if(source == "other")
+					if(evt.val === "other")
 						return;
 					
-					_webMapArray[1].onClick(z, "other");	
+					z.val = 'other';
+					
+					_webMapArray[1].onClick(z);	
 	        	});
 				
 				on(app.popup[0], "set-features", function() 
@@ -479,7 +482,7 @@ define(["dojo/dnd/move",
 					}, 0);
 				});
 				
-				on(_webMapArray[1], 'click', function(evt, source)
+				on(_webMapArray[1], 'click', function(evt)
 				{	
 					app.popup[0].hide();
 					app.popup[1].hide();
@@ -496,8 +499,10 @@ define(["dojo/dnd/move",
 					if(app.popup[1].isShowing == true)
 						return;				
 							
-					if(source == "other")
+					if(evt.val === "other")
 						return;
+						
+					z.val = 'other';
 
 					_webMapArray[0].onClick(z, "other");	
 	        	});
