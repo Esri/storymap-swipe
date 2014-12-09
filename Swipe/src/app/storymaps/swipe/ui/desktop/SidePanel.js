@@ -28,6 +28,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 		
 		var _isDescription = null;
 		var _isLegend = null;
+		var _isSeries = false;
 		
 		var _this = this;
 		
@@ -91,6 +92,20 @@ define(["storymaps/swipe/core/WebApplicationData",
 		{			
 			if((_isLegend && _isSeries) || (_isLegend && _isDescription))	
 				container.height(app.mainMap.height);
+			if (_isLegend && _isSeries) {
+				$('#descriptionContent').addClass('legend');
+				var seriesControlsHeight = app.isInBuilderMode ? $('#seriesControls').height() + 10 : 0;
+				$('#descriptionContent').height($('#descriptionPanel').height() - $('#descriptionTitle').height() - (2 * seriesControlsHeight) - 30);
+				$('#descriptionContent').css('margin-bottom', seriesControlsHeight);
+			}
+			if(_isSeries && !_isLegend)
+						app.seriesPanel.sizeTextDescription();
+			else {
+				if (app.isInBuilderMode) {
+					$('#descriptionContent').height($('#descriptionPanel').height() - 45);
+				}
+			}
+			
 			$('.nicEdit-panelContain').parent().css('width', '348px');
 		}
 		

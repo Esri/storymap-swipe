@@ -1,12 +1,14 @@
 ﻿define(
-	({
+	 ({
 		viewer: {
 			loading: {
 				step1: "アプリケーションを読み込んでいます",
 				step2: "データを読み込んでいます",
 				step3: "初期化",
 				fail: "スワイプの読み込みに失敗しました",
-				loadBuilder: "ビルダ モードへの切り替え",
+				loadBuilder: "ビルダ モードへの切り替え",				
+				redirectSignIn: "サイン イン ページへのリダイレクト",
+				redirectSignIn2: "(サイン イン後にここにリダイレクトされます)",
 				failButton: "再試行"
 			},
 			errors: {
@@ -42,6 +44,8 @@
 			builder: {
 				panelHeader: "アプリケーション構成",
 				buttonSave: "保存",
+				buttonHelp: "ヘルプ",
+				buttonShare: "共有",
 				buttonDiscard: "キャンセル",
 				buttonSettings: "設定",
 				buttonView: "ビュー モード",
@@ -61,6 +65,8 @@
 				savingApplication: "アプリケーションを保存しています",
 				saveSuccess: "アプリケーションは正常に保存されました",
 				saveError: "保存に失敗しました。もう一度やり直してください。",
+				saveError2: "名前または説明に無効な html タグがあるため保存に失敗しました",
+				saveError3: "タイトルは必ず入力してください",
 				signIn: "アカウントでサイン インして",
 				signInTwo: "アプリケーションを保存してください。"
 			},
@@ -96,12 +102,12 @@
 				settingsTabExtent: "範囲",
 				settingsExtentExplain: "以下の対話型マップを使用して初期範囲を設定します。",
 				settingsExtentExplainBottom: "定義した範囲によって、Web マップの初期範囲が変更されます。スワイプ操作を実行する場合、その範囲は使用されないことに注意してください。",
-				settingsExtentDateLineError: "この範囲は、経度 180° の子午線を超えることはできません。",
+				settingsExtentDateLineError: "この範囲は、経度 180°の子午線を超えることはできません。",
 				settingsExtentDateLineError2: "範囲を計算中にエラーが発生しました",
 				settingsExtentDrawBtn: "新しい範囲の描画",
 				settingsExtentModifyBtn: "現在の範囲の編集",
 				settingsExtentApplyBtn: "メイン マップに適用",
-				settingsExtentUseMainMap: "メイン マップ範囲の使用"
+				settingsExtentUseMainMap: "メイン マップ表示範囲の使用"
 			}
         },
 		swipe: {
@@ -152,7 +158,9 @@
 				settingsDataModel2Explain: "別の Web マップでスワイプします。",
 				settingsDataModel2SpyGlassExplain: "別の Web マップを公開します。",
 				settingsDataModel2HelpTitle: "Web マップ ID の検索方法",
-				settingsDataModel2HelpContent: "Web マップの URL 内の「=」記号から後ろの数字をコピーして貼り付けます。"
+				settingsDataModel2HelpContent: "Web マップの URL 内の「=」記号から後ろの数字をコピーして貼り付けます。",
+				switchMaps: "マップの切り替え",
+				browseWebMaps: "Web マップの参照"
 			},
 			settingsLegend: {
 				settingsTabLegend: "アプリケーションのレイアウト",
@@ -169,7 +177,7 @@
 				settingsSeriesHelpLink: "スワイプ操作を使用したアプリケーションの例を表示",
 				preview: "UI のプレビュー",
 				settingsLocateButtonExplain: "この機能は、ほとんどのモバイル デバイスとデスクトップ ブラウザ (Internet Explorer 9 以上) でサポートされています。",
-				settingsLocateButton: "[検索] ボタンに対応したブラウザの有効化",
+				settingsLocateButton: "サポートされているブラウザで [検索] ボタンを有効化",
 				settingsAddressSearch: "アドレス検索ツールの有効化"
 			},
 			settingsSwipePopup: {
@@ -183,7 +191,7 @@
 				settingsSwipePopupColor: "ヘッダーの色"
 			},
 			initPopup: {
-				initHeader: "スワイプ ビルダへようこそ",
+				initHeader: "スワイプ/スパイグラス ビルダへようこそ",
 				modalNext: "次へ",
 				modalPrev: "前へ",
 				modalApply: "アプリケーションを開く"
@@ -194,7 +202,79 @@
 				discard: "ブックマークの破棄",
 				saveExtent: "ブックマークの範囲の設定",
 				discardDisabled: "そのブックマークを削除することができません。[設定] で、スワイプが無効化されている可能性があります。"
+			},
+			helpPopup: {
+				title: "ヘルプ",
+				close: "閉じる",
+				tab1: {
+					div1: "スワイプ/スパイグラス テンプレートは、スマートフォンやタブレットなど、あらゆるデバイスのあらゆる Web ブラウザで使用できる使いやすく魅力的なアプリケーションで、2 つの別々の Web マップまたは 1 つの Web マップの 2 つのレイヤを比較できるよう設計されています。",
+					div2: "ユーザが作成した例を含むスワイプ/スパイグラス テンプレートの詳細については、<a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'>ストーリー マップ Web サイト</a>をご覧ください。また、<a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a> で Esri の Twitter をフォローすることもできます。",
+					div3: "みなさまのご参加をお待ちしています。質問がある場合、新しい機能を依頼する場合、あるいはバグを見つけた場合は、<a href='http://links.esri.com/storymaps/forum' target='_blank'>ストーリー マップ ユーザ フォーラム</a>をご覧ください。"
+				}
+			},
+			share: {
+				firstSaveTitle: "アプリケーションが保存されました",
+				firstSaveHeader: "アプリケーションが ArcGIS Online に保存されました。以下のよくある質問の答えをお読みください。",
+				firstSaveA1: "ArcGIS Online の操作に慣れていない、または作成インタフェースに簡単にアクセスしたい場合は、次のリンクを保存できます: %LINK1%",
+				firstSaveA1bis: "アプリケーションは <a href='%LINK2%' target='_blank'>ArcGIS Online コンテンツ フォルダ</a>にもあります。",
+				firstSaveQ2: "アプリケーションは共有されていますか？",
+				firstSaveA2: "現在、アプリケーションは共有されていません。共有するには、[共有] ボタンを使用します。",
+				shareTitle: "アプリケーションを共有",
+				sharePrivateHeader: "アプリケーションが共有されていません。共有しますか？",
+				sharePrivateBtn1: "パブリックに共有",
+				sharePrivateBtn2: "組織内で共有",
+				sharePrivateProgress: "共有の実行中...",
+				sharePrivateErr: "共有に失敗しました。もう一度行ってください。",
+				sharePrivateOk: "共有の更新に成功しました。読み込んでいます...",
+				shareStatus1: "アプリケーションが保存されていません",
+				shareStatus2: "アプリケーションがパブリックに共有されています",
+				shareStatus3: "アプリケーションが組織サイト内で共有されています",
+				shareStatus4: "アプリケーションが共有されていません",
+				sharePreviewAsUser: "プレビュー",
+				shareHeader1: "アプリケーションには<strong>すべてのユーザがアクセスできます</strong>。",
+				shareHeader2: "アプリケーションには組織のメンバーがアクセスできます (ログインが必要)。",
+				shareLinkHeader: "アプリケーションをユーザと共有",
+				shareLinkOpen: "オープン",
+				learnMore: "詳細",
+				shareQ1Opt1: "アプリケーションをプライベートにする方法",
+				shareQ1Opt2: "アプリケーションのプライベート使用とパブリック使用を切り替える方法",
+				shareA1: "<a href='%LINK1%' target='_blank'>アプリケーション アイテム ページ</a>で %SHAREIMG% を使用します。Web マップの共有も解除する場合は、<a href='%LINK2%' target='_blank'>Web マップ アイテム ページ</a>を使用します。",
+				shareA1bis: "フィーチャ サービスの共有も解除する場合は、<a href='%LINK1%' target='_blank'>フィーチャ サービス アイテム ページ</a>を使用します。",
+				shareQ2: "アプリケーションを後で編集する方法",
+				shareQ2bis: "作成インタフェースに戻る方法",
+				shareA2div1: "次のリンク %LINK1% を保存および再利用するか、<a href='%LINK2%' target='_blank'>アプリケーション アイテム ページ</a>を使用します。",
+				shareA2div2: "アプリケーションの所有者として ArcGIS.com にサイン インした場合、アプリケーションに対話型ビルダを開くボタンが含まれます。",				
+				shareQ3: "データの保存場所は？",
+				shareA3: "アプリケーション構成は、この Web アプリケーション アイテムに保存されます</a>。",
+				shareWarning: "<a href='%LINK%' target='_blank'>Web マップ</a>の所有者でないため、%WITH% の共有は無効化されています。",
+ 				shareWarningWith1: "パブリック",
+ 				shareWarningWith2: "パブリックおよび組織"
+			},
+			directCreation: {
+				header: "スワイプ/スパイグラス ビルダへようこそ",
+				mapPickHeader: "開始するには、有効な Web マップ ID を入力するか、または [検索] ボタンを使用して Web マップを参照してください。",
+				launchBuilder: "ビルダの開始",
+				chooseWebmapLbl: "Web マップの選択...",
+				explain2: "スワイプまたはスパイグラス ストーリー マップを作成するには、下のボタンを使用して、使用する既存の ArcGIS Online Web マップを選択します。あるいは、Web マップの ID を下のフィールドに貼り付けることもできます。",
+				explain3: "ストーリー マップに Web マップを 2 つ使用する場合、そのオプションを選択するときに、2 番目のマップの入力を求められます。",
+				webmapPlaceholder: "Web マップ ID の入力..."
+			}
+		},
+		configure: {
+			mapdlg:{
+				items:{
+					organizationLabel: "組織",
+					onlineLabel: "ArcGIS Online",
+					contentLabel: "マイ コンテンツ",
+					favoritesLabel: "お気に入り"
+				},
+				title: "Web マップの選択",
+				searchTitle: "検索",
+				ok: "OK",
+				cancel: "キャンセル",
+				placeholder: "検索語句の入力"
 			}
 		}
     })
 );
+

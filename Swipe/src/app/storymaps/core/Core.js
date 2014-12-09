@@ -157,8 +157,8 @@ define(["esri/map",
 			if ( true && !isProd() ) {
 				on(IdentityManager, 'dialog-create', function(){
 					on(IdentityManager.dialog, 'show', function(){
-						IdentityManager.dialog.txtUser_.set('value', 'mcooney'/*'guest'*/);
-						IdentityManager.dialog.txtPwd_.set('value', 'timeless'/*'guest'*/);
+						IdentityManager.dialog.txtUser_.set('value', 'guest');
+						IdentityManager.dialog.txtPwd_.set('value', 'guest');
 						IdentityManager.dialog.btnSubmit_.onClick();
 					});
 				});

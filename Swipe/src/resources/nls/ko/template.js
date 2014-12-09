@@ -1,12 +1,14 @@
 ﻿define(
-	({
+	 ({
 		viewer: {
 			loading: {
-				step1: "응용프로그램을 로드하는 중",
-				step2: "데이터를 로드하는 중",
+				step1: "응용프로그램을 불러오는 중",
+				step2: "데이터를 불러오는 중",
 				step3: "초기화하는 중",
 				fail: "죄송합니다. 스와이프를 로드하지 못했습니다.",
-				loadBuilder: "빌더 모드로 전환하는 중",
+				loadBuilder: "빌더 모드로 전환하는 중",				
+				redirectSignIn: "로그인 페이지로 이동하는 중",
+				redirectSignIn2: "(로그인 후 이 페이지로 다시 돌아옵니다.)",
 				failButton: "재시도"
 			},
 			errors: {
@@ -42,6 +44,8 @@
 			builder: {
 				panelHeader: "응용프로그램 구성",
 				buttonSave: "저장",
+				buttonHelp: "도움말",
+				buttonShare: "공유",
 				buttonDiscard: "취소",
 				buttonSettings: "설정",
 				buttonView: "보기 모드",
@@ -61,6 +65,8 @@
 				savingApplication: "응용프로그램을 저장하는 중",
 				saveSuccess: "응용프로그램이 저장되었습니다.",
 				saveError: "저장하지 못했습니다. 다시 시도하세요.",
+				saveError2: "이름 또는 설명의 잘못된 html 태그로 인해 저장하지 못했습니다.",
+				saveError3: "제목은 비워 둘 수 없습니다.",
 				signIn: "응용프로그램을 저장하려면",
 				signInTwo: "로그인 계정으로 로그인하세요."
 			},
@@ -87,7 +93,7 @@
 				settingsLogoCustom: "사용자 지정 로고",
 				settingsLogoCustomPlaceholder: "이미지 URL",
 				settingsLogoCustomTargetPlaceholder: "클릭 이동 링크",
-				settingsLogoSocialExplain: "헤더 오른쪽 상단 링크를 사용자 정의합니다.",
+				settingsLogoSocialExplain: "머리글 오른쪽 상단 링크를 사용자 정의합니다.",
 				settingsLogoSocialText: "텍스트",
 				settingsLogoSocialLink: "링크",
 				settingsLogoSocialDisabled: "이 기능은 관리자가 사용하지 않도록 설정했습니다."
@@ -152,7 +158,9 @@
 				settingsDataModel2Explain: "다른 웹 맵으로 스와이프합니다.",
 				settingsDataModel2SpyGlassExplain: "다른 웹 맵을 표시합니다.",
 				settingsDataModel2HelpTitle: "웹 맵 ID를 찾는 방법",
-				settingsDataModel2HelpContent: "웹 맵의 URL에 '=' 부호 뒤의 숫자 복사 및 붙여넣기"
+				settingsDataModel2HelpContent: "웹 맵의 URL에 '=' 부호 뒤의 숫자 복사 및 붙여넣기",
+				switchMaps: "맵 전환",
+				browseWebMaps: "웹 맵 찾아보기"
 			},
 			settingsLegend: {
 				settingsTabLegend: "앱 레이아웃",
@@ -183,7 +191,7 @@
 				settingsSwipePopupColor: "머리글 색상"
 			},
 			initPopup: {
-				initHeader: "스와이프 빌더 시작",
+				initHeader: "스와이프/망원경 빌더 시작",
 				modalNext: "다음",
 				modalPrev: "이전",
 				modalApply: "앱 열기"
@@ -194,7 +202,79 @@
 				discard: "책갈피 취소",
 				saveExtent: "책갈피 범위 설정",
 				discardDisabled: "책갈피를 제거할 수 없습니다. 스와이프 계열이 설정에서 사용하지 않도록 설정되어 있을 수 있습니다."
+			},
+			helpPopup: {
+				title: "도움말",
+				close: "닫기",
+				tab1: {
+					div1: "스와이프/망원경 템플릿은 스마트폰과 태블릿을 비롯한 모든 장치의 모든 웹 브라우저에서 사용 가능한 간편하고 효율적인 웹 응용프로그램에서 단일 웹 맵의 두 레이어 또는 두 개별 웹 맵을 비교하도록 설계되었습니다.",
+					div2: "사용자가 생성한 예시를 포함한 스와이프/확대 렌즈 템플릿에 대한 추가 정보는, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> 스토리 맵 웹 사이트를 방문하세요</a>. Twitter의 <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>에서 팔로잉할 수도 있습니다.",
+					div3: "여러분의 참여를 기다립니다. 질문이 있거나 새 기능이 필요하거나 버그가 확인된 경우 <a href='http://links.esri.com/storymaps/forum' target='_blank'>스토리 맵 사용자 포럼</a>을 방문해 주세요."
+				}
+			},
+			share: {
+				firstSaveTitle: "응용프로그램이 저장됨",
+				firstSaveHeader: "이제 응용프로그램이 ArcGIS Online에 저장되었습니다. 다음 FAQ를 확인하세요.",
+				firstSaveA1: "ArcGIS Online에 익숙하지 않거나 바로가기를 사용하여 작성 인터페이스에 액세스하려는 경우 다음 링크를 저장하면 됩니다. %LINK1%",
+				firstSaveA1bis: "<a href='%LINK2%' target='_blank'>ArcGIS Online 컨텐츠 폴더</a>에서도 응용프로그램을 찾을 수 있습니다.",
+				firstSaveQ2: "응용프로그램이 공유됩니까?",
+				firstSaveA2: "현재는 응용프로그램이 공유되지 않습니다. 공유하려면 공유 버튼을 사용합니다.",
+				shareTitle: "응용프로그램 공유",
+				sharePrivateHeader: "응용프로그램이 공유되고 있지 않습니다. 공유하시겠습니까?",
+				sharePrivateBtn1: "공개적으로 공유",
+				sharePrivateBtn2: "내 기관과 공유",
+				sharePrivateProgress: "공유 처리 중...",
+				sharePrivateErr: "공유에 실패했습니다. 다시 시도하거나",
+				sharePrivateOk: "공유가 업데이트되었습니다. 불러오는 중...",
+				shareStatus1: "응용프로그램이 저장되지 않음",
+				shareStatus2: "응용프로그램이 공개적으로 공유됨",
+				shareStatus3: "응용프로그램이 기관 내에서 공유됨",
+				shareStatus4: "응용프로그램이 공유되지 않음",
+				sharePreviewAsUser: "미리보기",
+				shareHeader1: "응용프로그램에 <strong>공개적으로 접근 가능</strong>합니다.",
+				shareHeader2: "기관의 구성원이 응용프로그램에 접근할 수 있습니다(로그인 필요).",
+				shareLinkHeader: "대상 그룹과 응용프로그램 공유",
+				shareLinkOpen: "열기",
+				learnMore: "자세한 정보",
+				shareQ1Opt1: "응용프로그램을 비공개 상태로 유지하려면 어떻게 해야 합니까?",
+				shareQ1Opt2: "응용프로그램을 비공개 상태로 유지하거나 공개적으로 공유하려면 어떻게 해야 합니까?",
+				shareA1: "<a href='%LINK1%' target='_blank'>응용프로그램 항목 페이지</a>의 %SHAREIMG%을 사용합니다. 웹 맵도 공유 해제하려면 <a href='%LINK2%' target='_blank'>웹 맵 항목 페이지</a>를 사용합니다.",
+				shareA1bis: "피처 서비스의 공유도 해제하려면 <a href='%LINK1%' target='_blank'>피처 서비스 항목 페이지</a>를 사용하세요.",
+				shareQ2: "나중에 응용프로그램을 편집하려면 어떻게 해야 합니까?",
+				shareQ2bis: "작성 인터페이스로 돌아가는 방법",
+				shareA2div1: "%LINK1% 링크를 저장하여 다시 사용하거나 <a href='%LINK2%' target='_blank'>응용프로그램 항목 페이지</a>를 사용하세요.",
+				shareA2div2: "응용프로그램의 소유자인 경우 ArcGIS.com에 로그인하면 대화형 빌더를 열 수 있는 버튼이 응용프로그램에 표시됩니다.",				
+				shareQ3: "데이터는 어디에 저장되나요?",
+				shareA3: "응용프로그램 구성은 이 웹 응용프로그램 항목에 저장됩니다</a>.",
+				shareWarning: "<a href='%LINK%' target='_blank'>웹 맵</a>의 소유자가 아니므로 %WITH% 공유를 사용할 수 없습니다.",
+ 				shareWarningWith1: "공개",
+ 				shareWarningWith2: "기관에 공개"
+			},
+			directCreation: {
+				header: "스와이프/망원경 빌더 시작",
+				mapPickHeader: "시작하려면 유효한 웹 맵 ID를 입력하거나 검색 버튼을 사용하여 웹 맵을 찾으세요.",
+				launchBuilder: "빌더 시작",
+				chooseWebmapLbl: "웹 맵을 선택합니다...",
+				explain2: "스와이프 또는 확대 렌즈 스토리 맵을 생성하려면 아래 버튼을 사용하여 사용할 기존 ArcGIS Online 웹 맵을 선택합니다. 또는 웹 맵의 ID를 아래 필드에 붙일 수도 있습니다.",
+				explain3: "스토리 맵에서 두 개의 웹 맵을 사용하려는 경우 나중에 해당 옵션을 선택할 때 두 번째 웹 맵에 대한 프롬프트가 표시됩니다.",
+				webmapPlaceholder: "웹 맵 ID를 입력합니다..."
+			}
+		},
+		configure: {
+			mapdlg:{
+				items:{
+					organizationLabel: "내 기관",
+					onlineLabel: "ArcGIS Online",
+					contentLabel: "내 콘텐츠",
+					favoritesLabel: "내 즐겨찾기"
+				},
+				title: "웹 맵 선택",
+				searchTitle: "검색",
+				ok: "확인",
+				cancel: "취소",
+				placeholder: "검색어 입력"
 			}
 		}
     })
 );
+

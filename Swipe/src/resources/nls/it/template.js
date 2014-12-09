@@ -1,12 +1,14 @@
 ﻿define(
-	({
+	 ({
 		viewer: {
 			loading: {
 				step1: "CARICAMENTO APPLICAZIONE",
 				step2: "CARICAMENTO DATI",
 				step3: "INIZIALIZZAZIONE IN CORSO",
 				fail: "Caricamento scorrimento con dito non riuscito",
-				loadBuilder: "PASSAGGIO A MODALITÀ GENERATORE",
+				loadBuilder: "PASSAGGIO A MODALITÀ GENERATORE",				
+				redirectSignIn: "REINDIRIZZAMENTO ALLA PAGINA DI ACCESSO",
+				redirectSignIn2: "(pagina alla quale si verrà reindirizzati dopo l\'accesso)",
 				failButton: "Riprova"
 			},
 			errors: {
@@ -42,6 +44,8 @@
 			builder: {
 				panelHeader: "CONFIGURAZIONE APPLICAZIONE",
 				buttonSave: "SALVA",
+				buttonHelp: "Guida",
+				buttonShare: "Condividi",
 				buttonDiscard: "ANNULLA",
 				buttonSettings: "Impostazioni",
 				buttonView: "Modalità visualizzazione",
@@ -61,6 +65,8 @@
 				savingApplication: "Salvataggio dell\'applicazione",
 				saveSuccess: "Salvataggio dell\'applicazione completato",
 				saveError: "Salvataggio non riuscito. Riprovare",
+				saveError2: "Salvataggio non riuscito a causa di un tag HTML non valido in un nome o in una descrizione",
+				saveError3: "Specificare il titolo",
 				signIn: "Effettuare l\'accesso con un account su",
 				signInTwo: "per salvare l\'applicazione."
 			},
@@ -96,7 +102,7 @@
 				settingsTabExtent: "Estensione",
 				settingsExtentExplain: "Impostare l\'estensione iniziale mediante la mappa interattiva riportata di seguito.",
 				settingsExtentExplainBottom: "L\'estensione specificata modificherà l\'estensione iniziale della mappa Web. Tenere presente che tale estensione non verrà utilizzata se si sta effettuando una serie di scorrimenti.",
-				settingsExtentDateLineError: "L\'estensione non può attraversare il meridiano per 180° di longitudine",
+				settingsExtentDateLineError: "L\'estensione non può attraversare il meridiano per 180ï¿½ di longitudine",
 				settingsExtentDateLineError2: "Errore di calcolo dell\'estensione",
 				settingsExtentDrawBtn: "Disegna una nuova estensione",
 				settingsExtentModifyBtn: "Modifica l\'estensione corrente",
@@ -152,7 +158,9 @@
 				settingsDataModel2Explain: "Scorrimento con il dito con un\'altra mappa Web.",
 				settingsDataModel2SpyGlassExplain: "Mostra un\'altra mappa Web.",
 				settingsDataModel2HelpTitle: "Come trovare gli ID delle mappe Web",
-				settingsDataModel2HelpContent: "Copiare e incollare le cifre dopo il segno \"=\" nell\'URL della mappa Web"
+				settingsDataModel2HelpContent: "Copiare e incollare le cifre dopo il segno \"=\" nell\'URL della mappa Web",
+				switchMaps: "Cambia mappa",
+				browseWebMaps: "Sfoglia mappe Web"
 			},
 			settingsLegend: {
 				settingsTabLegend: "Layout app",
@@ -183,7 +191,7 @@
 				settingsSwipePopupColor: "Colore intestazione"
 			},
 			initPopup: {
-				initHeader: "Benvenuto in Swipe Builder",
+				initHeader: "Benvenuti al generatore Scorrimento con dito/Cannocchiale",
 				modalNext: "Avanti",
 				modalPrev: "Indietro",
 				modalApply: "Apri l\'app"
@@ -194,7 +202,79 @@
 				discard: "Annulla segnalibro",
 				saveExtent: "Impostare l\'estensione del segnalibro",
 				discardDisabled: "Impossibile rimuovere il segnalibro. È possibile disabilitare la serie di scorrimenti nelle impostazioni."
+			},
+			helpPopup: {
+				title: "Guida",
+				close: "Chiudi",
+				tab1: {
+					div1: "Il modello Scorrimento con dito/Cannocchiale consente di confrontare due mappe Web distinte o due layer di un\'unica mappa Web grazie a un\'applicazione Web interessante e di facile utilizzo che può essere eseguita in qualsiasi browser Web su qualsiasi dispositivo, inclusi smartphone e tablet.",
+					div2: "Per ulteriori informazioni sul modello Scorrimento con dito/Cannocchiale, inclusi esempi creati dagli utenti, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'>visitare il sito Web delle mappe collegate a storie</a>. È anche possibile seguire Esri su Twitter all\'indirizzo <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
+					div3: "Esri è lieta di ricevere commenti e suggerimenti degli utenti. Se si desidera porre una domanda, richiedere una nuova funzionalità o si ritiene di aver individuato un difetto nel software, visitare il <a href='http://links.esri.com/storymaps/forum' target='_blank'>forum degli utenti delle mappe collegate a storie</a>."
+				}
+			},
+			share: {
+				firstSaveTitle: "Salvataggio dell\'applicazione completato",
+				firstSaveHeader: "L\'applicazione è stata salvata in ArcGIS Online. Leggere le seguenti risposte alle domande frequenti.",
+				firstSaveA1: "Se non si è esperti di ArcGIS Online o si desidera impostare una scelta rapida per accedere all\'interfaccia di modifica, salvare il collegamento seguente: %LINK1%",
+				firstSaveA1bis: "L\'applicazione è disponibile anche nella <a href='%LINK2%' target='_blank'>cartella dei contenuti di ArcGIS Online</a>.",
+				firstSaveQ2: "L\'applicazione è condivisa?",
+				firstSaveA2: "L\'applicazione non è attualmente condivisa. Per condividerla, utilizzare il pulsante CONDIVIDI.",
+				shareTitle: "Condividi applicazione",
+				sharePrivateHeader: "L\'applicazione non è condivisa. Condividerla?",
+				sharePrivateBtn1: "Condividi pubblicamente",
+				sharePrivateBtn2: "Condividi con l\'organizzazione",
+				sharePrivateProgress: "Condivisione in corso...",
+				sharePrivateErr: "Condivisione non riuscita. Riprovare o",
+				sharePrivateOk: "Condivisione aggiornata. Caricamento in corso...",
+				shareStatus1: "Applicazione non salvata",
+				shareStatus2: "Applicazione condivisa pubblicamente",
+				shareStatus3: "Applicazione condivisa nell\'ambito dell\'organizzazione",
+				shareStatus4: "Applicazione non condivisa",
+				sharePreviewAsUser: "Anteprima",
+				shareHeader1: "L\'applicazione è <strong>accessibile pubblicamente</strong>.",
+				shareHeader2: "L\'applicazione è accessibile ai membri dell\'organizzazione (accesso obbligatorio).",
+				shareLinkHeader: "Condividi l\'applicazione con il pubblico",
+				shareLinkOpen: "APRI",
+				learnMore: "Ulteriori informazioni",
+				shareQ1Opt1: "Come si mantiene privata l\'applicazione?",
+				shareQ1Opt2: "Come si mantiene privata o si condivide pubblicamente l\'applicazione?",
+				shareA1: "Utilizzare %SHAREIMG% nella <a href='%LINK1%' target='_blank'>pagina degli elementi dell\'applicazione</a>. Se si desidera anche annullare la condivisione della mappa Web, utilizzare la <a href='%LINK2%' target='_blank'>pagina degli elementi della mappa Web</a>.",
+				shareA1bis: "Se si desidera anche annullare la condivisione del feature service, utilizzare la <a href='%LINK1%' target='_blank'>pagina degli elementi del feature service</a>.",
+				shareQ2: "Come si modifica l\'applicazione in un secondo momento?",
+				shareQ2bis: "Come si torna all\'interfaccia di creazione?",
+				shareA2div1: "Salvare e riutilizzare il collegamento seguente %LINK1% oppure utilizzare la <a href='%LINK2%' target='_blank'>pagina degli elementi dell\'applicazione</a>.",
+				shareA2div2: "In quanto proprietari dell\'applicazione, all\'accesso in ArcGIS.com, l\'applicazione includerà un pulsante per aprire il generatore interattivo:",				
+				shareQ3: "Dove vengono memorizzati i dati?",
+				shareA3: "La configurazione dell\'applicazione è memorizzata in questo elemento applicazione Web</a>.",
+				shareWarning: "La condivisione %WITH% è stata disabilitata perché non si è proprietari della <a href='%LINK%' target='_blank'>mappa Web</a>.",
+ 				shareWarningWith1: "con il pubblico",
+ 				shareWarningWith2: "con il pubblico e con l\'organizzazione"
+			},
+			directCreation: {
+				header: "Benvenuti al generatore Scorrimento con dito/Cannocchiale",
+				mapPickHeader: "Per iniziare, immettere un ID mappa valido oppure utilizzare il pulsante Cerca per cercare mappe Web.",
+				launchBuilder: "Avvia generatore",
+				chooseWebmapLbl: "Scegli mappa Web...",
+				explain2: "Per creare una mappa collegata a storie Scorrimento con dito o Cannocchiale, utilizzare il pulsante seguente per selezionare la mappa Web ArcGIS Online desiderata. In alternativa, è possibile incollare l\'ID della mappa Web nell\'apposito campo.",
+				explain3: "Se si desidera utilizzare due mappe Web nella mappa collegata a storie, la seconda mappa verrà richiesta più avanti quando si sceglie la relativa opzione.",
+				webmapPlaceholder: "Immetti un ID mappa Web..."
+			}
+		},
+		configure: {
+			mapdlg:{
+				items:{
+					organizationLabel: "La mia organizzazione",
+					onlineLabel: "ArcGIS Online",
+					contentLabel: "I miei contenuti",
+					favoritesLabel: "I miei preferiti"
+				},
+				title: "Seleziona mappa Web",
+				searchTitle: "Cerca",
+				ok: "OK",
+				cancel: "Annulla",
+				placeholder: "Immettere il termine da cercare"
 			}
 		}
     })
 );
+

@@ -44,6 +44,10 @@ APPCFG = {
 		{name: "Blue", headerColor: "#0e3867", panelColor: "#FFF"},
 		{name: "Green", headerColor: "#1a3606", panelColor: "#FFF"}
 	],
+	
+	WEBAPP_KEYWORD_GENERIC: ["JavaScript", "Map", "Mapping Site", "Online Map", "Ready To Use", "selfConfigured", "Web Map"],
+	WEBAPP_KEYWORD_APP: ["Story Map", "Story Maps", "SwipeSpyglass"],
+	
 	// Optional array of server that will leverage CORS (for developement or specific cross domain deployment)
 	CORS_SERVER: [],
 	

@@ -89,7 +89,6 @@ define(["dojo/has",
 				
 				$('#descriptionTitle').addClass('series');
 				$('#descriptionContent').addClass('series');
-				$('#descriptionContent').addClass('builder');
 	
 				// Desktop builder
 				if( isInBuilderMode) {
@@ -97,6 +96,8 @@ define(["dojo/has",
 					$("#addSeries").fastClick(this.addSeries);
 					$("#addSeries").tooltip();
 					$('#seriesControls').addClass('series');
+					$('#descriptionContent').addClass('builder');
+					$('#descriptionTitle').addClass('builder');
 					
 					$('#seriesNav').sortable({
 						stop: updateSeriesOrder
@@ -144,8 +145,10 @@ define(["dojo/has",
 					$('#descriptionTitle').addClass('viewer');
 				}
 				
+				var fromInit = true;
+				
 				if(bookmarks)
-					_this.renderText(bookmarks[0]);
+					_this.renderText(bookmarks[0], fromInit);
 				else
 					_this.renderText(null);
 			};
@@ -180,6 +183,7 @@ define(["dojo/has",
 				setTimeout(function(){
 					topic.publish("CORE_UPDATE_EXTENT", _bookmarks[bookmarkIndex].extent);
 				}, 0);
+				$('#descriptionContent').scrollTop(0);
 			}
 			
 			this.addSeries = function()
@@ -260,7 +264,7 @@ define(["dojo/has",
 				$(".series-extentSave").attr("disabled", "disabled");
 			}
 			
-			this.renderText = function(bookmark)
+			this.renderText = function(bookmark, fromInit)
 			{
 				if(!bookmark && isInBuilderMode) {
 					nicEditors.findEditor('descriptionTitle').nicInstances[0].setContent("");
@@ -288,11 +292,15 @@ define(["dojo/has",
 						$('#sidePanel').css('height', '60%');
 					else 
 						$('#sidePanel').css('height', 'auto');
+
 				}
+				
 				if (navigator.userAgent.match(/iPad/i))
 						setTimeout(function (){
 							descScroll.refresh();
-						}, 0);					
+						}, 0);	
+				
+				_this.sizeTextDescription(fromInit);			
 			}
 			
 			this.checkText = function()
@@ -317,6 +325,24 @@ define(["dojo/has",
 				app.mobileCarousel.update(_bookmarks, WebApplicationData.getColors());
 				var showDescription = false;
 				app.mobileCarousel.setDescriptionView(_bookmarks[selectedBookmark].name, _bookmarks[selectedBookmark].description, showDescription);
+			}
+			
+			this.sizeTextDescription = function(fromInit){
+				var seriesControlsHeight = app.isInBuilderMode ? $('#seriesControls').height() + 10 : 0;
+				setTimeout(function(){
+					//$('#descriptionContent').height($('#descriptionPanel').height() - $('#descriptionTitle').height() - (2 * seriesControlsHeight) - 30);
+					// TODO set desc content to panel - desc title
+					$('#descriptionContent').height('auto');
+					//$('#descriptionContent').css({ "max-height": $('#descriptionPanel').height() - $('#descriptionTitle').height() - 30 });
+					$('#descriptionContent').css('margin-bottom', seriesControlsHeight);
+					//$('#descriptionContent').css({ "max-height": $('#descriptionPanel').height() - $('#descriptionTitle').height() - 30 });
+				}, fromInit ? 5000 : 0);
+				setTimeout(function(){
+					if ($('#descriptionContent').height() > $('#descriptionPanel').height() - $('#descriptionTitle').height() - (2 * seriesControlsHeight) - 30) {
+						$('#descriptionContent').height($('#descriptionPanel').height() - $('#descriptionTitle').height() - (2 * seriesControlsHeight) - 30);
+					}
+				}, fromInit ? 5000 : 0);
+				
 			}
 			
 			function watchExtentChangeSavebtn(nbCycle)

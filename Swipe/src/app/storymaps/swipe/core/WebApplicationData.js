@@ -37,7 +37,7 @@ define(["dojo/_base/lang", "esri/geometry/Extent"], function(lang, Extent){
 				data.values.template = "Swipe";
 			if( ! data.values.templateCreation )
 				data.values.templateCreation = version;
-				
+			
 			data.values.templateLastEdit = version;
 			
 			return data;

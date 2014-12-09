@@ -1,12 +1,14 @@
 ﻿define(
-	({
+	 ({
 		viewer: {
 			loading: {
 				step1: "LÄSER IN PROGRAM",
 				step2: "LÄSER IN DATA",
 				step3: "INITIERAR",
 				fail: "Det gick inte att hämta svep",
-				loadBuilder: "VÄXLAR TILL BYGGLÄGET",
+				loadBuilder: "VÄXLAR TILL BYGGLÄGET",				
+				redirectSignIn: "OMDIRIGERAR TILL INLOGGNINGSSIDAN",
+				redirectSignIn2: "(du omdirigeras hit efter inloggning)",
 				failButton: "Försök igen"
 			},
 			errors: {
@@ -23,7 +25,7 @@
 				mapSave: "Det uppstod ett fel när webbkartan skulle sparas",
 				notAuthorized: "Du är inte behörig att konfigurera det här programmet",
 				conflictingProjectionsTitle: "Projektionerna är i konflikt",
-				conflictingProjections: "Svep-verktyget går inte att använda med två webbkartor som har olika projektioner. Öppna inställningarna och använd en webbkarta med samma projektion som den första webbkartan.",
+				conflictingProjections: "Svep går inte att använda med två webbkartor som har olika projektioner. Öppna inställningarna och använd en webbkarta med samma projektion som den första webbkartan.",
 				cpButton: "Stäng"
 			},
 			mobileView: {
@@ -42,6 +44,8 @@
 			builder: {
 				panelHeader: "PROGRAMKONFIGURATION",
 				buttonSave: "SPARA",
+				buttonHelp: "Hjälp",
+				buttonShare: "Dela",
 				buttonDiscard: "AVBRYT",
 				buttonSettings: "Inställningar",
 				buttonView: "Visningsläge",
@@ -61,6 +65,8 @@
 				savingApplication: "Sparar programmet",
 				saveSuccess: "Programmet har sparats",
 				saveError: "Det gick inte att spara, försök igen",
+				saveError2: "Det gick inte att spara på grund av en ogiltig html-tagg i ett namn eller en beskrivning",
+				saveError3: "Titeln får inte vara tom",
 				signIn: "Logga in med ett konto på",
 				signInTwo: "och spara programmet."
 			},
@@ -96,7 +102,7 @@
 				settingsTabExtent: "Utbredning",
 				settingsExtentExplain: "Ange den ursprungliga utbredningen via den interaktiva kartan nedan.",
 				settingsExtentExplainBottom: "Den utbredning du definierar ändrar webbkartans ursprungliga utbredning. Om du kör en svepserie kommer den här utbredningen inte att användas.",
-				settingsExtentDateLineError: "Det går inte att ha en utbredning över 180°-meridianen",
+				settingsExtentDateLineError: "Det går inte att ha en utbredning över 180ï¿½-meridianen",
 				settingsExtentDateLineError2: "Det gick inte att beräkna utbredningen",
 				settingsExtentDrawBtn: "Rita en ny utbredning",
 				settingsExtentModifyBtn: "Redigera aktuell utbredning",
@@ -152,7 +158,9 @@
 				settingsDataModel2Explain: "Svep med en annan webbkarta.",
 				settingsDataModel2SpyGlassExplain: "Visa en annan webbkarta.",
 				settingsDataModel2HelpTitle: "Hitta ett webbkart-ID",
-				settingsDataModel2HelpContent: "Kopiera och klistra in siffror efter tecknet '=' i webbkartans webbadress"
+				settingsDataModel2HelpContent: "Kopiera och klistra in siffror efter tecknet '=' i webbkartans webbadress",
+				switchMaps: "Växla kartor",
+				browseWebMaps: "Bläddra bland webbkartor"
 			},
 			settingsLegend: {
 				settingsTabLegend: "Applikationslayout",
@@ -169,7 +177,7 @@
 				settingsSeriesHelpLink: "Här finns ett exempel på en applikation med en svepserie",
 				preview: "Förhandsgranska användargränssnitt",
 				settingsLocateButtonExplain: "Den här funktionen kan användas på de flesta mobila enheter och datorwebbläsare (inklusive Internet Explorer 9+).",
-				settingsLocateButton: "Aktivera knappen Hitta på webbläsare som stöds",
+				settingsLocateButton: "Aktivera knappen Hitta för webbläsare som stöds",
 				settingsAddressSearch: "Aktivera ett adressökverktyg"
 			},
 			settingsSwipePopup: {
@@ -183,7 +191,7 @@
 				settingsSwipePopupColor: "Rubrikens färg"
 			},
 			initPopup: {
-				initHeader: "Välkommen till Svep-byggverktyget",
+				initHeader: "Välkommen till byggverktyget för Svep/Kikare",
 				modalNext: "Nästa",
 				modalPrev: "Föregående",
 				modalApply: "Öppna applikationen"
@@ -194,7 +202,79 @@
 				discard: "Ignorera bokmärke",
 				saveExtent: "Ange utbredning för bokmärke",
 				discardDisabled: "Det går inte att ta bort det här bokmärket. Du kan inaktivera svepserier i inställningarna."
+			},
+			helpPopup: {
+				title: "Hjälp",
+				close: "Stäng",
+				tab1: {
+					div1: "Mallen Svep/Kikare är utformad för att jämföra två separata webbkartor eller två lager i en webbkarta i en tilltalande och lättanvänd webbapplikation som kan användas i valfri webbläsare på alla enheter, inklusive smartphones och surfplattor.",
+					div2: "Ytterligare information om mallen Svep/Kikare, inklusive exempel som har skapats av användare, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> finns på webbplatsen med berättelsekartor</a>. Du kan även följa oss på Twitter på <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
+					div3: "Vi vill gärna att du hör av dig! Om du undrar något, vill föreslå en ny funktion eller vill rapportera ett programfel är du välkommen att besöka <a href='http://links.esri.com/storymaps/forum' target='_blank'>användarforumet på Story Maps</a>."
+				}
+			},
+			share: {
+				firstSaveTitle: "Applikationen har sparats",
+				firstSaveHeader: "Din applikation har nu sparats i ArcGIS Online. Läs följande svar på vanliga frågor.",
+				firstSaveA1: "Om du inte är bekant med ArcGIS Online eller vill ha en genväg till skapargränssnittet kan du spara följande länk: %LINK1%",
+				firstSaveA1bis: "Applikationen finns även i <a href='%LINK2%' target='_blank'>innehållsmappen för ArcGIS Online</a>.",
+				firstSaveQ2: "Är min applikation delad?",
+				firstSaveA2: "Applikationen delas inte för tillfället. Tryck på knappen DELA om du vill dela den.",
+				shareTitle: "Dela din applikation",
+				sharePrivateHeader: "Din applikation är inte delad, vill du dela den?",
+				sharePrivateBtn1: "Dela offentligt",
+				sharePrivateBtn2: "Dela med min organisation",
+				sharePrivateProgress: "Delning pågår ...",
+				sharePrivateErr: "Det gick inte att dela. Försök igen eller",
+				sharePrivateOk: "Delningen har uppdaterats, laddar ...",
+				shareStatus1: "Applikationen har inte sparats",
+				shareStatus2: "Applikationen delas offentligt",
+				shareStatus3: "Applikationen delas inom organisationen",
+				shareStatus4: "Applikationen delas inte",
+				sharePreviewAsUser: "Förhandsgranska",
+				shareHeader1: "Applikationen är <strong>åtkomlig för alla</strong>.",
+				shareHeader2: "Applikationen är åtkomlig för organisationens medlemmar (inloggning krävs).",
+				shareLinkHeader: "Dela applikationen med din målgrupp",
+				shareLinkOpen: "ÖPPNA",
+				learnMore: "Läs mer",
+				shareQ1Opt1: "Hur gör jag för att hålla applikationen privat?",
+				shareQ1Opt2: "Hur gör jag för att hålla applikationen privat eller dela den offentligt?",
+				shareA1: "Använd %SHAREIMG% på <a href='%LINK1%' target='_blank'>applikationens objektsida</a>. Om du även vill sluta dela webbkartan använder du <a href='%LINK2%' target='_blank'>webbkartans objektsida</a>.",
+				shareA1bis: "Du kan också inaktivera delning av geoobjekttjänsten på <a href='%LINK1%' target='_blank'>geoobjekttjänstens objektsida</a>.",
+				shareQ2: "Hur gör jag för att redigera applikationen senare?",
+				shareQ2bis: "Hur kommer jag tillbaka till redigeringsgränssnittet?",
+				shareA2div1: "Spara följande länk och använd den senare: %LINK1%, eller gå via <a href='%LINK2%' target='_blank'>applikationens objektsida</a>.",
+				shareA2div2: "Som ägare till applikationen kan du se en knapp som öppnar det interaktiva byggverktyget när du är inloggad på ArcGIS.com:",				
+				shareQ3: "Var lagras data?",
+				shareA3: "Applikationens konfiguration sparas i det här webbapplikationsobjektet</a>.",
+				shareWarning: "Delning %WITH% har inaktiverats efter som du inte är ägare till <a href='%LINK%' target='_blank'>webbkartan</a>.",
+ 				shareWarningWith1: "offentligt",
+ 				shareWarningWith2: "offentligt och med organisationen"
+			},
+			directCreation: {
+				header: "Välkommen till byggverktyget för Svep/Kikare",
+				mapPickHeader: "Du kan börja genom att ange ett giltigt webbkart-ID eller bläddra igenom webbkartorna med sökknappen.",
+				launchBuilder: "Starta byggverktyget",
+				chooseWebmapLbl: "Välj webbkarta ...",
+				explain2: "Om du vill skapa en berättelsekarta för Svep eller Kikare använder du knappen nedan för att välja den befintliga ArcGIS Online-webbkarta du vill använda. Alternativt kan du klistra in webbkartans ID i fältet nedan.",
+				explain3: "Om du vill använda två webbkartor i berättelsekartan uppmanas du ange den andra webbkartan senare när du väljer det alternativet.",
+				webmapPlaceholder: "Ange ett webbkart-ID ..."
+			}
+		},
+		configure: {
+			mapdlg:{
+				items:{
+					organizationLabel: "Min organisation",
+					onlineLabel: "ArcGIS Online",
+					contentLabel: "Mitt innehåll",
+					favoritesLabel: "Mina favoriter"
+				},
+				title: "Välj webbkarta",
+				searchTitle: "Sök",
+				ok: "OK",
+				cancel: "Avbryt",
+				placeholder: "Ange sökterm"
 			}
 		}
     })
 );
+

@@ -1,12 +1,14 @@
 ﻿define(
-	({
+	 ({
 		viewer: {
 			loading: {
 				step1: "NAHRÁVÁNÍ APLIKACE",
 				step2: "NAHRÁVÁNÍ DAT",
 				step3: "INICIALIZACE",
 				fail: "Nepodařilo se načíst nástroj překrývání.",
-				loadBuilder: "PŘEPÍNÁNÍ DO REŽIMU TVORBY",
+				loadBuilder: "PŘEPÍNÁNÍ DO REŽIMU TVORBY",				
+				redirectSignIn: "PROBÍHÁ PŘESMĚROVÁNÍ NA PŘIHLAŠOVACÍ STRÁNKU",
+				redirectSignIn2: "(budete sem přesměrováni po přihlášení)",
 				failButton: "Zkusit znovu"
 			},
 			errors: {
@@ -42,6 +44,8 @@
 			builder: {
 				panelHeader: "KONFIGURACE APLIKACE",
 				buttonSave: "ULOŽIT",
+				buttonHelp: "Nápověda",
+				buttonShare: "Sdílet",
 				buttonDiscard: "ZRUŠIT",
 				buttonSettings: "Nastavení",
 				buttonView: "Režim prohlížení",
@@ -61,11 +65,13 @@
 				savingApplication: "Ukládání aplikace",
 				saveSuccess: "Aplikace byla úspěšně uložena",
 				saveError: "Ukládání se nezdařilo, zkuste to prosím znovu.",
+				saveError2: "Ukládání selhalo kvůli neplatnému HTML tagu v názvu nebo popisu.",
+				saveError3: "Název nesmí být prázdný",
 				signIn: "Přihlaste se pomocí účtu na",
 				signInTwo: "pro uložení aplikace."
 			},
 			header:{
-				editMe: "Edituj mě !",
+				editMe: "Edituj mě!",
 				templateTitle: "Nastavit název šablony",
 				templateSubtitle: "Nastavit podnadpis šablony"
 			},
@@ -116,7 +122,7 @@
 			},
 			swipeSidePanel: {
 				editTooltip: "Nastavit popis postranního panelu",
-				editMe: "Edituj mě !",
+				editMe: "Edituj mě!",
 				legendTitle: "Legenda"
 			},
 			infoWindow: {
@@ -152,7 +158,9 @@
 				settingsDataModel2Explain: "Proveďte překrytí jinou webovou mapou.",
 				settingsDataModel2SpyGlassExplain: "Odkryjte jinou webovou mapu.",
 				settingsDataModel2HelpTitle: "Jak najdu ID webové mapy?",
-				settingsDataModel2HelpContent: "Překopírovat číslice po rovnítku (=) v URL webové mapy"
+				settingsDataModel2HelpContent: "Překopírovat číslice po rovnítku (=) v URL webové mapy",
+				switchMaps: "Přepnout mapy",
+				browseWebMaps: "Procházet webové mapy"
 			},
 			settingsLegend: {
 				settingsTabLegend: "Rozvržení aplikace",
@@ -169,7 +177,7 @@
 				settingsSeriesHelpLink: "Zde se podívejte na příklad aplikace se sérií překrývání",
 				preview: "Náhled uživatelského rozhraní",
 				settingsLocateButtonExplain: "Tato funkcionalita je podporována na většině mobilních zařízení a stolních prohlížečů (včetně Internet Explorer 9+).",
-				settingsLocateButton: "Povolit tlačítko 'Hledat' v podporovaných prohlížečích",
+				settingsLocateButton: "Povolit tlačítko \'Lokalizovat\' v podporovaných prohlížečích",
 				settingsAddressSearch: "Povolit nástroj pro vyhledávání adres"
 			},
 			settingsSwipePopup: {
@@ -183,7 +191,7 @@
 				settingsSwipePopupColor: "Barva záhlaví"
 			},
 			initPopup: {
-				initHeader: "Vítá vás nástroj pro tvorbu překrývání.",
+				initHeader: "Vítejte v nástroji pro tvorbu Překrývání/Lupy",
 				modalNext: "Další",
 				modalPrev: "Předchozí",
 				modalApply: "Otevřít aplikaci"
@@ -194,7 +202,79 @@
 				discard: "Zrušit záložku",
 				saveExtent: "Nastavit rozsah záložky",
 				discardDisabled: "Tuto záložku nelze odstranit. Sérii překrývání můžete vypnout v nastavení."
+			},
+			helpPopup: {
+				title: "Nápověda",
+				close: "Zavřít",
+				tab1: {
+					div1: "Šablona Překrývání/Lupa je navržena pro porovnání dvou různých webových map nebo dvou vrstev jedné webové mapy v atraktivní, snadno ovladatelné webové aplikaci, kterou lze použít v jakémkoli webovém prohlížeči na jakémkoli zařízení včetně chytrých telefonů a tabletů.",
+					div2: "Pro více informací o šabloně Překrývání/Lupa a příklady vytvořené komunitou <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> navštivte stránku Mapy s příběhem</a>. Můžete nás také sledovat na Twitteru na <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
+					div3: "Rádi od vás uslyšíme! Ať už máte otázku, chcete požádat o novou funkci nebo si myslíte, že jste našli chybu, navštivte prosím <a href='http://links.esri.com/storymaps/forum' target='_blank'>uživatelské fórum map s příběhem</a>."
+				}
+			},
+			share: {
+				firstSaveTitle: "Aplikace úspěšně uložena",
+				firstSaveHeader: "Vaše aplikace je nyní uložena v ArcGIS Online. Přečtěte si prosím následující odpovědi na časté dotazy.",
+				firstSaveA1: "Pokud nejste obeznámeni s ArcGIS Online nebo chcete zkratku pro přístup do autorského rozhraní, můžete si uložit následující odkaz: %LINK1%",
+				firstSaveA1bis: "Aplikaci naleznete i ve své <a href='%LINK2%' target='_blank'>složce obsahu ArcGIS Online</a>.",
+				firstSaveQ2: "Je má aplikace sdílená?",
+				firstSaveA2: "Vaše aplikace momentálně není sdílená. Pokud ji chcete sdílet, použijte tlačítko SDÍLET.",
+				shareTitle: "Sdílení vaší aplikace",
+				sharePrivateHeader: "Vaše aplikace není sdílená, chcete ji sdílet?",
+				sharePrivateBtn1: "Sdílet veřejně",
+				sharePrivateBtn2: "Sdílet s mou organizací",
+				sharePrivateProgress: "Probíhá sdílení…",
+				sharePrivateErr: "Sdílení selhalo, zkuste to znovu nebo",
+				sharePrivateOk: "Sdílení bylo úspěšně aktualizováno, probíhá nahrávání…",
+				shareStatus1: "Aplikace není uložena.",
+				shareStatus2: "Aplikace je sdílená veřejně.",
+				shareStatus3: "Aplikace je sdílená v rámci organizace.",
+				shareStatus4: "Aplikace není sdílená.",
+				sharePreviewAsUser: "Náhled",
+				shareHeader1: "Vaše aplikace je <strong>veřejně přístupná</strong>.",
+				shareHeader2: "Vaše aplikace je přístupná členům vaší organizace (je vyžadováno přihlášení).",
+				shareLinkHeader: "Sdílejte aplikaci se svým publikem",
+				shareLinkOpen: "OTEVŘENO",
+				learnMore: "Více informací",
+				shareQ1Opt1: "Jak ponechám aplikaci soukromou?",
+				shareQ1Opt2: "Jak lze aplikaci ponechat jako soukromou nebo ji veřejně sdílet?",
+				shareA1: "Použijte %SHAREIMG% na <a href='%LINK1%' target='_blank'>stránce položek aplikace</a>. Pokud chcete také přestat sdílet webové mapy, použijte <a href='%LINK2%' target='_blank'>stránku položek webové mapy</a>.",
+				shareA1bis: "Pokud chcete také zrušit sdílení služby Feature Service, použijte <a href='%LINK1%' target='_blank'>stránku položek služby Feature Service</a>.",
+				shareQ2: "Jak aplikaci později upravím?",
+				shareQ2bis: "Jak se vrátím do autorského rozhraní?",
+				shareA2div1: "Uložte si pro budoucí použití tento odkaz %LINK1% nebo použijte <a href='%LINK2%' target='_blank'>stránku položek aplikace</a>.",
+				shareA2div2: "Když jste přihlášeni na webu ArcGIS.com jako majitel aplikace, tak aplikace obsahuje tlačítko pro otevření interaktivního nástroje pro tvorbu:",				
+				shareQ3: "Kde jsou uložena data?",
+				shareA3: "Konfigurace aplikace je uložena v této položce webové aplikace</a>.",
+				shareWarning: "Sdílení %WITH% bylo zakázáno, protože nejste vlastníkem <a href='%LINK%' target='_blank'>webové mapy</a>.",
+ 				shareWarningWith1: "veřejně",
+ 				shareWarningWith2: "veřejně a s organizací"
+			},
+			directCreation: {
+				header: "Vítejte v nástroji pro tvorbu Překrývání/Lupy",
+				mapPickHeader: "Pro začátek zadejte platný identifikátor webové mapy nebo použijte tlačítko vyhledávání k procházení webových map.",
+				launchBuilder: "Spustit nástroj pro tvorbu",
+				chooseWebmapLbl: "Vybrat webovou mapu…",
+				explain2: "Chcete-li vytvořit mapu vyprávění s překrýváním nebo lupou, vyberte pomocí níže umístěného tlačítka existující webovou mapu ArcGIS Online, kterou chcete použít. Případně můžete do níže umístěného pole vložit ID této webové mapy.",
+				explain3: "Chcete-li v mapě vyprávění používat dvě webové mapy, budete na druhou mapu dotázáni později při volbě takové možnosti.",
+				webmapPlaceholder: "Zadejte ID webové mapy…"
+			}
+		},
+		configure: {
+			mapdlg:{
+				items:{
+					organizationLabel: "Moje organizace",
+					onlineLabel: "ArcGIS Online",
+					contentLabel: "Můj obsah",
+					favoritesLabel: "Moje oblíbené"
+				},
+				title: "Vybrat webovou mapu",
+				searchTitle: "Hledat",
+				ok: "OK",
+				cancel: "Storno",
+				placeholder: "Zadat vyhledávací výraz"
 			}
 		}
     })
 );
+
