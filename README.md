@@ -7,10 +7,10 @@ a better experience on smartphone and an interactive builder on ArcGIS Online, s
 ![App](https://raw.github.com/Esri/swipe-map-storytelling-template-js/master/storytelling-swipe-map-template-js.png)
 
 [View it live](http://storymaps.esri.com/templates/swipe/) 
-| [User Download (source code not included)](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Storytelling-Swipe-1.4.2.zip)
+| [User Download (source code not included)](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Storytelling-Swipe-1.4.3.zip)
 | [Developer Download (include source code)](https://github.com/Esri/swipe-map-storytelling-template-js/archive/master.zip)
 
-**Latest release is version version 1.4.2**, if you want to be informed of new releases, we recommend you to watch these repository.
+**Latest release is version version 1.4.3**, if you want to be informed of new releases, we recommend you to watch these repository.
 
 
 Help content:
@@ -119,6 +119,15 @@ We would love to hear from you!
 * [ArcGIS Blog](http://blogs.esri.com/esri/arcgis/)
 
 ## What's new?
+
+#### Swipe 1.4.3 released on 12/08/2014
+ 
+Bug Fixes:
+
+ * Fixed issue when authoring a story with the 'series' setting, the description panel was being cut off.
+
+Developer evolution:
+ * Use ArcGIS API for Javascript 3.12
 
 #### Swipe 1.4.2 released on 10/01/2014
  
