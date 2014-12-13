@@ -19,7 +19,6 @@ Help content:
  * [How to deploy a Swipe application](#how-to-deploy-a-swipe-application)
  * [FAQ](#faq)
  * [Feedback](#feedback)
- * [What's new](#whats-new)
  * [Issues](#issues)
  * [Contributing](#contributing)
  * [Customize the look and feel](#customize-the-look-and-feel)
