@@ -1,16 +1,17 @@
-# Swipe
+Story Map Swipe and Spyglass
+============================
 
-A storytelling template that enables users to reveal a layer of a web map or another web map 
-using a vertical bar or a spy glass. This is a new version of the popular swipe template that provide 
-a better experience on smartphone and an interactive builder on ArcGIS Online, see [what's new](#whats-new).
+The Story Map Swipe and Spyglass app enables users to interact with two web maps or two layers of a single web map, depending on how you build your story. The app enables you to present a single view, or to develop a narrative showing a series of locations or views of the same maps.
+
+This app can be an effective way to show before-and-after imagery, such as the aftermath of a storm or flood. A builder function in the app enables you to choose between the swipe or spyglass options. Although swipe provides a more efficient way for users to compare maps, the spyglass function is fun and engaging.
 
 ![App](https://raw.github.com/Esri/swipe-map-storytelling-template-js/master/storytelling-swipe-map-template-js.png)
 
 [View it live](http://storymaps.esri.com/templates/swipe/) 
-| [User Download (source code not included)](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Storytelling-Swipe-1.4.3.zip)
-| [Developer Download (include source code)](https://github.com/Esri/swipe-map-storytelling-template-js/archive/master.zip)
+| [User Download (source code not included)](http://links.esri.com/storymaps/swipe_template_zip)
+| [Developer Download](https://github.com/Esri/swipe-map-storytelling-template-js/archive/master.zip)
 
-**Latest release is version version 1.4.3**, if you want to be informed of new releases, we recommend you to watch these repository.
+**Latest release is version version 1.4.3**, if you want to be informed of new releases, we recommend you to watch this repository ([see GitHub help](https://help.github.com/articles/watching-repositories)). See the [release page](https://github.com/Esri/swipe-map-storytelling-template-js/releases) for release notes.
 
 
 Help content:
@@ -105,156 +106,17 @@ More customization are accessible through three files :
 Yes, some configuration parameter changed name but they are all available. 
 UI customization will require changes.
 
-### Can I deploy Swipe on Portal for ArcGIS
-Yes, you will just need to configure the sharing URL in index.html. 
-The interactive builder will be available.
-Swipe should be included in future releases of Portal for ArcGIS (after 10.2).
+### Is the template available in Portal for ArcGIS?
+Yes, the template is available in Portal for ArcGIS starting at version 10.2.
 
 ## Feedback
 
 We would love to hear from you!
-* Email us at storymaps@esri.com
-* [StoryMaps Website](http://storymaps.arcgis.com/en/)
+* [StoryMaps Website](http://storymaps.arcgis.com/)
+* [Let us know about your application](http://storymaps.arcgis.com/en/gallery/submission-form/)
+* [Story Maps forum on GeoNet](http://links.esri.com/storymaps/story_maps_geonet)
 * [@EsriStoryMaps](http://twitter.com/EsriStoryMaps)
 * [ArcGIS Blog](http://blogs.esri.com/esri/arcgis/)
-
-## What's new?
-
-#### Swipe 1.4.3 released on 12/08/2014
- 
-Bug Fixes:
-
- * Fixed issue when authoring a story with the 'series' setting, the description panel was being cut off.
-
-Developer evolution:
- * Use ArcGIS API for Javascript 3.12
-
-#### Swipe 1.4.2 released on 10/01/2014
- 
-Bug Fixes:
-
- * Fixed issue of map zoom controls overlapping header in smaller screens
-
-Developer evolution:
- * Use ArcGIS API for Javascript 3.11
-
-#### Swipe 1.4.1 released on 07/11/2014
-
-Bug Fixes:
-
- * Fixed issue of extra popups appearing in spyglass mode
-
-#### Swipe 1.4 released on 07/02/2014
-New functionalities:
- * Legend panel no longer displays 'no legend' message and will give more space to other legend elements.
-
-Bug Fixes:
-
- * Fixed issue of graphics disappearing when panning the map in two web maps mode and spyglass layout.
- * Better handling of the click event for selecting point features that use large symbols.
-
-Developer evolution:
- * Use ArcGIS API for Javascript 3.10
-
-#### Swipe 1.3.1 released on 03/27/2014
-
-Bug Fixes:
-
- * Fixed issue of a bad layout of media (charts, images, etc.) within a popup
-
-#### Swipe 1.3 released on 03/04/2014
-
-Major changes:
- * Interactive builder overall user experience improvement (see below)
-
-Interactive builder evolution:
- * New share dialog that allow to share the Tour publicly (or within author's Organization)
- * Improved user experience of the builder top button bar, initialization and import dialog
- * Support authoring an app without existing web application item
- * Web map picker widget provides a GUI for selecting web maps from your personal, general AGOL, and your Organization's content
-
-Developer evolution:
- * Use ArcGIS API for Javascript 3.9
-
-#### Swipe 1.2 released on 12/10/2013
-
-New functionalities:
-
- * Address search tool (geocoder widget).
- * Locator button now an optional display element in viewer.
- * Spyglass map now has zoom capability.
- * Arrow images on swipe bar are now draggable.
- * Side panel is now sized dynamically to its content (if it contains one element, i.e. legend, or description).
- * Side panel closes vertically if it contains one element.
- * Ability to switch the position (left -> right) of web maps in two web maps mode (convenient button in the builder).
- * Ability to organize series tabs in the builder by dragging them to desired position.
- * Legend titles now display ellipsis if title is too long.
- * Hyperlink button in the builder rich text editor (descriptions area) for better authoring experience.
- * Header subtitle display a scrollbar when needed
- * Updated social sharing icons
- 
-Bug Fixes:
-
- * When using a spyglass and a series, the map click in the spyglass was offset and would return the wrong feature.
- * The map area below the side panel was not interactive.
- * In one web map mode, the legend now better reflects the layout of the map.
- * Header title/subtitle could overflow the logog and social sharing links
-
-Technical Changes:
-
- * Use ArcGIS API for Javascript 3.8
-
-#### Swipe 1.1 released on 09/18/2013
-
-Major version with the following new functionalities:
- 
- * Swipe Series.  This is a tabbed scene navigation tool that will take the user to a certain extent and display the author's title and description for that scene.  The titles are displayed in the tooltip for each button of each scene.  In the builder, any bookmarks from the webmaps are imported on initial swipe series creation.
- * Ability to disable web map popups in application
- * Support Portal for ArcGIS
- * Embed mode that remove header (available through the embed URL parameter or through configuration file)
- * Better Facebook and Twitter sharing (use the application title/description and the first point thumbnail)
- * New header button to get a bitly short link
- * New settings option to disable Facebook/Twitter and Bitly button
- * New button to open the Web Application item page
- * New configuration option to disable individual social sharing services
- * New button in the Settings extent tab to use the current map extent 
- * Better vertical centering of the header logo (appear centered whatever it's size)
- * Use the Organization/Portal helper services and Bing Maps configuration (allow to define Geometry, Geocode Service and Bing Maps key at the Organization/Portal level without configuring the template)
-
-
-Bug Fixes:
-
- * Mobile data/popup for 2 layers & spy glass (only one popup showed before)
- * Popups with two maps (each with feature layers).  Was not displaying before
- * Issue of not being able to close the popup at all times
- * Closing of popup clears the highlight of the selected feature
- * Prevented the iPad vertical bounce effect 
- * On Ipad, when entering text with the virtual keyboard, the layout is often broken after the keyboard close
- * Setting an initial extent across the dateline is authorized
- * Header title/subtitle are not restored when using discard
- * The error box that appear on loading if the webmap is not found is partially hidden on mobile
- * Loading issue on IE8/9 when the template is deployed on an intranet
- * IE with 2 maps, the popup of the right map is not correct til swipe or map move (shows left popup initially)
- * Popup with 2 layers does not update with map pan
- * Mobile swipe series view for description and title is not updated live (on edit)
- * Mobile swipe series view for long description (will expand with click)
- * If on mobile legend view and resize to desktop, arrows will remain visible (and 'no legend' message if no legend)
- * If on mobile data view and resize to desktop, and back to data, the popup info no longer is there (but will reload if you swipe to map view and back to data)
-
-Technical Changes:
-
- * Use ArcGIS API for Javascript 3.7
- * The build script isn't limited to Windows environment (now uses grunt)
- * Switched to on style event
- * Embedded jQuery and removed sharethis
-
-#### Swipe 1.0 released on 07/05/2013
- * Responsive web design that offer a new user experience on Smartphone
- * Offer an interactive builder in ArcGIS Online
- * Choose the swipe style between a vertical bar or a spy glass
- * Popup managment
- * Support revealing graphics layer
- * Localized in 22 languages
 
 ## Issues
 
