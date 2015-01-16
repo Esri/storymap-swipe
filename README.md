@@ -49,7 +49,7 @@ Main features are:
 
 ## How to deploy a Swipe application
 
-1. [Download](https://github.com/Esri/swipe-map-storytelling-template-js/raw/master/Storytelling-Swipe-1.3.1.zip)
+1. [Download](http://links.esri.com/storymaps/swipe_template_zip)
 2. [Install](#install)
 3. [Configure](#configure)
 4. [Personalize](#personalize)
