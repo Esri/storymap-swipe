@@ -19,7 +19,8 @@
 		<meta name="description" content="This story map was created with the Esri Swipe application in ArcGIS Online.">
 
 		<!-- Facebook sharing -->
-		<meta property="og:title" content="Swipe"/>
+		<meta property="og:type" content="article"/>
+		<meta property="og:title" content="Story Map Swipe and Spyglass"/>
 		<meta property="og:description" content="This story map was created with the Esri Swipe application in ArcGIS Online."/>
 		<meta property="og:image" content="resources/icons/esri-globe.png"/>
 
@@ -125,7 +126,7 @@
 		</script>
 
 		<script type="text/javascript">
-			var version = '1.4.3';
+			var version = '1.4.4';
 			var isProduction = false;
 
 			function loadJS(url, isExternal)
@@ -152,8 +153,8 @@
 				document.getElementsByTagName("head")[0].appendChild(el);
 			}
 			
-			loadCSS("//js.arcgis.com/3.12/esri/css/esri.css", true);
-			loadCSS("//js.arcgis.com/3.12/dijit/themes/claro/claro.css", true);
+			loadCSS("//js.arcgis.com/3.13/esri/css/esri.css", true);
+			loadCSS("//js.arcgis.com/3.13/dijit/themes/claro/claro.css", true);
 
 			if( isProduction ) {
 				loadCSS("app/swipe-min.css");
@@ -771,7 +772,7 @@
 		</div>
 
 		<script type="text/javascript">
-			loadJS('//js.arcgis.com/3.12/init.js', true);			
+			loadJS('//js.arcgis.com/3.13/init.js', true);			
 			loadJS('app/swipe-config.js');
 			
 			function getUrlVar(name)
