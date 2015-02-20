@@ -108,6 +108,9 @@ UI customization will require changes.
 ### Is the template available in Portal for ArcGIS?
 Yes, the template is available in Portal for ArcGIS starting at version 10.2.
 
+### Is there any customization needed to deploy this template on Portal for ArcGIS?
+Not if you are deploying the template on a Portal instance.  However, if you are deploying the template on a web server and your web map is deployed on a Portal for ArcGIS instance, you will need to make the appropriate changes to the swipe-config.js file in the app folder.  Additional information on making these changes can be found in the swipe-config.js file around line 54.
+
 ## Feedback
 
 We would love to hear from you!
