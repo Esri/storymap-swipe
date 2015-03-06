@@ -97,7 +97,7 @@ define(["dojo/_base/lang", "esri/geometry/Extent"], function(lang, Extent){
 			var mainMap = app.mode == "TWO_LAYERS" ? app.map : app.maps[0];
 
 			var layers = mainMap.layerIds || [];
-			layers.concat(mainMap.graphicsLayerIds);
+			layers = layers.concat(mainMap.graphicsLayerIds);
 			
 			var layer = layers[layers.length - 1 - configOptions.layerIndex];
 			if( layer )
