@@ -93,7 +93,7 @@ define(["dojo/dom-construct",
 				);
 				
 				return true;
-			}
+			};
 			
 			this.webmapLoaded = function()
 			{
@@ -112,7 +112,7 @@ define(["dojo/dom-construct",
 					legend = true;
 				if( ! descriptionText && app.isInBuilderMode )
 					descriptionText = i18n.swipe.swipeSidePanel.editMe;
-				
+				var urlParams = Helper.getUrlParams();
 				app.sidePanel.init(
 					descriptionText, 
 					appColors[1], 
@@ -122,7 +122,8 @@ define(["dojo/dom-construct",
 					WebApplicationData.getLayers(),
 					WebApplicationData.getSeries() || configOptions.series,
 					layout,
-					dataModel
+					dataModel,
+					(APPCFG.EMBED || urlParams.embed || urlParams.embed === '')
 				);
 				
 				if (has("ie") == undefined || has("ie") > 8) {
@@ -221,7 +222,7 @@ define(["dojo/dom-construct",
 						}, WebApplicationData.getLayout() == "spyglass" ? 2000 : 500);
 					}
 				});
-			}
+			};
 			
 			function showSeriesBookmark(index)
 			{
@@ -230,7 +231,7 @@ define(["dojo/dom-construct",
 				if(!$("#footerMobile").is(':visible'))
 					return;
 					
-				app.mainMap.setExtent(WebApplicationData.getSeriesBookmarks()[index].extent)
+				app.mainMap.setExtent(WebApplicationData.getSeriesBookmarks()[index].extent);
 			}
 			
 			this.appInitComplete = function()
@@ -250,13 +251,13 @@ define(["dojo/dom-construct",
 					});
 				}
 				if( WebApplicationData.getGeolocator())
-					$('.mapCommandLocation').show()
+					$('.mapCommandLocation').show();
 				else
 					$('.mapCommandLocation').hide()
 				
 				if( app.seriesPanel )
 					app.seriesPanel.appIsReady();
-			}
+			};
 			
 			this.onHashChange = function()
 			{
@@ -275,7 +276,7 @@ define(["dojo/dom-construct",
 					$('#seriesTextView').show();
 					$('#footerMobile').hide();
 				}
-			}
+			};
 			
 			
 			this.updateUI = function()
@@ -292,7 +293,7 @@ define(["dojo/dom-construct",
 					$('#locationSearch').show()
 				else
 					$('#locationSearch').hide()
-			}
+			};
 			
 			this.resize = function(cfg)
 			{
@@ -343,7 +344,7 @@ define(["dojo/dom-construct",
 					$("#seriesTextView").hide();
 				}
 				app.sidePanel.resize(cfg.width, cfg.height);
-			}
+			};
 			
 			//
 			// Map manipulation
@@ -355,7 +356,7 @@ define(["dojo/dom-construct",
 					app.mainMap.centerAt(geom);
 				else
 					app.map.centerAndZoom(geom, zoomLevel);
-			}
+			};
 			
 			this.setMapExtent = function(extent)
 			{
@@ -369,7 +370,7 @@ define(["dojo/dom-construct",
 					mapsReady.resolve();
 				});
 				return mapsReady;
-			}
+			};
 			
 			this.zoomToDeviceLocation = function(success, geom)
 			{
@@ -387,7 +388,7 @@ define(["dojo/dom-construct",
                           
 					_this.centerMap(geom);
 				}
-			}
+			};
 			
 			this.initLocalization = function()
 			{
@@ -399,7 +400,7 @@ define(["dojo/dom-construct",
 				$('#projectionPopup').find('h3').html(i18n.viewer.errors.conflictingProjectionsTitle);
 				$('.projectionExplain').html(i18n.viewer.errors.conflictingProjections);
 				$('#projectionPopup').find('.btnClose').html(i18n.viewer.errors.cpButton);
-			}
-		}
+			};
+		};
 	}
 );

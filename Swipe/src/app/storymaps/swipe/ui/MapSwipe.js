@@ -60,7 +60,7 @@ define(["dojo/dnd/move",
 				if (!_popup) {
 					$.each(app.popup, function(i){
 						app.popup[i].destroy();
-					})
+					});
 				}
 
 				setUpPopup();
@@ -69,7 +69,7 @@ define(["dojo/dnd/move",
 					setUpClipper();
 				else
 					setUpSwiper();
-			}
+			};
 			
 			this.updateSettings = function(popupColors, popupTitles)
 			{
@@ -84,7 +84,7 @@ define(["dojo/dnd/move",
 				}
 				else 
 					setSwiperPopupHeader();
-			}
+			};
 			
 			//
 			// Common
@@ -124,11 +124,11 @@ define(["dojo/dnd/move",
 				
 				on(node, mouse.enter, function(){
 					$("#swipeImg").css("background", "url(resources/icons/sprite-icons.png)-536px -1152px");
-				})
+				});
 				
 				on(node, mouse.leave, function(){
 					$("#swipeImg").css("background", "url(resources/icons/sprite-icons.png)-536px -1254px");
-				})
+				});
 				
 				app.sliderDiv = sliderDiv;
 				
@@ -196,7 +196,7 @@ define(["dojo/dnd/move",
 				{
 					setPopup(mapPoint);			
 	        	});
-				
+
 				var isGraphics = app.mainMap.getLayer(_layers[0]).type == "Feature Layer";
 				if(isGraphics){
 					on(_webMapArray[0], 'pan-end', function(args) 
@@ -208,7 +208,7 @@ define(["dojo/dnd/move",
 						
 					if(layer._collection)
 						dojo.connect(app.mainMap, 'onZoomEnd', function(){
-							getClip(slider.node.offsetLeft)
+							getClip(slider.node.offsetLeft);
 						});
 					else {
 						var opacity = layer._params && layer._params.opacity ? layer._params.opacity : 1.0;
@@ -227,7 +227,7 @@ define(["dojo/dnd/move",
 						on(app.mainMap.getLayer(_layers[0]), 'update-end', function(){
 							if( updateIsZoom ) 
 								app.mainMap.getLayer(_layers[0]).setOpacity(opacity);
-							getClip(slider.node.offsetLeft)
+							getClip(slider.node.offsetLeft);
 							updateIsZoom = false;
 						});
 					}
@@ -259,8 +259,19 @@ define(["dojo/dnd/move",
 			function getClip(val)
 			{
 				var swipeDiv = dom.byId("sliderDiv");
-				var clipDiv = _webMapArray[0].getLayer(_layers[0])._div; 
-				
+				var clipDiv;
+				if(_webMapArray[0].getLayer(_layers[0]).renderer && _webMapArray[0].getLayer(_layers[0]).renderer.type == "heatmap"){
+					if(_webMapArray[0].getLayer(_layers[0]).visibleAtMapScale){
+						clipDiv = _webMapArray[0].getLayer(_layers[0])._heatmapManager.imageLayer._div;
+					} else{
+						return;
+					}
+					
+				}
+				else{
+					clipDiv = _webMapArray[0].getLayer(_layers[0])._div; 
+				}
+
 				if (swipeDiv != null) {
 		      		offset_left = parseFloat(swipeDiv.style.left);
 			        offset_top = parseFloat(swipeDiv.style.top);
@@ -293,7 +304,8 @@ define(["dojo/dnd/move",
 			        	bottomval = _webMapArray[0].height;
 			        }
 					
-					var isGraphics = app.mainMap.getLayer(_layers[0]).type == "Feature Layer";
+					var isGraphics = app.mainMap.getLayer(_layers[0]).type == "Feature Layer" && app.mainMap.getLayer(_layers[0]).renderer.type != "heatmap";
+
 					if(isGraphics){
 						rightval = app.mainMap.width;
 						var tr = clipDiv.getTransform();
@@ -314,7 +326,7 @@ define(["dojo/dnd/move",
 							y: topval,
 							width: rightval,
 							height: bottomval
-						})
+						});
 						return;
 					}
 
@@ -345,7 +357,7 @@ define(["dojo/dnd/move",
 				var isOnSpecificLayer = screenGeom.x > clipLeft;
 				var specificLayerId = _layers[0] /*+ (isGraphics ? "" : "_1")*/; // TODO is that _1 safe ?
 				var colorTitleIndex = isOnSpecificLayer ? 0 : 1;
-				
+
 				_lastSwiperEventPoint = evt;
 				
 				// Desktop popup
@@ -357,9 +369,9 @@ define(["dojo/dnd/move",
 				for(var i=0; i < app.popup[0].features.length; i++) {
 					var feature = app.popup[0].features[i];
 					var layerId = feature._graphicsLayer.id;
-				
-					if(layerId.charAt(layerId.length-2) === '_')
-						layerId = layerId.split('_').slice(0, -1).join('_')
+					if((layerId.charAt(layerId.length-2) === '_' || layerId.charAt(layerId.length-3) === '_') && !isGraphics){
+						layerId = layerId.split('_').slice(0, -1).join('_');
+					}
 
 					if ( (isOnSpecificLayer && layerId == specificLayerId) || (!isOnSpecificLayer && layerId != specificLayerId) ) {
 						dataFound = true;
@@ -370,10 +382,10 @@ define(["dojo/dnd/move",
 						
 	        			on(query(".titleButton.close"), 'click', function(){
 							_popupState = 'closed';
-						})
+						});
 						
 						if(isGraphics)
-							app.popup[0]._highlighted._graphicsLayer.graphics[0].show()
+							app.popup[0]._highlighted._graphicsLayer.graphics[0].show();
 						app.popup[0].select(i);
 						_popupState = 'open';
 						break;
@@ -383,7 +395,7 @@ define(["dojo/dnd/move",
 				if( ! dataFound ) {
 					$('.esriPopup').css('visibility', 'hidden');
 					if(isGraphics)
-						app.popup[0]._highlighted._graphicsLayer.graphics[0].hide()
+						app.popup[0]._highlighted._graphicsLayer.graphics[0].hide();
 				}
 				
 				// Mobile popup
@@ -393,18 +405,21 @@ define(["dojo/dnd/move",
 					var feature = app.popup[0].features[i];
 					var layerId = feature._graphicsLayer.id;
 					
-					if ( ! leftFeatureFound && layerId != specificLayerId ) {
-						leftFeatureFound = true;
-						setMobilePopup(0, feature);
-					}
+					var slicedId = layerId.slice(0, -(layerId.length - layerId.lastIndexOf("_")));
 					
-					if ( ! rightFeatureFound && layerId == specificLayerId ) {
-						rightFeatureFound = true;
+					if ( ! leftFeatureFound && layerId != specificLayerId && slicedId != specificLayerId ) {
+						leftFeatureFound = true;
+						//Order is reversed as the mobile data view seems reversed as map divs are 1/0
 						setMobilePopup(1, feature);
 					}
 					
+					if ( ! rightFeatureFound && (layerId == specificLayerId || slicedId == specificLayerId)) {
+						rightFeatureFound = true;
+						setMobilePopup(0, feature);
+					}
+					
 					if( leftFeatureFound && rightFeatureFound )
-						break
+						break;
 				}
 			}
 			
@@ -451,17 +466,17 @@ define(["dojo/dnd/move",
 					app.popup[0].hide();
 					app.popup[1].hide();
 					
-					var z = {};
+					var z = evt;
 					if (evt.target.e_graphic && evt.target.e_graphic.geometry.type == "point") {
 						z.screenPoint = app.maps[0].toScreen(evt.target.e_graphic.geometry);
 					}
-					else
-						z = evt;
+
 					
 					$("#swipeImg1").fadeOut();
 					$("#swipeImg2").fadeOut();
 					
 					mapPoint = evt;
+
 					_popupState = 'open';
 					
 					if(app.popup[0].isShowing == true)
@@ -471,7 +486,7 @@ define(["dojo/dnd/move",
 						return;
 					
 					z.val = 'other';
-					
+					z.graphic = null;
 					_webMapArray[1].onClick(z);	
 	        	});
 				
@@ -486,12 +501,10 @@ define(["dojo/dnd/move",
 				{	
 					app.popup[0].hide();
 					app.popup[1].hide();
-					var z = {};
+					var z = evt;
 					if (evt.target.e_graphic && evt.target.e_graphic.geometry.type == "point") {
 						z.screenPoint = app.maps[1].toScreen(evt.target.e_graphic.geometry);
 					}
-					else
-						z = evt;
 					
 					mapPoint = evt;
 					_popupState = 'open';
@@ -503,6 +516,7 @@ define(["dojo/dnd/move",
 						return;
 						
 					z.val = 'other';
+					z.graphic = null;
 
 					_webMapArray[0].onClick(z, "other");	
 	        	});
@@ -655,7 +669,7 @@ define(["dojo/dnd/move",
 			{
 				if( ! evt || _popupState == 'closed' || !_popup)
 					return;
-				
+
 				_pointTest = evt.pageY ? evt.mapPoint : _pointTest;
 				
 				var evtX = evt.pageX || evt.x;
@@ -663,7 +677,7 @@ define(["dojo/dnd/move",
 				
 				app.popup[targetPopup].show(_pointTest);
 				app.popup[targetPopup ? 0 : 1].hide();
-				
+								
 				//Can we use targetPopup in place of mapIndex?
 				if( mapIndex != null ) 
 					setMobilePopup(mapIndex, (app.popup[mapIndex].features || [null])[0]);
@@ -683,6 +697,6 @@ define(["dojo/dnd/move",
 				$("#infoWindowView .noData").hide();
 				$('.swiper.infoWindowView').css('display', 'block');
 			}
-		}
+		};
 	}
 );

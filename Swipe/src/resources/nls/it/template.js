@@ -96,7 +96,7 @@
 				settingsLogoSocialExplain: "Personalizzare il collegamento in alto a destra nell\'intestazione.",
 				settingsLogoSocialText: "Testo",
 				settingsLogoSocialLink: "Collegamento",
-				settingsLogoSocialDisabled: "Questa feature è stata disabilitata dall\'Amministratore"
+				settingsLogoSocialDisabled: "Questa feature è stata disabilitata dall\'amministratore"
 			},
 			settingsExtent: {
 				settingsTabExtent: "Estensione",
@@ -213,7 +213,7 @@
 				}
 			},
 			share: {
-				firstSaveTitle: "Salvataggio dell\'applicazione completato",
+				firstSaveTitle: "Salvataggio dell\'applicazione riuscito",
 				firstSaveHeader: "L\'applicazione è stata salvata in ArcGIS Online. Leggere le seguenti risposte alle domande frequenti.",
 				firstSaveA1: "Se non si è esperti di ArcGIS Online o si desidera impostare una scelta rapida per accedere all\'interfaccia di modifica, salvare il collegamento seguente: %LINK1%",
 				firstSaveA1bis: "L\'applicazione è disponibile anche nella <a href='%LINK2%' target='_blank'>cartella dei contenuti di ArcGIS Online</a>.",

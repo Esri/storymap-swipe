@@ -74,7 +74,7 @@ define(["storymaps/utils/Helper"],
 							trigger: 'hover',
 							placement: 'top',
 							html: true,
-							content: i18n.swipe.onlinePhotoSharingCommon.disabled
+							content: i18n.builder.settingsHeader.settingsLogoSocialDisabled
 						});
 				}
 				else {

@@ -51,16 +51,6 @@ body:not(.mobile-view) #mainMap #mainMap_zoom_location {
 	display: none;
 }
 
-#loadingOverlay {
-	position: absolute;
-	z-index: 500;
-	top: 0px;
-	width: 100%;
-	height: 100%;
-	overflow: hidden;
-	background-color: #c2c2c2;
-}
-
 a {
 	color:#555;
 	font-weight:bold;
@@ -159,7 +149,7 @@ a:hover {
 }
 
 #fatalError > table {
-	margin-top: -100px;
+	margin-top: -42px;
 	margin-left:-247px;
 	max-width:490px;
 	min-height: 85px;

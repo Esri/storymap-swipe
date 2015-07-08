@@ -192,7 +192,7 @@
 			},
 			initPopup: {
 				initHeader: "Chào mừng bạn đến với Bộ thiết lập Trượt nhanh/Kính thiên văn nhỏ",
-				modalNext: "Tiếp",
+				modalNext: "Tiếp theo",
 				modalPrev: "Trước",
 				modalApply: "Mở ứng dụng"
 			},

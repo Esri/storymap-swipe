@@ -5,6 +5,7 @@
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
 		
+		<meta name="fragment" content="!">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
 
@@ -16,13 +17,13 @@
 			 - create and fill out extensively an ArcGIS.com item that link to your final application
 			 - edit the following four tags as well as the upper title tag on line 4
 		-->
-		<meta name="description" content="This story map was created with the Esri Story Map Swipe and Spyglass application.">
+		<meta name="description" content="This story map was created with the Esri Swipe application in ArcGIS Online.">
 
 		<!-- Facebook sharing -->
 		<meta property="og:type" content="article"/>
 		<meta property="og:title" content="Story Map Swipe and Spyglass"/>
-		<meta property="og:description" content="This story map was created with the Esri Swipe application in ArcGIS Online."/>
-		<meta property="og:image" content="resources/icons/esri-globe.png"/>
+		<meta property="og:description" content="This story map was created with the Esri Story Map Swipe and Spyglass application in ArcGIS Online."/>
+		<meta property="og:image" content="http://www.arcgis.com/apps/StorytellingSwipe/resources/icons/esri-globe.png"/>
 
 		<!-- 
 			This template is released under the Apache License V2.0 by Esri http://www.esri.com/
@@ -126,7 +127,7 @@
 		</script>
 
 		<script type="text/javascript">
-			var version = '1.4.4.1';
+			var version = '1.5';
 			var isProduction = false;
 
 			function loadJS(url, isExternal)
@@ -153,8 +154,8 @@
 				document.getElementsByTagName("head")[0].appendChild(el);
 			}
 			
-			loadCSS("//js.arcgis.com/3.13/esri/css/esri.css", true);
-			loadCSS("//js.arcgis.com/3.13/dijit/themes/claro/claro.css", true);
+			loadCSS("//js.arcgis.com/3.14/esri/css/esri.css", true);
+			loadCSS("//js.arcgis.com/3.14/dijit/themes/claro/claro.css", true);
 
 			if( isProduction ) {
 				loadCSS("app/swipe-min.css");
@@ -381,8 +382,62 @@
 
 		<!-- Loading indicator -->
 		<div id="loadingOverlay"></div>
-		<div id="loadingIndicator"></div>
+		<div id="loadingIndicator" class="loadingIndicator">
+			<img src="resources/icons/loading-light.gif" />
+		</div>
 		<div id="loadingMessage"></div>
+		
+		<!-- Loading -->
+		<style>
+			#loadingOverlay {
+				position: absolute; 
+				top: 0; 
+				left: 0; 
+				z-index: 500; 
+				width: 100%; 
+				height: 100%; 
+				overflow: hidden; 
+				background-color: #E5E5E5; 
+				-webkit-box-shadow: inset 0px 0px 82px 19px rgba(0,0,0,0.3); 
+				-moz-box-shadow: inset 0px 0px 82px 19px rgba(0,0,0,0.3); 
+				box-shadow: inset 0px 0px 82px 19px rgba(0,0,0,0.3);
+			}
+			
+			@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+			@-moz-keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+			@-webkit-keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+			@-ms-keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+			@-o-keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
+			
+			@keyframes fadeout { from { opacity: 1; } to { opacity: 0; } }
+			@-moz-keyframes fadeout { from { opacity: 1; } to { opacity: 0; } }
+			@-webkit-keyframes fadeout { from { opacity: 1; } to { opacity: 0; } }
+			@-ms-keyframes fadeout { from { opacity: 1; } to { opacity: 0; } }
+			@-o-keyframes fadeout { from { opacity: 1; } to { opacity: 0; } }
+			
+			#loadingOverlay.fadeOut {
+				-webkit-animation: fadeout 1.1s;
+				-moz-animation: fadeout 1.1s;
+				-ms-animation: fadeout 1.1s;
+				-o-animation: fadeout 1.1s;
+				animation: fadeout 1.1s;
+				-webkit-animation-fill-mode:forwards;
+				-moz-animation-fill-mode:forwards;
+				animation-fill-mode:forwards;
+			}
+			
+			#loadingIndicator {
+				position: fixed;
+				top: 50%;
+				left: 50%;
+				z-index: 700;
+			}
+			
+			.loadingIndicator {
+				margin-left: -17px;
+				margin-top: -35px;
+			}
+		</style>
 
 		<!-- Settings popup -->
 		<div class="modal hide" id="settingsPopup" data-backdrop="static" tabindex="-1">
@@ -576,7 +631,7 @@
 							<div class="controls">
 								<input class="inputWebmapId2" type="text" maxlength="32"/>
 							</div>
-						<a class="btn btn-mini browseMaps" "><i class="icon-search"></i></a> 
+						<a class="btn btn-mini browseMaps"><i class="icon-search"></i></a> 
 						</div>
 					</div>
 					<button class="btnSelect btn"></button>
@@ -772,7 +827,7 @@
 		</div>
 
 		<script type="text/javascript">
-			loadJS('//js.arcgis.com/3.13/init.js', true);			
+			loadJS('//js.arcgis.com/3.14/init.js', true);			
 			loadJS('app/swipe-config.js');
 			
 			function getUrlVar(name)
@@ -800,7 +855,6 @@
 				loadJS('lib/_jquery.1.9.1.min.js');
 				loadJS('lib/animateClip.js');
 				loadJS('lib/bootstrap/js/bootstrap.min.js');
-				loadJS('lib/spin.min.js');
 				loadJS('lib/history.min.js');
 				loadJS('lib/cubiq.swipeview.js');
 				loadJS('lib/jquery.fastClick.js');
@@ -852,8 +906,7 @@
 							urlUtils
 						){
 							i18n = _i18n;
-							loadingIndicator = new LoadingIndicator("loadingIndicator", "loadingMessage");
-					 		loadingIndicator.init();
+							loadingIndicator = new LoadingIndicator("", "loadingMessage");
 							loadingIndicator.setMessage(i18n.viewer.loading.step1);
 							
 						 	require(["storymaps/core/Core", "storymaps/swipe/core/MainView", "storymaps/utils/Helper"], function(Core, MainView, Helper){

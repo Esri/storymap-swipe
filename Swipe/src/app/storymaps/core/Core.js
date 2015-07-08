@@ -22,6 +22,7 @@ define(["esri/map",
 		"dojo/topic",
 		"dojo/on",
 		"dojo/_base/lang",
+		"dojo/_base/array",
 		"dojo/Deferred",
 		"dojo/DeferredList",
 		"dojo/query",
@@ -50,6 +51,7 @@ define(["esri/map",
 				topic,
 				on,
 				lang,
+				array,
 				Deferred,
 				DeferredList,
 				query,
@@ -402,6 +404,20 @@ define(["esri/map",
 				var webmapsIds = WebApplicationData.getWebmaps(false);
 				var webmapId = WebApplicationData.getWebmap(false);
 				app.rootMapId = webmapId;
+				
+				// App proxies
+				if (itemRq.results[0] && itemRq.results[0].appProxies) {
+					var layerMixins = array.map(itemRq.results[0].appProxies, function (p) {
+						return {
+							"url": p.sourceUrl,
+							"mixin": {
+								"url": p.proxyUrl
+							}
+						};
+					});
+					app.data.setAppProxies(layerMixins);
+				}
+				
 				// If in builder, check that user is app owner or org admin
 				if( app.isInBuilderMode && !app.data.userIsAppOwner() ) {
 					initError("notAuthorized");	
@@ -590,7 +606,8 @@ define(["esri/map",
 				},
 				ignorePopups: false,
 				bingMapsKey: commonConfig.bingMapsKey,
-				editable: false
+				editable: false,
+				layerMixins: app.data.getAppProxies()
 			}).then(lang.hitch(this, function(response){
 				 webMapInitCallback(response, webmapInitCallbackDone);
 			}), function(){
@@ -656,7 +673,7 @@ define(["esri/map",
 				var layerId = layer.id;
 				var layersIds = (app.map.layerIds || []).concat(app.map.graphicsLayerIds);
 				var layerFound = $.grep(layersIds, function(_layerId) { return _layerId == layerId; });
-				
+
 				if( ! layerFound.length ) {
 					layerId = (app.map.layerIds||[]).concat(app.map.graphicsLayerIds).slice(-1);
 					layer = app.map.getLayer(layerId);
@@ -761,14 +778,11 @@ define(["esri/map",
 		function appInitComplete()
 		{
 			console.log("swipe.core.Core - initMap");
-			
+
 			var index = 0;
 
 			new MapCommand(
 				app.mainMap, 
-				function(){
-					app.mainMap.setExtent(Helper.getWebMapExtentFromItem(app.data.getWebMapItem().item));
-				},
 				_mainView.zoomToDeviceLocation
 
 			);
@@ -776,9 +790,6 @@ define(["esri/map",
 			if ( app.mode == "TWO_WEBMAPS" ){
 				new MapCommand(
 					app.maps[1], 
-					function(){
-						app.maps[1].setExtent(Helper.getWebMapExtentFromItem(app.data.getWebMapItem().item));
-					},
 					_mainView.zoomToDeviceLocation
 	
 				);
@@ -807,7 +818,7 @@ define(["esri/map",
 				}
 				else
 					_mainView.onHashChange();
-			}
+		};
 			
 			_mainView.appInitComplete();
 			app.builder && app.builder.appInitComplete();
@@ -821,8 +832,7 @@ define(["esri/map",
 			
 			// Show the app is the timeout hasn't be fired			
 			if( app.loadingTimeout != null ) {
-				$("#loadingOverlay").fadeOut();
-				loadingIndicator.stop();
+				$("#loadingOverlay, #loadingIndicator, #loadingMessage").fadeOut();
 			}
 			
 			cleanLoadingTimeout();
@@ -832,14 +842,14 @@ define(["esri/map",
 		{	
 			hideUI();
 			cleanLoadingTimeout();
-			loadingIndicator.stop();
+			$("#loadingIndicator, #loadingMessage").hide();
 			
 			if( error == "noLayerView" ) {
 				loadingIndicator.setMessage(i18n.viewer.errors[error], true);
 				return;
 			}
-			else if ( error != "initMobile" )
-				loadingIndicator.forceHide();
+			//else if ( error != "initMobile" )
+				//loadingIndicator.forceHide();
 
 			$("#fatalError .error-msg").html(i18n.viewer.errors[error]);
 			if( ! noDisplay ) 
@@ -1029,7 +1039,7 @@ define(["esri/map",
 			$("#fatalError").css("display", "none");
 			$("#loadingOverlay").css("top", "0px");
 			
-			loadingIndicator.start();
+			$("#loadingIndicator").show();
 			loadingIndicator.setMessage(i18n.viewer.loading.step2);
 			startLoadingTimeout();
 			
@@ -1104,7 +1114,7 @@ define(["esri/map",
 				return;
 			}
 			
-			loadingIndicator.stop();
+			$("#loadingIndicator, #loadingMessage").hide();
 			loadingIndicator.setMessage(i18n.viewer.loading.fail + '<br /><button type="button" class="btn btn-medium btn-info" style="margin-top: 5px;" onclick="document.location.reload()">' + i18n.viewer.loading.failButton + '</button>', true);
 			app.map && app.map.destroy();
 		}

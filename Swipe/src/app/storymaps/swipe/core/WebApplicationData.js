@@ -10,6 +10,8 @@ define(["dojo/_base/lang", "esri/geometry/Extent"], function(lang, Extent){
 	var _data = { 
 		values: {}
 	};
+	var layers;
+	var concatLayers = false;
 	
 	return {
 		set: function(data)
@@ -96,9 +98,13 @@ define(["dojo/_base/lang", "esri/geometry/Extent"], function(lang, Extent){
 				
 			var mainMap = app.mode == "TWO_LAYERS" ? app.map : app.maps[0];
 
-			var layers = mainMap.layerIds || [];
-			layers = layers.concat(mainMap.graphicsLayerIds);
-			
+			if(!layers)
+				layers = mainMap.layerIds || [];
+			if(!concatLayers){
+				layers = layers.concat(mainMap.graphicsLayerIds);
+				concatLayers = true;
+			}
+
 			var layer = layers[layers.length - 1 - configOptions.layerIndex];
 			if( layer )
 				return [layer];

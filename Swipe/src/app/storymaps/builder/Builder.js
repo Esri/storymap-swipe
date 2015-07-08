@@ -155,9 +155,9 @@ define(["esri/arcgis/Portal",
 			app.portal.signIn().then(
 				function(){
 					var portalUrl = getPortalURL(),
-						uid = IdentityManager.findCredential(portalUrl).userId,
-						token  = IdentityManager.findCredential(portalUrl).token,
-						appItem = lang.clone(app.data.getAppItem());
+						appItem = lang.clone(app.data.getAppItem()),
+						uid = appItem.owner || IdentityManager.findCredential(portalUrl).userId,
+						token  = IdentityManager.findCredential(portalUrl).token;
 
 					// Remove properties that don't have to be committed
 					delete appItem.avgRating;
@@ -197,6 +197,9 @@ define(["esri/arcgis/Portal",
 					// Transform arrays
 					appItem.tags = appItem.tags ? appItem.tags.join(',') : '';
 					appItem.typeKeywords = appItem.typeKeywords.join(',');
+					
+					// App proxies
+					appItem.serviceProxyParams = JSON.stringify(appItem.serviceProxyParams);
 
 					appItem = lang.mixin(appItem, {
 						f: "json",
@@ -204,10 +207,19 @@ define(["esri/arcgis/Portal",
 						overwrite: true,
 						text: JSON.stringify(WebApplicationData.get())
 					});
+					
+					var url = portalUrl + "/sharing/content/users/" + uid + (appItem.ownerFolder ? ("/" + appItem.ownerFolder) : ""); 
+					
+					// Updating
+					if ( appItem.id )
+						url += "/items/" + appItem.id + "/update";
+					// creating
+					else
+						url += "/addItem";
 
 					var saveRq = esriRequest(
 						{
-							url: portalUrl + "/sharing/content/users/" + uid + (appItem.ownerFolder ? ("/" + appItem.ownerFolder) : "") + "/addItem",
+							url: url,
 							handleAs: 'json',
 							content: appItem
 						},

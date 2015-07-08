@@ -16,7 +16,7 @@ define([
 		 * UI component that control the map display with +/home/- buttons and optional location button
 		 * On touch device button are bigger
 		 */
-		return function MapCommand(map, homeClickCallback, locationButtonCallback, locationButtonEnabled)
+		return function MapCommand(map, locationButtonCallback, locationButtonEnabled)
 		{
 			//
 			// Home/wait button
@@ -25,15 +25,12 @@ define([
 			var homeButton = $('<div class="esriSimpleSliderIncrementButton"><div class="mapCommandHomeBtn"></div></div>');
 			var locateSymbol = new PictureMarkerSymbol('resources/icons/mapcommand-location-marker.png', 21, 21);
 			var locateLayer = new GraphicsLayer({id: 'locateLayer'});
-			
+
 			homeButton.fastClick(function(){
 				// Prevent using the home button while it's spinning
 				if( tsUpdateStart !== 0 && $("body").hasClass("mobile-view") )
 					return;
-				
-				if( homeClickCallback && typeof homeClickCallback == 'function' )
-					homeClickCallback(map._params.extent);
-				else
+
 					map.setExtent(map._params.extent);
 			});
 			

@@ -23,7 +23,7 @@ define(function(){
 			_this.setColor(bgColor);
 			
 			//dojo.subscribe("CORE_SELECTED_TOURPOINT_UPDATE", updateSlide);
-		}
+		};
 		
 		this.update = function(slides, bgColor)
 		{
@@ -36,7 +36,7 @@ define(function(){
 			render(slides);
 			initEvents(slides);
 			_this.needUpdate = false;
-		}
+		};
 		
 		this.setSelectedPoint = function(tourPointIndex)
 		{
@@ -51,7 +51,7 @@ define(function(){
 			//}
 			//else
 				//_preventNextRefresh = false;
-		}
+		};
 		
 		this.setColor = function(bgColor)
 		{
@@ -64,9 +64,9 @@ define(function(){
 			$.each(mainColors, function(i){
 				if(mainColors[i].match(bgColor[0]))
 					index = i;
-			})
+			});
 			$('.seriesButton').css("background-color", compColors[index]);
-		}
+		};
 		
 		this.setDescriptionView = function(title, description, showDescription){
 			$('#seriesTitle').html(title);
@@ -76,7 +76,7 @@ define(function(){
 				location.hash = "description";
 			//else
 				//showDescription = true;
-		}
+		};
 		
 		function render(slides)
 		{
@@ -133,7 +133,7 @@ define(function(){
 			
 			setTimeout(function(){
 				_this.setSelectedPoint(app.bookmarkIndex || 0);
-			}, 250)
+			}, 250);
 		}
 		
 		function initEvents(slides)
@@ -151,7 +151,7 @@ define(function(){
 				$('#seriesTextView').hide();
 				$('#footerMobile').show();
 				location.hash = "map";
-			})
+			});
 			
 			// Save mouse position for later comparison to differenciate click and flip (or aborted flip) events
 			$(selector + ' .carousel').mousedown(function(e){
@@ -202,5 +202,5 @@ define(function(){
 			node.find('.tpDescription').html(param.description);
 			//node.find('.tpIcon').attr("src", MapTourHelper.getSymbolUrl(param.color, param.index + 1));
 		}
-	}
+	};
 });

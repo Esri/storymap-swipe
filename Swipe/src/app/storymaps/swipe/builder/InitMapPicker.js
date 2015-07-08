@@ -53,7 +53,7 @@ define(["dojo/on",
 				app.rootMapId = container.find('.webmap-id-input').find('input').val();
 				WebApplicationData.setWebmaps([container.find('.webmap-id-input').find('input').val()]);
 				_loadWebMap(container.find('.webmap-id-input').find('input').val());
-				loadingIndicator.start();
+				$("#loadingIndicator").show();
 				$('#loadingMessage').css('visibility', 'visible');
 			}
 		};

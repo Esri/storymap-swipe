@@ -8,19 +8,19 @@ define([], function(){
 			setColor(bgColor);
 			render(slides);
 			initEvents(slides);
-		}
+		};
 		
 		this.update = function(bgColor)
 		{
 			setColor(bgColor);
-		}
+		};
 		
 		this.show = function()
 		{
 			$(containerSelector).show();
 			_carousel.refreshSize();
 			_carousel.goToPage(0);
-		}
+		};
 		
 		function render(slides)
 		{
@@ -58,11 +58,21 @@ define([], function(){
 			_carousel.onMoveOut(function () {
 				//
 			});
+			
+			$(containerSelector).find('.swiper').on('click', function(e){
+				if($(containerSelector).find('.swiper').hasClass('right')){
+					_carousel.next();
+				} else{
+					_carousel.prev();
+				}
+				
+			});
+			
 		}
 		
 		function setColor(bgColor)
 		{
 			$(containerSelector).css("background-color", bgColor);
 		}
-	}
+	};
 });

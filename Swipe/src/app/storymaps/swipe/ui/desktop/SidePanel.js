@@ -25,6 +25,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 		var _layer = null;
 		var _layout = null;
 		var _dataModel = null;
+		var _embed = false;
 		
 		var _isDescription = null;
 		var _isLegend = null;
@@ -32,7 +33,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 		
 		var _this = this;
 		
-		this.init = function(description, bgColor, headerColor, isDescription, isLegend, layer, isSeries, layout, dataModel)
+		this.init = function(description, bgColor, headerColor, isDescription, isLegend, layer, isSeries, layout, dataModel, embed)
 		{	
 			_layer = layer;
 			_layout = layout;
@@ -41,8 +42,9 @@ define(["storymaps/swipe/core/WebApplicationData",
 			_isLegend = isLegend;
 			_isSeries = isSeries;
 			if (_dataModel == null)
-				_dataModel = "TWO_LAYERS"
+				_dataModel = "TWO_LAYERS";
 			_dataModel == "TWO_LAYERS" ? app.mainMap = app.map : app.mainMap = app.maps[0];
+			_embed = embed;
 			container.height(app.mainMap.height);
 			if (isInBuilderMode && isDescription && !_isSeries) {
 				$(_descriptionContent).addClass('builder');
@@ -69,24 +71,24 @@ define(["storymaps/swipe/core/WebApplicationData",
 					if($('#title').siblings()[0])	
 						$('#title').siblings()[0].addClass('hrefLabel');
 				});
-			}
+			};
 			setColor(bgColor, headerColor);
 			render(description, isDescription, isLegend);	
 			on(dom.byId("sidePanelTabImg"), 'click', toggleSidePanel);	
 			on(dom.byId("sidePanelUnderTabImg"), 'click', toggleSidePanelVertical);	
-			_legendTitle.html(i18n.swipe.swipeSidePanel.legendTitle)
+			_legendTitle.html(i18n.swipe.swipeSidePanel.legendTitle);
 			on(app.mainMap, "update-end", changeLegend);
 			$(window).resize(function(){
 				var lineHeight = $('#legendTitle').height();
 				$('#legendTitle').css('line-height', lineHeight + 'px');
 				_this.resize();
-			})
-		}
+			});
+		};
 		
 		this.update = function(bgColor, headerColor)
 		{
 			setColor(bgColor, headerColor);
-		}
+		};
 		
 		this.resize = function(widthViewport, heightViewPort)
 		{			
@@ -99,7 +101,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 				$('#descriptionContent').css('margin-bottom', seriesControlsHeight);
 			}
 			if(_isSeries && !_isLegend)
-						app.seriesPanel.sizeTextDescription();
+					app.seriesPanel.sizeTextDescription();
 			else {
 				if (app.isInBuilderMode) {
 					$('#descriptionContent').height($('#descriptionPanel').height() - 45);
@@ -107,7 +109,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 			}
 			
 			$('.nicEdit-panelContain').parent().css('width', '348px');
-		}
+		};
 		
 		this.checkDescription = function(fromSaveButton)
 		{
@@ -122,7 +124,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 					return
 				topic.publish("BUILDER_INCREMENT_COUNTER");
 			}, 0);		
-		}
+		};
 		
 		function changeLegend()
 		{
@@ -130,7 +132,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 			$('#legendView2').empty();
 			$('#legendView1').append($('#legend0').children().clone());
 			$('#legendView2').append($('#legend1').children().clone());
-		}
+		};
 		
 		function render(description, isDescription, isLegend)
 		{
@@ -170,7 +172,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 				$('#legendView .noData').css('display', 'block');
 				if (isInBuilderMode) {
 					_sidePanel.addClass('builder');
-					_descriptionPanel.css('height', _sidePanel.css('height'))
+					_descriptionPanel.css('height', _sidePanel.css('height'));
 				}
 			}
 			if (_isLegend == false && _isDescription == false && _isSeries == false) {
@@ -191,7 +193,9 @@ define(["storymaps/swipe/core/WebApplicationData",
 				else 
 					$('#sidePanel').css('height', 'auto');
 				
-				if (!_isSeries)
+				if(_embed)
+					$('#sidePanel').css('top', '0');
+				else if (!_isSeries)
 					$('#sidePanel').css('top', '111px');
 				else
 					$('#sidePanel').css('top', '146px');
@@ -204,7 +208,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 		function toggleSidePanel()
 		{
 			if($('body').hasClass('mobile-view'))
-				return
+				return;
 			if (getSidePanelState() == "open")
 				closeSidePanel();
 			else
@@ -214,7 +218,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 		function toggleSidePanelVertical()
 		{
 			if($('body').hasClass('mobile-view'))
-				return
+				return;
 			if (getSidePanelVerticalState() == "open")
 				closeSidePanelUp();
 			else
@@ -345,5 +349,5 @@ define(["storymaps/swipe/core/WebApplicationData",
 			_legendPanel.css("background-color", bgColor);
 			_legendTitle.css("background-color", headerColor);
 		}		
-	}
+	};
 });

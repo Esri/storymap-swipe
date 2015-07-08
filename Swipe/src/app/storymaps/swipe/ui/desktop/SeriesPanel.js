@@ -157,7 +157,7 @@ define(["dojo/has",
 			{
 				if( isInBuilderMode )
 					watchExtentChangeSavebtn(1);
-			}
+			};
 	
 			this.setColor = function(bgColor)
 			{
@@ -167,10 +167,13 @@ define(["dojo/has",
 			this.showSeries = function(button)
 			{
 				$(selector).find('.seriesButton').removeClass("selected");
-				$(button).addClass("selected");
 				var bookmarkIndex = $(button).data('bookmarkid');
-				//app.bookmarkIndex = bookmarkIndex;
-				_this.renderText(_bookmarks[bookmarkIndex]);
+				app.bookmarkIndex = bookmarkIndex > -1 ? bookmarkIndex : app.bookmarkIndex;
+				_this.renderText(_bookmarks[app.bookmarkIndex]);
+				var selButton = $(selector).find("[data-bookmarkid='" + app.bookmarkIndex + "']");
+			
+			
+				$(selButton).addClass("selected");
 
 				if($("#footerMobile").is(':visible'))
 					return;
@@ -181,10 +184,10 @@ define(["dojo/has",
 				updateDiscardButton();
 				
 				setTimeout(function(){
-					topic.publish("CORE_UPDATE_EXTENT", _bookmarks[bookmarkIndex].extent);
+					topic.publish("CORE_UPDATE_EXTENT", _bookmarks[app.bookmarkIndex].extent);
 				}, 0);
 				$('#descriptionContent').scrollTop(0);
-			}
+			};
 			
 			this.addSeries = function()
 			{
@@ -226,7 +229,7 @@ define(["dojo/has",
 				WebApplicationData.setSeriesBookmarks(_bookmarks)
 				app.mobileCarousel.needUpdate = true;
 				topic.publish("BUILDER_INCREMENT_COUNTER");
-			}
+			};
 			
 			this.discardBookmark = function()
 			{
@@ -250,7 +253,7 @@ define(["dojo/has",
 				_this.showSeries($('.seriesButton').eq(selectedButtonIndex));
 				app.mobileCarousel.needUpdate = true;
 				topic.publish("BUILDER_INCREMENT_COUNTER");				
-			}
+			};
 			
 			this.saveBookmarkExtent = function()
 			{
@@ -262,7 +265,7 @@ define(["dojo/has",
 				topic.publish("BUILDER_INCREMENT_COUNTER");
 				
 				$(".series-extentSave").attr("disabled", "disabled");
-			}
+			};
 			
 			this.renderText = function(bookmark, fromInit)
 			{
@@ -292,16 +295,30 @@ define(["dojo/has",
 						$('#sidePanel').css('height', '60%');
 					else 
 						$('#sidePanel').css('height', 'auto');
+					
+					//Somehwhat of a replication of app.sidePanel.sidePanelSlideVertical(),
+					//but this does not animate, we need immediate change so as not to flash
+					var sidePanelHeightSlide = parseInt($('#sidePanel').css('height'));
+					var sidePanelHeightClip = parseInt($('#sidePanel').css('height'));	
+					var headerHeight = parseInt($('#header').css('height'));
+					
+					sidePanelHeightSlide -= parseInt($('#seriesPanel').css('height'));
+					sidePanelHeightSlide -= parseInt(headerHeight);
+					headerHeight += parseInt($('#seriesPanel').css('height'));
+
+					var clipString = !$('#sidePanelUnderTabImg').hasClass('open') ? 'rect(' + sidePanelHeightClip + 'px 350px ' + parseInt(sidePanelHeightClip + 45) + 'px 0px)' : 'rect(0px 350px ' + parseInt(sidePanelHeightClip + 45) + 'px 0px)';
+		       		$("#sidePanel").css('clip', clipString);
+		       		var topPos = !$('#sidePanelUnderTabImg').hasClass('open') ? -sidePanelHeightSlide : headerHeight;
+					$("#sidePanel").css({'top': topPos});
 
 				}
-				
 				if (navigator.userAgent.match(/iPad/i))
 						setTimeout(function (){
 							descScroll.refresh();
 						}, 0);	
 				
 				_this.sizeTextDescription(fromInit);			
-			}
+			};
 			
 			this.checkText = function()
 			{
@@ -325,7 +342,7 @@ define(["dojo/has",
 				app.mobileCarousel.update(_bookmarks, WebApplicationData.getColors());
 				var showDescription = false;
 				app.mobileCarousel.setDescriptionView(_bookmarks[selectedBookmark].name, _bookmarks[selectedBookmark].description, showDescription);
-			}
+			};
 			
 			this.sizeTextDescription = function(fromInit){
 				var seriesControlsHeight = app.isInBuilderMode ? $('#seriesControls').height() + 10 : 0;
@@ -342,8 +359,7 @@ define(["dojo/has",
 						$('#descriptionContent').height($('#descriptionPanel').height() - $('#descriptionTitle').height() - (2 * seriesControlsHeight) - 30);
 					}
 				}, fromInit ? 5000 : 0);
-				
-			}
+			};
 			
 			function watchExtentChangeSavebtn(nbCycle)
 			{
@@ -372,7 +388,7 @@ define(["dojo/has",
 				setTimeout(function(){
 					$.each($('.seriesLabel'), function(i, label){
 						$(label).html(i+1);
-					})
+					});
 					var seriesButtons = $('#seriesPanel').find($('.seriesButton'));
 					var newBookmarks = [];
 					$.each($(seriesButtons), function(i, button){
@@ -383,12 +399,12 @@ define(["dojo/has",
 							if(e.indexId == oldIndex)
 								newBookmarks.push(e);
 						});
-					})
+					});
 					WebApplicationData.setSeriesBookmarks(newBookmarks);
 					_bookmarks = newBookmarks;
 					topic.publish("BUILDER_INCREMENT_COUNTER");
 				}, 500);		
-			}
-		}
+			};
+		};
 	}
 );

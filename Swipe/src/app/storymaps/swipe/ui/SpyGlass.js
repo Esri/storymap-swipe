@@ -79,7 +79,7 @@ define(["dojo/_base/declare",
 				//Needed to prevent spyglass movement from expanding window beyond map
 				$('#mapPanel').css('overflowX', 'hidden');
 				
-				$('.esriPopup').addClass('hidePopup')
+				$('.esriPopup').addClass('hidePopup');
 				
 				$('#infoWindowTitle').html(i18n.swipe.infoWindow.noFeature);
 				$('#infoWindowContent').html('<div class="noFeature">' + i18n.swipe.infoWindow.noFeatureExplain + '</div>');
@@ -93,12 +93,12 @@ define(["dojo/_base/declare",
 					$('#infoWindow').addClass('disable');
 					$.each(app.popup, function(i){
 						app.popup[i].destroy();
-					})
+					});
 				}
 
 				_this._isGraphics = false;
 				if(app.mainMap.getLayer(_layers[0]))
-					_this._isGraphics = app.mainMap.getLayer(_layers[0]).type == "Feature Layer";
+					_this._isGraphics = app.mainMap.getLayer(_layers[0]).type == "Feature Layer" && app.mainMap.getLayer(_layers[0]).renderer.type != "heatmap";
 
 				// function to define the boundaries for the lens window
 				// this is used in the constrainedMoveable constructor
@@ -143,7 +143,7 @@ define(["dojo/_base/declare",
 				var handleLensDblClick = function(){
 					var mapLevel = parseInt(dom.byId("mainMap0").getAttribute("data-zoom"));
 					app.mainMap.setZoom(mapLevel + 1);
-				}
+				};
 				
 				$('#lensTool').click(function(e) {
     				var that = this;
@@ -194,7 +194,7 @@ define(["dojo/_base/declare",
 					var mapLevel = parseInt(dom.byId("mainMap0").getAttribute("data-zoom"));
 					var wheelDelta = !has("mozilla") ? 120 : 3;
 					var mapZoom = scroll/wheelDelta;
-					app.mainMap.setZoom(mapLevel + mapZoom)
+					app.mainMap.setZoom(mapLevel + mapZoom);
 				});
 				
 				// make the window moveable
@@ -242,7 +242,7 @@ define(["dojo/_base/declare",
 				
 				on(app.mainMap, "click", function(evt){
 					_this._popupClosedByUser = false;
-					$('.esriPopup').css('visibility', 'hidden')
+					$('.esriPopup').css('visibility', 'hidden');
 					_this._clickPoint = evt;
 					
 					_this._clickOnLens = evt.fromLens;
@@ -269,7 +269,7 @@ define(["dojo/_base/declare",
 				
 				if( app.maps[1] ) {
 					on(app.maps[1], "click", function(evt){
-						$('.esriPopup').css('visibility', 'hidden')
+						$('.esriPopup').css('visibility', 'hidden');
 					});
 				}
 				
@@ -338,7 +338,7 @@ define(["dojo/_base/declare",
 							_this.clipGlass();
 						else
 							this.clipGraphics;
-					})
+					});
 					
 					if(!_this._isGraphics)
 						setTimeout(this.clipGlass, 0);
@@ -359,15 +359,19 @@ define(["dojo/_base/declare",
 			{
 				// TODO TEST (added or app.mode == two wemaps)
 				if( !_this._isGraphics || app.mode == "TWO_WEBMAPS")
-					return
+					return;
 				var spyGlassDiv = $("#lensWin");
 				var leftval = parseFloat(spyGlassDiv.css('left'));
 				var rightval = parseInt($('#lensWin').css('width'));
 				var topval = parseFloat(spyGlassDiv.css('top'));
 				var bottomval = parseInt($('#lensWin').css('height'));
 				
+				var layer;
+
 				var layer = app.mainMap.getLayer(_layers[0])._div;
-				var tr = layer.getTransform();
+				var tr;
+				if(layer.getTransform)
+					tr = layer.getTransform();
 				// if we got the transform object
 				if (tr) {
 					// if layer is offset x
@@ -385,7 +389,7 @@ define(["dojo/_base/declare",
 					y: topval + 9,
 					width: rightval - 18,
 					height: bottomval - 18
-				})
+				});
 				
 				_this.calculateSpyExtent();	
 			},
@@ -450,7 +454,22 @@ define(["dojo/_base/declare",
 			clipGlass: function(mapEvt) 
 			{
 				var spyGlassDiv = $("#lensWin");
-				var clipDiv = app.map.getLayer(_layers[0])._div;
+				
+				var clipDiv;
+				var isHeatMap = false;
+				
+				if(app.mainMap.getLayer(_layers[0]).renderer && app.mainMap.getLayer(_layers[0]).renderer.type == "heatmap"){
+					isHeatMap = true;
+					if(app.mainMap.getLayer(_layers[0]).visibleAtMapScale){
+						clipDiv = app.mainMap.getLayer(_layers[0])._heatmapManager.imageLayer._div.children[0];
+					} else{
+						return;
+					}
+				}
+				else{
+					clipDiv = app.mainMap.getLayer(_layers[0])._div; 
+				}
+
 				if (spyGlassDiv != null)
 				{			                    
 					_leftVal = parseFloat(spyGlassDiv.css('left'));
@@ -459,22 +478,29 @@ define(["dojo/_base/declare",
 					_bottomVal = _topVal + parseInt($('#lensWin').css('height'));
 
 					var lensPos = $("#lensWin").position();
-					var layerPos = $(clipDiv).position();
-						
-					var x = lensPos.left - layerPos.left;
-					var y = lensPos.top - layerPos.top;
+					var layerPos = isHeatMap ? $(clipDiv).offsetParent()[0] : $(clipDiv).position();
+
+					var layerPosLeft = isHeatMap ? layerPos._left : layerPos.left;
+					var layerPosTop = isHeatMap ? layerPos._top : layerPos.top;
+					var x = lensPos.left - layerPosLeft;
+					var y = lensPos.top - layerPosTop;
+					
+					var topOffset = y + 9;
+					var bottomOffset = y + 252;
+					var mobileTopOffset =  y + 7;
+					var mobileBottomOffset = y + 193;
 					
 					if ($("#lensTool").css("width") == "200px") {
 						_leftVal = x + 7;
-						_rightVal = x + 200 - 6;
-						_topVal = y + 7;
-						_bottomVal = y + 200 - 6;
+						_rightVal = x + 194;
+						_topVal = mobileTopOffset;
+						_bottomVal = mobileBottomOffset;
 					}
 					else {
 						_leftVal = x + 9;
-						_rightVal = x + 261 - 9;
-						_topVal = y + 9;
-						_bottomVal = y + 261 - 9;
+						_rightVal = x + 252;
+						_topVal = topOffset;
+						_bottomVal = bottomOffset;
 					}
 					         
 				    //Syntax for clip "rect(top,right,bottom,left)" commas b/w values is standard syntax, w/o is backwards compatible
@@ -552,7 +578,7 @@ define(["dojo/_base/declare",
 				spyExtent = spyExtent;
 				if (_this._clickPoint != null && app.popup[0].features) {
 					var isOnSpecificLayer = spyExtent.contains(_this._clickPoint.mapPoint);
-					var specificLayerId = _layers[0] + (_this._isGraphics ? "" : "_1"); // TODO is that _1 safe ?
+					var specificLayerId = _layers[0]// + (_this._isGraphics ? "" : "_1"); // TODO is that _1 safe ?
 					colorTitleIndex = isOnSpecificLayer ? 0 : 1;
 					
 					// Find feature that is not currently selected to set mobile infowindow (mobile infowindow of selected feature is set in setInfoWindow())
@@ -560,6 +586,9 @@ define(["dojo/_base/declare",
 						var features = app.popup[0].features[i];
 						// layerId of selected feature
 						var layerId = features._graphicsLayer.id;
+						if((layerId.charAt(layerId.length-2) === '_' || layerId.charAt(layerId.length-3) === '_' ) && !_this._isGraphics){
+							layerId = layerId.split('_').slice(0, -1).join('_');
+						}
 
 						if ((!isOnSpecificLayer && layerId == specificLayerId)|| (isOnSpecificLayer && layerId != specificLayerId)) {
 							var feature = app.popup[0].features[i];
@@ -567,7 +596,7 @@ define(["dojo/_base/declare",
 							$("#infoWindowView .noData").hide();
 							$('.swiper.infoWindowView').css('display', 'block');
 							if(_this._isGraphics)
-								app.popup[0]._highlighted._graphicsLayer.graphics[0].hide()
+								app.popup[0]._highlighted._graphicsLayer.graphics[0].hide();
 							break;
 						}
 					}
@@ -575,11 +604,14 @@ define(["dojo/_base/declare",
 					for (var i = 0; i < app.popup[0].features.length; i++) {
 						var feature = app.popup[0].features[i];
 						var layerId = feature._graphicsLayer.id;
+						if((layerId.charAt(layerId.length-2) === '_' || layerId.charAt(layerId.length-3) === '_')  && !_this._isGraphics){
+							layerId = layerId.split('_').slice(0, -1).join('_');
+						}
 						if ((isOnSpecificLayer && layerId == specificLayerId) || (!isOnSpecificLayer && layerId != specificLayerId)) {
 							app.popup[0].select(i);
 							getPopupFeature(0, colorTitleIndex);
 							if(_this._isGraphics)
-								app.popup[0]._highlighted._graphicsLayer.graphics[0].show()
+								app.popup[0]._highlighted._graphicsLayer.graphics[0].show();
 							break;
 						}
 					}

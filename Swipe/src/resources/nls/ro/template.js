@@ -16,7 +16,7 @@
 				portalSelf: "Eroare fatală: Eşec la obţinerea configuraţiei portalului",
 				invalidConfig: "Eroare gravă: Configurare incorectă",
 				invalidConfigNoWebmap: "Eroare gravă: Configurare incorectă (nu a fost specificată nicio hartă web)",
-				createMap: "Imposibil de creat harta",
+				createMap: "Nu se poate crea harta",
 				invalidApp: "Eroare gravă: Imposibil de încărcat aplicaţia",
 				initMobile: "Bine aţi venit la aplicaţia web Swipe. Aplicaţia nu este configurată. Instrumentul de creare interactiv nu este suportat pe dispozitive mobile.",
 				noBuilderIE8: "Instrumentul interactiv de creare a Swipe nu este suportat în versiunile Internet Explorer mai vechi decât 9.",
@@ -61,7 +61,7 @@
 				popoverOpenViewCancel: "Anulare",
 				popoverSaveWhenDone: "Nu uitaţi să salvaţi când aţi terminat",
 				closeWithPendingChange: "Sigur confirmaţi acţiunea? Se vor pierde modificările.",
-				gotIt: "Ok",
+				gotIt: "OK",
 				savingApplication: "Se salvează aplicaţia",
 				saveSuccess: "S-a reuşit salvarea aplicaţiei",
 				saveError: "Salvare nereuşită, încercaţi din nou",
@@ -193,7 +193,7 @@
 			initPopup: {
 				initHeader: "Bine aţi venit la aplicaţia de creare a instrumentului Preluare/Ochean",
 				modalNext: "Înainte",
-				modalPrev: "Anteriorul",
+				modalPrev: "Anterior",
 				modalApply: "Deschidere aplicaţie"
 			},
 			seriesPanel: {
@@ -233,7 +233,7 @@
 				sharePreviewAsUser: "Previzualizare",
 				shareHeader1: "Aplicaţia este <strong>accesibilă public</strong>.",
 				shareHeader2: "Aplicaţia dvs. este accesibilă membrilor organizaţiei (este necesară conectarea).",
-				shareLinkHeader: "Partajaţi aplicaţia cu publicul",
+				shareLinkHeader: "Se partajează aplicaţia cu publicul",
 				shareLinkOpen: "DESCHIDERE",
 				learnMore: "Învăţaţi mai mult",
 				shareQ1Opt1: "Cum menţin aplicaţia privată?",
@@ -270,7 +270,7 @@
 				},
 				title: "Selectare hartă Web",
 				searchTitle: "Căutare",
-				ok: "Ok",
+				ok: "OK",
 				cancel: "Anulare",
 				placeholder: "Introducere termen de căutare"
 			}

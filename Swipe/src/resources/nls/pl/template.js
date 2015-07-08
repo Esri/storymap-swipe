@@ -35,7 +35,7 @@
 				navRight: "Dane"
 			},
 			desktopView: {
-				storymapsText: "Mapa z historią",
+				storymapsText: "Story Map",
 				builderButton: "Przełącz do trybu kreatora",
 				bitlyTooltip: "Pobierz skrócone łącze do aplikacji"
 			}
@@ -72,8 +72,8 @@
 			},
 			header:{
 				editMe: "Edytuj!",
-				templateTitle: "Ustaw tytuł szablonu",
-				templateSubtitle: "Ustaw podtytuł szablonu"
+				templateTitle: "Skonfiguruj tytuł szablonu",
+				templateSubtitle: "Skonfiguruj podtytuł szablonu"
 			},
 			settings: {
 				settingsHeader: "Ustawienia aplikacji",
@@ -100,11 +100,11 @@
 			},
 			settingsExtent: {
 				settingsTabExtent: "Zasięg",
-				settingsExtentExplain: "Ustaw początkowy zasięg za pomocą poniższej mapy interaktywnej.",
+				settingsExtentExplain: "Skonfiguruj początkowy zasięg za pomocą poniższej mapy interaktywnej.",
 				settingsExtentExplainBottom: "Zdefiniowany zasięg zostanie użyty do modyfikacji początkowego zasięgu mapy internetowej. Należy pamiętać, że zasięg ten nie będzie używany podczas korzystania z serii zwijania.",
 				settingsExtentDateLineError: "Zasięg nie może przebiegać przez południk 180ï¿½",
 				settingsExtentDateLineError2: "Błąd w obliczaniu zasięgu",
-				settingsExtentDrawBtn: "Określ nowy zasięg",
+				settingsExtentDrawBtn: "Wyświetl nowy zasięg",
 				settingsExtentModifyBtn: "Zmień bieżący zasięg",
 				settingsExtentApplyBtn: "Zastosuj do mapy głównej",
 				settingsExtentUseMainMap: "Użyj głównego zasięgu mapy"
@@ -121,7 +121,7 @@
 				noLegend: "Brak legendy do wyświetlenia."
 			},
 			swipeSidePanel: {
-				editTooltip: "Ustaw opis panelu bocznego",
+				editTooltip: "Skonfiguruj opis panelu bocznego",
 				editMe: "Edytuj!",
 				legendTitle: "Legenda"
 			},
@@ -172,11 +172,11 @@
 				settingsLocationSearchEnable: "Włącz wyszukiwanie przy użyciu lokatora",
 				settingsGeolocatorEnable: "Włącz geolokator",
 				settingsLegendHelpContent: "Aby ulepszyć zawartość legendy, skorzystaj z tabeli zawartości przeglądarki map ArcGIS.com (Ukryj w legendzie)",
-				settingsSeriesHelpContent: "Seria zwijania to opcja nawigacji przy użyciu kart, która kieruje użytkownika w pewnym zakresie i wyświetla tytuł oraz tekst opisu w panelu bocznym. Podczas pierwszej aktywacji zakładki mapy internetowej zostaną użyte do wstępnego wypełnienia paska serii. Jeżeli wyłączysz później opcję serii, zostanie też wyłączony pasek serii, ale konfiguracja serii zostanie zachowana na przyszłość.", 
+				settingsSeriesHelpContent: "Seria zwijania to opcja nawigacji przy użyciu kart, która kieruje użytkownika do określonego zasięgu i wyświetla tytuł oraz tekst opisu w panelu bocznym. Podczas pierwszej aktywacji zakładki mapy internetowej zostaną użyte do wstępnego wypełnienia paska serii. Jeżeli wyłączysz później opcję serii, zostanie też wyłączony pasek serii, ale konfiguracja serii zostanie zachowana na przyszłość.", 
 				settingsSeriesHelpContent2: "Serie zwijania umożliwiają tworzenie i edycję wybranych lokalizacji z towarzyszącymi im tytułami i tekstem. Jeśli dana mapa internetowa zawiera zakładki, zostaną one wyświetlone. Istnieje możliwość wyłączenia serii, ale ta konfiguracja zostanie zapisana do późniejszego wykorzystania.",
 				settingsSeriesHelpLink: "Tutaj znajduje się przykładowa aplikacja zawierająca serie zwijania",
-				preview: "Podgląd interfejsu użytkownika",
-				settingsLocateButtonExplain: "Ten sposób działania jest obsługiwany w większości urządzeń mobilnych i przeglądarek komputerowych (łącznie z programem Internet Explorer 9 i nowszymi wersjami).",
+				preview: "Zobacz podgląd interfejsu użytkownika",
+				settingsLocateButtonExplain: "Ta funkcjonalność jest obsługiwana w większości urządzeń mobilnych i przeglądarek komputerowych (w tym Internet Explorer 9 i jego nowszych wersjach).",
 				settingsLocateButton: "Włącz przycisk Lokalizuj w obsługiwanych przeglądarkach",
 				settingsAddressSearch: "Włącz narzędzie wyszukiwania adresów"
 			},
@@ -193,14 +193,14 @@
 			initPopup: {
 				initHeader: "Witamy w kreatorze szablonu Zwijanie/Luneta",
 				modalNext: "Dalej",
-				modalPrev: "Wstecz",
+				modalPrev: "Powrót",
 				modalApply: "Otwórz aplikację"
 			},
 			seriesPanel: {
 				title: "Tytuł",
 				descr: "Opis",
 				discard: "Odrzuć zakładkę",
-				saveExtent: "Ustaw zasięg zakładki",
+				saveExtent: "Skonfiguruj zasięg zakładki",
 				discardDisabled: "Nie można usunąć tej zakładki. Serie zwijania można wyłączyć w Ustawieniach."
 			},
 			helpPopup: {
@@ -208,19 +208,19 @@
 				close: "Zamknij",
 				tab1: {
 					div1: "Szablon Zwijanie/Luneta umożliwia porównywanie dwóch różnych map internetowych albo dwóch warstw pojedynczej mapy internetowej za pomocą atrakcyjnie wyglądającej i łatwej w obsłudze aplikacji internetowej. Aplikacji tej można używać w dowolnej przeglądarce i na każdym urządzeniu, w tym również na smartfonie i tablecie.",
-					div2: "Dodatkowe informacje dotyczące szablonu Zwijanie/Luneta, w tym przykłady stworzone przez użytkowników, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> znajdują się na stronie internetowej Map opowiadania</a>. Możesz także śledzić nas w serwisie Twitter pod adresem <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
-					div3: "Czekamy na wiadomości od Ciebie! Niezależnie od tego, czy masz pytanie, chcesz poprosić o nowy obiekt lub poinformować nas o znalezionym błędzie, odwiedź <a href='http://links.esri.com/storymaps/forum' target='_blank'>Forum użytkowników map opowiadań</a>."
+					div2: "Dodatkowe informacje dotyczące szablonu Zwijanie/Lupa, w tym przykłady utworzone przez użytkowników, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> znajdują się na stronie internetowej Story Maps</a>. Możesz także śledzić nas w serwisie Twitter pod adresem <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
+					div3: "Czekamy na wiadomości od Ciebie! Niezależnie od tego, czy masz pytanie, chcesz poprosić o nową funkcjonalność lub poinformować nas o znalezionym błędzie, odwiedź <a href='http://links.esri.com/storymaps/forum' target='_blank'>Forum użytkowników Story Maps</a>."
 				}
 			},
 			share: {
 				firstSaveTitle: "Aplikacja zapisana pomyślnie",
-				firstSaveHeader: "Twoja aplikacja została zapisana w serwisie ArcGIS Online. Zapoznaj się z poniższymi odpowiedziami na często zadawane pytania.",
-				firstSaveA1: "Jeżeli nie znasz jeszcze serwisu ArcGIS Online lub chcesz korzystać ze skrótu do interfejsu dla autorów, możesz zapisać następujące łącze: %LINK1%",
-				firstSaveA1bis: "Dostęp do aplikacji można uzyskać również za pośrednictwem <a href='%LINK2%' target='_blank'>folderu zasobów w serwisie ArcGIS Online</a>.",
+				firstSaveHeader: "Twoja aplikacja została zapisana w usłudze ArcGIS Online. Zapoznaj się z poniższymi odpowiedziami na często zadawane pytania.",
+				firstSaveA1: "Jeżeli nie znasz jeszcze usługi ArcGIS Online lub chcesz korzystać ze skrótu do interfejsu dla autorów, możesz zapisać następujące łącze: %LINK1%",
+				firstSaveA1bis: "Dostęp do aplikacji można uzyskać również za pośrednictwem <a href='%LINK2%' target='_blank'>folderu zasobów w usłudze ArcGIS Online</a>.",
 				firstSaveQ2: "Czy moja aplikacja jest udostępniona?",
 				firstSaveA2: "Obecnie Twoja aplikacja nie jest udostępniana. Aby ją udostępnić, użyj przycisku UDOSTĘPNIJ.",
-				shareTitle: "Udostępnij aplikację",
-				sharePrivateHeader: "Aplikacja nie jest udostępniana. Czy chcesz ją udostępnić?",
+				shareTitle: "Udostępnij swoją aplikację",
+				sharePrivateHeader: "Aplikacja nie jest udostępniona. Czy chcesz ją udostępnić?",
 				sharePrivateBtn1: "Udostępnij publicznie",
 				sharePrivateBtn2: "Udostępnij mojej instytucji",
 				sharePrivateProgress: "Trwa udostępnianie...",
@@ -230,14 +230,14 @@
 				shareStatus2: "Aplikacja jest udostępniania publicznie",
 				shareStatus3: "Aplikacja jest udostępniana w obrębie tej instytucji",
 				shareStatus4: "Aplikacja nie jest udostępniana",
-				sharePreviewAsUser: "Podgląd",
+				sharePreviewAsUser: "Zobacz podgląd",
 				shareHeader1: "Aplikacja jest <strong>dostępna publicznie</strong>.",
 				shareHeader2: "Aplikacja jest dostępna dla członków instytucji (wymagane jest logowanie).",
 				shareLinkHeader: "Udostępnij aplikację odbiorcom",
 				shareLinkOpen: "OTWÓRZ",
 				learnMore: "Dowiedz się więcej",
 				shareQ1Opt1: "Jak mogę zachować prywatny status aplikacji?",
-				shareQ1Opt2: "Jak mogę zachować prywatny status aplikacji albo udostępnić ją publicznie?",
+				shareQ1Opt2: "W jaki sposób mogę zachować prywatny status aplikacji lub udostępnić ją publicznie?",
 				shareA1: "Odwiedź %SHAREIMG% <a href='%LINK1%' target='_blank'>stronę elementu aplikacji</a>. Jeżeli nie chcesz dłużej udostępniać mapy internetowej, odwiedź <a href='%LINK2%' target='_blank'>stronę elementu mapy internetowej</a>.",
 				shareA1bis: "Jeśli chcesz przestać udostępniać Usługę obiektową, użyj <a href='%LINK1%' target='_blank'>strony elementu Usługi obiektowej</a>.",
 				shareQ2: "W jaki sposób mogę edytować aplikację w przyszłości?",
@@ -255,8 +255,8 @@
 				mapPickHeader: "Aby rozpocząć, podaj prawidłowy identyfikator mapy internetowej albo skorzystaj z przycisku Wyszukaj w celu przeszukania map internetowych.",
 				launchBuilder: "Kreator uruchamiania",
 				chooseWebmapLbl: "Wybierz mapę internetową...",
-				explain2: "Aby utworzyć mapę opowiadania Zwijanie lub Luneta, skorzystaj z poniższego przycisku i wybierz istniejącą mapę internetową ArcGIS Online, której chcesz użyć. Ewentualnie możesz wkleić do poniższego pola identyfikator mapy internetowej.",
-				explain3: "Jeżeli w ramach mapy opowiadania chcesz użyć dwóch map internetowych, podczas wybierania tej opcji pojawi się później komunikat dotyczący drugiej mapy internetowej.",
+				explain2: "Aby utworzyć story map Zwijanie lub Lupa, skorzystaj z poniższego przycisku i wybierz istniejącą mapę internetową ArcGIS Online, której chcesz użyć. Ewentualnie możesz wkleić do poniższego pola identyfikator mapy internetowej.",
+				explain3: "Jeżeli na mapie narracji (story map) chcesz użyć dwóch map internetowych, po wybraniu tej opcji pojawi się później komunikat dotyczący drugiej mapy internetowej.",
 				webmapPlaceholder: "Wprowadź identyfikator mapy internetowej..."
 			}
 		},
@@ -264,11 +264,11 @@
 			mapdlg:{
 				items:{
 					organizationLabel: "Moja instytucja",
-					onlineLabel: "ArcGIS Online",
+					onlineLabel: "Usługa ArcGIS Online",
 					contentLabel: "Moje zasoby",
-					favoritesLabel: "Ulubione"
+					favoritesLabel: "Moje ulubione"
 				},
-				title: "Wybór mapy internetowej",
+				title: "Wybierz mapę  internetową",
 				searchTitle: "Wyszukaj",
 				ok: "OK",
 				cancel: "Anuluj",

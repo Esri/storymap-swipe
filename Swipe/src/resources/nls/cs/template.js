@@ -64,7 +64,7 @@
 				gotIt: "OK",
 				savingApplication: "Ukládání aplikace",
 				saveSuccess: "Aplikace byla úspěšně uložena",
-				saveError: "Ukládání se nezdařilo, zkuste to prosím znovu.",
+				saveError: "Ukládání se nezdařilo, zkuste to znovu.",
 				saveError2: "Ukládání selhalo kvůli neplatnému HTML tagu v názvu nebo popisu.",
 				saveError3: "Název nesmí být prázdný",
 				signIn: "Přihlaste se pomocí účtu na",
