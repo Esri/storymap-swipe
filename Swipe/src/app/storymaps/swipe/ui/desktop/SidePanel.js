@@ -1,12 +1,12 @@
-define(["storymaps/swipe/core/WebApplicationData", 
-		"esri/dijit/Legend", 
+define(["storymaps/swipe/core/WebApplicationData",
+		"esri/dijit/Legend",
 		"dojo/topic",
 		"dojo/on",
 		"dojo/dom",
-		"dojo/dom-class"], 
+		"dojo/dom-class"],
 	function(
-		WebApplicationData, 
-		Legend, 
+		WebApplicationData,
+		Legend,
 		topic,
 		on,
 		dom,
@@ -19,22 +19,22 @@ define(["storymaps/swipe/core/WebApplicationData",
 		var _descriptionContent = container.find("#descriptionContent");
 		var _legendPanel = container.find("#legendPanel");
 		var _legendTitle = container.find("#legendTitle");
-		
+
 		var _description = "";
 		var _widthPort = null;
 		var _layer = null;
 		var _layout = null;
 		var _dataModel = null;
 		var _embed = false;
-		
+
 		var _isDescription = null;
 		var _isLegend = null;
 		var _isSeries = false;
-		
+
 		var _this = this;
-		
+
 		this.init = function(description, bgColor, headerColor, isDescription, isLegend, layer, isSeries, layout, dataModel, embed)
-		{	
+		{
 			_layer = layer;
 			_layout = layout;
 			_dataModel = dataModel;
@@ -61,21 +61,21 @@ define(["storymaps/swipe/core/WebApplicationData",
 				//IE9 fun.  Panel is rendered super narrow if you don't set it
 				$('.nicEdit-main').parent().css('width', '342px');
 				$('.nicEdit-main').css('width', '330px');
-				
+
 				$('.nicEdit-main').parent().css('border', 'none');
 				on($(' .nicEdit-panel').children().last().children().children().children(), 'click', function(){
 					if($('#href').siblings()[0]){
 						$('#href').siblings()[0].addClass('hrefLabel');
 						$('#href').addClass('href');
 					}
-					if($('#title').siblings()[0])	
+					if($('#title').siblings()[0])
 						$('#title').siblings()[0].addClass('hrefLabel');
 				});
 			};
 			setColor(bgColor, headerColor);
-			render(description, isDescription, isLegend);	
-			on(dom.byId("sidePanelTabImg"), 'click', toggleSidePanel);	
-			on(dom.byId("sidePanelUnderTabImg"), 'click', toggleSidePanelVertical);	
+			render(description, isDescription, isLegend);
+			on(dom.byId("sidePanelTabImg"), 'click', toggleSidePanel);
+			on(dom.byId("sidePanelUnderTabImg"), 'click', toggleSidePanelVertical);
 			_legendTitle.html(i18n.swipe.swipeSidePanel.legendTitle);
 			on(app.mainMap, "update-end", changeLegend);
 			$(window).resize(function(){
@@ -84,33 +84,39 @@ define(["storymaps/swipe/core/WebApplicationData",
 				_this.resize();
 			});
 		};
-		
+
 		this.update = function(bgColor, headerColor)
 		{
 			setColor(bgColor, headerColor);
 		};
-		
+
 		this.resize = function(widthViewport, heightViewPort)
-		{			
-			if((_isLegend && _isSeries) || (_isLegend && _isDescription))	
+		{
+			if((_isLegend && _isSeries) || (_isLegend && _isDescription)){
 				container.height(app.mainMap.height);
+				$('#legendPanel').height($('#sidePanel').height() - $('#descriptionPanel').height() - $('#legendTitle').height() - 10)
+			}
 			if (_isLegend && _isSeries) {
 				$('#descriptionContent').addClass('legend');
 				var seriesControlsHeight = app.isInBuilderMode ? $('#seriesControls').height() + 10 : 0;
 				$('#descriptionContent').height($('#descriptionPanel').height() - $('#descriptionTitle').height() - (2 * seriesControlsHeight) - 30);
 				$('#descriptionContent').css('margin-bottom', seriesControlsHeight);
 			}
-			if(_isSeries && !_isLegend)
+			if(_isSeries)
 					app.seriesPanel.sizeTextDescription();
+			if(_isLegend && !_isSeries && !_isDescription){
+				if($('#legendPanel').height() > $('#contentPanel').height())
+					$('#legendPanel').height($('#contentPanel').height() - 45);
+			}
 			else {
 				if (app.isInBuilderMode) {
 					$('#descriptionContent').height($('#descriptionPanel').height() - 45);
 				}
 			}
-			
+
 			$('.nicEdit-panelContain').parent().css('width', '348px');
 		};
-		
+
 		this.checkDescription = function(fromSaveButton)
 		{
 			//Blur method from component isnt good, have to check for real change
@@ -123,9 +129,9 @@ define(["storymaps/swipe/core/WebApplicationData",
 				if(fromSaveButton == true)
 					return
 				topic.publish("BUILDER_INCREMENT_COUNTER");
-			}, 0);		
+			}, 0);
 		};
-		
+
 		function changeLegend()
 		{
 			$('#legendView1').empty();
@@ -133,7 +139,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 			$('#legendView1').append($('#legend0').children().clone());
 			$('#legendView2').append($('#legend1').children().clone());
 		};
-		
+
 		function render(description, isDescription, isLegend)
 		{
 			var lineHeight = $('#legendTitle').height();
@@ -154,15 +160,15 @@ define(["storymaps/swipe/core/WebApplicationData",
 			}
 
 			if ((isDescription || _isSeries) && !_isLegend)
-				_sidePanel.addClass('single'); 
+				_sidePanel.addClass('single');
 			if (!isDescription && !_isSeries) {
 				_descriptionPanel.css('display', 'none');
 				_legendTitle.css('display', 'none');
-				_sidePanel.addClass('single'); 
+				_sidePanel.addClass('single');
 				_legendPanel.addClass('only');
 				_legendPanel.css('top', 0);
 			}
-			
+
 			if (isLegend == true) {
 				var t = setTimeout(changeLegend,1000);
 			}
@@ -180,30 +186,30 @@ define(["storymaps/swipe/core/WebApplicationData",
 				$('#sidePanelUnderTabImg').css('display', 'none');
 				return;
 			}
-			
-			else 
+
+			else
 				if (app.mode == "TWO_WEBMAPS" && _layout == "spyglass")
 					$("#mainMap1_zoom_slider").css('display', 'none');
-				
+
 			if (_sidePanel.hasClass('single')) {
 				$('#descriptionPanel').addClass('single');
 				$('#sidePanel').css('height', 'auto');
-				if (parseInt($('#sidePanel').css('height')) > 0.6 * (parseInt(app.mainMap.height))) 
+				if (parseInt($('#sidePanel').css('height')) > 0.6 * (parseInt(app.mainMap.height)))
 					$('#sidePanel').css('height', '60%');
-				else 
+				else
 					$('#sidePanel').css('height', 'auto');
-				
+
 				if(_embed)
 					$('#sidePanel').css('top', '0');
 				else if (!_isSeries)
 					$('#sidePanel').css('top', '111px');
 				else
 					$('#sidePanel').css('top', '146px');
-			}	
-			
-			
+			}
+
+
 		}
-		
+
 		//Toggle Side Panel
 		function toggleSidePanel()
 		{
@@ -214,7 +220,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 			else
 				openSidePanel();
 		}
-		
+
 		function toggleSidePanelVertical()
 		{
 			if($('body').hasClass('mobile-view'))
@@ -229,41 +235,41 @@ define(["storymaps/swipe/core/WebApplicationData",
 		{
 			return $("#sidePanelTabImg").hasClass("open") ? "open" : "close";
 		}
-		
+
 		function getSidePanelVerticalState()
 		{
 			return $("#sidePanelUnderTabImg").hasClass("open") ? "open" : "close";
 		}
-			
+
 		function closeSidePanel()
 		{
 			// The panel has not been open yet
 			if($("#sidePanel").css("left") < 0)
 				return;
-					 
+
 			sidePanelSlide("in");
 			domClass.remove("sidePanelTabImg", "closeImg");
 			if ($("#sidePanelTabImg").hasClass("open")) $("#sidePanelTabImg").removeClass("open");
 		}
-				
+
 		function openSidePanel()
 		{
 			sidePanelSlide("out");
 			domClass.add("sidePanelTabImg", "closeImg");
 			if (! $("#sidePanelTabImg").hasClass("open")) $("#sidePanelTabImg").addClass("open");
 		}
-		
+
 		function closeSidePanelUp()
 		{
 			// The panel has not been open yet
 			if($("#sidePanel").css("top") < 0)
 				return;
-					 
+
 			sidePanelSlideVertical("up");
 			domClass.remove("sidePanelUnderTabImg", "closeImg");
 			if ($("#sidePanelUnderTabImg").hasClass("open")) $("#sidePanelUnderTabImg").removeClass("open");
 		}
-				
+
 		function openSidePanelDown()
 		{
 			sidePanelSlideVertical("down");
@@ -272,7 +278,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 		}
 
 		function sidePanelSlide(direction)
-		{			
+		{
 			$("#sidePanel").animate({
 				left: (direction=="in") ? - 355 : 0,
 				queue: false
@@ -298,17 +304,17 @@ define(["storymaps/swipe/core/WebApplicationData",
 				}, 750);
 			}
 		}
-		
+
 		function sidePanelSlideVertical(direction)
 		{
 			var sidePanelHeightSlide = parseInt($('#sidePanel').css('height'));
-			var sidePanelHeightClip = parseInt($('#sidePanel').css('height'));	
+			var sidePanelHeightClip = parseInt($('#sidePanel').css('height'));
 			var headerHeight = parseInt($('#header').css('height'));
-			
+
 			sidePanelHeightSlide -= parseInt($('#seriesPanel').css('height'));
 			sidePanelHeightSlide -= parseInt(headerHeight);
 			headerHeight += parseInt($('#seriesPanel').css('height'));
-				
+
 			$("#sidePanel").animate({
 				clip: (direction=="up") ? 'rect(' + sidePanelHeightClip + 'px 350px ' + parseInt(sidePanelHeightClip + 45) + 'px 0px)': 'rect(0px 350px ' + parseInt(sidePanelHeightClip + 45) + 'px 0px)',
 				top: (direction=="up") ? -sidePanelHeightSlide: headerHeight,
@@ -319,7 +325,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 				left: (direction=="up") ? 20 : 370,
 				queue: false
 			}, 750);
-			
+
 			if (app.mode == "TWO_LAYERS" || _layout == "spyglass") {
 				$("#mainMap0_zoom_slider").animate({
 					left: (direction == "up") ? 20 : 370,
@@ -341,13 +347,13 @@ define(["storymaps/swipe/core/WebApplicationData",
 				}, 750);
 			}
 		}
-		
+
 		function setColor(bgColor, headerColor)
 		{
 			_descriptionPanel.css("background-color", bgColor);
 			_descriptionPanel.find("#descriptionContent").css("background-color", bgColor);
 			_legendPanel.css("background-color", bgColor);
 			_legendTitle.css("background-color", headerColor);
-		}		
+		}
 	};
 });

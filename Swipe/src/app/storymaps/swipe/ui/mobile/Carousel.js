@@ -2,7 +2,7 @@ define(function(){
 	/**
 	 * Carousel
 	 * @class Carousel
-	 * 
+	 *
 	 * Mobile carousel under the map
 	 */
 	return function Carousel(selector, isInBuilderMode)
@@ -11,38 +11,49 @@ define(function(){
 		var _preventNextRefresh = false;
 		var _mouseDownPosition = [0,0];
 		var _this = this;
-		
+
 		this.started = false;
 		this.needUpdate = false;
-		
+
 		this.init = function(slides, bgColor)
-		{		
+		{
 			render(slides);
 			initEvents(slides);
-			
+
 			_this.setColor(bgColor);
-			
+
 			//dojo.subscribe("CORE_SELECTED_TOURPOINT_UPDATE", updateSlide);
 		};
-		
+
 		this.update = function(slides, bgColor)
 		{
 			_this.setColor(bgColor);
-			
+
 			// Completely destroy the previous carousel
 			_carousel.destroy();
 			$(selector + ' .carousel').empty();
-			
+
 			render(slides);
 			initEvents(slides);
 			_this.needUpdate = false;
 		};
-		
+
 		this.setSelectedPoint = function(tourPointIndex)
 		{
 			if( ! _carousel )
 				return;
 			_this.started = true;
+			if(tourPointIndex == 0)
+				$('.embed-btn-left').addClass('disabled');
+			else {
+				$('.embed-btn-left').removeClass('disabled');
+			}
+
+			if(tourPointIndex == app.bookmarkLength - 1)
+				$('.embed-btn-right').addClass('disabled');
+			else {
+				$('.embed-btn-right').removeClass('disabled');
+			}
 
 			// If the even originate from here, refreshing cause blinking
 			//if( ! _preventNextRefresh ) {
@@ -52,12 +63,14 @@ define(function(){
 			//else
 				//_preventNextRefresh = false;
 		};
-		
+
 		this.setColor = function(bgColor)
 		{
+			$(selector).css("background-color", bgColor[1]);
 			$(selector + ' .carousel').css("background-color", bgColor[1]);
+			$(selector + ' .embed-btn-container').css("background-color", bgColor[1]);
 			$(selector + ' .builderMobile').css("background-color", bgColor[1]);
-			
+
 			var mainColors = ["#444", "#000", "#0e3867", "#1a3606"];
 			var compColors = ["#828282", "#828282", "#9096a9", "#a8b09e"];
 			var index = 0;
@@ -67,7 +80,7 @@ define(function(){
 			});
 			$('.seriesButton').css("background-color", compColors[index]);
 		};
-		
+
 		this.setDescriptionView = function(title, description, showDescription){
 			$('#seriesTitle').html(title);
 			$('#seriesDescription').html(description);
@@ -77,7 +90,7 @@ define(function(){
 			//else
 				//showDescription = true;
 		};
-		
+
 		function render(slides)
 		{
 			_carousel = new SwipeView(selector + ' .carousel', {
@@ -93,10 +106,10 @@ define(function(){
 
 				if( ! slide )
 					continue;
-								
+
 				var title = slide.name;
 				var description = slide.description
-				
+
 				var mainEl = document.createElement('div');
 				mainEl.className = "tpPreview";
 
@@ -107,7 +120,7 @@ define(function(){
 				var imgContainer = document.createElement('div');
 				imgContainer.className = "tpImgContainer seriesButton";
 				imgPane.appendChild(imgContainer);
-				
+
 				var label = document.createElement('p');
 				label.className = "seriesLabel";
 				var labelNumber = slides.indexOf(slide)+1;
@@ -130,12 +143,12 @@ define(function(){
 
 				_carousel.masterPages[i].appendChild(mainEl);
 			}
-			
+
 			setTimeout(function(){
 				_this.setSelectedPoint(app.bookmarkIndex || 0);
 			}, 250);
 		}
-		
+
 		function initEvents(slides)
 		{
 			$(".tpPreview").click(function(e){
@@ -146,13 +159,13 @@ define(function(){
 					_this.setDescriptionView(title, description, showDescription);
 				}
 			});
-			
+
 			$('#seriesTextView').click(function(){
 				$('#seriesTextView').hide();
 				$('#footerMobile').show();
 				location.hash = "map";
 			});
-			
+
 			// Save mouse position for later comparison to differenciate click and flip (or aborted flip) events
 			$(selector + ' .carousel').mousedown(function(e){
 				_mouseDownPosition = [e.clientX, e.clientY];
@@ -164,37 +177,37 @@ define(function(){
 				for (var i=0; i<nbSlides; i++) {
 					var page = _carousel.masterPages[i];
 					var upcoming = page.dataset.upcomingPageIndex;
-					
+
 					if( ! slides[upcoming] )
 						return;
-					
+
 					var name = slides[upcoming].name;
 					var description = slides[upcoming].description
-	
+
 					if ( upcoming != page.dataset.pageIndex ) {
-	
+
 						var nameEl = page.querySelector('.tpName');
 						nameEl.innerHTML = name;
-						
+
 						var descriptionEl = page.querySelector('.tpDescription');
 						descriptionEl.innerHTML = description;
-						
+
 						var labelEl = page.querySelector('.seriesLabel');
 						labelEl.innerHTML = (parseInt(upcoming)+1);
 					}
 				}
-				
+
 				if($("#footerMobile").is(':visible'))
 					//_preventNextRefresh = true;
 				dojo.publish("CAROUSEL_SWIPE", _carousel.pageIndex);
-				
+
 				/*if (app.data.getCurrentIndex() != -1 && app.data.getCurrentIndex() != _carousel.pageIndex) {
 					_preventNextRefresh = true;
 					dojo.publish("CAROUSEL_SWIPE", _carousel.pageIndex);
 				}*/
 			});
 		}
-		
+
 		function updateSlide(param)
 		{
 			var node = $(selector + ' .carousel .swipeview-active');

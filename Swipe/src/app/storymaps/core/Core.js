@@ -10,7 +10,7 @@ define(["esri/map",
 		"storymaps/swipe/core/SwipeHelper",
 		// UI
 		"storymaps/ui/header/Header",
-		"storymaps/ui/mapCommand/MapCommand",		
+		"storymaps/ui/mapCommand/MapCommand",
 		"storymaps/ui/SelectMapWidget/browse-dialog/js/BrowseIdDlg",
 		// Utils
 		"dojo/has",
@@ -40,7 +40,7 @@ define(["esri/map",
 				WebApplicationData,
 				SwipeHelper,
 				Header,
-				MapCommand,			
+				MapCommand,
 				BrowseIdDlg,
 				has,
 				IdentityManager,
@@ -66,13 +66,13 @@ define(["esri/map",
 		 *
 		 * Main controller
 		 */
-		
+
 		// Development options
 		// Values are enforced at build time
 		var CONFIG = {
 			environment: "TPL_ENV_DEV" // TPL_ENV_DEV || TPL_ENV_PRODUCTION
 		};
-		
+
 		var _mainView = null;
 
 		//
@@ -81,18 +81,18 @@ define(["esri/map",
 
 		function init(mainView, builder)
 		{
-			var urlParams = Helper.getUrlParams(), 
+			var urlParams = Helper.getUrlParams(),
 				isInBuilderMode = false,
 				isDirectCreation = false,
 				isCreationLayout = false
 				isGalleryCreation = false;
-			
+
 			console.log("swipe.core.Core - init");
-			
+
 			_mainView = mainView;
-			
+
 			initLocalization();
-			
+
 			if (builder != null) {
 				isDirectCreation = urlParams.fromScratch != null || urlParams.fromscratch != null;
 				isInBuilderMode = isDirectCreation || isGalleryCreation || Helper.getAppID(isProd());
@@ -102,24 +102,24 @@ define(["esri/map",
 					setTimeout(function(){
 						if(isCreationLayout != "swipe" || isCreationLayout != "spyglass")
 							isCreationLayout = false;
-					}, 250);		
+					}, 250);
 				}
 			}
-			
+
 			// If browser doesn't support history and it's direct or gallery mode where the URL will have to be rewritten later
 			// Redirect to a URL that the browser will be able to overwrite
 			// And put a token so that we don't loop in here
 			if ( ! Helper.browserSupportHistory() && (isDirectCreation || isGalleryCreation) && urlParams.ieredirected == null ) {
 				window.location = document.location.protocol + "//" + document.location.host + document.location.pathname + "#" + document.location.search + "&ieredirected";
 			}
-			
+
 			//var isInBuilderMode = builder != null && Helper.getAppID(isProd()) != null;
 
 			if( ! Config.checkConfigFileIsOK() ) {
 				initError("invalidConfig");
 				return;
 			}
-			
+
 			// Application global object
 			app = {
 				map: null,
@@ -152,42 +152,42 @@ define(["esri/map",
 					//
 				}
 			};
-			
+
 			if ( ! _mainView.init(this) )
 				return;
-			
+
 			if ( true && !isProd() ) {
 				on(IdentityManager, 'dialog-create', function(){
 					on(IdentityManager.dialog, 'show', function(){
-						IdentityManager.dialog.txtUser_.set('value', 'guest');
-						IdentityManager.dialog.txtPwd_.set('value', 'guest');
+						IdentityManager.dialog.txtUser_.set('value', 'mjdemo');
+						IdentityManager.dialog.txtPwd_.set('value', 'demomj');
 						IdentityManager.dialog.btnSubmit_.onClick();
 					});
 				});
 			}
-			
+
 			if( ! app.isDirectCreation || ! app.isGalleryCreation)
 				startLoadingTimeout();
 
 			// Sharing URL
 			if ( ! configOptions.sharingurl ) {
-				// Determine if hosted or on a Portal 
+				// Determine if hosted or on a Portal
 				var appLocation = document.location.pathname.indexOf("/apps/");
 				if( appLocation == -1 )
 					appLocation = document.location.pathname.indexOf("/home/");
-				
+
 				if( appLocation != -1 ) {
 					// Get the portal instance name
 					var instance = location.pathname.substr(0,appLocation);
-					 
+
 					configOptions.sharingurl = "//" + location.host + instance + "/sharing/content/items";
 					configOptions.proxyurl =  "//" + location.host + instance +  "/sharing/proxy";
 				}
 				else
-					configOptions.sharingurl = APPCFG.DEFAULT_SHARING_URL;					
+					configOptions.sharingurl = APPCFG.DEFAULT_SHARING_URL;
 			}
 			arcgisUtils.arcgisUrl = location.protocol + configOptions.sharingurl;
-			
+
 			// Proxy URL
 			if( ! configOptions.proxyurl )
 				configOptions.proxyurl = APPCFG.DEFAULT_PROXY_URL;
@@ -196,20 +196,20 @@ define(["esri/map",
 
 			// Allow IE9 to save over HTTP
 			IdentityManager && IdentityManager.setProtocolErrorHandler(function(){ return true; });
-			
+
 			// USE CORS to save the web app configuration during developement
 			if( isInBuilderMode && APPCFG.CORS_SERVER ) {
 				$.each(APPCFG.CORS_SERVER, function(i, server){
 					esriConfig.defaults.io.corsEnabledServers.push(server);
 				});
 			}
-						
+
 			// Set timeout depending on the application mode
 			esriConfig.defaults.io.timeout = isInBuilderMode ? APPCFG.TIMEOUT_BUILDER_REQUEST : APPCFG.TIMEOUT_VIEWER_REQUEST;
-			
+
 			// Fix for multiple twitter bootstrap popup to be open simultaneously
 			$.fn.modal.Constructor.prototype.enforceFocus = function () {};
-			
+
 			// Run the app when jQuery is ready
 			$(document).ready( lang.hitch(this, initStep2) );
 		}
@@ -217,61 +217,69 @@ define(["esri/map",
 		function initStep2()
 		{
 			console.log("swipe.core.Core - initStep2");
-		
+
 			// Get portal info
 			// If geometry, geocode service or bing maps key are defined by portal,
 			// they override the configuration file values
-		
+
 			esriRequest({
                 url: arcgisUtils.arcgisUrl.split('/sharing/')[0] + "/sharing/rest/portals/self",
                 content: {"f": "json"},
                 callbackParamName: "callback"
         	}).then(lang.hitch(this, function(response){
 				var geometryServiceURL, geocodeServices;
-		            
+
 				if (commonConfig && commonConfig.helperServices) {
-					if (commonConfig.helperServices.geometry && commonConfig.helperServices.geometry) 
+					if (commonConfig.helperServices.geometry && commonConfig.helperServices.geometry)
 				    	geometryServiceURL = location.protocol + commonConfig.helperServices.geometry.url;
-					if (commonConfig.helperServices.geocode && commonConfig.helperServices.geocode.length && commonConfig.helperServices.geocode[0].url) 
+					if (commonConfig.helperServices.geocode && commonConfig.helperServices.geocode.length && commonConfig.helperServices.geocode[0].url)
 						geocodeServices = commonConfig.helperServices.geocode;
 					// Deprecated syntax
-					else if (commonConfig.helperServices.geocode && commonConfig.helperServices.geocode && commonConfig.helperServices.geocode.url) 
+					else if (commonConfig.helperServices.geocode && commonConfig.helperServices.geocode && commonConfig.helperServices.geocode.url)
 						geocodeServices = [{
 							name: "myGeocoder",
 							url: commonConfig.helperServices.geocode.url
 						}];
 				}
-				
+
 				if (response.helperServices) {
-					if (response.helperServices.geometry && response.helperServices.geometry.url) 
+					if (response.helperServices.geometry && response.helperServices.geometry.url)
 						geometryServiceURL = response.helperServices.geometry.url;
-					
-					if (response.helperServices.geocode && response.helperServices.geocode.length && response.helperServices.geocode[0].url ) 
+
+					if (response.helperServices.geocode && response.helperServices.geocode.length && response.helperServices.geocode[0].url )
 						geocodeServices = response.helperServices.geocode;
 				}
-				
+
 				esriConfig.defaults.geometryService = new GeometryService(geometryServiceURL);
 				configOptions.geocodeServices = geocodeServices;
-				
+
 				if( response.bingKey )
 				        commonConfig.bingMapsKey = response.bingKey;
-				
+
 				initStep3();
 		    }), function(){
 		            initError("portalSelf");
 		    });
 		}
-		
+
 		function initStep3()
 		{
 			console.log("swipe.core.Core - initStep3");
-					
+
 			// Initialize localization
 			app.header.initLocalization();
 			_mainView.initLocalization();
 
-			$(window).resize(handleWindowResize);
-			
+			//$(window).resize(handleWindowResize);
+			$(window).resize(function(e){
+				//need to differentiate b/w resize from window and swipe bar
+				if(e.eventPhase == 3){
+					return
+				} else{
+					handleWindowResize();
+				}
+			});
+
 			// Disable form submit on enter key
 			$("form").bind("keydown", function(e) {
 				if (e.keyCode == 13)
@@ -281,34 +289,34 @@ define(["esri/map",
 			var appId = Helper.getAppID(isProd());
 			var webmapsIds = Helper.getWebmapsIDs(isProd()).slice(0, 2);
 			WebApplicationData.setWebmaps(webmapsIds);
-	
+
 			// Basic styling in case something isn't public
 			on(IdentityManager, "dialog-create", styleIdentityManager);
-			
+
 			topic.subscribe("CORE_UPDATE_UI", updateUI);
 			topic.subscribe("CORE_RESIZE", handleWindowResize);
-			
+
 			loadingIndicator.setMessage(i18n.viewer.loading.step2);
-			
+
 			var isMobileView = SwipeHelper.isOnMobileView();
 			if(app.isDirectCreation || app.isGalleryCreation)
 				$("#fatalError").css("display", isMobileView ? "block": "none");
-				
+
 			// Load using a Web Mapping Application item
 			if (appId)
 				loadWebMappingApp(appId);
-			else if (webmapsIds && webmapsIds.length == 2 && (!app.isDirectCreation && !app.isGalleryCreation)) 
+			else if (webmapsIds && webmapsIds.length == 2 && (!app.isDirectCreation && !app.isGalleryCreation))
 				loadWebmapsIds(webmapsIds);
 			// Load using a webmap: preview or user hosted
-			else if (webmapsIds.length && (!app.isDirectCreation && !app.isGalleryCreation)) 
+			else if (webmapsIds.length && (!app.isDirectCreation && !app.isGalleryCreation))
 					loadWebMap(webmapsIds[0]);
 			// Direct creation and not signed-in
 			else if ((app.isDirectCreation || app.isGalleryCreation) && isProd() && !Helper.getPortalUser()) {
 				redirectToSignIn();
-				initError("initMobile", null, true);		
+				initError("initMobile", null, true);
 			}
 			// Direct creation and signed in
-			else 
+			else
 				if (app.isDirectCreation || app.isGalleryCreation) {
 					initError("initMobile", null, true);
 					portalLogin().then(function(){
@@ -317,7 +325,6 @@ define(["esri/map",
 							galleryType: "webmap" //valid values are webmap or group
 						};
 						app.browseDlg = new BrowseIdDlg(browseParams);
-						$('.dijitDialogCloseIcon').css('display', 'none');
 						app.builder.initMapPicker(loadWebMap);
 						on(app.browseDlg._grid, "onItemClick", function(e){
 							$('#initMapPopup').show();
@@ -333,29 +340,29 @@ define(["esri/map",
 						});
 						var dlg = registry.byId('browse-id-dialog');
 						dlg._onKey = function(evt){
-							if (evt.keyCode == 27) 
+							if (evt.keyCode == 27)
 								dojo.stopEvent(evt);
 						}
 					});
 				}
-				else 
+				else
 					initError("invalidConfigNoWebmap");
 		}
 
 		function loadWebMappingApp(appId)
 		{
 			console.log("swipe.core.Core - loadWebMappingApp - appId:", appId);
-			
+
 			var urlParams = urlUtils.urlToObject(document.location.search).query || {};
 			var forceLogin = urlParams.forceLogin != undefined;
-			
+
 			// If forceLogin or builder
 			if ( forceLogin || app.isInBuilderMode )
 				portalLogin().then(
-					function() {						
+					function() {
 						loadWebMappingAppStep2(appId);
-					}, 
-					function() { 
+					},
+					function() {
 						initError("notAuthorized");
 					}
 				);
@@ -363,7 +370,7 @@ define(["esri/map",
 			else
 				loadWebMappingAppStep2(appId);
 		}
-		
+
 		function loadWebMappingAppStep2(appId)
 		{
 			// Get application item
@@ -391,7 +398,7 @@ define(["esri/map",
 				},
 				error: function(){ }
 			});
-			
+
 			var appDeferedList = new DeferredList([itemRq, dataRq]);
 			appDeferedList.then(function(){
 				if (!dataRq.results || !dataRq.results[0] || !itemRq.results || !itemRq.results[0]) {
@@ -404,7 +411,7 @@ define(["esri/map",
 				var webmapsIds = WebApplicationData.getWebmaps(false);
 				var webmapId = WebApplicationData.getWebmap(false);
 				app.rootMapId = webmapId;
-				
+
 				// App proxies
 				if (itemRq.results[0] && itemRq.results[0].appProxies) {
 					var layerMixins = array.map(itemRq.results[0].appProxies, function (p) {
@@ -417,13 +424,13 @@ define(["esri/map",
 					});
 					app.data.setAppProxies(layerMixins);
 				}
-				
+
 				// If in builder, check that user is app owner or org admin
 				if( app.isInBuilderMode && !app.data.userIsAppOwner() ) {
-					initError("notAuthorized");	
+					initError("notAuthorized");
 					return;
 				}
-				
+
 				if (webmapsIds && webmapsIds.length == 2 && WebApplicationData.getDataModel() == "TWO_WEBMAPS")
 					loadWebmapsIds(webmapsIds);
 				else if (webmapId && WebApplicationData.getDataModel() && WebApplicationData.getLayers() != null)
@@ -448,15 +455,15 @@ define(["esri/map",
 						History.replaceState({}, "", "?appid=" + appId +"&edit");
 						location.reload(true);
 					}
-					
+
 					app.isDirectCreationFirstSave = false;
-					redirectToBuilderFromGallery();			
+					redirectToBuilderFromGallery();
 				}
-				else 
+				else
 					initError("invalidApp");
 			});
 		}
-		
+
 		function redirectToBuilderFromGallery(){
 			initError("initMobile", null, true);
 			// Do not allow builder under IE 9
@@ -470,7 +477,7 @@ define(["esri/map",
 					galleryType: "webmap" //valid values are webmap or group
 				};
 				app.browseDlg = new BrowseIdDlg(browseParams);
-				$('.dijitDialogCloseIcon').css('display', 'none');
+				$('').css('display', 'none');
 				app.builder.initMapPicker(loadWebMap);
 				on(app.browseDlg._grid, "onItemClick", function(e){
 					$('#initMapPopup').show();
@@ -486,22 +493,22 @@ define(["esri/map",
 				});
 				var dlg = registry.byId('browse-id-dialog');
 				dlg._onKey = function(evt){
-					if (evt.keyCode == 27) 
+					if (evt.keyCode == 27)
 						dojo.stopEvent(evt);
 				}
 			});
 		}
-		
+
 		function openInitPopup()
 		{
 			if( app.initInProgress || $("#initPopup").is(':visible') || WebApplicationData.getDataModel() )
-				return;	
-			
+				return;
+
 			app.initInProgress = true;
 			cleanLoadingTimeout();
 			initError("initMobile", null, true);
 			handleWindowResize();
-			
+
 			var resultDeferred = app.builder.presentInitPopup();
 			resultDeferred.then(
 				function()
@@ -522,13 +529,13 @@ define(["esri/map",
 					$("#loadingOverlay").css("top", "0px");
 					$("#header").css("display", "inherit");
 					$("#fatalError").css("display", "block");
-					
+
 					app.initInProgress = false;
 					handleWindowResize();
 				}
 			);
 		}
-		
+
 		function portalLogin()
 		{
 			var resultDeferred = new Deferred();
@@ -536,7 +543,7 @@ define(["esri/map",
 			app.portal = new arcgisPortal.Portal(portalUrl);
 
 			on(IdentityManager, "dialog-create", styleIdentityManagerForLoad);
-			
+
 			app.portal.on("load", function(){
 				app.portal.signIn().then(
 					function() {
@@ -547,21 +554,21 @@ define(["esri/map",
 					}
 				);
 			});
-			
+
 			return resultDeferred;
 		}
-		
+
 		function loadWebmapsIds(webmapsIds)
 		{
 			if (WebApplicationData.getWebmaps().length == 2) {
 				app.mode = "TWO_WEBMAPS";
 			}
-			
+
 			var webmapsDeferred = [];
 			$.each(webmapsIds, function(i, webmapId){
 				webmapsDeferred.push(loadWebMap(webmapId, i));
 			});
-			
+
 			new DeferredList(webmapsDeferred).then(function(){
 				setTimeout(_mainView.webmapLoaded, 0);
 			});
@@ -570,23 +577,23 @@ define(["esri/map",
 		function loadWebMap(webmapId, index)
 		{
 			console.log("swipe.core.Core - loadWebMap - webmapId:", webmapId, index);
-			
+
 			index = index || 0;
-			
+
 			var switchCheck = false;
-			
+
 			if (index == 0 && WebApplicationData.getLayout() == "swipe" && app.mode == "TWO_WEBMAPS") {
 				index = 1;
 				switchCheck = true;
 			}
 			if( index == 1  && WebApplicationData.getLayout() == "swipe" && app.mode == "TWO_WEBMAPS" && switchCheck == false)
 				index = 0;
-			
+
 			var webmapInitCallbackDone = new Deferred();
 			var divId = "mainMap" + index;
-			
+
 			if( index == 1  && WebApplicationData.getLayout() == "spyglass" && app.mode == "TWO_WEBMAPS")
-				divId = "lensMapNode";	
+				divId = "lensMapNode";
 
 			app.popup[index] = new Popup(
 				{
@@ -595,7 +602,7 @@ define(["esri/map",
       			},
 				domConstruct.create("div")
 			);
-			
+
 			arcgisUtils.createMap(webmapId, divId, {
 				mapOptions: {
 					slider: divId != "lensMapNode",
@@ -616,7 +623,7 @@ define(["esri/map",
 
 			return webmapInitCallbackDone;
 		}
-		
+
 		function getWebmapIndex(webmapId)
 		{
 			return $.inArray(webmapId, Helper.getWebmapsIDs(isProd()));
@@ -624,7 +631,7 @@ define(["esri/map",
 
 		function webMapInitCallback(response, webmapInitCallbackDone)
 		{
-			console.log("swipe.core.Core - webMapCallback");	
+			console.log("swipe.core.Core - webMapCallback");
 
 			app.mainMap = app.map;
 			if( app.mode == "TWO_WEBMAPS" ){
@@ -643,7 +650,7 @@ define(["esri/map",
 				else {
 					webmapInitCallbackDone.resolve();
 				}
-				
+
 				if (WebApplicationData.getLegend() || configOptions.legend) {
 						if (index == 0) {
 							var legend0 = new Legend({
@@ -659,10 +666,10 @@ define(["esri/map",
 								layerInfos: (arcgisUtils.getLegendLayers(response))
 							}, "legend1");
 							legend1.startup();
-						}			
+						}
 						hideEmptyLegend1(legend1);
 				}
-					
+
 			}
 			else {
 				app.map = response.map;
@@ -679,7 +686,7 @@ define(["esri/map",
 					layer = app.map.getLayer(layerId);
 					WebApplicationData.setLayers(layerId);
 				}
-				
+
 				if(WebApplicationData.getLegend() || configOptions.legend){
 					var layerTitle = layer && layer.arcgisProps && layer.arcgisProps.title ? layer.arcgisProps.title : (layer && layer.name ? layer.name : layer);
 					var layers = arcgisUtils.getLegendLayers(response);
@@ -687,32 +694,32 @@ define(["esri/map",
 					var legend0Layer = $.grep(layers, function(item){
 						return item.title != layerTitle;
 					});
-					
+
 					var legend1Layer = $.grep(layers, function(item){
 						return item.title == layerTitle;
 					});
-					
+
 					var legend0 = new Legend({
 							map: app.map,
 							layerInfos: legend0Layer
 						}, "legend0");
 					legend0.startup();
-					
+
 					var legend1 = new Legend({
 							map: app.map,
 							layerInfos: legend1Layer
 						}, "legend1");
 					legend1.startup();
-					
+
 					hideEmptyLegend(legend0, legend1);
 				}
 			}
-			
+
 			// Initialize header
 			// Title/subtitle are the first valid string from: index.html config object, web application data, web map data
 			var title = configOptions.title || WebApplicationData.getTitle() || response.itemInfo.item.title;
 			var subtitle = configOptions.subtitle || WebApplicationData.getSubtitle() || response.itemInfo.item.snippet;
-			
+
 			applyUILayout(WebApplicationData.getLayout() || configOptions.layout);
 			handleWindowResize();
 
@@ -751,12 +758,12 @@ define(["esri/map",
 			else if( app.mode == "TWO_LAYERS" )
 				setTimeout(_mainView.webmapLoaded, 0);
 		}
-		
+
 		function hideEmptyLegend(legend0, legend1) {
  		  hideEmptyLegend0(legend0);
  		  hideEmptyLegend1(legend1);
  		}
- 
+
  		function hideEmptyLegend0(legend0) {
  		  if (legend0 && legend0.layers.length == 0) {
  		    $("#legend0").css("display", "none");
@@ -765,7 +772,7 @@ define(["esri/map",
  		    $("#legend1 .esriLegendServiceLabel").css("width", "300px");
  		  }
  		}
- 
+
  		function hideEmptyLegend1(legend1) {
  		  if (legend1 && legend1.layers.length == 0) {
  		    $("#legend0").css("width", "100%");
@@ -782,16 +789,16 @@ define(["esri/map",
 			var index = 0;
 
 			new MapCommand(
-				app.mainMap, 
+				app.mainMap,
 				_mainView.zoomToDeviceLocation
 
 			);
-			
+
 			if ( app.mode == "TWO_WEBMAPS" ){
 				new MapCommand(
-					app.maps[1], 
+					app.maps[1],
 					_mainView.zoomToDeviceLocation
-	
+
 				);
 			}
 
@@ -803,11 +810,11 @@ define(["esri/map",
 				location.hash = "map";
 
 			// On mobile, change view based on browser history
-			window.onhashchange = function(e){				
+			window.onhashchange = function(e){
 				// If no hash and there is intro data, it's init, so skip
 				if( (location.hash == "" || location.hash == "#")  /*&& app.data.getIntroData()*/ )
 					return;
-				
+
 				prepareMobileViewSwitch();
 
 				if(location.hash == "#map") {
@@ -819,31 +826,31 @@ define(["esri/map",
 				else
 					_mainView.onHashChange();
 		};
-			
+
 			_mainView.appInitComplete();
 			app.builder && app.builder.appInitComplete();
 		}
-		
+
 		function displayApp()
 		{
-			// If needed make sure that the vertical slider has it's correct height 
+			// If needed make sure that the vertical slider has it's correct height
 			if( $("#header").hasClass("hideDesktop") && $("#sliderDiv").length )
 				$(window).resize();
-			
-			// Show the app is the timeout hasn't be fired			
+
+			// Show the app is the timeout hasn't be fired
 			if( app.loadingTimeout != null ) {
 				$("#loadingOverlay, #loadingIndicator, #loadingMessage").fadeOut();
 			}
-			
+
 			cleanLoadingTimeout();
 		}
 
 		function initError(error, message, noDisplay)
-		{	
+		{
 			hideUI();
 			cleanLoadingTimeout();
 			$("#loadingIndicator, #loadingMessage").hide();
-			
+
 			if( error == "noLayerView" ) {
 				loadingIndicator.setMessage(i18n.viewer.errors[error], true);
 				return;
@@ -852,19 +859,19 @@ define(["esri/map",
 				//loadingIndicator.forceHide();
 
 			$("#fatalError .error-msg").html(i18n.viewer.errors[error]);
-			if( ! noDisplay ) 
+			if( ! noDisplay )
 				$("#fatalError").show();
 		}
-		
+
 		function replaceInitErrorMessage(error)
 		{
 			$("#fatalError .error-msg").html(i18n.viewer.errors[error]);
 		}
-		
+
 		//
 		// UI
 		//
-		
+
 		function applyUILayout(layout)
 		{
 			$("body").toggleClass("modern-layout", layout == "integrated");
@@ -878,20 +885,20 @@ define(["esri/map",
 			console.log("swipe.core.Core - updateUI");
 
 			var appColors = WebApplicationData.getColors();
-			
+
 			applyUILayout(WebApplicationData.getLayout());
-			
+
 			app.header.setTitleAndSubtitle(
 				WebApplicationData.getTitle() || app.data.getWebMapItem().item.title,
 				WebApplicationData.getSubtitle() || app.data.getWebMapItem().item.snippet
 			);
 			app.header.setColor(appColors[0]);
-			
+
 			var logoURL = WebApplicationData.getLogoURL() || APPCFG.HEADER_LOGO_URL;
 			app.header.setLogoInfo(
 				logoURL,
-				logoURL == APPCFG.HEADER_LOGO_URL ? 
-					APPCFG.HEADER_LOGO_TARGET 
+				logoURL == APPCFG.HEADER_LOGO_URL ?
+					APPCFG.HEADER_LOGO_TARGET
 					: WebApplicationData.getLogoTarget()
 			);
 			app.header.setTopRightLink(
@@ -899,16 +906,16 @@ define(["esri/map",
 				WebApplicationData.getHeaderLinkURL() == undefined ? APPCFG.HEADER_LINK_URL : WebApplicationData.getHeaderLinkURL()
 			);
 			app.header.setSocial(WebApplicationData.getSocial());
-			
+
 			if (app.seriesPanel) {
 				app.seriesPanel.setColor(appColors[0]);
 				app.mobileCarousel.setColor(appColors);
 			}
-			
+
 			$('#infoWindowContent').css("background-color", appColors[1]);
-							
+
 			_mainView.updateUI();
-			
+
 			handleWindowResize();
 		}
 
@@ -916,7 +923,7 @@ define(["esri/map",
 		{
 			var isMobileView = SwipeHelper.isOnMobileView();
 			var isOnMobileMapView = $("#mapViewLink").hasClass("current");
-			
+
 			if( isMobileView )
 				$("body").addClass("mobile-view");
 			else
@@ -940,16 +947,16 @@ define(["esri/map",
 			$("#contentPanel").height(heightMiddle);
 			$("#contentPanel").width(widthViewport);
 
-			// Force a browser reflow by reading #picturePanel width 
+			// Force a browser reflow by reading #picturePanel width
 			// Using the value computed in desktopPicturePanel.resize doesn't works
 			$("#mapPanel").width( widthViewport - $("#picturePanel").width() );
-			
+
 			if (app.isInBuilderMode || app.isDirectCreation || app.isGalleryCreation){
 				app.builder.resize({
 					isMobileView: isMobileView
 				});
 			}
-			
+
 			if (! isMobileView || (isMobileView && isOnMobileMapView)){
 				try {
 					if ( app.map )
@@ -958,18 +965,18 @@ define(["esri/map",
 						app.maps[1].resize(true);
 				} catch( e ) { }
 			}
-			
+
 			// Change esri logo size
 			if( isMobileView )
 				$("#mainMap .esriControlsBR > div").first().removeClass("logo-med").addClass("logo-sm");
 			else
 				$("#mainMap .esriControlsBR > div").first().removeClass("logo-sm").addClass("logo-med");
 		}
-		
+
 		//
 		// Login in dev environnement
 		//
-		
+
 		function styleIdentityManager()
 		{
 			// Override for bootstrap conflicts
@@ -996,7 +1003,7 @@ define(["esri/map",
 			// Setup a more friendly text
 			$(".esriSignInDialog").find(".dijitDialogPaneContentArea:first-child").find(":first-child").first().after("<div id='dijitDialogPaneContentAreaLoginText'>Please sign in with an account on <a href='http://" + IdentityManager._arcgisUrl + "' title='" + IdentityManager._arcgisUrl + "' target='_blank'>" + IdentityManager._arcgisUrl + "</a> to access the application.</div>");
 		}
-		
+
 		function styleIdentityManagerForLoad()
 		{
 			// Hide default message
@@ -1005,7 +1012,7 @@ define(["esri/map",
 			// Setup a more friendly text
 			$(".esriSignInDialog").find(".dijitDialogPaneContentArea:first-child").find(":first-child").first().after("<div id='dijitDialogPaneContentAreaAtlasLoginText'>Please sign in with an account on <a href='http://" + IdentityManager._arcgisUrl + "' title='" + IdentityManager._arcgisUrl + "' target='_blank'>" + IdentityManager._arcgisUrl + "</a> to configure this application.</div>");
 		}
-		
+
 		function prepareAppForWebmapReload()
 		{
 			topic.publish("BUILDER_INCREMENT_COUNTER");
@@ -1013,9 +1020,9 @@ define(["esri/map",
 				registry.byId("legend0").destroy();
 			if( registry.byId("legend1") )
 				registry.byId("legend1").destroy();
-			
+
 			$("#legendPanel").html('<div id="legend0"></div><div id="legend1"></div>');
-			
+
 			if( app.map ) {
 				app.map.destroy();
 				app.map = null;
@@ -1028,34 +1035,34 @@ define(["esri/map",
 				app.maps[1].destroy();
 				app.maps[1] = null;
 			}
-			
+
 			if(app.popup[0])
 				app.popup[0].destroy();
 			if(app.popup[1])
 				app.popup[1].destroy();
-			
+
 			$("#header").css("display", "inherit");
 			$("#footer").css("display", "inherit");
 			$("#fatalError").css("display", "none");
 			$("#loadingOverlay").css("top", "0px");
-			
+
 			$("#loadingIndicator").show();
 			loadingIndicator.setMessage(i18n.viewer.loading.step2);
 			startLoadingTimeout();
-			
+
 			handleWindowResize();
 		}
-		
+
 		function redirectToSignIn()
 		{
 			loadingIndicator.setMessage(i18n.viewer.loading.redirectSignIn + "<br />" + i18n.viewer.loading.redirectSignIn2);
 			setTimeout(function(){
-				window.location = arcgisUtils.arcgisUrl.split('/sharing/')[0] 
-					+ "/home/signin.html?returnUrl=" 
+				window.location = arcgisUtils.arcgisUrl.split('/sharing/')[0]
+					+ "/home/signin.html?returnUrl="
 					+ encodeURIComponent(document.location.href);
 			}, 2000);
 		}
-		
+
 		function hideUI()
 		{
 			$("#header").hide();
@@ -1063,7 +1070,7 @@ define(["esri/map",
 			$("#footer").hide();
 			$(".modal").hide();
 		}
-		
+
 		//
 		// Mobile
 		//
@@ -1080,20 +1087,20 @@ define(["esri/map",
 			$("#contentPanel").show();
 			$("#footerMobile").show();
 			$("#mapPanel").show();
-			
+
 			handleWindowResize();
 		}
 
 		//
 		// App init
 		//
-		
+
 		function startLoadingTimeout()
 		{
 			// First view loading time before failure
 			app.loadingTimeout = setTimeout(appLoadingTimeout, APPCFG.TIMEOUT_VIEWER_LOAD);
 		}
-		
+
 		function cleanLoadingTimeout()
 		{
 			if (typeof app != "undefined" && app.loadingTimeout) {
@@ -1101,7 +1108,7 @@ define(["esri/map",
 				app.loadingTimeout = null;
 			}
 		}
-		
+
 		function appLoadingTimeout()
 		{
 			// Restart the timeout if the dialog is shown or has been shown and the timeout hasn't been fired after it has been closed
@@ -1109,27 +1116,27 @@ define(["esri/map",
 				clearTimeout(app.loadingTimeout);
 				startLoadingTimeout();
 				// Set a flag only if the dialog isn't showned now, so next timeout will fail
-				if( ! IdentityManager._busy ) 
+				if( ! IdentityManager._busy )
 					IdentityManager.loadingTimeoutAlreadyFired = true;
 				return;
 			}
-			
+
 			$("#loadingIndicator, #loadingMessage").hide();
 			loadingIndicator.setMessage(i18n.viewer.loading.fail + '<br /><button type="button" class="btn btn-medium btn-info" style="margin-top: 5px;" onclick="document.location.reload()">' + i18n.viewer.loading.failButton + '</button>', true);
 			app.map && app.map.destroy();
 		}
-		
+
 		function initLocalization()
 		{
 			query('#fatalError .error-title')[0].innerHTML = i18n.viewer.errors.boxTitle;
 		}
-		
+
 		function isProd()
 		{
 			// Prevent the string from being replaced
 			return CONFIG.environment != ['TPL','ENV','DEV'].join('_');
 		}
-		
+
 		return {
 			init: init,
 			isProd: isProd,

@@ -1,12 +1,12 @@
-define(["dojo/has", 
+define(["dojo/has",
 		"dojo/topic",
-		"esri/geometry/Extent", 
+		"esri/geometry/Extent",
 		"esri/SpatialReference",
 		"storymaps/swipe/core/WebApplicationData",
 		"dojo/on",
-		"dojo/_base/lang"], 
+		"dojo/_base/lang"],
 	function(
-		has, 
+		has,
 		topic,
 		Extent,
 		SpatialReference,
@@ -21,31 +21,33 @@ define(["dojo/has",
 		 * UI Swipe series component
 		 *
 		 */
-		
-		
+
+
 		return function SeriesPanel(selector, isInBuilderMode)
 		{
 			var _bookmarks = null;
 			var _this = this;
-			
+
 			this.started = false;
-			
+
 			this.init = function(bookmarks, bgColor)
 			{
 				if($(selector).height() == '35')
 					return
-					
+
 				$(selector).height('35px');
 				this.setColor(bgColor);
 
 				_bookmarks = bookmarks;
-				
-				
+
+				app.bookmarkLength = bookmarks.length;
+
+
 				// Import bookmarks from webmap
 				//  - The first time that the option is activated
-				//  - Or when the option is activated and there isn't bookmark 
+				//  - Or when the option is activated and there isn't bookmark
 				if( ! _bookmarks.length ) {
-					
+
 					$.each(app.mapResponse, function(i, response){
 						if( response.itemInfo.itemData.bookmarks && response.itemInfo.itemData.bookmarks.length ) {
 							$.each(response.itemInfo.itemData.bookmarks, function(j, bookmark){
@@ -55,7 +57,7 @@ define(["dojo/has",
 							});
 						}
 					});
-					
+
 					// Add a default bookmark with the map initial extent if none
 					if( ! _bookmarks.length ) {
 						_bookmarks.push({
@@ -65,8 +67,8 @@ define(["dojo/has",
 						});
 					}
 				}
-				
-				
+
+
 				if(_bookmarks){
 					for(var i = 0; i < _bookmarks.length; i++){
 						_bookmarks[i].indexId = i;
@@ -81,15 +83,15 @@ define(["dojo/has",
 							$('#series_'+ i).tooltip();
 					}
 				}
-				
+
 				$('#series_0').addClass('seriesButton selected');
 				$(".seriesButton").fastClick(function(){
 					_this.showSeries(this);
 				});
-				
+
 				$('#descriptionTitle').addClass('series');
 				$('#descriptionContent').addClass('series');
-	
+
 				// Desktop builder
 				if( isInBuilderMode) {
 					$('#seriesBuilder').append('<div id="addSeries" class="addSeriesButton" data-toggle="tooltip" data-placement="bottom" title data-original-title="Add a bookmark"><p class="addSeriesLabel"> ' + "+" + '</div>');
@@ -98,14 +100,14 @@ define(["dojo/has",
 					$('#seriesControls').addClass('series');
 					$('#descriptionContent').addClass('builder');
 					$('#descriptionTitle').addClass('builder');
-					
+
 					$('#seriesNav').sortable({
 						stop: updateSeriesOrder
 					});
-					
+
 					$('#seriesControls .series-discard').html(i18n.swipe.seriesPanel.discard);
 					$('#seriesControls .series-extentSave').html(i18n.swipe.seriesPanel.saveExtent);
-				
+
 					$(".series-discard").fastClick(_this.discardBookmark);
 					$(".series-extentSave").fastClick(_this.saveBookmarkExtent);
 					var descriptionArea = new nicEditor({
@@ -117,78 +119,78 @@ define(["dojo/has",
 					descriptionArea.addInstance('descriptionContentInner');
 					descriptionArea.addEvent('focus', function(){
 						descriptionArea.addEvent('blur', function(){
-							_this.checkText();										
+							_this.checkText();
 						});
 					});
-					
+
 					//IE9 fun.  Panel is rendered super narrow if you don't set it
 					$('.nicEdit-main').parent().css('width', '342px');
 					$('.nicEdit-main').css('width', '330px');
 					$('.nicEdit-main').parent().css('border', 'none');
-					
+
 					on($(' .nicEdit-panel').children().last().children().children().children(), 'click', function(){
 						if ($('#href').siblings()[0]) {
 							$('#href').siblings()[0].addClass('hrefLabel');
 							$('#href').addClass('href');
 						}
-						if($('#title').siblings()[0])	
+						if($('#title').siblings()[0])
 							$('#title').siblings()[0].addClass('hrefLabel');
 					});
-					
+
 					$(".series-extentSave").attr("disabled", "disabled");
 					updateDiscardButton();
-					
+
 					_this.started = true;
 				}
-				
+
 				else{
 					$('#descriptionTitle').addClass('viewer');
 				}
-				
+
 				var fromInit = true;
-				
+
 				if(bookmarks)
 					_this.renderText(bookmarks[0], fromInit);
 				else
 					_this.renderText(null);
 			};
-			
+
 			this.appIsReady = function()
 			{
 				if( isInBuilderMode )
 					watchExtentChangeSavebtn(1);
 			};
-	
+
 			this.setColor = function(bgColor)
 			{
 				$(selector).css("background-color", bgColor);
 			};
-			
+
 			this.showSeries = function(button)
 			{
 				$(selector).find('.seriesButton').removeClass("selected");
-				var bookmarkIndex = $(button).data('bookmarkid');
+				var bookmarkIndex = $(button).data('bookmarkid') != null && $(button).data('bookmarkid') > -1 ? $(button).data('bookmarkid') : button;
 				app.bookmarkIndex = bookmarkIndex > -1 ? bookmarkIndex : app.bookmarkIndex;
 				_this.renderText(_bookmarks[app.bookmarkIndex]);
 				var selButton = $(selector).find("[data-bookmarkid='" + app.bookmarkIndex + "']");
-			
-			
+
+
 				$(selButton).addClass("selected");
 
 				if($("#footerMobile").is(':visible'))
 					return;
-					
+
 				$(".series-extentSave").attr("disabled", "disabled");
 				watchExtentChangeSavebtn(2);
-				
+
 				updateDiscardButton();
-				
+
 				setTimeout(function(){
 					topic.publish("CORE_UPDATE_EXTENT", _bookmarks[app.bookmarkIndex].extent);
 				}, 0);
 				$('#descriptionContent').scrollTop(0);
 			};
-			
+
 			this.addSeries = function()
 			{
 				var index = $(selector).find(".seriesButton").length;
@@ -201,7 +203,7 @@ define(["dojo/has",
 				$('.seriesButton').eq(index).fastClick(function(){
 					_this.showSeries(this);
 				});
-				
+
 				var currentExtent = app.mainMap.extent;
 				var newBookmark = {
 					name: '',
@@ -218,19 +220,19 @@ define(["dojo/has",
 				};
 				tempBookmarks.push(tempBookmark);
 				_this.renderText(tempBookmarks[0]);
-				
+
 				$(".series-extentSave").attr("disabled", "disabled");
 				on.once(app.mainMap, 'extent-change', function(){
 					$(".series-extentSave").removeAttr("disabled");
 				});
-				
+
 				updateDiscardButton();
-				
+
 				WebApplicationData.setSeriesBookmarks(_bookmarks)
 				app.mobileCarousel.needUpdate = true;
 				topic.publish("BUILDER_INCREMENT_COUNTER");
 			};
-			
+
 			this.discardBookmark = function()
 			{
 				var button = $('.seriesButton.selected');
@@ -252,21 +254,21 @@ define(["dojo/has",
 				WebApplicationData.setSeriesBookmarks(_bookmarks)
 				_this.showSeries($('.seriesButton').eq(selectedButtonIndex));
 				app.mobileCarousel.needUpdate = true;
-				topic.publish("BUILDER_INCREMENT_COUNTER");				
+				topic.publish("BUILDER_INCREMENT_COUNTER");
 			};
-			
+
 			this.saveBookmarkExtent = function()
 			{
 				var selectedBookmark = $('.seriesButton').index($('.selected'));
 				var currentExtent = app.mainMap.extent;
-				
+
 				_bookmarks[selectedBookmark].extent = currentExtent;
 				WebApplicationData.setSeriesBookmarks(_bookmarks);
 				topic.publish("BUILDER_INCREMENT_COUNTER");
-				
+
 				$(".series-extentSave").attr("disabled", "disabled");
 			};
-			
+
 			this.renderText = function(bookmark, fromInit)
 			{
 				if(!bookmark && isInBuilderMode) {
@@ -286,40 +288,39 @@ define(["dojo/has",
 					$('#descriptionTitle').html(bookmark.name);
 					$('#descriptionContentInner').html(bookmark.description);
 				}
-				if ($('#legendPanel').css('display') == 'none') {
+				if ($('#legendPanel').css('display') == 'none' ) {
 					$('#descriptionPanel').addClass('single');
 					$('#sidePanel').removeClass('single');
 					$('#sidePanel').addClass('singleSeries');
 					$('#sidePanel').css('height', 'auto');
-					if (parseInt($('#sidePanel').css('height')) > 0.6 * (parseInt(app.mainMap.height))) 
+					if (parseInt($('#sidePanel').css('height')) > 0.6 * (parseInt(app.mainMap.height)))
 						$('#sidePanel').css('height', '60%');
-					else 
+					else
 						$('#sidePanel').css('height', 'auto');
-					
+
 					//Somehwhat of a replication of app.sidePanel.sidePanelSlideVertical(),
 					//but this does not animate, we need immediate change so as not to flash
-					var sidePanelHeightSlide = parseInt($('#sidePanel').css('height'));
-					var sidePanelHeightClip = parseInt($('#sidePanel').css('height'));	
-					var headerHeight = parseInt($('#header').css('height'));
-					
-					sidePanelHeightSlide -= parseInt($('#seriesPanel').css('height'));
-					sidePanelHeightSlide -= parseInt(headerHeight);
-					headerHeight += parseInt($('#seriesPanel').css('height'));
-
+					var sidePanelHeightClip = parseInt($('#sidePanel').css('height'));
 					var clipString = !$('#sidePanelUnderTabImg').hasClass('open') ? 'rect(' + sidePanelHeightClip + 'px 350px ' + parseInt(sidePanelHeightClip + 45) + 'px 0px)' : 'rect(0px 350px ' + parseInt(sidePanelHeightClip + 45) + 'px 0px)';
 		       		$("#sidePanel").css('clip', clipString);
-		       		var topPos = !$('#sidePanelUnderTabImg').hasClass('open') ? -sidePanelHeightSlide : headerHeight;
-					$("#sidePanel").css({'top': topPos});
 
 				}
+
+				var sidePanelHeightSlide = parseInt($('#sidePanel').css('height'));
+				var headerHeight = parseInt($('#header').css('height')) + parseInt($('#seriesPanel').css('height'));
+				sidePanelHeightSlide -= parseInt($('#seriesPanel').css('height'));
+				sidePanelHeightSlide -= parseInt(headerHeight);
+				var topPos = !$('#sidePanelUnderTabImg').hasClass('open') ? -sidePanelHeightSlide : headerHeight;
+				$("#sidePanel").css({'top': topPos});
+
 				if (navigator.userAgent.match(/iPad/i))
 						setTimeout(function (){
 							descScroll.refresh();
-						}, 0);	
-				
-				_this.sizeTextDescription(fromInit);			
+						}, 0);
+
+				_this.sizeTextDescription(fromInit);
 			};
-			
+
 			this.checkText = function()
 			{
 				if($("#headerMobile").css("display") == "block")
@@ -327,9 +328,9 @@ define(["dojo/has",
 
 				var selectedBookmark = $('.seriesButton').index($('.selected'));
 
-				if (_bookmarks[selectedBookmark].description == nicEditors.findEditor('descriptionContentInner').nicInstances[1].getContent() && _bookmarks[selectedBookmark].name == nicEditors.findEditor('descriptionTitle').nicInstances[0].getContent()) 
+				if (_bookmarks[selectedBookmark].description == nicEditors.findEditor('descriptionContentInner').nicInstances[1].getContent() && _bookmarks[selectedBookmark].name == nicEditors.findEditor('descriptionTitle').nicInstances[0].getContent())
 					return;
-				
+
 				_bookmarks[selectedBookmark].name = nicEditors.findEditor('descriptionTitle').nicInstances[0].getContent();
 				_bookmarks[selectedBookmark].description = nicEditors.findEditor('descriptionContentInner').nicInstances[1].getContent();
 				if(_bookmarks[selectedBookmark].name == i18n.swipe.seriesPanel.title)
@@ -343,7 +344,7 @@ define(["dojo/has",
 				var showDescription = false;
 				app.mobileCarousel.setDescriptionView(_bookmarks[selectedBookmark].name, _bookmarks[selectedBookmark].description, showDescription);
 			};
-			
+
 			this.sizeTextDescription = function(fromInit){
 				var seriesControlsHeight = app.isInBuilderMode ? $('#seriesControls').height() + 10 : 0;
 				setTimeout(function(){
@@ -359,8 +360,14 @@ define(["dojo/has",
 						$('#descriptionContent').height($('#descriptionPanel').height() - $('#descriptionTitle').height() - (2 * seriesControlsHeight) - 30);
 					}
 				}, fromInit ? 5000 : 0);
+				var sidePanelHeightSlide = parseInt($('#sidePanel').css('height'));
+				sidePanelHeightSlide -= parseInt($('#seriesPanel').css('height'));
+				sidePanelHeightSlide -= parseInt(headerHeight);
+				var headerHeight = parseInt($('#header').css('height')) + parseInt($('#seriesPanel').css('height'));
+				var topPos = !$('#sidePanelUnderTabImg').hasClass('open') ? -sidePanelHeightSlide : headerHeight;
+				$("#sidePanel").css({'top': topPos});
 			};
-			
+
 			function watchExtentChangeSavebtn(nbCycle)
 			{
 				var extentChangeCounter = 1;
@@ -370,19 +377,19 @@ define(["dojo/has",
 							$(".series-extentSave").removeAttr("disabled");
 							handle.remove();
 						}
-						
+
 						extentChangeCounter++;
 					}
 				});
 			}
-			
+
 			function updateDiscardButton()
 			{
 				var disable = _bookmarks.length <= 1;
 				$('#seriesControls .series-discard').attr("disabled", disable);
 				$('#seriesControls .series-discard').attr("title", disable ? i18n.swipe.seriesPanel.discardDisabled : '');
 			}
-			
+
 			function updateSeriesOrder(){
 				// Slow it down to make it obvious to the user something is happening
 				setTimeout(function(){
@@ -395,7 +402,7 @@ define(["dojo/has",
 						var oldIndex = $(button).data('bookmarkid');
 						$(".seriesButton").eq(i).data('original-title', _bookmarks[oldIndex].name);
 						$(".seriesButton").eq(i).data('bookmarkid', i);
-						var bookmark = $.grep(_bookmarks, function(e){ 
+						var bookmark = $.grep(_bookmarks, function(e){
 							if(e.indexId == oldIndex)
 								newBookmarks.push(e);
 						});
@@ -403,7 +410,7 @@ define(["dojo/has",
 					WebApplicationData.setSeriesBookmarks(newBookmarks);
 					_bookmarks = newBookmarks;
 					topic.publish("BUILDER_INCREMENT_COUNTER");
-				}, 500);		
+				}, 500);
 			};
 		};
 	}

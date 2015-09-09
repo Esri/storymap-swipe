@@ -10,7 +10,7 @@ define(["dojo/dom-construct",
 		"storymaps/swipe/ui/mobile/Carousel",
 		// Common UI
 		"storymaps/swipe/ui/MapSwipe",
-		"storymaps/swipe/ui/SpyGlass",		
+		"storymaps/swipe/ui/SpyGlass",
 		"storymaps/swipe/ui/desktop/SeriesPanel",
 		"storymaps/swipe/core/SwipeHelper",
 		"storymaps/utils/Helper",
@@ -21,7 +21,7 @@ define(["dojo/dom-construct",
 		"dojo/Deferred",
 		"dojo/DeferredList",
 		"esri/dijit/Geocoder",
-		"dojo/_base/lang"], 
+		"dojo/_base/lang"],
 	function (
 		domConstruct,
 		win,
@@ -45,28 +45,28 @@ define(["dojo/dom-construct",
 		Geocoder,
 		lang)
 	{
-		return function MainView() 
+		return function MainView()
 		{
 			var _core = null;
 			var _this = this;
-			
-			this.init = function(core) 
-			{		
+
+			this.init = function(core)
+			{
 				_core = core;
-				
+
 				// Do not allow builder under IE 9
 				if(app.isInBuilderMode && has("ie") && has("ie") < 9) {
 					_core.initError("noBuilderIE8");
 					return false;
 				}
-			
+
 				app.mapSwipe = new MapSwipe("#mapPanel");
-				
+
 				var lensNode = domConstruct.create("div", {
 							id: "lensWidget"
 						}, "mapPanel");
 				app.spyGlass = new SpyGlass(WebApplicationData.getWebmaps()[1], lensNode);
-			
+
 				// Desktop UI
 				app.sidePanel = new SidePanel($("#sidePanel"), app.isInBuilderMode);
 				app.seriesPanel = new SeriesPanel('#seriesPanel', app.isInBuilderMode);
@@ -75,26 +75,26 @@ define(["dojo/dom-construct",
 				app.mobileInfoWindowView = new MobileSwipeView("#infoWindowView", "#infoWindowViewCarousel");
 				app.mobileLegendView = new MobileSwipeView("#legendView", "#legendViewCarousel");
 				app.mobileCarousel = new MobileCarousel("#footerMobile", app.isInBuilderMode);
-				
+
 				topic.subscribe("CORE_UPDATE_EXTENT", function(extent){
 					app.mainMap.setExtent(extent, true);
 				});
-				
+
 				// Prevent iPad vertical bounce effect
 				// except on few containers that needs that
 				$(document).bind(
 					'touchmove',
 					function(e) {
-						if( ! $(e.target).parents('#legendPanel').length && ! $(e.target).parents('#descriptionPanel').length 
-						&& ! $(e.target).parents('#seriesTextView').length && ! $(e.target).parents('#infoWindowView').length 
+						if( ! $(e.target).parents('#legendPanel').length && ! $(e.target).parents('#descriptionPanel').length
+						&& ! $(e.target).parents('#seriesTextView').length && ! $(e.target).parents('#infoWindowView').length
 						&& ! $(e.target).parents('#legendView').length && ! $(e.target).hasClass('subtitle') )
 							e.preventDefault();
 					}
 				);
-				
+
 				return true;
 			};
-			
+
 			this.webmapLoaded = function()
 			{
 				var appColors = WebApplicationData.getColors();
@@ -103,9 +103,9 @@ define(["dojo/dom-construct",
 				var descriptionText = WebApplicationData.getSidePanelDescription();
 				var layout = WebApplicationData.getLayout();
 				var dataModel = app.mode;
-				
+
 				loadingIndicator.setMessage(i18n.viewer.loading.step3);
-				
+
 				if(description == null)
 					description = true;
 				if(legend == null)
@@ -114,26 +114,26 @@ define(["dojo/dom-construct",
 					descriptionText = i18n.swipe.swipeSidePanel.editMe;
 				var urlParams = Helper.getUrlParams();
 				app.sidePanel.init(
-					descriptionText, 
-					appColors[1], 
-					appColors[0], 
-					description, 
-					legend, 
+					descriptionText,
+					appColors[1],
+					appColors[0],
+					description,
+					legend,
 					WebApplicationData.getLayers(),
 					WebApplicationData.getSeries() || configOptions.series,
 					layout,
 					dataModel,
 					(APPCFG.EMBED || urlParams.embed || urlParams.embed === '')
 				);
-				
+
 				if (has("ie") == undefined || has("ie") > 8) {
 					if (WebApplicationData.getPopup()) {
 						app.mobileInfoWindowView.init([$('#infoView-mobile1'), $('#infoView-mobile0')], appColors[1]);
 						app.isPopup = true;
-					}					
+					}
 					else
 						$('#rightViewLink').css('display', 'none');
-					
+
 					if (WebApplicationData.getLegend()) {
 						app.mobileLegendView.init(["<div id='legendView2'></div>", "<div id='legendView1'></div>"], appColors[1]);
 						$('#legendView1').parent().css('overflow-y', 'auto');
@@ -142,13 +142,13 @@ define(["dojo/dom-construct",
 					else
 						$('#leftViewLink').css('display', 'none');
 				}
-				
+
 				var bookmarkExtent = null;
 				if (WebApplicationData.getSeries() || (configOptions.series && configOptions.bookmarks && configOptions.bookmarks.length)) {
 					var bookmarks = WebApplicationData.getSeriesBookmarks();
 					bookmarkExtent = bookmarks && bookmarks.length ? bookmarks[0].extent : null;
 					app.seriesPanel.init(bookmarks, appColors[0]);
-					
+
 					$('#descriptionTitle').addClass('series');
 					$('#descriptionContent').addClass('series');
 
@@ -156,13 +156,24 @@ define(["dojo/dom-construct",
 						app.mobileCarousel.init(bookmarks, appColors);
 						app.mobileCarousel.setSelectedPoint(0);
 						dojo.subscribe("CAROUSEL_SWIPE", showSeriesBookmark);
+
+						$('.embed-btn-left').on('click', function() {
+							if($('.embed-btn-left').hasClass('disabled'))
+								return;
+							app.mobileCarousel.setSelectedPoint(app.bookmarkIndex - 1);
+						});
+						$('.embed-btn-right').on('click', function() {
+							if($('.embed-btn-right').hasClass('disabled'))
+								return;
+							app.mobileCarousel.setSelectedPoint(app.bookmarkIndex + 1);
+						});
 					}
 				}
 				else {
 					$('#descriptionTitle').removeClass('series');
 					$('#descriptionContent').removeClass('series');
 				}
-				
+
 				if (WebApplicationData.getLocationSearch()){
 					var geocoderParams = lang.mixin(
 						{
@@ -176,9 +187,9 @@ define(["dojo/dom-construct",
 
 				// Make sure that everyone has expected size before setting the extent
 				$(window).resize();
-				
+
 				_this.setMapExtent(bookmarkExtent || Helper.getWebMapExtentFromItem(app.data.getWebMapItem().item)).then(function()
-				{ 
+				{
 					// 2 webmaps with different projection warning
 					if(app.maps.length == 2 && app.maps[0].spatialReference.wkid != app.maps[1].spatialReference.wkid){
 						_core.appInitComplete();
@@ -187,27 +198,27 @@ define(["dojo/dom-construct",
 					}
 					if (WebApplicationData.getLayout() == "spyglass") {
 						app.spyGlass.startup(
-							WebApplicationData.getWebmaps()[1], 
-							$('#lensWidget'), 
-							WebApplicationData.getPopupColors(), 
-							WebApplicationData.getPopupTitles(), 
+							WebApplicationData.getWebmaps()[1],
+							$('#lensWidget'),
+							WebApplicationData.getPopupColors(),
+							WebApplicationData.getPopupTitles(),
 							app.mode,
-							WebApplicationData.getLayers(), 
+							WebApplicationData.getLayers(),
 							!SwipeHelper.isOnMobileView() && (description || legend) ? 350 / 2 : 0,
-							WebApplicationData.getPopup() 
+							WebApplicationData.getPopup()
 						);
 					}
 					else {
 						app.mapSwipe.init(
-							app.mode == "TWO_LAYERS" ? [app.map] : app.maps, 
-							WebApplicationData.getLayers(), 
-							WebApplicationData.getPopupColors(), 
-							WebApplicationData.getPopupTitles(), 
+							app.mode == "TWO_LAYERS" ? [app.map] : app.maps,
+							WebApplicationData.getLayers(),
+							WebApplicationData.getPopupColors(),
+							WebApplicationData.getPopupTitles(),
 							!SwipeHelper.isOnMobileView() && (description || legend) ? 350 / 2 : 0,
-							WebApplicationData.getPopup() 
+							WebApplicationData.getPopup()
 						);
 					}
-						
+
 					if( app.mode == "TWO_WEBMAPS" ) {
 						var index = (WebApplicationData.getLayout() == "swipe") ? 0 : 1;
 						on.once(app.maps[index], "extent-change", function(){
@@ -223,17 +234,17 @@ define(["dojo/dom-construct",
 					}
 				});
 			};
-			
+
 			function showSeriesBookmark(index)
 			{
 				app.bookmarkIndex = index;
 				app.seriesPanel.showSeries(index);
 				if(!$("#footerMobile").is(':visible'))
 					return;
-					
+
 				app.mainMap.setExtent(WebApplicationData.getSeriesBookmarks()[index].extent);
 			}
-			
+
 			this.appInitComplete = function()
 			{
 				_core.displayApp();
@@ -254,16 +265,16 @@ define(["dojo/dom-construct",
 					$('.mapCommandLocation').show();
 				else
 					$('.mapCommandLocation').hide()
-				
+
 				if( app.seriesPanel )
 					app.seriesPanel.appIsReady();
 			};
-			
+
 			this.onHashChange = function()
 			{
 				$('#seriesTextView').hide();
 				$('#footerMobile').hide();
-				
+
 				if (location.hash == "#swipe") {
 					$("#leftViewLink").addClass("current");
 					app.mobileLegendView.show();
@@ -277,8 +288,8 @@ define(["dojo/dom-construct",
 					$('#footerMobile').hide();
 				}
 			};
-			
-			
+
+
 			this.updateUI = function()
 			{
 				var appColors = WebApplicationData.getColors();
@@ -288,13 +299,13 @@ define(["dojo/dom-construct",
 				if( WebApplicationData.getGeolocator())
 					$('.mapCommandLocation').show()
 				else
-					$('.mapCommandLocation').hide()									
+					$('.mapCommandLocation').hide()
 				if( WebApplicationData.getLocationSearch())
 					$('#locationSearch').show()
 				else
 					$('#locationSearch').hide()
 			};
-			
+
 			this.resize = function(cfg)
 			{
 				if( app.initInProgress) {
@@ -309,11 +320,12 @@ define(["dojo/dom-construct",
 				}
 				if(app.isDirectCreation || app.isGalleryCreation)
 					$("#fatalError").css("display", cfg.isMobileView ? "block": "none");
-				if (cfg.isMobileView)
+				if (cfg.isMobileView){
 					if(location.hash!=("#map"))
 						location.hash = "map";
 					else
 						_this.onHashChange();
+				}
 				if (WebApplicationData.getSeries()) {
 					if (cfg.isMobileView && cfg.isOnMobileMapView) {
 						$("#footerMobile").show();
@@ -344,20 +356,28 @@ define(["dojo/dom-construct",
 					$("#seriesTextView").hide();
 				}
 				app.sidePanel.resize(cfg.width, cfg.height);
+
+				// reposition swipe bar and spyglass so controls are not lost
+				if(WebApplicationData.getLayout() == 'swipe'){
+					app.mapSwipe.reposition(cfg);
+				}
+				else {
+					app.spyGlass.reposition(cfg);
+				}
 			};
-			
+
 			//
 			// Map manipulation
 			//
-			
+
 			this.centerMap = function(geom, zoomLevel)
 			{
-				if( ! zoomLevel )			
+				if( ! zoomLevel )
 					app.mainMap.centerAt(geom);
 				else
 					app.map.centerAndZoom(geom, zoomLevel);
 			};
-			
+
 			this.setMapExtent = function(extent)
 			{
 				var mapsReady = new Deferred();
@@ -371,32 +391,32 @@ define(["dojo/dom-construct",
 				});
 				return mapsReady;
 			};
-			
+
 			this.zoomToDeviceLocation = function(success, geom)
 			{
-				if( success ) {   	
+				if( success ) {
 					if( app.mainMap.spatialReference.wkid == 102100 )
 						geom = webMercatorUtils.geographicToWebMercator(geom);
 					else if ( app.mainMap.spatialReference.wkid != 4326 ) {
 						esriConfig.defaults.geometryService.project([geom], app.mainMap.spatialReference, function(features){
 							if( ! features || ! features[0] )
 								return;
-                                      
+
 							_this.centerMap(features[0]);
 						});
 					}
-                          
+
 					_this.centerMap(geom);
 				}
 			};
-			
+
 			this.initLocalization = function()
 			{
 				// Mobile data view
 				$('#infoWindowView .noData .title').html(i18n.swipe.mobileData.noData);
 				$('#infoWindowView .noData .explain').html(i18n.swipe.mobileData.noDataExplain);
 				$('#legendView .noData .title').html(i18n.swipe.mobileLegend.noLegend);
-				
+
 				$('#projectionPopup').find('h3').html(i18n.viewer.errors.conflictingProjectionsTitle);
 				$('.projectionExplain').html(i18n.viewer.errors.conflictingProjections);
 				$('#projectionPopup').find('.btnClose').html(i18n.viewer.errors.cpButton);

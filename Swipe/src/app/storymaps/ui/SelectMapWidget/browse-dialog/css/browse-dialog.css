@@ -23,9 +23,12 @@
     overflow: hidden;
 }
 .itemGrid .itemText{
+	padding:0;
+	margin:0;
     font-size:8pt;
     text-align: left;
     margin:0;
+    height:100px;
 }
 .itemTitle{
     white-space:nowrap;
@@ -33,6 +36,7 @@
     text-overflow:ellipsis;
 }
 .itemOwner{
+	color:#757170;
     white-space:nowrap;
     overflow:hidden;
     text-overflow:ellipsis;
@@ -179,4 +183,17 @@
 
 #browse-id-box{
 	width: 600px !important;
+}
+
+#browse-id-dialog .hide {
+	display: none;
+}
+
+#browse-id-dialog .dgrid-page-input {
+	height: 16px;
+	margin-bottom: 2px;
+}
+
+.dijitDialogTitleBar .dijitDialogCloseIcon {
+	display: none;
 }

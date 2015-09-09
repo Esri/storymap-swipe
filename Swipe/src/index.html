@@ -127,7 +127,7 @@
 		</script>
 
 		<script type="text/javascript">
-			var version = '1.5';
+			var version = '1.6.0';
 			var isProduction = false;
 
 			function loadJS(url, isExternal)
@@ -330,7 +330,7 @@
 					<div id="descriptionTitle">
 					</div>
 					<div id="descriptionContent">
-						<div id="descriptionContentInner"></div>
+						<div id="descriptionContentInner" spellcheck="true"></div>
 					</div>
 					<div id="seriesControls">
 						<button type="button" class="btn btn-danger series-discard"></button>
@@ -376,7 +376,13 @@
 		<!-- Mobile swipe-series footer -->
 		<div id="footer">
 			<div id="footerMobile">
+				<div class="embed-btn-container embed-btn-left">
+					<div class="embed-btn" style="outline: none;"></div>
+				</div>
 				<div class="carousel"></div>
+				<div class="embed-btn-container embed-btn-right">
+					<div class="embed-btn" style="outline: none;"></div>
+				</div>
 			</div>
 		</div>
 
@@ -523,7 +529,7 @@
 							<div class="control-group">
 								<label class="control-label" for="selectSocialText"></label>
 								<div class="controls">
-									<input id="selectSocialText" type="text" />
+									<input id="selectSocialText" type="text" spellcheck="true" />
 								</div>
 							</div>
 							<div class="control-group">
@@ -700,14 +706,14 @@
 				<span class="popup-box">
 					<div class="popup1Title popup-box-title"></div>
 					<div class="popup1HeaderTitle"></div>
-					<input class="selectPopup1" type="text" />
+					<input class="selectPopup1" type="text" spellcheck="true" />
 					<div class="popup1HeaderColor"></div>
 					<input type='text' name='popup1Color' id='popup1Color'/>
 				</span>
 				<span class="popup-box">
 					<div class="popup2Title popup-box-title"></div>
 					<div class="popup2HeaderTitle"></div>
-					<input class="selectPopup2" type="text" />
+					<input class="selectPopup2" type="text" spellcheck="true" />
 					<div class="popup2HeaderColor"></div>
 					<input type='text' name='popup2Color' id='popup2Color'/>
 				</span>

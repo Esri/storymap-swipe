@@ -9,7 +9,7 @@
 #seriesControls{
 	display: none;
 	position: absolute;
-	width: 100%; 
+	width: 100%;
 	text-align: center;
 	margin-left: -4px;
 	bottom: 4px;
@@ -99,7 +99,7 @@
 
 #seriesDescription {
 	height: 95%;
-	margin-top: 20px;	
+	margin-top: 20px;
 	margin-left: 60px;
 	margin-right: 60px;
 	text-align: left;
@@ -108,4 +108,52 @@
 
 .seriesView{
 	margin-top: 60px;
+}
+
+.embed-btn-container {
+    position: absolute;
+    top: 14px;
+    display: block;
+    width: 51px;
+    height: 100%;
+    z-index: 1;
+    opacity: .8;
+    padding-top: 14px;
+}
+
+#footerMobile .embed-btn {
+    width: 42px;
+    height: 42px;
+    background: url(../../../../../resources/icons/embed-arrows.png);
+}
+
+#footerMobile .embed-btn-left {
+    left: 0;
+    padding-left: 9px;
+}
+
+#footerMobile .embed-btn-left.disabled .embed-btn {
+    background-position: 42px 0;
+}
+
+#footerMobile .embed-btn-right {
+    right: 0;
+}
+
+#footerMobile .embed-btn-right .embed-btn {
+    background-position: 0 -42px;
+}
+
+#footerMobile .embed-btn-right.disabled .embed-btn {
+    background-position: 42px -42px;
+}
+
+#footerMobile .embed-btn-container:not(.disabled):hover {
+    opacity: 1;
+    cursor: pointer;
+}
+
+#footerMobile .carousel {
+	margin-left: 60px;
+	margin-right: 53px;
 }

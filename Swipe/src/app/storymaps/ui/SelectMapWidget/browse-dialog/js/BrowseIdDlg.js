@@ -4,7 +4,7 @@ define([
   "dojo/_base/connect",
   "dojo/_base/lang",
   "dojo/_base/event",
-  "dojo/dom",
+  "dojo/dom-class",
   "dojo/keys",
   "dijit/registry",
   "dojo/on",
@@ -18,7 +18,7 @@ define([
   "dijit/form/Select",
   "dijit/form/Button"
 ], function(
-  require,declare,connect,lang, dojoEvent, dom, keys, registry, on, _WidgetBase,
+  require,declare,connect,lang, dojoEvent, domClass, keys, registry, on, _WidgetBase,
   _TemplatedMixin,_WidgetsInTemplateMixin,Grid, esriPortal, template
 ) {
   return declare([_WidgetBase,_TemplatedMixin, _WidgetsInTemplateMixin], {
@@ -96,11 +96,12 @@ define([
 
     doSearch: function() {
       var filter = this._filterSelect.get("value"), 
-        portalUser = this.portal.user;
+        portalUser = this.portal.user,
+        qval = null;
  
        var parameters = [];
        if(this.searchText.getValue()){
-        parameters["title"] = this.searchText.getValue();
+         qval = this.searchText.getValue();
        }
 
        if(filter === "org"){
@@ -130,17 +131,23 @@ define([
        }
 
         var query = {};
+        if(qval){
+          qs = qval + " " + qs;
+        }
         query.q = lang.trim(qs);
         this._grid.set("query", query);
         this._grid.refresh();
 
     },
 
-    _onSearchClick: function(e) {
+    _onSearchClear: function(e) {
        dojoEvent.stop(e);
       if (e != null && e.prefentDefault) {
         e.preventDefault();
       }
+      this.searchText.setValue("");
+      //hide the clear button 
+      domClass.add("clear-box_submit","hide");
       
       this.doSearch();
     },
@@ -156,7 +163,15 @@ define([
     _onSearchKeyPress: function(e) {
       if (e.keyCode == keys.ENTER) {
         dojoEvent.stop(e);
-        this._onSearchClick(e);
+        this.doSearch();
+      }
+      
+      if ( e.keyCode == 8 && this.searchText.getValue().length == 1 ) {
+        domClass.add("clear-box_submit","hide"); 
+      }
+      else {
+    	//show the clear button
+  	    domClass.remove("clear-box_submit","hide");
       }
       
       this.onSearchFieldKeyPress(e);

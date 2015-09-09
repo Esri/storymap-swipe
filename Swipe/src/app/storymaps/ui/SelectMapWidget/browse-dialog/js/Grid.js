@@ -33,7 +33,7 @@ define([
         this._galleryTemplate = this._galleryTemplate ||
           "<div class='itemGrid'>" +
             "<img alt='' src='${thumbnailUrl:_formatThumbnail}'>" +
-            "<div class='truncate itemTitle'>${title:_formatTitle}</div>" +
+            "<div class='itemTitle'>${title:_formatTitle}</div>" +
             "<span class='itemOwner'>${owner}</span>" +
             "<p class='itemText snippet' style='display:none;'>${snippet}</p>" +
           "</div>";
@@ -49,7 +49,7 @@ define([
 
         this._renderers = lang.mixin(this._renderers || {}, {
           gallery: lang.hitch(this, function (obj) {
-            obj.snippet = obj.snippet || "";
+        	obj.snippet = obj.snippet || obj.description || obj.title || "";
             var div = put("div"),
               node = new (declare([WidgetBase, TemplatedMixin, WidgetsInTemplateMixin], {
                 templateString: dojoString.substitute(this._galleryTemplate, obj, null, this)
@@ -95,7 +95,7 @@ define([
         this._store = this.store ||  new Cache(new PortalItemStore({'portal': this.portal, galleryType: this.galleryType}), new Memory({data:[]}));
         this._rowsPerPage = this.rowsPerPage || 12;
         this._sort = this.sort || [{ attribute: "title", descending: false }];
-        this._pagingLinks = !this.pagingLinks ? false : 12;
+        this._pagingLinks = !this.pagingLinks ? false : 3;
       
         // !!!!
         // Seems to be quite important to assign an id to the grid, and apply
@@ -115,6 +115,7 @@ define([
           previousNextArrows: this._pagingLinks,
           rowsPerPage: this._rowsPerPage,
           pagingLinks: this._pagingLinks,
+          pagingTextBox: true,
           sort: this._sort
         }, this.domNode);
 
