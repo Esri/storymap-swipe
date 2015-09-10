@@ -37,7 +37,9 @@
 			desktopView: {
 				storymapsText: "قصة داخل خريطة",
 				builderButton: "الانتقال إلى وضع المنشئ",
-				bitlyTooltip: "الحصول على رابط قصير إلى التطبيق"
+				facebookTooltip: "مشاركة على الفيس بوك",
+				twitterTooltip: "مشاركة على تويتر",
+				bitlyTooltip: "الحصول على رابط قصير"
 			}
 		},
 		builder: {

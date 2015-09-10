@@ -37,7 +37,9 @@
 			desktopView: {
 				storymapsText: "Kaardilugu",
 				builderButton: "Vaheta koostamise režiimile",
-				bitlyTooltip: "Tekita kiirlink rakendusele"
+				facebookTooltip: "Jaga Facebookis",
+				twitterTooltip: "Jaga Twitteris",
+				bitlyTooltip: "Hangi lühike link"
 			}
 		},
 		builder: {

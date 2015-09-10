@@ -37,7 +37,9 @@
 			desktopView: {
 				storymapsText: "Pristatomasis žemėlapis",
 				builderButton: "Perjungti į kūrimo būseną",
-				bitlyTooltip: "Gauti sutrumpintą aplikacijos nuorodą"
+				facebookTooltip: "Dalintis Facebook",
+				twitterTooltip: "Dalintis Twitter",
+				bitlyTooltip: "Gauti trumpą nuorodą"
 			}
 		},
 		builder: {
@@ -78,7 +80,7 @@
 			settings: {
 				settingsHeader: "Aplikacijos nuostatos",
 				modalCancel: "Atšaukti",
-				modalApply: "Vykdyti"
+				modalApply: "Taikyti"
 			},
 			settingsColors: {
 				settingsTabColor: "Apipavidalinimas",

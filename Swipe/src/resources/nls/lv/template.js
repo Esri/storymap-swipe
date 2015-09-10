@@ -37,7 +37,9 @@
 			desktopView: {
 				storymapsText: "Stāstu karte",
 				builderButton: "Pārslēgties uz veidotāja režīmu",
-				bitlyTooltip: "Iegūt īsceļu uz aplikāciju"
+				facebookTooltip: "Koplietot Facebook",
+				twitterTooltip: "Koplietot Twitter",
+				bitlyTooltip: "Iegūt īso saiti"
 			}
 		},
 		builder: {

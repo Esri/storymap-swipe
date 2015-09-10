@@ -37,7 +37,9 @@
 			desktopView: {
 				storymapsText: "Un mapa de historias",
 				builderButton: "Cambiar a modo de builder",
-				bitlyTooltip: "Consigue un enlace corto a la aplicación"
+				facebookTooltip: "Compartir en Facebook",
+				twitterTooltip: "Compartir en Twitter",
+				bitlyTooltip: "Obtén un vínculo corto"
 			}
 		},
 		builder: {

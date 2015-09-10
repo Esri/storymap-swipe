@@ -37,7 +37,9 @@
 			desktopView: {
 				storymapsText: "Карта истории",
 				builderButton: "Переключиться в режим компоновки",
-				bitlyTooltip: "Получить короткую ссылку на приложение"
+				facebookTooltip: "Разместить в Facebook",
+				twitterTooltip: "Разместить в Twitter",
+				bitlyTooltip: "Получить краткую ссылку"
 			}
 		},
 		builder: {

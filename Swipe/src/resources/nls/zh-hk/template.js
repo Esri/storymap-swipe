@@ -37,7 +37,9 @@
 			desktopView: {
 				storymapsText: "故事地圖",
 				builderButton: "切換到建構器模式",
-				bitlyTooltip: "取得應用程式的短連結"
+				facebookTooltip: "在 Facebook 上分享",
+				twitterTooltip: "在 Twitter 上分享",
+				bitlyTooltip: "取得短連結"
 			}
 		},
 		builder: {
@@ -158,7 +160,7 @@
 				settingsDataModel2Explain: "滑動另一幅 web 地圖。",
 				settingsDataModel2SpyGlassExplain: "顯示另一幅 web 地圖。",
 				settingsDataModel2HelpTitle: "如何查詢 web 地圖 ID？",
-				settingsDataModel2HelpContent: "複製並貼上 web 地圖 URL 中\\“=\\”符號後面的數字",
+				settingsDataModel2HelpContent: "複製並貼上 web 地圖 URL 中\“=\”符號後面的數字",
 				switchMaps: "切換地圖",
 				browseWebMaps: "瀏覽 Web 地圖"
 			},
@@ -177,7 +179,7 @@
 				settingsSeriesHelpLink: "在此處查看具有 Swipe 系列的應用程式範例",
 				preview: "UI 預覽",
 				settingsLocateButtonExplain: "此功能在大多數行動裝置和桌面瀏覽器 (包括 Internet Explorer 9+) 中都受支援。",
-				settingsLocateButton: "在受支援的瀏覽器中啟用\\“定位\\”按鈕",
+				settingsLocateButton: "在受支援的瀏覽器中啟用\“定位\”按鈕",
 				settingsAddressSearch: "啟用地址搜尋工具"
 			},
 			settingsSwipePopup: {
@@ -218,7 +220,7 @@
 				firstSaveA1: "如果您不熟悉 ArcGIS Online，或需要存取創作介面的捷徑，可以儲存以下連結: %LINK1%",
 				firstSaveA1bis: "還可以在您的 <a href='%LINK2%' target='_blank'>ArcGIS Online 內容文件夾</a>中找到此應用程式。",
 				firstSaveQ2: "我的應用程式是否已分享?",
-				firstSaveA2: "您的應用程式目前沒有分享。要分享，請使用\\“分享\\”按鈕。",
+				firstSaveA2: "您的應用程式目前沒有分享。要分享，請使用\“分享\”按鈕。",
 				shareTitle: "分享您的應用程式",
 				sharePrivateHeader: "您的應用程式沒有共用，您是否希望分享?",
 				sharePrivateBtn1: "公開分享",

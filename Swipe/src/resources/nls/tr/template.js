@@ -37,7 +37,9 @@
 			desktopView: {
 				storymapsText: "Öykü haritası",
 				builderButton: "Derleyici moduna geç",
-				bitlyTooltip: "Uygulamaya bir kısa bağlantı alın"
+				facebookTooltip: "Facebook\\'ta Paylaş",
+				twitterTooltip: "Twitter\\'da Paylaş",
+				bitlyTooltip: "Kısa bağlantı edin"
 			}
 		},
 		builder: {
