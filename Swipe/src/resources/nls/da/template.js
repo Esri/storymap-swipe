@@ -2,11 +2,11 @@
 	 ({
 		viewer: {
 			loading: {
-				step1: "INDLÆSER APPLIKATION",
+				step1: "INDLÆSER HISTORIE",
 				step2: "INDLÆSER DATA",
 				step3: "STARTER",
 				fail: "Beklager, Swipe-indlæsning mislykkedes",
-				loadBuilder: "SKIFTER TIL BUILDER-TILSTAND",				
+				loadBuilder: "SKIFTER TIL BUILDER-TILSTAND",
 				redirectSignIn: "OMDIRIGERER TIL LOG IND-SIDE",
 				redirectSignIn2: "(du omdirigeres hertil efter login)",
 				failButton: "Prøv igen"
@@ -17,16 +17,19 @@
 				invalidConfig: "Uoprettelig fejl: Ugyldig konfiguration",
 				invalidConfigNoWebmap: "Uoprettelig fejl: Ugyldig konfiguration (intet webkort angivet)",
 				createMap: "Kan ikke oprette kort",
-				invalidApp: "Uoprettelig fejl: Applikationen kan ikke indlæses",
+				invalidApp: "Uoprettelig fejl: Historien kan ikke indlæses",
 				initMobile: "Velkommen til swipe-webapplikationen. Applikationen er ikke konfigureret. Det interaktive builder-program understøttes ikke på mobile enheder.",
+				initMobile2: "Swipe-builder-programmet understøttes ikke ved denne skærmstørrelse.",
 				noBuilderIE8: "Swipe-builderprogrammet understøttes ikke i Internet Explorer før version 9.",
 				noLayerView: "Velkommen til Swipe-webapplikationen.<br />Applikationen er endnu ikke konfigureret.",
-				appSave: "Fejl ved lagring af webapplikationen",
+				appSave: "Fejl ved lagring af webhistorie",
 				mapSave: "Fejl ved lagring af webkortet",
-				notAuthorized: "Du er ikke autoriseret til at få adgang til denne applikation",
+				notAuthorized: "Du er ikke autoriseret til at få adgang til denne historie",
 				conflictingProjectionsTitle: "Konfliktende projektioner",
 				conflictingProjections: "Swipe understøtter ikke brug af to webkort med forskellige projektioner. Åbn indstillinger, og brug et webkort, der anvender den samme projektion som det første webkort.",
-				cpButton: "Luk"
+				cpButton: "Luk",
+				unspecifiedConfigOwner: "Der er ikke konfigureret en uautoriseret ejer.",
+				invalidConfigOwner: "Historieejeren er ikke autoriseret."
 			},
 			mobileView: {
 				hideIntro: "SKJUL INTRO",
@@ -44,7 +47,7 @@
 		},
 		builder: {
 			builder: {
-				panelHeader: "APPLIKATIONSKONFIGURATION",
+				panelHeader: "HISTORIEKONFIGURATION",
 				buttonSave: "GEM",
 				buttonHelp: "Hjælp",
 				buttonShare: "Del",
@@ -64,13 +67,13 @@
 				popoverSaveWhenDone: "Glem ikke at gemme, når du er færdig",
 				closeWithPendingChange: "Er du sikker på, at du vil bekræfte denne handling? Dine ændringer vil gå tabt.",
 				gotIt: "OK",
-				savingApplication: "Gemmer applikation",
-				saveSuccess: "Applikation gemt med succes",
+				savingApplication: "Gemmer historie",
+				saveSuccess: "Historien blev gemt uden fejl",
 				saveError: "Lagring mislykkedes, prøv igen",
 				saveError2: "Lagring mislykkedes pga. en ugyldig html-kode i et navn eller beskrivelse",
 				saveError3: "Titlen kan ikke være tom",
 				signIn: "Log ind med en konto på",
-				signInTwo: "for at gemme applikationen."
+				signInTwo: "for at gemme historien"
 			},
 			header:{
 				editMe: "Redigér mig!",
@@ -78,7 +81,7 @@
 				templateSubtitle: "Indstil skabelonundertitel"
 			},
 			settings: {
-				settingsHeader: "Applikationsindstillinger",
+				settingsHeader: "Historieindstillinger",
 				modalCancel: "Annullér",
 				modalApply: "Anvend"
 			},
@@ -138,7 +141,7 @@
 				settingsLayoutSpyGlass: "Kikkert",
 				settingsLayoutSelected: "Vælg layout",
 				settingsLayoutSelect: "Vælg dette layout",
-				settingsSaveConfirm: "Nogle af dine ændringer kræver, at du gemmer og genindlæser applikationen"
+				settingsSaveConfirm: "Nogle af dine ændringer kræver, at du gemmer og genindlæser historien"
 			},
 			settingsDataModel: {
 				settingsTabDataModel: "Swipe-type",
@@ -166,7 +169,7 @@
 			},
 			settingsLegend: {
 				settingsTabLegend: "App-layout",
-				settingsLegendExplain: "Vælg indstillinger for applikationslayout.",
+				settingsLegendExplain: "Vælg layoutindstillinger.",
 				settingsLegendEnable: "Aktivér signaturforklaring",
 				settingsDescriptionEnable: "Aktivér beskrivelse",
 				settingsBookmarksEnable: "Aktivér Swipe-serie",
@@ -174,7 +177,7 @@
 				settingsLocationSearchEnable: "Aktivér lokatorsøgning",
 				settingsGeolocatorEnable: "Aktivér geolokator",
 				settingsLegendHelpContent: "Hvis du vil forfine signaturforklaringens indhold, kan du bruge indholdsfortegnelsen i ArcGIS.com-webkortviseren (Skjul i signaturforklaring)",
-				settingsSeriesHelpContent: "Når du trykker på swipe-serien, vil kortviseren navigere til en bestemt udstrækning og vise en titel og en beskrivelsestekst i sidepanelet. Ved første aktivering importeres dine webkortbogmærker, og de anvendes til at udfylde serielinjen på forhånd. Hvis du deaktiverer seriefunktionen, slås seriellinjen fra, men seriekonfigurationen bevares til fremtidig brug.", 
+				settingsSeriesHelpContent: "Når du trykker på swipe-serien, vil kortviseren navigere til en bestemt udstrækning og vise en titel og en beskrivelsestekst i sidepanelet. Ved første aktivering importeres dine webkortbogmærker, og de anvendes til at udfylde serielinjen på forhånd. Hvis du deaktiverer seriefunktionen, slås seriellinjen fra, men seriekonfigurationen bevares til fremtidig brug.",
 				settingsSeriesHelpContent2: "Med swipe-serien kan du oprette og redigere et udvalg af steder med ledsagende titler og tekst. Hvis dit webkort har bogmærker, bliver disse vist. Du kan deaktivere serien, men konfigurationen vil blive bevaret til fremtidig brug.",
 				settingsSeriesHelpLink: "Se et eksempel på en applikation med swipe-serien her",
 				preview: "UI-forhåndsvisning",
@@ -215,39 +218,39 @@
 				}
 			},
 			share: {
-				firstSaveTitle: "Applikationen er gemt",
-				firstSaveHeader: "Din applikation er nu gemt i ArcGIS Online. Læs svarene på ofte stillede spørgsmål i det følgende.",
+				firstSaveTitle: "Historien blev gemt uden fejl",
+				firstSaveHeader: "Din historie er nu blevet gemt i ArcGIS Online. Læs venligst følgende svar på ofte stillede spørgsmål.",
 				firstSaveA1: "Hvis du ikke er fortrolig med ArcGIS Online, eller hvis du ønsker en genvej for at få adgang til forfattergrænsefladen, kan du gemme dette link: %LINK1%",
-				firstSaveA1bis: "Applikationen findes også i din mappe med indhold i <a href='%LINK2%' target='_blank'>ArcGIS Online</a>.",
-				firstSaveQ2: "Deles min applikation?",
-				firstSaveA2: "Din applikation er ikke delt i øjeblikket. Brug knappen DEL for at dele den.",
-				shareTitle: "Del din applikation",
-				sharePrivateHeader: "Din applikation er ikke delt. Skal den deles?",
+				firstSaveA1bis: "Historien kan også findes i din <a href=\'%LINK2%\' target=\'_blank\'>ArcGIS Online-indholdsmappe</a>.",
+				firstSaveQ2: "Er min historie blevet delt?",
+				firstSaveA2: "På nuværende tidspunkt er din historien ikke blevet delt. Brug DEL-knappen for at dele den.",
+				shareTitle: "Del din historie",
+				sharePrivateHeader: "Din historie er ikke blevet delt, vil du dele den?",
 				sharePrivateBtn1: "Del offentligt",
 				sharePrivateBtn2: "Del med min organisation",
 				sharePrivateProgress: "Deling i gang...",
 				sharePrivateErr: "Deling mislykkedes, prøv igen eller",
 				sharePrivateOk: "Deling blev opdateret med succes, indlæser...",
-				shareStatus1: "Applikationen er ikke gemt",
-				shareStatus2: "Applikationen er delt offentligt",
-				shareStatus3: "Applikationen er delt inden for organisationen",
-				shareStatus4: "Applikationen er ikke delt",
+				shareStatus1: "Historien er ikke blevet gemt",
+				shareStatus2: "Historien er blevet delt offentligt",
+				shareStatus3: "Historien deles inden for din organisation",
+				shareStatus4: "Historien deles ikke",
 				sharePreviewAsUser: "Forhåndsvisning",
-				shareHeader1: "Din applikation er <strong>offentligt tilgængelig</strong>.",
-				shareHeader2: "Medlemmer af din organisation har adgang til din applikation (login er påkrævet).",
-				shareLinkHeader: "Del applikationen med dit publikum",
+				shareHeader1: "Din historie er <strong>offentligt tilgængelig</strong>.",
+				shareHeader2: "Din historie er tilgængelig for dine organisationsmedlemmer (der kræves login).",
+				shareLinkHeader: "Del historien med dit publikum",
 				shareLinkOpen: "ÅBN",
 				learnMore: "Find ud af mere",
-				shareQ1Opt1: "Hvordan bevarer jeg applikationen, så den er privat?",
-				shareQ1Opt2: "Hvordan bevarer jeg applikationen privat, så den er privat, eller deler den offentligt?",
+				shareQ1Opt1: "Hvordan kan jeg holde min historie privat?",
+				shareQ1Opt2: "Hvordan kan jeg holde historien privat eller dele den offentligt?",
 				shareA1: "Brug %SHAREIMG% on <a href='%LINK1%' target='_blank'>siden med applikationselementet</a>. Brug <a href='%LINK2%' target='_blank'>siden med webkortelementer</a>, hvis webkortet heller ikke skal deles.",
 				shareA1bis: "Hvis du også vil ophæve deling af featuretjenesten, skal du bruge <a href='%LINK1%' target='_blank'>featuretjenestens elementoplysningsside</a>.",
-				shareQ2: "Hvordan redigerer jeg applikationen senere?",
+				shareQ2: "Hvordan kan jeg redigere historien senere?",
 				shareQ2bis: "Hvordan kommer jeg tilbage til redigeringsgrænsefladen?",
-				shareA2div1: "Gem og genbrug følgende link %LINK1%, eller brug <a href='%LINK2%' target='_blank'>applikationens elementoplysningsside</a>.",
-				shareA2div2: "Når du som ejer af applikationen er logget ind på ArcGIS.com, indeholder applikationen en knap, der åbner det interaktive builder-program:",				
+				shareA2div1: "Gem og genbrug følgende link %LINK1%, eller brug <a href=\'%LINK2%\' target=\'_blank\'>historiens elementside</a>.",
+				shareA2div2: "Når du som ejer af historien er logget ind på ArcGIS.com, indeholder historien en knap, der åbner det interaktive builder-program:",
 				shareQ3: "Hvor er dataene gemt?",
-				shareA3: "Applikationens konfiguration gemmes i dette element med webapplikationer</a>.",
+				shareA3: "Historiens konfiguration gemmes i dette webapplikationselement</a>.",
 				shareWarning: "Deling %WITH% er blevet deaktiveret, fordi du ikke er ejer af <a href='%LINK%' target='_blank'>webkortet</a>.",
  				shareWarningWith1: "offentligt",
  				shareWarningWith2: "offentligt og med organiaationen"
@@ -279,4 +282,3 @@
 		}
     })
 );
-

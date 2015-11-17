@@ -83,7 +83,16 @@ define(["dojo/cookie",
 				if( configOptions && configOptions.appid )
 					return configOptions.appid;
 				
-				return urlParams.appid;
+				if ( this.isArcGISHosted() || ! isProd )
+					return urlParams.appid;
+				
+				// Only authorize URL params outside of arcgis.com if a webmap/app owner is specified
+				if( configOptions.authorizedOwners && configOptions.authorizedOwners.length > 0 && configOptions.authorizedOwners[0] )
+					return urlParams.appid;
+			},
+			isArcGISHosted: function()
+			{
+				return (/(\/apps\/|\/home\/)(StorytellingSwipe\/)/).test(document.location.pathname);
 			},
 			getBlankAppJSON: function()
 			{

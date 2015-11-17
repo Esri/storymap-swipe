@@ -2,11 +2,11 @@
 	 ({
 		viewer: {
 			loading: {
-				step1: "LÄSER IN PROGRAM",
+				step1: "LÄSER IN BERÄTTELSE",
 				step2: "LÄSER IN DATA",
 				step3: "INITIERAR",
 				fail: "Det gick inte att hämta svep",
-				loadBuilder: "VÄXLAR TILL BYGGLÄGET",				
+				loadBuilder: "VÄXLAR TILL BYGGLÄGET",
 				redirectSignIn: "OMDIRIGERAR TILL INLOGGNINGSSIDAN",
 				redirectSignIn2: "(du omdirigeras hit efter inloggning)",
 				failButton: "Försök igen"
@@ -17,16 +17,19 @@
 				invalidConfig: "Allvarligt fel: ogiltig konfiguration",
 				invalidConfigNoWebmap: "Allvarligt fel: ogiltig konfiguration (ingen webbkarta angiven)",
 				createMap: "Det gick inte att skapa kartan",
-				invalidApp: "Allvarligt fel: programmet kunde inte läsas in",
+				invalidApp: "Allvarligt fel: berättelsen kunde inte läsas in",
 				initMobile: "Välkommen till Svep-webbapplikationen. Applikationen är inte konfigurerad. Det interaktiva byggverktyget fungerar inte på mobila enheter.",
+				initMobile2: "Svepbyggverktyget går inte att använda med den här skärmstorleken.",
 				noBuilderIE8: "Det interaktiva Svep-byggverktyget fungerar inte med tidigare versioner av Internet Explorer än version 9.",
 				noLayerView: "Välkommen till Svep-webbapplikationen.<br />Applikationen är ännu inte konfigurerad.",
-				appSave: "Det uppstod ett fel när webbprogrammet skulle sparas",
+				appSave: "Det uppstod ett fel när webberättelsen skulle sparas",
 				mapSave: "Det uppstod ett fel när webbkartan skulle sparas",
-				notAuthorized: "Du är inte behörig att konfigurera det här programmet",
+				notAuthorized: "Du är inte behörig att öppna den här berättelsen",
 				conflictingProjectionsTitle: "Projektionerna är i konflikt",
 				conflictingProjections: "Svep går inte att använda med två webbkartor som har olika projektioner. Öppna inställningarna och använd en webbkarta med samma projektion som den första webbkartan.",
-				cpButton: "Stäng"
+				cpButton: "Stäng",
+				unspecifiedConfigOwner: "Ingen auktoriserad ägare har konfigurerats.",
+				invalidConfigOwner: "Berättelsens ägare är inte auktoriserad."
 			},
 			mobileView: {
 				hideIntro: "DÖLJ INTRODUKTION",
@@ -44,7 +47,7 @@
 		},
 		builder: {
 			builder: {
-				panelHeader: "PROGRAMKONFIGURATION",
+				panelHeader: "BERÄTTELSEKONFIGURATION",
 				buttonSave: "SPARA",
 				buttonHelp: "Hjälp",
 				buttonShare: "Dela",
@@ -64,13 +67,13 @@
 				popoverSaveWhenDone: "Glöm inte att spara när du är klar",
 				closeWithPendingChange: "Vill du bekräfta åtgärden? Du kommer att förlora dina ändringar.",
 				gotIt: "OK",
-				savingApplication: "Sparar programmet",
-				saveSuccess: "Programmet har sparats",
+				savingApplication: "Sparar berättelsen",
+				saveSuccess: "Berättelsen har sparats",
 				saveError: "Det gick inte att spara, försök igen",
 				saveError2: "Det gick inte att spara på grund av en ogiltig html-tagg i ett namn eller en beskrivning",
 				saveError3: "Titeln får inte vara tom",
 				signIn: "Logga in med ett konto på",
-				signInTwo: "och spara programmet."
+				signInTwo: "och spara berättelsen."
 			},
 			header:{
 				editMe: "Redigera mig!",
@@ -78,7 +81,7 @@
 				templateSubtitle: "Ange underrubrik för mallen"
 			},
 			settings: {
-				settingsHeader: "Programinställningar",
+				settingsHeader: "Inställningar för berättelsen",
 				modalCancel: "Avbryt",
 				modalApply: "Använd"
 			},
@@ -138,7 +141,7 @@
 				settingsLayoutSpyGlass: "Kikare",
 				settingsLayoutSelected: "Markerad layout",
 				settingsLayoutSelect: "Markera denna layout",
-				settingsSaveConfirm: "En del av ändringarna kräver att du sparar och hämtar applikationen igen"
+				settingsSaveConfirm: "En del av ändringarna kräver att du sparar och läser in berättelsen igen"
 			},
 			settingsDataModel: {
 				settingsTabDataModel: "Sveptyp",
@@ -166,7 +169,7 @@
 			},
 			settingsLegend: {
 				settingsTabLegend: "Applikationslayout",
-				settingsLegendExplain: "Välj inställningar för applikationens layout.",
+				settingsLegendExplain: "Välj layoutinställningarna.",
 				settingsLegendEnable: "Aktivera teckenförklaring",
 				settingsDescriptionEnable: "Aktivera beskrivning",
 				settingsBookmarksEnable: "Aktivera svepserie",
@@ -174,7 +177,7 @@
 				settingsLocationSearchEnable: "Aktivera sökning med lokaliserare",
 				settingsGeolocatorEnable: "Aktivera geolokalisering",
 				settingsLegendHelpContent: "Om du vill förfina innehållsförteckningen använder du innehållsförteckningen i webbkartvyn på ArcGIS.com (Dölj i teckenförklaringen)",
-				settingsSeriesHelpContent: "En svepserie är ett tabbat navigeringsalternativ som hjälper användaren till en viss utbredning och visar en titel och beskrivande text i sidopanelen. Vid den första aktiveringen importeras webbkartans bokmärken och används för att fylla i seriefältet. Om du inaktiverar alternativet stängs seriefältet, men seriekonfigurationen finns kvar för framtida användning.", 
+				settingsSeriesHelpContent: "En svepserie är ett tabbat navigeringsalternativ som hjälper användaren till en viss utbredning och visar en titel och beskrivande text i sidopanelen. Vid den första aktiveringen importeras webbkartans bokmärken och används för att fylla i seriefältet. Om du inaktiverar alternativet stängs seriefältet, men seriekonfigurationen finns kvar för framtida användning.",
 				settingsSeriesHelpContent2: "Med hjälp av en svepserie kan du skapa och redigera ett urval platser med tillhörande rubriker och text. Om det finns bokmärken i webbkartan visas dessa. Du kan inaktivera serien, men konfigurationen finns ändå kvar och kan användas senare.",
 				settingsSeriesHelpLink: "Här finns ett exempel på en applikation med en svepserie",
 				preview: "Förhandsgranska användargränssnitt",
@@ -215,39 +218,39 @@
 				}
 			},
 			share: {
-				firstSaveTitle: "Applikationen har sparats",
-				firstSaveHeader: "Din applikation har nu sparats i ArcGIS Online. Läs följande svar på vanliga frågor.",
+				firstSaveTitle: "Berättelsen har sparats",
+				firstSaveHeader: "Din berättelse har sparats i ArcGIS Online. Läs följande svar på vanliga frågor.",
 				firstSaveA1: "Om du inte är bekant med ArcGIS Online eller vill ha en genväg till skapargränssnittet kan du spara följande länk: %LINK1%",
-				firstSaveA1bis: "Applikationen finns även i <a href='%LINK2%' target='_blank'>innehållsmappen för ArcGIS Online</a>.",
-				firstSaveQ2: "Är min applikation delad?",
-				firstSaveA2: "Applikationen delas inte för tillfället. Tryck på knappen DELA om du vill dela den.",
-				shareTitle: "Dela din applikation",
-				sharePrivateHeader: "Din applikation är inte delad, vill du dela den?",
+				firstSaveA1bis: "Berättelsen finns också i din <a href=\'%LINK2%\' target=\'_blank\'>innehållsmapp i ArcGIS Online</a>.",
+				firstSaveQ2: "Delas min berättelse?",
+				firstSaveA2: "För tillfället delas inte din berättelse. Du kan dela den med knappen DELA.",
+				shareTitle: "Dela din berättelse",
+				sharePrivateHeader: "Din berättelse delas inte. Vill du dela den?",
 				sharePrivateBtn1: "Dela offentligt",
 				sharePrivateBtn2: "Dela med min organisation",
 				sharePrivateProgress: "Delning pågår ...",
 				sharePrivateErr: "Det gick inte att dela. Försök igen eller",
 				sharePrivateOk: "Delningen har uppdaterats, laddar ...",
-				shareStatus1: "Applikationen har inte sparats",
-				shareStatus2: "Applikationen delas offentligt",
-				shareStatus3: "Applikationen delas inom organisationen",
-				shareStatus4: "Applikationen delas inte",
+				shareStatus1: "Berättelsen har inte sparats",
+				shareStatus2: "Berättelsen delas offentligt",
+				shareStatus3: "Berättelsen delas inom organisationen",
+				shareStatus4: "Berättelsen delas inte",
 				sharePreviewAsUser: "Förhandsgranska",
-				shareHeader1: "Applikationen är <strong>åtkomlig för alla</strong>.",
-				shareHeader2: "Applikationen är åtkomlig för organisationens medlemmar (inloggning krävs).",
-				shareLinkHeader: "Dela applikationen med din målgrupp",
+				shareHeader1: "Din berättelse är <strong>offentligt tillgänglig</strong>.",
+				shareHeader2: "Berättelsen är tillgänglig för organisationens medlemmar (inloggning krävs).",
+				shareLinkHeader: "Dela berättelsen med din publik",
 				shareLinkOpen: "ÖPPNA",
 				learnMore: "Läs mer",
-				shareQ1Opt1: "Hur gör jag för att hålla applikationen privat?",
-				shareQ1Opt2: "Hur gör jag för att hålla applikationen privat eller dela den offentligt?",
+				shareQ1Opt1: "Hur kan berättelsen förbli privat?",
+				shareQ1Opt2: "Hur kan berättelsen förbli privat och hur delar jag den offentligt?",
 				shareA1: "Använd %SHAREIMG% på <a href='%LINK1%' target='_blank'>applikationens objektsida</a>. Om du även vill sluta dela webbkartan använder du <a href='%LINK2%' target='_blank'>webbkartans objektsida</a>.",
 				shareA1bis: "Du kan också inaktivera delning av geoobjekttjänsten på <a href='%LINK1%' target='_blank'>geoobjekttjänstens objektsida</a>.",
-				shareQ2: "Hur gör jag för att redigera applikationen senare?",
+				shareQ2: "Hur redigerar jag berättelsen senare?",
 				shareQ2bis: "Hur kommer jag tillbaka till redigeringsgränssnittet?",
-				shareA2div1: "Spara följande länk och använd den senare: %LINK1%, eller gå via <a href='%LINK2%' target='_blank'>applikationens objektsida</a>.",
-				shareA2div2: "Som ägare till applikationen kan du se en knapp som öppnar det interaktiva byggverktyget när du är inloggad på ArcGIS.com:",				
+				shareA2div1: "Spara länken %LINK1% och återanvänd den, eller använd <a href=\'%LINK2%\' target=\'_blank\'>berättelsens objektsida</a>.",
+				shareA2div2: "Som ägare till berättelsen kan du se en knapp i berättelsen som öppnar det interaktiva byggverktyget när du är inloggad på ArcGIS.com:",
 				shareQ3: "Var lagras data?",
-				shareA3: "Applikationens konfiguration sparas i det här webbapplikationsobjektet</a>.",
+				shareA3: "Berättelsens konfiguration sparas i det här webbapplikationsobjektet</a>.",
 				shareWarning: "Delning %WITH% har inaktiverats efter som du inte är ägare till <a href='%LINK%' target='_blank'>webbkartan</a>.",
  				shareWarningWith1: "offentligt",
  				shareWarningWith2: "offentligt och med organisationen"
@@ -279,4 +282,3 @@
 		}
     })
 );
-

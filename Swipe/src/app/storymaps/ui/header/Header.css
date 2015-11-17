@@ -28,7 +28,7 @@
 #headerDesktop .title {
 	height:26px;
 	padding-top: 18px;
-	font-family:Arial, Helvetica, sans-serif;
+	font-family: open_sanssemibold,sans-serif;
 	font-size:20px;
 	font-weight:bold;
 	text-align:left;
@@ -51,11 +51,12 @@
 	font-size: 13px;
 	margin-top: 13px;
 	overflow: hidden;
-	font-weight: normal;
+	font-weight: 400;
 	line-height: 18px;
     word-wrap: break-word;
 	height: 54px;
 	overflow-y: auto;
+	color: #C5D5D5;
 }
 
 .rightArea {
@@ -72,9 +73,9 @@
 }
 
 .social .msLink, .social .msLink a {
-	color:#fff ;
+	color: #C5D5D5;
 	font-family:Arial, Helvetica, sans-serif;
-	font-weight:bold;
+	font-weight:400;
 	font-size:13px;
 }
 
@@ -86,7 +87,7 @@
 }
 
 /* Firefox don't like this - vertical align on top instead */
-@-moz-document url-prefix() { 
+@-moz-document url-prefix() {
 	.rightArea .logo a {
 		position:relative;
 		display: inline-block;
@@ -110,8 +111,8 @@
 
 .switchBuilder {
 	display: none;
-	position:absolute; 
-	right: 180px; 
+	position:absolute;
+	right: 180px;
 	top: 30px;
 	width: 145px;
 	padding-left: 35px;
@@ -159,28 +160,28 @@
   font-style: normal;
   font-weight: normal;
   speak: none;
- 
+
   display: inline-block;
   text-decoration: inherit;
   width: 1em;
   margin-right: .2em;
   text-align: center;
   /* opacity: .8; */
- 
+
   /* For safety - reset parent styles, that can break glyph codes*/
   font-variant: normal;
   text-transform: none;
-     
+
   /* fix buttons height, for twitter bootstrap */
   line-height: 1em;
- 
+
   /* Animation center compensation - margins should be symmetric */
   /* remove if not needed */
   margin-left: .2em;
- 
+
   /* you can be more comfortable with increased icons size */
   /* font-size: 120%; */
- 
+
   /* Uncomment for 3D effect */
   /* text-shadow: 1px 1px 1px rgba(127, 127, 127, 0.3); */
 }
@@ -225,7 +226,7 @@
 }
 
 /* Reduce the width of the field to be sure that icon will stay visible */
-#headerDesktop .text_edit_label { 
+#headerDesktop .text_edit_label {
 	max-width: 94%;
 	overflow: hidden;
 }

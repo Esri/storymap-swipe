@@ -2,11 +2,11 @@
 	 ({
 		viewer: {
 			loading: {
-				step1: "ANWENDUNG WIRD GELADEN",
+				step1: "STORY WIRD GELADEN",
 				step2: "DATEN WERDEN GELADEN",
 				step3: "WIRD INITIALISIERT",
 				fail: "\"Ausblenden\" konnte leider nicht geladen werden",
-				loadBuilder: "ES WIRD ZUM BUILDER-MODUS GEWECHSELT",				
+				loadBuilder: "ES WIRD ZUM BUILDER-MODUS GEWECHSELT",
 				redirectSignIn: "UMLEITUNG ZUR ANMELDESEITE",
 				redirectSignIn2: "(Sie werden nach der Anmeldung hierher umgeleitet)",
 				failButton: "Wiederholen"
@@ -17,16 +17,19 @@
 				invalidConfig: "Schwerwiegender Fehler: Ungültige Konfiguration",
 				invalidConfigNoWebmap: "Schwerwiegender Fehler: Ungültige Konfiguration (keine Webkarte angegeben)",
 				createMap: "Karte konnte nicht erstellt werden",
-				invalidApp: "Schwerwiegender Fahler: Die Anwendung kann nicht geladen werden",
+				invalidApp: "Schwerwiegender Fahler: Die Story kann nicht geladen werden",
 				initMobile: "Willkommen bei der Webanwendung \"Ausblenden\". Die Anwendung ist nicht konfiguriert. Der interaktive Generator wird auf mobilen Geräten nicht unterstützt.",
+				initMobile2: "Der Builder für \"Ausblenden\" wird bei dieser Anzeigegröße nicht unterstützt.",
 				noBuilderIE8: "Der interaktive Generator \"Ausblenden\" wird in Internet Explorer vor Version 9 nicht unterstützt.",
 				noLayerView: "Willkommen bei der Webanwendung \"Ausblenden\".<br />Die Anwendung ist noch nicht konfiguriert.",
-				appSave: "Fehler beim Speichern der Webanwendung",
+				appSave: "Fehler beim Speichern der Webstory",
 				mapSave: "Fehler beim Speichern der Webkarte",
-				notAuthorized: "Sie sind nicht autorisiert, auf diese Anwendung zuzugreifen",
+				notAuthorized: "Sie sind nicht autorisiert, auf diese Story zuzugreifen.",
 				conflictingProjectionsTitle: "In Konflikt stehende Projektionen",
 				conflictingProjections: "Für zwei Webkarten mit unterschiedlichen Projektionen kann \"Ausblenden\ nicht verwendet werden. Bitte gehen Sie zu den Einstellungen und wählen Sie eine Webkarte, die die gleiche Projektion wie die erste Webkarte aufweist.",
-				cpButton: "Schließen"
+				cpButton: "Schließen",
+				unspecifiedConfigOwner: "Autorisierter Besitzer wurde nicht konfiguriert.",
+				invalidConfigOwner: "Besitzer der Story ist nicht autorisiert."
 			},
 			mobileView: {
 				hideIntro: "INTRO AUSBLENDEN",
@@ -44,7 +47,7 @@
 		},
 		builder: {
 			builder: {
-				panelHeader: "ANWENDUNGSKONFIGURATION",
+				panelHeader: "STORY-KONFIGURATION",
 				buttonSave: "SPEICHERN",
 				buttonHelp: "Hilfe",
 				buttonShare: "Freigeben",
@@ -64,13 +67,13 @@
 				popoverSaveWhenDone: "Vergessen Sie nicht zu speichern, wenn Sie fertig sind",
 				closeWithPendingChange: "Möchten Sie die Aktion wirklich bestätigen? Ihre Änderungen gehen dabei verloren.",
 				gotIt: "OK",
-				savingApplication: "Anwendung wird gespeichert",
-				saveSuccess: "Anwendung wurde erfolgreich gespeichert",
+				savingApplication: "Story wird gespeichert",
+				saveSuccess: "Story wurde erfolgreich gespeichert",
 				saveError: "Speichern fehlgeschlagen, versuchen Sie es erneut",
 				saveError2: "Fehler beim Speichern aufgrund eines ungültigen HTML-Tags in einem Namen oder einer Beschreibung",
 				saveError3: "Der Titel darf nicht leer sein",
 				signIn: "Melden Sie sich mit einem Konto an,",
-				signInTwo: "um die Anwendung zu speichern."
+				signInTwo: ", um die Story zu speichern."
 			},
 			header:{
 				editMe: "Bearbeiten!",
@@ -78,14 +81,14 @@
 				templateSubtitle: "Untertitel der Vorlage festlegen"
 			},
 			settings: {
-				settingsHeader: "Anwendungseinstellungen",
+				settingsHeader: "Story-Einstellungen",
 				modalCancel: "Abbrechen",
 				modalApply: "Übernehmen"
 			},
 			settingsColors: {
 				settingsTabColor: "Design",
 				settingsColorExplain: "App-Design auswählen oder eigene Farben definieren.",
-				settingsLabelColor: "Hintergrundfarben von Kopfzeile und seitlichem Fenster"
+				settingsLabelColor: "Hintergrundfarben von Kopfzeile und seitlichem Bereich"
 			},
 			settingsHeader: {
 				settingsTabLogo: "Kopfzeile",
@@ -123,7 +126,7 @@
 				noLegend: "Keine Legende vorhanden."
 			},
 			swipeSidePanel: {
-				editTooltip: "Beschreibung des Seitenfensters festlegen",
+				editTooltip: "Beschreibung des Seitenbereichs festlegen",
 				editMe: "Bearbeiten!",
 				legendTitle: "Legende"
 			},
@@ -138,7 +141,7 @@
 				settingsLayoutSpyGlass: "Fernglas",
 				settingsLayoutSelected: "Ausgewähltes Layout",
 				settingsLayoutSelect: "Dieses Layout auswählen",
-				settingsSaveConfirm: "Für einige Änderungen muss die Anwendung gespeichert und neu geladen werden"
+				settingsSaveConfirm: "Für einige Änderungen muss die Story gespeichert und neu geladen werden"
 			},
 			settingsDataModel: {
 				settingsTabDataModel: "Ausblendungstyp",
@@ -166,7 +169,7 @@
 			},
 			settingsLegend: {
 				settingsTabLegend: "App-Layout",
-				settingsLegendExplain: "Layouteinstellungen der Anwendung auswählen.",
+				settingsLegendExplain: "Wählen Sie die Layouteinstellungen aus.",
 				settingsLegendEnable: "Legende aktivieren",
 				settingsDescriptionEnable: "Beschreibung aktivieren",
 				settingsBookmarksEnable: "Ausblendereihe aktivieren",
@@ -174,7 +177,7 @@
 				settingsLocationSearchEnable: "Locator-Suche aktivieren",
 				settingsGeolocatorEnable: "Geolocator aktivieren",
 				settingsLegendHelpContent: "Verwenden Sie das Inhaltsverzeichnis des ArcGIS.com-Webkarten-Viewers, um den Legendeninhalt zu optimieren (In Legende ausblenden)",
-				settingsSeriesHelpContent: "\"Ausblendereihe\" ist die Navigationsoption einer Registerkarte, die den Viewer zu einer bestimmten Ausdehnung führt und einen Titel und einen Beschreibungstext im Seitenfenster anzeigt. Bei der ersten Aktivierung werden Ihre Webkarten-Lesezeichen verwendet, um die Leiste der Reihe vorab auszufüllen. Durch Deaktivieren der Reihen-Option wird die Leiste der Reihen deaktiviert, die Konfiguration der Reihe wird jedoch zur zukünftigen Verwendung beibehalten.", 
+				settingsSeriesHelpContent: "\"Ausblendereihe\" ist die Navigationsoption einer Registerkarte, die den Viewer zu einer bestimmten Ausdehnung führt und einen Titel und einen Beschreibungstext im Seitenbereich anzeigt. Bei der ersten Aktivierung werden Ihre Webkarten-Lesezeichen verwendet, um die Leiste der Reihe vorab auszufüllen. Durch Deaktivieren der Reihen-Option wird die Leiste der Reihen deaktiviert, die Konfiguration der Reihe wird jedoch zur zukünftigen Verwendung beibehalten.",
 				settingsSeriesHelpContent2: "Mit Ausblendereihen können Sie eine Auswahl von Positionen mit zugehörigen Titeln und Texten erstellen und bearbeiten.  Wenn Ihre Webkarte über Lesezeichen verfügt, werden diese angezeigt.  Sie können die Reihen deaktivieren, die Konfiguration wird jedoch zur zukünftigen Verwendung beibehalten.",
 				settingsSeriesHelpLink: "Nachfolgend finden Sie ein Beispiel für eine Anwendung mit einer Ausblendereihe",
 				preview: "Benutzeroberflächen-Vorschau",
@@ -215,39 +218,39 @@
 				}
 			},
 			share: {
-				firstSaveTitle: "Anwendung wurde erfolgreich gespeichert",
-				firstSaveHeader: "Ihre Anwendung ist jetzt in ArcGIS Online gespeichert. Lesen Sie die folgenden Antworten auf häufig gestellte Fragen.",
+				firstSaveTitle: "Story wurde erfolgreich gespeichert",
+				firstSaveHeader: "Ihre Story ist jetzt in ArcGIS Online gespeichert. Lesen Sie die folgenden Antworten auf häufig gestellte Fragen.",
 				firstSaveA1: "Wenn Sie nicht mit ArcGIS Online vertraut sind oder eine Verknüpfung für den Zugriff auf die Autoren-Oberfläche wünschen, können Sie den folgenden Link speichern: %LINK1%",
-				firstSaveA1bis: "Die Anwendung befindet sich außerdem in Ihrem <a href='%LINK2%' target='_blank'>ArcGIS Online-Inhaltsordner</a>.",
-				firstSaveQ2: "Ist meine Anwendung freigegeben?",
-				firstSaveA2: "Ihre Anwendung ist zurzeit nicht freigegeben. Um sie freizugeben, verwenden Sie die FREIGABE-Schaltfläche.",
-				shareTitle: "Anwendung freigeben",
-				sharePrivateHeader: "Ihre Anwendung ist nicht freigegeben. Möchten Sie sie freigeben?",
+				firstSaveA1bis: "Die Story befindet sich außerdem in Ihrem <a href=\'%LINK2%\' target=\'_blank\'>ArcGIS Online Inhaltsordner</a>.",
+				firstSaveQ2: "Ist meine Story freigegeben?",
+				firstSaveA2: "Ihre Story ist zurzeit nicht freigegeben. Verwenden Sie die Schaltfläche FREIGEBEN, um sie freizugeben.",
+				shareTitle: "Story freigeben",
+				sharePrivateHeader: "Ihre Story ist nicht freigegeben. Möchten Sie sie freigeben?",
 				sharePrivateBtn1: "Öffentlich freigeben",
 				sharePrivateBtn2: "Für meine Organisation freigeben",
 				sharePrivateProgress: "Freigabe wird ausgeführt...",
 				sharePrivateErr: "Fehler bei der Freigabe. Versuchen Sie es erneut, oder",
 				sharePrivateOk: "Freigabe wurde erfolgreich aktualisiert. Wird geladen...",
-				shareStatus1: "Anwendung ist nicht gespeichert",
-				shareStatus2: "Anwendung ist öffentlich freigegeben",
-				shareStatus3: "Anwendung ist innerhalb der Organisation freigegeben",
-				shareStatus4: "Anwendung ist nicht freigegeben",
+				shareStatus1: "Story wurde nicht gespeichert",
+				shareStatus2: "Story wurde öffentlich freigegeben",
+				shareStatus3: "Die Story wurde in der Organisation freigegeben",
+				shareStatus4: "Story wurde nicht freigegeben",
 				sharePreviewAsUser: "Vorschau",
-				shareHeader1: "Ihre Anwendung ist <strong>öffentlich zugänglich</strong>.",
-				shareHeader2: "Ihre Anwendung ist für die Mitglieder Ihrer Organisation zugänglich (Anmeldung ist erforderlich).",
-				shareLinkHeader: "Freigeben der Anwendung für Ihre Zielgruppe",
+				shareHeader1: "Ihre Story ist <strong>öffentlich zugänglich</strong>.",
+				shareHeader2: "Ihre Story ist für die Mitglieder Ihrer Organisation zugänglich (Anmeldung ist erforderlich).",
+				shareLinkHeader: "Story für Ihre Zielgruppe freigeben",
 				shareLinkOpen: "ÖFFNEN",
 				learnMore: "Weitere Informationen",
-				shareQ1Opt1: "Wie bleibt die Anwendung privat?",
-				shareQ1Opt2: "Wie bleibt die Anwendung privat oder wie wird sie veröffentlicht?",
+				shareQ1Opt1: "Wie bleibt die Story privat?",
+				shareQ1Opt2: "Wie bleibt die Story privat oder wie wird sie veröffentlicht?",
 				shareA1: "Verwenden Sie %SHAREIMG% auf <a href='%LINK1%' target='_blank'>der Elementseite der Anwendung</a>. Wenn Sie die Freigabe der Webkarte ebenfalls aufheben möchten, verwenden Sie <a href='%LINK2%' target='_blank'>die Elementseite der Webkarte</a>.",
 				shareA1bis: "Wenn Sie die Freigabe des Feature-Service ebenfalls aufheben möchten, verwenden Sie <a href='%LINK1%' target='_blank'>die Elementseite des Feature-Service</a>.",
-				shareQ2: "Wie kann ich die Anwendung später bearbeiten?",
+				shareQ2: "Wie kann ich die Story später bearbeiten?",
 				shareQ2bis: "Wie kehre ich zur Autoren-Oberfläche zurück?",
-				shareA2div1: "Speichern Sie den folgenden Link %LINK1%, und verwenden Sie ihn erneut, oder verwenden Sie <a href='%LINK2%' target='_blank'>die Elementseite der Anwendung</a>.",
-				shareA2div2: "Wenn Sie bei ArcGIS.com als Besitzer der Anwendung angemeldet sind, enthält die Anwendung eine Schaltfläche zum Öffnen des interaktiven Builders:",				
+				shareA2div1: "Speichern Sie den Link %LINK1%, und verwenden Sie ihn erneut, oder verwenden Sie <a href=\'%LINK2%\' target=\'_blank\'>die Elementseite der Story</a>.",
+				shareA2div2: "Wenn Sie bei ArcGIS.com als Besitzer der Story angemeldet sind, enthält die Story eine Schaltfläche zum Öffnen des interaktiven Builders:",
 				shareQ3: "Wo werden die Daten gespeichert?",
-				shareA3: "Die Anwendungskonfiguration wird in diesem Webanwendungselement gespeichert</a>.",
+				shareA3: "Die Story-Konfiguration wird in diesem Webanwendungselement gespeichert</a>.",
 				shareWarning: "Die Freigabe von %WITH% wurde deaktiviert, da Sie nicht der Besitzer der <a href='%LINK%' target='_blank'>Webkarte</a> sind.",
  				shareWarningWith1: "öffentlich",
  				shareWarningWith2: "öffentlich und für die Organisation"
@@ -279,4 +282,3 @@
 		}
     })
 );
-

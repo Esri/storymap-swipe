@@ -2,11 +2,11 @@
 	 ({
 		viewer: {
 			loading: {
-				step1: "正在加载应用程序",
+				step1: "正在加载故事",
 				step2: "正在加载数据",
 				step3: "正在初始化",
 				fail: "抱歉，卷帘加载失败",
-				loadBuilder: "切换到构建器模式",				
+				loadBuilder: "切换到构建器模式",
 				redirectSignIn: "重定向到登录页面",
 				redirectSignIn2: "(登录后您将重定向到此处)",
 				failButton: "重试"
@@ -17,16 +17,19 @@
 				invalidConfig: "严重错误: 配置无效",
 				invalidConfigNoWebmap: "严重错误: 配置无效(未指定 web 地图)",
 				createMap: "无法创建地图",
-				invalidApp: "严重错误: 无法加载应用程序",
+				invalidApp: "严重错误: 无法加载故事",
 				initMobile: "欢迎使用卷帘 web 应用程序。未配置该应用程序。移动设备不支持交互式构建器。",
+				initMobile2: "此显示器大小不支持 Swipe 构建器。",
 				noBuilderIE8: "Internet Explorer 9 之前的版本不支持卷帘交互式构建器。",
 				noLayerView: "欢迎使用卷帘 web 应用程序。<br />尚未配置该应用程序。",
-				appSave: "保存 web 应用程序时出错",
+				appSave: "保存 Web 故事时出错",
 				mapSave: "保存 web 地图时出错",
-				notAuthorized: "您无权访问该应用程序",
+				notAuthorized: "您无权访问此故事",
 				conflictingProjectionsTitle: "投影冲突",
 				conflictingProjections: "卷帘不支持两个具有不同投影的 web 地图。请打开设置并使用与首个 web 地图具有相同投影的 web 地图。",
-				cpButton: "关闭"
+				cpButton: "关闭",
+				unspecifiedConfigOwner: "尚未配置授权的所有者。",
+				invalidConfigOwner: "未授权故事所有者。"
 			},
 			mobileView: {
 				hideIntro: "隐藏简介",
@@ -44,7 +47,7 @@
 		},
 		builder: {
 			builder: {
-				panelHeader: "应用程序配置",
+				panelHeader: "故事配置",
 				buttonSave: "保存",
 				buttonHelp: "帮助",
 				buttonShare: "共享",
@@ -64,13 +67,13 @@
 				popoverSaveWhenDone: "完成后请不要忘记保存",
 				closeWithPendingChange: "确定要执行此操作吗? 您的更改将丢失。",
 				gotIt: "确定",
-				savingApplication: "保存应用程序",
-				saveSuccess: "应用程序保存成功",
+				savingApplication: "保存故事",
+				saveSuccess: "已成功保存故事",
 				saveError: "保存失败，请重试",
 				saveError2: "由于名称或描述中存在无效 html 标签，因此保存失败",
 				saveError3: "标题不能为空",
 				signIn: "请使用帐户登录",
-				signInTwo: "保存应用程序。"
+				signInTwo: "要保存故事。"
 			},
 			header:{
 				editMe: "编辑!",
@@ -78,7 +81,7 @@
 				templateSubtitle: "设置模板子标题"
 			},
 			settings: {
-				settingsHeader: "应用程序设置",
+				settingsHeader: "故事设置",
 				modalCancel: "取消",
 				modalApply: "应用"
 			},
@@ -138,7 +141,7 @@
 				settingsLayoutSpyGlass: "望远镜",
 				settingsLayoutSelected: "选中的布局",
 				settingsLayoutSelect: "选择此布局",
-				settingsSaveConfirm: "其中一些更改需要您保存和重新加载应用程序"
+				settingsSaveConfirm: "其中一些更改需要您保存和重新加载故事"
 			},
 			settingsDataModel: {
 				settingsTabDataModel: "卷帘类型",
@@ -166,7 +169,7 @@
 			},
 			settingsLegend: {
 				settingsTabLegend: "应用程序布局",
-				settingsLegendExplain: "选择应用程序布局设置。",
+				settingsLegendExplain: "选择布局设置。",
 				settingsLegendEnable: "启用图例",
 				settingsDescriptionEnable: "启用描述",
 				settingsBookmarksEnable: "启用卷帘系列",
@@ -174,7 +177,7 @@
 				settingsLocationSearchEnable: "启用定位器搜索",
 				settingsGeolocatorEnable: "启用地理定位器",
 				settingsLegendHelpContent: "要优化图例内容，请使用 ArcGIS.com web 地图查看器内容列表(隐藏在图例中)",
-				settingsSeriesHelpContent: "卷帘系列是一种选项卡式的导航选项，它可将查看器设置为特定范围，并在侧面板中显示标题和描述文本。在首次激活时，将导入 web 地图的书签并将其用于预填充系列条形图。禁用系列选项将关闭系列条形图，但系列配置将被保留供以后使用。", 
+				settingsSeriesHelpContent: "卷帘系列是一种选项卡式的导航选项，它可将查看器设置为特定范围，并在侧面板中显示标题和描述文本。在首次激活时，将导入 web 地图的书签并将其用于预填充系列条形图。禁用系列选项将关闭系列条形图，但系列配置将被保留供以后使用。",
 				settingsSeriesHelpContent2: "通过卷帘系列可创建和编辑一系列具有随附标题和文本的位置。如果 web 地图具有书签，则会显示这些书签。您可以禁用卷帘系列，但配置将保留以供之后使用。",
 				settingsSeriesHelpLink: "在此处查看具有卷帘系列的应用程序示例",
 				preview: "UI 预览",
@@ -215,39 +218,39 @@
 				}
 			},
 			share: {
-				firstSaveTitle: "应用程序已成功保存",
-				firstSaveHeader: "您的应用程序现已保存到 ArcGIS Online 中。请阅读下面的常见问题解答。",
+				firstSaveTitle: "成功保存故事",
+				firstSaveHeader: "您的故事现已保存在 ArcGIS Online 中。请阅读以下常见问题的解答。",
 				firstSaveA1: "如果您不熟悉 ArcGIS Online，或需要访问创作界面的快捷方式，则可以保存以下链接: %LINK1%",
-				firstSaveA1bis: "还可以在您的 <a href='%LINK2%' target='_blank'>ArcGIS Online 内容文件夹</a>中找到此应用程序。",
-				firstSaveQ2: "我的应用程序是否已共享?",
-				firstSaveA2: "您的应用程序当前没有共享。要共享，请使用\“共享\”按钮。",
-				shareTitle: "共享您的应用程序",
-				sharePrivateHeader: "您的应用程序没有共享，是否希望将其共享?",
+				firstSaveA1bis: "也可在 <a href=\'%LINK2%\' target=\'_blank\'>ArcGIS Online 内容文件夹</a>内找到您的故事。",
+				firstSaveQ2: "我的故事是否已共享?",
+				firstSaveA2: "您的故事当前并未共享。要将其共享，请使用“共享”按钮。",
+				shareTitle: "共享您的故事",
+				sharePrivateHeader: "您的故事并未共享，您是否希望将其共享?",
 				sharePrivateBtn1: "公开共享",
 				sharePrivateBtn2: "与我的组织共享",
 				sharePrivateProgress: "正在进行共享...",
 				sharePrivateErr: "共享失败，请重试或",
 				sharePrivateOk: "共享更新成功，正在加载...",
-				shareStatus1: "应用程序未保存",
-				shareStatus2: "应用程序已公开共享",
-				shareStatus3: "应用程序已在组织中共享",
-				shareStatus4: "应用程序未共享",
+				shareStatus1: "未保存故事",
+				shareStatus2: "故事已公开共享",
+				shareStatus3: "故事已在组织内共享",
+				shareStatus4: "故事未共享",
 				sharePreviewAsUser: "预览",
-				shareHeader1: "您的应用程序可以<strong>公开访问</strong>。",
-				shareHeader2: "您的应用程序可供您的组织成员访问(需要登录)。",
-				shareLinkHeader: "将应用程序共享给受众",
+				shareHeader1: "您的故事<strong>可公开访问</strong>。",
+				shareHeader2: "您的故事可被您的组织成员访问(需要登录)。",
+				shareLinkHeader: "将故事共享给您的听众",
 				shareLinkOpen: "打开",
 				learnMore: "了解详细信息",
-				shareQ1Opt1: "如何将应用程序私有化?",
-				shareQ1Opt2: "如何将应用程序私有化或将其公开共享?",
+				shareQ1Opt1: "如何将故事设为私有?",
+				shareQ1Opt2: "如何将故事设为私有或公开共享?",
 				shareA1: "使用<a href='%LINK1%' target='_blank'>应用程序项目页面</a>中的 %SHAREIMG%。如果还希望取消共享 Web 地图，请使用 <a href='%LINK2%' target='_blank'>Web 地图项目页面</a>。",
 				shareA1bis: "如果还想要取消共享要素服务，请使用<a href='%LINK1%' target='_blank'>要素服务项目页面</a>。",
-				shareQ2: "如何在稍后对应用程序进行编辑?",
+				shareQ2: "如何在稍后编辑故事?",
 				shareQ2bis: "如何返回制作界面？",
-				shareA2div1: "保存并重新使用以下链接 %LINK1%，或使用<a href='%LINK2%' target='_blank'>应用程序项目页面</a>。",
-				shareA2div2: "作为应用程序所有者，当您登录到 ArcGIS.com 后，可使用应用程序中的按钮来打开交互式构建器:",				
+				shareA2div1: "保存并重复使用以下链接 %LINK1%，或使用<a href=\'%LINK2%\' target=\'_blank\'>故事项页面</a>。",
+				shareA2div2: "作为故事的所有者，当您登录到 ArcGIS.com 时，故事将包括一个可以打开交互式构建器的按钮：",
 				shareQ3: "数据存储在哪儿？",
-				shareA3: "应用程序配置存储在此 Web 应用程序项目中</a>。",
+				shareA3: "故事配置存储在这个 Web 应用程序项中</a>。",
 				shareWarning: "已禁止共享 %WITH%，因为您不是 <a href='%LINK%' target='_blank'>webmap</a> 的所有者。",
  				shareWarningWith1: "公开",
  				shareWarningWith2: "公开并在组织内共享"
@@ -279,4 +282,3 @@
 		}
     })
 );
-

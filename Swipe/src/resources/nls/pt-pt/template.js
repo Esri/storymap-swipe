@@ -2,11 +2,11 @@
 	 ({
 		viewer: {
 			loading: {
-				step1: "CARREGAR A APLICAÇÃO",
+				step1: "A CARREGAR A HISTÓRIA",
 				step2: "CARREGAR DADOS",
 				step3: "INICIALIZAR",
 				fail: "Não foi possível carregar o Varrimento",
-				loadBuilder: "A MUDAR PARA O MODO DE BUILDER",				
+				loadBuilder: "A MUDAR PARA O MODO DE BUILDER",
 				redirectSignIn: "A REDIRECIONAR PARA A PÁGINA DE INÍCIO DE SESSÃO",
 				redirectSignIn2: "(será redirecionado para aqui depois de iniciar sessão)",
 				failButton: "Tentar Novamente"
@@ -17,16 +17,19 @@
 				invalidConfig: "Erro fatal: configuração não válida",
 				invalidConfigNoWebmap: "Erro fatal: configuração não válida (não foi definido um mapa web)",
 				createMap: "Não foi possível criar o mapa",
-				invalidApp: "Erro fatal: não é possível carregar a aplicação",
+				invalidApp: "Erro fatal: A história não pode ser carregada",
 				initMobile: "Bem-vindo à aplicação web de Varrimento. A aplicação não está configurada. O builder interativo não é suportado em dispositivos móveis.",
+				initMobile2: "O builder Varrimento não é suportado com este tamanho de ecrã.",
 				noBuilderIE8: "O builder interativo de Varrimento não é suportado em versões do Internet Explorer anteriores à versão 9.",
 				noLayerView: "Bem-vindo à aplicação web de Varrimento.<br />A aplicação ainda não está configurada.",
-				appSave: "Erro ao guardar a aplicação web",
+				appSave: "Erro ao guardar a web story",
 				mapSave: "Erro ao guardar o mapa web",
-				notAuthorized: "Não tem autorização para configurar esta aplicação",
+				notAuthorized: "Não tem autorização para aceder a esta história",
 				conflictingProjectionsTitle: "Projeções em Conflito",
 				conflictingProjections: "A ferramenta de varrimento não suporta a utilização de dois mapas web com projeções diferentes. Abra as definições e utilize um mapa web que utilize uma projeção igual à do primeiro mapa web.",
-				cpButton: "Fechar"
+				cpButton: "Fechar",
+				unspecifiedConfigOwner: "O proprietário autorizado não foi configurado.",
+				invalidConfigOwner: "O proprietário da história não está autorizado."
 			},
 			mobileView: {
 				hideIntro: "OCULTAR INTRODUÇÃO",
@@ -44,7 +47,7 @@
 		},
 		builder: {
 			builder: {
-				panelHeader: "CONFIGURAÇÃO DA APLICAÇÃO",
+				panelHeader: "CONFIGURAÇÃO DA HISTÓRIA",
 				buttonSave: "GUARDAR",
 				buttonHelp: "Ajuda",
 				buttonShare: "Partilhar",
@@ -64,13 +67,13 @@
 				popoverSaveWhenDone: "Não se esqueça de guardar quando terminar",
 				closeWithPendingChange: "Tem a certeza de que pretende confirmar a ação? Perderá as alterações feitas.",
 				gotIt: "Ok",
-				savingApplication: "A guardar a aplicação",
-				saveSuccess: "Aplicação guardada com sucesso",
+				savingApplication: "A guardar história",
+				saveSuccess: "História guardada com sucesso",
 				saveError: "Falha ao guardar, tente novamente",
 				saveError2: "Não foi guardado, falhou devido a uma palavra chave HTML inválida no nome ou a descrição",
 				saveError3: "O título não pode ser vazio",
 				signIn: "Inicie sessão com uma conta em",
-				signInTwo: "para guardar a aplicação."
+				signInTwo: "para guardar a história."
 			},
 			header:{
 				editMe: "Edite-me!",
@@ -78,7 +81,7 @@
 				templateSubtitle: "Definir subtítulo do modelo"
 			},
 			settings: {
-				settingsHeader: "Definições da aplicação",
+				settingsHeader: "Definições da história",
 				modalCancel: "Cancelar",
 				modalApply: "Aplicar"
 			},
@@ -138,7 +141,7 @@
 				settingsLayoutSpyGlass: "Luneta",
 				settingsLayoutSelected: "Layout selecionado",
 				settingsLayoutSelect: "Selecionar este layout",
-				settingsSaveConfirm: "É necessário guardar e reiniciar a aplicação para aplicar algumas das alterações efetuadas"
+				settingsSaveConfirm: "É necessário guardar e reiniciar a história para aplicar algumas das alterações efetuadas"
 			},
 			settingsDataModel: {
 				settingsTabDataModel: "Tipo de Varrimento",
@@ -166,7 +169,7 @@
 			},
 			settingsLegend: {
 				settingsTabLegend: "Layout da Aplicação",
-				settingsLegendExplain: "Selecione as definições de layout da aplicação.",
+				settingsLegendExplain: "Selecione as definições de layout.",
 				settingsLegendEnable: "Ativar Legenda",
 				settingsDescriptionEnable: "Ativar Descrição",
 				settingsBookmarksEnable: "Ativar série de Varrimento",
@@ -174,7 +177,7 @@
 				settingsLocationSearchEnable: "Ativar pesquisa de localizadores",
 				settingsGeolocatorEnable: "Ativar geolocalizador",
 				settingsLegendHelpContent: "Utilize o índice do visualizador de mapas do ArcGIS.com (Ocultar em Legenda)",
-				settingsSeriesHelpContent: "As Séries de Varrimento são uma opção de navegação por separadores que permite guiar o visualizador para uma extensão em particular, e exibir um título e descrição no painel lateral. Durante a primeira ativação, os seus eventuais marcadores de mapas web serão utilizados para pré-preencher a barra de séries. Se desativar esta opção mais tarde, as configurações das suas séries não serão perdidas, reativar esta opção irá carregar o estado antes da desativação.", 
+				settingsSeriesHelpContent: "As Séries de Varrimento são uma opção de navegação por separadores que permite guiar o visualizador para uma extensão em particular, e exibir um título e descrição no painel lateral. Durante a primeira ativação, os seus eventuais marcadores de mapas web serão utilizados para pré-preencher a barra de séries. Se desativar esta opção mais tarde, as configurações das suas séries não serão perdidas, reativar esta opção irá carregar o estado antes da desativação.",
 				settingsSeriesHelpContent2: "A aplicação de varrimento permite-lhe criar e editar uma selecção de localizações que acompanham os títulos e texto. Se o seu mapa web possui marcadores, eles serão exibidos. Pode desativar esta opção, mas a configuração será preservada para futuras utilizações.",
 				settingsSeriesHelpLink: "Consulte aqui um exemplo de uma aplicação de varrimento",
 				preview: "Pré-visualizar IU",
@@ -215,39 +218,39 @@
 				}
 			},
 			share: {
-				firstSaveTitle: "Aplicação guardada com sucesso",
-				firstSaveHeader: "A sua aplicação está agora guardada em ArcGIS Online. Por favor, leia as seguintes respostas a perguntas frequentes.",
+				firstSaveTitle: "História guardada com sucesso",
+				firstSaveHeader: "A sua história está agora guardada no ArcGIS Online Por favor, leia as seguintes respostas a perguntas frequentes",
 				firstSaveA1: "Se não está familiarizado com o ArcGIS Online ou pretende um atalho para aceder ao interface de construção, pode guardar a seguinte ligação: %LINK1%",
-				firstSaveA1bis: "A aplicação pode ainda ser encontrada na sua <a href='%LINK2%' target='_blank'>Pasta de conteúdo ArcGIS Online</a>.",
-				firstSaveQ2: "A minha aplicação é partilhada?",
-				firstSaveA2: "De momento, a sua aplicação não é partilhada. Para a partilhar, utilize o botão PARTILHAR.",
-				shareTitle: "Partilhe a sua aplicação",
-				sharePrivateHeader: "A sua aplicação não é partilhada. Pretende partilhá-la?",
+				firstSaveA1bis: "A história pode também ser encontrada na sua <a href=\'%LINK2%\' target=\'_blank\'>pasta de conteúdo do ArcGIS Online</a>.",
+				firstSaveQ2: "A minha história está a ser partilhada?",
+				firstSaveA2: "Neste momento, a sua história não está a ser partilhada. Para a partilhar, utilize o botão PARTILHAR.",
+				shareTitle: "Partilhar a sua história",
+				sharePrivateHeader: "A sua história não está a ser partilhada, pretende partilhá-la?",
 				sharePrivateBtn1: "Partilhar publicamente",
 				sharePrivateBtn2: "Partilhar com a organização",
 				sharePrivateProgress: "Partilha em progresso...",
 				sharePrivateErr: "A partilha falhou, tente novamente ou",
 				sharePrivateOk: "A partilha foi atualizada com sucesso, a carregar...",
-				shareStatus1: "A aplicação não está guardada",
-				shareStatus2: "A aplicação é partilhada publicamente",
-				shareStatus3: "A aplicação é partilhada com a organização",
-				shareStatus4: "A aplicação não é partilhada",
+				shareStatus1: "A história não se encontra guardada",
+				shareStatus2: "A história está a ser partilhada publicamente",
+				shareStatus3: "A história encontra-se partilhada na organização",
+				shareStatus4: "A história não está a ser partilhada",
 				sharePreviewAsUser: "Pré-Visualizar",
-				shareHeader1: "A sua aplicação encontra-se <strong>acessível ao público</strong>.",
-				shareHeader2: "A sua aplicação está acessível aos membros da sua organização (é necessário início de sessão).",
-				shareLinkHeader: "Partilhe a aplicação com o seu público",
+				shareHeader1: "A sua história é <strong>acessível publicamente</strong>.",
+				shareHeader2: "A sua história encontra-se acessível aos membros da sua organização (início de sessão necessário).",
+				shareLinkHeader: "Partilhe a história com o seu público",
 				shareLinkOpen: "ABRIR",
 				learnMore: "Obtenha mais informações",
-				shareQ1Opt1: "Como posso manter a Aplicação privada?",
-				shareQ1Opt2: "Como posso manter a Aplicação privada ou partilhá-la publicamente?",
+				shareQ1Opt1: "Como posso manter a história privada?",
+				shareQ1Opt2: "Como posso manter a história privada ou partilhá-la publicamente?",
 				shareA1: "Utilize %SHAREIMG% na <a href='%LINK1%' target='_blank'>página da aplicação do item</a>. Se também quiser deixar de partilhar o mapa web, recorra à <a href='%LINK2%' target='_blank'>página do item de mapa web</a>.",
 				shareA1bis: "Se pretende parar de partilhar o serviço de elementos, utilize <a href='%LINK1%' target='_blank'>a página de detalhes do serviço de elementos</a>.",
-				shareQ2: "Como posso editar a Aplicação mais tarde?",
+				shareQ2: "Como posso editar a história mais tarde?",
 				shareQ2bis: "Como volto mais tarde ao interface de construção?",
-				shareA2div1: "Guarde e reutilize a seguinte ligação %LINK1% ou utilize <a href='%LINK2%' target='_blank'>a página de detalhes do item</a>.",
-				shareA2div2: "Como proprietário da aplicação, quando inicia sessão no ArcGIS.com, a aplicação incluí um botão para abrir o construtor interativo:",				
+				shareA2div1: "Guarde e reutilize a seguinte ligação %LINK1% ou utilize <a href=\'%LINK2%\' target=\'_blank\'>a página do item da história</a>.",
+				shareA2div2: "Como proprietário da história, quando inicia sessão no ArcGIS.com, a história inclui um botão para abrir o builder interativo:",
 				shareQ3: "Onde estão guardados os dados?",
-				shareA3: "A configuração da aplicação encontra-se armazenada neste item de aplicação web</a>.",
+				shareA3: "A configuração da história é armazenada neste item de aplicação web</a>.",
 				shareWarning: "A partilha de %WITH% foi desativado porque não é o proprietário do <a href='%LINK%' target='_blank'>mapa web</a>.",
  				shareWarningWith1: "publicamente",
  				shareWarningWith2: "publicamente e com a Organização"
@@ -279,4 +282,3 @@
 		}
     })
 );
-

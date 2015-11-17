@@ -10,6 +10,7 @@ define(["esri/arcgis/Portal",
 		"dojo/has",
 		"esri/IdentityManager",
 		"esri/request",
+		"esri/geometry/Extent",
 		"dojo/topic",
 		"dojo/on"],
 	function(
@@ -25,6 +26,7 @@ define(["esri/arcgis/Portal",
 		has,
 		IdentityManager,
 		esriRequest,
+		Extent,
 		topic,
 		on)
 	{
@@ -200,6 +202,42 @@ define(["esri/arcgis/Portal",
 					
 					// App proxies
 					appItem.serviceProxyParams = JSON.stringify(appItem.serviceProxyParams);
+					
+					//
+					// Story extent
+					//
+					try {
+						var isSeries = app.data.getWebAppData().values.series;
+						if ( ! isSeries ) {
+							appItem.extent = JSON.stringify(app.data.getWebMapItem().item.extent);
+						}
+						else {
+							var bookmarks = app.data.getWebAppData().values.bookmarks;
+							if ( ! bookmarks || ! bookmarks.length ) {
+								appItem.extent = JSON.stringify(app.data.getWebMapItem().item.extent);
+							}
+							else {
+								var extent = null;
+								var sr = bookmarks[0].extent.spatialReference;
+								
+								// TODO swipe series only support Mercator and WGS84
+								if ( sr && (sr.wkid == 102100 || sr.wkid == 4326) ) {
+									$.each(bookmarks, function(i, bookmark){
+										if ( i == 0 ) {
+											extent = new Extent(bookmark.extent.toJson());
+										}
+										else {
+											extent = extent.union(bookmark.extent);
+										}
+									});
+									appItem.extent = JSON.stringify(Helper.serializeExtentToItem(extent));
+								}
+								else {
+									appItem.extent = JSON.stringify(app.data.getWebMapItem().item.extent);
+								}
+							}
+						}
+					} catch( e ) { }
 
 					appItem = lang.mixin(appItem, {
 						f: "json",

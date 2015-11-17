@@ -2,11 +2,11 @@
 	 ({
 		viewer: {
 			loading: {
-				step1: "RAKENDUSE LAADIMINE",
+				step1: "LOO LAADIMINE",
 				step2: "ANDMETE LAADIMINE",
 				step3: "LÄHTESTAMINE",
 				fail: "Vabandust, rullimisvahendi laadimine nurjus",
-				loadBuilder: "VAHETA KOOSTAJA TÜÜP",				
+				loadBuilder: "VAHETA KOOSTAJA TÜÜP",
 				redirectSignIn: "SUUNAN ÜMBER SISSELOGIMISE LEHELE",
 				redirectSignIn2: "(Teid suunatakse peale sisselogimist siia)",
 				failButton: "Proovi uuesti"
@@ -17,16 +17,19 @@
 				invalidConfig: "Fataalne viga: vigane konfiguratsioon",
 				invalidConfigNoWebmap: "Fataalne viga: vigane konfiguratsioon (ühtegi veebikaarti ei ole määratud)",
 				createMap: "Võimetu koostama kaarti",
-				invalidApp: "Fataalne viga: rakendust ei saa laadida",
+				invalidApp: "Pöördumatu tõrge. Lugu ei saa laadida",
 				initMobile: "Tere tulemast rullimise veebirakendusse. Antud rakendus ei ole seadistatud. Interaktiivne koostaja ei ole mobiilsetes seadmetes toetatud.",
+				initMobile2: "Selle kuvasuuruse korral rullimise koosturit ei toetata.",
 				noBuilderIE8: "Rullimise interaktiivne koostaja ei ole toetatud Internet Explorer 9 eelse(te)s  versiooni(de)s.",
 				noLayerView: "Tere tulemast rullimise veebirakendusse.<br />Antud rakendus ei ole veel seadistatud.",
-				appSave: "Viga veebirakenduse salvestamisel",
+				appSave: "Tõrge veebiloo salvestamisel",
 				mapSave: "Viga veebikaardi salvestamisel",
-				notAuthorized: "Teil ei ole luba sellele rakendusele juurde pääseda",
+				notAuthorized: "Teil puudub õigus sellele loole juurde pääseda",
 				conflictingProjectionsTitle: "Konfliktsed projektsioonid",
 				conflictingProjections: "Rullimisel ei toetata kahe erineva projektsiooniga veebikaardi kasutamist. Avage seaded ja kasutage veebikaarti, mis kasutab samasugust projektsiooni nagu esimene kaart.",
-				cpButton: "Sulge"
+				cpButton: "Sulge",
+				unspecifiedConfigOwner: "Omanikuõigusi pole määratud.",
+				invalidConfigOwner: "Loo omanikul puuduvad õigused."
 			},
 			mobileView: {
 				hideIntro: "PEIDA INTRO",
@@ -44,7 +47,7 @@
 		},
 		builder: {
 			builder: {
-				panelHeader: "RAKENDUSE KONFIGURATSIOON",
+				panelHeader: "LOO KONFIGUREERIMINE",
 				buttonSave: "SALVESTA",
 				buttonHelp: "Abi",
 				buttonShare: "Jaga",
@@ -64,13 +67,13 @@
 				popoverSaveWhenDone: "Ärge unustage salvestada, kui olete lõpetanud",
 				closeWithPendingChange: "Olete kindel, et soovite tegevuse kinnitada? Teie tehtud muudatused võivad kaduma minna.",
 				gotIt: "Ok",
-				savingApplication: "Salvestan rakenduse",
-				saveSuccess: "Rakenduse salvestamine õnnestus",
+				savingApplication: "Loo salvestamine",
+				saveSuccess: "Lugu salvestati edukalt",
 				saveError: "Salvestamine ebaõnnestus, palun proovi uuesti",
 				saveError2: "Salvestamine nurjus vigase HTML-märgendi tõttu nimes või kirjelduses",
 				saveError3: "Pealkiri ei saa olla tühi",
 				signIn: "Palun logige konto kaudu sisse",
-				signInTwo: ", et salvestada rakendus."
+				signInTwo: "loo salvestamiseks."
 			},
 			header:{
 				editMe: "Muuda mind !",
@@ -78,7 +81,7 @@
 				templateSubtitle: "Määra mallile alampealkiri"
 			},
 			settings: {
-				settingsHeader: "Rakenduse seaded",
+				settingsHeader: "Loo sätted",
 				modalCancel: "Tühista",
 				modalApply: "Kehtesta"
 			},
@@ -138,7 +141,7 @@
 				settingsLayoutSpyGlass: "Pikksilm",
 				settingsLayoutSelected: "Valitud paigutus",
 				settingsLayoutSelect: "Vali see paigutus",
-				settingsSaveConfirm: "Mõned muudatustest eeldavad, et salvestad tööseisu ning avad rakenduse uuesti"
+				settingsSaveConfirm: "Mõned teie tehtud muudatused eeldavad, et salvestate loo ning avate selle uuesti"
 			},
 			settingsDataModel: {
 				settingsTabDataModel: "Rullitav tüüp",
@@ -166,7 +169,7 @@
 			},
 			settingsLegend: {
 				settingsTabLegend: "Rakenduse paigutus",
-				settingsLegendExplain: "Vali rakenduse paigutuse seaded.",
+				settingsLegendExplain: "Valige paigutuse sätted.",
 				settingsLegendEnable: "Lülita legend sisse",
 				settingsDescriptionEnable: "Lülita kirjeldus sisse",
 				settingsBookmarksEnable: "Võimalda rullimise seeriad",
@@ -174,7 +177,7 @@
 				settingsLocationSearchEnable: "Luba asukoha otsing",
 				settingsGeolocatorEnable: "Luba geolokaator",
 				settingsLegendHelpContent: "Legendi sisu täpsustamiseks kasuta ArcGIS.com veebikaardi akna kihtide loendit (peidetud legendi)",
-				settingsSeriesHelpContent: "Rullimiste seeria on vahelehtedega navigeerimise valik, mis viib vaataja konkreetsele kuvaulatusele ja kuvab pealkirja ning kirjeldust külje paneelil. Algselt aktiveerimiseks imporditakse veebikaardi järjehoidjad ja kasutatakse seeriate lehe eelgenereerimiseks. Seeriate valiku keelamine lülitab välja ka seeriate riba, aga seeriate konfiguratsioon säilitatakse tulevikus kasutamiseks.", 
+				settingsSeriesHelpContent: "Rullimiste seeria on vahelehtedega navigeerimise valik, mis viib vaataja konkreetsele kuvaulatusele ja kuvab pealkirja ning kirjeldust külje paneelil. Algselt aktiveerimiseks imporditakse veebikaardi järjehoidjad ja kasutatakse seeriate lehe eelgenereerimiseks. Seeriate valiku keelamine lülitab välja ka seeriate riba, aga seeriate konfiguratsioon säilitatakse tulevikus kasutamiseks.",
 				settingsSeriesHelpContent2: "Vahetamise seeriad lubab teil luua ja muuta asukohtade selektsiooni koos vastavate pealkirjade ja tekstidega. Kui teie veebikaartidel on järjehoidjad, siis kuvatakse neid. Võite keelata seeriad, kuid konfiguratsioon säilitatakse võimalikuks kasutuseks tulevikuks.",
 				settingsSeriesHelpLink: "Vaata vahetatavate seeriatega rakenduse näidet siit",
 				preview: "UI vaade",
@@ -215,39 +218,39 @@
 				}
 			},
 			share: {
-				firstSaveTitle: "Rakendus on salvestatud",
-				firstSaveHeader: "Teie rakendus on nüüd salvestatud ArcGIS Online’i keskkonda. Lugege järgnevate korduma kippuvate küsimuste vastuseid.",
+				firstSaveTitle: "Lugu on edukalt salvestatud",
+				firstSaveHeader: "Teie lugu on nüüd salvestatud ArcGIS Online’i keskkonda. Lugege järgmisi vastuseid KKK-st.",
 				firstSaveA1: "Kui te ei ole tuttav ArcGIS Online keskkonnaga või soovite otseteed redigeerimise liidesele, siis võite salvestada järgmise lingi: %LINK1%",
-				firstSaveA1bis: "Rakenduse leiate samuti oma <a href='%LINK2%' target='_blank'>ArcGIS Online’i sisu kaustast</a>.",
-				firstSaveQ2: "Kas minu rakendus on jagatud?",
-				firstSaveA2: "Hetkel pole teie rakendus jagatud. Selle jagamiseks kasutage nuppu JAGA.",
-				shareTitle: "Rakenduse jagamine",
-				sharePrivateHeader: "Teie rakendus pole jagatud, kas soovite selle jagada?",
+				firstSaveA1bis: "Lugu on leitav ka teie <a href=\'%LINK2%\' target=\'_blank\'>ArcGIS Online-sisu kaustast</a>.",
+				firstSaveQ2: "Kas mu lugu on jagatud?",
+				firstSaveA2: "Hetkel ei ole teie lugu jagatud. Selle jagamiseks kasutage nuppu JAGA.",
+				shareTitle: "Jagage oma lugu",
+				sharePrivateHeader: "Teie lugu ei ole jagatud. Kas soovite seda jagada?",
 				sharePrivateBtn1: "Jaga avalikult",
 				sharePrivateBtn2: "Jaga oma organisatsiooniga",
 				sharePrivateProgress: "Jagamine...",
 				sharePrivateErr: "Jagamine ebaõnnestus, proovige uuesti või",
 				sharePrivateOk: "Jagamine uuendatud edukalt, laadin...",
-				shareStatus1: "Rakendus pole salvestatud",
-				shareStatus2: "Rakendus on jagatud avalikult",
-				shareStatus3: "Rakendus on jagatud organisatsiooniga",
-				shareStatus4: "Rakendus pole jagatud",
+				shareStatus1: "Lugu ei ole salvestatud",
+				shareStatus2: "Lugu on jagatud avalikult",
+				shareStatus3: "Lugu on jagatud organisatsiooni sees",
+				shareStatus4: "Lugu ei ole jagatud",
 				sharePreviewAsUser: "Eelvaade",
-				shareHeader1: "Teie rakendus on <strong>avalikult kättesaadav</strong>.",
-				shareHeader2: "Teie rakendus on kättesaadav organisatsiooni liikmetele (sisselogimine nõutud).",
-				shareLinkHeader: "Jagage rakendust oma sihtrühmaga",
+				shareHeader1: "Teie lugu on <strong>avalikult kättesaadav</strong>.",
+				shareHeader2: "Teie lugu on kättesaadav teie organisatsiooni liikmetele (sisselogimine nõutud).",
+				shareLinkHeader: "Jagage lugu oma sihtrühmaga",
 				shareLinkOpen: "AVA",
 				learnMore: "Loe lähemalt",
-				shareQ1Opt1: "Kuidas saan hoida rakenduse privaatsena?",
-				shareQ1Opt2: "Kuidas saan hoida rakenduse privaatsena või jagada seda avalikult?",
+				shareQ1Opt1: "Kuidas hoida lugu privaatsena?",
+				shareQ1Opt2: "Kuidas hoida lugu privaatsena või jagada seda avalikult?",
 				shareA1: "Kasutage nuppu %SHAREIMG% <a href='%LINK1%' target='_blank'>rakenduse üksuse lehel</a>. Kui soovite tühistada ka veebikaardi jagamise, siis kasutage <a href='%LINK2%' target='_blank'>veebikaardi üksuse lehte</a>.",
 				shareA1bis: "Kui soovite jagamise eemaldada ka objektiteenuselt, kasutage <a href='%LINK1%' target='_blank'>objektiteenuse sisu lehte</a>.",
-				shareQ2: "Kuidas ma saan rakendust hiljem muuta?",
+				shareQ2: "Kuidas saan lugu hiljem redigeerida?",
 				shareQ2bis: "Kuidas ma pääsen tagasi loomise liidesesse?",
-				shareA2div1: "Salvestage ja taaskasutage järgnevat linki %LINK1% või kasutage <a href='%LINK2%' target='_blank'>rakenduse sisu lehte</a>.",
-				shareA2div2: "Kui olete rakenduse omanikuna ArcGIS.com’i sisse logitud, sisaldab rakendus nuppu interaktiivse koostaja avamiseks.",				
+				shareA2div1: "Salvestage ja taaskasutage järgmist linki %LINK1% või kasutage <a href=\'%LINK2%\' target=\'_blank\'>loo üksuse lehte</a>.",
+				shareA2div2: "Kui olete loo omanikuna ArcGIS.com-i sisse logitud, sisaldab lugu nuppu interaktiivse koosturi avamiseks.",
 				shareQ3: "Kuhu on andmed majutatud?",
-				shareA3: "Rakenduse konfiguratsioon on salvestatud selles veebirakenduse üksuses</a>.",
+				shareA3: "Loo konfiguratsioon on salvestatud selles veebirakenduse üksuses</a>.",
 				shareWarning: "%WITH% jagamine on keelatud, kuna te pole <a href='%LINK%' target='_blank'>veebikaardi</a> omanik.",
  				shareWarningWith1: "Avalikult",
  				shareWarningWith2: "Avalikult ja organisatsiooniga"
@@ -279,4 +282,3 @@
 		}
     })
 );
-

@@ -2,11 +2,11 @@
 	 ({
 		viewer: {
 			loading: {
-				step1: "LASTER INN APPLIKASJON",
+				step1: "LASTER INN HISTORIEN",
 				step2: "LASTER INN DATA",
 				step3: "INITIALISERER",
 				fail: "Beklager, men innlasting av sveipeverktøyet mislyktes",
-				loadBuilder: "BYTTER TIL MODUS FOR BYGGEVERKTØY",				
+				loadBuilder: "BYTTER TIL MODUS FOR BYGGEVERKTØY",
 				redirectSignIn: "OMDIRIGERING TIL PÅLOGGINGSSIDEN",
 				redirectSignIn2: "(du blir omdirigert hit etter pålogging)",
 				failButton: "Prøv på nytt"
@@ -17,16 +17,19 @@
 				invalidConfig: "Alvorlig feil: Ugyldig konfigurasjon",
 				invalidConfigNoWebmap: "Alvorlig feil: Ugyldig konfigurasjon (webkart ikke spesifisert)",
 				createMap: "Kan ikke opprette kart",
-				invalidApp: "Alvorlig feil: Kan ikke laste inn applikasjonen",
+				invalidApp: "Alvorlig feil: Kan ikke laste inn historien",
 				initMobile: "Velkommen til webprogrammet for sveiping. Programmet er ikke konfigurert. Det interaktive verktøyet støttes ikke på mobile enheter.",
+				initMobile2: "Byggeverktøyet for sveiping støttes ikke med denne skjermstørrelsen.",
 				noBuilderIE8: "Det interaktive sveipeverktøyet støttes ikke på Internet Explorer som er eldre enn versjon 9.",
 				noLayerView: "Velkommen til webprogrammet for sveiping.<br />Programmet er ennå ikke konfigurert.",
-				appSave: "Feil under lagring av webapplikasjonen",
+				appSave: "Feil under lagring av webhistorien",
 				mapSave: "Feil under lagring av webkartet",
-				notAuthorized: "Du har ikke tillatelse til å bruke denne applikasjonen",
+				notAuthorized: "Du har ikke tillatelse til å lese denne historien",
 				conflictingProjectionsTitle: "Projeksjonskonflikt",
 				conflictingProjections: "Swipe støtter ikke bruk av to webkart med ulik projeksjon. Åpne Innstillinger og bruk et webkart med samme projeksjon som det første webkartet.",
-				cpButton: "Lukk"
+				cpButton: "Lukk",
+				unspecifiedConfigOwner: "Godkjent eier er ikke konfigurert.",
+				invalidConfigOwner: "Historieeier er ikke godkjent."
 			},
 			mobileView: {
 				hideIntro: "SKJUL INTRO",
@@ -36,7 +39,7 @@
 			},
 			desktopView: {
 				storymapsText: "Et fortellingskart",
-				builderButton: "Gå over til byggermodus",
+				builderButton: "Gå over til byggemodus",
 				facebookTooltip: "Del på Facebook",
 				twitterTooltip: "Del på Twitter",
 				bitlyTooltip: "Få en kort kobling"
@@ -44,7 +47,7 @@
 		},
 		builder: {
 			builder: {
-				panelHeader: "KONFIGURASJON AV APPLIKASJON",
+				panelHeader: "KONFIGURASJON AV HISTORIE",
 				buttonSave: "LAGRE",
 				buttonHelp: "Hjelp",
 				buttonShare: "Del",
@@ -64,13 +67,13 @@
 				popoverSaveWhenDone: "Ikke glem å lagre når du er ferdig",
 				closeWithPendingChange: "Er du sikker på at du vil bekrefte handlingen? Du mister da endringene du har gjort.",
 				gotIt: "Ok",
-				savingApplication: "Lagrer applikasjonen",
-				saveSuccess: "Applikasjonen er lagret",
+				savingApplication: "Lagrer historien",
+				saveSuccess: "Historien ble lagret",
 				saveError: "Lagringen mislyktes. Prøv på nytt.",
 				saveError2: "Lagring mislyktes på grunn av ugyldig HTML-kode i et navn eller en beskrivelse",
 				saveError3: "Tittelen må fylles ut",
 				signIn: "Logg på med en konto på",
-				signInTwo: "for å lagre applikasjonen."
+				signInTwo: "for å lagre historien."
 			},
 			header:{
 				editMe: "Rediger meg!",
@@ -78,7 +81,7 @@
 				templateSubtitle: "Angi undertittel for malen"
 			},
 			settings: {
-				settingsHeader: "Applikasjonsinnstillinger",
+				settingsHeader: "Historieinnstillinger",
 				modalCancel: "Avbryt",
 				modalApply: "Bruk"
 			},
@@ -138,7 +141,7 @@
 				settingsLayoutSpyGlass: "Kikkert",
 				settingsLayoutSelected: "Valgt utforming",
 				settingsLayoutSelect: "Velg denne utformingen",
-				settingsSaveConfirm: "Noen av endringene dine krever at du lagrer og laster inn programmet på nytt"
+				settingsSaveConfirm: "Noen av endringene dine krever at du lagrer og laster inn historien på nytt"
 			},
 			settingsDataModel: {
 				settingsTabDataModel: "Sveipetype",
@@ -166,7 +169,7 @@
 			},
 			settingsLegend: {
 				settingsTabLegend: "Appens utforming",
-				settingsLegendExplain: "Velg innstillinger for utforming av programmet.",
+				settingsLegendExplain: "Velg innstillinger for oppsett.",
 				settingsLegendEnable: "Aktiver tegnforklaring",
 				settingsDescriptionEnable: "Aktiver beskrivelse",
 				settingsBookmarksEnable: "Aktiver sveipeserier",
@@ -174,7 +177,7 @@
 				settingsLocationSearchEnable: "Aktiver posisjonsindikatorsøk",
 				settingsGeolocatorEnable: "Aktiver geoposisjonsindikatoren",
 				settingsLegendHelpContent: "Hvis du vil finjustere innholdet i tegnforklaringen, bruker du innholdsfortegnelsen for kartviseren på ArcGIS.com (skjul i tegnforklaringen)",
-				settingsSeriesHelpContent: "Sveip serier er et fanebasert navigeringsalternativ som veileder brukeren til en bestemt utstrekning, og viser en tittel og beskrivende tekst i sidepanelet.  Under den første aktiveringen, blir bokmerkene fra webkart importert og brukt for å fylle serieraden.  Hvis seriealternativet deaktiveres, slås serieraden av, men seriekonfigurasjonen spares til senere bruk.", 
+				settingsSeriesHelpContent: "Sveipe-serier er et fanebasert navigeringsalternativ som veileder brukeren til en bestemt utstrekning, og viser en tittel og beskrivende tekst i sidepanelet.  Under den første aktiveringen, blir bokmerkene fra webkart importert og brukt for å fylle serieraden.  Hvis seriealternativet deaktiveres, slås serieraden av, men seriekonfigurasjonen spares til senere bruk.",
 				settingsSeriesHelpContent2: "Med sveipeserier kan du opprette og redigere et utvalg av lokasjoner med tilhørende titler og tekst. Hvis du har et webkart med bokmerker, vises de. Du kan deaktivere serien, men konfigurasjonen beholdes for fremtidig bruk.",
 				settingsSeriesHelpLink: "Se et eksempel på et program med en sveipeserie her",
 				preview: "Forhåndsvisning av brukergrensesnitt",
@@ -183,7 +186,7 @@
 				settingsAddressSearch: "Aktiver et adressesøkverktøy"
 			},
 			settingsSwipePopup: {
-				settingsSwipePopup: "Popup",
+				settingsSwipePopup: "Oppsprett",
 				settingsSwipePopupExplain: "Tilpass utseendet til overskriften i popupfeltene slik at det hjelper brukeren med å assosiere popupfelt med kartlag.",
 				settingsSwipePopupSwipe1: "Venstre kart",
 				settingsSwipePopupSwipe2: "Høyre kart",
@@ -215,39 +218,39 @@
 				}
 			},
 			share: {
-				firstSaveTitle: "Programmet er lagret",
-				firstSaveHeader: "Programmet er nå lagret i ArcGIS Online. Les disse svarene på vanlige spørsmål.",
+				firstSaveTitle: "Historien er lagret",
+				firstSaveHeader: "Historien er nå lagret på ArcGIS Online. Les disse svarene på vanlige spørsmål.",
 				firstSaveA1: "Hvis du er ukjent med ArcGIS Online eller vil opprette en snarvei til grensesnittet for opprettere, kan du lagre følgende kobling: %LINK1%",
-				firstSaveA1bis: "Du finner også programmet i <a href='%LINK2%' target='_blank'>innholdsmappen din i ArcGIS Online</a>.",
-				firstSaveQ2: "Har programmet mitt blitt delt?",
-				firstSaveA2: "For øyeblikket har ikke programmet ditt blitt delt. Hvis du vil dele det, bruker du DEL-knappen.",
-				shareTitle: "Del programmet ditt",
-				sharePrivateHeader: "Programmet ditt er ikke delt. Har du lyst til å dele det?",
+				firstSaveA1bis: "Du finner også historien i <a href=\'%LINK2%\' target=\'_blank\'>innholdsmappen din på ArcGIS Online</a>.",
+				firstSaveQ2: "Er historien min delt?",
+				firstSaveA2: "For øyeblikket er ikke historien din delt. Hvis du vil dele den, bruker du DEL-knappen.",
+				shareTitle: "Del historien",
+				sharePrivateHeader: "Historien din er ikke delt. Har du lyst til å dele den?",
 				sharePrivateBtn1: "Del offentlig",
 				sharePrivateBtn2: "Del med min organisasjon",
 				sharePrivateProgress: "Deling pågår ...",
 				sharePrivateErr: "Deling mislyktes. Prøv på nytt, eller",
 				sharePrivateOk: "Delingen er blitt oppdatert, lastes inn ...",
-				shareStatus1: "Programmet er ikke lagret",
-				shareStatus2: "Programmet er delt offentlig",
-				shareStatus3: "Programmet er delt innenfor organisasjonen",
-				shareStatus4: "Programmet er ikke delt",
+				shareStatus1: "Historien er ikke lagret",
+				shareStatus2: "Historien er delt offentlig",
+				shareStatus3: "Historien er delt innenfor organisasjonen",
+				shareStatus4: "Historien er ikke delt",
 				sharePreviewAsUser: "Forhåndsvisning",
-				shareHeader1: "Programmet er <strong>offentlig tilgjengelig</strong>.",
-				shareHeader2: "Programmet ditt er tilgjengelig for medlemmer av organisasjonen din (krever pålogging).",
-				shareLinkHeader: "Del programmet ditt med publikum",
+				shareHeader1: "Historien er <strong>offentlig tilgjengelig</strong>.",
+				shareHeader2: "Historien din er tilgjengelig for medlemmer av organisasjonen din (krever pålogging).",
+				shareLinkHeader: "Del historien med publikum",
 				shareLinkOpen: "ÅPNE",
 				learnMore: "Få mer informasjon",
-				shareQ1Opt1: "Hvordan kan jeg beholde programmet privat?",
-				shareQ1Opt2: "Hvordan kan jeg beholde programmet privat eller dele det offentlig?",
+				shareQ1Opt1: "Hvordan holder jeg historien privat?",
+				shareQ1Opt2: "Hvordan holder jeg historien privat eller deler den offentlig?",
 				shareA1: "Bruk %SHAREIMG% på <a href='%LINK1%' target='_blank'>elementsiden for programmet</a>. Hvis du også vil oppheve deling av nettkartet, bruker du <a href='%LINK2%' target='_blank'>elementsiden for nettkartet</a>.",
 				shareA1bis: "Hvis du også vil oppheve delingen av geoobjektstjenesten, kan du bruke <a href='%LINK1%' target='_blank'>siden for geoobjektstjenesteelementer</a>.",
-				shareQ2: "Hvordan kan jeg redigere programmet senere?",
+				shareQ2: "Hvordan kan jeg redigere historien senere?",
 				shareQ2bis: "Hvordan kommer jeg tilbake til grensesnittet for opprettere?",
-				shareA2div1: "Lagre og bruk følgende kobling på nytt, %LINK1% eller bruk <a href='%LINK2%' target='_blank'>siden for programelementer</a>.",
-				shareA2div2: "Når du har logget på ArcGIS.com som eier av programmet, får du tilgang til en knapp for å åpne det interaktive byggeverktøyet:",				
+				shareA2div1: "Lagre og bruk følgende kobling på nytt, %LINK1%, eller bruk <a href=\'%LINK2%\' target=\'_blank\'>elementsiden for historien</a>.",
+				shareA2div2: "Som eier av hstorien får du tilgang til en knapp for å åpne det interaktive byggeverktøyet når du har logget på ArcGIS.com:",
 				shareQ3: "Hvor lagres dataene?",
-				shareA3: "Programmets konfigurasjon er lagret i dette webprogramelementet</a>.",
+				shareA3: "Historiens konfigurasjon er lagret i dette webprogramelementet</a>.",
 				shareWarning: "Deling av %WITH% er deaktivert fordi du ikke eier <a href='%LINK%' target='_blank'>webkartet</a>.",
  				shareWarningWith1: "offentlig",
  				shareWarningWith2: "offentlig og med organisasjonen"
@@ -257,8 +260,8 @@
 				mapPickHeader: "Angi en gyldig nettkart-ID for å komme i gang, eller bruk søkeknappen for å bla igjennom nettkart.",
 				launchBuilder: "Start byggeverktøyet",
 				chooseWebmapLbl: "Velg webkart...",
-				explain2: "Hvis du vil lage et fortellingskart for Sveiping eller Forstørrelsesglass, bruker du knappen nedenfor for å velge det eksisterende ArcGIS Online-kartet du vil bruke. Alternativt kan du lime inn ID-en til webkartet i feltet nedenfor.",
-				explain3: "Hvis du vil bruke to webkart i fortellingskartet ditt, blir du bedt om det andre webkartet senere, når du velger dette alternativet.",
+				explain2: "Hvis du vil lage en Story Map for Sveiping eller Forstørrelsesglass, bruker du knappen nedenfor for å velge det eksisterende ArcGIS Online-kartet du vil bruke. Alternativt kan du lime inn ID-en til webkartet i feltet nedenfor.",
+				explain3: "Hvis du vil bruke to webkart i Story Map ditt, blir du bedt om det andre webkartet senere, når du velger dette alternativet.",
 				webmapPlaceholder: "Angi en webkart-ID ..."
 			}
 		},
@@ -279,4 +282,3 @@
 		}
     })
 );
-

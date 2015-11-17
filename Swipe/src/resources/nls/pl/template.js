@@ -2,11 +2,11 @@
 	 ({
 		viewer: {
 			loading: {
-				step1: "WCZYTYWANIE APLIKACJI",
+				step1: "TRWA WCZYTYWANIE NARRACJI",
 				step2: "WCZYTYWANIE DANYCH",
 				step3: "INICJOWANIE",
 				fail: "Przepraszamy, wczytywanie narzędzia zwijania nie powiodło się",
-				loadBuilder: "PRZEŁĄCZANIE DO TRYBU KREATORA",				
+				loadBuilder: "PRZEŁĄCZANIE DO TRYBU KREATORA",
 				redirectSignIn: "PRZEKIEROWANIE DO STRONY LOGOWANIA",
 				redirectSignIn2: "(tutaj nastąpi przekierowanie po zalogowaniu)",
 				failButton: "Ponów próbę"
@@ -17,16 +17,19 @@
 				invalidConfig: "Błąd krytyczny: Nieprawidłowa konfiguracja",
 				invalidConfigNoWebmap: "Błąd krytyczny: Nieprawidłowa konfiguracja (brak zdefiniowanej mapy internetowej)",
 				createMap: "Nie można utworzyć mapy",
-				invalidApp: "Błąd krytyczny: Nie można wczytać aplikacji",
+				invalidApp: "Błąd krytyczny: nie można wczytać narracji",
 				initMobile: "Witamy w internetowej aplikacji swipe (z funkcją zwijania). Aplikacja nie została skonfigurowana. Interaktywny kreator nie jest obsługiwany na urządzeniach przenośnych.",
+				initMobile2: "Kreator aplikacji odsłaniania nie jest obsługiwany przy tej wielkości ekranu.",
 				noBuilderIE8: "Interaktywny kreator narzędzia zwijania nie jest obsługiwany przez przeglądarkę Internet Explorer w wersji starszej niż 9.",
 				noLayerView: "Witamy w internetowej aplikacji swipe (z funkcją zwijania).<br />Aplikacja nie została jeszcze skonfigurowana.",
-				appSave: "Błąd podczas zapisywania aplikacji internetowej",
+				appSave: "Błąd zapisywania narracji internetowej",
 				mapSave: "Błąd podczas zapisywania mapy internetowej",
-				notAuthorized: "Nie masz uprawnień do uzyskania dostępu do tej aplikacji.",
+				notAuthorized: "Nie masz uprawnień dostępu do tej narracji",
 				conflictingProjectionsTitle: "Konflikt odwzorowań",
 				conflictingProjections: "Narzędzie zwijania nie obsługuje dwóch map internetowych o różnych odwzorowaniach. Przejdź do ustawień i wybierz mapę internetową o tym samym odwzorowaniu, co pierwsza użyta mapa.",
-				cpButton: "Zamknij"
+				cpButton: "Zamknij",
+				unspecifiedConfigOwner: "Nie skonfigurowano autoryzowanego właściciela.",
+				invalidConfigOwner: "Właściciel narracji nie jest autoryzowany."
 			},
 			mobileView: {
 				hideIntro: "UKRYJ WPROWADZENIE",
@@ -44,7 +47,7 @@
 		},
 		builder: {
 			builder: {
-				panelHeader: "KONFIGURACJA APLIKACJI",
+				panelHeader: "KONFIGURACJA NARRACJI",
 				buttonSave: "ZAPISZ",
 				buttonHelp: "Pomoc",
 				buttonShare: "Udostępnij",
@@ -64,13 +67,13 @@
 				popoverSaveWhenDone: "Nie zapomnij zapisać po zakończeniu pracy",
 				closeWithPendingChange: "Na pewno chcesz zatwierdzić operację? Twoje zmiany zostaną utracone.",
 				gotIt: "OK",
-				savingApplication: "Zapisywanie aplikacji",
-				saveSuccess: "Aplikacja została pomyślnie zapisana",
+				savingApplication: "Trwa zapisywanie narracji",
+				saveSuccess: "Narracja została pomyślnie zapisana",
 				saveError: "Zapisywanie nie powiodło się, spróbuj ponownie",
 				saveError2: "Próba zapisania nie powiodła się - błędny znacznik HTML w nazwie lub opisie",
 				saveError3: "Tytuł nie może być pusty",
 				signIn: "Zaloguj się na konto,",
-				signInTwo: "aby zapisać aplikację."
+				signInTwo: "aby zapisać narrację."
 			},
 			header:{
 				editMe: "Edytuj!",
@@ -78,7 +81,7 @@
 				templateSubtitle: "Skonfiguruj podtytuł szablonu"
 			},
 			settings: {
-				settingsHeader: "Ustawienia aplikacji",
+				settingsHeader: "Ustawienia narracji",
 				modalCancel: "Anuluj",
 				modalApply: "Zastosuj"
 			},
@@ -138,7 +141,7 @@
 				settingsLayoutSpyGlass: "Lunetka",
 				settingsLayoutSelected: "Wybrany układ",
 				settingsLayoutSelect: "Wybierz ten układ",
-				settingsSaveConfirm: "Niektóre z wprowadzonych zmian wymagają zapisania i ponownego wczytania aplikacji"
+				settingsSaveConfirm: "Niektóre z wprowadzonych zmian wymagają zapisania i ponownego wczytania narracji"
 			},
 			settingsDataModel: {
 				settingsTabDataModel: "Typ zwijania",
@@ -166,7 +169,7 @@
 			},
 			settingsLegend: {
 				settingsTabLegend: "Układ aplikacji",
-				settingsLegendExplain: "Wybierz ustawienia układu aplikacji.",
+				settingsLegendExplain: "Wybierz ustawienia kompozycji.",
 				settingsLegendEnable: "Włącz legendę",
 				settingsDescriptionEnable: "Włącz opis",
 				settingsBookmarksEnable: "Włącz serię zwijania",
@@ -174,7 +177,7 @@
 				settingsLocationSearchEnable: "Włącz wyszukiwanie przy użyciu lokatora",
 				settingsGeolocatorEnable: "Włącz geolokator",
 				settingsLegendHelpContent: "Aby ulepszyć zawartość legendy, skorzystaj z tabeli zawartości przeglądarki map ArcGIS.com (Ukryj w legendzie)",
-				settingsSeriesHelpContent: "Seria zwijania to opcja nawigacji przy użyciu kart, która kieruje użytkownika do określonego zasięgu i wyświetla tytuł oraz tekst opisu w panelu bocznym. Podczas pierwszej aktywacji zakładki mapy internetowej zostaną użyte do wstępnego wypełnienia paska serii. Jeżeli wyłączysz później opcję serii, zostanie też wyłączony pasek serii, ale konfiguracja serii zostanie zachowana na przyszłość.", 
+				settingsSeriesHelpContent: "Seria zwijania to opcja nawigacji przy użyciu kart, która kieruje użytkownika do określonego zasięgu i wyświetla tytuł oraz tekst opisu w panelu bocznym. Podczas pierwszej aktywacji zakładki mapy internetowej zostaną użyte do wstępnego wypełnienia paska serii. Jeżeli wyłączysz później opcję serii, zostanie też wyłączony pasek serii, ale konfiguracja serii zostanie zachowana na przyszłość.",
 				settingsSeriesHelpContent2: "Serie zwijania umożliwiają tworzenie i edycję wybranych lokalizacji z towarzyszącymi im tytułami i tekstem. Jeśli dana mapa internetowa zawiera zakładki, zostaną one wyświetlone. Istnieje możliwość wyłączenia serii, ale ta konfiguracja zostanie zapisana do późniejszego wykorzystania.",
 				settingsSeriesHelpLink: "Tutaj znajduje się przykładowa aplikacja zawierająca serie zwijania",
 				preview: "Zobacz podgląd interfejsu użytkownika",
@@ -215,39 +218,39 @@
 				}
 			},
 			share: {
-				firstSaveTitle: "Aplikacja zapisana pomyślnie",
-				firstSaveHeader: "Twoja aplikacja została zapisana w usłudze ArcGIS Online. Zapoznaj się z poniższymi odpowiedziami na często zadawane pytania.",
+				firstSaveTitle: "Narracja została pomyślnie zapisana",
+				firstSaveHeader: "Narracja została zapisana w usłudze ArcGIS Online. Zapoznaj się z poniższymi odpowiedziami na często zadawane pytania.",
 				firstSaveA1: "Jeżeli nie znasz jeszcze usługi ArcGIS Online lub chcesz korzystać ze skrótu do interfejsu dla autorów, możesz zapisać następujące łącze: %LINK1%",
-				firstSaveA1bis: "Dostęp do aplikacji można uzyskać również za pośrednictwem <a href='%LINK2%' target='_blank'>folderu zasobów w usłudze ArcGIS Online</a>.",
-				firstSaveQ2: "Czy moja aplikacja jest udostępniona?",
-				firstSaveA2: "Obecnie Twoja aplikacja nie jest udostępniana. Aby ją udostępnić, użyj przycisku UDOSTĘPNIJ.",
-				shareTitle: "Udostępnij swoją aplikację",
-				sharePrivateHeader: "Aplikacja nie jest udostępniona. Czy chcesz ją udostępnić?",
+				firstSaveA1bis: "Swoją narrację można również znaleźć w <a href=\'%LINK2%\' target=\'_blank\'>folderze zawartości usługi ArcGIS Online</a>.",
+				firstSaveQ2: "Czy moja narracja została udostępniona?",
+				firstSaveA2: "Obecnie Twoja narracja nie jest udostępniona. Aby ją udostępnić, użyj przycisku UDOSTĘPNIJ.",
+				shareTitle: "Udostępnij narrację",
+				sharePrivateHeader: "Narracja nie jest udostępniona. Czy chcesz ją udostępnić?",
 				sharePrivateBtn1: "Udostępnij publicznie",
 				sharePrivateBtn2: "Udostępnij mojej instytucji",
 				sharePrivateProgress: "Trwa udostępnianie...",
 				sharePrivateErr: "Udostępnianie nie powiodło się. Spróbuj ponownie lub",
 				sharePrivateOk: "Aktualizacja udostępniania powiodła się. Trwa wczytywanie...",
-				shareStatus1: "Aplikacja nie została zapisana",
-				shareStatus2: "Aplikacja jest udostępniania publicznie",
-				shareStatus3: "Aplikacja jest udostępniana w obrębie tej instytucji",
-				shareStatus4: "Aplikacja nie jest udostępniana",
+				shareStatus1: "Narracja nie została zapisana",
+				shareStatus2: "Narracja jest udostępniania publicznie",
+				shareStatus3: "Narracja została udostępniana w obrębie instytucji",
+				shareStatus4: "Narracja nie została udostępniona",
 				sharePreviewAsUser: "Zobacz podgląd",
-				shareHeader1: "Aplikacja jest <strong>dostępna publicznie</strong>.",
-				shareHeader2: "Aplikacja jest dostępna dla członków instytucji (wymagane jest logowanie).",
-				shareLinkHeader: "Udostępnij aplikację odbiorcom",
+				shareHeader1: "Twoja narracja jest <strong>publicznie dostępna</strong>.",
+				shareHeader2: "Narracja jest dostępna dla członków Twojej instytucji (wymagane logowanie).",
+				shareLinkHeader: "Udostępnij narrację odbiorcom",
 				shareLinkOpen: "OTWÓRZ",
 				learnMore: "Dowiedz się więcej",
-				shareQ1Opt1: "Jak mogę zachować prywatny status aplikacji?",
-				shareQ1Opt2: "W jaki sposób mogę zachować prywatny status aplikacji lub udostępnić ją publicznie?",
+				shareQ1Opt1: "Jak mogę zachować prywatny status narracji?",
+				shareQ1Opt2: "Jak mogę zachować prywatny status narracji lub udostępnić ją publicznie?",
 				shareA1: "Odwiedź %SHAREIMG% <a href='%LINK1%' target='_blank'>stronę elementu aplikacji</a>. Jeżeli nie chcesz dłużej udostępniać mapy internetowej, odwiedź <a href='%LINK2%' target='_blank'>stronę elementu mapy internetowej</a>.",
 				shareA1bis: "Jeśli chcesz przestać udostępniać Usługę obiektową, użyj <a href='%LINK1%' target='_blank'>strony elementu Usługi obiektowej</a>.",
-				shareQ2: "W jaki sposób mogę edytować aplikację w przyszłości?",
+				shareQ2: "Jak mogę edytować narrację w przyszłości?",
 				shareQ2bis: "W jaki sposób mogę wrócić do interfejsu tworzenia?",
-				shareA2div1: "Zapisz i użyj ponownie następującego łącza %LINK1% lub <a href='%LINK2%' target='_blank'>strony elementu aplikacji</a>.",
-				shareA2div2: "Kiedy właściciel aplikacji zaloguje się w serwisie ArcGIS.com, aplikacja zawiera przycisk do otwierania interaktywnego kreatora:",				
+				shareA2div1: "Zapisz i ponownie wykorzystaj łącze %LINK1% lub użyj <a href=\'%LINK2%\' target=\'_blank\'>strony z elementami narracji</a>.",
+				shareA2div2: "Gdy właściciel narracji zaloguje się w serwisie ArcGIS.com, narracja będzie zawierać przycisk do otwierania interaktywnego kreatora:",
 				shareQ3: "Gdzie są przechowywane dane?",
-				shareA3: "Pliki konfiguracyjne aplikacji są zapisane w tym elemencie aplikacji internetowej</a>.",
+				shareA3: "Konfiguracja narracji jest zapisana w tym elemencie aplikacji internetowej</a>.",
 				shareWarning: "Udostępnianie %WITH% zostało wyłączone, ponieważ nie jesteś właścicielem <a href='%LINK%' target='_blank'>mapy internetowej</a>.",
  				shareWarningWith1: "publicznie",
  				shareWarningWith2: "publicznie i instytucji"
@@ -279,4 +282,3 @@
 		}
     })
 );
-

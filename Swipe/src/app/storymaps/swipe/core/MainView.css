@@ -24,6 +24,7 @@
 	height: 48px;
 	margin-top: -24px;
 	width: 51px;
+	cursor: pointer;
 }
 
 .swiper.infoWindowView{
@@ -72,7 +73,7 @@
 	-webkit-box-shadow: none;
 }
 
-#locationSearch .esriGeocoderIcon { 
+#locationSearch .esriGeocoderIcon {
 	margin-top: 8px;
 }
 
@@ -82,4 +83,8 @@
 
 .esriSimpleSlider {
 	z-index: 100 !important;
+}
+
+.esriPopup .actionsPane .action {
+    display: none;
 }

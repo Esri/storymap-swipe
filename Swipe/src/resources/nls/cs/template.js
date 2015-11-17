@@ -2,11 +2,11 @@
 	 ({
 		viewer: {
 			loading: {
-				step1: "NAHRÁVÁNÍ APLIKACE",
+				step1: "NAČÍTÁNÍ PŘÍBĚHU",
 				step2: "NAHRÁVÁNÍ DAT",
 				step3: "INICIALIZACE",
 				fail: "Nepodařilo se načíst nástroj překrývání.",
-				loadBuilder: "PŘEPÍNÁNÍ DO REŽIMU TVORBY",				
+				loadBuilder: "PŘEPÍNÁNÍ DO REŽIMU TVORBY",
 				redirectSignIn: "PROBÍHÁ PŘESMĚROVÁNÍ NA PŘIHLAŠOVACÍ STRÁNKU",
 				redirectSignIn2: "(budete sem přesměrováni po přihlášení)",
 				failButton: "Zkusit znovu"
@@ -17,16 +17,19 @@
 				invalidConfig: "Závažná chyba: Neplatná konfigurace",
 				invalidConfigNoWebmap: "Závažná chyba: Neplatná konfigurace (není specifikována žádná webová mapa)",
 				createMap: "Nelze vytvořit mapu",
-				invalidApp: "Závažná chyba: Aplikaci nelze načíst",
+				invalidApp: "Závažná chyba: Příběh nelze načíst",
 				initMobile: "Vítejte ve webové aplikaci pro překrývání. Aplikace není nakonfigurována. Interaktivní nástroj pro tvorbu není podporován v mobilních zařízeních.",
+				initMobile2: "Nástroj pro tvorbu překrývání není v této velikosti zobrazení podporován.",
 				noBuilderIE8: "Interaktivní nástroj pro tvorbu překrývání není podporován v programu Internet Explorer verze nižší než 9.",
 				noLayerView: "Vítejte ve webové aplikaci pro překrývání.<br />Aplikace zatím není nakonfigurována.",
-				appSave: "Chyba při ukládání webové aplikace",
+				appSave: "Chyba při ukládání webového příběhu",
 				mapSave: "Chyba při ukládání webové mapy",
-				notAuthorized: "Nemáte oprávnění k přístupu do této aplikace.",
+				notAuthorized: "Nejste oprávněni přistupovat k tomuto příběhu",
 				conflictingProjectionsTitle: "Konfliktní projekce",
 				conflictingProjections: "Překrývání nepodporuje používání dvou webových map s různými projekcemi. Otevřete nastavení a použijte webovou mapu, která využívá stejnou projekci jako první webová mapa.",
-				cpButton: "Zavřít"
+				cpButton: "Zavřít",
+				unspecifiedConfigOwner: "Nebyl nakonfigurován autorizovaný vlastník.",
+				invalidConfigOwner: "Vlastník příběhu není autorizován."
 			},
 			mobileView: {
 				hideIntro: "SKRÝT ÚVOD",
@@ -44,7 +47,7 @@
 		},
 		builder: {
 			builder: {
-				panelHeader: "KONFIGURACE APLIKACE",
+				panelHeader: "KONFIGURACE PŘÍBĚHU",
 				buttonSave: "ULOŽIT",
 				buttonHelp: "Nápověda",
 				buttonShare: "Sdílet",
@@ -64,13 +67,13 @@
 				popoverSaveWhenDone: "Až budete hotovi, nezapomeňte provedené změny uložit.",
 				closeWithPendingChange: "Určitě chcete potvrdit tuto akci? Změny se neuloží.",
 				gotIt: "OK",
-				savingApplication: "Ukládání aplikace",
-				saveSuccess: "Aplikace byla úspěšně uložena",
+				savingApplication: "Ukládání příběhu",
+				saveSuccess: "Příběh byl úspěšně uložen",
 				saveError: "Ukládání se nezdařilo, zkuste to znovu.",
 				saveError2: "Ukládání selhalo kvůli neplatnému HTML tagu v názvu nebo popisu.",
 				saveError3: "Název nesmí být prázdný",
 				signIn: "Přihlaste se pomocí účtu na",
-				signInTwo: "pro uložení aplikace."
+				signInTwo: "pro uložení příběhu."
 			},
 			header:{
 				editMe: "Edituj mě!",
@@ -78,7 +81,7 @@
 				templateSubtitle: "Nastavit podnadpis šablony"
 			},
 			settings: {
-				settingsHeader: "Nastavení aplikace",
+				settingsHeader: "Nastavení příběhu",
 				modalCancel: "Storno",
 				modalApply: "Použít"
 			},
@@ -138,7 +141,7 @@
 				settingsLayoutSpyGlass: "Lupa",
 				settingsLayoutSelected: "Vybrané rozvržení",
 				settingsLayoutSelect: "Vybrat toto rozvržení",
-				settingsSaveConfirm: "Některé ze změn vyžadují uložení a opětovné spuštění aplikace"
+				settingsSaveConfirm: "Některé ze změn vyžadují uložení a opětovné spuštění příběhu"
 			},
 			settingsDataModel: {
 				settingsTabDataModel: "Typ překrývání",
@@ -166,7 +169,7 @@
 			},
 			settingsLegend: {
 				settingsTabLegend: "Rozvržení aplikace",
-				settingsLegendExplain: "Vyberte nastavení pro rozvržení aplikace.",
+				settingsLegendExplain: "Vyberte nastavení rozvržení.",
 				settingsLegendEnable: "Povolit legendu",
 				settingsDescriptionEnable: "Povolit popis",
 				settingsBookmarksEnable: "Povolit série překrývání",
@@ -174,7 +177,7 @@
 				settingsLocationSearchEnable: "Povolit vyhledávání lokátoru",
 				settingsGeolocatorEnable: "Povolit geolokátor",
 				settingsLegendHelpContent: "Chcete-li doplnit obsah legendy, použijte obsah prohlížeče webových map ArcGIS.com (Skrýt v legendě)",
-				settingsSeriesHelpContent: "Série překrývání je možnost navigace s pomocí karet, která diváka vede ke konkrétnímu rozsahu a zobrazí název a textový popis v postranním panelu. Během počáteční aktivace se importují záložky z webové mapy / webových map a použijí se k prvotnímu zaplnění lišty série. Zakázáním možnosti série lištu série vypnete, ale konfigurace série zůstane uložena pro budoucí použití.", 
+				settingsSeriesHelpContent: "Série překrývání je možnost navigace s pomocí karet, která diváka vede ke konkrétnímu rozsahu a zobrazí název a textový popis v postranním panelu. Během počáteční aktivace se importují záložky z webové mapy / webových map a použijí se k prvotnímu zaplnění lišty série. Zakázáním možnosti série lištu série vypnete, ale konfigurace série zůstane uložena pro budoucí použití.",
 				settingsSeriesHelpContent2: "Série překrývání vám umožní vytvořit a editovat výběr lokalit s připojenými nadpisy a textem. Pokud má vaše webová mapa záložky, budou zobrazeny. Sérii můžete zakázat, ale konfigurace bude uložena pro budoucí použití.",
 				settingsSeriesHelpLink: "Zde se podívejte na příklad aplikace se sérií překrývání",
 				preview: "Náhled uživatelského rozhraní",
@@ -215,39 +218,39 @@
 				}
 			},
 			share: {
-				firstSaveTitle: "Aplikace úspěšně uložena",
-				firstSaveHeader: "Vaše aplikace je nyní uložena v ArcGIS Online. Přečtěte si prosím následující odpovědi na časté dotazy.",
+				firstSaveTitle: "Příběh byl úspěšně uložen",
+				firstSaveHeader: "Váš příběh je nyní uložen v ArcGIS Online. Přečtěte si prosím následující odpovědi na časté dotazy.",
 				firstSaveA1: "Pokud nejste obeznámeni s ArcGIS Online nebo chcete zkratku pro přístup do autorského rozhraní, můžete si uložit následující odkaz: %LINK1%",
-				firstSaveA1bis: "Aplikaci naleznete i ve své <a href='%LINK2%' target='_blank'>složce obsahu ArcGIS Online</a>.",
-				firstSaveQ2: "Je má aplikace sdílená?",
-				firstSaveA2: "Vaše aplikace momentálně není sdílená. Pokud ji chcete sdílet, použijte tlačítko SDÍLET.",
-				shareTitle: "Sdílení vaší aplikace",
-				sharePrivateHeader: "Vaše aplikace není sdílená, chcete ji sdílet?",
+				firstSaveA1bis: "Příběh naleznete i ve své <a href=\'%LINK2%\' target=\'_blank\'>složce s obsahem ArcGIS Online</a>.",
+				firstSaveQ2: "Je můj příběh sdílený?",
+				firstSaveA2: "Váš příběh momentálně není sdílený. Chcete-li ho sdílet, použijte tlačítko SDÍLET.",
+				shareTitle: "Sdílejte svůj příběh",
+				sharePrivateHeader: "Váš příběh není sdílený, chcete ho sdílet?",
 				sharePrivateBtn1: "Sdílet veřejně",
 				sharePrivateBtn2: "Sdílet s mou organizací",
 				sharePrivateProgress: "Probíhá sdílení…",
 				sharePrivateErr: "Sdílení selhalo, zkuste to znovu nebo",
 				sharePrivateOk: "Sdílení bylo úspěšně aktualizováno, probíhá nahrávání…",
-				shareStatus1: "Aplikace není uložena.",
-				shareStatus2: "Aplikace je sdílená veřejně.",
-				shareStatus3: "Aplikace je sdílená v rámci organizace.",
-				shareStatus4: "Aplikace není sdílená.",
+				shareStatus1: "Příběh není uložen",
+				shareStatus2: "Příběh je veřejně sdílen",
+				shareStatus3: "Příběh je sdílen v rámci organizace",
+				shareStatus4: "Příběh není sdílen",
 				sharePreviewAsUser: "Náhled",
-				shareHeader1: "Vaše aplikace je <strong>veřejně přístupná</strong>.",
-				shareHeader2: "Vaše aplikace je přístupná členům vaší organizace (je vyžadováno přihlášení).",
-				shareLinkHeader: "Sdílejte aplikaci se svým publikem",
+				shareHeader1: "Váš příběh je <strong>veřejně přístupný</strong>.",
+				shareHeader2: "Váš příběh je přístupný členům vaší organizace (je vyžadováno přihlášení).",
+				shareLinkHeader: "Sdílejte příběh se svým publikem",
 				shareLinkOpen: "OTEVŘENO",
 				learnMore: "Více informací",
-				shareQ1Opt1: "Jak ponechám aplikaci soukromou?",
-				shareQ1Opt2: "Jak lze aplikaci ponechat jako soukromou nebo ji veřejně sdílet?",
+				shareQ1Opt1: "Jak lze příběh ponechat jako soukromý?",
+				shareQ1Opt2: "Jak lze příběh ponechat jako soukromý nebo ho veřejně sdílet?",
 				shareA1: "Použijte %SHAREIMG% na <a href='%LINK1%' target='_blank'>stránce položek aplikace</a>. Pokud chcete také přestat sdílet webové mapy, použijte <a href='%LINK2%' target='_blank'>stránku položek webové mapy</a>.",
 				shareA1bis: "Pokud chcete také zrušit sdílení služby Feature Service, použijte <a href='%LINK1%' target='_blank'>stránku položek služby Feature Service</a>.",
-				shareQ2: "Jak aplikaci později upravím?",
+				shareQ2: "Jak lze příběh později upravit?",
 				shareQ2bis: "Jak se vrátím do autorského rozhraní?",
-				shareA2div1: "Uložte si pro budoucí použití tento odkaz %LINK1% nebo použijte <a href='%LINK2%' target='_blank'>stránku položek aplikace</a>.",
-				shareA2div2: "Když jste přihlášeni na webu ArcGIS.com jako majitel aplikace, tak aplikace obsahuje tlačítko pro otevření interaktivního nástroje pro tvorbu:",				
+				shareA2div1: "Uložte si pro budoucí použití tento odkaz %LINK1% nebo použijte <a href=\'%LINK2%\' target=\'_blank\'>stránku položek příběhu</a>.",
+				shareA2div2: "Když jste na webu ArcGIS.com přihlášeni jako majitel příběhu, příběh obsahuje tlačítko pro otevření interaktivního nástroje pro tvorbu:",
 				shareQ3: "Kde jsou uložena data?",
-				shareA3: "Konfigurace aplikace je uložena v této položce webové aplikace</a>.",
+				shareA3: "Konfigurace příběhu je uložena v této položce webové aplikace</a>.",
 				shareWarning: "Sdílení %WITH% bylo zakázáno, protože nejste vlastníkem <a href='%LINK%' target='_blank'>webové mapy</a>.",
  				shareWarningWith1: "veřejně",
  				shareWarningWith2: "veřejně a s organizací"
@@ -279,4 +282,3 @@
 		}
     })
 );
-

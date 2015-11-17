@@ -342,7 +342,7 @@ define(["dojo/_base/declare",
 					});
 
 					if(!_this._isGraphics)
-						setTimeout(this.clipGlass, 0);
+						setTimeout(this.clipGlass, 500);
 					else
 						setTimeout(this.clipGraphics, 1500);
 

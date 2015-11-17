@@ -100,7 +100,7 @@ define(["dojo/dom-construct",
 				var appColors = WebApplicationData.getColors();
 				var description = WebApplicationData.getDescription();
 				var legend = WebApplicationData.getLegend();
-				var descriptionText = WebApplicationData.getSidePanelDescription();
+				var descriptionText = WebApplicationData.getSidePanelDescription(Helper.getAppID());
 				var layout = WebApplicationData.getLayout();
 				var dataModel = app.mode;
 

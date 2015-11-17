@@ -2,11 +2,11 @@
 	 ({
 		viewer: {
 			loading: {
-				step1: "LADATAAN SOVELLUSTA",
+				step1: "LADATAAN TARINAA",
 				step2: "LADATAAN AINEISTOA",
 				step3: "KÄYNNISTETÄÄN",
 				fail: "Pyyhkäisyn lataus epäonnistui",
-				loadBuilder: "VAIHDETAAN MUODOSTUSOHJELMAN TILAAN",				
+				loadBuilder: "VAIHDETAAN MUODOSTUSOHJELMAN TILAAN",
 				redirectSignIn: "OHJATAAN SISÄÄNKIRJAUTUMISSIVULLE",
 				redirectSignIn2: "(sinut ohjataan tänne sisäänkirjautumisen jälkeen)",
 				failButton: "Yritä uudelleen"
@@ -17,16 +17,19 @@
 				invalidConfig: "Vakava virhe: virheellinen kokoonpano",
 				invalidConfigNoWebmap: "Vakava virhe: Virheellinen konfiguraatio (web-karttaa ei ole määritetty)",
 				createMap: "Karttaa ei voi luoda",
-				invalidApp: "Vakava virhe: sovellusta ei voi ladata",
+				invalidApp: "Vakava virhe: tarinaa ei voi ladata",
 				initMobile: "Tervetuloa käyttämään web-pyyhkäisysovellusta. Sovellusta ei ole määritetty. Vuorovaikutteinen luontitoiminto ei ole käytettävissä mobiililaitteissa.",
+				initMobile2: "Nykyinen näyttökoko ei tue pyyhkäisyn luontitoimintoa.",
 				noBuilderIE8: "Interaktiivinen pyyhkäisyn luontitoiminto ei tue Internet Explorer 9:ää vanhempia versioita.",
 				noLayerView: "Tervetuloa käyttämään web-pyyhkäisysovellusta.<br />Sovellusta ei ole vielä määritetty.",
-				appSave: "Virhe tallennettaessa Web-sovellusta",
+				appSave: "Virhe tallennettaessa Web-tarinaa",
 				mapSave: "Virhe tallennettaessa Web-karttaa",
-				notAuthorized: "Sinulla ei ole tämän sovelluksen käyttöoikeuksia",
+				notAuthorized: "Sinulla ei ole tämän tarinan käyttöoikeuksia",
 				conflictingProjectionsTitle: "Ristiriitaa aiheuttavat projektiot",
 				conflictingProjections: "Pyyhkäisysovellus ei tue projektioiltaan eroavien web-karttojen käyttämistä. Avaa asetukset ja ota käyttöön sellainen web-kartta, joka käyttää samaa projektiota kuin ensimmäinen web-kartta.",
-				cpButton: "Sulje"
+				cpButton: "Sulje",
+				unspecifiedConfigOwner: "Valtuutettua omistajaa ei ole määritetty.",
+				invalidConfigOwner: "Tarinan omistajalla ei ole valtuuksia."
 			},
 			mobileView: {
 				hideIntro: "PIILOTA ESITTELY",
@@ -44,7 +47,7 @@
 		},
 		builder: {
 			builder: {
-				panelHeader: "SOVELLUKSEN MÄÄRITYS",
+				panelHeader: "TARINAN MÄÄRITYS",
 				buttonSave: "TALLENNA",
 				buttonHelp: "Ohje",
 				buttonShare: "Jaa",
@@ -64,13 +67,13 @@
 				popoverSaveWhenDone: "Älä unohda tallentaa, kun olet valmis",
 				closeWithPendingChange: "Haluatko varmasti vahvistaa toiminnon? Muutoksesi häviävät.",
 				gotIt: "OK",
-				savingApplication: "Tallennetaan sovellusta",
-				saveSuccess: "Sovelluksen tallennus onnistui",
+				savingApplication: "Tallennetaan tarinaa",
+				saveSuccess: "Tarina on tallennettu",
 				saveError: "Tallennus epäonnistui, yritä uudelleen",
 				saveError2: "Tallennus epäonnistui nimen tai kuvauksen virheellisen HTML-tunnisteen takia",
 				saveError3: "Otsikko ei voi olla tyhjä",
 				signIn: "Kirjaudu sisään tilillä palvelussa",
-				signInTwo: "sovelluksen tallentamiseksi."
+				signInTwo: "tarinan tallentamiseksi."
 			},
 			header:{
 				editMe: "Muokkaa minua!",
@@ -78,7 +81,7 @@
 				templateSubtitle: "Määritä mallin alaotsikko"
 			},
 			settings: {
-				settingsHeader: "Sovellusasetukset",
+				settingsHeader: "Tarinan asetukset",
 				modalCancel: "Peruuta",
 				modalApply: "Käytä"
 			},
@@ -138,7 +141,7 @@
 				settingsLayoutSpyGlass: "Kiikari",
 				settingsLayoutSelected: "Valittu asettelu",
 				settingsLayoutSelect: "Valitse tämä asettelu",
-				settingsSaveConfirm: "Jotkin muutokset edellyttävät sovelluksen tallennusta ja uudelleenkäynnistystä."
+				settingsSaveConfirm: "Jotkin muutokset edellyttävät tarinan tallennusta ja uudelleenkäynnistystä"
 			},
 			settingsDataModel: {
 				settingsTabDataModel: "Pyyhkäisytyyppi",
@@ -166,7 +169,7 @@
 			},
 			settingsLegend: {
 				settingsTabLegend: "Sovelluksen asettelu",
-				settingsLegendExplain: "Valitse sovelluksen asetteluasetukset.",
+				settingsLegendExplain: "Valitse asetteluasetukset.",
 				settingsLegendEnable: "Ota selite käyttöön",
 				settingsDescriptionEnable: "Ota kuvaus käyttöön",
 				settingsBookmarksEnable: "Ota sarjapyyhkäisy käyttöön",
@@ -174,7 +177,7 @@
 				settingsLocationSearchEnable: "Ota käyttöön paikanninhaku",
 				settingsGeolocatorEnable: "Ota käyttöön paikannin",
 				settingsLegendHelpContent: "Jos haluat määrittää selitteen sisällön, käytä ArcGIS.com-sivuston web-kartan katseluohjelman sisällysluetteloa (Piilota selitteessä)",
-				settingsSeriesHelpContent: "Pyyhintäsarja on välilehdellinen navigointivalinta, joka ohjaa katselijan tiettyyn laajuuteen ja näyttää otsikon ja kuvaavan tekstin sivupaneelissa. Kun otat asetuksen käyttöön ensimmäisen kerran, web-kartan(/-karttojen) kirjanmerkit tuodaan ja niillä täytetään valmiiksi sarjapalkki. Jos poistat sarjan asetuksen käytöstä, sarjapalkki poistuu käytöstä, mutta sarjan määritykset tallennetaan tulevaa käyttöä varten.", 
+				settingsSeriesHelpContent: "Pyyhintäsarja on välilehdellinen navigointivalinta, joka ohjaa katselijan tiettyyn laajuuteen ja näyttää otsikon ja kuvaavan tekstin sivupaneelissa. Kun otat asetuksen käyttöön ensimmäisen kerran, web-kartan(/-karttojen) kirjanmerkit tuodaan ja niillä täytetään valmiiksi sarjapalkki. Jos poistat sarjan asetuksen käytöstä, sarjapalkki poistuu käytöstä, mutta sarjan määritykset tallennetaan tulevaa käyttöä varten.",
 				settingsSeriesHelpContent2: "Pyyhkäisysarjan avulla voit luoda ja muokata sijaintivalikoimaa ja sijainteihin liittyviä otsikoita ja tekstejä. Jos web-kartassa on kirjanmerkkejä, ne tulevat näkyviin. Voit tuoda näkyviin sarjan, mutta kokoonpano säilytetään tulevaa käyttöä varten.",
 				settingsSeriesHelpLink: "Tarkastele tässä esimerkkiä sovelluksesta, jossa on pyyhkäisysarja",
 				preview: "Käyttöliittymän esikatselu",
@@ -215,39 +218,39 @@
 				}
 			},
 			share: {
-				firstSaveTitle: "Sovellus on tallennettu",
-				firstSaveHeader: "Sovellus on nyt tallennettu ArcGIS Onlineen. Lue seuraavat usein esitettyjen kysymysten vastaukset.",
+				firstSaveTitle: "Tarina on tallennettu",
+				firstSaveHeader: "Tarina on nyt tallennettu ArcGIS Onlineen. Lue seuraavat usein esitettyjen kysymysten vastaukset.",
 				firstSaveA1: "Jos et tunne ArcGIS Onlinea tai haluat pikavalinnan, jonka kautta pääsee sisällönluonnin käyttöliittymään, voit tallentaa seuraavan linkin: %LINK1%",
-				firstSaveA1bis: "Sovellus löytyy myös <a href='%LINK2%' target='_blank'>ArcGIS Online -sisältökansiosta</a>.",
-				firstSaveQ2: "Onko sovellukseni jaettu?",
-				firstSaveA2: "Sovellusta ei ole jaettu tällä hetkellä. Voit jakaa sen käyttämällä JAA-painiketta.",
-				shareTitle: "Jaa sovellus",
-				sharePrivateHeader: "Sovellustasi ei ole jaettu. Haluatko jakaa sen?",
+				firstSaveA1bis: "Tarina sijaitsee myös <a href=\'%LINK2%\' target=\'_blank\'>ArcGIS Online -sisältökansiossasi</a>.",
+				firstSaveQ2: "Onko tarinani jaettu?",
+				firstSaveA2: "Tarinaa ei ole jaettu tällä hetkellä. Voit jakaa sen käyttämällä JAA-painiketta.",
+				shareTitle: "Jaa tarinasi",
+				sharePrivateHeader: "Tarinaasi ei ole jaettu. Haluatko jakaa sen?",
 				sharePrivateBtn1: "Jaa julkisesti",
 				sharePrivateBtn2: "Jaa oman organisaation kanssa",
 				sharePrivateProgress: "Jakaminen käynnissä...",
 				sharePrivateErr: "Jakaminen epäonnistui. Yritä uudelleen tai",
 				sharePrivateOk: "Jakamisen päivitys onnistui, ladataan...",
-				shareStatus1: "Sovellusta ei ole tallennettu",
-				shareStatus2: "Sovellus on jaettu julkisesti",
-				shareStatus3: "Sovellus on jaettu organisaatiossa",
-				shareStatus4: "Sovellusta ei ole jaettu",
+				shareStatus1: "Tarinaa ei ole tallennettu",
+				shareStatus2: "Tarina on jaettu julkisesti",
+				shareStatus3: "Tarina on jaettu organisaatiossa",
+				shareStatus4: "Tarinaa ei ole jaettu",
 				sharePreviewAsUser: "Esikatselu",
-				shareHeader1: "Sovelluksesi on <strong>julkisesti käytettävissä</strong>.",
-				shareHeader2: "Organisaatiosi jäsenet voivat käyttää sovellustasi (sisäänkirjauduttuaan).",
-				shareLinkHeader: "Jaa sovellus yleisösi kanssa",
+				shareHeader1: "Tarinasi <strong>julkisesti käytettävissä</strong>.",
+				shareHeader2: "Organisaatiosi jäsenet voivat käyttää tarinaasi (sisäänkirjauduttuaan).",
+				shareLinkHeader: "Jaa tarina yleisösi kanssa",
 				shareLinkOpen: "AVAA",
 				learnMore: "Lisätietoja",
-				shareQ1Opt1: "Miten voin pitää sovelluksen yksityisenä?",
-				shareQ1Opt2: "Miten säilytän sovelluksen yksityisenä tai jaan sen julkisesti?",
+				shareQ1Opt1: "Miten voin pitää tarinan yksityisenä?",
+				shareQ1Opt2: "Miten säilytän tarinan yksityisenä tai jaan sen julkisesti?",
 				shareA1: "Käytä kohdetta %SHAREIMG% <a href='%LINK1%' target='_blank'>sovelluskohteen sivulla</a>. Jos haluat myös lopettaa web-kartan jaon, käytä <a href='%LINK2%' target='_blank'>web-kartan kohdesivua</a>.",
 				shareA1bis: "Jos haluat lopettaa myös kohdepalvelun jaon, käytä <a href='%LINK1%' target='_blank'>kohdepalvelun kohdesivua</a>.",
-				shareQ2: "Miten muokkaan sovellusta myöhemmin?",
+				shareQ2: "Miten muokkaan tarinaa myöhemmin?",
 				shareQ2bis: "Miten palaan sisällönluonnin käyttöliittymään?",
-				shareA2div1: "Tallenna ja käytä uudelleen seuraavaa linkkiä %LINK1% tai käytä <a href='%LINK2%' target='_blank'>sovelluskohteen sivua</a>.",
-				shareA2div2: "Koska olet sovelluksen omistaja, kun olet kirjautunut ArcGIS.com-sivustoon, sovelluksessa näkyy painike, jolla voita avata vuorovaikutteisen muodostusohjelman:",				
+				shareA2div1: "Tallenna ja käytä uudelleen seuraavaa linkkiä %LINK1% tai käytä <a href=\'%LINK2%\' target=\'_blank\'>tarinan kohdesivua</a>.",
+				shareA2div2: "Koska olet tarinan omistaja, kun olet kirjautunut ArcGIS.com-sivustoon, tarinassa näkyy painike, jolla voita avata vuorovaikutteisen muodostusohjelman:",
 				shareQ3: "Minne aineistot on tallennettu?",
-				shareA3: "Sovelluksen määritykset tallennetaan tähän web-sovelluskohteeseen</a>.",
+				shareA3: "Tarinan määritys tallennetaan tähän Web-sovelluskohteeseen</a>.",
 				shareWarning: "Jakaminen kohteen %WITH% kanssa on poistettu käytöstä, koska et ole <a href='%LINK%' target='_blank'>Web-kartan</a> omistaja.",
  				shareWarningWith1: "julkisesti",
  				shareWarningWith2: "julkisesti ja organisaation kanssa"
@@ -279,4 +282,3 @@
 		}
     })
 );
-

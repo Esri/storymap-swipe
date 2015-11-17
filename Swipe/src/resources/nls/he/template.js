@@ -2,11 +2,11 @@
 	 ({
 		viewer: {
 			loading: {
-				step1: "טעינת אפליקציה",
+				step1: "טוען סיפור",
 				step2: "טעינת מידע",
 				step3: "מתחיל",
 				fail: "סליחה, אך טעינת כלי ה- swipe נכשלה",
-				loadBuilder: "מעבר למצב בניה",				
+				loadBuilder: "מעבר למצב בניה",
 				redirectSignIn: "הפניה לדף ההתחברות",
 				redirectSignIn2: "(תופנה מחדש לאחר ההתחברות)",
 				failButton: "נסה שוב"
@@ -17,16 +17,19 @@
 				invalidConfig: "שגיאה קריטית: קביעת תצורה לא תקינה",
 				invalidConfigNoWebmap: "שגיאה קריטית: קביעת תצורה לא תקינה (לא הוגדר web map)",
 				createMap: "לא ניתן ליצור מפה",
-				invalidApp: "שגיאה קריטית: לא ניתן לטעון את האפליקציה",
+				invalidApp: "שגיאה קריטית: לא ניתן לטעון את הסיפור",
 				initMobile: "ברוכים הבאים לאפליקצית ה- web של כלי ה- swipe. עדיין לא הוגדרה תצורה לאפליקציה. אשף הבנייה האינטראקטיבי לא נתמך במכשירים ניידים.",
+				initMobile2: "אשף הבנייה של תבנית פס הזזה אינו נתמך בגודל תצוגה זה.",
 				noBuilderIE8: "הבנאי האינטראקטיבי של ה- Swipe לא נתמך באינטרנט אקספלורר לפני גרסה 9.",
 				noLayerView: "ברוכים הבאים לאפליקצית ה- web של כלי ה- swipe. <br />עדיין לא הוגדרה תצורה לאפליקציה.",
-				appSave: "שגיאה בשמירת אפליקצית ה- web",
+				appSave: "שגיאה בשמירת web story",
 				mapSave: "שגיאה בשמירת ה- web map",
-				notAuthorized: "אינך מורשה לגשת לאפליקציה זו",
+				notAuthorized: "אין לך הרשאה לגשת לסיפור זה",
 				conflictingProjectionsTitle: "היטלים סותרים",
 				conflictingProjections: "כלי ה- Swipe לא ישים כאשר ישנם היטלים שונים לשני webmaps. אנא פתח את ההגדרות והשתמש ב- webmap שמשתמשת באותו היטל של ה- webmap הראשון.",
-				cpButton: "סגור"
+				cpButton: "סגור",
+				unspecifiedConfigOwner: "לא הוגדר בעלים מורשה.",
+				invalidConfigOwner: "הבעלים של הסיפור אינו מורשה."
 			},
 			mobileView: {
 				hideIntro: "הסתר הקדמה",
@@ -44,7 +47,7 @@
 		},
 		builder: {
 			builder: {
-				panelHeader: "קביעת תצורת אפליקציה",
+				panelHeader: "תצורת סיפור",
 				buttonSave: "שמירה",
 				buttonHelp: "עזרה",
 				buttonShare: "שיתוף",
@@ -64,13 +67,13 @@
 				popoverSaveWhenDone: "אל תשכח לשמור ברגע שתסיים",
 				closeWithPendingChange: "האם הינך בטוח שברצונך לאשר פעולה זו? אתה עלול לאבד את השינויים שביצעת",
 				gotIt: "אישור",
-				savingApplication: "שמירת אפליקציה",
-				saveSuccess: "שמירת אפליקציה בוצעה בהצלחה",
+				savingApplication: "שומר סיפור",
+				saveSuccess: "הסיפור נשמר בהצלחה",
 				saveError: "שמירה נכשלה, יש לנסות שוב",
 				saveError2: "השמירה נכשלה בשל תג HTML לא חוקי בשם או בתיאור",
 				saveError3: "הכותרת לא יכולה להיות ריקה",
 				signIn: "אנא התחבר עם חשבון ב",
-				signInTwo: "כדי לשמור את האפליקציה."
+				signInTwo: "כדי לשמור את הסיפור."
 			},
 			header:{
 				editMe: "ערוך אותי!",
@@ -78,7 +81,7 @@
 				templateSubtitle: "קבע כותרת משנה לתבנית"
 			},
 			settings: {
-				settingsHeader: "הגדרות אפליקציה",
+				settingsHeader: "הגדרות סיפור",
 				modalCancel: "ביטול",
 				modalApply: "בצע"
 			},
@@ -138,7 +141,7 @@
 				settingsLayoutSpyGlass: "Spyglass",
 				settingsLayoutSelected: "תצוגה נבחרת",
 				settingsLayoutSelect: "בחר תצוגה זו",
-				settingsSaveConfirm: "חלק מהשינויים שלך דורשים שמירה וטעינה מחדש של האפליקציה"
+				settingsSaveConfirm: "חלק מהשינויים שלך דורשים שמירה וטעינה מחדש של הסיפור"
 			},
 			settingsDataModel: {
 				settingsTabDataModel: "סוג Swipe",
@@ -166,7 +169,7 @@
 			},
 			settingsLegend: {
 				settingsTabLegend: "אפליקצית תצוגה",
-				settingsLegendExplain: "בחר את הגדרות תצוגת האפליקציה.",
+				settingsLegendExplain: "בחר את הגדרות המפה.",
 				settingsLegendEnable: "הדלק מקרא",
 				settingsDescriptionEnable: "הדלק תיאור",
 				settingsBookmarksEnable: "הדלק סדרת Swipe",
@@ -174,7 +177,7 @@
 				settingsLocationSearchEnable: "הפעל חיפוש עיגון כתובות",
 				settingsGeolocatorEnable: "הפעל חיפוש מרחבי",
 				settingsLegendHelpContent: "כדי לעדן את תוכן המקרא, השתמש בתוכן העניינים של צפיין ה- ArcGIS.com web map (הסתר במקרא)",
-				settingsSeriesHelpContent: "Swipe לסדרות היא אפשרות ניווט באמצעות כרטיסיות שתדריך את הצופה לתיחום מסוים ותציג כותרת וטקסט תיאור בפנל צדדי. במהלך הפעלה ראשונית, סימניות מה- web map ייובואו וישמשו לאכלוס מראש של בר הסדרה. כיבוי אפשרות הסדרה מכבה את בר הסדרה, אבל תצורת הסדרות נשמרת לשימוש עתידי.", 
+				settingsSeriesHelpContent: "Swipe לסדרות היא אפשרות ניווט באמצעות כרטיסיות שתדריך את הצופה לתיחום מסוים ותציג כותרת וטקסט תיאור בפנל צדדי. במהלך הפעלה ראשונית, סימניות מה- web map ייובואו וישמשו לאכלוס מראש של בר הסדרה. כיבוי אפשרות הסדרה מכבה את בר הסדרה, אבל תצורת הסדרות נשמרת לשימוש עתידי.",
 				settingsSeriesHelpContent2: "סדרת ה-Swipe מאפשרת לך ליצור ולערוך מבחר מיקומים מלווים בכיתוביות כותרות וטקסט. אם ל- web map יש סימניות, הן יוצגו. אתה יכול לבטל את הסדרה, אך ההגדרות תישמרנה לשימוש עתידי.",
 				settingsSeriesHelpLink: "ראה כאן דוגמא לאלפליקציה עם סדרת ה-Swipe",
 				preview: "תצוגה מקדימה של UI",
@@ -215,39 +218,39 @@
 				}
 			},
 			share: {
-				firstSaveTitle: "האפליקציה נשמרה בהצלחה",
-				firstSaveHeader: "האפליקציה נשמרה כעת ב- ArcGIS Online . אנא קרא את התשובות לשאלות השכיחות הבאות.",
+				firstSaveTitle: "הסיפור נשמר בהצלחה",
+				firstSaveHeader: "הסיפור נשמר כעת ב- ArcGIS Online . אנא קרא את התשובות לשאלות השכיחות הבאות.",
 				firstSaveA1: "אם אינך מכיר את ArcGIS Online או שאתה מעוניין בקיצור דרך לממשק העריכה, אתה יכול לשמור את הלינק הבא: %LINK1%",
-				firstSaveA1bis: "ניתן למצוא את האפליקציה גם ב- <a href='%LINK2%' target='_blank'>מחיצת התוכן של ArcGIS Online </a>.",
-				firstSaveQ2: "האם האפליקציה שלי נמצאת בשיתוף?",
-				firstSaveA2: "כעת האפליקציה שלך אינה משותפת. כדי לשתף אותה, השתמש בכפתור שתף.",
-				shareTitle: "שתף את האפליקציה שלך",
-				sharePrivateHeader: "האפליקציה שלך אינה משותפת, ​​היית רוצה לשתף אותה?",
+				firstSaveA1bis: "ניתן למצוא את הסיפור גם ב- <a href=\'%LINK2%\' target=\'_blank\'>תיקיית התוכן של ArcGIS Online</a>.",
+				firstSaveQ2: "האם הסיפור שלי משותף?",
+				firstSaveA2: "כעת הסיפור שלך אינו משותף. כדי לשתף אותו, השתמש בלחצן \'שתף\'.",
+				shareTitle: "שתף את הסיפור שלך",
+				sharePrivateHeader: "הסיפור שלך אינו משותף, ​​היית רוצה לשתף אותו?",
 				sharePrivateBtn1: "שתף באופן ציבורי",
 				sharePrivateBtn2: "שתף עם הארגון שלי",
 				sharePrivateProgress: "שיתוף בתהליך...",
 				sharePrivateErr: "השיתוף נכשל, נסה שנית או",
 				sharePrivateOk: "עדכון השיתוף הצליח, טוען...",
-				shareStatus1: "האפליקציה לא נשמרה",
-				shareStatus2: "האפליקציה משותפת לציבור",
-				shareStatus3: "האפליקציה משותפת לארגון",
-				shareStatus4: "האפליקציה לא משותפת",
+				shareStatus1: "הסיפור לא נשמר",
+				shareStatus2: "הסיפור משותף לציבור",
+				shareStatus3: "הסיפור משותף לארגון",
+				shareStatus4: "הסיפור לא משותף",
 				sharePreviewAsUser: "תצוגה מקדימה",
-				shareHeader1: "האפליקציה שלך <strong>נגישה לציבור</strong>.",
-				shareHeader2: "האפליקציה שלך נגישה לחברי הארגון שלך (נדרש להתחבר).",
-				shareLinkHeader: "שתף את האפליקציה עם קהל המטרה שלך",
+				shareHeader1: "הסיפור שלך <strong>נגיש לציבור</strong>.",
+				shareHeader2: "הסיפור שלך נגיש לחברי הארגון שלך (נדרש להתחבר).",
+				shareLinkHeader: "שתף את הסיפור עם הקהל",
 				shareLinkOpen: "פתח",
 				learnMore: "מידע נוסף",
-				shareQ1Opt1: "כיצד אני יכול לשמור את האפליקציה פרטית?",
-				shareQ1Opt2: "כיצד אני יכול לשמור את האפליקציה פרטית או לשתף אותה לציבור?",
+				shareQ1Opt1: "כיצד לשמור על הסיפור פרטי?",
+				shareQ1Opt2: "כיצד אני יכול לשמור את הסיפור כפרטי או לשתף אותו לציבור?",
 				shareA1: "השתמש ב- %SHAREIMG% ב- <a href='%LINK1%' target='_blank'>דף פריט האפליקציה</a>. אם אתה רוצה גם לבטל את שיתוף של ה- web map, השתמש ב- <a href='%LINK2%' target='_blank'>דף פריט web map</a>.",
 				shareA1bis: "אם אתה רוצה לבטל גם את השיתוף לשירות הישויות, השתמש <a href='%LINK1%' target='_blank'>דף פריט שירות הישויות</a>.",
-				shareQ2: "כיצד אני יכול לערוך את האפליקציה מאוחר יותר?",
+				shareQ2: "כיצד ניתן לערוך את הסיפור במועד מאוחר יותר?",
 				shareQ2bis: "כיצד אני יכול לחזור לממשק הפרסום?",
-				shareA2div1: "שמור והשתמש שוב בקישור הבא %LINK1% או השתמש ב- <a href='%LINK2%' target='_blank'>דף פריט האפליקציה</a>.",
-				shareA2div2: "כבעלים של האפליקציה, כאשר אתה מתחבר אל ArcGIS.com האפליקציה כוללת כפתור הפותח את אשף הבנייה האינטראקטיבי.",				
+				shareA2div1: "שמור והשתמש בו בקישור הבא ‎%LINK1% או השתמש ב- <a href=\'%LINK2%\' target=\'_blank\'>דף פריט הסיפור</a>.",
+				shareA2div2: "כבעלים של הסיפור, כאשר אתה מתחבר אל ArcGIS.com הסיפור כולל לחצן הפותח את אשף הבנייה האינטראקטיבי:",
 				shareQ3: "היכן מאוחסן המידע?",
-				shareA3: "תצורת האפליקציה אינה שמורה בפריט  web application</a> זה.",
+				shareA3: "תצורת הסיפור מאוחסנת בפריט אפליקציית אינטרנט זה</a>.",
 				shareWarning: "שיתוף עם %WITH% לא מתאפשר מכיוון שאינך הבעלים של <a href='%LINK%' target='_blank'>webmap</a>.",
  				shareWarningWith1: "ציבורי",
  				shareWarningWith2: "ציבורי וגם עם הארגון"
@@ -279,4 +282,3 @@
 		}
     })
 );
-

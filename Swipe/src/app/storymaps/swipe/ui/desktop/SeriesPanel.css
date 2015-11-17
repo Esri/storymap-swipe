@@ -104,10 +104,19 @@
 	margin-right: 60px;
 	text-align: left;
 	overflow: auto;
+	cursor: pointer;
+}
+
+.seriesDescriptionMobile {
+	cursor: pointer;
 }
 
 .seriesView{
 	margin-top: 60px;
+}
+
+#seriesViewLabel {
+	cursor: default;
 }
 
 .embed-btn-container {

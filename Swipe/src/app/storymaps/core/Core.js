@@ -270,7 +270,6 @@ define(["esri/map",
 			app.header.initLocalization();
 			_mainView.initLocalization();
 
-			//$(window).resize(handleWindowResize);
 			$(window).resize(function(e){
 				//need to differentiate b/w resize from window and swipe bar
 				if(e.eventPhase == 3){
@@ -309,16 +308,19 @@ define(["esri/map",
 				loadWebmapsIds(webmapsIds);
 			// Load using a webmap: preview or user hosted
 			else if (webmapsIds.length && (!app.isDirectCreation && !app.isGalleryCreation))
+				if ( Helper.getUrlParams().appid && (! configOptions.authorizedOwners || ! configOptions.authorizedOwners[0]) ){
+					initError("unspecifiedConfigOwner");
+				} else
 					loadWebMap(webmapsIds[0]);
 			// Direct creation and not signed-in
 			else if ((app.isDirectCreation || app.isGalleryCreation) && isProd() && !Helper.getPortalUser()) {
 				redirectToSignIn();
-				initError("initMobile", null, true);
+				initError("initMobile2", null, true);
 			}
 			// Direct creation and signed in
 			else
 				if (app.isDirectCreation || app.isGalleryCreation) {
-					initError("initMobile", null, true);
+					initError("initMobile2", null, true);
 					portalLogin().then(function(){
 						var browseParams = {
 							portal: app.portal,
@@ -408,6 +410,25 @@ define(["esri/map",
 						initError("invalidApp");
 					return;
 				}
+
+				if( configOptions.authorizedOwners && configOptions.authorizedOwners.length > 0 && configOptions.authorizedOwners[0] ) {
+					var ownerFound = false;
+
+					if( itemRq.results[0].owner )
+						ownerFound = $.inArray(itemRq.results[0].owner, configOptions.authorizedOwners) != -1;
+
+					if ( ! ownerFound && configOptions.authorizedOwners[0] == "*" )
+						ownerFound = true;
+
+					if(configOptions.appid)
+						ownerFound = true;
+
+					if (!ownerFound) {
+						initError("invalidConfigOwner");
+						return;
+					}
+				}
+
 				var webmapsIds = WebApplicationData.getWebmaps(false);
 				var webmapId = WebApplicationData.getWebmap(false);
 				app.rootMapId = webmapId;
@@ -465,7 +486,7 @@ define(["esri/map",
 		}
 
 		function redirectToBuilderFromGallery(){
-			initError("initMobile", null, true);
+			initError("initMobile2", null, true);
 			// Do not allow builder under IE 9
 			if(app.isInBuilderMode && has("ie") && has("ie") < 9) {
 				initError("noBuilderIE8");
@@ -506,7 +527,7 @@ define(["esri/map",
 
 			app.initInProgress = true;
 			cleanLoadingTimeout();
-			initError("initMobile", null, true);
+			initError("initMobile2", null, true);
 			handleWindowResize();
 
 			var resultDeferred = app.builder.presentInitPopup();
@@ -632,6 +653,28 @@ define(["esri/map",
 		function webMapInitCallback(response, webmapInitCallbackDone)
 		{
 			console.log("swipe.core.Core - webMapCallback");
+
+			var itemRq = response.itemInfo.item;
+
+			if( configOptions.authorizedOwners && configOptions.authorizedOwners.length > 0 && configOptions.authorizedOwners[0] ) {
+
+				var owner = itemRq.owner,
+					ownerFound = false;
+
+				if( owner )
+					ownerFound = $.inArray(owner, configOptions.authorizedOwners) != -1;
+
+				if ( ! ownerFound && configOptions.authorizedOwners[0] == "*" )
+					ownerFound = true;
+
+				if(configOptions.appid)
+					ownerFound = true;
+
+				if ( ! ownerFound ) {
+					initError("invalidConfigOwner");
+					return;
+				}
+			}
 
 			app.mainMap = app.map;
 			if( app.mode == "TWO_WEBMAPS" ){
@@ -855,7 +898,7 @@ define(["esri/map",
 				loadingIndicator.setMessage(i18n.viewer.errors[error], true);
 				return;
 			}
-			//else if ( error != "initMobile" )
+			//else if ( error != "initMobile2" )
 				//loadingIndicator.forceHide();
 
 			$("#fatalError .error-msg").html(i18n.viewer.errors[error]);
@@ -928,6 +971,12 @@ define(["esri/map",
 				$("body").addClass("mobile-view");
 			else
 				$("body").removeClass("mobile-view");
+
+			if(isMobileView && !WebApplicationData.getLegend() && !app.isPopup && (APPCFG.EMBED || Helper.getUrlParams().embed || Helper.getUrlParams().embed === '')){
+				$('#header').hide();
+				$('#header').css('cssText', 'height: 0px !important');
+				$('.banner').hide();
+			}
 
 			var widthViewport = $("body").width();
 			var heightViewport = $("body").height();

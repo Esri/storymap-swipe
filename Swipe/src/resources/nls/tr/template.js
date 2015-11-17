@@ -2,11 +2,11 @@
 	 ({
 		viewer: {
 			loading: {
-				step1: "UYGULAMA YÜKLENİYOR",
+				step1: "HiKAYE YÜKLENiYOR",
 				step2: "VERİLER YÜKLENİYOR",
 				step3: "BAŞLATILIYOR",
 				fail: "Özür dileriz; Swipe yüklenemedi",
-				loadBuilder: "DERLEYİCİ MODUNA GEÇİLİYOR",				
+				loadBuilder: "DERLEYİCİ MODUNA GEÇİLİYOR",
 				redirectSignIn: "OTURUM AÇMA SAYFASINA YÖNLENDİRİLİYOR",
 				redirectSignIn2: "(oturum açtıktan sonra buraya yeniden yönlendirileceksiniz)",
 				failButton: "Tekrar dene"
@@ -17,16 +17,19 @@
 				invalidConfig: "Onarılamaz: Geçersiz yapılandırma",
 				invalidConfigNoWebmap: "Onarılamaz hata: Geçersiz yapılandırma (hiçbir web haritası belirtilmedi)",
 				createMap: "Harita oluşturulamıyor",
-				invalidApp: "Onarılamaz hata: Uygulama yüklenemiyor",
+				invalidApp: "Onarılamaz hata: Hikaye yüklenemiyor",
 				initMobile: "Swipe web uygulamasına hoş geldiniz. Uygulama yapılandırılmadı. Etkileşimli derleyici mobil cihazlarda desteklenmez.",
+				initMobile2: "Kaydırma oluşturucu bu ekran boyutunda desteklenmiyor.",
 				noBuilderIE8: "Swipe etkileşimli derleyicisi Internet Explorer\'ın 9. sürümünden öncesinde desteklenmez.",
 				noLayerView: "Swipe web uygulamasına hoş geldiniz.<br />Uygulama henüz yapılandırılmadı.",
-				appSave: "Web uygulamasını kaydederken hata oluştu",
+				appSave: "Web hikayesi kaydetme hatası",
 				mapSave: "Web haritasını kaydederken hata oluştu",
-				notAuthorized: "Bu uygulamaya erişim yetkiniz yok",
+				notAuthorized: "Bu hikayeye erişme yetkiniz yok",
 				conflictingProjectionsTitle: "Çelişen Projeksiyonlar",
 				conflictingProjections: "Sıyır, farklı projeksiyonları olan iki web haritasını desteklemez. Ayarları açın ve ilk web haritasıyla aynı projeksiyonu kullanan bir web haritası kullanın.",
-				cpButton: "Kapat"
+				cpButton: "Kapat",
+				unspecifiedConfigOwner: "Yetkili sahip yapılandırılmamış.",
+				invalidConfigOwner: "Hikaye sahibi yetkilendirilmemiş."
 			},
 			mobileView: {
 				hideIntro: "GİRİŞİ GİZLE",
@@ -37,14 +40,14 @@
 			desktopView: {
 				storymapsText: "Öykü haritası",
 				builderButton: "Derleyici moduna geç",
-				facebookTooltip: "Facebook\\'ta Paylaş",
-				twitterTooltip: "Twitter\\'da Paylaş",
+				facebookTooltip: "Facebook\'ta Paylaş",
+				twitterTooltip: "Twitter\'da Paylaş",
 				bitlyTooltip: "Kısa bağlantı edin"
 			}
 		},
 		builder: {
 			builder: {
-				panelHeader: "UYGULAMA YAPILANDIRMASI",
+				panelHeader: "HİKAYE YAPILANDIRMASI",
 				buttonSave: "KAYDET",
 				buttonHelp: "Yardım",
 				buttonShare: "Paylaş",
@@ -64,13 +67,13 @@
 				popoverSaveWhenDone: "İşiniz bittiğinde kaydetmeyi unutmayın",
 				closeWithPendingChange: "Eylemi onaylamak istediğinizden emin misiniz? Değişiklikleriniz kaybolacak.",
 				gotIt: "Tamam",
-				savingApplication: "Uygulama kaydediliyor",
-				saveSuccess: "Uygulama başarıyla kaydedildi",
+				savingApplication: "Hikaye kaydediliyor",
+				saveSuccess: "Hikaye başarıyla kaydedildi",
 				saveError: "Kaydetme başarısız; tekrar deneyin",
 				saveError2: "Addaki veya açıklamadaki geçersiz bir html etiketi nedeniyle kaydetme başarısız oldu",
 				saveError3: "Başlık boş olamaz",
 				signIn: "Uygulamayı kaydetmek için",
-				signInTwo: "üzerindeki başka bir hesap ile oturum açın."
+				signInTwo: "hikayeyi kaydetmek için."
 			},
 			header:{
 				editMe: "Beni düzenle!",
@@ -78,7 +81,7 @@
 				templateSubtitle: "Şablon altyazısını ayarla"
 			},
 			settings: {
-				settingsHeader: "Uygulama ayarları",
+				settingsHeader: "Hikaye ayarları",
 				modalCancel: "İptal",
 				modalApply: "Uygula"
 			},
@@ -138,7 +141,7 @@
 				settingsLayoutSpyGlass: "Küçük dürbün",
 				settingsLayoutSelected: "Seçili düzen",
 				settingsLayoutSelect: "Bu düzeni seç",
-				settingsSaveConfirm: "Değişikliklerinizden bazıları kaydedip uygulamayı tekrar yüklemenizi gerektiriyor"
+				settingsSaveConfirm: "Değişikliklerinizden bazıları için hikayeyi kaydedip tekrar yüklemeniz gerekiyor"
 			},
 			settingsDataModel: {
 				settingsTabDataModel: "Swipe Türü",
@@ -166,7 +169,7 @@
 			},
 			settingsLegend: {
 				settingsTabLegend: "Uygulama Düzeni",
-				settingsLegendExplain: "Uygulama yerleşim ayarlarını seçin.",
+				settingsLegendExplain: "Yerleşim ayarlarını seçin.",
 				settingsLegendEnable: "Gösterimi Etkinleştir",
 				settingsDescriptionEnable: "Açıklamayı Etkinleştir",
 				settingsBookmarksEnable: "Swipe serisini etkinleştir",
@@ -174,7 +177,7 @@
 				settingsLocationSearchEnable: "Bulucu aramasını etkinleştir",
 				settingsGeolocatorEnable: "Coğrafi bulucuyu etkinleştir",
 				settingsLegendHelpContent: "Gösterim içeriğini netleştirmek için, ArcGIS.com web haritası görüntüleyicisi içindekiler tablosunu kullanın (Göstergede Gizle)",
-				settingsSeriesHelpContent: "Swipe serisi, izleyiciye belirli bir yayılım için kılavuzluk eden ve yan panelde bir başlık ve açıklama metni gösteren sekmeli bir gezinme seçeneğidir.  İlk etkinleştirme sırasında web haritalarının yer işaretleri içe aktarılır ve seri çubuğunu önceden doldurmak için kullanılır.  Seri seçeneğini devre dışı bırakmak seri çubuğunu kapatır, ancak seri yapılandırması gelecekte kullanılmak üzere saklanır.", 
+				settingsSeriesHelpContent: "Swipe serisi, izleyiciye belirli bir yayılım için kılavuzluk eden ve yan panelde bir başlık ve açıklama metni gösteren sekmeli bir gezinme seçeneğidir.  İlk etkinleştirme sırasında web haritalarının yer işaretleri içe aktarılır ve seri çubuğunu önceden doldurmak için kullanılır.  Seri seçeneğini devre dışı bırakmak seri çubuğunu kapatır, ancak seri yapılandırması gelecekte kullanılmak üzere saklanır.",
 				settingsSeriesHelpContent2: "Swipe serisi, beraberinde başlıklar ve metin ile seçili bir konum kümesi oluşturmanıza ve bunu düzenlemenize izin verir.  Web haritanızın yer işaretleri varsa, bunlar görüntülenir.  Seriyi devre dışı bırakabilirsiniz, ancak yapılandırma gelecekte kullanılmak üzere saklanır.",
 				settingsSeriesHelpLink: "Bir swipe serisi olan bir uygulama örneğini burada görebilirsiniz",
 				preview: "Kullanıcı arayüzü önizlemesi",
@@ -215,39 +218,39 @@
 				}
 			},
 			share: {
-				firstSaveTitle: "Uygulama başarıyla kaydedildi",
-				firstSaveHeader: "Uygulamanız artık ArcGIS Online\'a kaydedildi. Aşağıdaki sık sorulan sorulara verilen cevapları okuyun.",
+				firstSaveTitle: "Hikaye başarıyla kaydedildi",
+				firstSaveHeader: "Hikayeniz artık ArcGIS Online\'a kaydedildi. Aşağıdaki sık sorulan sorulara verilen yanıtları okuyun.",
 				firstSaveA1: "ArcGIS Online\'ı iyi bilmiyorsanız veya hazırlama arayüzüne erişmek için bir kısayol istiyorsanız, şu bağlantıyı kaydedebilirsiniz: %LINK1%",
-				firstSaveA1bis: "Uygulama <a href='%LINK2%' target='_blank'>ArcGIS Online içerik klasörünüzde</a> de bulunabilir.",
-				firstSaveQ2: "Uygulamam paylaşılıyor mu?",
-				firstSaveA2: "Şu anda Uygulamanız paylaşılmıyor. Paylaşmak için PAYLAŞ düğmesini kullanın.",
-				shareTitle: "Uygulamanızı Paylaşın",
-				sharePrivateHeader: "Uygulamanız paylaşılmıyor; paylaşmak ister misiniz?",
+				firstSaveA1bis: "Hikaye ayrıca <a href=\'%LINK2%\' target=\'_blank\'>ArcGIS Online içerik klasörünüzde de bulunabilir</a>.",
+				firstSaveQ2: "Hikayem paylaşılıyor mu?",
+				firstSaveA2: "Hikayeniz şu anda paylaşılmıyor. Paylaşmak için PAYLAŞ düğmesini kullanın.",
+				shareTitle: "Hikayenizi paylaşın",
+				sharePrivateHeader: "Hikayeniz paylaşılmıyor, paylaşmak ister misiniz?",
 				sharePrivateBtn1: "Herkesle paylaş",
 				sharePrivateBtn2: "Kuruluşumla Paylaş",
 				sharePrivateProgress: "Paylaşma sürüyor...",
 				sharePrivateErr: "Paylaşma başarısız, tekrar deneyin veya",
 				sharePrivateOk: "Paylaşma başarıyla güncellendi, yükleniyor...",
-				shareStatus1: "Uygulama kaydedilmedi",
-				shareStatus2: "Uygulama herkesle paylaşılıyor",
-				shareStatus3: "Uygulama kuruluş içinde paylaşılıyor",
-				shareStatus4: "Uygulama paylaşılmıyor",
+				shareStatus1: "Hikaye kaydedilmedi",
+				shareStatus2: "Hikaye herkes ile paylaşılıyor",
+				shareStatus3: "Hikaye kuruluş içinde paylaşılıyor",
+				shareStatus4: "Hikaye paylaşılmıyor",
 				sharePreviewAsUser: "Önizleme",
-				shareHeader1: "Uygulamanıza <strong>herkes erişebilir</strong>.",
-				shareHeader2: "Uygulamanıza kuruluşunuzun üyeleri erişebilir. (Oturum açılması gerekir.)",
-				shareLinkHeader: "Uygulamayı izleyici kitlenizle paylaşın",
+				shareHeader1: "Hikayeniz <strong>genel olarak erişilebilir durumda</strong>.",
+				shareHeader2: "Hikayenize kuruluşunuzun üyeleri erişebilir (Oturum açılması gerekir).",
+				shareLinkHeader: "Hikayeyi izleyici kitlenizle paylaşın",
 				shareLinkOpen: "AÇ",
 				learnMore: "Daha fazla bilgi",
-				shareQ1Opt1: "Uygulamayı nasıl özel tutarım?",
-				shareQ1Opt2: "Uygulamayı nasıl özel tutarım veya herkesle paylaşırım?",
+				shareQ1Opt1: "Hikayeyi nasıl özel tutabilirim?",
+				shareQ1Opt2: "Hikayeyi nasıl özel tutabilir veya herkesle paylaşabilirim?",
 				shareA1: "<a href='%LINK1%' target='_blank'>Uygulama öğesi sayfasında</a> %SHAREIMG% kullanın. Ayrıca, web haritasını paylaşmayı kaldırmak istiyorsanız, <a href='%LINK2%' target='_blank'>web haritası öğe sayfasını</a> kullanın.",
 				shareA1bis: "Detay Servisi\'ni paylaşmayı iptal etmek istiyorsanız, <a href='%LINK1%' target='_blank'>Detay Servisi öğesi sayfasını</a> kullanın.",
-				shareQ2: "Uygulamayı daha sonra nasıl düzenlerim?",
+				shareQ2: "Hikayeyi daha sonra nasıl düzenlerim?",
 				shareQ2bis: "Hazırlama arayüzüne nasıl geri dönerim?",
-				shareA2div1: "%LINK1% bağlantısını kaydedip tekrar kullanın veya <a href='%LINK2%' target='_blank'>uygulama öğesi sayfasını</a> kullanın.",
-				shareA2div2: "Uygulamanın sahibi olarak ArcGIS.com\'da oturum açtığınızda, uygulamada etkileşimli derleyiciyi açmak için bir düğme bulunur:",				
+				shareA2div1: "Aşağıdaki bağlantıyı kaydedin ve yeniden kullanın %LINK1% veya şunu kullanın: <a href=\'%LINK2%\' target=\'_blank\'>hikaye öğesi sayfası</a>.",
+				shareA2div2: "Hikayenin sahibi olarak ArcGIS.com\'da oturum açtığınızda, hikayede etkileşimli derleyiciyi açmak için bir düğme bulunur:",
 				shareQ3: "Veriler nerede saklanıyor?",
-				shareA3: "Uygulama yapılandırması bu web uygulama öğesinde saklanır</a>.",
+				shareA3: "Hikaye yapılandırması bu web uygulama öğesinde saklanır</a>.",
 				shareWarning: "%WITH% ile paylaşma devre dışı bırakıldı çünkü <a href='%LINK%' target='_blank'>web haritasının</a> sahibi değilsiniz.",
  				shareWarningWith1: "genel ile",
  				shareWarningWith2: "genel ve Kuruluş ile"
@@ -279,4 +282,3 @@
 		}
     })
 );
-

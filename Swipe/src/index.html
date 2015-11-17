@@ -4,7 +4,7 @@
 		<title></title>
 		<meta http-equiv="Content-Type" content="text/html; charset=utf-8">
 		<meta http-equiv="X-UA-Compatible" content="IE=Edge,chrome=1">
-		
+
 		<meta name="fragment" content="!">
 		<meta name="apple-mobile-web-app-capable" content="yes">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=0">
@@ -12,7 +12,7 @@
 		<link type="image/ico" rel="shortcut icon" href="//resources.esri.com/favicon.ico">
 		<link type="image/ico" rel="icon"  href="//resources.esri.com/favicon.ico">
 
-		<!-- 
+		<!--
 			To correctly reference your application in search engine:
 			 - create and fill out extensively an ArcGIS.com item that link to your final application
 			 - edit the following four tags as well as the upper title tag on line 4
@@ -25,7 +25,7 @@
 		<meta property="og:description" content="This story map was created with the Esri Story Map Swipe and Spyglass application in ArcGIS Online."/>
 		<meta property="og:image" content="http://www.arcgis.com/apps/StorytellingSwipe/resources/icons/esri-globe.png"/>
 
-		<!-- 
+		<!--
 			This template is released under the Apache License V2.0 by Esri http://www.esri.com/
 			Checkout the project repository on GitHub to access source code, latest revision, developer documentation, FAQ and tips
 			https://github.com/Esri/swipe-map-storytelling-template-js
@@ -37,23 +37,29 @@
 			//--------------------------------
 			configOptions = {
 				//----------------------------------
-				// Swipe Style
+				// Swipe App Id
 				//----------------------------------
-				// Select between the vertical swipe bar using "swipe" or the spy glass using "spyglass"
-				layout: "swipe",
+				// You can use a Swipe web application ID created through the interactive builder in ArcGIS.com.
+				// This allows to reuse the settings like the header configuration without having to edit any configuration here.
+				// Web map id and application id can be dynamically specified through url parameters (webmap and appid)
+				// if the authorizedOwners property is specified (see below).
+				// If an application id is specified, the webmap configuration isn't used.
+				appid: "",
 				//----------------------------------
 				// Swipe Layer
 				//----------------------------------
 				// Choose to swipe between two webmaps or between the layer of a single webmap
-				// can be overrided by using webmap= in URL
+				// can be overridden by using webmap= in URL
 				// e.g: ["WEBMAP_ID"] OR ["WEBMAP_ID_1", "WEBMAP_ID_2"]
 				webmaps: ["62702544d70648e593bc05d65180fd64"],
-				// If using one webmap, enter the layer index of the layer to be revealed. 
+				// If using one webmap, enter the layer index of the layer to be revealed.
 				// Index is defined by the web map table of contents (0 is the top layer).
-				layerIndex: 1, 
-				// Alternatively you can also reuse a web application ID created through the interactive builder in ArcGIS.com 
-				// This allow to reuse the settings like the header configuration without having to edit any configuration here
-				appid: "",
+				layerIndex: 1,
+				//----------------------------------
+				// Swipe Style
+				//----------------------------------
+				// Select between the vertical swipe bar using "swipe" or the spy glass using "spyglass"
+				layout: "swipe",
 				//----------------------------------
 				// Pop-up
 				//----------------------------------
@@ -117,17 +123,23 @@
 				// The application header title, if no title is specified, the webmap's title is used
 				title: "",
 				// The application header subtitle, if not specified the ArcGIS.com web map's summary is used
-				subtitle: ""
+				subtitle: "",
+				// Optionally to be able to use the webmap URL parameter, configure here the list of webmap authors
+				// whose webmaps are allowed to be viewed by this Shortlist deployment
+				// This is the ArcGIS Online username of the webmap owner (e.g. ["user1"], ["user1", "user2"])
+				// To authorize all users you can use ["*"]
+				authorizedOwners: [""]
+				//
 			};
-			// Optionally sharing and proxy URLs can be configured in app/swipe-config.js. This is only required  
-			//  when the webmap is not hosted on ArcGIS Online or a Portal for ArcGIS instance and the template isn't deployed as /home/StorytellingSwipe/ or /apps/StorytellingSwipe/. 
-			// Optionally Bing Maps key, Geometry and Geocode service's URLs can be configured in app/commonConfig.js. This is only required 
-			//  if the Organization or Portal for ArcGIS instance default configuration has to be overwritten. If the application is deployed 
+			// Optionally sharing and proxy URLs can be configured in app/swipe-config.js. This is only required
+			//  when the webmap is not hosted on ArcGIS Online or a Portal for ArcGIS instance and the template isn't deployed as /home/StorytellingSwipe/ or /apps/StorytellingSwipe/.
+			// Optionally Bing Maps key, Geometry and Geocode service's URLs can be configured in app/commonConfig.js. This is only required
+			//  if the Organization or Portal for ArcGIS instance default configuration has to be overwritten. If the application is deployed
 			//  on Portal for ArcGIS as /home/StorytellingSwipe/ or /apps/StorytellingSwipe/, that configuration is available in ../commonConfig.js
 		</script>
 
 		<script type="text/javascript">
-			var version = '1.6.0';
+			var version = '1.7.0';
 			var isProduction = false;
 
 			function loadJS(url, isExternal)
@@ -136,26 +148,26 @@
 					url = document.location.protocol == 'file:' ? 'http:' + url : url;
 				else
 					url += '?v=' + version + (!isProduction ? '&_=' + new Date().getTime() : '');
-					
+
 				document.write("<script language='javascript' type='text/javascript' src='" + url + "'><\/script>");
 			}
 
 			function loadCSS(url, isExternal)
 			{
-				if( isExternal ) 
+				if( isExternal )
 					url = document.location.protocol == 'file:' ? 'http:' + url : url;
 				else
 					url += '?v=' + version + (!isProduction ? '&_=' + new Date().getTime() : '');
-					
+
 				var el = document.createElement("link");
 				el.setAttribute("rel", "stylesheet");
 				el.setAttribute("type", "text/css");
 				el.setAttribute("href", url);
 				document.getElementsByTagName("head")[0].appendChild(el);
 			}
-			
-			loadCSS("//js.arcgis.com/3.14/esri/css/esri.css", true);
-			loadCSS("//js.arcgis.com/3.14/dijit/themes/claro/claro.css", true);
+
+			loadCSS("//js.arcgis.com/3.15/esri/css/esri.css", true);
+			loadCSS("//js.arcgis.com/3.15/dijit/themes/claro/claro.css", true);
 
 			if( isProduction ) {
 				loadCSS("app/swipe-min.css");
@@ -164,8 +176,8 @@
 				loadCSS("lib/fuelux/wizard.css");
 				loadCSS("lib/bootstrap/css/bootstrap.min.css");
 				loadCSS("lib/spectrum/spectrum.css");
-				
-				
+
+
 				loadCSS("app/storymaps/ui/inlineFieldEdit/InlineFieldEdit.css");
 				loadCSS("app/storymaps/ui/loadingIndicator/LoadingIndicator.css");
 
@@ -173,16 +185,16 @@
 				loadCSS("app/storymaps/ui/header/Header.css");
 				loadCSS("app/storymaps/ui/mapCommand/MapCommand.css");
 				loadCSS("app/storymaps/swipe/ui/desktop/SeriesPanel.css");
-				
+
 				loadCSS("app/storymaps/swipe/core/MainView.css");
 				loadCSS("app/storymaps/swipe/ui/desktop/SidePanel.css");
-				
+
 				loadCSS("app/storymaps/builder/Builder.css");
 				loadCSS("app/storymaps/builder/BuilderPanel.css");
 				loadCSS("app/storymaps/swipe/builder/BuilderView.css");
 				loadCSS("app/storymaps/swipe/builder/HelpPopup.css");
 				loadCSS("app/storymaps/swipe/builder/SharePopup.css");
-				
+
 				loadCSS("app/storymaps/builder/SettingsPopup.css");
 				loadCSS("app/storymaps/swipe/builder/SettingsPopupTabLayout.css");
 				loadCSS("app/storymaps/swipe/builder/SettingsPopupTabDataModel.css");
@@ -194,13 +206,13 @@
 				loadCSS("app/storymaps/builder/SettingsPopupTabHeader.css");
 				loadCSS("app/storymaps/builder/SettingsPopupTabExtent.css");
 				loadCSS("app/storymaps/ui/SelectMapWidget/browse-dialog/css/browse-dialog.css");
-				
+
 				loadCSS("app/storymaps/swipe/ui/mobile/MobileSwipeView.css");
 				loadCSS("app/storymaps/swipe/ui/mobile/Carousel.css");
-				
+
 				loadCSS("app/storymaps/swipe/ui/MapSwipe.css");
 				loadCSS("app/storymaps/swipe/ui/SpyGlass.css");
-				
+
 				loadCSS("app/storymaps/swipe/ui/Responsive.css");
 			}
 
@@ -230,6 +242,10 @@
 					['text', 'lib-build/text']
 				]
 			};
+			var urlLocale = location.search.match(/locale=([\w\-]+)/) ? RegExp.$1 : null;
+			if( urlLocale ){
+				dojoConfig.locale = urlLocale;
+			}
 		</script>
 		<!--[if IE 7]>
 			<link rel="stylesheet" href="resources/font/storymaps-icons-ie7.css">
@@ -273,7 +289,7 @@
 					</div>
 				</div>
 				<button type="button" class="switchBuilder btn"></button>
-				<!-- Builder top panel -->			
+				<!-- Builder top panel -->
 				<div id="builderPanel">
 					<h4></h4>
 					<div>
@@ -287,7 +303,7 @@
 						<span id="sharing-status"></span>
 					</div>
 				</div>
-				
+
 			</div>
 		</div>
 		<div id="seriesPanel">
@@ -302,16 +318,16 @@
                     <div class="moveable" id="sliderDiv">
                     	<div id="swipeImg"></div>
 					</div>
-                    
+
                 </div>
 				<div id="swipeImg1"></div>
                 <div id="resizeWrapper">
                     <div id="mainMap1"></div>
                 </div>
-				
+
 				<div>
-					<div id="lensWin">	
-						<div id="lensMapNode">	
+					<div id="lensWin">
+						<div id="lensMapNode">
 							<div id="lensTool"></div>
 						</div>
 					</div>
@@ -353,7 +369,7 @@
 			<div class="noData">
 				<div class="title"></div>
 			</div>
-			<div class="swiper legendView"></div> 
+			<div class="swiper legendView"></div>
 		</div>
 		<div id="infoWindowView" class="mobileView mobileSwipeView">
 			<div data-dojo-type='dijit/layout/ContentPane' id='infoView-mobile0'></div>
@@ -363,7 +379,7 @@
 				<div class="title"></div>
 				<div class="explain"></div>
 			</div>
-			<div class="swiper infoWindowView"></div> 
+			<div class="swiper infoWindowView"></div>
 		</div>
 		<div id="seriesTextView">
 			<div id="seriesViewLabel" class="seriesButton seriesView">
@@ -372,7 +388,7 @@
 			<div id="seriesTitle"></div>
 			<div id="seriesDescription"></div>
 		</div>
-		
+
 		<!-- Mobile swipe-series footer -->
 		<div id="footer">
 			<div id="footerMobile">
@@ -392,35 +408,35 @@
 			<img src="resources/icons/loading-light.gif" />
 		</div>
 		<div id="loadingMessage"></div>
-		
+
 		<!-- Loading -->
 		<style>
 			#loadingOverlay {
-				position: absolute; 
-				top: 0; 
-				left: 0; 
-				z-index: 500; 
-				width: 100%; 
-				height: 100%; 
-				overflow: hidden; 
-				background-color: #E5E5E5; 
-				-webkit-box-shadow: inset 0px 0px 82px 19px rgba(0,0,0,0.3); 
-				-moz-box-shadow: inset 0px 0px 82px 19px rgba(0,0,0,0.3); 
+				position: absolute;
+				top: 0;
+				left: 0;
+				z-index: 500;
+				width: 100%;
+				height: 100%;
+				overflow: hidden;
+				background-color: #E5E5E5;
+				-webkit-box-shadow: inset 0px 0px 82px 19px rgba(0,0,0,0.3);
+				-moz-box-shadow: inset 0px 0px 82px 19px rgba(0,0,0,0.3);
 				box-shadow: inset 0px 0px 82px 19px rgba(0,0,0,0.3);
 			}
-			
+
 			@keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
 			@-moz-keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
 			@-webkit-keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
 			@-ms-keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
 			@-o-keyframes fadein { from { opacity: 0; } to { opacity: 1; } }
-			
+
 			@keyframes fadeout { from { opacity: 1; } to { opacity: 0; } }
 			@-moz-keyframes fadeout { from { opacity: 1; } to { opacity: 0; } }
 			@-webkit-keyframes fadeout { from { opacity: 1; } to { opacity: 0; } }
 			@-ms-keyframes fadeout { from { opacity: 1; } to { opacity: 0; } }
 			@-o-keyframes fadeout { from { opacity: 1; } to { opacity: 0; } }
-			
+
 			#loadingOverlay.fadeOut {
 				-webkit-animation: fadeout 1.1s;
 				-moz-animation: fadeout 1.1s;
@@ -431,14 +447,14 @@
 				-moz-animation-fill-mode:forwards;
 				animation-fill-mode:forwards;
 			}
-			
+
 			#loadingIndicator {
 				position: fixed;
 				top: 50%;
 				left: 50%;
 				z-index: 700;
 			}
-			
+
 			.loadingIndicator {
 				margin-left: -17px;
 				margin-top: -35px;
@@ -462,15 +478,15 @@
 			</div>
 			<div class="modal-body">
 				<!-- Layout -->
-				<div class="tab-content viewLayout">					
+				<div class="tab-content viewLayout">
 				</div>
 				<!-- Data Model-->
-				<div class="tab-content viewDataModel">														
+				<div class="tab-content viewDataModel">
 				</div>
 				<!-- Legend -->
 				<div class="tab-content viewLegend"></div>
 				<!-- Popup -->
-				<div class="tab-content viewPopup"></div>	
+				<div class="tab-content viewPopup"></div>
 				<!-- Colors -->
 				<div id="settings-colors" class="tab-content">
 					<p></p>
@@ -541,7 +557,7 @@
 						</div>
 					</form>
 				</div>
-				
+
 				<!-- Extent -->
 				<div id="settings-extent" class="tab-content">
 					<p></p>
@@ -562,13 +578,13 @@
 				<button class="btnClose btn" data-dismiss="modal" aria-hidden="true"></button>
 			</div>
 		</div>
-		
+
 		<!-- Init popup -->
 		<div class="modal hide" id="initPopup" data-backdrop="static" tabindex="-1">
 			<div class="modal-header">
 				<h3></h3>
 			</div>
-			
+
 			<div id="builderWizard" class="wizard">
 				<ul class="steps">
 					<li data-target="#step1" class="active tab"><span class="badge badge-info"></span><span class="wizardLabel"></span><span class="chevron"></span></li>
@@ -602,7 +618,7 @@
 				</div>
 			</div>
 		</div>
-		
+
 		<!-- HTML templates for settings/init builder components -->
 		<div id="init-settings-views">
 			<!-- Data Model Template -->
@@ -637,7 +653,7 @@
 							<div class="controls">
 								<input class="inputWebmapId2" type="text" maxlength="32"/>
 							</div>
-						<a class="btn btn-mini browseMaps"><i class="icon-search"></i></a> 
+						<a class="btn btn-mini browseMaps"><i class="icon-search"></i></a>
 						</div>
 					</div>
 					<button class="btnSelect btn"></button>
@@ -719,7 +735,7 @@
 				</span>
 			</div>
 		</div>
-		
+
 		<!-- Projection warning popup -->
 		<div class="modal hide" id="projectionPopup" data-backdrop="static" tabindex="-1">
 			<div class="modal-header">
@@ -735,7 +751,7 @@
 				<button class="btnClose btn btn-primary" data-dismiss="modal"></button>
 			</div>
 		</div>
-		
+
 		<!-- Share popup -->
 		<div class="modal hide" id="sharePopup" data-backdrop="static" tabindex="-1">
 			<div class="modal-header">
@@ -766,13 +782,13 @@
 					<div class="shared-dialog">
 						<div class="header"></div>
 						<div class="share-link"></div>
-						
+
 						<div class="question shared-question1"></div>
 						<div class="collapse answer shared-answer1"></div>
-						
+
 						<div class="question shared-question2"></div>
 						<div class="collapse answer shared-answer2"></div>
-						
+
 						<div class="question shared-question3"></div>
 						<div class="collapse answer shared-answer3"></div>
 					</div>
@@ -784,7 +800,7 @@
 				<button class="btnClose btn" data-dismiss="modal" aria-hidden="true"></button>
 			</div>
 		</div>
-		
+
 		<!-- Help popup -->
 		<div class="modal hide" id="helpPopup" data-backdrop="static" tabindex="-1">
 			<div class="modal-header">
@@ -800,7 +816,7 @@
 				<button class="btnClose btn" data-dismiss="modal" aria-hidden="true"></button>
 			</div>
 		</div>
-		
+
 		<!-- Direct creation popup -->
 		<div class="modal hide" id="initMapPopup" data-backdrop="static" tabindex="-1">
 			<div class="modal-header">
@@ -818,7 +834,7 @@
 				<button class="btnClose btn btn-success" data-dismiss="modal" aria-hidden="true"></button>
 			</div>
 		</div>
-		
+
 		<!-- Fatal error box -->
 		<div id="fatalError">
 			<table border="0">
@@ -833,14 +849,14 @@
 		</div>
 
 		<script type="text/javascript">
-			loadJS('//js.arcgis.com/3.14/init.js', true);			
+			loadJS('//js.arcgis.com/3.15/init.js', true);
 			loadJS('app/swipe-config.js');
-			
+
 			function getUrlVar(name)
 			{
 			    var vars = [], hash;
 			   	if( window.location.href.indexOf('?') == -1 ) return null;
-		
+
 			    var hashes = window.location.href.slice(window.location.href.indexOf('?') + 1).split('&');
 			    for(var i = 0; i < hashes.length; i++){
 			        hash = hashes[i].split('=');
@@ -850,7 +866,7 @@
 			    }
 			    return vars[name];
 			}
-			
+
 			if( isProduction ) {
 				if( getUrlVar('edit')|| getUrlVar('fromScratch') || getUrlVar('fromscratch'))
 					loadJS('app/swipe-builder-min.js');
@@ -900,21 +916,21 @@
 			}
 			else {
 				dojo.addOnLoad(function() {
-					require(["dojo/i18n!./resources/nls/template.js?v=" + version, 
-							"storymaps/ui/loadingIndicator/LoadingIndicator", 
-							"esri/urlUtils", 
+					require(["dojo/i18n!./resources/nls/template.js?v=" + version,
+							"storymaps/ui/loadingIndicator/LoadingIndicator",
+							"esri/urlUtils",
 							"templateConfig/commonConfig.js?v=" + version,
-							"dojo/domReady!", 
+							"dojo/domReady!",
 							"dojo/ready"
 						], function(
-							_i18n, 
-							LoadingIndicator, 
+							_i18n,
+							LoadingIndicator,
 							urlUtils
 						){
 							i18n = _i18n;
 							loadingIndicator = new LoadingIndicator("", "loadingMessage");
 							loadingIndicator.setMessage(i18n.viewer.loading.step1);
-							
+
 						 	require(["storymaps/core/Core", "storymaps/swipe/core/MainView", "storymaps/utils/Helper"], function(Core, MainView, Helper){
 						 		var urlParams = Helper.getUrlParams();
 

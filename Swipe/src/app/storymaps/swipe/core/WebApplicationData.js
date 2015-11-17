@@ -2,27 +2,27 @@ define(["dojo/_base/lang", "esri/geometry/Extent"], function(lang, Extent){
 	/**
 	 * WebApplicationData
 	 * @class WebApplicationData
-	 * 
+	 *
 	 * Store the Web mapping Application /data request
 	 */
-	
+
 	var _originalData = {};
-	var _data = { 
+	var _data = {
 		values: {}
 	};
 	var layers;
 	var concatLayers = false;
-	
+
 	return {
 		set: function(data)
 		{
 			_originalData = lang.clone(data);
-			
+
 			if( ! data || ! data.values )
 				return;
-			
+
 			_data = data;
-			
+
 			// Instance Extent Object for bookmarks
 			if( _data.values.bookmarks ) {
 				$.each(_data.values.bookmarks, function(i, bkmk){
@@ -34,14 +34,14 @@ define(["dojo/_base/lang", "esri/geometry/Extent"], function(lang, Extent){
 		{
 			app.sidePanel.checkDescription(true);
 			var data = lang.clone(_data);
-			
+
 			if( ! data.values.template )
 				data.values.template = "Swipe";
 			if( ! data.values.templateCreation )
 				data.values.templateCreation = version;
-			
+
 			data.values.templateLastEdit = version;
-			
+
 			return data;
 		},
 		getBlank: function()
@@ -63,10 +63,10 @@ define(["dojo/_base/lang", "esri/geometry/Extent"], function(lang, Extent){
 		getWebmap: function(condition)
 		{
 			if( _data.values.webmap )
-				return _data.values.webmap 
+				return _data.values.webmap
 			if( condition == false )
 				return null
-				
+
 			return configOptions.webmap;
 		},
 		setWebmap: function(webmap)
@@ -81,7 +81,7 @@ define(["dojo/_base/lang", "esri/geometry/Extent"], function(lang, Extent){
 				return [_data.values.webmap];
 			if( condition == false )
 				return null
-			
+
 			return configOptions.webmaps;
 		},
 		setWebmaps: function(webmaps)
@@ -92,10 +92,10 @@ define(["dojo/_base/lang", "esri/geometry/Extent"], function(lang, Extent){
 		{
 			if( _data.values.layers )
 				return _data.values.layers;
-			
+
 			if( ! app.maps[0] && ! app.map)
 				return null;
-				
+
 			var mainMap = app.mode == "TWO_LAYERS" ? app.map : app.maps[0];
 
 			if(!layers)
@@ -157,7 +157,7 @@ define(["dojo/_base/lang", "esri/geometry/Extent"], function(lang, Extent){
 		{
 			_data.values.subtitle = subtitle;
 		},
-		setColors: function(color1, color2) 
+		setColors: function(color1, color2)
 		{
 			_data.values.colors = color1 + ';' + color2;
 		},
@@ -250,9 +250,9 @@ define(["dojo/_base/lang", "esri/geometry/Extent"], function(lang, Extent){
 			_data.values.headerLinkText = linkText;
 			_data.values.headerLinkURL = linkURL;
 		},
-		getSidePanelDescription: function()
+		getSidePanelDescription: function(appId)
 		{
-			return _data.values.sidePanelDescription || configOptions.sidePanelDescription;
+			return app.isInBuilderMode || appId? _data.values.sidePanelDescription : _data.values.sidePanelDescription || configOptions.sidePanelDescription;
 		},
 		setSidePanelDescription: function(description)
 		{
@@ -274,7 +274,7 @@ define(["dojo/_base/lang", "esri/geometry/Extent"], function(lang, Extent){
 				});
 				return configOptions.bookmarks;
 			}
-			
+
 			return _data.values.bookmarks || [];
 		},
 		setSeriesBookmarks: function(bookmarks)

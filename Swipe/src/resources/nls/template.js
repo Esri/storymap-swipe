@@ -2,11 +2,11 @@ define({
 	root: ({
 		viewer: {
 			loading: {
-				step1: "LOADING APPLICATION",
+				step1: "LOADING STORY",
 				step2: "LOADING DATA",
 				step3: "INITIALIZING",
 				fail: "Sorry, Swipe loading failed",
-				loadBuilder: "SWITCHING TO BUILDER MODE",				
+				loadBuilder: "SWITCHING TO BUILDER MODE",
 				redirectSignIn: "REDIRECTING TO SIGN-IN PAGE",
 				redirectSignIn2: "(you will be redirected here after sign-in)",
 				failButton: "Retry"
@@ -17,16 +17,19 @@ define({
 				invalidConfig: "Fatal error: Invalid configuration",
 				invalidConfigNoWebmap: "Fatal error: Invalid configuration (no web map specified)",
 				createMap: "Unable to create map",
-				invalidApp: "Fatal error: The application cannot be loaded",
+				invalidApp: "Fatal error: The story cannot be loaded",
 				initMobile: "Welcome to the swipe web application. The application is not configured. The interactive builder is not supported on mobile devices.",
+				initMobile2: "The Swipe builder is not supported at this display size.",
 				noBuilderIE8: "The Swipe interactive builder is not supported on Internet Explorer before version 9.",
 				noLayerView: "Welcome to the Swipe web application.<br />The application is not configured yet.",
-				appSave: "Error saving the web application",
+				appSave: "Error saving the web story",
 				mapSave: "Error saving the web map",
-				notAuthorized: "You are not authorized to access this application",
+				notAuthorized: "You are not authorized to access this story",
 				conflictingProjectionsTitle: "Conflicting Projections",
 				conflictingProjections: "Swipe does not support using two web maps with different projections. Please open settings and use a web map that use the same projection than the first web map.",
-				cpButton: "Close"
+				cpButton: "Close",
+				unspecifiedConfigOwner: "Authorized owner hasn't been configured.",
+				invalidConfigOwner: "Story owner is not authorized."
 			},
 			mobileView: {
 				hideIntro: "HIDE INTRO",
@@ -44,7 +47,7 @@ define({
 		},
 		builder: {
 			builder: {
-				panelHeader: "APPLICATION CONFIGURATION",
+				panelHeader: "STORY CONFIGURATION",
 				buttonSave: "SAVE",
 				buttonHelp: "Help",
 				buttonShare: "Share",
@@ -64,13 +67,13 @@ define({
 				popoverSaveWhenDone: "Don't forget to save when you are done",
 				closeWithPendingChange: "Are you sure to want to confirm the action ? Your changes will be lost.",
 				gotIt: "Ok",
-				savingApplication: "Saving application",
-				saveSuccess: "Application saved successfully",
+				savingApplication: "Saving story",
+				saveSuccess: "Story saved successfully",
 				saveError: "Save failed, please try again",
 				saveError2: "Save failed due to an invalid html tag in a name or description",
 				saveError3: "The title can't be empty",
 				signIn: "Please sign in with an account on",
-				signInTwo: "to save the application."
+				signInTwo: "to save the story."
 			},
 			header:{
 				editMe: "Edit me!",
@@ -78,7 +81,7 @@ define({
 				templateSubtitle: "Set template subtitle"
 			},
 			settings: {
-				settingsHeader: "Application settings",
+				settingsHeader: "Story settings",
 				modalCancel: "Cancel",
 				modalApply: "Apply"
 			},
@@ -138,7 +141,7 @@ define({
 				settingsLayoutSpyGlass: "Spyglass",
 				settingsLayoutSelected: "Selected layout",
 				settingsLayoutSelect: "Select this layout",
-				settingsSaveConfirm: "Some of your changes require that you save and reload the application"
+				settingsSaveConfirm: "Some of your changes require that you save and reload the story"
 			},
 			settingsDataModel: {
 				settingsTabDataModel: "Swipe Type",
@@ -166,7 +169,7 @@ define({
 			},
 			settingsLegend: {
 				settingsTabLegend: "App Layout",
-				settingsLegendExplain: "Select the application layout settings.",
+				settingsLegendExplain: "Select the layout settings.",
 				settingsLegendEnable: "Enable Legend",
 				settingsDescriptionEnable: "Enable Description",
 				settingsBookmarksEnable: "Enable Swipe series",
@@ -174,7 +177,7 @@ define({
 				settingsLocationSearchEnable: "Enable locator search",
 				settingsGeolocatorEnable: "Enable geolocator",
 				settingsLegendHelpContent: "To refine the legend content, use ArcGIS.com web map viewer table of contents (Hide in Legend)",
-				settingsSeriesHelpContent: "Swipe series is a tabbed navigation option that will guide the viewer to a particular extent and display a title and description text in the side panel.  During initial activation, the bookmarks from the web map(s) will be imported and used to pre-populate the series bar.  Disabling the series option turns off the series bar, but the series configuration is preserved for future use.", 
+				settingsSeriesHelpContent: "Swipe series is a tabbed navigation option that will guide the viewer to a particular extent and display a title and description text in the side panel.  During initial activation, the bookmarks from the web map(s) will be imported and used to pre-populate the series bar.  Disabling the series option turns off the series bar, but the series configuration is preserved for future use.",
 				settingsSeriesHelpContent2: "Swipe series lets you create and edit a selection of locations with accompanying titles and text.  If your web map has bookmarks, they'll be displayed.  You can disable the series, but the configuration will be preserved for future use.",
 				settingsSeriesHelpLink: "See an example of an application with a swipe series here",
 				preview: "UI preview",
@@ -215,39 +218,39 @@ define({
 				}
 			},
 			share: {
-				firstSaveTitle: "Application successfully saved",
-				firstSaveHeader: "Your Application is now saved in ArcGIS Online. Please read the following answers to frequent questions.",
+				firstSaveTitle: "Story successfully saved",
+				firstSaveHeader: "Your story is now saved in ArcGIS Online. Please read the following answers to frequent questions.",
 				firstSaveA1: "If you are not familiar with ArcGIS Online or want a shortcut to access the authoring interface, you can save the following link: %LINK1%",
-				firstSaveA1bis: "The Application can also be found in your <a href='%LINK2%' target='_blank'>ArcGIS Online content folder</a>.",
-				firstSaveQ2: "Is my Application shared?",
-				firstSaveA2: "Currently your Application is not shared. To share it, use the SHARE button.",
-				shareTitle: "Share your Application",
-				sharePrivateHeader: "Your Application is not shared, would you like to share it?",
+				firstSaveA1bis: "The story can also be found in your <a href='%LINK2%' target='_blank'>ArcGIS Online content folder</a>.",
+				firstSaveQ2: "Is my story shared?",
+				firstSaveA2: "Currently your story is not shared. To share it, use the SHARE button.",
+				shareTitle: "Share your story",
+				sharePrivateHeader: "Your story is not shared, would you like to share it?",
 				sharePrivateBtn1: "Share publicly",
 				sharePrivateBtn2: "Share with my Organization",
 				sharePrivateProgress: "Sharing in progress...",
 				sharePrivateErr: "Sharing failed, try again or",
 				sharePrivateOk: "Sharing updated successfully, loading...",
-				shareStatus1: "Application is not saved",
-				shareStatus2: "Application is shared publicly",
-				shareStatus3: "Application is shared within the organization",
-				shareStatus4: "Application is not shared",
+				shareStatus1: "Story is not saved",
+				shareStatus2: "Story is shared publicly",
+				shareStatus3: "Story is shared within the organization",
+				shareStatus4: "Story is not shared",
 				sharePreviewAsUser: "Preview",
-				shareHeader1: "Your Application is <strong>publicly accessible</strong>.",
-				shareHeader2: "Your Application is accessible by your organization members (login is required).",
-				shareLinkHeader: "Share the Application with your audience",
+				shareHeader1: "Your story is <strong>publicly accessible</strong>.",
+				shareHeader2: "Your story is accessible by your organization members (login is required).",
+				shareLinkHeader: "Share the story with your audience",
 				shareLinkOpen: "OPEN",
 				learnMore: "Learn more",
-				shareQ1Opt1: "How do I keep the Application private?",
-				shareQ1Opt2: "How do I keep the Application private or share it publicly?",
+				shareQ1Opt1: "How do I keep the story private?",
+				shareQ1Opt2: "How do I keep the story private or share it publicly?",
 				shareA1: "Use %SHAREIMG% on <a href='%LINK1%' target='_blank'>the application item page</a>. If you also want to unshare the web map, use <a href='%LINK2%' target='_blank'>the web map item page</a>.",
 				shareA1bis: "If you also want to unshare the Feature Service, use <a href='%LINK1%' target='_blank'>the Feature Service item page</a>.",
-				shareQ2: "How do I edit the Application later?",
+				shareQ2: "How do I edit the story later?",
 				shareQ2bis: "How do I get back to the authoring interface?",
-				shareA2div1: "Save and reuse the following link %LINK1% or use <a href='%LINK2%' target='_blank'>the application item page</a>.",
-				shareA2div2: "As the owner of the application, when you are signed in on ArcGIS.com, the application includes a button to open the interactive builder:",				
+				shareA2div1: "Save and reuse the following link %LINK1% or use <a href='%LINK2%' target='_blank'>the story item page</a>.",
+				shareA2div2: "As the owner of the story, when you are signed in on ArcGIS.com, the story includes a button to open the interactive builder:",
 				shareQ3: "Where is the data stored?",
-				shareA3: "The Application configuration is stored in this web application item</a>.",
+				shareA3: "The story configuration is stored in this web application item</a>.",
 				shareWarning: "Sharing %WITH% has been disabled because you are not the owner of the <a href='%LINK%' target='_blank'>webmap</a>.",
  				shareWarningWith1: "publicly",
  				shareWarningWith2: "publicly and with the Organization"
@@ -305,7 +308,6 @@ define({
 	"th": 1,
 	"vi": 1,
 	"zh-cn": 1,
-	"zh-hk": 1, 
-	"zh-tw": 1 
+	"zh-hk": 1,
+	"zh-tw": 1
 });
-

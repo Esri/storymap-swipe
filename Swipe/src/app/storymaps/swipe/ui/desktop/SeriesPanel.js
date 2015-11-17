@@ -301,7 +301,7 @@ define(["dojo/has",
 					//Somehwhat of a replication of app.sidePanel.sidePanelSlideVertical(),
 					//but this does not animate, we need immediate change so as not to flash
 					var sidePanelHeightClip = parseInt($('#sidePanel').css('height'));
-					var clipString = !$('#sidePanelUnderTabImg').hasClass('open') ? 'rect(' + sidePanelHeightClip + 'px 350px ' + parseInt(sidePanelHeightClip + 45) + 'px 0px)' : 'rect(0px 350px ' + parseInt(sidePanelHeightClip + 45) + 'px 0px)';
+					var clipString = !$('#sidePanelUnderTabImg').hasClass('open') ? 'rect(' + sidePanelHeightClip + 'px 355px ' + parseInt(sidePanelHeightClip + 45) + 'px 0px)' : 'rect(0px 355px ' + parseInt(sidePanelHeightClip + 45) + 'px 0px)';
 		       		$("#sidePanel").css('clip', clipString);
 
 				}
@@ -361,9 +361,9 @@ define(["dojo/has",
 					}
 				}, fromInit ? 5000 : 0);
 				var sidePanelHeightSlide = parseInt($('#sidePanel').css('height'));
-				sidePanelHeightSlide -= parseInt($('#seriesPanel').css('height'));
-				sidePanelHeightSlide -= parseInt(headerHeight);
 				var headerHeight = parseInt($('#header').css('height')) + parseInt($('#seriesPanel').css('height'));
+				sidePanelHeightSlide -= parseInt($('#seriesPanel').css('height'));
+				sidePanelHeightSlide -= parseInt($('#header').css('height'));
 				var topPos = !$('#sidePanelUnderTabImg').hasClass('open') ? -sidePanelHeightSlide : headerHeight;
 				$("#sidePanel").css({'top': topPos});
 			};
