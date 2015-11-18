@@ -7,7 +7,7 @@ This app can be an effective way to show before-and-after imagery, such as the a
 
 ![App](https://raw.github.com/Esri/swipe-map-storytelling-template-js/master/storytelling-swipe-map-template-js.png)
 
-[View it live](http://storymaps.esri.com/templates/swipe/) 
+[View it live](http://storymaps.esri.com/stories/diabetes/) 
 | [User Download (source code not included)](http://links.esri.com/storymaps/swipe_template_zip)
 | [Developer Download](https://github.com/Esri/swipe-map-storytelling-template-js/archive/master.zip)
 
