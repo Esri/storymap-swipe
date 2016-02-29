@@ -1,5 +1,5 @@
-define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "dojo/topic"], 
-	function (WebApplicationData, Helper, topic) {
+define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "dojo/topic", "./SaveErrorPopupSocial"], 
+	function (WebApplicationData, Helper, topic, SaveErrorPopupSocial) {
 		return function BuilderPanel(container, builderSave, builderDirectCreationFirstSave, saveWebmap) 
 		{
 			var _this = this;
@@ -28,6 +28,8 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 				});
 				container.find('.builder-settings').click(showSettingsPopup);
 				container.find('.builder-help').click(showHelpPopup);
+				
+				_saveErrorPopupSocial = new SaveErrorPopupSocial($("#saveErrorPopupSocial"));
 			};
 			
 			//
@@ -64,18 +66,61 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 					builderGalleryCreationFirstSave();
 				}*/
 				else {
-					// Save the app 
-					// If OK and needed call save webmap 
-					// If OK call appSaveSucceeded
-					builderSave(function(response){
+					// Save of an existing app
+					
+					var storyTitle = "",
+						itemTitle = "";
+				
+					if ( WebApplicationData.getTitle() ) {
+						storyTitle = WebApplicationData.getTitle().trim();
+					}
+					
+					if ( app.data.getAppItem() && app.data.getAppItem().title ) {
+						itemTitle = app.data.getAppItem().title.trim();
+					}
+					
+					var saveCallback = function(response){
 						if (!response || !response.success) {
 							appSaveFailed("APP");
 							return;
 						}
 						else
 							saveWebmap(response);
-					});
-					//builderSave(appSaveSucceeded);
+					};
+					
+					// if item and story title don't match
+					//  and user hasn't chose to not be warned about it
+					//  and story is public
+					if ( ! app.builder.titleMatchOnLoad 
+							&& ! WebApplicationData.getDoNotWarnTitle() 
+							&& app.data.getAppItem().access == "public"
+							// Extra check that title actually differs - don't show the dialog it title where not matching but user fixed it
+							&& storyTitle != itemTitle
+					) {
+						// If the warning dialog has already been displayed in the session, skip it and reuse the choice
+						if ( app.builder.titleMatchDialogDisplayed ) {
+							builderSave(app.builder.titleFromItem, saveCallback);
+						}
+						// Show the warning dialog
+						else {
+							app.builder.titleMatchDialogDisplayed = true;
+							
+							_saveErrorPopupSocial.present().then(
+								function(p) {
+									app.builder.titleFromItem = p && p.choice == 'item';
+									builderSave(app.builder.titleFromItem, saveCallback);
+								}
+							);
+						}
+					}
+					else {
+						// Save the app 
+						// If OK and needed call save webmap 
+						// If OK call appSaveSucceeded
+						var keepItemTitle = WebApplicationData.getDoNotWarnTitle() 
+							|| (app.data.getAppItem().access != "public" && ! app.builder.titleMatchOnLoad);
+						builderSave(keepItemTitle, saveCallback);
+					}
 				}
 				
 				// Save the app 

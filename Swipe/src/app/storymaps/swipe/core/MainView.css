@@ -66,15 +66,9 @@
 }
 
 #locationSearch input {
-	border-radius:0;
-	margin-bottom: 0;
 	box-shadow: none;
 	-moz-box-shadow: none;
 	-webkit-box-shadow: none;
-}
-
-#locationSearch .esriGeocoderIcon {
-	margin-top: 8px;
 }
 
 .esriControlsBR {
@@ -87,4 +81,16 @@
 
 .esriPopup .actionsPane .action {
     display: none;
+}
+
+/*
+ * Autoplay
+ */
+ 
+#autoplay {
+	display: none;
+    position: absolute;
+    bottom: 10px;
+    z-index: 100;
+    left: 50%;
 }

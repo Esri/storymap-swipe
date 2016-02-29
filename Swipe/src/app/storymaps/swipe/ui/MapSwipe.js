@@ -30,6 +30,7 @@ define(["dojo/dnd/move",
 		{
 			var _webMapArray = null;
 			var _layers = null;
+			var _labels = null;
 			var _popupColors = null;
 			var _popupTitles = null;
 			var _popup = true;
@@ -44,11 +45,12 @@ define(["dojo/dnd/move",
 			var _popupTest = null;
 			var _clickPoint = null;
 
-			this.init = function(webMapArray, layers, popupColors, popupTitles, xOffset, popup)
+			this.init = function(webMapArray, layers, labels, popupColors, popupTitles, xOffset, popup)
 			{
-				console.log("MapSwipe init", webMapArray, layers, popupColors, popupTitles, popup);
+				console.log("MapSwipe init", webMapArray, layers, labels, popupColors, popupTitles, popup);
 				_webMapArray = webMapArray;
 				_layers = layers;
+				_labels = labels;
 				_popupColors = popupColors;
 				_popupTitles = popupTitles;
 				_xOffset = xOffset;
@@ -339,6 +341,16 @@ define(["dojo/dnd/move",
 							width: rightval,
 							height: bottomval
 						});
+
+						if(_labels){
+							app.mainMap.getLayer('labels')._div.setClip({
+								x: leftval,
+								y: topval,
+								width: rightval,
+								height: bottomval
+							});
+						}
+
 						return;
 					}
 
@@ -361,7 +373,7 @@ define(["dojo/dnd/move",
 
 			function setPopup(evt)
 			{
-				if( ! evt || ! app.popup[0] || _popupState == 'closed'  || !_popup)
+				if( ! evt || ! app.popup[0] || _popupState == 'closed'  || !_popup || $('.esriPopup .arcgisSearch').length)
 					return;
 				var screenGeom = screenUtils.toScreenGeometry(app.mainMap.extent, app.mainMap.width, app.mainMap.height, evt.mapPoint);
 				var isGraphics = app.mainMap.getLayer(_layers[0]).type == "Feature Layer";
@@ -380,7 +392,8 @@ define(["dojo/dnd/move",
 				var dataFound = false;
 				for(var i=0; i < app.popup[0].features.length; i++) {
 					var feature = app.popup[0].features[i];
-					var layerId = feature._graphicsLayer.id;
+
+					var layerId = feature._graphicsLayer ? feature._graphicsLayer.id : feature._layer.id;
 					if((layerId.charAt(layerId.length-2) === '_' || layerId.charAt(layerId.length-3) === '_') && !isGraphics){
 						layerId = layerId.split('_').slice(0, -1).join('_');
 					}
@@ -400,6 +413,7 @@ define(["dojo/dnd/move",
 							app.popup[0]._highlighted._graphicsLayer.graphics[0].show();
 						app.popup[0].select(i);
 						_popupState = 'open';
+
 						break;
 					}
 				}
@@ -413,7 +427,8 @@ define(["dojo/dnd/move",
 				var rightFeatureFound = false;
 				for (var i = 0; i < app.popup[0].features.length; i++) {
 					var feature = app.popup[0].features[i];
-					var layerId = feature._graphicsLayer.id;
+
+					var layerId = feature._graphicsLayer ? feature._graphicsLayer.id : feature._layer.id;
 
 					var slicedId = layerId.slice(0, -(layerId.length - layerId.lastIndexOf("_")));
 
@@ -677,6 +692,9 @@ define(["dojo/dnd/move",
 
 			function setSwipePopup(evt, mapIndex)
 			{
+				if($('.esriPopup .arcgisSearch').length)
+					return;
+				setSwiperPopupHeader();
 				if( ! evt || _popupState == 'closed' || !_popup)
 					return;
 

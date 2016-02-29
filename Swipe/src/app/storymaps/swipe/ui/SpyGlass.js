@@ -52,6 +52,7 @@ define(["dojo/_base/declare",
 			_popupColors2: [],
 			_popupTitles2: [],
 			_layers: null,
+			_labels: null,
 			_displayedPopupIndex: null,
 			_spyExtent: null,
 			_rightVal: null,
@@ -65,7 +66,7 @@ define(["dojo/_base/declare",
 			_popup: true,
 			_mode: null,
 
-			startup: function(webmapId, lensNode, colors, titles, mode, layers, lensCenterOffset, popup)
+			startup: function(webmapId, lensNode, colors, titles, mode, layers, labels, lensCenterOffset, popup)
 			{
 				_this = this;
 
@@ -85,6 +86,7 @@ define(["dojo/_base/declare",
 				$('#infoWindowContent').html('<div class="noFeature">' + i18n.swipe.infoWindow.noFeatureExplain + '</div>');
 
 				_layers = layers;
+				_labels = labels;
 				_popupColors = colors;
 				_popupTitles = titles;
 				_mode = mode;
@@ -367,7 +369,6 @@ define(["dojo/_base/declare",
 
 			clipGraphics: function()
 			{
-				// TODO TEST (added or app.mode == two wemaps)
 				if( !_this._isGraphics || app.mode == "TWO_WEBMAPS")
 					return;
 				var spyGlassDiv = $("#lensWin");
@@ -400,6 +401,16 @@ define(["dojo/_base/declare",
 					width: rightval - 18,
 					height: bottomval - 18
 				});
+
+				if(_labels){
+					app.map.getLayer('labels')._div.setClip({
+						x: leftval + 9,
+						y: topval + 9,
+						width: rightval - 18,
+						height: bottomval - 18
+					});
+
+				}
 
 				_this.calculateSpyExtent();
 			},
@@ -599,9 +610,10 @@ define(["dojo/_base/declare",
 					colorTitleIndex = isOnSpecificLayer ? 0 : 1;
 					// Find feature that is not currently selected to set mobile infowindow (mobile infowindow of selected feature is set in setInfoWindow())
 					for (var i = 0; i < app.popup[0].features.length; i++) {
-						var features = app.popup[0].features[i];
+						var feature = app.popup[0].features[i];
 						// layerId of selected feature
-						var layerId = features._graphicsLayer.id;
+
+						var layerId = feature._graphicsLayer ? feature._graphicsLayer.id : feature._layer.id;
 						if((layerId.charAt(layerId.length-2) === '_' || layerId.charAt(layerId.length-3) === '_' ) && !_this._isGraphics){
 							layerId = layerId.split('_').slice(0, -1).join('_');
 						}
@@ -618,7 +630,8 @@ define(["dojo/_base/declare",
 
 					for (var i = 0; i < app.popup[0].features.length; i++) {
 						var feature = app.popup[0].features[i];
-						var layerId = feature._graphicsLayer.id;
+
+						var layerId = feature._graphicsLayer ? feature._graphicsLayer.id : feature._layer.id;
 						if((layerId.charAt(layerId.length-2) === '_' || layerId.charAt(layerId.length-3) === '_')  && !_this._isGraphics){
 							layerId = layerId.split('_').slice(0, -1).join('_');
 						}

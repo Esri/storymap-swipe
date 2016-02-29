@@ -189,6 +189,9 @@ define(["dojo/has",
 					topic.publish("CORE_UPDATE_EXTENT", _bookmarks[app.bookmarkIndex].extent);
 				}, 0);
 				$('#descriptionContent').scrollTop(0);
+				
+				if ( app.autoplay )
+					app.autoplay.onNavigationEvent(app.bookmarkIndex);
 			};
 
 			this.addSeries = function()

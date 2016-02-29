@@ -60,6 +60,15 @@ define(["dojo/_base/lang", "esri/geometry/Extent"], function(lang, Extent){
 		{
 			_originalData = lang.clone(_data);
 		},
+		getDoNotWarnTitle: function()
+		{
+			return _data.values.doNotWarnTitle || false;
+		},
+		
+		setDoNotWarnTitle: function(value)
+		{
+			_data.values.doNotWarnTitle = value;
+		},
 		getWebmap: function(condition)
 		{
 			if( _data.values.webmap )
@@ -116,6 +125,15 @@ define(["dojo/_base/lang", "esri/geometry/Extent"], function(lang, Extent){
 		setLayers: function(layers)
 		{
 			_data.values.layers = layers;
+		},
+		getLabels: function(labels)
+		{
+			if( _data.values.labels )
+				return _data.values.labels;
+		},
+		setLabels: function(labels)
+		{
+			_data.values.labels = labels;
 		},
 		getDataModel: function()
 		{

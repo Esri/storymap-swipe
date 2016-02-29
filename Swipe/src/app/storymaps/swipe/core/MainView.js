@@ -1,10 +1,12 @@
 define(["dojo/dom-construct",
 		"dojo/_base/window",
+		"dojo/_base/connect",
 		"storymaps/swipe/core/WebApplicationData",
 		"esri/geometry/Extent",
 		"esri/geometry/webMercatorUtils",
 		// Desktop UI
 		"storymaps/swipe/ui/desktop/SidePanel",
+		"storymaps/ui/autoplay/Autoplay",
 		// Mobile UI
 		"storymaps/swipe/ui/mobile/MobileSwipeView",
 		"storymaps/swipe/ui/mobile/Carousel",
@@ -20,15 +22,19 @@ define(["dojo/dom-construct",
 		"dojo/on",
 		"dojo/Deferred",
 		"dojo/DeferredList",
-		"esri/dijit/Geocoder",
+		"esri/dijit/Search",
+		"esri/tasks/locator",
+		"esri/request",
 		"dojo/_base/lang"],
 	function (
 		domConstruct,
 		win,
+		connect,
 		WebApplicationData,
 		Extent,
 		webMercatorUtils,
 		SidePanel,
+		Autoplay,
 		MobileSwipeView,
 		MobileCarousel,
 		MapSwipe,
@@ -42,7 +48,9 @@ define(["dojo/dom-construct",
 		on,
 		Deferred,
 		DeferredList,
-		Geocoder,
+		Search,
+		Locator,
+		esriRequest,
 		lang)
 	{
 		return function MainView()
@@ -75,6 +83,44 @@ define(["dojo/dom-construct",
 				app.mobileInfoWindowView = new MobileSwipeView("#infoWindowView", "#infoWindowViewCarousel");
 				app.mobileLegendView = new MobileSwipeView("#legendView", "#legendViewCarousel");
 				app.mobileCarousel = new MobileCarousel("#footerMobile", app.isInBuilderMode);
+
+				/*
+				 * Autoplay in viewer mode
+				 */
+				var urlParams = Helper.getUrlParams();
+				if ( ! app.isInBuilderMode && urlParams.autoplay !== undefined && urlParams.autoplay !== "false" ) {
+					app.bookmarkIndex = 0;
+
+					app.autoplay = new Autoplay(
+						$("#autoplay"),
+						// Callback that navigate to the next section
+						function() {
+							var nextIndex = 0;
+							var bkmLength = WebApplicationData.getSeriesBookmarks().length;
+
+							if ( ! bkmLength ) {
+								$.each(app.mapResponse, function(i, response){
+									if( response.itemInfo.itemData.bookmarks && response.itemInfo.itemData.bookmarks.length ) {
+										$.each(response.itemInfo.itemData.bookmarks, function(j, bookmark){
+											bkmLength++;
+										});
+									}
+								});
+							}
+
+							if( app.bookmarkIndex != bkmLength - 1 ) {
+								nextIndex = app.bookmarkIndex + 1;
+							}
+
+							// Delay the event so Autoplay has received the updated index before the event is fired
+							setTimeout(function(){
+								showSeriesBookmark(nextIndex);
+							}, 50);
+
+							return nextIndex;
+						}
+					);
+				}
 
 				topic.subscribe("CORE_UPDATE_EXTENT", function(extent){
 					app.mainMap.setExtent(extent, true);
@@ -175,14 +221,7 @@ define(["dojo/dom-construct",
 				}
 
 				if (WebApplicationData.getLocationSearch()){
-					var geocoderParams = lang.mixin(
-						{
-							map: app.mainMap
-						},
-						Helper.createGeocoderOptions()
-					);
-					var geocoder = new Geocoder(geocoderParams, "locationSearch");
-        			geocoder.startup();
+					buildLocationSearch();
 				}
 
 				// Make sure that everyone has expected size before setting the extent
@@ -204,6 +243,7 @@ define(["dojo/dom-construct",
 							WebApplicationData.getPopupTitles(),
 							app.mode,
 							WebApplicationData.getLayers(),
+							WebApplicationData.getLabels(),
 							!SwipeHelper.isOnMobileView() && (description || legend) ? 350 / 2 : 0,
 							WebApplicationData.getPopup()
 						);
@@ -212,6 +252,7 @@ define(["dojo/dom-construct",
 						app.mapSwipe.init(
 							app.mode == "TWO_LAYERS" ? [app.map] : app.maps,
 							WebApplicationData.getLayers(),
+							WebApplicationData.getLabels(),
 							WebApplicationData.getPopupColors(),
 							WebApplicationData.getPopupTitles(),
 							!SwipeHelper.isOnMobileView() && (description || legend) ? 350 / 2 : 0,
@@ -245,6 +286,74 @@ define(["dojo/dom-construct",
 				app.mainMap.setExtent(WebApplicationData.getSeriesBookmarks()[index].extent);
 			}
 
+			function buildLocationSearch()
+			{
+				if(APPCFG.HELPER_SERVICES.geocode.length){
+					// Query each geocode service to configure the search widget
+					var requests = [];
+					$.each(APPCFG.HELPER_SERVICES.geocode, function(index, geocoder){
+						var geocodeRequest = esriRequest({
+							url: geocoder.url,
+							content: { f: 'json' },
+							handleAs: 'json',
+							callbackParamName: 'callback'
+						});
+						requests.push(geocodeRequest);
+					});
+
+					var requestList = new DeferredList(requests);
+					requestList.then(
+						function(responses){
+							var sources = [];
+							$.each(responses, function(index, response){
+								if(! response[0]) {
+									return;
+								}
+
+								if(! response[1] || ! response[1].singleLineAddressField) {
+									return;
+								}
+
+								var newSource = {};
+								newSource.singleLineFieldName = response[1].singleLineAddressField.name;
+
+								var newLocator = new Locator(APPCFG.HELPER_SERVICES.geocode[index].url);
+								newSource.name = APPCFG.HELPER_SERVICES.geocode[index].name ? APPCFG.HELPER_SERVICES.geocode[index].name : response[1].name;
+								newSource.locator = newLocator;
+
+								sources.push(newSource);
+							});
+
+							var showSearchPopup = WebApplicationData.getLayout() == 'swipe' ? true : false;
+
+							if(sources.length){
+								app.search = new Search({
+									map: app.mainMap,
+									enableInfoWindow: showSearchPopup,
+									sources: []
+								}, "locationSearch");
+
+								on(app.search, 'select-result', function(){
+									$('.esriPopup .title').show();
+									$('.swipeTitle').css('display', 'none');
+									setTimeout(function(){
+										$('.titlePane').css('background-color', '#444');
+									}, 0)
+								});
+
+								var searchSources = app.search.get("sources");
+								$.each(sources, function(index, source){
+									searchSources.push(source);
+								});
+								app.search.set("sources", searchSources);
+
+								app.search.startup();
+							}
+						}
+					);
+				}
+			}
+
 			this.appInitComplete = function()
 			{
 				_core.displayApp();
@@ -261,13 +370,36 @@ define(["dojo/dom-construct",
 						$(locator).addClass('open');
 					});
 				}
-				if( WebApplicationData.getGeolocator())
+				if( WebApplicationData.getGeolocator()){
 					$('.mapCommandLocation').show();
+				}
 				else
 					$('.mapCommandLocation').hide()
 
 				if( app.seriesPanel )
 					app.seriesPanel.appIsReady();
+
+				if ( app.autoplay ) {
+					if ( WebApplicationData.getSeries() && WebApplicationData.getSeriesBookmarks() ) {
+						app.header.enableAutoplay();
+
+						if ( ! $("body").hasClass("mobile-view") ) {
+							app.autoplay.start();
+						}
+
+						/*
+						var appColors = WebApplicationData.getColors();
+						app.autoplay.init({
+							color: appColors[1],
+							themeMajor: 'white2',
+							useBackdrop: false
+						});
+						*/
+					}
+					else {
+						app.autoplay.destroy();
+					}
+				}
 			};
 
 			this.onHashChange = function()
@@ -296,14 +428,17 @@ define(["dojo/dom-construct",
 				app.sidePanel.update(appColors[1], appColors[0]);
 				app.mobileInfoWindowView.update(appColors[1]);
 				app.mobileLegendView.update(appColors[1]);
-				if( WebApplicationData.getGeolocator())
-					$('.mapCommandLocation').show()
-				else
-					$('.mapCommandLocation').hide()
-				if( WebApplicationData.getLocationSearch())
-					$('#locationSearch').show()
-				else
-					$('#locationSearch').hide()
+				if( WebApplicationData.getGeolocator()){
+					$('.mapCommandLocation').show();
+				} else
+					$('.mapCommandLocation').hide();
+				if( WebApplicationData.getLocationSearch()){
+					if(!app.search){
+						buildLocationSearch();
+					}
+					$('#locationSearch').show();
+				} else
+					$('#locationSearch').hide();
 			};
 
 			this.resize = function(cfg)
@@ -363,6 +498,16 @@ define(["dojo/dom-construct",
 				}
 				else {
 					app.spyGlass.reposition(cfg);
+				}
+
+				// Autoplay placement
+				$("#autoplay").css({
+					left: 355 + (($(window).width() - 355) / 2)
+				});
+
+				// Stop autoplay in mobile view
+				if ( cfg.isMobileView && app.autoplay ) {
+					app.autoplay.stop();
 				}
 			};
 

@@ -25,6 +25,10 @@
 	margin-top: 4px;
 }
 
+.share-link ::-ms-clear {
+    display: none;
+}
+
 /*
  * First save
  */
@@ -51,7 +55,7 @@
 #sharePopup a:not(.btn) {
 	color: #2200CC;
 	font-weight: normal;
-	text-decoration: underline;	
+	text-decoration: underline;
 }
 
 #sharePopup .share-link > div {

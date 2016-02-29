@@ -175,6 +175,7 @@ define(["dojo/topic",
 
 				// Loop through all webmap layers
 				var layersIds = (app.map.layerIds || []).concat(app.map.graphicsLayerIds);
+				layersIds.reverse();
 
 				$.each(layersIds, function(i, layerId)
 				{
@@ -182,9 +183,8 @@ define(["dojo/topic",
 					var layerName = layer && layer.arcgisProps && layer.arcgisProps.title ? layer.arcgisProps.title : (layer && layer.name ? layer.name : layerId);
 
 					// Exclude basemap
-					if( ! layer || layer._basemapGalleryLayerType == "basemap" || layer._basemapGalleryLayerType == "reference" || layerId == "locateLayer")
+					if( ! layer || layer._basemapGalleryLayerType == "basemap" || layer._basemapGalleryLayerType == "reference" || layerId == "locateLayer" || layerId == "labels")
 						return;
-
 					// Exclude layer of dynamic services if the parent service is present
 					// Meaning layer is here for popup and rendered server side
 					// If parent service isn't present it's a client rendering so we need to keep it
@@ -193,12 +193,11 @@ define(["dojo/topic",
 						if( $.inArray(serviceName, app.map.layerIds) >= 0 )
 							return;
 					}
-
 					$(contentContainer).find('#mapLayers').append('<option value="' + layerId + '">' + (layerName || layerId) + '</option>');
 				});
 
-				// Selected the last layer
-				var selectedIndex = $('#mapLayers').children("option").length-1;
+				// Selected the top layer
+				var selectedIndex = 0;
 				// If a layer has already been selected
 				if( layers && layers[0] ) {
 					$.each($('#mapLayers').children("option"), function(i, option){
@@ -207,7 +206,8 @@ define(["dojo/topic",
 					});
 				}
 
-				var layerId = $(contentContainer).find('#mapLayers').find('option').eq(selectedIndex).val()
+				var layerId = $(contentContainer).find('#mapLayers').find('option').eq(selectedIndex).val();
+
 				$(contentContainer).find('#mapLayers').val(layerId);
 			}
 
