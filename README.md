@@ -90,15 +90,14 @@ More customization are accessible through three files :
     - **subtitle**: if not specified the ArcGIS.com webmap's summary is used
   - **series**: dictate if a series is used in the application.  A series is a tabbed navigation tool to guide viewers through particular geographic extents with appropriate titles and descriptions.
   - **bookmarks**: list of places with titles and descriptions (if series is enabled)
-2. app/swipe-config.js offers to customize the header and the application colors:
+2. app/swipe-config.js offers to customize the header, the application colors, and the optional Bing Maps key:
     - **HEADER_LOGO_URL**: path to the header logo image (blank to disable)
 	- **HEADER_LOGO_TARGET**: logo click-through link
 	- **HEADER_LINK_TEXT**: header top-right link text
 	- **HEADER_LINK_URL**: header top-right link URL
 	- **COLORS**: header and panel background colors
-3. commonConfig.js contains the optional Bing Maps key:
     - **bingMapsKey**: if the map uses data from Bing Maps, enter your Bing Maps Key
-
+    
 ## FAQ
 
 ### Is the template compatible with previous version?
