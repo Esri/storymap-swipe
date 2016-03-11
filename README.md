@@ -8,6 +8,7 @@ This app can be an effective way to show before-and-after imagery, such as the a
 ![App](https://raw.github.com/Esri/swipe-map-storytelling-template-js/master/storytelling-swipe-map-template-js.png)
 
 [View it live](http://storymaps.esri.com/stories/diabetes/) 
+| [Swipe and Spyglass page on Esri Story Maps website](http://storymaps.arcgis.com/en/app-list/swipe-spyglass/)
 | [Download](http://links.esri.com/storymaps/swipe_template_zip)
 
 **Latest release is version version 1.8.0**, if you want to be informed of new releases, we recommend you to watch this repository ([see GitHub help](https://help.github.com/articles/watching-repositories)). See the [release page](https://github.com/Esri/swipe-map-storytelling-template-js/releases) for release notes.
