@@ -174,11 +174,7 @@ define(["dojo/has",
 				_this.renderText(_bookmarks[app.bookmarkIndex]);
 				var selButton = $(selector).find("[data-bookmarkid='" + app.bookmarkIndex + "']");
 
-
 				$(selButton).addClass("selected");
-
-				if($("#footerMobile").is(':visible'))
-					return;
 
 				$(".series-extentSave").attr("disabled", "disabled");
 				watchExtentChangeSavebtn(2);
@@ -189,7 +185,7 @@ define(["dojo/has",
 					topic.publish("CORE_UPDATE_EXTENT", _bookmarks[app.bookmarkIndex].extent);
 				}, 0);
 				$('#descriptionContent').scrollTop(0);
-				
+
 				if ( app.autoplay )
 					app.autoplay.onNavigationEvent(app.bookmarkIndex);
 			};

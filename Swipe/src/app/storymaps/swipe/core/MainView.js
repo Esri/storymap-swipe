@@ -235,6 +235,7 @@ define(["dojo/dom-construct",
 						$('#projectionPopup').modal();
 						return;
 					}
+
 					if (WebApplicationData.getLayout() == "spyglass") {
 						app.spyGlass.startup(
 							WebApplicationData.getWebmaps()[1],
@@ -282,8 +283,6 @@ define(["dojo/dom-construct",
 				app.seriesPanel.showSeries(index);
 				if(!$("#footerMobile").is(':visible'))
 					return;
-
-				app.mainMap.setExtent(WebApplicationData.getSeriesBookmarks()[index].extent);
 			}
 
 			function buildLocationSearch()
@@ -356,6 +355,7 @@ define(["dojo/dom-construct",
 
 			this.appInitComplete = function()
 			{
+				console.log("mainView.appInitComplete")
 				_core.displayApp();
 				topic.publish("SWIPE_READY");
 				if (WebApplicationData && !WebApplicationData.getLegend() && !WebApplicationData.getDescription() && !WebApplicationData.getSeries()|| (!configOptions.legend && !configOptions.description && !configOptions.series)) {

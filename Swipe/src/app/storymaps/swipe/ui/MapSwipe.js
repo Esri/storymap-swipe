@@ -705,7 +705,8 @@ define(["dojo/dnd/move",
 
 				app.popup[targetPopup].show(_pointTest);
 				app.popup[targetPopup ? 0 : 1].hide();
-
+				$('.esriPopup').css('visibility', 'hidden');
+				$('.esriPopup').eq(targetPopup).css('visibility', 'visible')
 				//Can we use targetPopup in place of mapIndex?
 				if( mapIndex != null )
 					setMobilePopup(mapIndex, (app.popup[mapIndex].features || [null])[0]);

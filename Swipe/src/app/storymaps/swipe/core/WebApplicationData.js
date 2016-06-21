@@ -64,7 +64,7 @@ define(["dojo/_base/lang", "esri/geometry/Extent"], function(lang, Extent){
 		{
 			return _data.values.doNotWarnTitle || false;
 		},
-		
+
 		setDoNotWarnTitle: function(value)
 		{
 			_data.values.doNotWarnTitle = value;

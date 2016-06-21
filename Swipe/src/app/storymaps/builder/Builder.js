@@ -103,7 +103,7 @@ define(["esri/arcgis/Portal",
 			// The title may be inherited from the app or web map
 			if ( ! storyTitle ) {
 				storyTitle = itemTitle;
-				
+
 				if ( ! storyTitle ) {
 					if ( app.data.getWebMapItem() && app.data.getWebMapItem().item && app.data.getWebMapItem().item.title ) {
 						storyTitle = app.data.getWebMapItem().item.title.trim();

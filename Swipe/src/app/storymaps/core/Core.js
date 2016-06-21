@@ -742,6 +742,7 @@ define(["esri/map",
 				app.mapResponse[index] = response;
 				app.maps[index] = response.map;
 				app.mainMap = app.maps[0];
+				WebApplicationData.setLabels(false);
 				if( response.itemInfo.item.id == app.rootMapId)
 					app.map = response.map;
 				if (index == 0) {
@@ -794,7 +795,7 @@ define(["esri/map",
 				if(labels){
 					$.each(labels.featureLayers, function(index, featureLayer){
 						if(featureLayer == layer){
-							WebApplicationData.setLabels(labels);
+							WebApplicationData.setLabels(true);
 						}
 					});
 				}

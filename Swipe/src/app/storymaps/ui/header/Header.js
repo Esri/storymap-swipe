@@ -174,11 +174,11 @@ define(["storymaps/ui/inlineFieldEdit/InlineFieldEdit",
 					$(selector + " .share_bitly").fastClick(shareBitly);
 				}
 			};
-			
+
 			this.enableAutoplay = function()
 			{
 				$(selector + " .shareIcon").attr("title", "");
-				
+
 				$(selector + " .shareIcon")
 					.toggleClass("disabled", true)
 					.popover({
@@ -191,17 +191,14 @@ define(["storymaps/ui/inlineFieldEdit/InlineFieldEdit",
 
 			function shareFacebook()
 			{
-				var options = '&p[title]=' + encodeURIComponent($(selector + ' #headerMobile .title').text())
-								+ '&p[summary]=' + encodeURIComponent($(selector + ' #headerMobile .subtitle').text())
-								+ '&p[url]=' + cleanURL(document.location.href)
-								+ '&p[images][0]=' + encodeURIComponent($("meta[property='og:image']").attr("content"));
-				
+				var options = cleanURL(document.location.href);
+
 				if ( $(this).hasClass("disabled") ) {
 					return;
 				}
 
 				window.open(
-					'http://www.facebook.com/sharer.php?s=100' + options,
+					'http://www.facebook.com/sharer/sharer.php?u=' + options,
 					'',
 					'toolbar=0,status=0,width=626,height=436'
 				);
@@ -213,7 +210,7 @@ define(["storymaps/ui/inlineFieldEdit/InlineFieldEdit",
 								+ '&url=' + cleanURL(document.location.href)
 								+ '&related=EsriStoryMaps'
 								+ '&hashtags=storymap';
-				
+
 				if ( $(this).hasClass("disabled") ) {
 					return;
 				}
@@ -230,9 +227,9 @@ define(["storymaps/ui/inlineFieldEdit/InlineFieldEdit",
 				if ( $(this).hasClass("disabled") ) {
 					return;
 				}
-				
+
 				var isSeries = WebApplicationData.getSeries();
-				
+
 				$(selector).find(".share_bitly").popover({
 					trigger: 'manual',
 					placement: 'left',
@@ -255,7 +252,7 @@ define(["storymaps/ui/inlineFieldEdit/InlineFieldEdit",
                         + ' $(document).on("click touchstart", function(src) { if( ! src || ! src.target || ! $(src.target).parents(".popover").length ){ $(".share_bitly").popover("hide"); $(document).off("click"); } });'
                         + '</script>'
 				}).popover('toggle');
-				
+
 				$(selector).find(".autoplay-help").popover({
 					content: "<div style='width: 150px'>"
 						+ i18n.viewer.desktopView.autoplayExplain1
@@ -264,7 +261,7 @@ define(["storymaps/ui/inlineFieldEdit/InlineFieldEdit",
 					placement: 'bottom',
 					html: true
 				});
-				
+
 				$(selector).find('.autoplay-checkbox').change(requestBitly);
 
 				requestBitly();
@@ -280,9 +277,9 @@ define(["storymaps/ui/inlineFieldEdit/InlineFieldEdit",
 
 				var urlParams = urlUtils.urlToObject(document.location.search).query || {};
 				var targetUrl = document.location.href;
-				
+
 				targetUrl = cleanURL(targetUrl, true);
-				
+
 				// Autoplay
 				if( $(".autoplay-checkbox").is(":checked") ) {
 					targetUrl += targetUrl.match(/\?/) ? '&' : '?';
@@ -373,7 +370,7 @@ define(["storymaps/ui/inlineFieldEdit/InlineFieldEdit",
 				app.builder.hideSaveConfirmation();
 			}
 
-			this.switchToBuilder = function() 
+			this.switchToBuilder = function()
 			{
 				if( document.location.search.match(/appid/) )
 					document.location = cleanURL(document.location.protocol + '//' + document.location.host + document.location.pathname + document.location.search, true) + "&edit" + document.location.hash;

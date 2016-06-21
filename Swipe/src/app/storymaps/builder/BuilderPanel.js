@@ -1,61 +1,61 @@
-define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "dojo/topic", "./SaveErrorPopupSocial"], 
+define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "dojo/topic", "./SaveErrorPopupSocial"],
 	function (WebApplicationData, Helper, topic, SaveErrorPopupSocial) {
-		return function BuilderPanel(container, builderSave, builderDirectCreationFirstSave, saveWebmap) 
+		return function BuilderPanel(container, builderSave, builderDirectCreationFirstSave, saveWebmap)
 		{
 			var _this = this;
 			var _displayBuilderSaveIntro = true;
 			var _builderView = null;
 
-			this.init = function(builderView) 
-			{	
+			this.init = function(builderView)
+			{
 				_builderView = builderView;
 				initLocalization();
-				
+
 				container.show();
 				setUpGeneralPanelButtonAction();
 				setUpPopover();
 				createAppSavedConfirmation();
-				
+
 				// Map popover callback to app.builder
 				app.builder.closeBuilderSaveIntro = closeBuilderSaveIntro;
 				app.builder.switchToView = switchToView;
 				app.builder.discard = discard;
 				app.builder.hideSaveConfirmation = hideSaveConfirmation;
-				
+
 				container.find('.builder-save').click(save);
 				container.find(".builder-share").click(function(){
 					app.builder.openSharePopup(false);
 				});
 				container.find('.builder-settings').click(showSettingsPopup);
 				container.find('.builder-help').click(showHelpPopup);
-				
+
 				_saveErrorPopupSocial = new SaveErrorPopupSocial($("#saveErrorPopupSocial"));
 			};
-			
+
 			//
 			// Panel buttons
 			//
-			
+
 			function save()
 			{
 				console.log("swipe.builder.Builder - save");
-				
+
 				changeBuilderPanelButtonState(false);
 				closeBuilderSaveIntro();
 				container.find(".builder-settings").popover('show');
-				
-				
+
+
 				if (app.isDirectCreationFirstSave) {
 					var appTitle = $('#headerDesktop .title .text_edit_label').text();
 					var appSubTitle = $('#headerDesktop .subtitle .text_edit_label').text();
 					if ( appSubTitle == i18n.builder.header.editMe )
 						appSubTitle = "";
-					
+
 					if ( ! appTitle || appTitle == i18n.builder.header.editMe ) {
 						_this.saveFailed("NONAME");
 						return;
 					}
-					
+
 					// Save the webmap
 					// If ok get the new id
 					// Call saveApp
@@ -67,18 +67,18 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 				}*/
 				else {
 					// Save of an existing app
-					
+
 					var storyTitle = "",
 						itemTitle = "";
-				
+
 					if ( WebApplicationData.getTitle() ) {
 						storyTitle = WebApplicationData.getTitle().trim();
 					}
-					
+
 					if ( app.data.getAppItem() && app.data.getAppItem().title ) {
 						itemTitle = app.data.getAppItem().title.trim();
 					}
-					
+
 					var saveCallback = function(response){
 						if (!response || !response.success) {
 							appSaveFailed("APP");
@@ -87,12 +87,12 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 						else
 							saveWebmap(response);
 					};
-					
+
 					// if item and story title don't match
 					//  and user hasn't chose to not be warned about it
 					//  and story is public
-					if ( ! app.builder.titleMatchOnLoad 
-							&& ! WebApplicationData.getDoNotWarnTitle() 
+					if ( ! app.builder.titleMatchOnLoad
+							&& ! WebApplicationData.getDoNotWarnTitle()
 							&& app.data.getAppItem().access == "public"
 							// Extra check that title actually differs - don't show the dialog it title where not matching but user fixed it
 							&& storyTitle != itemTitle
@@ -104,7 +104,7 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 						// Show the warning dialog
 						else {
 							app.builder.titleMatchDialogDisplayed = true;
-							
+
 							_saveErrorPopupSocial.present().then(
 								function(p) {
 									app.builder.titleFromItem = p && p.choice == 'item';
@@ -114,21 +114,21 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 						}
 					}
 					else {
-						// Save the app 
-						// If OK and needed call save webmap 
+						// Save the app
+						// If OK and needed call save webmap
 						// If OK call appSaveSucceeded
-						var keepItemTitle = WebApplicationData.getDoNotWarnTitle() 
+						var keepItemTitle = WebApplicationData.getDoNotWarnTitle()
 							|| (app.data.getAppItem().access != "public" && ! app.builder.titleMatchOnLoad);
 						builderSave(keepItemTitle, saveCallback);
 					}
 				}
-				
-				// Save the app 
-				// If OK and needed call save webmap 
+
+				// Save the app
+				// If OK and needed call save webmap
 				// If OK call appSaveSucceeded
 				//builderSave();
 			}
-	
+
 			function discard(confirmed)
 			{
 				if( confirmed ){
@@ -139,24 +139,24 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 					topic.publish("CORE_UPDATE_UI");
 					changeBuilderPanelButtonState(true);
 				}
-	
+
 				container.find(".builder-discard").popover('hide');
 			}
-			
+
 			function showSettingsPopup()
 			{
 				closePopover();
 				_builderView.openSettingPopup(false);
 			}
-			
+
 			function showHelpPopup()
 			{
 				closePopover();
 				window.open('http://storymaps.arcgis.com/en/app-list/swipe/','_blank');
 				//app.builder.openHelpPopup();
-				
+
 			}
-	
+
 			function switchToView(confirmed)
 			{
 				if( confirmed )
@@ -164,7 +164,7 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 				else
 					container.find(".builder-view").popover('hide');
 			}
-			
+
 			function openItem()
 			{
 				window.open(
@@ -172,20 +172,20 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 					'_blank'
 				);
 			}
-			
+
 			//
 			// Save callbacks
 			//
-			
+
 			this.saveSucceeded = function()
 			{
 				//container.find(".builder-settings").next(".popover").find(".stepSaved").css("display", "block");
 				/*setTimeout(function(){
 					container.find(".builder-settings").popover('hide');
 				}, 2500);*/
-				
+
 				container.find(".builder-settings").popover('hide');
-				
+
 				if( app.isDirectCreationFirstSave || app.isGalleryCreation )
 					app.builder.openSharePopup(true);
 
@@ -193,44 +193,44 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 				resetSaveCounter();
 				changeBuilderPanelButtonState(true);
 			};
-			
+
 			this.saveFailed = function(source)
 			{
 				container.find(".builder-settings").next(".popover").find(".stepSave").css("display", "none");
 				//container.find(".builder-settings").next(".popover").find(".stepFailed").css("display", "block");
 				if (source == "NONAME") {
 					container.find(".builder-settings").next(".popover").find(".stepFailed3").css("display", "block");
-					
+
 					$("#headerDesktop .title").addClass("titleEmpty");
-					
+
 					container.find(".builder-save").attr("disabled", false);
 					container.find(".builder-settings").attr("disabled", false);
 					container.find(".builder-help").attr("disabled", false);
-					
+
 					return;
 				}
-				else 
+				else
 					container.find(".builder-save").next(".popover").find(".stepFailed").css("display", "block");
-				
-				
+
+
 				changeBuilderPanelButtonState(true);
 			};
-			
+
 			//
 			// Counter
 			//
-			
+
 			this.hasPendingChange = function()
 			{
 				return container.find("#save-counter").html() && container.find("#save-counter").html() != i18n.builder.builder.noPendingChange;
 			};
-	
+
 			this.incrementSaveCounter = function(nb)
 			{
 				var value = container.find("#save-counter").html();
 				if (! _this.hasPendingChange()) {
 					value = 0;
-						
+
 					if (_displayBuilderSaveIntro) {
 						// Timer cause the header can be hidden
 						setTimeout(function(){
@@ -240,9 +240,9 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 							if( _displayBuilderSaveIntro )
 								container.find(".builder-save").popover('destroy');
 						},  3500);
-					}	
+					}
 				}
-	
+
 				if( value == 0 ) {
 					if ( nb == 1 || isNaN(parseInt(nb)) )
 						value = i18n.builder.builder.unSavedChangeSingular;
@@ -255,18 +255,18 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 				container.find("#save-counter").html(value);
 				container.find("#save-counter").css("color", "#FFF");
 			};
-	
+
 			function resetSaveCounter()
 			{
 				container.find("#save-counter").html(i18n.builder.builder.noPendingChange);
 				container.find("#save-counter").css("color", "#999");
 				setUpGeneralPanelButtonAction();
 			}
-			
+
 			//
 			// Popover
 			//
-	
+
 			function closePopover()
 			{
 				if( container.find(".discard-popover").length > 0 )
@@ -274,11 +274,11 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 				if( container.find(".view-popover").length > 0 )
 					container.find(".builder-view").popover('hide');
 			}
-	
+
 			function setUpPopover()
 			{
 				var containerId = "#" + container.attr("id");
-				
+
 				// Discard button
 				container.find(".builder-discard").popover({
 					trigger: 'manual',
@@ -294,7 +294,7 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 								+ '<button type="button" class="btn btn-danger btn-small" onclick="app.builder.discard(true)">'+i18n.builder.builder.yes+'</button> '
 								+ '<button type="button" class="btn btn-small" onClick="app.builder.discard(false)">'+i18n.builder.builder.no+'</button>'
 				});
-	
+
 				// Switch to view button
 				container.find(".builder-view").popover({
 					trigger: 'manual',
@@ -308,7 +308,7 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 								+ '<button type="button" class="btn btn-danger btn-small" onclick="app.builder.switchToView(true)">'+i18n.builder.builder.popoverOpenViewOk+'</button> '
 								+ '<button type="button" class="btn btn-small" onClick="app.builder.switchToView(false)">'+i18n.builder.builder.popoverOpenViewCancel+'</button>'
 				});
-	
+
 				// Confirmation that user need to use the save button
 				container.find(".builder-save").popover({
 					trigger: 'manual',
@@ -317,15 +317,15 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 					content: '<script>$("' + containerId + ' .builder-save").next(".popover").addClass("save-popover");</script>'
 								+ i18n.builder.builder.popoverSaveWhenDone
 				});
-				
+
 				//container.find('.builder-settings').attr('title', i18n.builder.builder.buttonSettings);
 				container.find('.builder-view').attr('title', i18n.builder.builder.buttonView);
 			}
-			
+
 			function createAppSavedConfirmation()
 			{
 				var containerId = "#" + container.attr("id");
-				
+
 				// App saved confirmation
 				container.find(".builder-settings").popover({
 					containerId: containerId,
@@ -356,32 +356,32 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 								+ '<button type="button" class="btn btn-danger btn-small" onclick="app.builder.hideSaveConfirmation()" style="vertical-align: 1px;">'+i18n.builder.builder.gotIt+'</button> '
 								+ '</div>'
 				});
-				
+
 				//container.find('.builder-settings').attr('title', i18n.builder.builder.buttonSettings);
 			}
-	
+
 			function closeBuilderSaveIntro()
 			{
 				container.find(".builder-save").popover('destroy');
 				_displayBuilderSaveIntro = false;
 			}
-			
+
 			//
 			// UI
 			//
-	
+
 			function setUpGeneralPanelButtonAction()
 			{
 				container.find(".builder-view").click(clickView);
 				container.find(".builder-discard").click(clickDiscard);
 			}
-	
+
 			function clickDiscard()
 			{
 				if( _this.hasPendingChange() )
 					container.find(".builder-discard").popover('show');
 			}
-	
+
 			function clickView()
 			{
 				if( _this.hasPendingChange() )
@@ -389,18 +389,18 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 				else
 					switchToView(true);
 			}
-	
+
 			function hideSaveConfirmation()
 			{
 				container.find(".builder-settings").popover('hide');
 				$("#headerDesktop .title").removeClass("titleEmpty");
 			}
-			
+
 			function changeBuilderPanelButtonState(activate)
 			{
 				container.find(".builder-cmd").attr("disabled", ! activate);
 			}
-			
+
 			this.updateSharingStatus = function()
 			{
 				if( app.isDirectCreationFirstSave || app.isGalleryCreation ) {
@@ -414,7 +414,7 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 				else
 					$("#sharing-status").html("; " + i18n.swipe.share.shareStatus4);
 			};
-			
+
 			this.resize = function()
 			{
 				// Make all buttons the same size
@@ -423,11 +423,11 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 				container.find("div > button").eq(0).width(buttonWidth);
 				container.find("div > button").eq(1).width(buttonWidth);
 				*/
-						
+
 				// Reposition
 				container.css("margin-left", $("body").width() / 2 - container.outerWidth() / 2);
 			};
-			
+
 			function initLocalization()
 			{
 				container.find('h4').html(i18n.builder.builder.panelHeader);
