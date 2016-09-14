@@ -263,11 +263,22 @@ define(["dojo/dom-construct",
 
 					if( app.mode == "TWO_WEBMAPS" ) {
 						var index = (WebApplicationData.getLayout() == "swipe") ? 0 : 1;
+						// Fix for loading two web maps with spy glass on ios
+						var initApp = false;
 						on.once(app.maps[index], "extent-change", function(){
 							setTimeout(function(){
-								_core.appInitComplete();
+								if(!initApp){
+									_core.appInitComplete();
+									initApp = true;
+								}
 							}, WebApplicationData.getLayout() == "spyglass" ? 3000 : 1000);
 						});
+						setTimeout(function(){
+							if(!initApp){
+								_core.appInitComplete();
+								initApp = true;
+							}
+						}, 3500);
 					}
 					else {
 						setTimeout(function(){

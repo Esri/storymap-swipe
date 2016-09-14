@@ -115,6 +115,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 					|| (Helper.getPortalUser() != null && Helper.getPortalUser() == this.getAppItem().owner)
 					// Admin privilege
 					|| (portalUser && portalUser.privileges && $.inArray("portal:admin:updateItems", portalUser.privileges) > -1 )
+					|| this.getAppItem().itemControl == "admin"
 					// Group with shared ownership
 					|| this.getAppItem().itemControl == "update";
 		}

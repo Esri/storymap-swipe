@@ -83,8 +83,8 @@ define({
     },
     "header": {
       "editMe": "Rediģē mani !",
-      "templateTitle": "Iestatīt šablona virsrakstu",
-      "templateSubtitle": "Iestatīt šablona apakšvirsrakstu"
+      "templateTitle": "Iestatīt veidnes virsrakstu",
+      "templateSubtitle": "Iestatīt veidnes apakšvirsrakstu"
     },
     "settings": {
       "settingsHeader": "Stāsta iestatījumi",
@@ -129,12 +129,12 @@ define({
       "noPopup": "Nav atrasti šī elementa uznirstošie logi"
     },
     "mobileLegend": {
-      "noLegend": "Nav leģendas, ko parādīt."
+      "noLegend": "Nav apzīmējumi ko parādīt."
     },
     "swipeSidePanel": {
       "editTooltip": "Iestatiet sānu paneļa aprakstu",
       "editMe": "Rediģē mani !",
-      "legendTitle": "Leģenda"
+      "legendTitle": "Apzīmējumi"
     },
     "infoWindow": {
       "noFeature": "Nav datu, ko parādīt.",
@@ -185,7 +185,7 @@ define({
       "settingsLegendHelpContent": "Lai precizētu apzīmējumu saturu izmantojiet ArcGIS web kartes skatītāja satura tabulu (Paslēpt apzīmējumos)",
       "settingsSeriesHelpContent": "Pārvilkšanas sērijas ir cilņu navigācijas opcija, kas virzīs skatītāju uz noteiktu pārklājumu un attēlos virsrakstu un apraksta tekstu sānu panelī. Sākotnējās aktivizācijas laikā, web karšu grāmatzīmes tiks importētas un izmantotas, lai aizpildītu seriju joslu. Sēriju opciju atiespējošana izslēgs sēriju joslu, bet sēriju konfigurācija tiks saglabāta izmantošanai nākotnē.",
       "settingsSeriesHelpContent2": "Pārvilkšanas sērijas ļauj izveidot un rediģēt izvēlētus izvietojumus ar pavadošajiem virsrakstiem un tekstiem. Ja jūsu web kartei ir grāmatzīmes, tās tiks attēlotas. Jūs varat atiespējot sērijas, bet konfigurācija tiks saglabāta izmantošanai nākotnē.",
-      "settingsSeriesHelpLink": "Aopskatiet aplikācijas piemēru ar pārvilkšanas sērijām šeit",
+      "settingsSeriesHelpLink": "Apskatiet lietotnes piemēru ar pārvilkšanas sērijām šeit",
       "preview": "Saskarnes priekšskatījums",
       "settingsLocateButtonExplain": "Šī funkcionalitāte tiek atbalstīta uz vairuma mobilo ierīču un darbvirsmas pārlūkiem (ieskaitot Internet Explorer 9+).",
       "settingsLocateButton": "Iespējot pogu Atrast izvietojumu atbalstītajās pārlūkprogrammās",
@@ -228,7 +228,7 @@ define({
       "manageStory": "Pārvaldiet savu stāstu",
       "manageStoryA1": "Padoms. Varat izmantot %LINK1%, lai pārbaudītu, vai stāstā nav kļūdu, un mainītu komponentu koplietošanas veidu. Sadaļā Mani stāsti ir pieejama arī palīdzība, lai noformētu pievilcīgu stāsta izskatu, kad to koplietosiet sociālajos tīklos. Plašāku informāciju par sadaļas Mani stāsti funkcijām varat iegūt šeit: %LINK2%.",
       "manageStoryA1V1": "Mani stāsti",
-      "manageStoryA1V2": "emuāra ziņas",
+      "manageStoryA1V2": "bloga ziņas",
       "shareTitle": "Koplietojiet stāstu",
       "sharePrivateHeader": "Jūsu stāsts nav koplietots; vai vēlaties to koplietot?",
       "sharePrivateBtn1": "Koplietot publiski",

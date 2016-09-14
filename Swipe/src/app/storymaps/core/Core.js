@@ -23,6 +23,7 @@ define(["esri/map",
 		"dojo/on",
 		"dojo/_base/lang",
 		"dojo/_base/array",
+		"dojo/_base/kernel",
 		"dojo/Deferred",
 		"dojo/DeferredList",
 		"dojo/query",
@@ -52,6 +53,7 @@ define(["esri/map",
 				on,
 				lang,
 				array,
+				kernel,
 				Deferred,
 				DeferredList,
 				query,
@@ -749,8 +751,9 @@ define(["esri/map",
 					app.data.setWebMapItem(response.itemInfo);
 					app.maps[0] = response.map;
 				}
-				if (index == 1)
+				if (index == 1){
 					app.data.setWebMapItem2(response.itemInfo);
+				}
 				else {
 					webmapInitCallbackDone.resolve();
 				}
@@ -1258,6 +1261,7 @@ define(["esri/map",
 
 		function initLocalization()
 		{
+			document.documentElement.lang = kernel.locale;
 			query('#fatalError .error-title')[0].innerHTML = i18n.viewer.errors.boxTitle;
 		}
 

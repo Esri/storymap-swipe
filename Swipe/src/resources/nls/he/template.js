@@ -188,7 +188,7 @@ define({
       "settingsSeriesHelpLink": "ראה כאן דוגמא לאלפליקציה עם סדרת ה-Swipe",
       "preview": "תצוגה מקדימה של UI",
       "settingsLocateButtonExplain": "פונקציונליות זו נתמכת ברוב המכשירים הניידים ובדפדפנים השולחניים (Internet Explorer 9).",
-      "settingsLocateButton": "הפוך לפעיל את כפתור 'איתור' לדפדפנים נתמכים",
+      "settingsLocateButton": "הפוך לפעיל את הלחצן 'איתור' לדפדפנים נתמכים",
       "settingsAddressSearch": "הפוך לפעיל כלי חיפוש כתובת"
     },
     "settingsSwipePopup": {
@@ -253,10 +253,10 @@ define({
     },
     "directCreation": {
       "header": "ברוך הבא ל Swipe/Spyglass Builder",
-      "mapPickHeader": "כדי להתחיל, אנא בחר מזהה web map תקין, או השתמש בכפתור החיפוש כדי למצא web maps.",
+      "mapPickHeader": "כדי להתחיל, אנא בחר מזהה web map תקין, או השתמש בלחצן החיפוש כדי למצא web maps.",
       "launchBuilder": "התחל Builder",
       "chooseWebmapLbl": "בחר web map...",
-      "explain2": "ליצירת מפת סיפור מסוג Swipe או Spyglass, השתמש בכפתור למטה לבחירת ה-web map הקיים בו תרצה להשתמש. לחלופין ניתן להדביק את מספר הזיהוי של ה-web map בשדה להלן.",
+      "explain2": "ליצירת מפת סיפור מסוג Swipe או Spyglass, השתמש בלחצן למטה לבחירת ה-web map הקיים בו תרצה להשתמש. לחלופין ניתן להדביק את מספר הזיהוי של ה-web map בשדה להלן.",
       "explain3": "אם ברצונך להשתמש בשתי  web maps במפת הסיפור שלך, תתבקש לבחור את ה-web map השנייה כאשר תבחר באפשרות הזו.",
       "webmapPlaceholder": "הכנס id של web map..."
     },
@@ -282,7 +282,7 @@ define({
         "contentLabel": "התוכן שלי",
         "favoritesLabel": "המועדפים שלי"
       },
-      "title": "בחר מפת אינטרנט",
+      "title": "בחר Web Map",
       "searchTitle": "חפש",
       "ok": "אישור",
       "cancel": "ביטול",

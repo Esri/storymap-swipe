@@ -217,6 +217,7 @@ define(["storymaps/utils/Helper"],
 				$(contentContainer).find('p').eq(1).html(i18n.builder.settingsHeader.settingsLogoSocialExplain);
 				$(contentContainer).find('.control-label[for=selectSocialText]').html(i18n.builder.settingsHeader.settingsLogoSocialText + ":");
 				$(contentContainer).find('.control-label[for=selectSocialLink]').html(i18n.builder.settingsHeader.settingsLogoSocialLink + ":");
+				$(contentContainer).find('.header-share-label').html(i18n.builder.builder.buttonShare);
 			}
 		}
 	}

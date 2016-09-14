@@ -12,12 +12,12 @@ define({
     },
     "errors": {
       "boxTitle": "Ein Fehler ist aufgetreten",
-      "portalSelf": "Schwerwiegender Fehler: Die Portalkonfiguration konnte nicht abgerufen werden",
+      "portalSelf": "Schwerwiegender Fehler: Die Portalkonfiguration konnte nicht abgerufen werden.",
       "invalidConfig": "Schwerwiegender Fehler: Ungültige Konfiguration",
       "invalidConfigNoWebmap": "Schwerwiegender Fehler: Ungültige Konfiguration (Webkarte oder Anwendungskennung nicht in \"index.html\" angegeben)",
       "invalidConfigNoAppDev": "In den URL-Parametern (?appid= oder ?webmap=) ist keine Kennung einer Web Mapping-Anwendung und keine Webkarte angegeben. Im Entwicklungsmodus wird die appid- und webmap-Konfiguration in der Datei index.html ignoriert.",
       "createMap": "Karte konnte nicht erstellt werden",
-      "invalidApp": "Schwerwiegender Fahler: Die Story kann nicht geladen werden",
+      "invalidApp": "Schwerwiegender Fahler: Die Story kann nicht geladen werden.",
       "initMobile": "Willkommen bei der Webanwendung \"Ausblenden\". Die Anwendung ist nicht konfiguriert. Der interaktive Generator wird auf mobilen Geräten nicht unterstützt.",
       "initMobile2": "Der Swipe Builder wird bei dieser Anzeigegröße nicht unterstützt. Ändern Sie nach Möglichkeit die Browser-Größe, um auf den Builder zuzugreifen, oder erstellen Sie Ihre Story auf einem Gerät mit größerem Bildschirm.",
       "initMobile3": "Halten Sie das Gerät im Querformat, wenn Sie den Swipe Builder verwenden.",
@@ -226,8 +226,8 @@ define({
     "share": {
       "firstSaveTitle": "Story wurde gespeichert",
       "manageStory": "Ihre Story verwalten",
-      "manageStoryA1": "Tipp: Mithilfe von %LINK1% können Sie Ihre Story auf Fehler überprüfen und die Freigabe der einzelnen Komponenten ändern. \"My Stories\" hilft Ihnen außerdem dabei, die Darstellung Ihrer Story in sozialen Netzwerken zu optimieren. Informationen zu weiteren nützlichen Features von \"My Stories\" finden Sie in diesen %LINK2%.",
-      "manageStoryA1V1": "My Stories",
+      "manageStoryA1": "Tipp: Mithilfe von %LINK1% können Sie Ihre Story auf Fehler überprüfen und die Freigabe der einzelnen Komponenten ändern. \"Eigene Storys\" hilft Ihnen außerdem dabei, die Darstellung Ihrer Story in sozialen Netzwerken zu optimieren. Informationen zu weiteren nützlichen Features von \"Eigene Storys\" finden Sie in diesen %LINK2%.",
+      "manageStoryA1V1": "Eigene Storys",
       "manageStoryA1V2": "Blog-Postings",
       "shareTitle": "Story freigeben",
       "sharePrivateHeader": "Ihre Story ist nicht freigegeben. Möchten Sie sie freigeben?",
@@ -270,7 +270,7 @@ define({
       "panel2q2": "Elementtitel",
       "panel3": "Wenn Sie das Aussehen Ihrer Story in den Social Media zusätzlich verbessern möchten, fügen Sie mithilfe von ${MYSTORIES} eine Zusammenfassung und eine Miniaturansicht hinzu.",
       "panel4": "Für diese Story keine Warnmeldung mehr anzeigen",
-      "mystories": "My Stories",
+      "mystories": "Eigene Storys",
       "btnSave": "Speichern"
     }
   },

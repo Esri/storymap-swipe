@@ -1,7 +1,7 @@
 define({
   "viewer": {
     "loading": {
-      "step1": "A CARREGAR A HISTÓRIA",
+      "step1": "A CARREGAR HISTÓRIA",
       "step2": "CARREGAR DADOS",
       "step3": "INICIALIZAR",
       "fail": "Não foi possível carregar o Varrimento",
@@ -40,7 +40,7 @@ define({
       "navRight": "Dados"
     },
     "desktopView": {
-      "storymapsText": "Um mapa de história",
+      "storymapsText": "Um story map",
       "builderButton": "Mudar para modo de construtor",
       "facebookTooltip": "Partilhar no Facebook",
       "twitterTooltip": "Partilhar no Twitter",

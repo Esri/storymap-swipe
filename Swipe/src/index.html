@@ -139,7 +139,7 @@
 		</script>
 
 		<script type="text/javascript">
-			var version = '1.9.0';
+			var version = '1.9.1';
 			var isProduction = false;
 
 			function loadJS(url, isExternal)
@@ -166,8 +166,8 @@
 				document.getElementsByTagName("head")[0].appendChild(el);
 			}
 
-			loadCSS("//js.arcgis.com/3.17/esri/css/esri.css", true);
-			loadCSS("//js.arcgis.com/3.17/dijit/themes/claro/claro.css", true);
+			loadCSS("//js.arcgis.com/3.18/esri/css/esri.css", true);
+			loadCSS("//js.arcgis.com/3.18/dijit/themes/claro/claro.css", true);
 
 			if( isProduction ) {
 				loadCSS("app/swipe-min.css");
@@ -545,7 +545,7 @@
 							</label>
 							<label class="checkbox">
 								<input type="checkbox" class="enableBitly" />
-								<span>Bitly</span>
+								<span class="header-share-label"></span>
 							</label>
 						</div>
 						<div>
@@ -894,7 +894,7 @@
 		</div>
 
 		<script type="text/javascript">
-			loadJS('//js.arcgis.com/3.17/init.js', true);
+			loadJS('//js.arcgis.com/3.18/init.js', true);
 			loadJS('app/swipe-config.js');
 
 			function getUrlVar(name)
