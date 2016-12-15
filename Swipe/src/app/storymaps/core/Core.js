@@ -86,8 +86,9 @@ define(["esri/map",
 			var urlParams = Helper.getUrlParams(),
 				isInBuilderMode = false,
 				isDirectCreation = false,
-				isCreationLayout = false
-				isGalleryCreation = false;
+				isCreationLayout = false,
+				isGalleryCreation = false,
+				sharingHostParam = Helper.getSharingHost();
 
 			console.log("swipe.core.Core - init");
 
@@ -164,7 +165,10 @@ define(["esri/map",
 				startLoadingTimeout();
 
 			// Sharing URL
-			if ( ! configOptions.sharingurl ) {
+			if (sharingHostParam) {
+				configOptions.sharingurl = sharingHostParam;
+ 			}
+ 			else if ( ! configOptions.sharingurl ) {
 				// Determine if hosted or on a Portal
 				var appLocation = document.location.pathname.indexOf("/apps/");
 				if( appLocation == -1 )
@@ -177,9 +181,11 @@ define(["esri/map",
 					configOptions.sharingurl = "//" + location.host + instance + "/sharing/content/items";
 					configOptions.proxyurl =  "//" + location.host + instance +  "/sharing/proxy";
 				}
-				else
-					configOptions.sharingurl = APPCFG.DEFAULT_SHARING_URL;
+				else{
+ 					configOptions.sharingurl = APPCFG.DEFAULT_SHARING_URL;
+				}
 			}
+
 			arcgisUtils.arcgisUrl = location.protocol + configOptions.sharingurl;
 
 			// Proxy URL
@@ -240,7 +246,7 @@ define(["esri/map",
 				// Use geometry service from the portal if none declared in config
 				var geometryServiceURL;
 				if (APPCFG.HELPER_SERVICES.geometry && APPCFG.HELPER_SERVICES.geometry.url) {
-					geometryServiceURL = APPCFG.HELPER_SERVICES.geometry.url
+					geometryServiceURL = APPCFG.HELPER_SERVICES.geometry.url;
 				}
 				else if (response.helperServices.geometry && response.helperServices.geometry.url) {
 					geometryServiceURL = response.helperServices.geometry.url;
@@ -269,7 +275,7 @@ define(["esri/map",
 			$(window).resize(function(e){
 				//need to differentiate b/w resize from window and swipe bar
 				if(e.eventPhase == 3){
-					return
+					return;
 				} else{
 					handleWindowResize();
 				}

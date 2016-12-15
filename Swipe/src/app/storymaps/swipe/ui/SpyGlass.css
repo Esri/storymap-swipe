@@ -4,6 +4,7 @@ label {
 
 #lensWin {
 	border-radius: 180px;
+	transform: translateY(0);
 	background-color: transparent;
 	border: 0px solid #444;
 	border-bottom: 0px solid #444;

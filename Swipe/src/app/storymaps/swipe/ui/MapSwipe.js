@@ -60,9 +60,9 @@ define(["dojo/dnd/move",
 				$('#infoWindow').css('display', 'none');
 
 				if (!_popup) {
-					$.each(app.popup, function(i){
+					/*$.each(app.popup, function(i){
 						app.popup[i].destroy();
-					});
+					});*/
 				}
 
 				setUpPopup();
@@ -132,9 +132,9 @@ define(["dojo/dnd/move",
 
 				var node = query(container + " #sliderDiv");
 				var sliderDiv = new Move.parentConstrainedMoveable(node[0], {
-	        		area: "mainMap0",
-	        		within: true
-	      		});
+					area: "mainMap0",
+					within: true
+		  		});
 
 				on(node, mouse.enter, function(){
 					$("#swipeImg").css("background", "url(resources/icons/sprite-icons.png)-536px -1152px");
@@ -173,7 +173,7 @@ define(["dojo/dnd/move",
 					mapPoint = evt;
 					$("#swipeImg").fadeOut();
 					_popupState = 'open';
-	        	});
+				});
 
 				on(app.popup[0], "set-features", function()
 				{
@@ -190,7 +190,7 @@ define(["dojo/dnd/move",
 					clipVal = left;
 					getClip(clipVal);
 					setPopup(mapPoint);
-	        	});
+				});
 
 				$(window).resize(function()
 				{
@@ -199,24 +199,24 @@ define(["dojo/dnd/move",
 
 				connect.connect(slider, "onMoveStart", function(args) {
 					$("#swipeImg").fadeOut();
-	          	});
+			  	});
 
 				on(_webMapArray[0], 'pan', function(args)
 				{
-	          		getClip(slider.node.offsetLeft);
-	        	});
+			  		getClip(slider.node.offsetLeft);
+				});
 
 				on(_webMapArray[0], 'pan-end', function(args)
 				{
 					setPopup(mapPoint);
-	        	});
+				});
 
 				var isGraphics = app.mainMap.getLayer(_layers[0]).type == "Feature Layer";
 				if(isGraphics){
 					on(_webMapArray[0], 'pan-end', function(args)
 					{
-		          		getClip(slider.node.offsetLeft);
-		        	});
+				  		getClip(slider.node.offsetLeft);
+					});
 
 					var layer = app.mainMap.getLayer(_layers[0]);
 
@@ -247,12 +247,12 @@ define(["dojo/dnd/move",
 					}
 				}
 
-	        	if (_webMapArray[0].navigationMode === "css-transforms")
+				if (_webMapArray[0].navigationMode === "css-transforms")
 				{
-	          		on(_webMapArray[0], 'pan', function(args) {
-	          			getClip(slider.node.offsetLeft);
-	        		});
-	      		}
+			  		on(_webMapArray[0], 'pan', function(args) {
+			  			getClip(slider.node.offsetLeft);
+					});
+		  		}
 			}
 
 			function hideGraphics(val)
@@ -287,36 +287,36 @@ define(["dojo/dnd/move",
 				}
 
 				if (swipeDiv != null) {
-		      		offset_left = parseFloat(swipeDiv.style.left);
-			        offset_top = parseFloat(swipeDiv.style.top);
+			  		offset_left = parseFloat(swipeDiv.style.left);
+					offset_top = parseFloat(swipeDiv.style.top);
 
 					var rightval, leftval, topval, bottomval;
 
-			        if (offset_left > 0) {
-			        	rightval = parseFloat(val) - Math.abs(offset_left);
-			        	leftval = (offset_left);
-			        }
-			        else if (offset_left < 0) {
-			        	leftval = 0;
-			        	rightval = parseFloat(val) + Math.abs(offset_left);
-			        }
-			        else {
-			        	leftval = 0;
-			        	rightval = parseFloat(val);
-			        }
-
-			        if (offset_top > 0) {
-			        	topval = -(offset_top);
-			        	bottomval = _webMapArray[0].height - offset_top;
+					if (offset_left > 0) {
+						rightval = parseFloat(val) - Math.abs(offset_left);
+						leftval = (offset_left);
 					}
-			        else if (offset_top < 0) {
-			        	topval = 0;
-			        	bottomval = _webMapArray[0].height + Math.abs(offset_top);
-			        }
-			        else {
-			        	topval = 0;
-			        	bottomval = _webMapArray[0].height;
-			        }
+					else if (offset_left < 0) {
+						leftval = 0;
+						rightval = parseFloat(val) + Math.abs(offset_left);
+					}
+					else {
+						leftval = 0;
+						rightval = parseFloat(val);
+					}
+
+					if (offset_top > 0) {
+						topval = -(offset_top);
+						bottomval = _webMapArray[0].height - offset_top;
+					}
+					else if (offset_top < 0) {
+						topval = 0;
+						bottomval = _webMapArray[0].height + Math.abs(offset_top);
+					}
+					else {
+						topval = 0;
+						bottomval = _webMapArray[0].height;
+					}
 
 					var isGraphics = app.mainMap.getLayer(_layers[0]).type == "Feature Layer" && app.mainMap.getLayer(_layers[0]).renderer.type != "heatmap";
 
@@ -365,10 +365,10 @@ define(["dojo/dnd/move",
 					rightval = parseInt(app.mainMap.width)+ Math.abs(layerPos.x);//0 - layerPos.x;
 					topval = y;
 
-			        //Syntax for clip "rect(top,right,bottom,left)" commas b/w values is standard syntax, w/o is backwards compatible
+					//Syntax for clip "rect(top,right,bottom,left)" commas b/w values is standard syntax, w/o is backwards compatible
 					var clipString = "rect(" + topval + "px, " + rightval + "px, " + bottomval + "px, " + leftval + "px)";
-			        clipDiv.style.clip = clipString;
-		      	}
+					clipDiv.style.clip = clipString;
+			  	}
 			}
 
 			function setPopup(evt)
@@ -405,7 +405,7 @@ define(["dojo/dnd/move",
 						$('.esriPopup .swipeTitle').append('<div id="popup0" class="closePopup"><a ><i class="icon-remove icon-white"></i></a></div>');
 						$('.esriPopup').css('visibility', 'visible');
 
-	        			on(query(".titleButton.close"), 'click', function(){
+						on(query(".titleButton.close"), 'click', function(){
 							_popupState = 'closed';
 						});
 
@@ -513,7 +513,7 @@ define(["dojo/dnd/move",
 					z.val = 'other';
 					z.graphic = null;
 					_webMapArray[1].onClick(z);
-	        	});
+				});
 
 				on(app.popup[0], "set-features", function()
 				{
@@ -544,7 +544,7 @@ define(["dojo/dnd/move",
 					z.graphic = null;
 
 					_webMapArray[0].onClick(z, "other");
-	        	});
+				});
 
 				on(app.popup[1], "set-features", function()
 				{
@@ -565,7 +565,7 @@ define(["dojo/dnd/move",
 					else
 						return;
 					setSwipePopup(popupAnchor);
-	        	});
+				});
 
 				on(_webMapArray[1], 'pan-end', function(args)
 				{
@@ -579,7 +579,7 @@ define(["dojo/dnd/move",
 					else
 						return;
 					setSwipePopup(popupAnchor);
-	        	});
+				});
 
 				$(window).resize(function(){
 					var x = null;
@@ -660,8 +660,8 @@ define(["dojo/dnd/move",
 			function syncMap1()
 			{
 				if (_inProgress == true){
-	    			_inProgress = false;
-	    			return;
+					_inProgress = false;
+					return;
 	  			}
 
 	  			_inProgress = true;

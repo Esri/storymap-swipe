@@ -92,6 +92,16 @@ define(["dojo/cookie",
 				if( configOptions.authorizedOwners && configOptions.authorizedOwners.length > 0 && configOptions.authorizedOwners[0] )
 					return urlParams.appid;
 			},
+			getSharingHost: function() {
+ 				var urlParams = urlUtils.urlToObject(document.location.search).query || {};
+
+ 				if (urlParams.sharinghost) {
+ 					return '//' + urlParams.sharinghost;
+ 				}
+ 				else {
+ 					return '';
+ 				}
+ 			},
 			isArcGISHosted: function()
 			{
 				return (/(\/apps\/|\/home\/)(StorytellingSwipe\/)/).test(document.location.pathname);

@@ -1,57 +1,57 @@
 (function() {
-    module.exports = function(grunt) {
-        var APP_NAME = 'swipe';
+	module.exports = function(grunt) {
+		var APP_NAME = 'swipe';
 
 		grunt.initConfig({
-            pkg: grunt.file.readJSON('package.json'),
-			
+			pkg: grunt.file.readJSON('package.json'),
+
 			clean: {
 				deploy: ['deploy/*'],
 				css: [
-					'deploy/app/Responsive.css', 
-					'deploy/app/css/', 
-					'deploy/app/' + APP_NAME + '-css-app-min.css', 
+					'deploy/app/Responsive.css',
+					'deploy/app/css/',
+					'deploy/app/' + APP_NAME + '-css-app-min.css',
 					'deploy/app/' + APP_NAME + '-css-lib-min.css'
 				],
 				jsLib: ['deploy/app/lib/'],
 				jsTmp: [
-					'deploy/app/' + APP_NAME + '-app-viewer-min.js', 
-					'deploy/app/' + APP_NAME + '-app-builder-min.js', 
+					'deploy/app/' + APP_NAME + '-app-viewer-min.js',
+					'deploy/app/' + APP_NAME + '-app-builder-min.js',
 					'deploy/app/' + APP_NAME + '-lib-min.js'
 				]
-            },
-			
-            concat: {
-                options: {separator: ';'},
-                jsLib: {
+			},
+
+			concat: {
+				options: {separator: ';'},
+				jsLib: {
 					src: ['deploy/app/lib/**/*.js'],
-                    dest: 'deploy/app/' + APP_NAME + '-lib-min.js'
+					dest: 'deploy/app/' + APP_NAME + '-lib-min.js'
 				},
 				viewerJS: {
 					src: ['deploy/app/' + APP_NAME + '-lib-min.js', 'deploy/app/' + APP_NAME + '-app-viewer-min.js'],
-                    dest: 'deploy/app/' + APP_NAME + '-viewer-min.js'
+					dest: 'deploy/app/' + APP_NAME + '-viewer-min.js'
 				},
 				builderJS: {
 					src: ['deploy/app/' + APP_NAME + '-lib-min.js', 'deploy/app/' + APP_NAME + '-app-builder-min.js'],
-                    dest: 'deploy/app/' + APP_NAME + '-builder-min.js'
+					dest: 'deploy/app/' + APP_NAME + '-builder-min.js'
 				},
 				css: {
 					src: ['deploy/app/' + APP_NAME + '-css-lib-min.css', 'deploy/app/' + APP_NAME + '-css-app-min.css'],
-                    dest: 'deploy/app/' + APP_NAME + '-min.css'
+					dest: 'deploy/app/' + APP_NAME + '-min.css'
 				}
-            },
-			
-            uglify: {
-                jsLib: {
-                    files: [{
-                        expand: true,
-                        cwd: 'src/lib',
-                        src:['**/*.js'],
-                        dest: 'deploy/app/lib',
-                    }]
-                }
-            },
-			
+			},
+
+			uglify: {
+				jsLib: {
+					files: [{
+						expand: true,
+						cwd: 'src/lib',
+						src:['**/*.js'],
+						dest: 'deploy/app/lib',
+					}]
+				}
+			},
+
 			requirejs: {
 				options: {
 					baseUrl: "src/app/",
@@ -61,7 +61,7 @@
 						'dijit': 'empty:',
 						'dojox': 'empty:',
 						// SelectMapWidget config
-						'dgrid': 'empty:', 
+						'dgrid': 'empty:',
 						'put-selector': 'empty:',
 						'lib-build': '../lib-build/',
 						'text': '../lib-build/text'
@@ -83,7 +83,7 @@
 					}
 				}
 			},
-			
+
 			cssmin: {
 					app: {
 						src: ['deploy/app/css/**/*.css', 'deploy/app/Responsive.css'],
@@ -93,69 +93,69 @@
 						src: ['src/lib/**/*.css'],
 						dest: 'deploy/app/' + APP_NAME + '-css-lib-min.css'
 					}
-				
+
 			},
-			
-            copy: {
-                css: {
-                    files: [
-                        {
+
+			copy: {
+				css: {
+					files: [
+						{
 							expand: 'true',
 							cwd: 'src/app/',
-                            src: ['**/*.css'],
-                            dest: 'deploy/app/css/'
-                        }
-                    ]
-                },
-				html: {
-                    files: [{
-                        expand: true,
-                        cwd: 'src',
-                        src:['*.html'],
-                        dest: 'deploy/'
-                    }]
-                },
-                resources: {
-                    files: [{
-                        expand: true,
-                        cwd: 'src',
-                        src:['resources/**'],
-                        dest: 'deploy/'
-                    }]
-                },
-				config: {
-                    files: [{
-                        expand: true,
-                        cwd: 'src',
-                        src:['app/' + APP_NAME + '-config.js'],
-                        dest: 'deploy/'
-                    }]
-                },
-				bootstrapResources: {
-					files: [{
-                        expand: true,
-                        cwd: 'src/lib/bootstrap/img/',
-                        src:['*'],
-                        dest: 'deploy/resources/bootstrap/'
-                    }]
+							src: ['**/*.css'],
+							dest: 'deploy/app/css/'
+						}
+					]
 				},
-				commonConfig: {
+				html: {
 					files: [{
 						expand: true,
-						cwd: 'src/app',
-						src:['commonConfig.js'],
-						dest: 'deploy/app'
+						cwd: 'src',
+						src:['*.html'],
+						dest: 'deploy/'
+					}]
+				},
+				resources: {
+					files: [{
+						expand: true,
+						cwd: 'src',
+						src:['resources/**'],
+						dest: 'deploy/'
+					}]
+				},
+				config: {
+					files: [{
+						expand: true,
+						cwd: 'src',
+						src:['app/' + APP_NAME + '-config.js'],
+						dest: 'deploy/'
+					}]
+				},
+				mainApp: {
+					files: [{
+						expand: true,
+						cwd: 'src',
+						src:['app/main-app.js'],
+						dest: 'deploy/'
+					}]
+				},
+				bootstrapResources: {
+					files: [{
+						expand: true,
+						cwd: 'src/lib/bootstrap/img/',
+						src:['*'],
+						dest: 'deploy/resources/bootstrap/'
 					}]
 				}
-            },
-			
+			},
+
 			rename: {
 				moveResponsiveCss: {
 					src: 'deploy/app/css/storymaps/' + APP_NAME + '/ui/Responsive.css',
 					dest: 'deploy/app/Responsive.css'
 				}
 			},
-			
+
 			"regex-replace": {
 				css: {
 					src: ['deploy/app/' + APP_NAME + '-min.css'],
@@ -195,35 +195,35 @@
 					]
 				}
 			},
-			
+
 			jshint: {
 				files: ['src/app/**/*.js'],
 				options: {jshintrc: '.jshintrc'}
 			}
-        });
-		
-        grunt.loadNpmTasks('grunt-contrib-clean');
-        grunt.loadNpmTasks('grunt-contrib-concat');
-        grunt.loadNpmTasks('grunt-contrib-uglify');
+		});
+
+		grunt.loadNpmTasks('grunt-contrib-clean');
+		grunt.loadNpmTasks('grunt-contrib-concat');
+		grunt.loadNpmTasks('grunt-contrib-uglify');
 		grunt.loadNpmTasks('grunt-contrib-requirejs');
-        grunt.loadNpmTasks('grunt-contrib-copy');
+		grunt.loadNpmTasks('grunt-contrib-copy');
 		grunt.loadNpmTasks('grunt-contrib-cssmin');
 		grunt.loadNpmTasks('grunt-regex-replace');
 		grunt.loadNpmTasks('grunt-rename');
 		grunt.loadNpmTasks('grunt-contrib-jshint');
-		
+
 		grunt.registerTask('test', ['jshint']);
-		
-        grunt.registerTask('default', [
-			'clean:deploy', 
-			
-			/* 
+
+		grunt.registerTask('default', [
+			'clean:deploy',
+
+			/*
 			 * Minify and concat external libraries JS using uglify
 			 */
-			'uglify:jsLib', 
+			'uglify:jsLib',
 			'concat:jsLib',
 			'clean:jsLib',
-			
+
 			/*
 			 * Minify project JS using require.js
 			 * - require.js output a .js for with only the viewer and a .js with viewer and builder
@@ -233,9 +233,9 @@
 			'requirejs',
 			'concat:viewerJS',
 			'concat:builderJS',
-			'clean:jsTmp', 
+			'clean:jsTmp',
 			'regex-replace:js',
-			
+
 			/*
 			 * Minify CSS
 			 * - start by copying all project's css in a tmp folder and exclude Responsive.css
@@ -249,13 +249,13 @@
 			'concat:css',
 			'regex-replace:css',
 			'clean:css',
-			
+
 			'copy:html',
 			'regex-replace:index',
 			'copy:config',
-			'copy:commonConfig',
+			'copy:mainApp',
 			'copy:bootstrapResources',
 			'copy:resources'
 		]);
-    };
+	};
 })();

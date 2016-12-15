@@ -93,9 +93,9 @@ define(["dojo/_base/declare",
 				_popup = popup;
 				if(!_popup){
 					$('#infoWindow').addClass('disable');
-					$.each(app.popup, function(i){
+					/*$.each(app.popup, function(i){
 						app.popup[i].destroy();
-					});
+					});*/
 				}
 
 				_this.lensCenterOffset = lensCenterOffset;
@@ -123,6 +123,11 @@ define(["dojo/_base/declare",
 							return;
 						}
 
+						if(!_popup){
+							app.popup[1]._highlighted._graphicsLayer.graphics[0].hide();
+
+							return;
+						}
 						var seriesPanelHeight = parseInt($('#seriesPanel').css('height'));
 						if($('#seriesPanel').css('display') == 'none')
 							seriesPanelHeight = 0;
@@ -150,48 +155,48 @@ define(["dojo/_base/declare",
 				};
 
 				$('#lensTool').click(function(e) {
-    				var that = this;
-    				setTimeout(function() {
-        				var dblclick = parseInt($(that).data('double'), 10);
-        				if (dblclick > 0) {
-            				$(that).data('double', dblclick-1);
-        				} else {
-            				handleLensClick.call(this, e);
-        				}
-    				}, 300);
+					var that = this;
+					setTimeout(function() {
+						var dblclick = parseInt($(that).data('double'), 10);
+						if (dblclick > 0) {
+							$(that).data('double', dblclick-1);
+						} else {
+							handleLensClick.call(this, e);
+						}
+					}, 300);
 				}).dblclick(function(e) {
-    				$(this).data('double', 2);
-    				handleLensDblClick.call();
+					$(this).data('double', 2);
+					handleLensDblClick.call();
 				});
 
 				var $touchArea = $('#lensTool'),
-                    touchStarted = false, // detect if a touch event is started
-                    currX = 0,
-                    currY = 0,
-                    cachedX = 0,
-                    cachedY = 0;
+					touchStarted = false, // detect if a touch event is started
+					currX = 0,
+					currY = 0,
+					cachedX = 0,
+					cachedY = 0;
 
-                //setting the events listeners
-                $touchArea.on('touchstart mousedown',function (e){
-                    e.preventDefault();
-                    cachedX = e.pageX;
-                    cachedY = e.pageY;
-                    touchStarted = true;
-                    setTimeout(function (){
-                        currX = e.pageX;
-                        currY = e.pageY;
-                        if ((cachedX === currX) && !touchStarted && (cachedY === currY)) {
-                                    handleLensClick(e.originalEvent);
-                        }
-                    }, 200);
-                });
-                $touchArea.on('touchend mouseup touchcancel',function (e){
-                    e.preventDefault();
-                    touchStarted = false;
-                });
-                $touchArea.on('touchmove mousemove',function (e){
-                    e.preventDefault();
-                });
+				//setting the events listeners
+				$touchArea.on('touchstart mousedown',function (e){
+					e.preventDefault();
+					cachedX = e.pageX;
+					cachedY = e.pageY;
+					touchStarted = true;
+					setTimeout(function (){
+						currX = e.pageX;
+						currY = e.pageY;
+						if ((cachedX === currX) && !touchStarted && (cachedY === currY)) {
+									handleLensClick(e.originalEvent);
+						}
+					}, 200);
+				});
+				$touchArea.on('touchend mouseup touchcancel',function (e){
+					e.preventDefault();
+					touchStarted = false;
+				});
+				$touchArea.on('touchmove mousemove',function (e){
+					e.preventDefault();
+				});
 
 				on(dom.byId("lensWin"), (!has("mozilla") ? "mousewheel" : "DOMMouseScroll"), function(e){
    					var scroll = e[(!has("mozilla") ? "wheelDelta" : "detail")] * (!has("mozilla") ? 1 : -1);
@@ -245,6 +250,8 @@ define(["dojo/_base/declare",
 				}
 
 				on(app.mainMap, "click", function(evt){
+					if(!_popup)
+						app.popup[0]._highlighted._graphicsLayer.graphics[0].hide();
 					_this._popupClosedByUser = false;
 					$('.esriPopup').css('visibility', 'hidden');
 					_this._clickPoint = evt;
@@ -356,7 +363,7 @@ define(["dojo/_base/declare",
 				}
 
 				this._started = true;
-    		},
+			},
 
 			reposition: function(cfg)
 			{
@@ -524,7 +531,7 @@ define(["dojo/_base/declare",
 						_bottomVal = bottomOffset;
 					}
 
-				    //Syntax for clip "rect(top,right,bottom,left)" commas b/w values is standard syntax, w/o is backwards compatible
+					//Syntax for clip "rect(top,right,bottom,left)" commas b/w values is standard syntax, w/o is backwards compatible
 					var clipString = "rect(" + _topVal + "px, " + _rightVal + "px, " + _bottomVal + "px, " + _leftVal + "px)";
 					clipDiv.style.clip = clipString;
 					//_this._displayedPopupIndex = _this.checkSelectedFeature();

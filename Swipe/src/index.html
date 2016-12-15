@@ -139,7 +139,7 @@
 		</script>
 
 		<script type="text/javascript">
-			var version = '1.9.1';
+			var version = '1.9.2';
 			var isProduction = false;
 
 			function loadJS(url, isExternal)
@@ -149,7 +149,11 @@
 				else
 					url += '?v=' + version + (!isProduction ? '&_=' + new Date().getTime() : '');
 
-				document.write("<script language='javascript' type='text/javascript' src='" + url + "'><\/script>");
+				var ref = window.document.getElementsByTagName('script')[0];
+				var script = window.document.createElement('script');
+				script.src = url;
+				script.async = false;
+				ref.parentNode.insertBefore(script, ref);
 			}
 
 			function loadCSS(url, isExternal)
@@ -166,8 +170,8 @@
 				document.getElementsByTagName("head")[0].appendChild(el);
 			}
 
-			loadCSS("//js.arcgis.com/3.18/esri/css/esri.css", true);
-			loadCSS("//js.arcgis.com/3.18/dijit/themes/claro/claro.css", true);
+			loadCSS("//js.arcgis.com/3.19/esri/css/esri.css", true);
+			loadCSS("//js.arcgis.com/3.19/dijit/themes/claro/claro.css", true);
 
 			if( isProduction ) {
 				loadCSS("app/swipe-min.css");
@@ -894,7 +898,7 @@
 		</div>
 
 		<script type="text/javascript">
-			loadJS('//js.arcgis.com/3.18/init.js', true);
+			loadJS('//js.arcgis.com/3.19/init.js', true);
 			loadJS('app/swipe-config.js');
 
 			function getUrlVar(name)
@@ -917,6 +921,7 @@
 					loadJS('app/swipe-builder-min.js');
 				else
 					loadJS('app/swipe-viewer-min.js');
+				loadJS('app/main-app.js');
 			}
 			else {
 				loadJS('lib/_jquery.1.9.1.min.js');
@@ -931,6 +936,7 @@
 				loadJS('lib/nicEdit.js');
 				loadJS('lib/fuelux/wizard.js');
 				loadJS('lib/bootstrap-slider/js/bootstrap-slider.js');
+				loadJS('app/main-app.js');
 			}
 		</script>
 
@@ -947,53 +953,6 @@
 					var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
 				})();
 			}
-		</script>
-
-		<script type="text/javascript">
-			var loadingIndicator = {};
-			var i18n = null;
-
-			if (document.location.protocol == "file:") {
-				$(document).ready(function() {
-					$("#fatalError .error-title").html("Application loading failed");
-					$("#fatalError .error-msg").html("The application has to be accessed through a web server. Consult user guide for detail.");
-					$("#fatalError").show();
-				});
-			}
-			else {
-				dojo.addOnLoad(function() {
-					require(["dojo/i18n!./resources/nls/template.js?v=" + version,
-							"storymaps/ui/loadingIndicator/LoadingIndicator",
-							"esri/urlUtils",
-							"dojo/domReady!",
-							"dojo/ready"
-						], function(
-							_i18n,
-							LoadingIndicator,
-							urlUtils
-						){
-							i18n = _i18n;
-							loadingIndicator = new LoadingIndicator("", "loadingMessage");
-							loadingIndicator.setMessage(i18n.viewer.loading.step1);
-
-						 	require(["storymaps/core/Core", "storymaps/swipe/core/MainView", "storymaps/utils/Helper"], function(Core, MainView, Helper){
-						 		var urlParams = Helper.getUrlParams();
-
-						 		var isInBuilderMode = urlParams.edit != null || urlParams.fromScratch != null || urlParams.fromscratch != null;
-
-						 		if (isInBuilderMode) {
-						 			require(["storymaps/builder/Builder", "storymaps/swipe/builder/BuilderView"], function(Builder, BuilderView) {
-						 				Core.init(new MainView(), Builder);
-						 				Builder.init(Core, new BuilderView());
-						 			});
-						 		}
-						 		else
-						 			Core.init(new MainView());
-						 	});
-				 		}
-					);
-				});
-			 }
 		</script>
 	</body>
 </html>
