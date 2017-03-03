@@ -184,6 +184,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 			if (_isLegend == false && _isDescription == false && _isSeries == false) {
 				$("#sidePanelTabImg").css('display', 'none');
 				$('#sidePanelUnderTabImg').css('display', 'none');
+				$('#sidePanel').css('display', 'none');
 				return;
 			}
 
@@ -283,19 +284,19 @@ define(["storymaps/swipe/core/WebApplicationData",
 				left: (direction=="in") ? - 355 : 0,
 				queue: false
 			}, 750);
-			
+
 			$(".mapCommandLocation").animate({
 				left: (direction=="in") ? 20 : 375,
 				queue: false
 			}, 750);
-			
+
 			if ( app.autoplay ) {
 				$("#autoplay").animate({
 					left: (direction=="in") ? '50%' : 355 + (($(window).width() - 355) / 2),
 					queue: false
 				}, 750);
 			}
-			
+
 			if (app.mode == "TWO_LAYERS" || _layout == "spyglass") {
 				$("#mainMap0_zoom_slider").animate({
 					left: (direction == "in") ? 20 : 375,
@@ -334,7 +335,7 @@ define(["storymaps/swipe/core/WebApplicationData",
 				left: (direction=="up") ? 20 : 370,
 				queue: false
 			}, 750);
-			
+
 			if ( app.autoplay ) {
 				$("#autoplay").animate({
 					left: (direction=="up") ? '50%' : 355 + (($(window).width() - 355) / 2),

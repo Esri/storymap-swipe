@@ -23,6 +23,9 @@ define({
 				initMobile2: "The Swipe builder is not supported at this display size. If possible, resize your browser to access the builder or please build your story on a device with a larger screen.",
 				initMobile3: "Please rotate your device to landscape orientation to use the Swipe builder.",
 				noBuilderIE8: "The Swipe interactive builder is not supported on Internet Explorer before version 9.",
+				noViewerIE2: "You are attempting to view this story using an older, unsupported browser. There may be features that do not work or other unexpected issues. We suggest you upgrade to Internet Explorer 11 or use another browser, such as Chrome.",
+ 				noViewerIE3: "In late 2017, this story will no longer load on this browser. At that time, you must use a supported browser to view this story.",
+				attention: "Attention!",
 				noLayerView: "Welcome to the Swipe web application.<br />The application is not configured yet.",
 				appSave: "Error saving the web story",
 				mapSave: "Error saving the web map",
@@ -302,7 +305,8 @@ define({
 	"fi": 1,
 	"fr": 1,
 	"he": 1,
-	"hr": 1, 
+	"hi": 1,
+	"hr": 1,
 	"id": 1,
 	"it": 1,
 	"ja": 1,
@@ -322,6 +326,6 @@ define({
 	"tr": 1,
 	"vi": 1,
 	"zh-cn": 1,
-	"zh-hk": 1, 
-	"zh-tw": 1 
+	"zh-hk": 1,
+	"zh-tw": 1
 });

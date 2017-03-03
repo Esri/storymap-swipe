@@ -136,11 +136,11 @@ define(["dojo/dnd/move",
 					within: true
 		  		});
 
-				on(node, mouse.enter, function(){
+				on(node, 'mouseover', function(){
 					$("#swipeImg").css("background", "url(resources/icons/sprite-icons.png)-536px -1152px");
 				});
 
-				on(node, mouse.leave, function(){
+				on(node, 'mouseout', function(){
 					$("#swipeImg").css("background", "url(resources/icons/sprite-icons.png)-536px -1254px");
 				});
 
@@ -322,16 +322,27 @@ define(["dojo/dnd/move",
 
 					if(isGraphics){
 						rightval = app.mainMap.width;
-						var tr = clipDiv.getTransform();
-						// if we got the transform object
-						if (tr) {
-							// if layer is offset x
-							if (tr.hasOwnProperty('dx')) {
-								leftval += -(tr.dx);
+						var layer = app.mainMap.getLayer(_layers[0])._div;
+						var tr;
+						var values;
+						if($(layer.parent.rawNode).css('transform')){
+							tr = $(layer.parent.rawNode).css('transform');
+							values = tr.match(/-?[\d\.]+/g);
+							// if we got the transform object
+							if (tr && values) {
+								// if layer is offset x
+								leftval += -(parseInt(values[4]));
+								// if layer is offset y
+								topval += -(parseInt(values[5]));
 							}
-							// if layer is offset y
-							if (tr.hasOwnProperty('dy')) {
-								topval += -(tr.dy);
+							else if(clipDiv.getTransform()){
+								var ieTr = clipDiv.getTransform();
+								if (ieTr.hasOwnProperty('dx')) {
+									leftval += -(ieTr.dx);
+								}
+								if (tr.hasOwnProperty('dy')) {
+									topval += -(ieTr.dy);
+								}
 							}
 						}
 
@@ -706,7 +717,7 @@ define(["dojo/dnd/move",
 				app.popup[targetPopup].show(_pointTest);
 				app.popup[targetPopup ? 0 : 1].hide();
 				$('.esriPopup').css('visibility', 'hidden');
-				$('.esriPopup').eq(targetPopup).css('visibility', 'visible')
+				$('.esriPopup').eq(targetPopup).css('visibility', 'visible');
 				//Can we use targetPopup in place of mapIndex?
 				if( mapIndex != null )
 					setMobilePopup(mapIndex, (app.popup[mapIndex].features || [null])[0]);

@@ -139,8 +139,18 @@
 		</script>
 
 		<script type="text/javascript">
-			var version = '1.9.3';
+			var version = '1.10.0';
 			var isProduction = false;
+			// IE 9 and below are not compatible with script async attribute.
+			var canUseAsyncAttr = true;
+
+			var ua = window.navigator.userAgent;
+			var msie = ua.indexOf("MSIE ");
+			if(msie > 0){
+				var version = parseFloat(navigator.appVersion.split("MSIE")[1]);
+				if(version <= 9)
+					canUseAsyncAttr = false;
+			}
 
 			function loadJS(url, isExternal)
 			{
@@ -152,7 +162,8 @@
 				var ref = window.document.getElementsByTagName('script')[0];
 				var script = window.document.createElement('script');
 				script.src = url;
-				script.async = false;
+				if(canUseAsyncAttr)
+					script.async = false;
 				ref.parentNode.insertBefore(script, ref);
 			}
 
@@ -170,8 +181,8 @@
 				document.getElementsByTagName("head")[0].appendChild(el);
 			}
 
-			loadCSS("//js.arcgis.com/3.19/esri/css/esri.css", true);
-			loadCSS("//js.arcgis.com/3.19/dijit/themes/claro/claro.css", true);
+			loadCSS("//js.arcgis.com/3.20/esri/css/esri.css", true);
+			loadCSS("//js.arcgis.com/3.20/dijit/themes/claro/claro.css", true);
 
 			if( isProduction ) {
 				loadCSS("app/swipe-min.css");
@@ -897,7 +908,7 @@
 			</table>
 		</div>
 
-		<script type="text/javascript" src="//js.arcgis.com/3.19/init.js"></script>
+		<script type="text/javascript" src="//js.arcgis.com/3.20/init.js"></script>
 		<script type="text/javascript">
 			loadJS('app/swipe-config.js');
 

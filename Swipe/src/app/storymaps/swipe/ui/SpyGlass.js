@@ -124,8 +124,8 @@ define(["dojo/_base/declare",
 						}
 
 						if(!_popup){
-							app.popup[1]._highlighted._graphicsLayer.graphics[0].hide();
-
+							if(app.popup[1])
+								app.popup[1]._highlighted._graphicsLayer.graphics[0].hide();
 							return;
 						}
 						var seriesPanelHeight = parseInt($('#seriesPanel').css('height'));
@@ -202,7 +202,7 @@ define(["dojo/_base/declare",
    					var scroll = e[(!has("mozilla") ? "wheelDelta" : "detail")] * (!has("mozilla") ? 1 : -1);
 					var mapLevel = parseInt(dom.byId("mainMap0").getAttribute("data-zoom"));
 					var wheelDelta = !has("mozilla") ? 120 : 3;
-					var mapZoom = scroll/wheelDelta;
+					var mapZoom = parseInt(scroll/wheelDelta);
 					app.mainMap.setZoom(mapLevel + mapZoom);
 				});
 
@@ -388,19 +388,28 @@ define(["dojo/_base/declare",
 
 				var layer = app.mainMap.getLayer(_layers[0])._div;
 				var tr;
-				if(layer.getTransform)
-					tr = layer.getTransform();
-				// if we got the transform object
-				if (tr) {
-					// if layer is offset x
-					if (tr.hasOwnProperty('dx')) {
-						leftval += -(tr.dx);
+				var values;
+				if($(layer.parent.rawNode).css('transform')){
+					tr = $(layer.parent.rawNode).css('transform');
+					values = tr.match(/-?[\d\.]+/g);
+					// if we got the transform object
+					if (tr && values) {
+						// if layer is offset x
+						leftval += -(parseInt(values[4]));
+						// if layer is offset y
+						topval += -(parseInt(values[5]));
 					}
-					// if layer is offset y
-					if (tr.hasOwnProperty('dy')) {
-						topval += -(tr.dy);
+					else if(layer.getTransform()){
+						var ieTr = layer.getTransform();
+						if (ieTr.hasOwnProperty('dx')) {
+							leftval += -(ieTr.dx);
+						}
+						if (tr.hasOwnProperty('dy')) {
+							topval += -(ieTr.dy);
+						}
 					}
 				}
+
 
 				layer.setClip({
 					x: leftval + 9,
