@@ -11,7 +11,7 @@ This app can be an effective way to show before-and-after imagery, such as the a
 | [Swipe and Spyglass page on Esri Story Maps website](http://storymaps.arcgis.com/en/app-list/swipe-spyglass/)
 | [Download](http://links.esri.com/storymaps/swipe_template_zip)
 
-**Latest release is version version 1.10.0**, if you want to be informed of new releases, we recommend you to watch this repository ([see GitHub help](https://help.github.com/articles/watching-repositories)). See the [release page](https://github.com/Esri/swipe-map-storytelling-template-js/releases) for release notes.
+**Latest release is version version 1.11.0**, if you want to be informed of new releases, we recommend you to watch this repository ([see GitHub help](https://help.github.com/articles/watching-repositories)). See the [release page](https://github.com/Esri/swipe-map-storytelling-template-js/releases) for release notes.
 
 For more infomation about using and customizing Esri's Storytelling Apps follow the [Story Maps Developers' Corner](https://developerscorner.storymaps.arcgis.com).
 
@@ -285,6 +285,3 @@ See the License for the specific language governing permissions and
 limitations under the License.
 
 A copy of the license is available in the repository's [license.txt](https://raw.github.com/Esri/swipe-map-storytelling-template-js/master/license.txt) file.
-
-[](Esri Tags: ArcGIS-Online Template Storytelling Swipe)
-[](Esri Language: JavaScript)
