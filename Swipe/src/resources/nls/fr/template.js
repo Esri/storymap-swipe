@@ -22,6 +22,9 @@ define({
       "initMobile2": "Le générateur de balayage n'est pas pris en charge avec cette taille d'affichage. Si possible, redimensionnez votre navigateur pour pouvoir accéder au générateur ou élaborez votre récit sur un appareil doté d'un écran plus grand.",
       "initMobile3": "Veuillez tourner votre appareil en orientation paysage pour utiliser le générateur de balayage.",
       "noBuilderIE8": "Le générateur interactif de balayage n'est pas pris en charge avant la version 9 d'Internet Explorer.",
+      "noViewerIE2": "Vous tentez d’afficher ce récit dans un navigateur plus ancien, non pris en charge. Certaines fonctionnalités peuvent ne pas fonctionner ou d’autres problèmes peuvent survenir. Nous vous suggérons d'utiliser Internet Explorer 11 ou un autre navigateur, comme Chrome.",
+      "noViewerIE3": "Fin 2017, ce récit ne se chargera plus dans ce navigateur. Vous devrez alors utiliser un navigateur pris en charge pour afficher ce récit.",
+      "attention": "Attention !",
       "noLayerView": "Bienvenue dans l’application Web de balayage.<br />L’application n’est pas encore configurée.",
       "appSave": "Erreur d'enregistrement du récit Web",
       "mapSave": "Erreur d’enregistrement de la carte Web",
@@ -219,7 +222,7 @@ define({
       "close": "Fermer",
       "tab1": {
         "div1": "Le modèle Balayage/Longue-vue est conçu pour comparer deux cartes Web distinctes ou deux couches d'une seule carte Web dans une application Web attrayante et simple d'utilisation, qui peut être utilisée dans n'importe quel navigateur de n'importe quel périphérique, y compris les smartphones et tablettes.",
-        "div2": "Pour plus d'informations sur le modèle Balayage/Longue-vue, notamment pour voir des exemples créés par les utilisateurs, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> consultez le site Web des Story Maps</a>. Vous pouvez également nous suivre sur Twitter à l'adresse <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
+        "div2": "Pour plus d'informations sur le modèle Balayage/Longue-vue, notamment pour voir des exemples créés par des utilisateurs, <a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'> consultez le site web Story Maps</a>. Vous pouvez également nous suivre sur Twitter à l'adresse <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
         "div3": "Nous aimerions avoir de vos nouvelles ! Pour poser une question, proposer une nouvelle fonctionnalité ou si vous pensez avoir trouvé un bogue, consultez le <a href='http://links.esri.com/storymaps/forum' target='_blank'>forum des utilisateurs des Story Maps</a>."
       }
     },

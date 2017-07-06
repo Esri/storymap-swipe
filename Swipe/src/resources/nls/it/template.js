@@ -22,6 +22,9 @@ define({
       "initMobile2": "Il generatore Swipe non è supportato per queste dimensioni schermo. Se possibile, ridimensionare il browser per accedere al generatore o creare la storia su un dispositivo con uno schermo più grande.",
       "initMobile3": "Ruotare il dispositivo nell'orientamento orizzontale per utilizzare il generatore Swipe.",
       "noBuilderIE8": "Il generatore interattivo per scorrimento con dito non è supportato dalle versioni di Internet Explorer precedenti alla versione 9.",
+      "noViewerIE2": "Si sta tentando di visualizzare la storia utilizzando un browser meno recente e non più supportato. Alcune funzioni potrebbero non funzionare o potrebbero verificarsi errori inattesi. Si consiglia di effettuare l'aggiornamento a Internet Explorer 11 o di utilizzare un altro browser, come Chrome.",
+      "noViewerIE3": "Verso la fine del 2017, questa storia non sarà più caricata su questo browser e sarà quindi necessario utilizzare un browser supportato per visualizzarla.",
+      "attention": "Attenzione.",
       "noLayerView": "Benvenuto nell'applicazione Web per scorrimento con dito.<br />L'applicazione non è ancora configurata.",
       "appSave": "Errore durante il salvataggio della storia",
       "mapSave": "Errore durante il salvataggio della mappa Web",
@@ -219,7 +222,7 @@ define({
       "close": "Chiudi",
       "tab1": {
         "div1": "Il modello Scorrimento con dito/Cannocchiale consente di confrontare due mappe Web distinte o due layer di un'unica mappa Web grazie a un'applicazione Web interessante e di facile utilizzo che può essere eseguita in qualsiasi browser Web su qualsiasi dispositivo, inclusi smartphone e tablet.",
-        "div2": "Per ulteriori informazioni sul modello Scorrimento con dito/Cannocchiale, inclusi esempi creati dagli utenti, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'>visitare il sito Web delle mappe collegate a storie</a>. È anche possibile seguire Esri su Twitter all'indirizzo <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
+        "div2": "Per ulteriori informazioni sul modello Scorrimento con dito/Cannocchiale, inclusi esempi creati dagli utenti, <a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'> visitare il sito Web delle Story Map</a>. È anche possibile seguire Esri su Twitter all'indirizzo <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
         "div3": "Esri è lieta di ricevere commenti e suggerimenti degli utenti. Se si desidera porre una domanda, richiedere una nuova funzionalità o si ritiene di aver individuato un difetto nel software, visitare il <a href='http://links.esri.com/storymaps/forum' target='_blank'>forum degli utenti delle mappe collegate a storie</a>."
       }
     },

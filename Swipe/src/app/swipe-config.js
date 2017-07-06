@@ -8,7 +8,7 @@ APPCFG = {
 	EMBED: false,
 
 	// Header Logo
-	HEADER_LOGO_URL: "resources/icons/esri-logo.png",
+	HEADER_LOGO_URL: "resources/icons/esri-logo-white.png",
 	HEADER_LOGO_TARGET: "http://www.esri.com",
 	// Header top right link
 	HEADER_LINK_TEXT: "A story map",
@@ -30,7 +30,7 @@ APPCFG = {
 	TIMEOUT_VIEWER_LOAD: 64000,
 	TIMEOUT_VIEWER_REQUEST: 60000,
 	TIMEOUT_BUILDER_REQUEST: 60000,
-	
+
 	//
 	// Builder
 	//
@@ -47,7 +47,7 @@ APPCFG = {
 
 	WEBAPP_KEYWORD_GENERIC: ["JavaScript", "Map", "Mapping Site", "Online Map", "Ready To Use", "selfConfigured", "Web Map"],
 	WEBAPP_KEYWORD_APP: ["Story Map", "Story Maps", "SwipeSpyglass"],
-	
+
 	//
 	// Portal configuration
 	//
@@ -62,7 +62,7 @@ APPCFG = {
 			proxyUrl: "http://myserver.domain.com/DotNet/proxy.ash"
 		}*/
 	],
-	
+
 	BING_MAPS_KEY: "",
 	HELPER_SERVICES: {
 		geometry: {

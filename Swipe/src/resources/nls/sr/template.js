@@ -22,6 +22,9 @@ define({
       "initMobile2": "Alatka za izradu brzog prevlačenja nije podržana na ovoj veličini ekrana. Ako je moguće, promenite veličinu pregledača da pristupite alatki za izradu ili izradite priču na uređaju sa većim ekranom.",
       "initMobile3": "Rotirajte uređaj u položeni položaj da koristite alatku za izradu brzog prevlačenja.",
       "noBuilderIE8": "Interaktivna alatka za izradu brzog prevlačenja nije podržana na pregledaču Internet Explorer pre verzije 9.",
+      "noViewerIE2": "Pokušavate da vidite ovu priču korišćenjem starog, nepodržanog pregledača. Možda neka svojstva neće raditi ili će doći do drugih nepredviđenih problema. Predlažemo da nadogradite na Internet Explorer 11 ili da koristite drugi pregledač, kao što je Chrome.",
+      "noViewerIE3": "Krajem 2017. godine, učitavanje ove priče na ovom pregledaču neće biti moguće. Tada ćete morati da koristite podržani pregledač kako biste videli priču.",
+      "attention": "Napomena!",
       "noLayerView": "Dobrodošli u veb aplikaciju brzog prevlačenja.<br />Aplikacija još nije konfigurisana.",
       "appSave": "Greška pri čuvanju veb priče",
       "mapSave": "Greška pri čuvanju veb mape",
@@ -219,7 +222,7 @@ define({
       "close": "Zatvori",
       "tab1": {
         "div1": "Šablon brzog prevlačenja/durbina je namenjen da se uporede dve odvojene veb mape ili dva sloja jedne veb mape putem interaktivne veb aplikacije koja je jednostavna za korišćenje i može da se koristi u bilo kom veb pretraživaču na bilo kom uređaju, uključujući i pametne telefone i tablet uređaje.",
-        "div2": "Za više informacija o šablonima brzog prevlačenja/durbina, uključujući i primere koje su korisnici kreirali, <a href=’http://storymaps.arcgis.com/en/app-list/swipe/’ target=’_blank’> posetite veb lokaciju „Story mapa“</a>. Možete da nas pratite na Twitter mreži na <a href=’https://twitter.com/EsriStoryMaps’ target=’_blank’>@EsriStoryMaps</a>.",
+        "div2": "Za više informacija o predlošcima brzog prevlačenja/durbina, uključujući i primere koje su korisnici kreirali, <a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'> posetite veb lokaciju Story Maps</a>. Možete da nas pratite na Twitter mreži na <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
         "div3": "Voleli bismo da vas čujemo! Bilo da imate pitanje, želite da tražite novu funkciju, ili samo mislite da ste pronašli grešku, posetite <a href=’http://links.esri.com/storymaps/forum’ target=’_blank’>korisnički forum Story mapa</a>."
       }
     },

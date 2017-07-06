@@ -22,6 +22,9 @@ define({
       "initMobile2": "O construtor Swipe não é suportado neste tamanho de exibição. Se possível, redimensione o seu navegador para aceder ao construtor ou construa por favor a sua história num dispositivo com um écran maior.",
       "initMobile3": "Por favor rode o seu dispositivo para uma orientação paisagem de usar o construtor Swipe.",
       "noBuilderIE8": "O builder interativo de Varrimento não é suportado em versões do Internet Explorer anteriores à versão 9.",
+      "noViewerIE2": "Está a tentar visualizar esta história através de um navegador mais antigo, que não é suportado. Alguns elementos poderão não funcionar, ou poderão surgir outros problemas inesperados. Sugerimos que atualize para o Internet Explorer 11 ou que utilize outro navegador, por exemplo, o Chrome.",
+      "noViewerIE3": "No final de 2017, esta história já não poderá ser carregada neste navegador. Nessa altura, terá de utilizar um navegador suportado para visualizar esta história.",
+      "attention": "Atenção!",
       "noLayerView": "Bem-vindo à aplicação web de Varrimento.<br />A aplicação ainda não está configurada.",
       "appSave": "Erro ao guardar a web story",
       "mapSave": "Erro ao guardar o mapa web",
@@ -219,7 +222,7 @@ define({
       "close": "Fechar",
       "tab1": {
         "div1": "O modelo Swipe/Spyglassfoi concebido para comparar dois mapas web ou camadas, ou duas camadas de um único mapa numa aplicação web atrativa, fácil de utilizar, que pode ser utilizada em qualquer navegador web ou em qualquer dispositivo, incluindo smartphones e tablets.",
-        "div2": "Para mais informações sobre o modelo de Varrimento/Lupa, incluindo exemplos criados por utilizadores, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> visite o site web dos Story Maps</a>. Pode ainda seguir-nos no Twitter em <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
+        "div2": "Para obter informações adicionais sobre o modelo Swipe/Spyglass, incluindo exemplos criados por utilizadores, <a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'> visite o site web Story Maps</a>. Pode ainda seguir-nos no Twitter em <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
         "div3": "Gostaríamos de ter notícias suas! Não hesite em partilhar a sua Apresentação de Mapa connosco:"
       }
     },

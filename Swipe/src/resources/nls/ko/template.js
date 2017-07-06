@@ -22,6 +22,9 @@ define({
       "initMobile2": "스와이프 빌더는 이 디스플레이 크기에서 지원되지 않습니다. 가능한 경우 빌더에 접근할 수 있도록 브라우저의 크기를 조정하거나 화면이 더 큰 기기에서 스토리를 만드세요.",
       "initMobile3": "스와이프 빌더를 사용하려면 기기를 가로 방향으로 회전하세요.",
       "noBuilderIE8": "Internet Explorer 9 이전 버전에서는 스와이프 대화형 빌더가 지원되지 않습니다.",
+      "noViewerIE2": "지원되지 않는 이전 브라우저를 사용하여 이 스토리를 보려고 합니다. 작동되지 않는 기능이 있거나 예기치 않은 문제가 발생할 수 있습니다. Internet Explorer 11로 업그레이드하거나 Chrome 등의 다른 브라우저를 사용하세요.",
+      "noViewerIE3": "2017년 후반부터는 이 스토리를 이 브라우저에서 불러올 수 없으므로 이 스토리를 보려면 지원되는 브라우저를 사용해야 합니다.",
+      "attention": "주의!",
       "noLayerView": "스와이프 웹 응용프로그램을 시작합니다.<br />응용프로그램이 아직 구성되지 않았습니다.",
       "appSave": "웹 스토리를 저장하는 중 오류 발생",
       "mapSave": "웹 맵을 저장하는 동안 오류가 발생했습니다.",
@@ -219,7 +222,7 @@ define({
       "close": "닫기",
       "tab1": {
         "div1": "스와이프/망원경 템플릿은 스마트폰과 태블릿을 비롯한 모든 장치의 모든 웹 브라우저에서 사용 가능한 간편하고 효율적인 웹 응용프로그램에서 단일 웹 맵의 두 레이어 또는 두 개별 웹 맵을 비교하도록 설계되었습니다.",
-        "div2": "사용자가 생성한 예시를 포함한 스와이프/확대 렌즈 템플릿에 대한 추가 정보는, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> 스토리 맵 웹 사이트를 방문하세요</a>. Twitter의 <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>에서 팔로잉할 수도 있습니다.",
+        "div2": "사용자가 생성한 예시를 비롯하여 스와이프/투과 렌즈 템플릿에 대한 추가 정보를 확인하려면 <a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'>Story Maps 웹 사이트를 방문하세요</a>. Twitter에서 <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>를 팔로우할 수도 있습니다.",
         "div3": "여러분의 참여를 기다립니다. 질문이 있거나 새 기능이 필요하거나 버그가 확인된 경우 <a href='http://links.esri.com/storymaps/forum' target='_blank'>스토리 맵 사용자 포럼</a>을 방문해 주세요."
       }
     },

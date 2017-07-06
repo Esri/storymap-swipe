@@ -22,6 +22,9 @@ define({
       "initMobile2": "Swipe-builder-programmet understøttes ikke ved denne skærmstørrelse. Hvis det er muligt, skal du ændre størrelse på din browser for at få adgang til builder-programmet, eller du kan udvikle din historie på en enhed med en større skærm.",
       "initMobile3": "Rotér din enhed til liggende retning for at bruge Swipe-builder-programmet.",
       "noBuilderIE8": "Swipe-builderprogrammet understøttes ikke i Internet Explorer før version 9.",
+      "noViewerIE2": "Du forsøger at få vist denne historie ved hjælp af en ældre, ikke-understøttet browser. Der kan være funktioner, der ikke fungerer, eller andre uventede problemer. Vi foreslår, at du opgraderer til Internet Explorer 11 eller benytter en anden browser, f.eks. Chrome.",
+      "noViewerIE3": "I slutningen af 2017 vil denne historie ikke længere kunne vises i denne browser. På det tidspunkt skal du benytte en understøttet browser til at vise denne historie.",
+      "attention": "Bemærk!",
       "noLayerView": "Velkommen til Swipe-webapplikationen.<br />Applikationen er endnu ikke konfigureret.",
       "appSave": "Fejl ved lagring af webhistorie",
       "mapSave": "Fejl ved lagring af webkortet",
@@ -219,7 +222,7 @@ define({
       "close": "Luk",
       "tab1": {
         "div1": "Skabelonen Swipe/Kikkert er beregnet til at sammenligne to forskellige webkort eller to lag på ét webkort i en attraktive, brugervenlig webapplikation, som kan bruges i en vilkårlig browser eller på en vilkårlig enhed, herunder smartphone og tablets.",
-        "div2": "Yderligere oplysninger om Swipe/Kikkert-skabelonen, inkl. eksempler oprettet af brugere, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> finder du på Story Maps-webstedet</a>. Du kan også følge os på Twitter på <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
+        "div2": "Yderligere oplysninger om Swipe/Kikkert-skabelonen, inkl. eksempler oprettet af brugere, <a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'>skal du besøge Story Maps-webstedet</a>. Du kan også følge os på Twitter på <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
         "div3": "Vi vil meget gerne høre fra dig! Hvad enten du har spørgsmål, ønsker at bestille et nyt objekt eller mener, at du har fundet en fejl, vil vi bede dig om at besøge <a href='http://links.esri.com/storymaps/forum' target='_blank'>Story Maps User Forum</a>."
       }
     },

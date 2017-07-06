@@ -22,6 +22,9 @@ define({
       "initMobile2": "Kaydırma oluşturucu, bu ekran boyutunda desteklenmez. Mümkünse, oluşturucu erişimi için tarayıcınızı yeniden boyutlandırın veya hikayenizi daha büyük ekranı olan bir cihazda oluşturun.",
       "initMobile3": "Cihazınızı yatay konuma döndürerek Kaydırma oluşturucuyu kullanın.",
       "noBuilderIE8": "Swipe etkileşimli derleyicisi Internet Explorer'ın 9. sürümünden öncesinde desteklenmez.",
+      "noViewerIE2": "Bu hikayeyi daha eski ve desteklenmeyen bir tarayıcı kullanarak görüntülemeye çalışıyorsunuz. Çalışmayan özellikler olabilir veya başka beklenmedik sorunlarla karşılaşılabilir. Internet Explorer 11 sürümüne yükseltme yapmanız veya Chrome gibi başka bir tarayıcı kullanmanız önerilir.",
+      "noViewerIE3": "2017’nin sonuna doğru bu hikaye artık bu tarayıcıda yüklenemeyecek. Hikayeyi o zaman görüntülemek için desteklenen bir tarayıcı kullanmanız gerekecek.",
+      "attention": "Dikkat!",
       "noLayerView": "Swipe web uygulamasına hoş geldiniz.<br />Uygulama henüz yapılandırılmadı.",
       "appSave": "Web hikayesi kaydetme hatası",
       "mapSave": "Web haritasını kaydederken hata oluştu",
@@ -219,7 +222,7 @@ define({
       "close": "Kapat",
       "tab1": {
         "div1": "Swipe/Küçük Dürbün şablonu iki ayrı web haritasını veya tek bir web haritasının iki katmanını akıllı telefonlar ve tabletler dahil herhangi bir cihazda herhangi bir web tarayıcısında kullanılabilecek çekici, kolay kullanılan bir web uygulamasında karşılaştırmak için tasarlanmıştır.",
-        "div2": "Swipe/Küçük Dürbün şablonu hakkında, kullanıcıların oluşturduğu örnekler dahil ek bilgi için, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> Öykü Haritaları web sitesini ziyaret edin</a>. Bizi <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a> adresinden Twitter'da izleyebilirsiniz.",
+        "div2": "Kullanıcı örneklerini de içeren Kaydırma/Dürbün şablonu hakkında ek bilgi için, <a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'>Story Maps web sitesini ziyaret edin</a>. Bizi <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a> adresinden Twitter'da da takip edebilirsiniz.",
         "div3": "Bize yazmanızı istiyoruz! İster bir soru sormak istiyor, ister yeni bir özellik istiyor, ister bir hata bulduğunuzu düşünüyor olun, <a href='http://links.esri.com/storymaps/forum' target='_blank'>Öykü Haritaları Kullanıcı Forumu</a>'nu ziyaret edin."
       }
     },

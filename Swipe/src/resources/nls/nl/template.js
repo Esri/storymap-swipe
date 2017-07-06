@@ -22,6 +22,9 @@ define({
       "initMobile2": "De Swipe builder wordt niet ondersteund op dit schermformaat. Pas indien mogelijk de grootte van uw browser aan voor toegang tot de builder of bouw uw verhaal op een apparaat met een groter scherm.",
       "initMobile3": "Draai uw apparaat in een kwartslag om de Swipe builder te gebruiken.",
       "noBuilderIE8": "De Swipe interactieve builder wordt niet ondersteund in Internet Explorer vóór versie 9.",
+      "noViewerIE2": "U probeert dit verhaal te bekijken met behulp van een oudere, niet-ondersteunde browser. Er kunnen functies niet werken of er kunnen andere onverwachte problemen ontstaan. Wij raden u aan te upgraden naar Internet Explorer 11 of een andere browser te gebruiken, zoals Chrome.",
+      "noViewerIE3": "In het najaar van 2017 zal dit verhaal niet meer laden op deze browser. Vanaf dat moment moet u een ondersteunde browser gebruiken om dit verhaal te bekijken.",
+      "attention": "Let op!",
       "noLayerView": "Welkom bij de Swipe webapplicatie.<br />De applicatie is nog niet ingesteld.",
       "appSave": "Fout bij het opslaan van het webverhaal",
       "mapSave": "Fout bij het opslaan van de webmap",
@@ -182,7 +185,7 @@ define({
       "settingsPopupDisable": "Pop-up inschakelen",
       "settingsLocationSearchEnable": "Zoeken naar locaties inschakelen",
       "settingsGeolocatorEnable": "Geografische locator inschakelen",
-      "settingsLegendHelpContent": "Om de inhoud van de legenda te verfijnen, gebruikt u de inhoudsopgave van de ArcGIS webmap viewer (Verbergen in Legenda)",
+      "settingsLegendHelpContent": "Om de content van de legenda te verfijnen, gebruikt u de inhoudsopgave van de ArcGIS webmap viewer (Verbergen in Legenda)",
       "settingsSeriesHelpContent": "Swipe-reeks is een navigatie-optie met tabbladen die de raadpleger naar een specifiek extent zal leiden en een titel en beschrijving in het deelvenster aan de zijkant zal weergeven. Tijdens de initiële activering worden de bladwijzers van de webmap(s) geïmporteerd en gebruikt om de reeksbalk vooraf in te vullen. Als u de reeksoptie uitschakelt, wordt de reeksbalk uitgeschakeld, maar de reeksconfiguratie wordt behouden voor toekomstig gebruik.",
       "settingsSeriesHelpContent2": "Met de Swipe-reeks kunt u een reeks locaties maken en bewerken met bijbehorende titels en tekst. Als uw webmap bladwijzers bevat, dan zullen deze worden weergegeven. U kunt de reeks uitschakelen, maar de configuratie wordt bewaard voor toekomstig gebruik.",
       "settingsSeriesHelpLink": "Bekijk hier een voorbeeld van een applicatie met een Swipe-reeks",
@@ -219,7 +222,7 @@ define({
       "close": "Sluiten",
       "tab1": {
         "div1": "De template Swipe/Verrekijker is ontworpen om twee afzonderlijke webmaps of twee lagen van één webmap te vergelijken in een aantrekkelijke, gebruiksvriendelijke webapplicatie die kan worden gebruikt in elke webbrowser op elk apparaat, waaronder smartphones en tablets.",
-        "div2": "Voor meer informatie over de template Swipe/Verrekijker, inclusief voorbeelden die door gebruikers zijn gemaakt, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> gaat u naar de website met kaartverhalen van Esri</a>. U kunt ons ook volgen op Twitter op <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
+        "div2": "Voor meer informatie over de template Swipe/Verrekijker, inclusief voorbeelden die door gebruikers zijn gemaakt, <a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'> gaat u naar de Story Maps website</a>. U kunt ons ook volgen op Twitter op <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>..",
         "div3": "We horen graag van u! Als u een vraag hebt, een nieuw object wilt aanvragen of problemen ondervindt, gaat u naar het <a href='http://links.esri.com/storymaps/forum' target='_blank'>gebruikersforum voor kaartverhalen</a>."
       }
     },

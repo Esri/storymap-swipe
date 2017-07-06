@@ -22,6 +22,9 @@ define({
       "initMobile2": "Nástroj pro tvorbu příběhu podle šablony překrývání není v této velikosti zobrazení podporován. Pokud je to možné, zvětšete velikost prohlížeče nebo příběh vytvořte na zařízení s větší obrazovkou.",
       "initMobile3": "Aby bylo možné použít nástroj pro tvorbu překrývání, otočte své zařízení na šířku.",
       "noBuilderIE8": "Interaktivní nástroj pro tvorbu překrývání není podporován v programu Internet Explorer verze nižší než 9.",
+      "noViewerIE2": "Pokoušíte se tento příběh prohlížet pomocí staršího, nepodporovaného prohlížeče. Některé funkce nemusí fungovat nebo se mohou vyskytnout jiné nečekané problémy. Doporučujeme přejít na Internet Explorer 11 nebo použít jiný prohlížeč, například Chrome.",
+      "noViewerIE3": "Koncem roku 2017 se tento příběh v tomto prohlížeči již nenačte. K jeho prohlížení bude nutné použít podporovaný prohlížeč.",
+      "attention": "Upozornění!",
       "noLayerView": "Vítejte ve webové aplikaci pro překrývání.<br />Aplikace zatím není nakonfigurována.",
       "appSave": "Chyba při ukládání webového příběhu",
       "mapSave": "Chyba při ukládání webové mapy",
@@ -219,7 +222,7 @@ define({
       "close": "Zavřít",
       "tab1": {
         "div1": "Šablona Překrývání/Lupa je navržena pro porovnání dvou různých webových map nebo dvou vrstev jedné webové mapy v atraktivní, snadno ovladatelné webové aplikaci, kterou lze použít v jakémkoli webovém prohlížeči na jakémkoli zařízení včetně chytrých telefonů a tabletů.",
-        "div2": "Pro více informací o šabloně Překrývání/Lupa a příklady vytvořené komunitou <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> navštivte stránku Mapy s příběhem</a>. Můžete nás také sledovat na Twitteru na <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
+        "div2": "Další informace o šabloně Překrývání/Lupa a příklady vytvořené komunitou <a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'> naleznete na webu Mapy s příběhem</a>. Můžete nás také sledovat na Twitteru na  <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
         "div3": "Rádi od vás uslyšíme! Ať už máte otázku, chcete požádat o novou funkci nebo si myslíte, že jste našli chybu, navštivte prosím <a href='http://links.esri.com/storymaps/forum' target='_blank'>uživatelské fórum map s příběhem</a>."
       }
     },

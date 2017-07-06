@@ -22,6 +22,9 @@ define({
       "initMobile2": "אשף הבנייה של Swipe אינו נתמך בגודל תצוגה זה. אם ניתן, שנה את גודל הדפדפן שלך כדי לגשת לאשף הבנייה או בנה את הסיפור שלך במכשיר עם מסך גדול יותר.",
       "initMobile3": "סובב את המכשיר לכיוון לרוחב כדי להשתמש באשף הבנייה של Swipe.",
       "noBuilderIE8": "הבנאי האינטראקטיבי של ה- Swipe לא נתמך באינטרנט אקספלורר לפני גרסה 9.",
+      "noViewerIE2": "אתה מנסה להציג את הסיפור באמצעות דפדפן ישן שאינו נתמך. ייתכן כי חלק מהישויות לא יפעלו או שיתרחשו בעיות בלתי צפויות אחרות. מומלץ לשדרג ל-Internet Explorer 11 או להשתמש בדפדפן אחר, כגון Chrome.",
+      "noViewerIE3": "בסוף שנת 2017, לא תוכל עוד לטעון את הסיפור בדפדפן זה. משלב זה ואילך תצטרך להשתמש בדפדפן נתמך כדי להציג את הסיפור.",
+      "attention": "שים לב!",
       "noLayerView": "ברוכים הבאים לאפליקצית ה- web של כלי ה- swipe. <br />עדיין לא הוגדרה תצורה לאפליקציה.",
       "appSave": "שגיאה בשמירת web story",
       "mapSave": "שגיאה בשמירת ה- web map",
@@ -188,7 +191,7 @@ define({
       "settingsSeriesHelpLink": "ראה כאן דוגמא לאלפליקציה עם סדרת ה-Swipe",
       "preview": "תצוגה מקדימה של UI",
       "settingsLocateButtonExplain": "פונקציונליות זו נתמכת ברוב המכשירים הניידים ובדפדפנים השולחניים (Internet Explorer 9).",
-      "settingsLocateButton": "הפוך לפעיל את הלחצן 'איתור' לדפדפנים נתמכים",
+      "settingsLocateButton": "הפעל לחצן 'איתור' בדפדפנים נתמכים",
       "settingsAddressSearch": "הפוך לפעיל כלי חיפוש כתובת"
     },
     "settingsSwipePopup": {
@@ -219,7 +222,7 @@ define({
       "close": "סגור",
       "tab1": {
         "div1": "תבנית ה Swipe/Spyglass  להשוואה בין שני web maps או בין שתי שכבות של web map בודד באופן, באפליקצית web קלה לשימוש בה ניתן להשתמש מכל דפדפן על כל מכשיר, כולל טלפונים חכמים וטאבלטים.",
-        "div2": "למידע נוסף אודות תבנית Swipe/Spyglass כולל דוגמאות שנוצרו על ידי משתמשים, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> בקר באתר מפות הסיפור</a>. ניתן לעקוב גם  בטוויטר דרך <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
+        "div2": "למידע נוסף אודות תבנית Swipe/Spyglass, כולל דוגמאות שנוצרו על-ידי משתמשים, <a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'>בקר באתר מפות הסיפור</a>. ניתן גם לעקוב ב-Twitter דרך <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
         "div3": "נשמח לשמוע ממך! בין אם יש לך שאלה, רוצה לבקש יכולת חדשה, או חושב שמצאת באג, אנא בקר ב- <a href='http://links.esri.com/storymaps/forum' target='_blank'>פורום המשתמשים של מפות סיפור</a>."
       }
     },
@@ -253,10 +256,10 @@ define({
     },
     "directCreation": {
       "header": "ברוך הבא ל Swipe/Spyglass Builder",
-      "mapPickHeader": "כדי להתחיל, אנא בחר מזהה web map תקין, או השתמש בלחצן החיפוש כדי למצא web maps.",
+      "mapPickHeader": "כדי להתחיל, בחר מזהה חוקי של מפת אינטרנט, או השתמש בלחצן החיפוש כדי לעיין ברשימת מפות האינטרנט.",
       "launchBuilder": "התחל Builder",
       "chooseWebmapLbl": "בחר web map...",
-      "explain2": "ליצירת מפת סיפור מסוג Swipe או Spyglass, השתמש בלחצן למטה לבחירת ה-web map הקיים בו תרצה להשתמש. לחלופין ניתן להדביק את מספר הזיהוי של ה-web map בשדה להלן.",
+      "explain2": "כדי ליצור מפת סיפור מסוג 'החלק' או 'זכוכית מגדלת', השתמש בלחצן שלהלן כדי לבחור את מפת האינטרנט הקיימת שבה תרצה להשתמש. לחלופין, ניתן להדביר את המזהה של מפת האינטרנט בשדה שלהלן.",
       "explain3": "אם ברצונך להשתמש בשתי  web maps במפת הסיפור שלך, תתבקש לבחור את ה-web map השנייה כאשר תבחר באפשרות הזו.",
       "webmapPlaceholder": "הכנס id של web map..."
     },
@@ -282,7 +285,7 @@ define({
         "contentLabel": "התוכן שלי",
         "favoritesLabel": "המועדפים שלי"
       },
-      "title": "בחר Web Map",
+      "title": "בחר מפת אינטרנט",
       "searchTitle": "חפש",
       "ok": "אישור",
       "cancel": "ביטול",

@@ -22,6 +22,9 @@ define({
       "initMobile2": "此显示器大小不支持 Swipe 构建器。如果可能，请调整您的浏览器尺寸以访问构建器或用更大的屏幕在设备上构建您的故事。",
       "initMobile3": "请将您的设备旋转至横向来使用 Swipe 构建器。",
       "noBuilderIE8": "Internet Explorer 9 之前的版本不支持卷帘交互式构建器。",
+      "noViewerIE2": "您尝试查看故事所使用的浏览器版本过旧，不受支持。某些要素可能无法正常运行或出现非预期问题。我们建议您将浏览器更新至 Internet Explorer 11 或使用 Chrome 等其他浏览器。",
+      "noViewerIE3": "2017 年底，将无法在此浏览器中加载此故事。届时，您必须使用受支持的浏览器查看此故事。",
+      "attention": "注意!",
       "noLayerView": "欢迎使用卷帘 web 应用程序。<br />尚未配置该应用程序。",
       "appSave": "保存 Web 故事时出错",
       "mapSave": "保存 web 地图时出错",
@@ -219,7 +222,7 @@ define({
       "close": "关闭",
       "tab1": {
         "div1": "卷帘/望远镜模板旨在通过一个简单易用而又吸引人的 Web 应用程序(可通过包括智能手机和平板电脑在内的任意设备上的任意 Web 浏览器使用该应用程序)，对两个单独的 Web 地图或一个 Web 地图中的两个图层进行比较。",
-        "div2": "有关卷帘/望远镜模板的附加信息(包括用户创建的示例)，<a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'>请访问故事地图网站</a>。您也可以关注我们的 Twitter，<a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>。",
+        "div2": "有关 Swipe/Spyglass 模板的其他信息(包括用户创建的示例)，<a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'>请访问 Story Maps 网站</a>。您也可以在推特上关注我们：<a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>。",
         "div3": "我们非常期待您的参与! 如果您有任何疑问、想要请求新特性或者发现漏洞，请访问<a href='http://links.esri.com/storymaps/forum' target='_blank'>故事地图用户论坛</a>。"
       }
     },

@@ -22,6 +22,9 @@ define({
       "initMobile2": "この表示サイズでは、スワイプ ビルダーはサポートされません。可能な場合、ブラウザーのサイズを変更してビルダーにアクセスするか、さらに大きい画面を持つデバイス上でストーリーを構築してください。",
       "initMobile3": "使用しているデバイスを横方向に回転してスワイプ ビルダーを使用してください。",
       "noBuilderIE8": "バージョン 9 よりも前の Internet Explorer では、スワイプ対話型ビルダはサポートされていません。",
+      "noViewerIE2": "このストーリーをサポートされていない古いブラウザーで表示しようとしています。動作しない機能やその他の予期しない問題がある可能性があります。Internet Explorer 11 にアップグレードするか、Chrome などの別のブラウザーを使用することをお勧めします。",
+      "noViewerIE3": "2017 年後半には、このストーリーはこのブラウザーで読み込めなくなります。その時点で、サポートされているブラウザーを使用してこのストーリーを表示する必要があります。",
+      "attention": "注意",
       "noLayerView": "スワイプ Web アプリケーションへようこそ。<br />アプリケーションは、まだ構成されていません。",
       "appSave": "Web ストーリーの保存中にエラーが発生しました",
       "mapSave": "Web マップの保存中にエラーが発生しました",
@@ -219,7 +222,7 @@ define({
       "close": "閉じる",
       "tab1": {
         "div1": "スワイプ/スパイグラス テンプレートは、スマートフォンやタブレットなど、あらゆるデバイスのあらゆる Web ブラウザで使用できる使いやすく魅力的なアプリケーションで、2 つの別々の Web マップまたは 1 つの Web マップの 2 つのレイヤを比較できるよう設計されています。",
-        "div2": "ユーザが作成した例を含むスワイプ/スパイグラス テンプレートの詳細については、<a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'>ストーリー マップ Web サイト</a>をご覧ください。また、<a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a> で Esri の Twitter をフォローすることもできます。",
+        "div2": "ユーザーが作成した例を含むスワイプ/スパイグラス テンプレートの詳細については、<a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'>ストーリー マップ Web サイト</a>をご覧ください。 Twitter で <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a> をフォローすることもできます。",
         "div3": "みなさまのご参加をお待ちしています。質問がある場合、新しい機能を依頼する場合、あるいはバグを見つけた場合は、<a href='http://links.esri.com/storymaps/forum' target='_blank'>ストーリー マップ ユーザ フォーラム</a>をご覧ください。"
       }
     },

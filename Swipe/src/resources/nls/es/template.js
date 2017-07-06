@@ -22,6 +22,9 @@ define({
       "initMobile2": "El builder de Swipe no es compatible con este tamaño de pantalla. Si es posible, cambia el tamaño de tu navegador para acceder al builder o crea tu historia en un dispositivo que tenga una pantalla más grande.",
       "initMobile3": "Rota el dispositivo a horizontal para utilizar el builder de Swipe.",
       "noBuilderIE8": "El builder interactivo de comparativas no es compatible con las versiones anteriores a Internet Explorer 9.",
+      "noViewerIE2": "Está intentando ver esta historia con un navegador antiguo no compatible. Es posible que algunas características no funcionen o que se produzcan otros problemas inesperados. Es recomendable actualizar a Internet Explorer 11 o usar otro navegador como Chrome.",
+      "noViewerIE3": "A finales de 2017, esta historia no se podrá cargar en este navegador. Cuando eso ocurra, deberá usar un navegador compatible para ver la historia.",
+      "attention": "Atención",
       "noLayerView": "Bienvenido a la aplicación web para la comparativa.<br />La aplicación aún no está configurada.",
       "appSave": "Error al guardar la historia web",
       "mapSave": "Error al guardar el mapa web",
@@ -219,7 +222,7 @@ define({
       "close": "Cerrar",
       "tab1": {
         "div1": "La plantilla Comparativa/Lupa se ha diseñado para comparar dos mapas web o dos capas de un mismo mapa web en una aplicación web atractiva y fácil de usar que se puede utilizar en cualquier navegador web o dispositivo, incluidos los smartphones y las tablets.",
-        "div2": "Si quieres obtener información adicional sobre la plantilla Comparativa/Lupa, incluidos algunos ejemplos creados por los usuarios, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> visita el sitio web de Story Maps</a>. También puedes seguirnos en Twitter en <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
+        "div2": "Si quiere obtener información adicional sobre la plantilla Comparativa/Lupa, incluidos algunos ejemplos creados por los usuarios, <a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'> visite el sitio web de Story Maps</a>. También puede seguirnos en Twitter en <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
         "div3": "Nos gusta mucho tener noticias tuyas. Tanto si tienes alguna pregunta, si deseas solicitar un nueva característica o si crees que has encontrado un error, visita el <a href='http://links.esri.com/storymaps/forum' target='_blank'>foro de usuarios de Story Maps</a>."
       }
     },

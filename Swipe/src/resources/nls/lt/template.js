@@ -22,6 +22,9 @@ define({
       "initMobile2": "Šio ekrano dydžio keitiklio kūrimo priemonė nepalaikoma. Jei įmanoma, pakeiskite naršyklės dydį, kad galėtumėte pasiekti kūrimo primonę arba kurkite savo pasakojimą, naudodami prietaisą su didesniu ekranu..",
       "initMobile3": "Norėdami naudoti keitiklio kūrimo priemonę, pasukite prietaisą gulsčiai.",
       "noBuilderIE8": "Keitiklio interaktyvus kūrėjas nepalaikomas žemesnės nei 9 versijos Internet Explorer.",
+      "noViewerIE2": "Jūs bandote peržiūrėti šį pasakojimą naudodami senesnę, nepalaikomą naršyklę. Kai kurie elementai gali neveikti ar įvykti kitokių nenumatytų problemų. Siūlome atnaujinti naršyklės versiją į Internet Explorer 11 arba naudoti kitą naršyklę, pavyzdžiui, Chrome.",
+      "noViewerIE3": "2017 m. pabaigoje šio pasakojimo nebebus galima įkelti naudojant šią naršyklę. Tuo metu, norėdami peržiūrėti šį pasakojimą, turėsite naudoti palaikomą naršyklę.",
+      "attention": "Dėmesio!",
       "noLayerView": "Sveiki atvykę į keitiklio internetinę aplikaciją.<br />Aplikacija dar nesukonfigūruota.",
       "appSave": "Klaida įrašant žiniatinklio pasakojimą",
       "mapSave": "Klaida įrašant internetinį žemėlapį",
@@ -219,7 +222,7 @@ define({
       "close": "Užverti",
       "tab1": {
         "div1": "Keitiklio / didinamojo stiklo šablonas leidžia palyginti du internetinius žemėlapius ar du internetinio žemėlapio sluoksnius patrauklioje, paprastoje naudoti tinklo aplikacijoje, kuri gali būti pasiekiama naršykle įvairiuose įrenginiuose, taip pat ir išmaniuosiuose telefonuose ir planšetiniuose kompiuteriuose.",
-        "div2": "Norėdami gauti papildomos informacijos apie keitiklio / didinamojo stiklo šabloną ir vartotojų sukurtų pavyzdžių, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> apsilankykite žemėlapių su pasakojimais svetainėje</a>. Be to, galite mus sekti Twitter <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
+        "div2": "Norėdami gauti papildomos informacijos apie keitiklio / didinamojo stiklo šabloną ir vartotojų sukurtų pavyzdžių, <a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'> apsilankykite žemėlapių pasakojimų svetainėje</a>. Be to, galite mus sekti Twitter <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
         "div3": "Mes norėtume gauti iš jūsų žinių! Jei turite klausimų, pageidaujate naujo funkcionalumo, ar manote, kad radote klaidą, apsilankykite <a href='http://links.esri.com/storymaps/forum' target='_blank'>Pasakojimų žemėlapių vartotojų forumą</a>."
       }
     },

@@ -22,6 +22,9 @@ define({
       "initMobile2": "Pārvilkšanas veidotājs nav atbalstīts šim displeja izmēram. Ja iespējams, mainiet pārlūkprogrammas izmēru tā, lai piekļūtu veidotājam, vai veidojiet savu stāstu ierīcē ar lielāku ekrānu.",
       "initMobile3": "Lai izmantotu pārvilkšanas veidotāju, pagrieziet ierīcē ainavas orientāciju.",
       "noBuilderIE8": "Pārvilkšanas interaktīvais veidotājs netiek atbalstīts pārlūkprogrammas Internet Explorer versijās, kas jaunākas par 9. versiju.",
+      "noViewerIE2": "Jūs mēģināt skatīt šo stāstu, izmantojot vecāku, neatbalstītu pārlūku. Var gadīties, ka nedarbojas kāds elements vai rodas citas neparedzētas problēmas. Iesakām jaunināt uz Internet Explorer 11 vai izmantot citu pārlūku, piemēram, Chrome.",
+      "noViewerIE3": "No 2017. gada beigām šo stāstu vairs nevarēs ielādēt šajā pārlūkā. Pēc tam šī stāsta skatīšanai ir jāizmanto atbalstīts pārlūks.",
+      "attention": "Uzmanību!",
       "noLayerView": "Laipni lūdzam Pārvilkt web aplikācijā.<br />Aplikācija vēl nav konfigurēta.",
       "appSave": "Saglabājot tīmekļa stāstu, radās kļūda",
       "mapSave": "Kļūda, saglabājot web karti",
@@ -83,8 +86,8 @@ define({
     },
     "header": {
       "editMe": "Rediģē mani !",
-      "templateTitle": "Iestatīt veidnes virsrakstu",
-      "templateSubtitle": "Iestatīt veidnes apakšvirsrakstu"
+      "templateTitle": "Iestatīt sagataves virsrakstu",
+      "templateSubtitle": "Iestatīt sagataves apakšvirsrakstu"
     },
     "settings": {
       "settingsHeader": "Stāsta iestatījumi",
@@ -129,7 +132,7 @@ define({
       "noPopup": "Nav atrasti šī elementa uznirstošie logi"
     },
     "mobileLegend": {
-      "noLegend": "Nav apzīmējumi ko parādīt."
+      "noLegend": "Nav parādāmu apzīmējumu."
     },
     "swipeSidePanel": {
       "editTooltip": "Iestatiet sānu paneļa aprakstu",
@@ -219,7 +222,7 @@ define({
       "close": "Aizvērt",
       "tab1": {
         "div1": "Vilkšanas/tālskata šablons ir izveidots, lai salīdzinātu divas atsevišķas web kartes vai divus slāņus saistošā, viegli izmantojamā tīmekļa lietotnē, ko var atvērt jebkurā tīmekļa pārlūkprogrammā jebkurā ierīcē, ieskaitot viedtālruņus un planšetdatorus.",
-        "div2": "Lai iegūtu papildinformāciju par vilkšanas/tālskata šablonu, tostarp lietotāju izveidotajiem piemēriem, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> apmeklējiet stāstu karšu tīmekļa vietni</a>. Varat mums sekot Twitter kontā <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
+        "div2": "Lai iegūtu papildinformāciju par vilkšanas/tālskata šablonu, tostarp lietotāju izveidotajiem piemēriem, <a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'>apmeklējiet stāstu karšu Web vietni</a>. Varat mums sekot Twitter kontā <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
         "div3": "Mēs labprāt vēlētos dzirdēt jūsu atsauksmes! Neatkarīgi no tā, vai jums ir jautājumi, vēlaties pieprasīt jaunu elementu vai uzskatāt, ka esat atradis kļūdu, lūdzu, apmeklējiet <a href='http://links.esri.com/storymaps/forum' target='_blank'>stāstu karšu lietotāju forumu</a>."
       }
     },

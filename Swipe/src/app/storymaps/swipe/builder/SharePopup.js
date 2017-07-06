@@ -156,7 +156,7 @@ define(["storymaps/utils/Helper"],
 				container.find('.not-shared .btn-learnmore').html(i18n.swipe.share.learnMore);
 				container.find('.btn-learnmore').off('click').on('click', function() {
 					//app.builder.openHelpPopup(4);
-					window.open('http://storymaps.arcgis.com/en/app-list/swipe/','_blank');
+					window.open('https://storymaps.arcgis.com/en/app-list/swipe-spyglass/','_blank');
 				});
 
 				container.find('.not-shared .btn-preview').html(i18n.swipe.share.sharePreviewAsUser);

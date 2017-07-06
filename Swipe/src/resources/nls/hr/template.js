@@ -22,6 +22,9 @@ define({
       "initMobile2": "Sastavljač klizača nije podržan u ovoj veličini prikaza. Ako je moguće, promijenite veličinu preglednika da biste pristupili sastavljaču ili izradite priču na uređaju s većim zaslonom.",
       "initMobile3": "Zakrenite uređaj u vodoravnu orijentaciju kako biste upotrijebili sastavljač klizača.",
       "noBuilderIE8": "Interaktivni sastavljač klizača nije podržan na ranijoj verziji preglednika Internet Explorer prije verzije 9.",
+      "noViewerIE2": "Pokušavate prikazati ovu priču preko starijeg, nepodržanog preglednika. Možda neki geoobjekti ne rade ili je došlo do drugih neočekivanih problema. Predlažemo nadogradnju u Internet Explorer 11 ili korištenje drugog preglednika, primjerice Chromea.",
+      "noViewerIE3": "Krajem 2017. ova se priča više neće moći učitati u ovom pregledniku. Tada ćete morati koristiti podržani preglednik za prikaz ove priče.",
+      "attention": "Pozor!",
       "noLayerView": "Dobro došli u web-aplikaciju klizača.<br />Aplikacija još nije konfigurirana.",
       "appSave": "Pogreška pri spremanju web-priče",
       "mapSave": "Pogreška pri spremanju web-karte",
@@ -47,7 +50,7 @@ define({
       "bitlyTooltip": "Preuzmite kratku poveznicu",
       "tooltipAutoplayDisabled": "Ovo nije dostupno kod automatske reprodukcije",
       "autoplayLabel": "Automatska reprodukcija",
-      "autoplayExplain1": "Automatska reprodukcija prikazivat će vašu priču u redovitim intervalima. To je idealno za štand ili javno prikazani zaslon, no budite svjesni da će se u drugim situacijama priča možda teže čitati. Ova značajka nije podržana na malim zaslonima.",
+      "autoplayExplain1": "Automatska reprodukcija prikazivat će vašu priču u redovitim intervalima. To je idealno za kiosk ili javno prikazani zaslon, no budite svjesni da će se u drugim situacijama priča možda teže čitati. Ova značajka nije podržana na malim zaslonima.",
       "autoplayExplain2": "Kada je ovaj način rada aktivan, postoje kontrole za reprodukciju/pauziranje priče i podešavanje brzine navigacije."
     }
   },
@@ -60,7 +63,7 @@ define({
       "buttonDiscard": "ODUSTANI",
       "buttonSettings": "Postavke",
       "buttonView": "Način prikaza",
-      "buttonItem": "Otvori web-aplikaciju",
+      "buttonItem": "Otvori stavku web-aplikacije",
       "noPendingChange": "Nema promjena na čekanju",
       "unSavedChangeSingular": "1 nespremljena promjena",
       "unSavedChangePlural": "nespremljenih promjena",
@@ -219,7 +222,7 @@ define({
       "close": "Zatvori",
       "tab1": {
         "div1": "Predložak klizača/povećala osmišljen je za usporedbu dvije zasebne web-karte ili dva sloja jedne web-karte u atraktivnoj web-aplikaciji jednostavnoj za upotrebu koja se može upotrijebiti u bilo kojem pregledniku na bilo kojem uređaju, uključujući pametne telefone i tablete.",
-        "div2": "Za dodatne informacije o predlošku klizača/povećala, uključujući primjere koje su stvorili korisnici, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> posjetite web-mjesto Story Maps</a>. Možete nas i pratiti na Twitteru na <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
+        "div2": "Za dodatne informacije o predlošku klizača/povećala, uključujući primjere koje su stvorili korisnici, <a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'> posjetite web-mjesto Story Maps</a>. Možete nas i pratiti na Twitteru na <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
         "div3": "Voljeli bismo da nam se javite! Neovisno o tome imate li pitanje, želite zatražiti novu značajku ili mislite da ste pronašli pogrešku, posjetite nas na <a href='http://links.esri.com/storymaps/forum' target='_blank'>Forumu za korisnike Story Mapsa</a>."
       }
     },

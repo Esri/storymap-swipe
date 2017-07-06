@@ -22,6 +22,9 @@ define({
       "initMobile2": "Swipe 建構器不支援此顯示大小。如果可行，請重新調整瀏覽器大小來存取建立器，或請在裝置上使用較大的畫面建立您的故事。",
       "initMobile3": "請將裝置旋轉為橫向以使用 Swipe 建立器。",
       "noBuilderIE8": "Internet Explorer 9 之前的版本不支援 Swipe 互動式建構器。",
+      "noViewerIE2": "您正在嘗試使用較舊、不支援的瀏覽器來檢視此故事。可能有未運作的圖徵或發生其他非預期的問題。我們建議您升級至 Internet Explorer 11 或使用其他瀏覽器，例如 Chrome。",
+      "noViewerIE3": "在 2017 年末，無法再於此瀏覽器上載入此故事。到時您必須使用支援的瀏覽器來檢視此故事。",
+      "attention": "注意!",
       "noLayerView": "歡迎使用 Swipe web 應用程式。<br />尚未設定該應用程式。",
       "appSave": "儲存 web 故事時出錯",
       "mapSave": "儲存 web 地圖時出錯",
@@ -219,7 +222,7 @@ define({
       "close": "關閉",
       "tab1": {
         "div1": "Swipe/Spyglass 範本旨在透過一個簡單易用而又吸引人的 Web 應用程式(可透過包括智慧型手機和平板電腦之任意裝置上的任意 Web 瀏覽器使用該應用程式)，對兩個單獨的 Web 地圖或一個 Web 地圖中的兩個圖層進行比較。",
-        "div2": "有關 Swipe/Spyglass 範本的附加資訊(包括使用者建立的範例)，<a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'>請存取故事地圖網站</a>。您也可以關注我們的 Twitter，<a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>。",
+        "div2": "有關 Swipe/Spyglass 範本的其他資訊 (包括使用者建立的範例)，<a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'>請存取故事地圖網站</a>。您也可以關注我們的 Twitter <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>。",
         "div3": "我們非常期待您的參與! 如果您有任何疑問、想要請求新的圖徵或者發現漏洞，請造訪<a href='http://links.esri.com/storymaps/forum' target='_blank'>Story Maps 使用者論壇</a>。"
       }
     },

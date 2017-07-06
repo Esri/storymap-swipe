@@ -22,6 +22,9 @@ define({
       "initMobile2": "O construtor da ferramenta Oscilar não é suportado neste tamanho de visualização. Se possível, redimensione seu navegador para acessar o construtor ou construa sua história em um dispositivo com uma tela maior.",
       "initMobile3": "Gire seu dispositivo para orientação de paisagem para utilizar o construtor da ferramenta Oscilar.",
       "noBuilderIE8": "O construtor interativo Oscilar não tem suporte no Internet Explorer anterior à versão 9.",
+      "noViewerIE2": "Você está tentando visualizar esta história utilizando um navegador antigo e não suportado. Pode haver recursos que não funcionam ou outros problemas inesperados. Sugerimos que você atualize para Internet Explorer 11 ou utilize outro navegador, como Chrome.",
+      "noViewerIE3": "No final de 2017, esta história não será mais carregada neste navegador. Neste momento, você deve utilizar um navegador suportado para visualizar esta história.",
+      "attention": "Atenção!",
       "noLayerView": "Bem-Vindo ao aplicativo da web Oscilar.<br />O aplicativo não está configurado",
       "appSave": "Erro ao salvar a história da web",
       "mapSave": "Erro ao salvar o mapa da web",
@@ -219,7 +222,7 @@ define({
       "close": "Fechar",
       "tab1": {
         "div1": "O modelo Oscilar/Luneta é projetado para comparar dois mapas da web separados ou duas camadas de um único mapa da web em um aplicativo da web atrativo, de fácil uso que pode ser utilizado em qualquer navegador da web em qualquer dispositivo, incluindo smartphones e tablets.",
-        "div2": "Para informações adicionais sobre o modelo Oscilar/Luneta, incluindo exemplos criados por usuários, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> visite o site da web Mapas Históricos</a>. Você também pode nos seguir pelo Twitter em <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
+        "div2": "Para informações adicionais sobre o modelo Oscilar/Lupa, incluindo exemplos criados por usuários, <a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'> visite o site da web Mapas Históricos</a>. Você também pode nos seguir no Twitter em <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
         "div3": "Nós adoraríamos ouvir sua opinião! Se você tem uma pergunta, deseja solicitar uma nova feição ou se você localizou um erro, visite <a href='http://links.esri.com/storymaps/forum' target='_blank'>Story Maps User Forum</a>."
       }
     },

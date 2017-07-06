@@ -22,6 +22,9 @@ define({
       "initMobile2": "Kreator Zwijanie nie jest obsługiwany dla wyświetlacza w tym rozmiarze. Jeśli to możliwe, zmień rozmiar okna przeglądarki, aby uzyskać dostęp do kreatora, lub buduj narrację na urządzeniu z większym ekranem.",
       "initMobile3": "Aby korzystać z kreatora Zwijanie, obróć urządzenie do orientacji poziomej.",
       "noBuilderIE8": "Interaktywny kreator narzędzia zwijania nie jest obsługiwany przez przeglądarkę Internet Explorer w wersji starszej niż 9.",
+      "noViewerIE2": "Próbujesz wyświetlić tę narrację za pomocą starszej, nieobsługiwanej przeglądarki. Niektóre funkcje mogą nie działać lub mogą wystąpić inne nieoczekiwane problemy. Zalecamy zaktualizowanie przeglądarki do programu Internet Explorer 11 lub użycie innej przeglądarki, na przykład Chrome.",
+      "noViewerIE3": "Pod koniec 2017 roku ta narracja nie będzie się już wczytywała w tej przeglądarce. Do jej wyświetlenia konieczne będzie użycie obsługiwanej przeglądarki.",
+      "attention": "Uwaga!",
       "noLayerView": "Witamy w internetowej aplikacji swipe (z funkcją zwijania).<br />Aplikacja nie została jeszcze skonfigurowana.",
       "appSave": "Błąd zapisywania narracji internetowej",
       "mapSave": "Błąd podczas zapisywania mapy internetowej",
@@ -219,7 +222,7 @@ define({
       "close": "Zamknij",
       "tab1": {
         "div1": "Szablon Zwijanie/Luneta umożliwia porównywanie dwóch różnych map internetowych albo dwóch warstw pojedynczej mapy internetowej za pomocą atrakcyjnie wyglądającej i łatwej w obsłudze aplikacji internetowej. Aplikacji tej można używać w dowolnej przeglądarce i na każdym urządzeniu, w tym również na smartfonie i tablecie.",
-        "div2": "Dodatkowe informacje dotyczące szablonu Zwijanie/Lupa, w tym przykłady utworzone przez użytkowników, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> znajdują się na stronie internetowej Story Maps</a>. Możesz także śledzić nas w serwisie Twitter pod adresem <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
+        "div2": "Dodatkowe informacje dotyczące szablonu Zwijanie/Luneta, w tym przykłady utworzone przez użytkowników, <a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'>znajdują się w witrynie internetowej Story Maps</a>. Można także śledzić nas w serwisie Twitter: <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
         "div3": "Czekamy na wiadomości od Ciebie! Niezależnie od tego, czy masz pytanie, chcesz poprosić o nową funkcjonalność lub poinformować nas o znalezionym błędzie, odwiedź <a href='http://links.esri.com/storymaps/forum' target='_blank'>Forum użytkowników Story Maps</a>."
       }
     },

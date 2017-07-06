@@ -22,6 +22,9 @@ define({
       "initMobile2": "Pyyhkäisy-luontitoimintoa ei tueta tässä näyttökoossa. Muuta selaimen kokoa mahdollisuuksien mukaan luontitoiminnon käyttöä varten tai luo tarinasi laitteessa, jossa on suurempi näyttö.",
       "initMobile3": "Käytä Pyyhkäisy-luontitoimintoa kääntämällä laitteesi vaakasuuntaan.",
       "noBuilderIE8": "Interaktiivinen pyyhkäisyn luontitoiminto ei tue Internet Explorer 9:ää vanhempia versioita.",
+      "noViewerIE2": "Yrität tarkastella tätä tarinaa käyttämällä vanhempaa selainta, jota ei tueta. Siinä saattaa olla ominaisuuksia, jotka eivät toimi, tai muita odottamattomia ongelmia. Suosittelemme, että päivität Internet Explorer -selaimen versioon 11 tai käytät toista selainta, kuten Chromea.",
+      "noViewerIE3": "Vuoden 2017 loppupuolella tämä tarina ei enää lataudu tässä selaimessa. Käytä silloin tuettua selainta tämän tarinan katseluun.",
+      "attention": "Huomio!",
       "noLayerView": "Tervetuloa käyttämään web-pyyhkäisysovellusta.<br />Sovellusta ei ole vielä määritetty.",
       "appSave": "Virhe tallennettaessa Web-tarinaa",
       "mapSave": "Virhe tallennettaessa Web-karttaa",
@@ -219,7 +222,7 @@ define({
       "close": "Sulje",
       "tab1": {
         "div1": "Pyyhkäisy-/kiikarimallipohjan avulla voi vertailla kahta eri web-karttaa tai yhden web-kartan kahta karttatasoa kiinnostavassa ja helppokäyttöisessä web-sovelluksessa, jota voi käyttää minkä tahansa laitteen, kuten älypuhelimen tai tabletin, selaimella.",
-        "div2": "Lisätietoja pyyhkäisy-/kiikarimallipohjasta ja muiden käyttäjien luomia esimerkkejä on saatavilla <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'>Story Maps -sivustossa</a>. Voit myös seurata meitä Twitterissä: <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
+        "div2": "Lisätietoja pyyhkäisy-/kiikarimallipohjasta ja muiden käyttäjien luomia esimerkkejä on saatavilla <a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'>Story Maps -sivustossa</a>. Voit myös seurata meitä Twitterissä: <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
         "div3": "Haluamme kuulla sinusta! Jos sinulla on kysymyksiä, ehdottaa uutta toimintoa tai luulet löytäneesi virheen, vieraile <a href='http://links.esri.com/storymaps/forum' target='_blank'>Story Maps -käyttäjäfoorumissa</a>."
       }
     },

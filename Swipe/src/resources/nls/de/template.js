@@ -17,11 +17,14 @@ define({
       "invalidConfigNoWebmap": "Schwerwiegender Fehler: Ungültige Konfiguration (Webkarte oder Anwendungskennung nicht in \"index.html\" angegeben)",
       "invalidConfigNoAppDev": "In den URL-Parametern (?appid= oder ?webmap=) ist keine Kennung einer Web Mapping-Anwendung und keine Webkarte angegeben. Im Entwicklungsmodus wird die appid- und webmap-Konfiguration in der Datei index.html ignoriert.",
       "createMap": "Karte konnte nicht erstellt werden",
-      "invalidApp": "Schwerwiegender Fahler: Die Story kann nicht geladen werden.",
+      "invalidApp": "Schwerwiegender Fehler: Die Story kann nicht geladen werden.",
       "initMobile": "Willkommen bei der Webanwendung \"Ausblenden\". Die Anwendung ist nicht konfiguriert. Der interaktive Generator wird auf mobilen Geräten nicht unterstützt.",
       "initMobile2": "Der Swipe Builder wird bei dieser Anzeigegröße nicht unterstützt. Ändern Sie nach Möglichkeit die Browser-Größe, um auf den Builder zuzugreifen, oder erstellen Sie Ihre Story auf einem Gerät mit größerem Bildschirm.",
       "initMobile3": "Halten Sie das Gerät im Querformat, wenn Sie den Swipe Builder verwenden.",
       "noBuilderIE8": "Der interaktive Generator \"Ausblenden\" wird in Internet Explorer vor Version 9 nicht unterstützt.",
+      "noViewerIE2": "Sie versuchen, diese Story mit einem älteren, nicht unterstützten Browser anzuzeigen. Einige Features funktionieren möglicherweise nicht, oder es können andere nicht erwartete Probleme auftreten. Wir empfehlen, ein Upgrade auf Internet Explorer 11 durchzuführen oder einen anderen Browser wie Chrome zu verwenden.",
+      "noViewerIE3": "Ende 2017 kann diese Story nicht mehr in diesem Browser geladen werden. Zu diesem Zeitpunkt müssen Sie einen anderen unterstützten Browser zum Darstellen dieser Story nutzen.",
+      "attention": "Achtung!",
       "noLayerView": "Willkommen bei der Webanwendung \"Ausblenden\".<br />Die Anwendung ist noch nicht konfiguriert.",
       "appSave": "Fehler beim Speichern der Webstory",
       "mapSave": "Fehler beim Speichern der Webkarte",
@@ -219,7 +222,7 @@ define({
       "close": "Schließen",
       "tab1": {
         "div1": "Mit der Vorlage Ausblenden/Fernglas können zwei getrennte Webkarten oder zwei Layer einer einzelnen Webkarte in einer ansprechenden, benutzerfreundlichen Webanwendung verglichen werden. Sie kann in jedem Webbrowser auf einem beliebigen Gerät, einschließlich Smartphones und Tablets verwendet werden.",
-        "div2": "Zusätzliche Informationen zur Vorlage Ausblenden/Fernglas, darunter von Benutzern erstellte Beispiele, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> finden Sie auf der Story Maps-Website</a>. Sie können uns unter <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a> auch auf Twitter folgen.",
+        "div2": "Weitere Informationen zur Vorlage Swipe/Spyglass, darunter von Benutzern erstellte Beispiele, <a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'> finden Sie auf der Story Maps-Website</a>. Sie können uns auch auf Twitter unter <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a> folgen.",
         "div3": "Wir freuen uns darauf, von Ihnen zu hören! Ob Sie eine Frage haben, ein neues Feature anfordern möchten oder einen Fehler gefunden haben, besuchen Sie das <a href='http://links.esri.com/storymaps/forum' target='_blank'>Story Maps-Benutzerforum</a>."
       }
     },

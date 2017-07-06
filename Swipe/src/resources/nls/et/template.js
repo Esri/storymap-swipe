@@ -22,6 +22,9 @@ define({
       "initMobile2": "Selle kuvasuuruse korral rullimise koosturit ei toetata. Võimaluse korral muutke koosturile juurdepääsemiseks oma brauseri suurust või looge oma lugu suurema ekraaniga seadmes.",
       "initMobile3": "Rullimise koosturi kasutamiseks pöörake oma seadet ja kasutage horisontaalpaigutust.",
       "noBuilderIE8": "Rullimise interaktiivne koostaja ei ole toetatud Internet Explorer 9 eelse(te)s  versiooni(de)s.",
+      "noViewerIE2": "Püüate seda lugu vaadata vanemas brauseris, mida ei toetata. Mõned funktsioonid ei pruugi töötada ning ilmneda võib ootamatuid probleeme. Soovitame kasutada brauserit Internet Explorer 11 või mõnda muud brauserit (nt Chrome’i).",
+      "noViewerIE3": "2017. aasta lõpus seda lugu selles brauseris enam ei laadita. Siis peate selle loo vaatamiseks kasutama toetatud brauserit.",
+      "attention": "Tähelepanu!",
       "noLayerView": "Tere tulemast rullimise veebirakendusse.<br />Antud rakendus ei ole veel seadistatud.",
       "appSave": "Tõrge veebiloo salvestamisel",
       "mapSave": "Viga veebikaardi salvestamisel",
@@ -219,7 +222,7 @@ define({
       "close": "Sulge",
       "tab1": {
         "div1": "Mall Rullimine/pikksilm on loodud kahe erineva veebikaardi või ühe veebikaardi kahe kihi võrdlemiseks meeldivas ja lihtsasti kasutatavas veebirakenduses, mida saab kasutada mis tahes veebibrauseris ja seadmes, k.a nutitelefonides ja tahvelarvutites.",
-        "div2": "Lisateabe saamiseks malli Rullimine/pikksilm kohta (sh kasutajate loodud näidised) <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> külastage kaardilugude veebisaiti</a>. Saate jälgida ka meie Twitteri kontot <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
+        "div2": "Lisateabe saamiseks malli Rullimine/pikksilm kohta (sh kasutajate loodud näidised) <a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'> külastage kaardilugude veebisaiti</a>. Saate jälgida ka meie Twitteri kontot <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
         "div3": "Ootame tagasisidet!  Kui teil on küsimusi, soovite küsida uue funktsiooni kohta või arvate, et olete leidnud vea, siis külastage meid <a href='http://links.esri.com/storymaps/forum' target='_blank'>Kaardilugude kasutajate foorumis</a>."
       }
     },

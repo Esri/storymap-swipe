@@ -152,7 +152,7 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 			function showHelpPopup()
 			{
 				closePopover();
-				window.open('http://storymaps.arcgis.com/en/app-list/swipe/','_blank');
+				window.open('https://storymaps.arcgis.com/en/app-list/swipe-spyglass/','_blank');
 				//app.builder.openHelpPopup();
 
 			}

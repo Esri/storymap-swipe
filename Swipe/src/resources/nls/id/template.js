@@ -22,6 +22,9 @@ define({
       "initMobile2": "Penyusun Geser Cepat tidak didukung pada ukuran layar ini. Jika memungkinkan, ubah ukuran browser Anda untuk mengakses penyusun atau buat cerita Anda pada perangkat dengan layar yang lebih besar.",
       "initMobile3": "Putar posisi perangkat Anda ke orientasi lanskap untuk menggunakan penyusun Geser Cepat.",
       "noBuilderIE8": "Penyusun interaktif Geser Cepat belum didukung pada Internet Explorer sebelum versi 9.",
+      "noViewerIE2": "Anda mencoba melihat cerita ini menggunakan browser yang lama dan tidak didukung. Mungkin ada fitur yang tidak berfungsi atau masalah yang tidak terduga lainnya. Sebaiknya Anda memperbaruinya ke Internet Explorer 11 atau gunakan browser lain, seperti Chrome.",
+      "noViewerIE3": "Di akhir 2017, cerita ini tidak akan dimuat lagi di browser ini. Pada saat itu, Anda harus menggunakan browser yang didukung untuk melihat cerita ini.",
+      "attention": "Perhatian!",
       "noLayerView": "Selamat datang di aplikasi web Geser Cepat. <br / >Aplikasi tersebut belum dikonfigurasikan.",
       "appSave": "Kesalahan saat menyimpan cerita web",
       "mapSave": "Kesalahan saat menyimpan peta web",
@@ -219,7 +222,7 @@ define({
       "close": "Tutup",
       "tab1": {
         "div1": "Pola dasar Geser Cepat/Teropong dirancang untuk membandingkan dua peta web terpisah atau dua lapisan dari peta web tunggal dalam sebuah aplikasi web yang atraktif dan mudah digunakan, yang dapat digunakan dalam browser web mana saja di perangkat apa saja, termasuk smartphone dan tablet.",
-        "div2": "Untuk informasi tambahan tentang pola dasar Geser Cepat/Teropong, sertakan contoh yang dibuat oleh pengguna, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> kunjungi situs web Peta Cerita</a>. Anda juga dapat mengikuti akun Twitter kami di <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
+        "div2": "Untuk informasi tambahan tentang template Swipe/Spyglass, termasuk contoh yang dibuat oleh pengguna, <a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'> kunjungi situs web Peta Cerita</a>. Anda juga bisa mengikuti kami di Twitter di <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
         "div3": "Kami ingin mendengar dari Anda! Apakah Anda memiliki pertanyaan, ingin meminta fitur baru, atau merasa menemukan bug, silakan kunjungi <a href='http://links.esri.com/storymaps/forum' target='_blank'>Forum Pengguna Peta Cerita</a>."
       }
     },

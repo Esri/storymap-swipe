@@ -22,6 +22,9 @@ define({
       "initMobile2": "Bộ thiết lập Trượt nhanh không được hỗ trợ với kích cỡ hiển thị này. Nếu có thể, hãy thay đổi kích cỡ trình duyệt của bạn để truy cập bộ thiết lập hoặc vui lòng thiết lập câu chuyện của bạn trên thiết bị có màn hình lớn hơn.",
       "initMobile3": "Vui lòng xoay thiết bị của bạn theo hướng ngang để sử dụng bộ thiết lập Trượt nhanh.",
       "noBuilderIE8": "Bộ thiết lập tương tác chức năng trượt nhanh không được hỗ trợ trên trình duyệt Internet Explorer trước phiên bản 9.",
+      "noViewerIE2": "Bạn đang cố gắng xem câu chuyện này bằng một trình duyệt cũ, không được hỗ trợ. Có thể có các tính năng không hoạt động hoặc các vấn đề không mong đợi khác. Chúng tôi đề nghị bạn nâng cấp lên Internet Explorer 11 hoặc sử dụng một trình duyệt khác, chẳng hạn như Chrome.",
+      "noViewerIE3": "Vào cuối năm 2017, câu chuyện này sẽ không còn được tải trên trình duyệt này. Lúc đó, bạn phải sử dụng một trình duyệt được hỗ trợ để xem câu chuyện này.",
+      "attention": "Chú ý!",
       "noLayerView": "Chào mừng bạn đến ứng dụng web Trượt nhanh.<br />Ứng dụng này vẫn chưa được cấu hình.",
       "appSave": "Lỗi khi lưu câu chuyện web",
       "mapSave": "Lỗi khi lưu bản đồ web",
@@ -219,7 +222,7 @@ define({
       "close": "Đóng",
       "tab1": {
         "div1": "Mẫu Trượt nhanh/Kính thiên văn nhỏ được thiết kế để so sánh hai bản đồ web riêng biệt hoặc hai lớp bản đồ web duy nhất trong một ứng dụng web dễ sử dụng và đầy hấp dẫn có thể được sử dụng trong bất kỳ trình duyệt web nào trên bất kỳ thiết bị nào, bao gồm cả điện thoại thông minh và máy tính bảng.",
-        "div2": "Để biết thêm thông tin về mẫu Trượt nhanh/Kính thiên văn nhỏ, bao gồm các mẫu do người dùng tạo, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> truy cập trang web Story Maps</a>. Bạn cũng có thể theo dõi chúng tôi trên Twitter tại <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
+        "div2": "Để biết thêm thông tin về mẫu Swipe/Spyglass, bao gồm các ví dụ do người dùng tạo, <a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'> truy cập vào trang web Story Maps</a>. Bạn cũng có thể theo dõi chúng tôi trên Twitter tại <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
         "div3": "Chúng tôi muốn nhận phản hồi từ bạn! Cho dù bạn có một câu hỏi, muốn yêu cầu một tính năng mới hoặc cho rằng bạn đã tìm thấy một lỗi, vui lòng truy cập <a href='http://links.esri.com/storymaps/forum' target='_blank'>Diễn đàn Người dùng Story Maps</a>."
       }
     },

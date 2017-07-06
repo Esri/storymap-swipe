@@ -22,6 +22,9 @@ define({
       "initMobile2": "Swipe-byggeverktøyet støttes ikke med denne skjermstørrelsen. Hvis det er mulig, endrer du størrelsen på nettleseren for å få tilgang til byggeverktøyet. Du kan også lage historien på en enhet med større skjerm.",
       "initMobile3": "Snu enheten i liggende retning for å bruke Swipe-byggeverktøyet.",
       "noBuilderIE8": "Det interaktive sveipeverktøyet støttes ikke på Internet Explorer som er eldre enn versjon 9.",
+      "noViewerIE2": "Du prøver å vise denne historien ved hjelp av en eldre nettleser som ikke støttes. Det kan være funksjoner som ikke fungerer eller andre uventede problemer. Vi foreslår at du oppgraderer til Internet Explorer 11 eller bruker en annen nettleser, for eksempel Chrome.",
+      "noViewerIE3": "Mot slutten av 2017 vil denne historien ikke lenger lastes på denne nettleseren. I mellomtiden må du bruke en nettleser som støttes for å se denne historien.",
+      "attention": "Obs!",
       "noLayerView": "Velkommen til webprogrammet for sveiping.<br />Programmet er ennå ikke konfigurert.",
       "appSave": "Feil under lagring av webhistorien",
       "mapSave": "Feil under lagring av webkartet",
@@ -219,7 +222,7 @@ define({
       "close": "Lukk",
       "tab1": {
         "div1": "Malen for sveiping/forstørrelsesglass er utviklet for å sammenligne to ulike nettkart eller to lag i ett enkelt nettkart i et flott og brukervennlig nettprogram som kan brukes i alle nettlesere på alle slags enheter, blant annet smarttelefoner og nettbrett.",
-        "div2": "Du finner mer informasjon om malen Sveiping/Forstørrelsesglass, blant annet eksempler opprettet av brukere, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> på webområdet med fortellingskart</a>. Du kan også følge oss på Twitter på <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
+        "div2": "Du finner mer informasjon om malen Sveiping/Forstørrelsesglass, blant annet eksempler opprettet av brukere, <a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'>på Story Maps-nettstedet</a>. Du kan også følge oss på Twitter på <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
         "div3": "Vi vil gjerne høre fra deg! Uansett om du har spørsmål, ønsker en ny funksjon eller tror du har funnet en feil, kan du besøke <a href='http://links.esri.com/storymaps/forum' target='_blank'>Story Maps User Forum</a>."
       }
     },

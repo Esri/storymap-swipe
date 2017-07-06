@@ -22,6 +22,9 @@ define({
       "initMobile2": "Svepbyggverktyget stöds inte för den här skärmstorleken. Ändra om möjligt storlek på webbläsaren för att få åtkomst till verktyget, eller bygg din berättelse på en enhet med större skärm.",
       "initMobile3": "Rotera enheten till liggande läge om du vill använda byggverktyget Svep.",
       "noBuilderIE8": "Det interaktiva Svep-byggverktyget fungerar inte med tidigare versioner av Internet Explorer än version 9.",
+      "noViewerIE2": "Du försöker visa denna berättelse med en äldre webbläsare som inte stöds. Det kan röra sig om funktioner som inte fungerar eller andra oväntade problem. Vi rekommenderar dig att uppgradera till Internet Explorer 11 eller använda en annan webbläsare, till exempel Chrome.",
+      "noViewerIE3": "I slutet av 2017 kommer denna berättelse inte längre att kunna läsas in av denna webbläsare. Då måste du använda en webbläsare som stöds om du vill kunna visa den här berättelsen.",
+      "attention": "Obs!",
       "noLayerView": "Välkommen till Svep-webbapplikationen.<br />Applikationen är ännu inte konfigurerad.",
       "appSave": "Det uppstod ett fel när webberättelsen skulle sparas",
       "mapSave": "Det uppstod ett fel när webbkartan skulle sparas",
@@ -219,7 +222,7 @@ define({
       "close": "Stäng",
       "tab1": {
         "div1": "Mallen Svep/Kikare är utformad för att jämföra två separata webbkartor eller två lager i en webbkarta i en tilltalande och lättanvänd webbapplikation som kan användas i valfri webbläsare på alla enheter, inklusive smartphones och surfplattor.",
-        "div2": "Ytterligare information om mallen Svep/Kikare, inklusive exempel som har skapats av användare, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> finns på webbplatsen med berättelsekartor</a>. Du kan även följa oss på Twitter på <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
+        "div2": "<a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'>Besök Story Maps-webbplatsen</a> för ytterligare information om mallen Svep/Kikare, inklusive exempel som har skapats av användare. Du kan även följa oss på Twitter på <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
         "div3": "Vi vill gärna att du hör av dig! Om du undrar något, vill föreslå en ny funktion eller vill rapportera ett programfel är du välkommen att besöka <a href='http://links.esri.com/storymaps/forum' target='_blank'>användarforumet på Story Maps</a>."
       }
     },

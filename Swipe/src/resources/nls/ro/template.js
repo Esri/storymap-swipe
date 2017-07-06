@@ -22,6 +22,9 @@ define({
       "initMobile2": "Aplicația de crearea a analizei Swipe nu este acceptat la această dimensiune a ecranului. Dacă este posibil, redimensionaţi browserul dvs. pentru accesarea aplicației de creare sau vă rugăm să creați scenariul dvs. pe un dispozitiv cu un ecran mai mare.",
       "initMobile3": "Vă rugăm să rotiţi dispozitivul pe orientarea peisaj pentru a utiliza aplicația de creare a analizei Swipe.",
       "noBuilderIE8": "Instrumentul interactiv de creare a Swipe nu este suportat în versiunile Internet Explorer mai vechi decât 9.",
+      "noViewerIE2": "Încercaţi să vizualizaţi această poveste cu un browser vechi, care nu mai este suportat. Pot exista funcţiuni care să nu funcţioneze sau pot apărea probleme neaşteptate. Vă sugerăm să upgradaţi la Internet Explorer 11 sau să utilizaţi alt browser cum ar fi Chrome.",
+      "noViewerIE3": "Spre sfârşitul lui 2017, această poveste nu se va mai încărca pe acest browser. În acel moment, trebuie să utilizaţi un browser suportat pentru a vizualiza această poveste.",
+      "attention": "Atenţie!",
       "noLayerView": "Bine aţi venit la aplicaţia web Swipe.<br />Aplicaţia nu este configurată încă.",
       "appSave": "Eroare la salvarea poveştii web",
       "mapSave": "Eroare la salvarea hărţii web",
@@ -219,7 +222,7 @@ define({
       "close": "Închidere",
       "tab1": {
         "div1": "Şablonul Preluare/Ochean este conceput pentru a compara două hărţi web separate sau două straturi tematice ale unei singure hărţi web într-o aplicaţie web atractivă, uşor de utilizat, care se poate utiliza în orice browser web pe orice dispozitiv, inclusiv pe telefoane inteligente şi tablete.",
-        "div2": "Pentru informaţii suplimentare despre şablonul Preluare/Lunetă, inclusiv exemple create de utilizatori, <a href='http://storymaps.arcgis.com/en/app-list/swipe/' target='_blank'> vizitaţi site-ul web Hărţi informative</a>. De asemenea, ne puteţi urmări pe Twitter la adresa <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
+        "div2": "Pentru informaţii suplimentare despre şablonul Preluare/Lunetă, inclusiv exemple create de utilizatori, <a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'> vizitaţi site-ul web Hărţi informative</a>. De asemenea, ne puteţi urmări pe Twitter la <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
         "div3": "Ne-ar face plăcere să împărtăşiţi lucruri cu noi! Dacă aveţi o întrebare, doriţi să solicitaţi o caracteristică nouă sau credeţi că aţi găsit o defecţiune, vizitaţi <a href='http://links.esri.com/storymaps/forum' target='_blank'>Forumul utilizatorilor de hărţi informative</a>."
       }
     },
