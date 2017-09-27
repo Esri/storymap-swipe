@@ -190,7 +190,7 @@ define({
       "settingsSeriesHelpContent2": "Rangkaian geser cepat memungkinkan Anda untuk membuat dan mengedit pilihan lokasi dengan judul dan teks yang menyertainya. Jika peta web Anda memiliki markah buku, ini akan ditampilkan. Anda dapat menonaktifkan rangkaian tersebut, tetapi konfigurasi akan dipertahankan untuk penggunaan selanjutnya.",
       "settingsSeriesHelpLink": "Lihat contoh aplikasi dengan rangkaian geser cepat di sini",
       "preview": "Pratinjau UI",
-      "settingsLocateButtonExplain": "Fungsionalitas ini didukung di sebagian besar perangkat seluler dan browser desktop (termasuk Internet Explorer 9+).",
+      "settingsLocateButtonExplain": "Didukung di sebagian besar browser. Hanya muncul ketika peta cerita diakses melalui HTTPS. Tidak akan muncul jika cerita disematkan.",
       "settingsLocateButton": "Aktifkan tombol 'Temukan' pada browser yang didukung",
       "settingsAddressSearch": "Aktifkan alat pencarian alamat"
     },

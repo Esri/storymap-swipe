@@ -190,7 +190,7 @@ define({
       "settingsSeriesHelpContent2": "スワイプ操作を使用すると、選択した場所とそのタイトルおよびテキストを作成および編集できます。Web マップにブックマークがある場合は表示されます。スワイプ操作は無効化できますが、構成は今後の使用のために維持されます。",
       "settingsSeriesHelpLink": "スワイプ操作を使用したアプリケーションの例を表示",
       "preview": "UI のプレビュー",
-      "settingsLocateButtonExplain": "この機能は、ほとんどのモバイル デバイスとデスクトップ ブラウザ (Internet Explorer 9 以上) でサポートされています。",
+      "settingsLocateButtonExplain": "ほとんどのブラウザーでサポートされています。HTTPS を介してストーリー マップにアクセスした場合にのみ表示されます。ストーリーが埋め込まれている場合は表示されません。",
       "settingsLocateButton": "サポートされているブラウザで [検索] ボタンを有効化",
       "settingsAddressSearch": "アドレス検索ツールの有効化"
     },

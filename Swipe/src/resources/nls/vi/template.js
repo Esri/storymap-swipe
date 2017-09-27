@@ -190,7 +190,7 @@ define({
       "settingsSeriesHelpContent2": "Chuỗi Trượt nhanh cho phép bạn tạo và sửa một loạt các địa điểm cùng với tiêu đề và văn bản. Nếu bản đồ web của bạn có đánh dấu, chúng sẽ được hiển thị. Bạn có thể tắt thanh chuỗi, nhưng cấu hình chuỗi được lưu giữ để sử dụng trong tương lai.",
       "settingsSeriesHelpLink": "Xem ví dụ về một ứng dụng có chuỗi trượt nhanh tại đây",
       "preview": "Xem trước giao diện người dùng",
-      "settingsLocateButtonExplain": "Chức năng này được hỗ trợ trên hầu hết các thiết bị di động và trình duyệt máy tính để bàn (bao gồm cả Internet Explorer 9 +).",
+      "settingsLocateButtonExplain": "Được hỗ trợ trên hầu hết các trình duyệt. Chỉ xuất hiện khi story map được truy cập thông qua HTTPS. Không xuất hiện nếu câu chuyện đã được nhúng.",
       "settingsLocateButton": "Bật nút 'Định vị' trên các trình duyệt hỗ trợ",
       "settingsAddressSearch": "Bật công cụ tìm kiếm địa chỉ"
     },

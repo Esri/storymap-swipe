@@ -209,7 +209,7 @@ define(["storymaps/ui/inlineFieldEdit/InlineFieldEdit",
 				var options = 'text=' + encodeURIComponent($(selector + ' #headerMobile .title').text())
 								+ '&url=' + cleanURL(document.location.href)
 								+ '&related=EsriStoryMaps'
-								+ '&hashtags=storymap';
+								+ '&hashtags=StoryMaps';
 
 				if ( $(this).hasClass("disabled") ) {
 					return;

@@ -190,7 +190,7 @@ define({
       "settingsSeriesHelpContent2": "Serija brzog prevlačenja vam omogućava da kreirate i izmenite izbrane lokacije sa propratnim naslovima i tekstom. Ako vaša veb mapa ima obeleživače, oni će biti prikazani. Možete da onemogućite seriju, ali konfiguracija će ostati sačuvana za buduću upotrebu.",
       "settingsSeriesHelpLink": "Ovde pogledajte primer aplikacije sa serijama brzog prevlačenja",
       "preview": "Pregled korisničkog interfejsa",
-      "settingsLocateButtonExplain": "Ova funkcionalnost je podržana na većini pregledača mobilnih uređaja i desktop računara (uključujući Internet Explorer 9+)",
+      "settingsLocateButtonExplain": "Podržano u većini pregledača. Pojavljuje se samo kada se mapi sa pričom pristupa preko HTTPS. Ne pojavljuje se ako je priča ugrađena.",
       "settingsLocateButton": "Omogućite dugme „Lociraj“ na podržanom pregledaču",
       "settingsAddressSearch": "Omogućite alatku za pretragu adrese"
     },

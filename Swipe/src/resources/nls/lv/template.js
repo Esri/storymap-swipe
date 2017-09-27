@@ -190,7 +190,7 @@ define({
       "settingsSeriesHelpContent2": "Pārvilkšanas sērijas ļauj izveidot un rediģēt izvēlētus izvietojumus ar pavadošajiem virsrakstiem un tekstiem. Ja jūsu web kartei ir grāmatzīmes, tās tiks attēlotas. Jūs varat atiespējot sērijas, bet konfigurācija tiks saglabāta izmantošanai nākotnē.",
       "settingsSeriesHelpLink": "Apskatiet lietotnes piemēru ar pārvilkšanas sērijām šeit",
       "preview": "Saskarnes priekšskatījums",
-      "settingsLocateButtonExplain": "Šī funkcionalitāte tiek atbalstīta uz vairuma mobilo ierīču un darbvirsmas pārlūkiem (ieskaitot Internet Explorer 9+).",
+      "settingsLocateButtonExplain": "Atbalstīts vairākumā pārlūku. Tiek parādīts tikai tad, kad stāsta kartei piekļūst, izmantojot HTTPS. Netiek parādīts, ja stāsts ir iedarināts.",
       "settingsLocateButton": "Iespējot pogu Atrast izvietojumu atbalstītajās pārlūkprogrammās",
       "settingsAddressSearch": "Iespējot adreses meklēšanas rīku"
     },

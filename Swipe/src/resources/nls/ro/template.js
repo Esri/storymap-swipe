@@ -190,7 +190,7 @@ define({
       "settingsSeriesHelpContent2": "Seriile de preluare vă permit să creaţi şi să editaţi o selecţie de locaţii împreună cu titlurile şi textele care le însoţesc. Dacă harta dvs. web conţine semne de carte, acestea vor fi afişate. Puteţi dezactiva seriile, însă configuraţia va fi păstrată pentru a fi utilizată în viitor.",
       "settingsSeriesHelpLink": "Vedeţi aici un exemplu de aplicaţie cu o serie de preluare",
       "preview": "Previzualizare interfaţă cu utilizatorul",
-      "settingsLocateButtonExplain": "Această funcţionalitate este acceptată pe majoritatea dispozitivelor mobile şi browserelor desktop (inclusiv Internet Explorer 9+).",
+      "settingsLocateButtonExplain": "Suportat pe majoritatea browserelor. Apare numai dacă harta cu povestiri se accesează prin intermediul HTTPS. Nu apare dacă povestirea este încorporată.",
       "settingsLocateButton": "Activaţi butonul „Localizare” în browserele acceptate",
       "settingsAddressSearch": "Activare instrument de căutare adrese"
     },

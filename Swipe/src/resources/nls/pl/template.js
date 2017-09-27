@@ -190,7 +190,7 @@ define({
       "settingsSeriesHelpContent2": "Serie zwijania umożliwiają tworzenie i edycję wybranych lokalizacji z towarzyszącymi im tytułami i tekstem. Jeśli dana mapa internetowa zawiera zakładki, zostaną one wyświetlone. Istnieje możliwość wyłączenia serii, ale ta konfiguracja zostanie zapisana do późniejszego wykorzystania.",
       "settingsSeriesHelpLink": "Tutaj znajduje się przykładowa aplikacja zawierająca serie zwijania",
       "preview": "Zobacz podgląd interfejsu użytkownika",
-      "settingsLocateButtonExplain": "Ta funkcjonalność jest obsługiwana w większości urządzeń mobilnych i przeglądarek komputerowych (w tym Internet Explorer 9 i jego nowszych wersjach).",
+      "settingsLocateButtonExplain": "Funkcja obsługiwana w większości przeglądarek. Wyświetlana tylko wtedy, gdy dostęp do mapy narracyjnej jest uzyskiwany za pomocą protokołu HTTPS. Nie pojawia się, gdy narracja jest osadzona.",
       "settingsLocateButton": "Włącz przycisk Lokalizuj w obsługiwanych przeglądarkach",
       "settingsAddressSearch": "Włącz narzędzie wyszukiwania adresów"
     },

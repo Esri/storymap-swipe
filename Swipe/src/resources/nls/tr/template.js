@@ -190,7 +190,7 @@ define({
       "settingsSeriesHelpContent2": "Swipe serisi, beraberinde başlıklar ve metin ile seçili bir konum kümesi oluşturmanıza ve bunu düzenlemenize izin verir.  Web haritanızın yer işaretleri varsa, bunlar görüntülenir.  Seriyi devre dışı bırakabilirsiniz, ancak yapılandırma gelecekte kullanılmak üzere saklanır.",
       "settingsSeriesHelpLink": "Bir swipe serisi olan bir uygulama örneğini burada görebilirsiniz",
       "preview": "Kullanıcı arayüzü önizlemesi",
-      "settingsLocateButtonExplain": "Bu işlevsellik çoğu mobil cihazda ve (Internet Explorer 9+ dahil) masaüstü tarayıcısında desteklenir.",
+      "settingsLocateButtonExplain": "Çoğu tarayıcıda desteklenir. Yalnızca hikaye haritasına HTTPS üzerinden erişim sağlandığında görünür. Hikaye gömülü ise görünmez.",
       "settingsLocateButton": "Desteklenen tarayıcılarda 'Konum Bul' düğmesini etkileştir",
       "settingsAddressSearch": "Adres arama aracını etkinleştir"
     },

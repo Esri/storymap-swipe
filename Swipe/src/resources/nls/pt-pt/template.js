@@ -190,7 +190,7 @@ define({
       "settingsSeriesHelpContent2": "A aplicação de varrimento permite-lhe criar e editar uma selecção de localizações que acompanham os títulos e texto. Se o seu mapa web possui marcadores, eles serão exibidos. Pode desativar esta opção, mas a configuração será preservada para futuras utilizações.",
       "settingsSeriesHelpLink": "Consulte aqui um exemplo de uma aplicação de varrimento",
       "preview": "Pré-visualizar IU",
-      "settingsLocateButtonExplain": "Esta funcionalidade é suportada na maioria dos dispositivos móveis e navegadores de internet (incluindo o Internet Explorer 9+).",
+      "settingsLocateButtonExplain": "Suportado na maioria dos navegadores. Apenas visível quando o acesso ao story map Only é efetuado através de HTTPS. Não é visível caso a história se encontre incorporada.",
       "settingsLocateButton": "Ativar um botão 'Localizar' em navegadores suportados",
       "settingsAddressSearch": "Ativar uma ferramenta de pesquisa de moradas"
     },

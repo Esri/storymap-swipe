@@ -190,7 +190,7 @@ define({
       "settingsSeriesHelpContent2": "A série de oscilação permite a você criar e editar uma seleção de posições com acompanhamento de títulos e texto.  Se seu mapa da web tiver marcadores, eles serão exibidos.  Você pode desativar a série, mas a configuração será preservada para uso futuro.",
       "settingsSeriesHelpLink": "Consulte um exemplo de um aplicativo com uma série de oscilação aqui",
       "preview": "Visualizar ID",
-      "settingsLocateButtonExplain": "Esta funcionalidade é suportada na maioria dos dispositivos móveis e navegadores desktop (incluindo Internet Explorer 9 +).",
+      "settingsLocateButtonExplain": "Suportado na maioria dos navegadores. Somente aparece quando o mapa histórico é acessado através de HTTPS. Não aparece se a história estiver embutida.",
       "settingsLocateButton": "Habilitar botão 'Localizar' em navegadores suportados",
       "settingsAddressSearch": "Habilitar uma ferramenta de pesquisa de endereço"
     },

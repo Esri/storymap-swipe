@@ -190,7 +190,7 @@ define({
       "settingsSeriesHelpContent2": "סדרת ה-Swipe מאפשרת לך ליצור ולערוך מבחר מיקומים מלווים בכיתוביות כותרות וטקסט. אם ל- web map יש סימניות, הן יוצגו. אתה יכול לבטל את הסדרה, אך ההגדרות תישמרנה לשימוש עתידי.",
       "settingsSeriesHelpLink": "ראה כאן דוגמא לאלפליקציה עם סדרת ה-Swipe",
       "preview": "תצוגה מקדימה של UI",
-      "settingsLocateButtonExplain": "פונקציונליות זו נתמכת ברוב המכשירים הניידים ובדפדפנים השולחניים (Internet Explorer 9).",
+      "settingsLocateButtonExplain": "נתמך ברוב הדפדפנים. מופיע רק כאשר הגישה למפת סיפור נעשית דרך HTTPS. לא מופיע אם הסיפור מוטמע.",
       "settingsLocateButton": "הפעל לחצן 'איתור' בדפדפנים נתמכים",
       "settingsAddressSearch": "הפוך לפעיל כלי חיפוש כתובת"
     },

@@ -190,7 +190,7 @@ define({
       "settingsSeriesHelpContent2": "Vahetamise seeriad lubab teil luua ja muuta asukohtade selektsiooni koos vastavate pealkirjade ja tekstidega. Kui teie veebikaartidel on järjehoidjad, siis kuvatakse neid. Võite keelata seeriad, kuid konfiguratsioon säilitatakse võimalikuks kasutuseks tulevikuks.",
       "settingsSeriesHelpLink": "Vaata vahetatavate seeriatega rakenduse näidet siit",
       "preview": "UI vaade",
-      "settingsLocateButtonExplain": "Funktsionaalsus on toetatud enamustel nutiseadmetel ja töökoha brauserites (k.a Internet Explorer 9+).",
+      "settingsLocateButtonExplain": "Toetatud enamikes brauserites. Kuvatakse ainutl siis, kui kaardilugu avatakse HTTPS-i kaudu. Ei kuvata, kui lugu on manustatud.",
       "settingsLocateButton": "Luba asukoha määramise nupp toetatud brauserites",
       "settingsAddressSearch": "Luba aadressi otsimise tööriist"
     },

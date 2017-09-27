@@ -190,7 +190,7 @@ define({
       "settingsSeriesHelpContent2": "Pyyhkäisysarjan avulla voit luoda ja muokata sijaintivalikoimaa ja sijainteihin liittyviä otsikoita ja tekstejä. Jos web-kartassa on kirjanmerkkejä, ne tulevat näkyviin. Voit tuoda näkyviin sarjan, mutta kokoonpano säilytetään tulevaa käyttöä varten.",
       "settingsSeriesHelpLink": "Tarkastele tässä esimerkkiä sovelluksesta, jossa on pyyhkäisysarja",
       "preview": "Käyttöliittymän esikatselu",
-      "settingsLocateButtonExplain": "Kyseinen toiminto on tuettu useimmissa mobiililaitteissa ja tietokoneiden selaimissa (mm. Internet Explorer 9 ja uudemmat versiot).",
+      "settingsLocateButtonExplain": "Useimmat selaimet tukevat tätä. Näkyy vain, kun tarinakarttaa käytetään HTTPS-yhteyden kautta. Ei näy, jos tarina on upotettu.",
       "settingsLocateButton": "Ota Paikanna-painike käyttöön tuetuissa selaimissa",
       "settingsAddressSearch": "Ota osoitehakutyökalu käyttöön"
     },

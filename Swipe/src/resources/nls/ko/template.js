@@ -190,7 +190,7 @@ define({
       "settingsSeriesHelpContent2": "스와이프 계열을 사용하면 선택한 위치 및 함께 제공되는 제목과 텍스트를 생성하고 편집할 수 있습니다. 웹 맵에 책갈피가 있으면 책갈피가 표시됩니다. 계열을 비활성화할 수도 있지만 구성은 나중에 사용할 수 있도록 유지됩니다.",
       "settingsSeriesHelpLink": "스와이프 계열이 포함된 응용프로그램 예제 확인",
       "preview": "UI 미리보기",
-      "settingsLocateButtonExplain": "이 기능은 대부분의 모바일 장치와 데스크탑 브라우저(Internet Explorer 9 이상 포함)에서 지원됩니다.",
+      "settingsLocateButtonExplain": "대부분의 브라우저에서 지원됩니다. 스토리 맵이 HTTPS를 통해서 접근된 경우에만 나타나며 스토리가 내장된 경우에는 나타나지 않습니다.",
       "settingsLocateButton": "지원되는 브라우저에서 '찾기' 버튼 사용",
       "settingsAddressSearch": "주소 검색 도구 사용"
     },

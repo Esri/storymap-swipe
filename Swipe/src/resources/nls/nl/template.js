@@ -190,7 +190,7 @@ define({
       "settingsSeriesHelpContent2": "Met de Swipe-reeks kunt u een reeks locaties maken en bewerken met bijbehorende titels en tekst. Als uw webmap bladwijzers bevat, dan zullen deze worden weergegeven. U kunt de reeks uitschakelen, maar de configuratie wordt bewaard voor toekomstig gebruik.",
       "settingsSeriesHelpLink": "Bekijk hier een voorbeeld van een applicatie met een Swipe-reeks",
       "preview": "Voorbeeldweergave UI",
-      "settingsLocateButtonExplain": "Deze functionaliteit wordt ondersteund op de meeste mobiele apparaten en desktopbrowsers (inclusief Internet Explorer 9+).",
+      "settingsLocateButtonExplain": "Ondersteund op de meeste browsers. Verschijnt alleen als de storymap wordt geopend via HTTPS. Wordt niet weergegeven als het verhaal ingebed is.",
       "settingsLocateButton": "Schakel een knop 'Locatie' in op ondersteunde browsers",
       "settingsAddressSearch": "Schakel een tool voor het zoeken naar adressen in"
     },

@@ -190,7 +190,7 @@ define({
       "settingsSeriesHelpContent2": "Med sveipeserier kan du opprette og redigere et utvalg av lokasjoner med tilhørende titler og tekst. Hvis du har et webkart med bokmerker, vises de. Du kan deaktivere serien, men konfigurasjonen beholdes for fremtidig bruk.",
       "settingsSeriesHelpLink": "Se et eksempel på et program med en sveipeserie her",
       "preview": "Forhåndsvisning av brukergrensesnitt",
-      "settingsLocateButtonExplain": "Denne funksjonen støttes på de fleste mobile enheter og nettlesere på stasjonære datamaskiner (inkludert Internet Explorer 9+).",
+      "settingsLocateButtonExplain": "Støttes på de fleste weblesere. Vises bare når fortellingskart brukes over HTTPS. Vises ikke hvis historien er innebygd.",
       "settingsLocateButton": "Aktiver en 'Finn'-knapp i støttede nettlesere",
       "settingsAddressSearch": "Aktiver et adressesøkverktøy"
     },

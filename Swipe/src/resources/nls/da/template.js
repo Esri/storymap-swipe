@@ -190,7 +190,7 @@ define({
       "settingsSeriesHelpContent2": "Med swipe-serien kan du oprette og redigere et udvalg af steder med ledsagende titler og tekst. Hvis dit webkort har bogmærker, bliver disse vist. Du kan deaktivere serien, men konfigurationen vil blive bevaret til fremtidig brug.",
       "settingsSeriesHelpLink": "Se et eksempel på en applikation med swipe-serien her",
       "preview": "UI-forhåndsvisning",
-      "settingsLocateButtonExplain": "Denne funktionalitet understøttes på de fleste mobile enheder og pc-browsere (inkl. Internet Explorer 9+).",
+      "settingsLocateButtonExplain": "Understøttes af de fleste browsere. Vises kun, når historiekortet åbnes via HTTPS. Vises ikke, hvis historien er indlejret.",
       "settingsLocateButton": "Aktivér browsere, der har en 'Find'-knap",
       "settingsAddressSearch": "Aktivér et adressesøgningsværktøj"
     },

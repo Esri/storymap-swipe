@@ -190,7 +190,7 @@ define({
       "settingsSeriesHelpContent2": "Série překrývání vám umožní vytvořit a editovat výběr lokalit s připojenými nadpisy a textem. Pokud má vaše webová mapa záložky, budou zobrazeny. Sérii můžete zakázat, ale konfigurace bude uložena pro budoucí použití.",
       "settingsSeriesHelpLink": "Zde se podívejte na příklad aplikace se sérií překrývání",
       "preview": "Náhled uživatelského rozhraní",
-      "settingsLocateButtonExplain": "Tato funkcionalita je podporována na většině mobilních zařízení a stolních prohlížečů (včetně Internet Explorer 9+).",
+      "settingsLocateButtonExplain": "Podporováno většinou prohlížečů. Zobrazuje se pouze, pokud se k mapě s příběhem přistupuje přes HTTPS. Nezobrazuje se, pokud je příběh vložený.",
       "settingsLocateButton": "Povolit tlačítko 'Lokalizovat' v podporovaných prohlížečích",
       "settingsAddressSearch": "Povolit nástroj pro vyhledávání adres"
     },

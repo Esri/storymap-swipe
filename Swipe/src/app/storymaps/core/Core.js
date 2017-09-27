@@ -167,8 +167,8 @@ define(["esri/map",
 			// Sharing URL
 			if (sharingHostParam) {
 				configOptions.sharingurl = sharingHostParam;
- 			}
- 			else if ( ! configOptions.sharingurl ) {
+			}
+			else if ( ! configOptions.sharingurl ) {
 				// Determine if hosted or on a Portal
 				var appLocation = document.location.pathname.indexOf("/apps/");
 				if( appLocation == -1 )
@@ -182,7 +182,7 @@ define(["esri/map",
 					configOptions.proxyurl =  "//" + location.host + instance +  "/sharing/proxy";
 				}
 				else{
- 					configOptions.sharingurl = APPCFG.DEFAULT_SHARING_URL;
+					configOptions.sharingurl = APPCFG.DEFAULT_SHARING_URL;
 				}
 			}
 
@@ -230,10 +230,10 @@ define(["esri/map",
 			// Get portal info and configure the app
 
 			esriRequest({
-                url: arcgisUtils.arcgisUrl.split('/sharing/')[0] + "/sharing/rest/portals/self",
-                content: {"f": "json"},
-                callbackParamName: "callback"
-        	}).then(lang.hitch(this, function(response){
+				url: arcgisUtils.arcgisUrl.split('/sharing/')[0] + "/sharing/rest/portals/self",
+				content: {"f": "json"},
+				callbackParamName: "callback"
+			}).then(lang.hitch(this, function(response){
 				// Use geocode service from the portal if none declared in config
 				if (!APPCFG.HELPER_SERVICES.geocode.length && response.helperServices) {
 					if (response.helperServices.geocode && response.helperServices.geocode.length && response.helperServices.geocode[0].url) {
@@ -259,9 +259,9 @@ define(["esri/map",
 				}
 
 				initStep3();
-		    }), function(){
-		            initError("portalSelf");
-		    });
+			}), function(){
+					initError("portalSelf");
+			});
 		}
 
 		function initStep3()
@@ -379,6 +379,14 @@ define(["esri/map",
 
 			var urlParams = urlUtils.urlToObject(document.location.search).query || {};
 			var forceLogin = urlParams.forceLogin != undefined;
+
+			app.org = new arcgisPortal.Portal(configOptions.sharingurl.split('/sharing/')[0]);
+			app.org.on("load", function(response){
+				app.isPortal = !! response.isPortal;
+			});
+
+			// Pass cookie onto API to avoid infinite redirects
+			IdentityManager.checkSignInStatus(app.org.url);
 
 			// If forceLogin or builder
 			if ( forceLogin || app.isInBuilderMode )
@@ -688,7 +696,7 @@ define(["esri/map",
 				{
 					highlight:true,
 					offsetX:0
-      			},
+				},
 				domConstruct.create("div")
 			);
 
@@ -886,27 +894,27 @@ define(["esri/map",
 		}
 
 		function hideEmptyLegend(legend0, legend1) {
- 		  hideEmptyLegend0(legend0);
- 		  hideEmptyLegend1(legend1);
- 		}
+		  hideEmptyLegend0(legend0);
+		  hideEmptyLegend1(legend1);
+		}
 
- 		function hideEmptyLegend0(legend0) {
- 		  if (legend0 && legend0.layers.length == 0) {
- 		    $("#legend0").css("display", "none");
- 		    $("#legend1").css("width", "100%");
- 		    //Increase width of other legend title
- 		    $("#legend1 .esriLegendServiceLabel").css("width", "300px");
- 		  }
- 		}
+		function hideEmptyLegend0(legend0) {
+		  if (legend0 && legend0.layers.length == 0) {
+			$("#legend0").css("display", "none");
+			$("#legend1").css("width", "100%");
+			//Increase width of other legend title
+			$("#legend1 .esriLegendServiceLabel").css("width", "300px");
+		  }
+		}
 
- 		function hideEmptyLegend1(legend1) {
- 		  if (legend1 && legend1.layers.length == 0) {
- 		    $("#legend0").css("width", "100%");
- 		    $("#legend1").css("display", "none");
- 		    //Increase width of other legend title
- 		    $("#legend0 .esriLegendServiceLabel").css("width", "300px");
- 		  }
- 		}
+		function hideEmptyLegend1(legend1) {
+		  if (legend1 && legend1.layers.length == 0) {
+			$("#legend0").css("width", "100%");
+			$("#legend1").css("display", "none");
+			//Increase width of other legend title
+			$("#legend0 .esriLegendServiceLabel").css("width", "300px");
+		  }
+		}
 
 		function appInitComplete()
 		{
@@ -944,7 +952,7 @@ define(["esri/map",
 				prepareMobileViewSwitch();
 
 				if(location.hash == "#map") {
-				 	$("#mapViewLink").addClass("current");
+					$("#mapViewLink").addClass("current");
 					showMobileViewMap();
 					if (WebApplicationData.getSeries() && SwipeHelper.isOnMobileView())
 						$('#footerMobile').show();

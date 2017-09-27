@@ -190,7 +190,7 @@ define({
       "settingsSeriesHelpContent2": "Serija s klizačem omogućuje vam da stvorite i uredite niz lokacija s popratnim naslovima i tekstom. Ako vaša web-karta ima knjižne oznake, one će se prikazati. Možete onemogućiti seriju, no konfiguracija će se sačuvati za buduću upotrebu.",
       "settingsSeriesHelpLink": "Ovdje pogledajte primjer primjene sa serijom klizača",
       "preview": "Pretpregled korisničkog sučelja",
-      "settingsLocateButtonExplain": "Ova je funkcionalnost podržana na većini preglednika mobilnih uređaja i radnih površina (uključujući Internet Explorer 9+).",
+      "settingsLocateButtonExplain": "Podržano na većini preglednika. Pojavljuje se samo kada se karti s pričom pristupa preko HTTPS-a. Ne pojavljuje se ako je priča umetnuta.",
       "settingsLocateButton": "Omogući gumb „Lociraj” na podržanim preglednicima",
       "settingsAddressSearch": "Omogući alat za pretraživanje adresa"
     },

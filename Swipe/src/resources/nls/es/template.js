@@ -190,7 +190,7 @@ define({
       "settingsSeriesHelpContent2": "Las series de comparativas te permiten crear y editar una selección de ubicaciones junto con títulos y texto. Si tu mapa web tiene marcadores de posición, se mostrarán. Puedes desactivar las series, pero la configuración se mantendrá para su uso futuro.",
       "settingsSeriesHelpLink": "Mira un ejemplo de una aplicación con una serie de comparativas aquí",
       "preview": "Vista previa de la interfaz de usuario",
-      "settingsLocateButtonExplain": "Esta funcionalidad es compatible con la mayoría de dispositivos móviles y navegadores de escritorio (incluido Internet Explorer 9+).",
+      "settingsLocateButtonExplain": "Es compatible con la mayoría de navegadores. Solo aparece cuando el acceso al story map se realiza mediante HTTPS. No aparece si la historia está integrada.",
       "settingsLocateButton": "Habilitar un botón 'Localizar' en los navegadores compatibles",
       "settingsAddressSearch": "Habilitar una herramienta de búsqueda de direcciones"
     },

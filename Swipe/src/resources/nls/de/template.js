@@ -190,7 +190,7 @@ define({
       "settingsSeriesHelpContent2": "Mit Ausblendereihen können Sie eine Auswahl von Positionen mit zugehörigen Titeln und Texten erstellen und bearbeiten.  Wenn Ihre Webkarte über Lesezeichen verfügt, werden diese angezeigt.  Sie können die Reihen deaktivieren, die Konfiguration wird jedoch zur zukünftigen Verwendung beibehalten.",
       "settingsSeriesHelpLink": "Nachfolgend finden Sie ein Beispiel für eine Anwendung mit einer Ausblendereihe",
       "preview": "Benutzeroberflächen-Vorschau",
-      "settingsLocateButtonExplain": "Diese Funktion wird auf den meisten mobilen Geräten und Desktop-Browsern (einschließlich Internet Explorer 9+) unterstützt.",
+      "settingsLocateButtonExplain": "Wird auf den meisten Browsern unterstützt. Wird nur angezeigt, wenn auf die Story-Map über HTTPS zugegriffen wird. Wird für eine eingebettete Story nicht angezeigt.",
       "settingsLocateButton": "Schaltfläche \"Suchen\" für unterstützte Browser aktivieren",
       "settingsAddressSearch": "Werkzeug für Adressensuche aktivieren"
     },

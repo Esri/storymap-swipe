@@ -190,7 +190,7 @@ define({
       "settingsSeriesHelpContent2": "La série de balayages vous permet de créer et de mettre à jour une sélection d'emplacements accompagnés de titres et de texte. Si votre carte Web comprend des géosignets, ils s'afficheront. Vous pouvez désactiver la série, mais la configuration sera conservée pour une utilisation future.",
       "settingsSeriesHelpLink": "Consultez un exemple d'application avec une série de balayages ici",
       "preview": "Aperçu de l'interface utilisateur",
-      "settingsLocateButtonExplain": "Cette fonctionnalité est prise en charge par la plupart des appareils mobiles et des navigateurs bureautiques (y compris Internet Explorer 9+).",
+      "settingsLocateButtonExplain": "Fonctionnalité prise en charge sur la plupart des navigateurs. Apparaît uniquement en cas d’accès à la Story Map via HTTPS. Non visible si le récit est incorporé.",
       "settingsLocateButton": "Activer un bouton 'Localiser' sur les navigateurs pris en charge",
       "settingsAddressSearch": "Activer un outil de recherche d'adresses"
     },

@@ -190,7 +190,7 @@ define({
       "settingsSeriesHelpContent2": "透過 Swipe 系列可建立和編輯一系列隨附標題和文字的位置。如果 web 地圖有書簽，則會顯示這些書簽。您可以停用 Swipe 簾系列，但設定將保留以供之後使用。",
       "settingsSeriesHelpLink": "在此處查看具有 Swipe 系列的應用程式範例",
       "preview": "UI 預覽",
-      "settingsLocateButtonExplain": "此功能在大多數行動裝置和桌面瀏覽器 (包括 Internet Explorer 9+) 中都受支援。",
+      "settingsLocateButtonExplain": "大多數瀏覽器皆支援。只有在透過 HTTPS 存取故事地圖時才會出現。若內嵌地圖則不會出現。",
       "settingsLocateButton": "在受支援的瀏覽器中啟用“定位”按鈕",
       "settingsAddressSearch": "啟用地址搜尋工具"
     },

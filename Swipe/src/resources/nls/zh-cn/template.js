@@ -190,7 +190,7 @@ define({
       "settingsSeriesHelpContent2": "通过卷帘系列可创建和编辑一系列具有随附标题和文本的位置。如果 web 地图具有书签，则会显示这些书签。您可以禁用卷帘系列，但配置将保留以供之后使用。",
       "settingsSeriesHelpLink": "在此处查看具有卷帘系列的应用程序示例",
       "preview": "UI 预览",
-      "settingsLocateButtonExplain": "此功能在大多数移动设备和桌面浏览器 (包括 Internet Explorer 9+) 中都受支持。",
+      "settingsLocateButtonExplain": "支持大多数浏览器。仅在通过 HTTPS 访问故事地图时显示。如果故事被镶嵌，则不显示。",
       "settingsLocateButton": "在受支持的浏览器中启用“定位”按钮",
       "settingsAddressSearch": "启用地址搜索工具"
     },

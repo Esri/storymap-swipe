@@ -191,7 +191,7 @@ define({
 				settingsSeriesHelpContent2: "Swipe series lets you create and edit a selection of locations with accompanying titles and text.  If your web map has bookmarks, they'll be displayed.  You can disable the series, but the configuration will be preserved for future use.",
 				settingsSeriesHelpLink: "See an example of an application with a swipe series here",
 				preview: "UI preview",
-				settingsLocateButtonExplain: "This functionality is supported on most mobile devices and desktop browsers (including Internet Explorer 9+).",
+				settingsLocateButtonExplain: "Supported on most browsers. Only appears when story map accessed over HTTPS. Does not appear if the story is embedded.",
 				settingsLocateButton: "Enable a 'Locate' button on supported browsers",
 				settingsAddressSearch: "Enable an address search tool"
 			},

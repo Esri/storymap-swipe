@@ -190,7 +190,7 @@ define({
       "settingsSeriesHelpContent2": "Med hjälp av en svepserie kan du skapa och redigera ett urval platser med tillhörande rubriker och text. Om det finns bokmärken i webbkartan visas dessa. Du kan inaktivera serien, men konfigurationen finns ändå kvar och kan användas senare.",
       "settingsSeriesHelpLink": "Här finns ett exempel på en applikation med en svepserie",
       "preview": "Förhandsgranska användargränssnitt",
-      "settingsLocateButtonExplain": "Den här funktionen kan användas på de flesta mobila enheter och datorwebbläsare (inklusive Internet Explorer 9+).",
+      "settingsLocateButtonExplain": "Stöds för de flesta webbläsare. Visas endast vid åtkomst till berättelsekartan via HTTPS. Visas inte om berättelsen är inbäddad.",
       "settingsLocateButton": "Aktivera knappen Hitta för webbläsare som stöds",
       "settingsAddressSearch": "Aktivera ett adressökverktyg"
     },

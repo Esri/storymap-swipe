@@ -190,7 +190,7 @@ define({
       "settingsSeriesHelpContent2": "Keitiklių serijos leidžia jums sukurti ir redaguoti pažymėtas vietas su kartu esančiais pavadinimais ir tekstu. Jei jūsų internetinis žemėlapis turi žymių, jos bus atvaizduotos. Galite išjungti serijas, bet konfigūracija bus išsaugota ateičiai.",
       "settingsSeriesHelpLink": "Peržiūrėkite aplikacijos su keitiklių serijomis pavyzdį čia",
       "preview": "Vartotojo sąsajos peržiūra",
-      "settingsLocateButtonExplain": "Šis funkcionalumas palaikomas daugelyje mobilių įrenginių ir darbastalio naršyklių (įskaitant Internet Explorer 9+).",
+      "settingsLocateButtonExplain": "Šią funkciją palaiko daugelis naršyklių. Matoma, kai žemėlapio pasakojimas atidaromas naudojant HTTPS. Nematoma, jei pasakojimas yra įdėtasis.",
       "settingsLocateButton": "Palaikomose naršyklėse įgalinti mygtuką Rasti",
       "settingsAddressSearch": "Įgalinti adreso paieškos įrankį"
     },

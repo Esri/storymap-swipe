@@ -190,7 +190,7 @@ define({
       "settingsSeriesHelpContent2": "La serie di scorrimenti consente di creare e modificare una selezione di posizioni unitamente ai titoli e al testo cui sono associate. Verranno visualizzati gli eventuali segnalibri presenti nella mappa Web. È possibile disabilitare la serie, ma la configurazione verrà mantenuta per usi futuri.",
       "settingsSeriesHelpLink": "Per un esempio di applicazione con una serie di scorrimenti, vedere qui",
       "preview": "Anteprima interfaccia utente",
-      "settingsLocateButtonExplain": "Questa funzionalità è supportata nella maggior parte dei browser per dispositivi mobili e desktop (incluso Internet Explorer 9 e versioni successive).",
+      "settingsLocateButtonExplain": "Supportato su molti browser. Appare solo se si accede alla mappa della storia da HTTPS. Non appare se la storia è incorporata.",
       "settingsLocateButton": "Abilita un pulsante Trova posizione nei browser supportati",
       "settingsAddressSearch": "Abilita uno strumento per la ricerca di indirizzi"
     },
