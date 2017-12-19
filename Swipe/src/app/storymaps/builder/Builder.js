@@ -290,7 +290,7 @@ define(["esri/arcgis/Portal",
 						text: JSON.stringify(WebApplicationData.get())
 					});
 
-					var url = portalUrl + "/sharing/content/users/" + uid + (appItem.ownerFolder ? ("/" + appItem.ownerFolder) : "");
+					var url = portalUrl + "/sharing/rest/content/users/" + uid + (appItem.ownerFolder ? ("/" + appItem.ownerFolder) : "");
 
 					// Updating
 					if ( appItem.id )
@@ -468,7 +468,7 @@ define(["esri/arcgis/Portal",
 
 				/*var saveRq = esriRequest(
 					{
-						url: portalUrl + "/sharing/content/users/" + uid + (item.ownerFolder ? ("/" + item.ownerFolder) : "") + "/addItem",
+						url: portalUrl + "/sharing/rest/content/users/" + uid + (item.ownerFolder ? ("/" + item.ownerFolder) : "") + "/addItem",
 						handleAs: 'json',
 						content: rqData
 					},
@@ -480,7 +480,7 @@ define(["esri/arcgis/Portal",
 				if (app.data.initialExtentHasBeenEdited) {
 					var saveRq = esriRequest(
 						{
-							url: portalUrl + "/sharing/content/users/" + uid + (item.ownerFolder ? ("/" + item.ownerFolder) : "") + "/addItem",
+							url: portalUrl + "/sharing/rest/content/users/" + uid + (item.ownerFolder ? ("/" + item.ownerFolder) : "") + "/addItem",
 							handleAs: 'json',
 							content: rqData
 						},
@@ -589,7 +589,7 @@ define(["esri/arcgis/Portal",
 
 			return esriRequest(
 				{
-					url: portalUrl + "/sharing/content/users/" + uid + "/shareItems",
+					url: portalUrl + "/sharing/rest/content/users/" + uid + "/shareItems",
 					handleAs: 'json',
 					content: params
 				},
@@ -671,7 +671,7 @@ define(["esri/arcgis/Portal",
 
 					var saveRq = esriRequest(
 						{
-							url: portalUrl + "/sharing/content/users/" + uid + (appItem.ownerFolder ? ("/" + appItem.ownerFolder) : "") + "/addItem",
+							url: portalUrl + "/sharing/rest/content/users/" + uid + (appItem.ownerFolder ? ("/" + appItem.ownerFolder) : "") + "/addItem",
 							handleAs: 'json',
 							content: appItem
 						},

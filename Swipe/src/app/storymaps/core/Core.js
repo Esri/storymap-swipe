@@ -178,7 +178,7 @@ define(["esri/map",
 					// Get the portal instance name
 					var instance = location.pathname.substr(0,appLocation);
 
-					configOptions.sharingurl = "//" + location.host + instance + "/sharing/content/items";
+					configOptions.sharingurl = "//" + location.host + instance + "/sharing/rest/content/items";
 					configOptions.proxyurl =  "//" + location.host + instance +  "/sharing/proxy";
 				}
 				else{
