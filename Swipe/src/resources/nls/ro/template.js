@@ -43,7 +43,7 @@ define({
       "navRight": "Date"
     },
     "desktopView": {
-      "storymapsText": "O hartă informativă",
+      "storymapsText": "O Story Map",
       "builderButton": "Comutare la modul Instrument de creare",
       "facebookTooltip": "Partajare pe Facebook",
       "twitterTooltip": "Partajare pe Twitter",
@@ -52,6 +52,22 @@ define({
       "autoplayLabel": "Mod redare automată",
       "autoplayExplain1": "Modul de redare automată va avansa prin scenariul dvs. la un interval regulat. Această opţiune este ideală pentru un chioşc sau un monitor pentru afişare publică, dar, reţineţi, că în alte situaţii poate face ca scenariul să fie dificil de urmărit. Această caracteristică nu este acceptată pe ecranele de dimensiuni mici.",
       "autoplayExplain2": "Când acest mod este activ, sunt afişate butoane pentru a reda/întrerupe scenariul şi pentru a regla viteza de navigare."
+    },
+    "bannerNotification": {
+      "learnMore": "Aflaţi mai multe",
+      "close": "Închidere",
+      "dontShowAgain": "Nu afişa acest mesaj din nou"
+    },
+    "httpsTransitionMessage": {
+      "bannerMsg": "Mesaj important referitor la Securitatea web şi Story Maps",
+      "s1h1": "Esri îmbunătăţeşte securitatea Story Maps",
+      "s1p1": "Story Maps sunt operaționale pe internet, iar comunitatea web depune toate eforturile pentru a stabili şi implementa o mai bună securitate. HTTPS, care furnizează o conexiune securizată pentru conţinutul transmis prin internet, este recunoscut din ce în ce mai des ca modalitatea agreată pentru a accesa conţinut web. Majoritatea browserelor moderne emit acum mesaje de avertizare atunci când HTTP este utilizat în loc de HTTPS. Datorită acestui standard din ce în ce mai des folosit, începând cu actualizarea din iunie 2018 a ArcGIS Online, Story Maps dvs. vor trebui să folosească HTTPS.",
+      "s1p2": "În mod concret, acest lucru înseamnă că o Story Map şi întregul său conţinut (inclusiv imagini, straturi tematice, aplicaţii încorporate şi site-uri web) trebuie să fie accesate folosind mai degrabă link-uri care încep cu HTTPS decât HTTP. Acest lucru asigură cititorilor dvs. o experienţă optimă, deoarece cele mai multe browsere web vor indica faptul că relatările dvs. sunt sigure.",
+      "s2h1": "Ce trebuie să fac?",
+      "s2p1": "Esri depune toate eforturile pentru a face această tranziţie să fie una uşoară pentru autorii Story Map şi pentru cititori. Sunt disponibile acum instrumentele în aplicaţiile de creare Story Map şi în Relatările mele care vă ajută să găsiţi conţinut nesigur (HTTP) în relatările dvs. şi vă oferă recomandări pentru modul în care puteţi să-l gestionați. Verificaţi-vă relatările pentru a vedea dacă includ conţinut nesigur și actualizați la HTTPS înainte de iunie 2018.",
+      "action1": "Închidere",
+      "action2": "Verificaţi-mi acum relatările",
+      "action3": "Aflaţi mai multe"
     }
   },
   "builder": {
@@ -248,7 +264,7 @@ define({
       "shareHeader2": "Povestea dvs. este accesibilă membrilor organizaţiei (este necesară conectarea).",
       "shareLinkHeader": "Partajaţi povestea",
       "shareLinkOpen": "DESCHIDERE",
-      "learnMore": "Învăţaţi mai mult",
+      "learnMore": "Aflaţi mai multe",
       "shareA1": "Utilizaţi %SHAREIMG% în <a href='%LINK1%' target='_blank'>pagina de element corespunzătoare aplicaţiei</a>. Dacă doriţi şi să anulaţi partajarea hărţii web, utilizaţi <a href='%LINK2%' target='_blank'>pagina de element corespunzătoare hărţii web</a>.",
       "shareWarning": "Partajarea %WITH% a fost dezactivată, deoarece nu mai sunteţi proprietarul <a href='%LINK%' target='_blank'>hărţii web</a>.",
       "shareWarningWith1": "public",

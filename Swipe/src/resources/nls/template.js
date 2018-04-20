@@ -44,7 +44,7 @@ define({
 				navRight: "Data"
 			},
 			desktopView: {
-				storymapsText: "A story map",
+				storymapsText: "A Story Map",
 				builderButton: "Switch to builder mode",
 				facebookTooltip: "Share on Facebook",
 				twitterTooltip: "Share on Twitter",
@@ -53,7 +53,23 @@ define({
 				autoplayLabel: "Autoplay mode",
 				autoplayExplain1: "Autoplay mode will advance through your story at a regular interval. This is ideal on a kiosk or public display monitor, but be aware that in other situations it may make the story harder to read. This feature isn't supported on small displays.",
 				autoplayExplain2: "When this mode is active there are controls to play/pause the story and adjust the navigation speed."
-			}
+			},
+			bannerNotification: {
+				learnMore: "Learn More",
+				close: "Close",
+				dontShowAgain: "Don't show this message again"
+			},
+			httpsTransitionMessage: {
+				bannerMsg: "Important Message about Web Security and Story Maps",
+				s1h1: "Esri is enhancing the security of Story Maps",
+				s1p1: "Your Story Maps live on the web, and the web community is always working to establish and implement better security. HTTPS, which provides a secure connection for content transmitted over the internet, is emerging as the expected way to access web content. Most modern browsers now show warning messages when HTTP instead of HTTPS is used. Because of this emerging standard, beginning with the June 2018 update to ArcGIS Online, your Story Maps will need to use HTTPS.",
+				s1p2: "Practically speaking, this means a Story Map and all its content (including images, layers, embedded apps and websites) must be accessed using links that start with HTTPS rather than HTTP. This ensures the best experience for your readers because most web browsers will indicate that your stories are secure.",
+				s2h1: "What do I need to do?",
+				s2p1: "Esri is working to make this an easy transition for Story Map authors and readers. Tools are available now in Story Map builders and My Stories that help you find insecure content (HTTP) in your stories and provide recommendations for how to address it. Please check your stories for insecure content and update to HTTPS before June 2018.",
+				action1: "Close",
+				action2: "Check my stories now",
+				action3: "Learn more"
+  		}
 		},
 		builder: {
 			builder: {

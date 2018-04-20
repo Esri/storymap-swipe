@@ -43,7 +43,7 @@ define({
       "navRight": "Daten"
     },
     "desktopView": {
-      "storymapsText": "Eine Story Map",
+      "storymapsText": "Eine Story-Map",
       "builderButton": "Zum Generator-Modus wechseln",
       "facebookTooltip": "Auf Facebook freigeben",
       "twitterTooltip": "Auf Twitter freigeben",
@@ -52,6 +52,22 @@ define({
       "autoplayLabel": "Modus für automatische Wiedergabe",
       "autoplayExplain1": "Im Modus für automatische Wiedergabe wird die Story regelmäßig fortgesetzt. Er ist ideal für Kiosks oder öffentliche Monitore. In anderen Situationen wird dadurch allerdings die Lesbarkeit der Story beeinträchtigt. Dieses Feature wird für kleine Anzeigegrößen nicht unterstützt.",
       "autoplayExplain2": "Ist dieser Modus aktiviert, stehen Steuerelemente für Wiedergabe/Pause der Story und zum Einstellen der Navigationsgeschwindigkeit zur Verfügung."
+    },
+    "bannerNotification": {
+      "learnMore": "Mehr erfahren",
+      "close": "Schließen",
+      "dontShowAgain": "Diese Meldung nicht mehr anzeigen"
+    },
+    "httpsTransitionMessage": {
+      "bannerMsg": "Wichtige Informationen zur Websicherheit von Story-Maps",
+      "s1h1": "Esri verbessert die Sicherheit von Story-Maps",
+      "s1p1": "Das Internet bildet den Rahmen für Ihre Story-Maps, und daher arbeitet die Web-Community stets daran, bessere Sicherheitsvorkehrungen zu entwickeln und umzusetzen. HTTPS, womit eine sichere Verbindung für im Internet übermittelte Inhalte hergestellt wird, setzt sich zunehmend als die Standardmethode für den Zugriff auf Webinhalte durch. Der Großteil der modernen Browser zeigt nun eine Warnmeldung an, wenn HTTP anstelle von HTTPS verwendet wird. Aufgrund des neuen Standards ist ab der ArcGIS Online-Aktualisierung im Juni 2018 die Verwendung von HTTPS in Ihren Story-Maps verpflichtend.",
+      "s1p2": "Kurz gesagt: Dies bedeutet, dass auf eine Story-Map und alle zugehörigen Inhalte (Bilder, Layer, eingebettete Apps und Websites) über HTTPS-Links anstelle von HTTP-Links zugegriffen werden muss. Auf diese Weise wird eine gute Benutzererfahrung für Ihre Leser sichergestellt, da die meisten Webbrowser anzeigen, dass Ihre Storys sicher sind.",
+      "s2h1": "Was muss ich tun?",
+      "s2p1": "Esri arbeitet daran, einen einfachen Übergang für Autoren und Leser von Story-Maps sicherzustellen. In den Story Map Buildern und in \"Eigene Storys\" stehen nun Werkzeuge zur Verfügung, mit denen Sie unsichere Inhalte (HTTP) in Ihren Storys finden können. Es werden ebenfalls Empfehlungen für die Problembehebung gegeben. Überprüfen Sie Ihre Storys auf unsichere Inhalte, und wechseln Sie vor der Aktualisierung im Juni 2018 zu HTTPS.",
+      "action1": "Schließen",
+      "action2": "Eigene Storys jetzt überprüfen",
+      "action3": "Weitere Informationen"
     }
   },
   "builder": {

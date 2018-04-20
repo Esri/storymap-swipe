@@ -52,6 +52,22 @@ define({
       "autoplayLabel": "Režim automatického přehrávání",
       "autoplayExplain1": "Režim automatického přehrávání bude příběhem procházet v pravidelných intervalech. Ideální pro použití na výstavních stáncích nebo veřejných monitorech, buďte si však vědomi toho, že to v některých případech může znesnadnit čtení příběhu. Tato funkce není podporována na malých obrazovkách.",
       "autoplayExplain2": "Je-li tento režim aktivní, budou k dispozici ovládací prvky ke spuštění/pozastavení přehrávání příběhu a k nastavení rychlosti procházení."
+    },
+    "bannerNotification": {
+      "learnMore": "Více informací",
+      "close": "Zavřít",
+      "dontShowAgain": "Toto hlášení příště nezobrazovat"
+    },
+    "httpsTransitionMessage": {
+      "bannerMsg": "Důležité upozornění týkající se webové bezpečnosti a map s příběhem",
+      "s1h1": "Společnost Esri zvyšuje zabezpečení map s příběhem",
+      "s1p1": "Vaše mapy s příběhem živě na webu a webová komunita neustále pracují na tom, jak zajistit a implementovat lepší zabezpečení. Protokol HTTPS, který poskytuje bezpečné připojení k obsahu šířenému po internetu, se profiluje jako běžný způsob přístupu k webovému obsahu. Většina moderních prohlížečů dnes zobrazuje varování, když internetová adresa používá protokol HTTP místo HTTPS. Kvůli tomuto vznikajícímu standardu bude nutné, počínaje updatem ArcGIS Online v červnu 2018, aby vaše mapy s příběhem používaly protokol HTTPS.",
+      "s1p2": "V praxi to znamená, že přístup k mapě s příběhem a veškerému jejímu obsahu (včetně obrázků, vrstev, připojených aplikací a webových stránek) musí probíhat prostřednictvím odkazů, které začínají řetězcem HTTPS místo HTTP. Zajistíte tak svým čtenářům ten nejlepší možný zážitek, jelikož většina webových prohlížečů bude hlásit, že vaše příběhy používají zabezpečené připojení.",
+      "s2h1": "Co mám udělat?",
+      "s2p1": "Společnost Esri pracuje na tom, aby pro autory map s příběhem a čtenáře tento přechod proběhl hladce. V nástrojích pro tvorbu map s příběhem a aplikaci Moje příběhy jsou nyní k dispozici pomůcky, které vám umožní najít nezabezpečený obsah (HTTP) ve vašich příbězích a které vám poradí, jak postupovat dál. Zkontrolujte prosím zabezpečení svých příběhů a přejděte na protokol HTTPS do června 2018.",
+      "action1": "Zavřít",
+      "action2": "Chci si prohlédnout svoje příběhy",
+      "action3": "Více informací"
     }
   },
   "builder": {

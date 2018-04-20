@@ -43,7 +43,7 @@ define({
       "navRight": "Veri"
     },
     "desktopView": {
-      "storymapsText": "Öykü haritası",
+      "storymapsText": "Bir Story Map",
       "builderButton": "Derleyici moduna geç",
       "facebookTooltip": "Facebook'ta Paylaş",
       "twitterTooltip": "Twitter'da Paylaş",
@@ -52,6 +52,22 @@ define({
       "autoplayLabel": "Otomatik oynatma modu",
       "autoplayExplain1": "Otomatik oynatma modu düzenli aralıklarla hikayenizde ilerler. Bu özellik, bir kiosk ya da genel ekran için idealdir, ancak bunun bazı durumlarda hikayenin okunmasını güçleştirebileceğini unutmayın. Bu özellik küçük ekranlarda desteklenmez.",
       "autoplayExplain2": "Bu etkin durumdayken hikayeyi oynatacak/duraklatacak ve gezinme hızını ayarlayacak kontroller vardır."
+    },
+    "bannerNotification": {
+      "learnMore": "Daha Fazla Bilgi",
+      "close": "Kapat",
+      "dontShowAgain": "Bu iletiyi tekrar gösterme"
+    },
+    "httpsTransitionMessage": {
+      "bannerMsg": "Web Güvenliği ve Story Maps hakkında Önemli İleti",
+      "s1h1": "Esri, Story Maps'in güvenliğini geliştiriyor",
+      "s1p1": "Story Maps'iniz web'de yayınlanır ve web topluluğu her zaman daha iyi güvenlik sağlamak ve uygulamak için çalışmaktadır. İnternet üzerinden iletilen içerik için güvenli bir bağlantı sağlayan HTTPS, web içeriğine erişmenin birincil yolu olarak kullanılmaktadır. Çoğu modern tarayıcı artık, HTTPS yerine HTTP kullanıldığında uyarı mesajları göstermektedir. Bu yeni geliştirilen standart nedeniyle Haziran 2018 ArcGIS Online güncellemesinden itibaren Story Maps'te HTTPS kullanılması gerekecektir.",
+      "s1p2": "Pratik olarak bu, bir Story Map demektir ve tüm içeriğine (görüntüler, katmanlar, gömülü uygulamalar ve web siteleri dahil) HTTP yerine HTTPS ile başlayan bağlantılar kullanılarak erişim sağlanmalıdır. Bu, okuyucularınız için en iyi deneyimi sağlar; çünkü çoğu web tarayıcısında bu, hikayelerinizin güvenli olduğu anlamına gelir.",
+      "s2h1": "Ne yapmam gerekiyor?",
+      "s2p1": "Esri, Story Map yazarları ve okuyucuları için bu geçişi kolaylaştırmaya çalışmaktadır. Artık Story Map oluşturucuları ve Hikayelerim'de, hikayelerinizdeki güvensiz içeriği (HTTP) bulmanıza yardımcı olacak ve bunları nasıl ele alacağınıza dair tavsiyelerde bulunacak araçlar mevcuttur. Lütfen hikayenizi güvenli olmayan içeriklere karşı kontrol edin ve Haziran 2018'den önce HTTPS'ye güncelleyin.",
+      "action1": "Kapat",
+      "action2": "Hikayelerimi şimdi kontrol et",
+      "action3": "Daha fazla bilgi"
     }
   },
   "builder": {

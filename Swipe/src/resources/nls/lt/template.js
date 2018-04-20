@@ -43,7 +43,7 @@ define({
       "navRight": "Duomenys"
     },
     "desktopView": {
-      "storymapsText": "Pristatomasis žemėlapis",
+      "storymapsText": "Žemėlapio pasakojimas",
       "builderButton": "Perjungti į kūrimo būseną",
       "facebookTooltip": "Dalintis Facebook",
       "twitterTooltip": "Dalintis Twitter",
@@ -52,6 +52,22 @@ define({
       "autoplayLabel": "Automatinio paleidimo režimas",
       "autoplayExplain1": "Veikiant automatinio paleidimo režimu, jūsų pasakojimas bus pateikiamas reguliariais intervalais. Tai puikiai tinkama parinktis informaciniuose terminaluose arba viešuosiuose ekranuose, tačiau nepamirškite, kad kitais atvejais pasakojimą gali būti sudėtinga perskaityti. Ši funkcija nepalaikoma mažuose ekranuose.",
       "autoplayExplain2": "Kai šis režimas aktyvus, yra valdikliai, kuriais galima leisti / pristabdyti pasakojimą ir reguliuoti naršymo greitį."
+    },
+    "bannerNotification": {
+      "learnMore": "Sužinokite daugiau",
+      "close": "Užverti",
+      "dontShowAgain": "Daugiau nerodyti šio pranešimo"
+    },
+    "httpsTransitionMessage": {
+      "bannerMsg": "Svarbus pranešimas apie žiniatinklio saugumą ir žemėlapių pasakojimus",
+      "s1h1": "Esri tobulina žemėlapių pasakojimų saugumą",
+      "s1p1": "Žemėlapių pasakojimai veikia žiniatinklyje, o žiniatinklio bendruomenė visuomet stengiasi sukurti ir įdiegti geresnę saugą. HTTPS, suteikianti saugų ryšį perduodant turinį internetu, atrodo kaip patikima žiniatinklio turinio prieiga. Naujausios naršyklės nuo šiol įspėja, jei vietoj HTTPS yra naudojama HTTP. Dėl įsigaliojančio standarto nuo 2018 m. birželio ArcGIS Online naujinimo jūsų žemėlapių pasakojimai naudos HTTPS.",
+      "s1p2": "Praktiškai tai reiškia, kad žemėlapio pasakojimas ir visas jo turinys (įskaitant paveikslėlius, sluoksnius, įdėtąsias aplikacijas ir svetaines) turi būti pasiekiamas naudojant nuorodas, kurios prasideda HTTPS, o ne HTTP. Tai užtikrina geriausią skaitytojų patirtį, nes daugelis naršyklių nurodys, kad jūsų pasakojimai yra saugūs.",
+      "s2h1": "Ką reikia daryti?",
+      "s2p1": "Esri stengiasi, kad žemėlapio pasakojimų autoriams ir skaitytojams pereiti būtų paprasta. Nuo šiol įrankiai yra pasiekiami žemėlapio pasakojimo kūrimo priemonėje ir skyriuje Mano pasakojimai. Taip pasakojimuose bus lengviau rasti nesaugų turinį (HTTP) ir pateikti rekomendacijas, ką daryti. Patikrinkite, ar jūsų pasakojimuose nėra nesaugaus turinio ir iki 2018 m. birželio atnaujinkite jį naudodami HTTPS.",
+      "action1": "Uždaryti",
+      "action2": "Peržiūrėkite savo pasakojimus jau dabar",
+      "action3": "Sužinokite daugiau"
     }
   },
   "builder": {
@@ -219,7 +235,7 @@ define({
     },
     "helpPopup": {
       "title": "Pagalba",
-      "close": "Užverti",
+      "close": "Uždaryti",
       "tab1": {
         "div1": "Keitiklio / didinamojo stiklo šablonas leidžia palyginti du internetinius žemėlapius ar du internetinio žemėlapio sluoksnius patrauklioje, paprastoje naudoti tinklo aplikacijoje, kuri gali būti pasiekiama naršykle įvairiuose įrenginiuose, taip pat ir išmaniuosiuose telefonuose ir planšetiniuose kompiuteriuose.",
         "div2": "Norėdami gauti papildomos informacijos apie keitiklio / didinamojo stiklo šabloną ir vartotojų sukurtų pavyzdžių, <a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'> apsilankykite žemėlapių pasakojimų svetainėje</a>. Be to, galite mus sekti Twitter <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",

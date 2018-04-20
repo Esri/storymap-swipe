@@ -43,7 +43,7 @@ define({
       "navRight": "Dati"
     },
     "desktopView": {
-      "storymapsText": "Stāstu karte",
+      "storymapsText": "Kartes stāsts",
       "builderButton": "Pārslēgties uz veidotāja režīmu",
       "facebookTooltip": "Koplietot Facebook",
       "twitterTooltip": "Koplietot Twitter",
@@ -52,6 +52,22 @@ define({
       "autoplayLabel": "Automātiskās demonstrēšanas režīms",
       "autoplayExplain1": "Automātiskās demonstrēšanas režīms darbosies jūsu stāstā ar regulāriem intervāliem. Tas ir izcili piemērots rādīšanai stendos vai publiskās demonstrēšanas monitorā, bet ņemiet vērā, ka citās situācijās šis režīms var padarīt stāstu grūtāk izlasāmu. Šī funkcija netiek atbalstīta maza izmēra displejos.",
       "autoplayExplain2": "Pēc šī režīma aktivizēšanas ir pieejamas vadīklas stāsta demonstrēšanai/apturēšanai un navigācijas ātruma regulēšanai."
+    },
+    "bannerNotification": {
+      "learnMore": "Uzzināt vairāk",
+      "close": "Aizvērt",
+      "dontShowAgain": "Nerādīt šo ziņojumu vēlreiz"
+    },
+    "httpsTransitionMessage": {
+      "bannerMsg": "Svarīgs ziņojums par tīmekļa drošību un Kartes stāstiem (Story Maps)",
+      "s1h1": "Esri uzlabo Kartes stāstu drošību",
+      "s1p1": "Jūsu Kartes stāsta vienības ir pieejamas tiešsaistē tīmeklī, un tīmekļa kopiena pastāvīgi veido un ievieš uzlabotus drošības pasākumus. Protokols HTTPS, kas gādā par drošu savienojumu ar saturu internetā, ir populārākais veids, kā piekļūt tīmekļa saturam. Vairākumā mūsdienīgu pārlūku tagad tiek rādīts brīdinājuma ziņojums, ja vietnē tiek izmantots protokols HTTP, nevis HTTPS. Šī jaunā standarta dēļ jūsu Kartes stāstu vienībās būs jāizmanto protokols HTTPS, sākot ar ArcGIS Online 2018. gada jūnija atjauninājumu.",
+      "s1p2": "Tas nozīmē, ka Kartes stāsta vienībai un visam tās saturam (tostarp attēliem, slāņiem, iegultām lietotnēm un tīmekļa vietnēm) ir jāpiekļūst, izmantojot saites, kas sākas ar HTTPS, nevis HTTP. Tādējādi lasītājiem tiks nodrošināta vislabākā pieredze, jo vairākumā tīmekļa pārlūku lietotājs tiks informēts par to, ka stāsti ir droši.",
+      "s2h1": "Kas man jādara?",
+      "s2p1": "Esri strādā pie tā, lai Kartes stāstu autoriem un lasītājiem pāreja būtu vienkārša. Pašlaik Kartes stāsta veidotājos un sadaļā Mani stāsti ir pieejami rīki, kas palīdz stāstos atrast nedrošu saturu (HTTP), kā arī ir pieejami ieteikumi šo problēmu novēršanai. Pārbaudiet, vai jūsu stāstos nav nedroša satura, un jauniniet uz protokolu HTTPS līdz 2018. gada jūnijam.",
+      "action1": "Aizvērt",
+      "action2": "Pārbaudīt manus stāstus tūlīt",
+      "action3": "Uzziniet vairāk"
     }
   },
   "builder": {

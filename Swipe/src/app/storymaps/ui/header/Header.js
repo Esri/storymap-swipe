@@ -269,11 +269,7 @@ define(["storymaps/ui/inlineFieldEdit/InlineFieldEdit",
 
 			function requestBitly()
 			{
-				var bitlyUrls = [
-					"http://api.bitly.com/v3/shorten?callback=?",
-					"https://api-ssl.bitly.com/v3/shorten?callback=?"
-				];
-				var bitlyUrl = location.protocol == 'http:' ? bitlyUrls[0] : bitlyUrls[1];
+				var bitlyUrl = 'https://arcg.is/prod/shorten?callback=?';
 
 				var urlParams = urlUtils.urlToObject(document.location.search).query || {};
 				var targetUrl = document.location.href;

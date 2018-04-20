@@ -43,7 +43,7 @@ define({
       "navRight": "Gegevens"
     },
     "desktopView": {
-      "storymapsText": "Een kaartverhaal",
+      "storymapsText": "Een Story Map",
       "builderButton": "Omschakelen naar buildermodus",
       "facebookTooltip": "Delen op Facebook",
       "twitterTooltip": "Delen op Twitter",
@@ -52,6 +52,22 @@ define({
       "autoplayLabel": "Autoplaymodus",
       "autoplayExplain1": "Autoplaymodus speelt uw verhaal regelmatig af. Dit is ideaal voor een kiosk of monitor in een openbare ruimte, maar houd er rekening mee dat het verhaal in andere situaties moeilijker te lezen is. Deze functie wordt niet ondersteund op kleine schermen.",
       "autoplayExplain2": "Wanneer deze modus actief is, kan het verhaal worden afgespeeld en gepauzeerd en kan de navigatiesnelheid worden aangepast."
+    },
+    "bannerNotification": {
+      "learnMore": "Meer informatie",
+      "close": "Sluiten",
+      "dontShowAgain": "Dit bericht niet meer weergeven"
+    },
+    "httpsTransitionMessage": {
+      "bannerMsg": "Belangrijk bericht over internetbeveiliging en Story Maps",
+      "s1h1": "Esri verbetert de beveiliging van Story Maps",
+      "s1p1": "Uw Story Maps staan live op het internet en de internetcommunity werkt permanent aan het bepalen en implementeren van betere beveiliging. HTTPS, dat een beviligde verbinding biedt voor content die over het internet verzonden wordt, wordt meer en meer gebruikt als de manier bij uitstek om content op het internet te openen. De meeste moderne browsers tonen nu waarschuwingsberichten als HTTP wordt gebruikt in plaats van HTTPS. Omwille van deze nieuwe norm, en met ingang van de ArcGIS Online update van juni 2018, moet uw Story Maps gebruik maken van HTTPS.",
+      "s1p2": "Praktisch betekent dit dat een Story Map en alle content ervan (inclusief afbeeldingen, lagen, geëmbedde apps en websites) moet worden geopend d.m.v. koppelingen die beginnen met HTTPS in plaats van HTTP. Dit garandeert de beste ervaring voor uw lezers, want de meeste webbrowsers zullen aangeven dat uw verhalen beveiligd zijn.",
+      "s2h1": "Wat moet ik doen?",
+      "s2p1": "Esri zorgt er voor dat dit een eenvoudige overgang wordt voor makers en lezers van Story Maps. Er zijn nu tools beschikbnaar in Story Map builders en My Stories die u in staat stellen om onbeveiligde content (HTTP) in uw verhalen te vinden en aanbevelingen geven voor het corrigeren ervan. Controleer uw verhalen op onbeveiligde content en werkt alles bij naar HTTPS voor juni 2018.",
+      "action1": "Sluiten",
+      "action2": "Controleer nu mijn verhalen",
+      "action3": "Meer weten"
     }
   },
   "builder": {

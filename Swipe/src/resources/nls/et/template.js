@@ -52,6 +52,22 @@ define({
       "autoplayLabel": "Automaatesituse režiim",
       "autoplayExplain1": "Automaatesituse režiimis keritakse teie lugu kindla ajavahemiku järel edasi. Seda on hea kasutada kioskite või avalike kohtade ekraanidel, kuid arvestage, et muudel juhtudel võib see raskendada teie loo lugemist. See funktsioon pole väikestel ekraanidel toetatud.",
       "autoplayExplain2": "Kui see režiim on aktiveeritud, saate kasutada loo esitamise või peatamise ja liikumiskiiruse reguleerimise juhtelemente."
+    },
+    "bannerNotification": {
+      "learnMore": "Lisateave",
+      "close": "Sulge",
+      "dontShowAgain": "Ära kuva enam seda teadet"
+    },
+    "httpsTransitionMessage": {
+      "bannerMsg": "Oluline teade veebiturvalisuse ja kaardilugude kohta",
+      "s1h1": "Esri tegeleb kaardilugude turvalisuse tõstmisega",
+      "s1p1": "Teie kaardilood on veebis reaalajas ja veebikogukond töötab pidevalt selle nimel, et turvalisust parendada ja tõhustada. Interneti kaudu sisu turvalist edastamist võimaldav HTTPS on kujunemas veebisisule juurdepääsu eelistatud viisiks. Enamik moodsaid brausereid kuvavad hoiatusteate, kui HTTPS-i asemel kasutatakse HTTP-d. Selle uue standardi kujunemise tõttu on alates ArcGIS Online’i 2018. aasta juunikuu värskendusest teie kaardilugudel HTTPS-i kasutamine kohustuslik.",
+      "s1p2": "See tähendab, et juurdepääs kaardiloole ja kogu selle sisule (sh piltidele, kihtidele, manusrakendustele ja veebilehtedele) peab toimuma linkidega, mille alguses on HTTPS ja mitte HTTP. Nii tagatakse teie lugejatele parim kasutuskogemus, kuna enamik veebibrausereid näitab, et teie lugude avamine on turvaline.",
+      "s2h1": "Mida ma pean tegema?",
+      "s2p1": "Esri töötab selle nimel, et kaardilugude autoritele ja lugejatele kulgeks üleminek võimalikult lihtsalt. Juba praegu on kaardiloo koosturites ja jaotises Minu lood saadaval tööriistad, mis aitavad leida lugudes ebaturvalist sisu (HTTP) ja annavad soovitusi, mida sellega ette võtta. Palun kontrollige enne 2018. aasta juunit oma lugude sisu üle ja värskendage kogu ebaturvaline sisu uuele standardile HTTPS.",
+      "action1": "Sule",
+      "action2": "Kontrolli minu lugusid kohe",
+      "action3": "Lisateave"
     }
   },
   "builder": {
@@ -219,7 +235,7 @@ define({
     },
     "helpPopup": {
       "title": "Abi",
-      "close": "Sulge",
+      "close": "Sule",
       "tab1": {
         "div1": "Mall Rullimine/pikksilm on loodud kahe erineva veebikaardi või ühe veebikaardi kahe kihi võrdlemiseks meeldivas ja lihtsasti kasutatavas veebirakenduses, mida saab kasutada mis tahes veebibrauseris ja seadmes, k.a nutitelefonides ja tahvelarvutites.",
         "div2": "Lisateabe saamiseks malli Rullimine/pikksilm kohta (sh kasutajate loodud näidised) <a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'> külastage kaardilugude veebisaiti</a>. Saate jälgida ka meie Twitteri kontot <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
@@ -248,7 +264,7 @@ define({
       "shareHeader2": "Teie lugu on kättesaadav teie organisatsiooni liikmetele (sisselogimine nõutud).",
       "shareLinkHeader": "Jagage oma lugu",
       "shareLinkOpen": "AVA",
-      "learnMore": "Loe lähemalt",
+      "learnMore": "Lisateave",
       "shareA1": "Kasutage nuppu %SHAREIMG% <a href='%LINK1%' target='_blank'>rakenduse üksuse lehel</a>. Kui soovite tühistada ka veebikaardi jagamise, siis kasutage <a href='%LINK2%' target='_blank'>veebikaardi üksuse lehte</a>.",
       "shareWarning": "%WITH% jagamine on keelatud, kuna te pole <a href='%LINK%' target='_blank'>veebikaardi</a> omanik.",
       "shareWarningWith1": "avalikult",

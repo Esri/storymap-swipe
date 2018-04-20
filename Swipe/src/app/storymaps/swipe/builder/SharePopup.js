@@ -78,7 +78,7 @@ define(["storymaps/utils/Helper"],
 				if( app.portal && app.portal.isOrganization ) {
 					container.find('.not-shared .btn-shareOrga').html(i18n.swipe.share.sharePrivateBtn2);
 					container.find('.btn-shareOrga').off('click').on('click', function() {
-						share("account", successCallback);
+						share("org", successCallback);
 					});
 				}
 				else
@@ -88,11 +88,11 @@ define(["storymaps/utils/Helper"],
 				var map1Private = false;
  				if ( app.data.getWebMapItem().item.owner != app.portal.getPortalUser().username) {
  					var sharingStatus = null;
- 					if (app.data.getWebMapItem().item.access == "account") {
+ 					if (app.data.getWebMapItem().item.access == "account" || app.data.getWebMapItem().item.access == "org") {
  						sharingStatus = i18n.swipe.share.shareWarningWith1;
  						container.find('.not-shared .btn-sharePublic').addClass("disabled").off('click');
  					}
- 					else if (app.data.getWebMapItem().item.access == "private"||app.data.getWebMapItem().item.access == "shared") {
+ 					else if (app.data.getWebMapItem().item.access == "private" || app.data.getWebMapItem().item.access == "shared") {
  						sharingStatus = i18n.swipe.share.shareWarningWith2;
  						container.find('.not-shared .btn-sharePublic, .not-shared .btn-shareOrga').addClass("disabled").off('click');
  					}
@@ -112,12 +112,12 @@ define(["storymaps/utils/Helper"],
 					if (app.data.getWebMapItem2().item.owner != app.portal.getPortalUser().username) {
 						var sharingStatus = null;
 
-						if (app.data.getWebMapItem2().item.access == "account") {
+						if (app.data.getWebMapItem2().item.access == "account" || app.data.getWebMapItem().item.access == "org") {
 							sharingStatus = i18n.swipe.share.shareWarningWith1;
 							container.find('.not-shared .btn-sharePublic').addClass("disabled").off('click');
 						}
 						else
-							if (app.data.getWebMapItem2().item.access == "private"||app.data.getWebMapItem2().item.access == "shared") {
+							if (app.data.getWebMapItem2().item.access == "private" || app.data.getWebMapItem2().item.access == "shared") {
 								sharingStatus = i18n.swipe.share.shareWarningWith2;
 								container.find('.not-shared .btn-sharePublic, .not-shared .btn-shareOrga').addClass("disabled").off('click');
 							}
@@ -248,11 +248,7 @@ define(["storymaps/utils/Helper"],
 
 			function getBitLy(targetUrl, nodeSelector)
 			{
-				var bitlyUrls = [
-					"http://api.bitly.com/v3/shorten?callback=?",
-					"https://api-ssl.bitly.com/v3/shorten?callback=?"
-				];
-				var bitlyUrl = location.protocol == 'http:' ? bitlyUrls[0] : bitlyUrls[1];
+				var bitlyUrl = 'https://arcg.is/prod/shorten?callback=?';
 
 				$.getJSON(
 					bitlyUrl,

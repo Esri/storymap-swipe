@@ -52,6 +52,22 @@ define({
       "autoplayLabel": "Režim automatske reprodukcije",
       "autoplayExplain1": "Režim automatske reprodukcije će ići kroz priču uobičajenim intervalom. Ovo je idealno na terminalima ili javim ekranima, ali imajte u vidu da u drugim situacijama čitanje priče može da bude otežano. Ova funkcija nije podržana na ekranima malih dimenzija.",
       "autoplayExplain2": "Kada je ovaj režim aktiviran, postoje kontrole da se priča reprodukuje/pauzira i da se prilagodi brzina navigacije."
+    },
+    "bannerNotification": {
+      "learnMore": "Saznaj više",
+      "close": "Zatvori",
+      "dontShowAgain": "Ne prikazuj ponovo ovu poruku"
+    },
+    "httpsTransitionMessage": {
+      "bannerMsg": "Važna poruka u vezi sa veb bezbednošću i Story Maps",
+      "s1h1": "Esri poboljšava bezbednost za Story Maps",
+      "s1p1": "Vaše Story Mape su uživo na vebu i veb zajednica uvek radi na uspostavljanju i realizaciji bolje bezbednosti. HTTPS, koji omogućava bezbednu vezu za prenos sadržaja putem interneta se pojavljuje kao očekivani način za pristup veb sadržaju. Najsavremeniji pregledači sada prikazuju poruke upozorenja kada se koristi HTTP umesto HTTPS. Zbog ovog novog standarda, počevši od ažuriranja ArcGIS Online platforme od juna 2018. Godine, vaše Story mape će morati da koriste HTTPS.",
+      "s1p2": "Drugim rečima, ovo znači da će Story mape i sav njihov sadržaj (uključujući snimke, slojeve, ugrađene aplikacije i veb lokacije) morati da imaju pristup preko linkova koji počinju sa HTTPS umesto HTTP. Ovim se obezbeđuje bolje iskustvo za čitaoce jer će većina veb pregledača prikazati da su priče bezbedne.",
+      "s2h1": "Šta treba da uradim?",
+      "s2p1": "Esri radi na tome da pojednostavi ovaj prelaz za autore i čitaoce Story mapa. Sada su dostupne alatke u alatkama za izradu Story mapa i liste „Moje priče“, koje vam pomažu da pronađete nebezbedan sadržaj (HTTPS) u pričama i pružaju vam preporuke kako da rešite taj problem. Proverite priče na nebezbedan sadržaj i ažurirajte ih na HTTPS vezu pre juna 2018. godine.",
+      "action1": "Zatvori",
+      "action2": "Proveri odmah moje priče",
+      "action3": "Saznaj više"
     }
   },
   "builder": {

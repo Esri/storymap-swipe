@@ -403,13 +403,14 @@ define(["storymaps/swipe/core/WebApplicationData", "storymaps/utils/Helper", "do
 
 			this.updateSharingStatus = function()
 			{
+				var appAccess = app.data.getAppItem().access;
 				if( app.isDirectCreationFirstSave || app.isGalleryCreation ) {
 					$("#sharing-status").html("<span style='color: #FFF'>; " + i18n.swipe.share.shareStatus1 + "</span>");
 					container.find('.builder-share').attr("disabled", "disabled");
 				}
-				else if ( app.data.getAppItem().access == "public" )
+				else if ( appAccess == "public" )
 					$("#sharing-status").html("; " + i18n.swipe.share.shareStatus2);
-				else if ( app.data.getAppItem().access == "account" )
+				else if ( appAccess == "account" || appAccess == "org" )
 					$("#sharing-status").html("; " + i18n.swipe.share.shareStatus3);
 				else
 					$("#sharing-status").html("; " + i18n.swipe.share.shareStatus4);

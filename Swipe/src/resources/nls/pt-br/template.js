@@ -43,7 +43,7 @@ define({
       "navRight": "Dados"
     },
     "desktopView": {
-      "storymapsText": "Um mapa histórico",
+      "storymapsText": "Um Mapa Histórico",
       "builderButton": "Trocar para modo do construtor",
       "facebookTooltip": "Compartilhar no Facebook",
       "twitterTooltip": "Compartilhar no Twitter",
@@ -52,6 +52,22 @@ define({
       "autoplayLabel": "Modo de reprodução automática",
       "autoplayExplain1": "O modo de reprodução automática avançará por sua história em um intervalo regular. Isto é ideal em um monitor de visualização pública ou de quiosque, mas esteja ciente que em outras situações ele pode tornar a história mais difícil de ler. Este recurso não é suportado em visualizações pequenas.",
       "autoplayExplain2": "Quando este modo está ativo há controles para reproduzir/pausar a história e ajustar a velocidade de navegação."
+    },
+    "bannerNotification": {
+      "learnMore": "Obtenha Mais Informações",
+      "close": "Fechar",
+      "dontShowAgain": "Não mostrar esta mensagem novamente"
+    },
+    "httpsTransitionMessage": {
+      "bannerMsg": "Mensagem Importante sobre Segurança da Web e Mapas Históricos",
+      "s1h1": "A Esri está melhorando a segurança de Mapas Históricos",
+      "s1p1": "Seu Mapa Histórico em tempo real na web e a comunidade da web está sempre trabalhando para estabelecer e implementar uma segurança melhor. HTTPS, que fornece uma conexão segura para conteúdo transmitido na internet, está emergindo como o modo esperado para acessar conteúdo da web. A maioria dos navegadores modernos agora mostram mensagens de aviso quando HTTP é utilizado em vez de HTTPS. Devido ao fato deste padrão estar emergindo, iniciando com a atualização de junho de 2018 para ArcGIS Online, seus Mapas Históricos precisarão utilizar HTTPS.",
+      "s1p2": "Isto significa que um Mapa Histórico e todo seu conteúdo (incluindo imagens, camadas, aplicativos embutidos e sites da web) devem ter links acessados que iniciam com HTTPS em vez de HTTP. Isto assegura uma melhor experiência para seus leitores porque a maioria dos navegadores da web indicarão que suas histórias são seguras.",
+      "s2h1": "O que preciso fazer?",
+      "s2p1": "A Esri está trabalhando para facilitar a transição para autores e leitores de Mapa Histórico. As ferramentas estão disponíveis agora nos construtores de Mapa Histórico e Minhas Histórias que ajudam a você localizar conteúdo inseguro (HTTP) em suas histórias e fornecem recomendações de como proceder com isto. Verifique suas histórias sobre conteúdo inseguro e atualize para HTTPS antes de junho de 2018.",
+      "action1": "Fechar",
+      "action2": "Verificar minhas histórias agora",
+      "action3": "Mais informações"
     }
   },
   "builder": {

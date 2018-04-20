@@ -11,7 +11,9 @@ define(["esri/arcgis/Portal",
 		"esri/IdentityManager",
 		"esri/request",
 		"esri/geometry/Extent",
+		"esri/arcgis/utils",
 		"dojo/topic",
+		"storymaps/ui/bannerNotification/BannerNotification",
 		"dojo/on"],
 	function(
 		esriPortal,
@@ -27,7 +29,9 @@ define(["esri/arcgis/Portal",
 		IdentityManager,
 		esriRequest,
 		Extent,
+		arcgisUtils,
 		topic,
+		BannerNotification,
 		on)
 	{
 		var _core = null;
@@ -85,6 +89,47 @@ define(["esri/arcgis/Portal",
 			}));
 
 			app.cleanApp = cleanApp;
+
+			// Show https-transition notification when app loads
+			if (!app.data.isOrga()) {
+				topic.subscribe('SWIPE_READY', function() {
+					var strings = i18n.viewer.httpsTransitionMessage;
+					new BannerNotification({
+						id: "httpsTransitionMessage",
+						bannerMsg: strings.bannerMsg,
+						mainMsgHtml: '\
+				      <h2>' + strings.s1h1 + '</h2>\
+				      <p>' + strings.s1p1 + '</p>\
+				      <p>' + strings.s1p2 + '</p>\
+				      <h2>' + strings.s2h1 + '</h2>\
+				      <p>' + strings.s2p1 + '</p>\
+				    ',
+						actions: [
+							{
+								primary: true,
+								string: strings.action1,
+								closeOnAction: true
+							},
+							{
+								string: strings.action2,
+								action: function() {
+									window.open('https://storymaps.arcgis.com/en/my-stories/');
+								}
+							},
+							{
+								string: strings.action3,
+								action: function() {
+									window.open('https://links.esri.com/storymaps/web_security_faq');
+								}
+							}
+						],
+						cookie: {
+							domain: window.location.hostname,
+							maxAge: 60 * 60 * 24 * 365
+						}
+					});
+				});
+			}
 		}
 
 		function appInitComplete()
@@ -512,12 +557,12 @@ define(["esri/arcgis/Portal",
 
 			// Looks like sharing to private imply a unshareItems request first
  			// => don't use it that code to share private without more test
-			if ( sharingMode != "public" && sharingMode != "account" )
+			if ( sharingMode != "public" && sharingMode != "account" && sharingMode != "org" )
 				sharingMode = "public";
 
 			// Find items to share - only if they aren't already shared to the proper level
 			var targetItems = [];
-			if( sharingMode == "account" ) {
+			if( sharingMode == "account" || sharingMode == "org" ) {
 				if( (app.data.getWebMapItem().item.access == "private"||app.data.getWebMapItem().item.access == "shared") && app.data.getWebMapItem().item.owner == app.portal.getPortalUser().username )
  					targetItems.push(app.data.getWebMapItem().item.id);
 
@@ -579,13 +624,13 @@ define(["esri/arcgis/Portal",
 				items: items,
 				groups: '',
 				everyone: '',
-				account: ''
+				org: ''
 			};
 
 			if ( sharing == "public" )
 				params.everyone = true;
-			if ( sharing == "account" )
-				params.account = true;
+				if ( sharing == "account" || sharing == "org" )
+					params.org = true;
 
 			return esriRequest(
 				{
@@ -624,7 +669,7 @@ define(["esri/arcgis/Portal",
 
 		function getPortalURL()
 		{
-			return configOptions.sharingurl.split('/sharing/')[0];
+			return arcgisUtils.arcgisUrl.split('/sharing/')[0];
 		}
 
 		function styleIdentityManagerForSave()

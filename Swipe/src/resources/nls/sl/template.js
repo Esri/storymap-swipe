@@ -52,6 +52,22 @@ define({
       "autoplayLabel": "Način samodejnega predvajanja",
       "autoplayExplain1": "Način samodejnega predvajanja bo vašo zgodbo prikazoval v rednih intervalih. To je idealno za kiosk ali javno prikazovan zaslon, vendar vedite, da bo zgodbe v drugih situacijah morda težje brati. Ta funkcionalnost ni podprta na majhnih zaslonih.",
       "autoplayExplain2": "Ko je ta način dejaven, so prikazani ukazi za predvajanje/začasno ustavitev zgodbe in prilagoditev hitrosti navigacije."
+    },
+    "bannerNotification": {
+      "learnMore": "Izvedi več",
+      "close": "Zapri",
+      "dontShowAgain": "Tega sporočila ne kaži več"
+    },
+    "httpsTransitionMessage": {
+      "bannerMsg": "Pomembno sporočilo o spletni varnosti in kartah z zgodbo",
+      "s1h1": "Esri izboljšuje varnost kart z zgodbo",
+      "s1p1": "Vaše karte z zgodbo živijo na spletu in spletna skupnost si nenehno prizadeva za vzpostavitev in izvajanje boljše varnosti. HTTPS, ki zagotavlja varno povezavo za vsebino, preneseno prek interneta, se pojavlja kot pričakovani način za dostop do spletnih vsebin. Večina sodobnih brskalnikov sedaj prikazuje opozorilna sporočila, ko je namesto HTTPS uporabljen HTTP. Zaradi tega nastajajočega standarda, ki bo stopil v veljavo junija 2018 s posodobitvijo ArcGIS Online, bodo vaše karte z zgodbo morale uporabljati HTTPS.",
+      "s1p2": "Praktično gledano to pomeni, da bo do karte z zgodbo in vseh njenih vsebin (vključno s slikami, sloji, vdelanimi aplikacijami in spletnimi stranmi) treba dostopati s pomočjo povezav, ki se začnejo s HTTPS in ne s HTTP. To zagotavlja najboljšo izkušnjo vašim bralcem, saj bo večina brskalnikov označevala, da so vaše zgodbe varne.",
+      "s2h1": "Kaj moram storiti?",
+      "s2p1": "Podjetje Esri si prizadeva, da bo to enostaven prehod za avtorje in bralce kart z zgodbo. Sedaj so na voljo orodja v graditeljih kart z zgodbo in mojih zgodbah, ki vam pomagajo najti negotovo vsebino (HTTP) v vaših zgodbah in zagotavljajo priporočila, kako jih obravnavati. Preverite vaše zgodbe za negotovo vsebino in posodobite na HTTPS pred junijem 2018.",
+      "action1": "Trenutna drsnica",
+      "action2": "Preveri moje zgodbe zdaj",
+      "action3": "Izvedi več"
     }
   },
   "builder": {
@@ -101,7 +117,7 @@ define({
     },
     "settingsHeader": {
       "settingsTabLogo": "Glava",
-      "settingsLogoExplain": "Prilagodite logotip glave (največja velikost 250 x 50 px).",
+      "settingsLogoExplain": "Prilagodite logotip glave (maksimalna velikost 250 x 50 px).",
       "settingsLogoEsri": "Logotip Esri",
       "settingsLogoNone": "Brez logotipa",
       "settingsLogoCustom": "Logotip po meri",
@@ -171,7 +187,7 @@ define({
       "settingsDataModelSelect": "Izberi ta tip",
       "settingsDataModel2Explain": "Podrsnite z drugo spletno karto.",
       "settingsDataModel2SpyGlassExplain": "Odkrijte drugo spletno karto.",
-      "settingsDataModel2HelpTitle": "Kako poiščem ID spletne karte?",
+      "settingsDataModel2HelpTitle": "Kako najdem ID spletne karte?",
       "settingsDataModel2HelpContent": "Kopirajte in prilepite številke po znaku »=« v URL-ju spletne karte",
       "switchMaps": "Zamenjaj karte",
       "browseWebMaps": "Prebrskaj spletne karte"
@@ -185,8 +201,8 @@ define({
       "settingsPopupDisable": "Omogoči pojavno okno",
       "settingsLocationSearchEnable": "Omogoči lokator iskanja",
       "settingsGeolocatorEnable": "Omogoči geolokator",
-      "settingsLegendHelpContent": "Za prečiščenje vsebine legende uporabite kazalo pregledovalnika spletne karte ArcGIS (skrij v legendi)",
-      "settingsSeriesHelpContent": "Serije drsnikov je možnost navigacije z zavihki, ki bo pregledovalnik vodila do določenega obsega in prikazala besedilo imena ter opisa na stranski plošči. Med začetno aktivacijo bodo zaznamki s spletne karte uvoženi in uporabljeni za predhodno izpolnjevanje vrstice serije. Možnost, ki onemogoči serije, izklopi vrstico serije, vendar je konfiguracija serije ohranjena za prihodnjo uporabo.",
+      "settingsLegendHelpContent": "Za natančno določanje vsebine legende uporabite vsebino pregledovalnika spletne karte ArcGIS (skrito v legendi)",
+      "settingsSeriesHelpContent": "Serije drsnikov je možnost navigacije z zavihki, ki bo ogledovalca vodila do določenega obsega in prikazovala besedilo imena ter opisa na stranski plošči. Med začetno aktivacijo bodo zaznamki s spletne karte uvoženi in uporabljeni za predhodno izpolnjevanje vrstice serije. Možnost, ki onemogoči serije, izklopi vrstico serije, vendar je konfiguracija serije ohranjena za prihodnjo uporabo.",
       "settingsSeriesHelpContent2": "Serije drsnikov vam omogočajo ustvarjanje in urejanje izbora lokacij s spremljajočimi imeni in besedili. Če ima vaša spletna karta zaznamke, bodo ti prikazani. Serijo lahko onemogočite, vendar bo konfiguracija ohranjena za prihodnjo uporabo.",
       "settingsSeriesHelpLink": "Primer aplikacije serij drsnikov si oglejte tukaj",
       "preview": "Predogled uporabniškega vmesnika",
@@ -221,7 +237,7 @@ define({
       "title": "Pomoč",
       "close": "Zapri",
       "tab1": {
-        "div1": "Predloga Drsnik/Lupa je oblikovana tako, da primerja dve ločeni spletni karti ali dva sloja ene spletne karte v privlačnih spletni aplikaciji, ki je preprosta za uporabo in jo je mogoče uporabiti v vseh spletnih brskalnikih na vseh napravah, vključno s pametnimi telefoni in tablicami.",
+        "div1": "Predloga Drsnik/Lupa je oblikovana tako, da primerja dve ločeni spletni karti ali dva sloja enojne spletne karte v privlačni spletni aplikaciji, ki je preprosta za uporabo in jo je mogoče uporabiti v vseh spletnih brskalnikih na vseh napravah, vključno s pametnimi telefoni in tablicami.",
         "div2": "Za dodatne informacije o predlogi Drsnik/Lupa, vključno s primeri, ki so jih ustvarili uporabniki, <a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'> obiščite spletno mesto Karte z zgodbo</a>. Sledite nam lahko tudi na Twitterju na <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
         "div3": "Veseli bomo, če se nam oglasite! Če imate vprašanje, želite novo funkcionalnost ali mislite, da ste naleteli na napako, obiščite forum uporabnikov <a href='http://links.esri.com/storymaps/forum' target='_blank'>Story Maps User Forum</a>."
       }
@@ -245,7 +261,7 @@ define({
       "shareStatus4": "Zgodba ni deljena",
       "sharePreviewAsUser": "Predogled",
       "shareHeader1": "Vaša zgodba je <strong>javno dostopna</strong>.",
-      "shareHeader2": "Do vaše zgodbe imajo dostop člani vaše organizacije (obvezna je prijava).",
+      "shareHeader2": "Do vaše zgodbe imajo dostop uporabniki vaše organizacije (obvezna je prijava).",
       "shareLinkHeader": "Delite svojo zgodbo",
       "shareLinkOpen": "ODPRI",
       "learnMore": "Izvedite več",
@@ -282,7 +298,7 @@ define({
       "items": {
         "organizationLabel": "Moja organizacija",
         "onlineLabel": "ArcGIS Online",
-        "contentLabel": "Moje vsebine",
+        "contentLabel": "Moja vsebina",
         "favoritesLabel": "Moje priljubljene"
       },
       "title": "Izberi spletno karto",

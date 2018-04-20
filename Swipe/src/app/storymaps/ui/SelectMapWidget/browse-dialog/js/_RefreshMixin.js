@@ -11,7 +11,7 @@ define(["dojo/_base/declare", "dojo/_base/lang", "dojo/_base/Deferred", "dojo/on
       error: err,
       cancelable: true,
       bubbles: true })) {
-      console.error(err);
+      //console.error(err);
     }
   }
 

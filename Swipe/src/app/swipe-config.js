@@ -9,10 +9,10 @@ APPCFG = {
 
 	// Header Logo
 	HEADER_LOGO_URL: "resources/icons/esri-logo-white.png",
-	HEADER_LOGO_TARGET: "http://www.esri.com",
+	HEADER_LOGO_TARGET: "https://www.esri.com",
 	// Header top right link
-	HEADER_LINK_TEXT: "A story map",
-	HEADER_LINK_URL: "http://storymaps.arcgis.com/",
+	HEADER_LINK_TEXT: "A Story Map",
+	HEADER_LINK_URL: "https://storymaps.arcgis.com/",
 	// Control display of Facebook and Twitter links
 	HEADER_SOCIAL: {
 		facebook: true,
