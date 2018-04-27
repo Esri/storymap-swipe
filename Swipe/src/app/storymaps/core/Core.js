@@ -15,6 +15,7 @@ define(["esri/map",
 		// Utils
 		"dojo/has",
 		"esri/IdentityManager",
+		"esri/arcgis/OAuthInfo",
 		"esri/config",
 		"esri/tasks/GeometryService",
 		"esri/request",
@@ -45,6 +46,7 @@ define(["esri/map",
 				BrowseIdDlg,
 				has,
 				IdentityManager,
+				ArcGISOAuthInfo,
 				esriConfig,
 				GeometryService,
 				esriRequest,
@@ -386,21 +388,57 @@ define(["esri/map",
 			});
 
 			// Pass cookie onto API to avoid infinite redirects
-			IdentityManager.checkSignInStatus(app.org.url);
+			IdentityManager.checkSignInStatus(app.org.url + '/sharing/rest/');
 
-			// If forceLogin or builder
-			if ( forceLogin || app.isInBuilderMode )
-				portalLogin().then(
+			// If app is configured to use OAuth
+			if ( configOptions.oAuthAppId ) {
+				var info = new ArcGISOAuthInfo({
+					appId: configOptions.oAuthAppId,
+					popup: false,
+					portalUrl: 'https:' + configOptions.sharingurl.split('/sharing/')[0]
+				});
+
+				IdentityManager.registerOAuthInfos([info]);
+
+				IdentityManager.checkSignInStatus(info.portalUrl).then(
 					function() {
-						loadWebMappingAppStep2(appId);
+						// User has signed-in using oAuth
+						if ( !app.isInBuilderMode )
+							portalLogin().then(function() {
+								loadWebMappingAppStep2(appId);
+							});
+						else
+							portalLogin().then(function() {
+								loadWebMappingAppStep2(appId);
+							});
 					},
 					function() {
-						initError("notAuthorized");
+						// Not signed-in, redirecting to OAuth sign-in page if builder
+						if (!app.isInBuilderMode){
+							loadWebMappingAppStep2(appId);
+						} else {
+							portalLogin().then(function() {
+								loadWebMappingAppStep2(appId);
+							});
+						}
 					}
 				);
-			// Production in view mode
-			else
-				loadWebMappingAppStep2(appId);
+			}
+			else {
+				// If forceLogin or builder
+				if ( forceLogin || app.isInBuilderMode )
+					portalLogin().then(
+						function() {
+							loadWebMappingAppStep2(appId);
+						},
+						function() {
+							initError("notAuthorized");
+						}
+					);
+				// Production in view mode
+				else
+					loadWebMappingAppStep2(appId);
+			}
 		}
 
 		function loadWebMappingAppStep2(appId)

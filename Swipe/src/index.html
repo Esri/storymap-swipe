@@ -124,6 +124,9 @@
 				title: "",
 				// The application header subtitle, if not specified the ArcGIS.com web map's summary is used
 				subtitle: "",
+				// Optionally to secure Shortlist's access, use an OAuth application ID (example: 6gyOg377fLUhUk6f)
+				// User will need to sign-in to access the viewer even if your application is public
+				oAuthAppId: "",
 				// Optionally to be able to use the webmap URL parameter, configure here the list of webmap authors
 				// whose webmaps are allowed to be viewed by this Shortlist deployment
 				// This is the ArcGIS Online username of the webmap owner (e.g. ["user1"], ["user1", "user2"])
@@ -138,7 +141,7 @@
 		</script>
 
 		<script type="text/javascript">
-			var version = '1.14.0';
+			var version = '1.14.1';
 			var isProduction = false;
 			// IE 9 and below are not compatible with script async attribute.
 			var canUseAsyncAttr = true;
