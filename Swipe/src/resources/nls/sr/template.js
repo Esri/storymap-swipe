@@ -307,5 +307,31 @@ define({
       "cancel": "Otkaži",
       "placeholder": "Unesite pojam za pretragu"
     }
+  },
+  "httpsTransitionNotification": {
+    "s1h1": "Esri poboljšava sigurnost za Story Maps",
+    "s1p1": "Vaše Story mape žive na vebu i veb zajednica uvek radi na uspostavljanju i primeni bolje sigurnosti. HTTPS, kojim se obezbeđuje sigurna veza za prenos sadržaja putem interneta, pojavljuje se kao očekivani način pristupa veb sadržaju. Najsavremeniji pregledači sada prikazuju poruke upozorenja kada se koristi HTTP umesto HTTPS. Zbog ovog novog standarda, preporučujemo da koristite HTTPS linkove za kreiranje i deljenje Story mapa i da isključivo koristite HTTPS URL adrese kada ugrađujete veb sadržaj ili povezujete sa snimcima u Story mapi.",
+    "s1p2": "Drugim rečima, ovo znači da Story mapi i svom njenom sadržaju (uključujući snimke, slojeve, ugrađene aplikacije i veb sajtove) treba da se pristupa korišćenjem linkova koji počinju sa HTTPS umesto sa HTTP. Ovim se obezbeđuje bolje iskustvo za čitaoce jer većina veb pregledača pokazuje da su vaše priče sigurne.",
+    "s2h1": "Šta je potrebno da uradim?",
+    "s2p1": "Esri radi na tome da ovaj prelazak učini što lakšim za Story mape i njihove korisnike. Sada su dostupne alatke za izradu Story Map i Moje priče koje vam pomažu da pronađete sadržaj koji nije siguran (HTTP) u pričama i obezbeđuje preporuke o tome na koji način to da rešite. Proverite da li vaše priče sadrže sadržaj koji nije siguran i nadogradite na HTTPS što pre.",
+    "action1": "Zatvori",
+    "action2": "Proveri odmah moje priče",
+    "action3": "Saznaj više"
+  },
+  "embedBar": {
+    "share": "Podeli",
+    "fullScreen": "Ceo ekran",
+    "enlarge": "Uvećaj",
+    "newTab": "Otvori u novoj kartici",
+    "tagline": "Story mapa",
+    "exitFullScreen": "Izađi iz režima celog ekrana"
+  },
+  "june2018SurveyMessage": {
+    "bannerMsg": "Možemo li nešto da vas pitamo? To će nam pomoći u oblikovanju budućnosti za Story Maps.",
+    "s1h1": "Podelite misli, oblikujte budućnost",
+    "s1p1": "Vaš doprinos je nama najvažniji izvor povratnih informacija, a to što ćemo saznati više o vama, pomoći će nam da poboljšamo Story mape. Bili bismo vam zahvalni kada biste učestvovali u ovoj trominutnoj anketi.",
+    "s2p1": "Kao i uvek, hvala vam što koristite Esri Story Maps.",
+    "action1": "Zatvori",
+    "action2": "Popuni anketu"
   }
 });

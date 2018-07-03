@@ -307,5 +307,31 @@ define({
       "cancel": "Tühista",
       "placeholder": "Sisestage otsingusõnad"
     }
+  },
+  "httpsTransitionNotification": {
+    "s1h1": "Esri tegeleb kaardilugude turvalisuse tõstmisega",
+    "s1p1": "Teie kaardilugude kodu on veebis. Veebikogukond tegeleb pidevalt aina paremate turbemeetmete väljatöötamise ja kasutusele võtmisega. Veebisisule juurdepääsuks kasutatakse üha enam HTTPS-i, mis pakub sisu edastamiseks Internetis turvalist ühendust. Enamik tänapäevaseid brausereid kuvab nüüd hoiatuse, kui HTTPS-i asemel on kasutatud HTTP-d. Selle uue standardi tõttu soovitame teil kindlasti kasutada kaardilugude koostamiseks ja jagamiseks HTTPS-linke ning kaardiloos veebisisu manustamise või piltidega linkimise korral üksnes HTTPS-protokolli kasutavaid URL-e.",
+    "s1p2": "Sisuliselt tähendab see, et kaardilugu ja kogu selle sisu (sh pildid, kihid, manustatud rakendused ja veebisaidid) peaksid juurdepääsu lubamiseks kasutama linke, mille alguses on HTTP asemel HTTPS. Kuna enamik brausereid annab sel juhul märku, et teie lood on turvalised, on kasutajatel teie lugude vaatamisel kindlam tunne.",
+    "s2h1": "Mida ma pean tegema?",
+    "s2p1": "Esri loodab teha selle ülemineku kaardilugude koostajate ja lugejate jaoks lihtsaks. Kaardilugude koosturites ja lehel Minu lood on nüüd saadaval tööriistad, mis aitavad teil oma lugudest üles leida ebaturvalist sisu (HTTP) ja pakuvad soovitusi probleemi lahendamiseks. Kontrollige lood üle ja viige ebaturvaline sisu esimesel võimalusel üle HTTPS-i kasutamisele.",
+    "action1": "Sule",
+    "action2": "Kontrolli minu lugusid kohe",
+    "action3": "Lisateave"
+  },
+  "embedBar": {
+    "share": "Jaga",
+    "fullScreen": "Täisekraan",
+    "enlarge": "Kasvav",
+    "newTab": "Avatakse uuel vahelehel",
+    "tagline": "Kaardilugu",
+    "exitFullScreen": "Välju täisekraanist"
+  },
+  "june2018SurveyMessage": {
+    "bannerMsg": "Kas tohime teilt midagi küsida? See aitab vormida kaardilugude tulevikku.",
+    "s1h1": "Teie mõtted aitavad vormida tulevikku",
+    "s1p1": "Teie arvamused on meie kõige olulisem tagasiside allikas. Mida rohkem me teie kohta teame, seda paremaks saame kaardilugude funktsiooni edaspidi muuta. Meil oleks väga hea meel, kui leiaksite mõne minuti, et vastata järgmise lühikese uuringu küsimustele.",
+    "s2p1": "Täname teid Esri kaardilugude kasutamise eest!",
+    "action1": "Sule",
+    "action2": "Vasta küsitlusele"
   }
 });

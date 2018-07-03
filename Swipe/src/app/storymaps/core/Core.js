@@ -3,6 +3,7 @@ define(["esri/map",
 		"esri/arcgis/utils",
 		"esri/dijit/Legend",
 		"storymaps/utils/Helper",
+		"storymaps/utils/arcgis-html-sanitizer",
 		// Core
 		"storymaps/swipe/core/Config",
 		"storymaps/swipe/core/Data",
@@ -12,6 +13,8 @@ define(["esri/map",
 		"storymaps/ui/header/Header",
 		"storymaps/ui/mapCommand/MapCommand",
 		"storymaps/ui/SelectMapWidget/browse-dialog/js/BrowseIdDlg",
+		//Embed bar
+		"storymaps/ui/EmbedBar/EmbedBar",
 		// Utils
 		"dojo/has",
 		"esri/IdentityManager",
@@ -37,6 +40,7 @@ define(["esri/map",
 				arcgisUtils,
 				Legend,
 				Helper,
+				Sanitizer,
 				Config,
 				Data,
 				WebApplicationData,
@@ -44,6 +48,7 @@ define(["esri/map",
 				Header,
 				MapCommand,
 				BrowseIdDlg,
+				EmbedBar,
 				has,
 				IdentityManager,
 				ArcGISOAuthInfo,
@@ -141,6 +146,14 @@ define(["esri/map",
 				popup: [],
 				isPopup: false,
 				search: null,
+				sanitizer: new Sanitizer({
+					whiteList: {
+						ul: [],
+						li: [],
+						u: [],
+						font: ['face', 'size']
+					}
+				}, true),
 				// Builder
 				builder: builder,
 				isInBuilderMode: isInBuilderMode,
@@ -464,7 +477,12 @@ define(["esri/map",
 				},
 				callbackParamName: "callback",
 				load: function (response) {
-					WebApplicationData.set(response);
+					if(app.data.getAppItem().created > APPCFG.HTML_SANITIZER_DATE){
+						var sanitizedValues = app.sanitizer.sanitize(response);
+						WebApplicationData.set(sanitizedValues);
+					} else{
+						WebApplicationData.set(response);
+					}
 				},
 				error: function(){ }
 			});
@@ -958,6 +976,35 @@ define(["esri/map",
 		{
 			console.log("swipe.core.Core - initMap");
 
+			// Initialize Embed bar
+			var urlParams = esri.urlToObject(document.location.search).query || {};
+			var classicEmbedMode = urlParams.classicEmbedMode ? true : urlParams.classicEmbedMode === "" ? true : urlParams.classicembedmode ? true : urlParams.classicembedmode === "" ? true : false;
+			var isEsriLogo = app.data.getWebAppData().logoURL == null ? true : false;
+			var strings = i18n.embedBar;
+			lang.mixin(strings, {
+				open: i18n.swipe.share.shareLinkOpen,
+				close: i18n.viewer.bannerNotification.close,
+				shareFacebook: i18n.viewer.desktopView.facebookTooltip,
+				shareTwitter: i18n.viewer.desktopView.twitterTooltip
+			});
+
+			var shareElements = [$(".shareIcon")];
+
+			app.embedBar = new EmbedBar({
+				classicEmbedMode: classicEmbedMode,
+				strings: strings,
+				appCreationDate: app.data.getAppItem().created,
+				june2018ReleaseDate: APPCFG.JUNE_RELEASE_DATE,
+				isBuilder: app.isInBuilderMode,
+				isEsriLogo: isEsriLogo,
+				logoPath: "resources/icons/esri-logo-black.png",
+				logoElements: [$(".logo")],
+				taglineElements: [$(".msLink")],
+				shareElements: shareElements,
+				appTitle: app.data.getWebAppData().title,
+				bitlyCreds: [APPCFG.HEADER_SOCIAL.bitly.key, APPCFG.HEADER_SOCIAL.bitly.login]
+			});
+
 			var index = 0;
 
 			new MapCommand(
@@ -1118,7 +1165,7 @@ define(["esri/map",
 			var heightViewport = $("body").height();
 			var heightHeader = $("#header").height();
 			var heightSeriesPanel = $("#seriesPanel").height();
-			var heightMiddle = heightViewport - heightHeader - heightSeriesPanel;
+			var heightMiddle = heightViewport - heightHeader - heightSeriesPanel - (app.embedBar && app.embedBar.initiated ? 26 : 0);
 			if(isMobileView && heightSeriesPanel > 0)
 				heightMiddle -= ($('#footerMobile').height() - heightSeriesPanel);
 			app.header.resize(widthViewport);

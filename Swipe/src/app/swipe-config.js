@@ -31,6 +31,9 @@ APPCFG = {
 	TIMEOUT_VIEWER_REQUEST: 60000,
 	TIMEOUT_BUILDER_REQUEST: 60000,
 
+	// Date to enforce HTML sanitization and embed bar for apps created after 6/27/18 (June '18 release)
+	HTML_SANITIZER_DATE: 1530072000000,
+	JUNE_RELEASE_DATE: 1530072000000,
 	//
 	// Builder
 	//

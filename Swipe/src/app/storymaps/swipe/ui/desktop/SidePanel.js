@@ -119,6 +119,8 @@ define(["storymaps/swipe/core/WebApplicationData",
 
 		this.checkDescription = function(fromSaveButton)
 		{
+			if(!app.isInBuilderMode)
+				return;
 			//Blur method from component isnt good, have to check for real change
 			setTimeout(function(){
 				//Blur method from component isnt good, have to check for real change

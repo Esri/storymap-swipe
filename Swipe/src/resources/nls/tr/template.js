@@ -307,5 +307,31 @@ define({
       "cancel": "İptal",
       "placeholder": "Arama terimini gir"
     }
+  },
+  "httpsTransitionNotification": {
+    "s1h1": "Esri, Story Maps'in güvenliğini geliştiriyor",
+    "s1p1": "Hikaye Haritanız web’de yayınlanır ve web topluluğu her zaman daha iyi güvenlik sağlamak ve uygulamak için çalışmaktadır. İnternet üzerinden iletilen içerik için güvenli bir bağlantı sağlayan HTTPS, web içeriğine erişmenin birincil yolu olarak kullanılmaktadır. Çoğu modern tarayıcı artık, HTTPS yerine HTTP kullanıldığında uyarı mesajları göstermektedir. Bu yeni standart nedeniyle, Hikaye Haritaları oluştururken ve paylaşırken HTTPS bağlantıları kullanmanızı ve Story Map’e web içeriği yerleştirirken veya görüntü bağlantısı yaparken yalnızca HTTPS URL’leri kullanmanızı öneririz.",
+    "s1p2": "Pratik olarak, bu bir Hikaye Haritası anlamına gelir ve tüm içeriği (görüntüler, katmanlar, gömülü uygulamalar ve web siteleri dahil) HTTP yerine HTTPS ile başlayan bağlantılar kullanılarak erişilmelidir. Bu, okuyucularınız için en iyi deneyimi sağlar; çünkü çoğu web tarayıcısı hikayelerinizin güvenli olduğunu gösterecektir.",
+    "s2h1": "Ne yapmam gerekiyor?",
+    "s2p1": "Esri, Story Map sahipleri ve okuyucuları için bu geçişi kolaylaştırmaya çalışmaktadır. Artık Story Map oluşturucuları ve Hikayelerim’de, hikayelerinizdeki güvensiz içeriği (HTTP) bulmanıza yardımcı olacak ve bunları nasıl ele alacağınıza dair tavsiyelerde bulunacak araçlar mevcuttur. Lütfen hikayenizi güvenli olmayan içeriklere karşı kontrol edin ve bir an önce HTTPS’ye güncelleyin.",
+    "action1": "Kapat",
+    "action2": "Hikayelerimi şimdi kontrol et",
+    "action3": "Daha fazla bilgi"
+  },
+  "embedBar": {
+    "share": "Paylaş",
+    "fullScreen": "Tam ekran",
+    "enlarge": "Genişlet",
+    "newTab": "Yeni sekmede aç",
+    "tagline": "Bir Hikaye Haritası",
+    "exitFullScreen": "Tam ekrandan çık"
+  },
+  "june2018SurveyMessage": {
+    "bannerMsg": "Bir şey sorabilir miyiz? Story Maps’in geleceğini şekillendirmemize yardımcı olacak.",
+    "s1h1": "Düşüncelerinizi paylaşın ve geleceği şekillendirin",
+    "s1p1": "Verdiğiniz bilgiler, en önemli geri bildirim kaynağımız ve sizinle ilgili daha çok şey öğrenmek Story Maps’i geliştirmemize yardımcı olacak. Üç dakikanızı alacak bu ankete katılırsanız memnun oluruz.",
+    "s2p1": "Her zaman olduğu gibi Esri Story Maps’i kullandığınız için teşekkür ederiz!",
+    "action1": "Kapat",
+    "action2": "Ankete katıl"
   }
 });

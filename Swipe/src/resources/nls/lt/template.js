@@ -307,5 +307,31 @@ define({
       "cancel": "Atšaukti",
       "placeholder": "Įveskite paieškos frazę"
     }
+  },
+  "httpsTransitionNotification": {
+    "s1h1": "Esri tobulina žemėlapių pasakojimų saugumą",
+    "s1p1": "Jūsų žemėlapių pasakojimai yra internete ir interneto bendruomenė nuolat stengiasi įgyvendinti didesnę saugą. Kaip numatytasis būdas pasiekti interneto turinį, pradedamas naudoti HTTPS, kuris suteikia saugų internetu perduodamo turinio ryšį. Dauguma šiuolaikinių naršyklių rodo įspėjamąjį pranešimą, kai vietoje HTTPS naudojamas HTTP. Dėl šio naujo standarto labai rekomenduojame žemėlapių pasakojimų kūrimui ir saugojimui naudoti HTTPS nuorodas, o įdedant interneto turinį ar susiejant atvaizdus su žemėlapio pasakojimu, naudoti tik HTTPS URL.",
+    "s1p2": "Tiksliau tariant, tai reiškia, kad žemėlapio pasakojimas ir visas jo turinys (įskaitant atvaizdus, sluoksnius, įdėtąsias aplikacijas ir svetaines) turi būti pasiekiamas naudojant nuorodas, prasidedančias HTTPS, o ne HTTP. Tai užtikrina jūsų skaitytojams geriausią patirtį, nes dauguma interneto naršyklių rodys, kad jūsų pasakojimai yra saugūs.",
+    "s2h1": "Ką reikia daryti?",
+    "s2p1": "Esri stengiasi, kad šis perėjimas žemėlapio pasakojimo autoriams ir skaitytojams būtų lengvas. Dabar žemėlapio pasakojimo kūrimo priemonėse ir Mano pasakojimuose yra įrankių, padedančių jums savo pasakojimuose rasti nesaugų turinį (HTTP) ir pateikti rekomendacijų, ką su juo daryti. Patikrinkite, ar jūsų pasakojimuose yra nesaugaus turinio, ir kuo greičiau atnaujinkite į HTTPS.",
+    "action1": "Uždaryti",
+    "action2": "Peržiūrėkite savo pasakojimus jau dabar",
+    "action3": "Sužinokite daugiau"
+  },
+  "embedBar": {
+    "share": "Bendrinti",
+    "fullScreen": "Visas ekranas",
+    "enlarge": "Išplėsti",
+    "newTab": "Atidaryti naujame lange",
+    "tagline": "Žemėlapio pasakojimas",
+    "exitFullScreen": "Išjungti viso ekrano rodymo režimą"
+  },
+  "june2018SurveyMessage": {
+    "bannerMsg": "Ar galime kai ko jūsų paklausti? Tai padės ateityje kurti žemėlapių pasakojimus.",
+    "s1h1": "Pasidalykite savo mintimis ir kurkime ateitį kartu",
+    "s1p1": "Jūsų indėlis yra mūsų svarbiausias atsiliepimų šaltinis, o sužinoję apie jus daugiau, galėsime patobulinti žemėlapių pasakojimus. Būtume dėkingi, jei sudalyvautumėte šioje trijų minučių apklausoje.",
+    "s2p1": "Kaip visada, dėkojame, kad naudojate Esri žemėlapių pasakojimus!",
+    "action1": "Uždaryti",
+    "action2": "Užpildyti apklausą"
   }
 });

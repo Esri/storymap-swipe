@@ -307,5 +307,31 @@ define({
       "cancel": "Annulla",
       "placeholder": "Immettere il termine da cercare"
     }
+  },
+  "httpsTransitionNotification": {
+    "s1h1": "Esri sta migliorando la sicurezza delle Story Map",
+    "s1p1": "Le Story Map vivono nel Web e la comunità Web è costantemente impegnata nella formulazione e nell’implementazione di misure volte a migliorare la sicurezza. Il protocollo HTTPS, che fornisce una connessione sicura per i contenuti trasmessi su Internet, si sta affermando come metodo di accesso più comune ai contenuti Web. Molti dei browser moderni mostrano un messaggio di avviso nei casi in cui viene usato l’HTTP anziché l’HTTPS. A causa di questo standard emergente, consigliamo vivamente di utilizzare i link HTTPS per la creazione e la condivisione di Story Maps e di utilizzare solo gli URL HTTPS per incorporare il contenuto Web o il collegamento a immagini all'interno di una Story Map.",
+    "s1p2": "In pratica, ciò significa che una Story Map e tutto il suo contenuto (inclusi immagini, layer, app incorporate e siti Web) devono essere accessibili utilizzando i collegamenti che iniziano con HTTPS anziché con HTTP. Ciò garantisce la migliore esperienza per i lettori perché la maggior parte dei browser Web indica che le tue storie sono al sicuro.",
+    "s2h1": "Cosa occorre fare?",
+    "s2p1": "Esri sta lavorando per rendere questa transizione facile per autori e lettori di Story Map. I generatori di Story Map e My Stories contengono strumenti che possono essere impiegati per trovare contenuti non sicuri (HTTP) all’interno delle storie e che forniscono indicazioni utili sulla loro gestione. Si prega di verificare la presenza di contenuti non sicuri all’interno delle storie e di aggiornarli all’HTTPS prima possibile.",
+    "action1": "Chiudere",
+    "action2": "Controlla subito le mie storie",
+    "action3": "Ulteriori informazioni"
+  },
+  "embedBar": {
+    "share": "Crea",
+    "fullScreen": "Schermo intero",
+    "enlarge": "Allarga",
+    "newTab": "Apri in una nuova scheda",
+    "tagline": "Story Map",
+    "exitFullScreen": "Chiudi visualizzazione a schermo intero"
+  },
+  "june2018SurveyMessage": {
+    "bannerMsg": "Possiamo fare qualche domanda? Ci consentiranno di plasmare il futuro di Story Maps.",
+    "s1h1": "Condividi le tue opinioni, plasma il futuro",
+    "s1p1": "Il contributi degli utenti sono la nostra più importante fonte di feedback e ottenere ulteriori informazioni sugli utenti ci consentirà di migliorare Story Maps. Saremmo lieti che i nostri utenti possano partecipare a questa inchiesta di tre minuti.",
+    "s2p1": "Come sempre, grazie per aver utilizzato Esri Story Maps!",
+    "action1": "Chiudere",
+    "action2": "Partecipa all’inchiesta"
   }
 });

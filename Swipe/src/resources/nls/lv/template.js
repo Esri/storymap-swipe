@@ -307,5 +307,31 @@ define({
       "cancel": "Atcelt",
       "placeholder": "Ievadiet meklēšanas nosacījumus"
     }
+  },
+  "httpsTransitionNotification": {
+    "s1h1": "Esri uzlabo Kartes stāsta drošību",
+    "s1p1": "Jūsu Kartes stāsti dzīvo tīmeklī, un tīmekļa kopiena vienmēr strādā, lai nodrošinātu un uzlabotu drošību. HTTPS, kas nodrošina drošu savienojumu ar internetā pārraidītu saturu, tiek parādīts kā paredzētais veids, kā piekļūt tīmekļa saturam. Lielākā daļa moderno pārlūku tagad parāda brīdinājuma ziņojumus, ja tiek izmantots HTTP, nevis HTTPS. Šī jaunā standarta dēļ mēs stingri iesakām izmantot HTTPS saites Kartes stāstu autorēšanai un koplietošanai, kā arī izmantot HTTPS vietrāžus URL, iegulstot tīmekļa saturu vai sasaistot ar attēliem Kartes stāstā.",
+    "s1p2": "Praktiski runājot, tas nozīmē, ka Kartes stāstam un visam tā saturam (ieskaitot attēlus, slāņus, iegultās lietotnes un tīmekļa vietnes), ir jānodrošina piekļuve, izmantojot saites, kas sākas ar HTTPS, nevis HTTP. Tas nodrošina labāko pieredzi jūsu lasītājiem, jo lielākā daļa tīmekļa pārlūku norāda, ka jūsu stāsti ir droši.",
+    "s2h1": "Kas man jādara?",
+    "s2p1": "Esri strādā, lai padarītu to par vienkāršu pāreju Kartes stāsta autoriem un lasītājiem. Kartes stāstu veidotājos un Manos stāstos ir pieejami rīki, kas jums palīdzēs atrast nedrošo saturu (HTTP) jūsu stāstos un sniegs ieteikumus, kā to risināt. Lūdzu, pārbaudiet savus stāstus uz nedrošu saturu un pēc iespējas ātrāk atjauniniet HTTPS.",
+    "action1": "Aizvērt",
+    "action2": "Pārbaudīt manus stāstus tūlīt",
+    "action3": "Uzziniet vairāk"
+  },
+  "embedBar": {
+    "share": "Kopīgošana",
+    "fullScreen": "Pilnekrāna režīms",
+    "enlarge": "Palielināt",
+    "newTab": "Atvēriet jaunā cilnē",
+    "tagline": "Kartes stāsts",
+    "exitFullScreen": "Iziet no pilnekrāna režīma"
+  },
+  "june2018SurveyMessage": {
+    "bannerMsg": "Vai varam jums kaut ko pajautāt? Tas palīdzēs veidot Kartes stāstu nākotni.",
+    "s1h1": "Dalieties savās domās, veidojiet nākotni",
+    "s1p1": "Jūsu ieguldījums ir viens no mūsu svarīgākajiem atsauksmju avotiem, pastāstot vairāk, jūs palīdzēsiet mums uzlabot Kartes stāstus. Mēs būtu pateicīgi, ja jūs varētu piedalīties šajā trīs minūšu aptaujā.",
+    "s2p1": "Kā vienmēr, paldies, ka izmantojat Esri Kartes stāstus!",
+    "action1": "Aizvērt",
+    "action2": "Aizpildīt aptauju"
   }
 });

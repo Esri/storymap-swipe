@@ -307,5 +307,31 @@ define({
       "cancel": "Anulare",
       "placeholder": "Introducere termen de căutare"
     }
+  },
+  "httpsTransitionNotification": {
+    "s1h1": "Esri îmbunătățește securitatea hărților informative",
+    "s1p1": "Hărțile dvs. informative se află pe web, iar comunitatea web lucrează în permanență pentru a stabili și implementa o securitate mai bună. HTTPS, care oferă o conexiune securizată pentru conținutul transmis prin internet, devine metoda așteptată pentru a accesa conținut web. Acum, majoritatea browserelor moderne afișează mesaje de avertizare atunci când se utilizează HTTP în loc de HTTPS. Având în vedere acest standard nou, vă recomandăm insistent să utilizați linkuri HTTPS pentru autorizarea și partajarea hărților informative și să utilizați numai URL-uri HTTPS atunci când încorporați conținut web sau când adăugați linkuri către imagini în cadrul unei hărți informative.",
+    "s1p2": "În mod concret, acest lucru înseamnă că o hartă informativă și întregul său conținut (inclusiv imagini, straturi tematice, aplicații încorporate și site-uri web) trebuie să fie accesate folosind mai degrabă link-uri care încep cu HTTPS decât cu HTTP. Acest lucru le asigură cititorilor dvs. o experiență optimă, deoarece cele mai multe browsere web vor indica faptul că relatările dvs. sunt sigure.",
+    "s2h1": "Ce trebuie să fac?",
+    "s2p1": "Esri depune toate eforturile pentru a face ca această tranziție să fie una ușoară pentru autorii de hărți informative și pentru cititori. Sunt disponibile acum instrumente în aplicațiile de creare a hărților informative și în Relatările mele, care vă ajută să găsiți conținut nesigur (HTTP) în relatările dvs. și care vă oferă recomandări pentru modul în care puteți să-l gestionați. Vă rugăm să vă verificați relatările pentru a vedea dacă includ conținut nesigur și să actualizați la HTTPS cât mai curând posibil.",
+    "action1": "Închidere",
+    "action2": "Verificați-mi acum relatările",
+    "action3": "Aflați mai multe"
+  },
+  "embedBar": {
+    "share": "Partajare",
+    "fullScreen": "Pe tot ecranul",
+    "enlarge": "Mărire",
+    "newTab": "Deschideți într-o filă nouă",
+    "tagline": "O hartă informativă",
+    "exitFullScreen": "Părăsiți modul pe tot ecranul"
+  },
+  "june2018SurveyMessage": {
+    "bannerMsg": "Vă putem solicita un lucru? Acesta va contribui la modelarea viitorului hărților informative.",
+    "s1h1": "Împărtășiți-vă gândurile, modelați viitorul",
+    "s1p1": "Informațiile furnizate de dvs. reprezintă sursa noastră cea mai importantă de feedback și faptul că aflăm mai multe despre dvs. ne va ajuta să îmbunătățim hărțile informative. V-am fi recunoscători dacă ați putea participa la acest chestionar de trei minute.",
+    "s2p1": "Ca întotdeauna, vă mulțumim că utilizați hărțile informative Esri!",
+    "action1": "Închidere",
+    "action2": "Parcurgeți chestionarul"
   }
 });

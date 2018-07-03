@@ -307,5 +307,31 @@ define({
       "cancel": "Annuleren",
       "placeholder": "Zoekterm invoeren"
     }
+  },
+  "httpsTransitionNotification": {
+    "s1h1": "Esri verbetert de beveiliging van Story Maps",
+    "s1p1": "Uw Story Maps zijn live op internet en de webgemeenschap is altijd bezig om betere beveiliging tot stand te brengen en te implementeren. HTTPS, dat een beveiligde verbinding biedt voor inhoud die via internet wordt uitgezonden, is in opkomst als de verwachte manier om toegang te krijgen tot webcontent. De meeste moderne browsers tonen nu waarschuwingsberichten wanneer HTTP in plaats van HTTPS wordt gebruikt. Vanwege deze nieuwe norm raden we u ten zeerste aan HTTPS-koppelingen te gebruiken voor het schrijven en delen van Story Maps en alleen HTTPS-URL's te gebruiken bij het insluiten van webinhoud of het linken naar afbeeldingen in een Story Map.",
+    "s1p2": "Praktisch gezien betekent dit dat een Story Map en alle bijbehorende inhoud (inclusief afbeeldingen, lagen, ingesloten apps en websites) toegankelijk moeten zijn via koppelingen die beginnen met HTTPS in plaats van HTTP. Dit zorgt voor de beste ervaring voor uw lezers, omdat de meeste webbrowsers aangeven dat uw verhalen veilig zijn.",
+    "s2h1": "Wat moet ik doen?",
+    "s2p1": "Esri werkt eraan om dit een gemakkelijke overgang te maken voor makers en lezers van de Story Map. Er zijn nu tools beschikbaar in de builders van Story Map en My Stories die u helpen onveilige inhoud (HTTP) in uw verhalen te vinden en aanbevelingen te doen voor de aanpak ervan. Controleer uw verhalen op onveilige inhoud en werk zo snel mogelijk bij naar HTTPS.",
+    "action1": "Sluiten",
+    "action2": "Controleer nu mijn verhalen",
+    "action3": "Meer weten"
+  },
+  "embedBar": {
+    "share": "Delen",
+    "fullScreen": "Volledig scherm",
+    "enlarge": "Vergroten",
+    "newTab": "Openen in een nieuw tabblad",
+    "tagline": "Een Story Map",
+    "exitFullScreen": "Volledig scherm afsluiten"
+  },
+  "june2018SurveyMessage": {
+    "bannerMsg": "Mogen we u iets vragen? Het zal de toekomst van Story Maps helpen vormgeven.",
+    "s1h1": "Deel u gedachten, vorm de toekomst",
+    "s1p1": "Uw input is onze belangrijkste bron van feedback en als we meer over u weten, helpt dit ons om Story Maps te verbeteren. We zouden het op prijs stellen als u zou kunnen deelnemen aan deze drie minuten durende enquête.",
+    "s2p1": "Bedankt voor het gebruik van Esri Story Maps!",
+    "action1": "Sluiten",
+    "action2": "De enquête invullen"
   }
 });

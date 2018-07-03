@@ -307,5 +307,31 @@ define({
       "cancel": "Hủy",
       "placeholder": "Nhập cụm từ tìm kiếm"
     }
+  },
+  "httpsTransitionNotification": {
+    "s1h1": "Esri đang ngày càng cải tiến chế độ bảo mật cho Story Maps",
+    "s1p1": "Story Map của bạn hiển thị trực tiếp trên web, và cộng đồng web luôn nỗ lực để xây dựng và triển khai bảo mật tốt hơn. HTTPS vốn là một kết nối bảo mật dành cho nội dung được truyền qua internet, nó đang là một phương thức được kỳ vọng để truy cập vào các nội dung web. Các trình duyệt hiện đại nhất giờ đây đều hiển thị thông tin cảnh báo khi phát hiện việc sử dụng HTTP thay vì HTTPS. Do đây là tiêu chuẩn mới, chúng tôi khuyến cáo bạn nên sử dụng các liên kết HTTPS để tạo và chia sẻ Story Map, và chỉ sử dụng URL HTTPS khi nhúng nội dung web hoặc đường dẫn vào hình ảnh trong một Story Map.",
+    "s1p2": "Trên thực tế, điều này có nghĩa là nên truy cập Story Map và tất cả nội dung trong đó (bao gồm hình ảnh, các lớp, ứng dụng và trang web được nhúng vào) bằng các liên kết bắt đầu bằng HTTPS thay vì HTTP. Điều này đảm bảo mang đến trải nghiệm tốt nhất cho người xem bởi vì hầu hết các trình duyệt web sẽ cho biết rằng câu chuyện của bạn đã được bảo mật.",
+    "s2h1": "Bạn cần làm gì?",
+    "s2p1": "Esri đang nỗ lực để biến điều này thành bước chuyển tiếp đơn giản đối với tác giả và người xem Story Map. Các công cụ hiện có sẵn trong trình xây dựng Story Map và My Stories sẽ giúp bạn tìm kiếm nội dung không bảo mật (HTTP) trong các câu chuyện của bạn đồng thời đưa ra khuyến nghị về cách xử lý các vấn đề trên. Vui lòng kiểm tra các câu chuyện của bạn để tìm kiếm nội dung không bảo mật và cập nhật thành HTTPS sớm nhất có thể.",
+    "action1": "Đóng",
+    "action2": "Kiểm tra câu chuyện của tôi ngay",
+    "action3": "Tìm hiểu thêm"
+  },
+  "embedBar": {
+    "share": "Chia sẻ",
+    "fullScreen": "Toàn màn hình",
+    "enlarge": "Phóng to",
+    "newTab": "Mở trong tab mới",
+    "tagline": "Story Map",
+    "exitFullScreen": "Thoát chế độ toàn màn hình"
+  },
+  "june2018SurveyMessage": {
+    "bannerMsg": "Chúng tôi hỏi bạn đôi điều có được không? Điều này sẽ giúp định hình tương lai của Story Map.",
+    "s1h1": "Chia sẻ cảm nghĩ của bản thân để định hình tương lai",
+    "s1p1": "Dữ liệu đầu vào từ bạn là nguồn phản hồi duy nhất có tính chất quan trọng với chúng tôi, và việc tìm hiểu thêm về bạn sẽ giúp chúng tôi cải thiện ứng dụng Story Map hơn. Chúng tôi vô cùng biết ơn nếu bạn có thể dành ba phút để thực hiện khảo sát này.",
+    "s2p1": "Như thường lệ, xin chân thành cảm ơn bạn đã sử dụng Esri Story Maps!",
+    "action1": "Đóng",
+    "action2": "Thực hiện khảo sát"
   }
 });

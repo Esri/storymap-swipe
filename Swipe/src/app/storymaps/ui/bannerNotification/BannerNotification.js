@@ -1,5 +1,8 @@
 define([
-], function() {
+  // Import reusable strings as needed (e.g. dojo/i18n!./path/to/template.js)
+], function(
+ // String Object (e.g. ViewerStrings)
+) {
   'use strict';
 
   var existingNotifications = [];
@@ -55,21 +58,78 @@ define([
       cookie: {
         domain: options.cookie.domain,
         path: options.cookie.path,
-        maxAge: options.cookie.maxAge || 0,
-      }
+        maxAge: options.cookie.maxAge || 0
+      },
+      // The number of times to show the banner message before it doesn't shown
+      // again.
+      autohideAfter: typeof options.autohideAfter !== 'undefined' ? options.autohideAfter : 2,
+      // The IDs of other banner notification that will block this banner from
+      // showing if their hidden cookie has not been set. This allows you to
+      // only show a single banner per app load.
+      // NOTE: All blockingNotifications must use the same cookie domain
+      blockingNotifications: options.blockingNotifications || []
     };
 
     var cookieKey = 'bannerNotification_' + settings.id + '_hidden';
 
+    var setDontShowCookie = function(incrementAutoHide) {
+      var domain = settings.cookie.domain ? "domain=" + settings.cookie.domain + ";" : "";
+      var path = settings.cookie.path ? "path=" + settings.cookie.path + ";" : "";
+      var maxAge = new Date(new Date().getTime() + (settings.cookie.maxAge * 1000)).toUTCString();
+      var dontShowCheckbox = document.querySelector('#'+ settings.id + '-banner-notification-dont-show');
+      if (dontShowCheckbox && dontShowCheckbox.checked) {
+        document.cookie = cookieKey + "=true;expires=" + maxAge + ";" + domain + path;
+      } else if (incrementAutoHide === true) {
+        var cookieValue = document.cookie.replace(new RegExp("(?:(?:^|.*;\\s*)" + cookieKey + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1");
+        var cookieInt = parseInt(cookieValue, 0);
+        if (settings.autohideAfter === 0) {
+          document.cookie = cookieKey + "=true;expires=" + maxAge + ";" + domain + path;
+        } else if (cookieValue.length === 0) {
+          document.cookie = cookieKey + "=0;expires=" + maxAge + ";" + domain + path;
+        } else if (cookieInt !== isNaN && cookieInt < settings.autohideAfter - 1) {
+          document.cookie = cookieKey + "=" + (cookieInt + 1) + ";expires=" + maxAge + ";" + domain + path;
+        } else if (cookieInt !== isNaN && cookieInt >= settings.autohideAfter - 1) {
+          window.onbeforeunload = function() {
+            var cv = document.cookie.replace(new RegExp("(?:(?:^|.*;\\s*)" + cookieKey + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1");
+            if (cv !== 'false') {
+              document.cookie = cookieKey + "=true;expires=" + maxAge + ";" + domain + path;
+            }
+          };
+        }
+      } else {
+        document.cookie = cookieKey + "=false;expires=" + maxAge + ";" + domain + path;
+      }
+    };
+
+    var isNotificationBlocked = function() {
+      var isBlocked = false;
+      var blockingNotifications = [].concat(settings.blockingNotifications);
+
+      for (var i = 0; i < blockingNotifications.length; i++) {
+        if (document.cookie.replace(new RegExp("(?:(?:^|.*;\\s*)bannerNotification_" + blockingNotifications[i] + "_hidden\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1") !== 'true') {
+          isBlocked = true;
+        }
+      }
+      return isBlocked;
+    };
+
     var isHidden = function () {
-      var cookieValue = document.cookie.replace(new RegExp('(?:(?:^|.*;\s*)' + cookieKey + '\s*\=\s*([^;]*).*$)|^.*$'), "$1");
-      return cookieValue;
+      var cookieValue = document.cookie.replace(new RegExp("(?:(?:^|.*;\\s*)" + cookieKey + "\\s*\\=\\s*([^;]*).*$)|^.*$"), "$1");
+      if (settings.autohideAfter === 0) {
+        setDontShowCookie(true);
+        return true;
+      }
+      if (isNotificationBlocked() || window.location.href.search(settings.cookie.domain) < 0) {
+        return true;
+      }
+      setDontShowCookie(true);
+      return cookieValue === 'true';
     };
 
     if (!isHidden() && isUniqueNotification(settings.id)) {
       var styleTag = '\
         <style type="text/css">\
-        .mobile-view .banner-notification {\
+          .mobile-view .banner-notification {\
             display: none;\
           }\
           .banner-notification {\
@@ -94,7 +154,6 @@ define([
             margin: 0;\
             padding: 3px 6px;\
             border-radius: 3px;\
-            text-transform: uppercase;\
             width: auto;\
             overflow: visible;\
             background: inherit;\
@@ -144,7 +203,8 @@ define([
               top: 3px;\
             }\
           }\
-          .banner-notification .mini-close:hover,\ .banner-notification .mini-close:focus {\
+          .banner-notification .mini-close:hover,\
+          .banner-notification .mini-close:focus {\
             opacity: 1;\
           }\
           @keyframes slideInBannerNotificationMiniMessage {\
@@ -173,7 +233,6 @@ define([
             width: 100%;\
             max-width: 700px;\
             margin: auto;\
-            padding: 20px 10px;\
             line-height: 1.6em;\
           }\
           .banner-notification .text-column-wrapper-inner {\
@@ -213,7 +272,7 @@ define([
             border-color: ' + settings.primaryColor + ';\
             font-size: 15px;\
           }\
-          #' + settings.id + '.banner-notification .primary-action\ {\
+          #' + settings.id + '.banner-notification .primary-action {\
             color: ' + settings.secondaryColor + ';\
             background-color: ' + settings.primaryColor + ';\
           }\
@@ -345,6 +404,9 @@ define([
           .add('msg-visible');
 
         document.addEventListener('keyup', escapeEvent);
+
+        document.querySelector('#' + settings.id + '-banner-notification-dont-show').checked = true;
+        setDontShowCookie();
       };
 
       var closeMessage = function (e) {
@@ -360,20 +422,6 @@ define([
         setTimeout(function() {
           msgWrapper.parentNode.removeChild(msgWrapper);
         }, 500);
-      };
-
-      var toggleDontShowCookie = function() {
-        var domain = settings.cookie.domain ? "domain=" + settings.cookie.domain + ";" : "";
-        var path = settings.cookie.path ? "path=" + settings.cookie.path + ";" : "";
-        var maxAge = new Date(new Date().getTime() + (settings.cookie.maxAge * 1000)).toUTCString();
-        var expiresNow = new Date().toUTCString();
-        if (document.querySelector('#'+ settings.id + '-banner-notification-dont-show').checked) {
-          console.log(cookieKey,maxAge,domain,path);
-          console.log(cookieKey + "=true;expires=" + maxAge + ";" + domain + path);
-          document.cookie = cookieKey + "=true;expires=" + maxAge + ";" + domain + path;
-        } else {
-          document.cookie = cookieKey + "=false;expires=" + expiresNow + ";" + domain + path;
-        }
       };
 
       var createMessage = function() {
@@ -410,10 +458,10 @@ define([
         }
 
         // Don't show again checkbox
-        dontShowCheckbox.addEventListener('click', toggleDontShowCookie);
+        dontShowCheckbox.addEventListener('click', setDontShowCookie);
         dontShowCheckbox.addEventListener('keypress', function(e) {
           if (e.keyCode === 13) {
-            toggleDontShowCookie();
+            setDontShowCookie();
           }
         });
 
