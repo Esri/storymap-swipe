@@ -68,6 +68,9 @@ define({
       "action1": "Kapat",
       "action2": "Hikayelerimi şimdi kontrol et",
       "action3": "Daha fazla bilgi"
+    },
+    "licenseChange2018": {
+      "noAccess": "Hesabınız (%USER_NAME%) herkese açık olmayan bir Hikaye Haritasını açmak için lisanslandırılmamış. Lütfen kuruluş yöneticinizden Hikaye Haritaları veya eklenti Temel Uygulamalar lisansı içeren bir kullanıcı türü atamasını isteyin."
     }
   },
   "builder": {

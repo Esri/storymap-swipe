@@ -68,6 +68,9 @@ define({
       "action1": "Chiudi",
       "action2": "Controlla subito le mie storie",
       "action3": "Ulteriori informazioni"
+    },
+    "licenseChange2018": {
+      "noAccess": "L’account (%USER_NAME%) non dispone della licenza per aprire una Story Map non pubblica. È necessario richiedere all’amministratore dell'organizzazione l’assegnazione di un tipo di utente che includa le Story Map o una licenza aggiuntiva per le app essenziali."
     }
   },
   "builder": {

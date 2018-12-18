@@ -68,6 +68,9 @@ define({
       "action1": "Zamknij",
       "action2": "Sprawdź teraz moje narracje",
       "action3": "Dowiedz się więcej"
+    },
+    "licenseChange2018": {
+      "noAccess": "Twoje konto (%USER_NAME%) nie jest licencjonowane do otwierania mapy narracyjnej, która nie jest publiczna. Poproś administratora instytucji o przypisanie typu użytkownika, który obejmuje licencję na mapy narracyjne lub licencję na kluczowe aplikacje dodatkowe."
     }
   },
   "builder": {

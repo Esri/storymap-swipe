@@ -229,5 +229,6 @@ strong {
 	background: url('../../../resources/icons/sprite-icons.png') 0 -280px;
 	width: 75px;
 	height: 75px;
+	margin-top: -75px;
 	background-repeat: no-repeat;
 }

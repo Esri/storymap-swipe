@@ -68,6 +68,9 @@ define({
       "action1": "Schließen",
       "action2": "Eigene Storys jetzt überprüfen",
       "action3": "Weitere Informationen"
+    },
+    "licenseChange2018": {
+      "noAccess": "Ihr Konto (%USER_NAME%) ist nicht dafür lizenziert, eine nicht öffentliche Story-Map zu öffnen. Bitten Sie den Administrator der Organisation, Ihnen einen Benutzertyp mit Story-Maps oder eine Add-On-Lizenz für Essential Apps zuzuweisen."
     }
   },
   "builder": {
@@ -137,7 +140,7 @@ define({
       "settingsExtentDrawBtn": "Eine neue Ausdehnung darstellen",
       "settingsExtentModifyBtn": "Die aktuelle Ausdehnung bearbeiten",
       "settingsExtentApplyBtn": "Auf Hauptkarte anwenden",
-      "settingsExtentUseMainMap": "Ausdehnung der Haupkarte verwenden"
+      "settingsExtentUseMainMap": "Ausdehnung der Hauptkarte verwenden"
     }
   },
   "swipe": {

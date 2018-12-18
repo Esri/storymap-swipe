@@ -68,6 +68,9 @@ define({
       "action1": "Lukk",
       "action2": "Kontroller mine fortellinger nå",
       "action3": "Mer informasjon"
+    },
+    "licenseChange2018": {
+      "noAccess": "Kontoen (%USER_NAME%) er ikke lisensiert til å åpne et fortellingskart som ikke er offentlig. Be administratoren for organisasjonen om å tilordne deg en brukertype som omfatter Story Maps eller en tilleggslisens for Essential Apps."
     }
   },
   "builder": {

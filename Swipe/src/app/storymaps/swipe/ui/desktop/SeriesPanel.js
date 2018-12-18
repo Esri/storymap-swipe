@@ -169,7 +169,8 @@ define(["dojo/has",
 			this.showSeries = function(button)
 			{
 				$(selector).find('.seriesButton').removeClass("selected");
-				var bookmarkIndex = $(button).data('bookmarkid') != null && $(button).data('bookmarkid') > -1 ? $(button).data('bookmarkid') : button;
+				var bookmarkIndex = $(button).attr('data-bookmarkid') != null && $(button).attr('data-bookmarkid') > -1 ? $(button).attr('data-bookmarkid') : button;
+
 				app.bookmarkIndex = bookmarkIndex > -1 ? bookmarkIndex : app.bookmarkIndex;
 				_this.renderText(_bookmarks[app.bookmarkIndex]);
 				var selButton = $(selector).find("[data-bookmarkid='" + app.bookmarkIndex + "']");
@@ -398,13 +399,12 @@ define(["dojo/has",
 					var seriesButtons = $('#seriesPanel').find($('.seriesButton'));
 					var newBookmarks = [];
 					$.each($(seriesButtons), function(i, button){
-						var oldIndex = $(button).data('bookmarkid');
-						$(".seriesButton").eq(i).data('original-title', _bookmarks[oldIndex].name);
-						$(".seriesButton").eq(i).data('bookmarkid', i);
-						var bookmark = $.grep(_bookmarks, function(e){
-							if(e.indexId == oldIndex)
-								newBookmarks.push(e);
-						});
+						var oldIndex = $(button).attr('data-bookmarkid');
+						$(button).attr('data-original-title', _bookmarks[oldIndex].name);
+						$(button).attr('data-bookmarkid', i);
+						var newBookmark = _bookmarks[oldIndex];
+						newBookmark.indexId = i;
+						newBookmarks.push(newBookmark);
 					});
 					WebApplicationData.setSeriesBookmarks(newBookmarks);
 					_bookmarks = newBookmarks;

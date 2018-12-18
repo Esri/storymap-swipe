@@ -68,6 +68,9 @@ define({
       "action1": "Fechar",
       "action2": "Verificar minhas histórias agora",
       "action3": "Mais informações"
+    },
+    "licenseChange2018": {
+      "noAccess": "Sua conta (%USER_NAME%) não está licenciada para abrir um Mapa Histórico que não seja público. Solicite ao administrador da sua organização que lhe atribua um tipo de usuário que inclua os Aplicativos Fundamentais ou uma licença complementar dos Aplicativos Fundamentais."
     }
   },
   "builder": {

@@ -68,6 +68,9 @@ define({
       "action1": "Stäng",
       "action2": "Kontrollera mina berättelser nu",
       "action3": "Läs mer"
+    },
+    "licenseChange2018": {
+      "noAccess": "Ditt konto (%USER_NAME%) har ingen licens för att öppna en Story Map som inte är tillgänglig för allmänheten. Be din organisations administratör att tilldela dig en användartyp som omfattar Story Maps eller en tilläggslicens för Essential Apps."
     }
   },
   "builder": {

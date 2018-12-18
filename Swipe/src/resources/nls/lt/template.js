@@ -68,6 +68,9 @@ define({
       "action1": "Uždaryti",
       "action2": "Peržiūrėkite savo pasakojimus jau dabar",
       "action3": "Sužinokite daugiau"
+    },
+    "licenseChange2018": {
+      "noAccess": "Jūsų paskyra (%USER_NAME%) nelicencijuota atidaryti ne viešą žemėlapio pasakojimą. Kreipkitės į organizacijos administratorių, kad paskirtų jums vartotojo tipą, kuris turi žemėlapių pasakojimus, arba suteiktų jums papildomą svarbiausių aplikacijų licenciją."
     }
   },
   "builder": {

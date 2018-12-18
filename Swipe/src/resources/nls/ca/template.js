@@ -68,6 +68,9 @@ define({
       "action1": "Tanca",
       "action2": "Comprova les meves històries ara",
       "action3": "Més informació"
+    },
+    "licenseChange2018": {
+      "noAccess": "El vostre compte (%USER_NAME%) no té llicència per obrir un story map que no sigui públic.  Demaneu a l'administrador de l'organització que us assigni un tipus d'usuari que inclogui story maps o una llicència d'aplicacions bàsiques de complement."
     }
   },
   "builder": {

@@ -68,6 +68,9 @@ define({
       "action1": "Sulje",
       "action2": "Tarkista omat tarinani nyt",
       "action3": "Lisätietoja"
+    },
+    "licenseChange2018": {
+      "noAccess": "Tiliäsi (%USER_NAME%) ei ole lisensoitu avaamaan tarinakarttaa, joka ei ole julkinen. Pyydä organisaatiosi pääkäyttäjää määrittämään sinulle käyttäjätyyppi, joka sisältää tarinakartat tai keskeisten sovellusten lisäosan lisenssin."
     }
   },
   "builder": {

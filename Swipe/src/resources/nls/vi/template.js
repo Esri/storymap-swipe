@@ -68,6 +68,9 @@ define({
       "action1": "Đóng",
       "action2": "Kiểm tra câu chuyện của tôi ngay",
       "action3": "Tìm hiểu thêm"
+    },
+    "licenseChange2018": {
+      "noAccess": "Tài khoản của bạn (%USER_NAME%) không được cấp phép để mở ứng dụng Story Map mà không được chia sẻ công khai. Vui lòng yêu cầu quản trị viên của tổ chức bạn gán cho bạn loại người dùng nào có bao gồm việc sử dụng Story Maps hoặc có giấy phép sử dụng các ứng dụng thiết yếu bổ trợ."
     }
   },
   "builder": {

@@ -68,6 +68,9 @@ define({
       "action1": "Aizvērt",
       "action2": "Pārbaudīt manus stāstus tūlīt",
       "action3": "Uzziniet vairāk"
+    },
+    "licenseChange2018": {
+      "noAccess": "Jūsu kontam (%USER_NAME%) nav licences, lai atvērtu Kartes stāstu, kas nav publisks. Pieprasiet savas organizācijas administratoram piešķirt jums lietotāja veidu, kurā iekļauts Story Map vai papildinājumlietotņu Essential Apps licence."
     }
   },
   "builder": {

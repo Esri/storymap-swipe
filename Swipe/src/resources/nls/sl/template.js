@@ -68,6 +68,9 @@ define({
       "action1": "Trenutna drsnica",
       "action2": "Preveri moje zgodbe zdaj",
       "action3": "Izvedi več"
+    },
+    "licenseChange2018": {
+      "noAccess": "Vaš račun (%USER_NAME%) ni licenciran za odpiranje Karte z zgodbo, ki ni javna. Prosite administratorja v vaši organizaciji, da vam dodeli tip uporabnika, ki vsebuje aplikacije Karto z zgodbo ali licenco za dodatne aplikacije Essential Apps."
     }
   },
   "builder": {
