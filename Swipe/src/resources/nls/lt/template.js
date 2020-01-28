@@ -70,7 +70,7 @@ define({
       "action3": "Sužinokite daugiau"
     },
     "licenseChange2018": {
-      "noAccess": "Jūsų paskyra (%USER_NAME%) nelicencijuota atidaryti ne viešą žemėlapio pasakojimą. Kreipkitės į organizacijos administratorių, kad paskirtų jums vartotojo tipą, kuris turi žemėlapių pasakojimus, arba suteiktų jums papildomą svarbiausių aplikacijų licenciją."
+      "noAccess": "Jūsų paskyra (%USER_NAME%) nelicencijuota atidaryti ne viešą žemėlapio pasakojimą. Kreipkitės į organizacijos administratorių, kad paskirtų jums naudotojo tipą, kuris turi žemėlapių pasakojimus, arba suteiktų jums papildomą svarbiausių aplikacijų licenciją."
     }
   },
   "builder": {
@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "Redaguoti esamą aprėptį",
       "settingsExtentApplyBtn": "Taikyti pagrindiniame žemėlapyje",
       "settingsExtentUseMainMap": "Naudoti pagrindinę žemėlapio aprėptį"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "Jūsų paskyra (% USER_NAME%) nelicencijuota naudoti klasikines žemėlapių pasakojimų kūrimo priemones. Paprašykite organizacijos administratoriaus priskirti jums Kūrėjo naudotojo tipą."
     }
   },
   "swipe": {
@@ -173,7 +176,7 @@ define({
     },
     "settingsDataModel": {
       "settingsTabDataModel": "Keitiklio tipas",
-      "settingsDataModelExplainSwipe": "Ką norite, kad vartotojai keistų?",
+      "settingsDataModelExplainSwipe": "Ką norite, kad naudotojai keistų?",
       "settingsDataModelExplainSwipe2": "",
       "settingsDataModelExplainSpyGlass": "Pasirinkite sluoksnį arba internetinį žemėlapį, kuris atsiras po didinamuoju stiklu",
       "settingsDataModelOneMap": "Sluoksnis internetiniame žemėlapyje",
@@ -205,17 +208,17 @@ define({
       "settingsLocationSearchEnable": "Įgalinti lokatoriaus paiešką",
       "settingsGeolocatorEnable": "Įgalinti geolokatorių",
       "settingsLegendHelpContent": "Legendos nustatymui naudokite ArcGIS internetinio žemėlapio peržiūros aplikacijos turinį (Paslėpti legendoje)",
-      "settingsSeriesHelpContent": "Keitiklių serija yra navigavimo galimybė, supažindinanti vartotoją su tam tikra aprėptimi. Ji atvaizduoja pavadinimą bei aprašymo tekstą šoninėje panelėje. Aktyvuojant pirmą kartą, jūsų internetinio (-ių) žemėlapio (-ių) žymės bus panaudotos preliminariai užpildant serijų juostą. Šio pasirinkimo išjungimas išjungia ir serijų juostą, tačiau serijų konfigūracija bus išlaikoma, kad būtų galima naudoti ateityje.",
+      "settingsSeriesHelpContent": "Keitiklių serija yra navigavimo galimybė, supažindinanti naudotoją su tam tikra aprėptimi. Ji atvaizduoja pavadinimą bei aprašymo tekstą šoninėje panelėje. Aktyvuojant pirmą kartą, jūsų internetinio (-ių) žemėlapio (-ių) žymės bus panaudotos preliminariai užpildant serijų juostą. Šio pasirinkimo išjungimas išjungia ir serijų juostą, tačiau serijų konfigūracija bus išlaikoma, kad būtų galima naudoti ateityje.",
       "settingsSeriesHelpContent2": "Keitiklių serijos leidžia jums sukurti ir redaguoti pažymėtas vietas su kartu esančiais pavadinimais ir tekstu. Jei jūsų internetinis žemėlapis turi žymių, jos bus atvaizduotos. Galite išjungti serijas, bet konfigūracija bus išsaugota ateičiai.",
       "settingsSeriesHelpLink": "Peržiūrėkite aplikacijos su keitiklių serijomis pavyzdį čia",
-      "preview": "Vartotojo sąsajos peržiūra",
+      "preview": "Naudotojo sąsajos peržiūra",
       "settingsLocateButtonExplain": "Šią funkciją palaiko daugelis naršyklių. Matoma, kai žemėlapio pasakojimas atidaromas naudojant HTTPS. Nematoma, jei pasakojimas yra įdėtasis.",
       "settingsLocateButton": "Palaikomose naršyklėse įgalinti mygtuką Rasti",
       "settingsAddressSearch": "Įgalinti adreso paieškos įrankį"
     },
     "settingsSwipePopup": {
       "settingsSwipePopup": "Iškylantis langas",
-      "settingsSwipePopupExplain": "Adaptuokite iškylančių langų antraštės vaizdą, kad padėtumėt vartotojui asocijuoti iškylančius langus su žemėlapio sluoksniais.",
+      "settingsSwipePopupExplain": "Adaptuokite iškylančių langų antraštės vaizdą, kad padėtumėt naudotojui asocijuoti iškylančius langus su žemėlapio sluoksniais.",
       "settingsSwipePopupSwipe1": "Kairysis žemėlapis",
       "settingsSwipePopupSwipe2": "Dešinysis žemėlapis",
       "settingsSwipePopupGlass1": "Pagrindinis žemėlapis",
@@ -241,8 +244,8 @@ define({
       "close": "Uždaryti",
       "tab1": {
         "div1": "Keitiklio / didinamojo stiklo šablonas leidžia palyginti du internetinius žemėlapius ar du internetinio žemėlapio sluoksnius patrauklioje, paprastoje naudoti tinklo aplikacijoje, kuri gali būti pasiekiama naršykle įvairiuose įrenginiuose, taip pat ir išmaniuosiuose telefonuose ir planšetiniuose kompiuteriuose.",
-        "div2": "Norėdami gauti papildomos informacijos apie keitiklio / didinamojo stiklo šabloną ir vartotojų sukurtų pavyzdžių, <a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'> apsilankykite žemėlapių pasakojimų svetainėje</a>. Be to, galite mus sekti Twitter <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
-        "div3": "Mes norėtume gauti iš jūsų žinių! Jei turite klausimų, pageidaujate naujo funkcionalumo, ar manote, kad radote klaidą, apsilankykite <a href='http://links.esri.com/storymaps/forum' target='_blank'>Pasakojimų žemėlapių vartotojų forumą</a>."
+        "div2": "Norėdami gauti papildomos informacijos apie keitiklio/didinamojo stiklo šabloną ir naudotojų sukurtų pavyzdžių, <a href='https://storymaps.arcgis.com/en/app-list/swipe-spyglass/' target='_blank'> apsilankykite žemėlapių pasakojimų svetainėje</a>. Be to, galite mus sekti Twitter <a href='https://twitter.com/EsriStoryMaps' target='_blank'>@EsriStoryMaps</a>.",
+        "div3": "Mes norėtume gauti iš jūsų žinių! Jei turite klausimų, pageidaujate naujo funkcionalumo, ar manote, kad radote klaidą, apsilankykite <a href='http://links.esri.com/storymaps/forum' target='_blank'>Pasakojimų žemėlapių naudotojų forumą</a>."
       }
     },
     "share": {

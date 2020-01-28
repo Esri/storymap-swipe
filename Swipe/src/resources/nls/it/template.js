@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "Modifica l'estensione corrente",
       "settingsExtentApplyBtn": "Applica su mappa principale",
       "settingsExtentUseMainMap": "Usa estensione della mappa principale"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "L'account (%USER_NAME%) non possiede la licenza per utilizzare i generatori di Story Map classiche. Richiedere all'amministratore dell'organizzazione di assegnare all'utente corrente un tipo di utente Creator."
     }
   },
   "swipe": {

@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "現在の範囲の編集",
       "settingsExtentApplyBtn": "メイン マップに適用",
       "settingsExtentUseMainMap": "メイン マップ表示範囲の使用"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "お使いのアカウント (%USER_NAME%) には、従来のストーリー マップ ビルダーを使用するライセンスがありません。 組織の管理者に問い合わせて、Creator ユーザー タイプを割り当ててもらってください。"
     }
   },
   "swipe": {

@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "Het huidige extent bewerken",
       "settingsExtentApplyBtn": "Toepassen op hoofdkaart",
       "settingsExtentUseMainMap": "Hoofdkaartextent gebruiken"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "Uw account (%USER_NAME%) heeft geen licentie om Classic Story Map Builders te gebruiken. Vraag uw organisatiebeheerder om u een Ontwikkelaar user type toe te wijzen."
     }
   },
   "swipe": {

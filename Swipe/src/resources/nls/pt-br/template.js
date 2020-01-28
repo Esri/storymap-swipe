@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "Editar a extensão atual",
       "settingsExtentApplyBtn": "Aplicar no mapa principal",
       "settingsExtentUseMainMap": "Utilizar extensão de mapa atual"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "Sua conta (%USER_NAME%) não está licenciada para utilizar os construtores de mapa histórico clássicos. Peça a seu administrador da organização para atribuir um tipo de usuário Creator."
     }
   },
   "swipe": {

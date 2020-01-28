@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "编辑当前范围",
       "settingsExtentApplyBtn": "应用到主地图",
       "settingsExtentUseMainMap": "使用主地图范围"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "您的帐户(%USER_NAME%)未获得使用经典 Story Map 构建器的许可。 请求您的组织管理员为您分配一个 Creator 用户类型。"
     }
   },
   "swipe": {

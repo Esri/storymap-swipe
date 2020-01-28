@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "Geçerli yayılımı düzenle",
       "settingsExtentApplyBtn": "Ana haritaya uygula",
       "settingsExtentUseMainMap": "Ana harita yayılımını kullan"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "Hesabınızın (%USER_NAME%) klasik story map oluşturucularını kullanma yetkisi yok. Kuruluşunuzun yöneticisinden size bir Creator kullanıcı türü atamasını isteyin."
     }
   },
   "swipe": {

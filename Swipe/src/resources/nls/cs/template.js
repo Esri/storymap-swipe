@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "Editovat aktuální rozsah",
       "settingsExtentApplyBtn": "Použít v hlavní mapě",
       "settingsExtentUseMainMap": "Použít rozsah hlavní mapy"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "Váš účet (%USER_NAME%) nevlastní licenci k použití nástrojů pro tvorbu klasických map s příběhem. Požádejte prosím administrátora své organizace, aby vám přidělil typ uživatele Creator."
     }
   },
   "swipe": {

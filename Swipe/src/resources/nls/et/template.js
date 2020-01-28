@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "Muuda praegust ulatust",
       "settingsExtentApplyBtn": "Kehtesta peamisele kaardile",
       "settingsExtentUseMainMap": "Kasuta peamist kaardiulatust"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "Teie konto (%USER_NAME%) ei ole litsentseeritud klassikaliste kaardilugude tegemiseks.  Paluge oma organisatsiooni administraatoril määrata teile kasutajatüüp Creator."
     }
   },
   "swipe": {

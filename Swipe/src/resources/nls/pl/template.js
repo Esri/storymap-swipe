@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "Zmień bieżący zasięg",
       "settingsExtentApplyBtn": "Zastosuj do mapy głównej",
       "settingsExtentUseMainMap": "Użyj głównego zasięgu mapy"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "Twoje konto (%USER_NAME%) nie ma licencji na użytkowanie kreatorów klasycznych map narracyjnych. Poproś administratora instytucji o przypisanie Tobie typu użytkownika Creator (Twórca)."
     }
   },
   "swipe": {

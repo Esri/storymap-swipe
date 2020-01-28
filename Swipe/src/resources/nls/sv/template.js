@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "Redigera aktuell utbredning",
       "settingsExtentApplyBtn": "Använd på huvudkartan",
       "settingsExtentUseMainMap": "Använd huvudkartans utbredning"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "Ditt konto (%USER_NAME%) har ingen licens för att använda klassiska Story Maps-builder. Be organisationens administratör att tilldela dig en Creator-användartyp."
     }
   },
   "swipe": {

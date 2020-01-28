@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "Izmenite trenutni obuhvat",
       "settingsExtentApplyBtn": "Primenite na glavnoj mapi",
       "settingsExtentUseMainMap": "Koristi obuhvat glavne mape"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "Vaš nalog (%USER_NAME%) nema licencu za korišćenje preglednika mape. Zatražite od administratora organizacije da vam dodeli dodatni tip korisnika Kreator."
     }
   },
   "swipe": {

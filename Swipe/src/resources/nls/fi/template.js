@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "Muokkaa nykyistä laajuutta",
       "settingsExtentApplyBtn": "Käytä pääkartalla",
       "settingsExtentUseMainMap": "Käytä pääkartan laajuutta"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "Tiliäsi (%USER_NAME%) ei ole lisensoitu käyttämään perinteisiä tarinakarttojen luontitoimintoja. Pyydä organisaatiosi pääkäyttäjää määrittämään sinulle Creator-käyttäjätyyppi."
     }
   },
   "swipe": {

@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "Editare extindere curentă",
       "settingsExtentApplyBtn": "Aplicare pe harta principală",
       "settingsExtentUseMainMap": "Utilizare extindere principală a hărţii"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "Contul dvs. (%USER_NAME%) nu are licența necesară pentru utilizarea aplicațiilor de creare a hărților informative clasice. Solicitați-i administratorului organizației dvs. să vă aloce un tip de utilizator Creator."
     }
   },
   "swipe": {

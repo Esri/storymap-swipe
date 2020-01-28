@@ -142,6 +142,9 @@ define({
 				settingsExtentModifyBtn: "Edit the current extent",
 				settingsExtentApplyBtn: "Apply on main map",
 				settingsExtentUseMainMap: "Use main map extent"
+			},
+			storyTellerUserType: {
+				notCreatorError: 'Your account (%USER_NAME%) is not licensed to use classic story map builders. Please ask your organization administrator to assign you a Creator user type.'
 			}
         },
 		swipe: {
@@ -351,7 +354,6 @@ define({
 	"fi": 1,
 	"fr": 1,
 	"he": 1,
-	"hi": 1,
 	"hr": 1,
 	"hu": 1,
 	"id": 1,
@@ -372,6 +374,7 @@ define({
 	"sv": 1,
 	"th": 1,
 	"tr": 1,
+	"uk": 1,
 	"vi": 1,
 	"zh-cn": 1,
 	"zh-hk": 1,

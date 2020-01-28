@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "تحرير النطاق الحالي",
       "settingsExtentApplyBtn": "التطبيق على الخريطة الرئيسية",
       "settingsExtentUseMainMap": "استخدام نطاق الخريطة الأساسي"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "حسابك (%USER_NAME%) غير مرخص لاستخدام أدوات مُنشئ خرائط القصة الكلاسيكية. رجاءً اطلب من مسؤول المؤسسة تعيين نوع المستخدم Creator من أجلك."
     }
   },
   "swipe": {

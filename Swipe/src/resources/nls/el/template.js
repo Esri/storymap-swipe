@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "Επεξεργασία της τρέχουσας έκτασης",
       "settingsExtentApplyBtn": "Εφαρμογή στον κύριο χάρτη",
       "settingsExtentUseMainMap": "Χρήση έκτασης κύριου χάρτη"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "Ο λογαριασμός σας (%USER_NAME%) δεν διαθέτει άδεια χρήσης των εργαλείων δημιουργίας κλασικών story map. Ζητήστε από τον διαχειριστή του οργανισμού σας να σας εκχωρήσει τύπο χρήστη Creator."
     }
   },
   "swipe": {

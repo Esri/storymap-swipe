@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "Edita la extensión actual",
       "settingsExtentApplyBtn": "Aplica en el mapa principal",
       "settingsExtentUseMainMap": "Usa la extensión del mapa principal"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "Su cuenta (%USER_NAME%) no tiene licencia para usar builders de story maps clásicos. Pídale al administrador de su organización que le asigne un tipo de usuario Creator."
     }
   },
   "swipe": {

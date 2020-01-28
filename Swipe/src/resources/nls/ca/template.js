@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "Edita l'extensió actual",
       "settingsExtentApplyBtn": "Aplica-ho al mapa principal",
       "settingsExtentUseMainMap": "Utilitza l'extensió del mapa principal"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "El vostre compte (%USER_NAME%) no té llicència per utilitzar els builders d'story maps clàssics. Demaneu a l'administrador de l'organització que us assigni un tipus d'usuari Creator."
     }
   },
   "swipe": {

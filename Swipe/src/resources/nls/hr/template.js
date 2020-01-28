@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "Uredite trenutačni obuhvat",
       "settingsExtentApplyBtn": "Primijeni na glavnu kartu",
       "settingsExtentUseMainMap": "Upotrijebi obuhvat glavne karte"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "Vaš račun (%USER_NAME%) nije licenciran za upotrebu classic story map builder softvera. Upitajte administratora svoje organizacije da vam dodijeli vrstu korisnika Creator."
     }
   },
   "swipe": {

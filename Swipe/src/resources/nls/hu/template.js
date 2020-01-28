@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "Az aktuális kiterjedés szerkesztése",
       "settingsExtentApplyBtn": "Alkalmazás a főtérképen",
       "settingsExtentUseMainMap": "Fő térkép kiterjedésének használata"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "Az Ön fiókjának (%USER_NAME%) licence nem teszi lehetővé a klasszikus story map szerkesztők használatát. Kérje meg a szervezete adminisztrátorát, hogy rendeljen Önhöz Készítő felhasználótípust."
     }
   },
   "swipe": {

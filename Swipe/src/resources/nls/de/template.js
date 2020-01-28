@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "Die aktuelle Ausdehnung bearbeiten",
       "settingsExtentApplyBtn": "Auf Hauptkarte anwenden",
       "settingsExtentUseMainMap": "Ausdehnung der Hauptkarte verwenden"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "Ihr Konto (%USER_NAME%) ist nicht für die Verwendung klassischer Story-Map-Builder lizenziert. Bitten Sie den Administrator Ihrer Organisation, Ihnen einen Creator-Benutzertyp zuzuweisen."
     }
   },
   "swipe": {

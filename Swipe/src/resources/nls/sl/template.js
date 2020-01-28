@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "Uredite trenutni obseg",
       "settingsExtentApplyBtn": "Uporabite na glavni karti",
       "settingsExtentUseMainMap": "Uporabite obseg glavne karte"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "Vaš račun (%UPORABNIŠKO_IME%) nima licence za uporabo graditeljev klasičnih kart z zgodbo. Prosite skrbnika svoje organizacije, da vam dodeli vrsto uporabnika Ustvarjalec."
     }
   },
   "swipe": {

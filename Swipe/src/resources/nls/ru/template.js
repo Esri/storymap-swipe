@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "Изменить текущий экстент",
       "settingsExtentApplyBtn": "Применить на главной карте",
       "settingsExtentUseMainMap": "Использовать экстент основной карты"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "Лицензия вашей учетной записи (%USER_NAME%) не позволяет использовать классический конструктор карт-историй. Попросите администратора вашей организации назначить вам тип лицензии Creator."
     }
   },
   "swipe": {

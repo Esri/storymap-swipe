@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "Rediger gjeldende utstrekning",
       "settingsExtentApplyBtn": "Bruk på hovedkart",
       "settingsExtentUseMainMap": "Bruk utstrekningen for hovedkartet"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "Kontoen (%USER_NAME%) har ikke lisens til å bruke byggeverktøyene for klassiske Story Maps. Be administratoren for organisasjonen om å tilordne Creator-brukertypen til deg."
     }
   },
   "swipe": {

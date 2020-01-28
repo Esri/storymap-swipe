@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "Redigér den aktuelle udstrækning",
       "settingsExtentApplyBtn": "Anvend på hovedkort",
       "settingsExtentUseMainMap": "Brug hovedkortudstrækning"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "Din konto (%USER_NAME%) er ikke licenseret til at benytte klassiske story map-buildere. Bed din organisationsadministrator om at tildele dig en Creator-licens."
     }
   },
   "swipe": {

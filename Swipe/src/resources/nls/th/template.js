@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "แก้ไขขอบเขตแผนที่",
       "settingsExtentApplyBtn": "นำไปใช้กับแผนที่หลัก",
       "settingsExtentUseMainMap": "ใช้ขอบเขตของแผนที่หลัก"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "บัญชีผู้ใช้ของคุณ (%USER_NAME%) ไม่มีใบอนุญาตในการใช้งานโปรแกรมสร้างแผนที่เรื่องราว โปรดขอให้ผู้ดูแลระบบองค์กรของคุณกำหนดประเภทผู้ใช้ Creator ให้กับคุณ"
     }
   },
   "swipe": {

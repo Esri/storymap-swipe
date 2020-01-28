@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "編輯目前範圍",
       "settingsExtentApplyBtn": "應用到主地圖",
       "settingsExtentUseMainMap": "使用主地圖範圍"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "您的帳號 (%USER_NAME%) 沒有使用傳統的故事地圖建立器的授權。 請要求您的組織管理員將 Creator 使用者類型指派給您。"
     }
   },
   "swipe": {

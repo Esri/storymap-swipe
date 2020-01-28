@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "Modifier l’étendue actuelle",
       "settingsExtentApplyBtn": "Appliquer à la carte principale",
       "settingsExtentUseMainMap": "Utiliser l'étendue de carte principale"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "La licence de votre compte (%USER_NAME%) ne permet pas d’utiliser les générateurs de story maps classiques. Demandez à l’administrateur de votre organisation de vous attribuer le type d’utilisateur Creator."
     }
   },
   "swipe": {

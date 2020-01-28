@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "Edit jangkauan saat ini",
       "settingsExtentApplyBtn": "Terapkan pada peta utama",
       "settingsExtentUseMainMap": "Gunakan jangkauan peta utama"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "Akun Anda (%USER_NAME%) tidak dilisensikan untuk menggunakan builder Story Map Classic. Harap minta administrator organisasi Anda untuk menetapkan Anda jenis pengguna Creator."
     }
   },
   "swipe": {

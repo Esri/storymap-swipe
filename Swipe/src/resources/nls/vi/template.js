@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "Chỉnh sửa phạm vi hiện tại",
       "settingsExtentApplyBtn": "Áp dụng trên bản đồ chính",
       "settingsExtentUseMainMap": "Sử dụng phạm vi bản đồ chính"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "Tài khoản của bạn (%USER_NAME%) không được cấp phép để sử dụng các trình dựng bản đồ câu chuyện cổ điển. Vui lòng yêu cầu quản trị viên của tổ chức chỉ định cho bạn loại người dùng là Creator."
     }
   },
   "swipe": {

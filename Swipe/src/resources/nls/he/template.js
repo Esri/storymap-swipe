@@ -141,6 +141,9 @@ define({
       "settingsExtentModifyBtn": "ערוך את התיחום הנוכחי",
       "settingsExtentApplyBtn": "יישם על המפה המרכזית",
       "settingsExtentUseMainMap": "השתמש בתיחום של המפה הראשית"
+    },
+    "storyTellerUserType": {
+      "notCreatorError": "החשבון שלך (%USER_NAME%) אינו מורשה להשתמש בבוני מפות סיפור קלסיות. בקש ממנהל המערכת בארגון שלך להקצות לך סוג משתמש 'יוצר'."
     }
   },
   "swipe": {
